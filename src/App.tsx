@@ -2,9 +2,14 @@ import * as firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/auth";
 import "firebase/firestore";
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
 import React from 'react';
 import './App.sass'
+import Login from './Login'
 
 const firebaseConfig = {
     apiKey: "AIzaSyBBu2D-owaz14CfZvmOqjSoN0oMde5D5NE",
@@ -22,9 +27,13 @@ firebase.initializeApp(firebaseConfig);
 
 const App: React.FC = () => {
   return (
-    <div>
-        Yay weight training.
-    </div>
+      <Router>
+          <Switch>
+              <Route path="/">
+                  <Login />
+              </Route>
+          </Switch>
+      </Router>
   );
 }
 
