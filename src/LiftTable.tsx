@@ -1,7 +1,11 @@
 import * as React from "react";
 import firebase from "firebase/app";
-import * as hooks from "./hooks";
 import * as t from "./types";
+
+type EditingState = {
+  isEditing: boolean;
+  uid?: string;
+};
 
 export default ({
   user,
@@ -11,6 +15,7 @@ export default ({
   liftType: t.LiftType;
 }) => {
   const [lifts, setLifts] = React.useState<t.Lift[]>([]);
+
   React.useEffect(() => {
     firebase
       .firestore()
@@ -31,9 +36,35 @@ export default ({
           })
         );
       });
-  }, [user.uid]);
+  }, [user.uid, liftType]);
+
+  const [{ isEditing, uid }, setEditingState] = React.useState<EditingState>({
+    isEditing: false,
+    uid: undefined
+  });
+
+  const deleteLift = React.useCallback(
+    (uid: string) => () => {
+      firebase
+        .firestore()
+        .collection("users")
+        .doc(user.uid)
+        .collection("lifts")
+        .doc(uid)
+        .delete()
+        .then(() => {
+          setEditingState({ isEditing: false, uid: undefined });
+        });
+    },
+    [user.uid]
+  );
+
+  const cancelEdit = React.useCallback(() => {
+    setEditingState({ isEditing: false, uid: undefined });
+  }, []);
+
   return (
-    <table className="table is-striped">
+    <table className="table is-striped is-fullwidth">
       <thead>
         <tr>
           <th>Date</th>
@@ -47,7 +78,37 @@ export default ({
             <td>{lift.date.toLocaleTimeString()}</td>
             <td>{lift.weight}</td>
             <td>
-              <button className="button link is-danger">Delete</button>
+              {uid === undefined && (
+                <button
+                  className="button link is-danger"
+                  disabled={isEditing && uid !== lift.uid}
+                  onClick={() => {
+                    setEditingState({ isEditing: true, uid: lift.uid });
+                  }}
+                >
+                  Edit
+                </button>
+              )}
+              {lift.uid === uid && isEditing && (
+                <div className="field has-addons">
+                  <p className="control">
+                    <button
+                      className="button link is-danger is-small"
+                      onClick={deleteLift(lift.uid)}
+                    >
+                      Delete
+                    </button>
+                  </p>
+                  <p className="control">
+                    <button
+                      className="button is-warning is-small"
+                      onClick={cancelEdit}
+                    >
+                      Cancel
+                    </button>
+                  </p>
+                </div>
+              )}
             </td>
           </tr>
         ))}
