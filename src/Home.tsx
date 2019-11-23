@@ -33,6 +33,7 @@ export default () => {
 };
 
 type Lift = {
+  uid: string;
   date: Date;
   weight: number;
   lift: "deadlift";
@@ -50,13 +51,13 @@ const Lifts = ({ user }: { user: firebase.User }) => {
       .limit(5)
       .onSnapshot(snapshot => {
         setLifts(
-          snapshot.docs
-            .map(doc => doc.data())
-            .map(data => {
-              const asDate = data.date.toDate();
-              data["date"] = asDate;
-              return data as Lift;
-            })
+          snapshot.docs.map(doc => {
+            const data = doc.data();
+            const asDate = data.date.toDate();
+            data["date"] = asDate;
+            data["uid"] = doc.id;
+            return data as Lift;
+          })
         );
       });
   }, []);
@@ -69,6 +70,7 @@ const Lifts = ({ user }: { user: firebase.User }) => {
             <div>Lift: {lift.lift}</div>
             <div>Date: {lift.date.toDateString()}</div>
             <div>Weight: {lift.weight}</div>
+            <div>Uid: {lift.uid}</div>
           </div>
         ))}
       </div>
