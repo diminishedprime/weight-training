@@ -16,7 +16,11 @@ export default () => {
       .collection("users")
       .doc(user.uid)
       .collection("lifts")
-      .add({ lift: "deadlift", weight: Math.random() * 200, date: new Date() });
+      .add({
+        lift: "deadlift",
+        weight: Math.floor(Math.random() * 200),
+        date: new Date()
+      });
   }, [user]);
 
   if (user === null) {
