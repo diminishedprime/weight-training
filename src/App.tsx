@@ -23,16 +23,14 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const App: React.FC = () => {
-  const [user, setUser] = React.useState<firebase.User | null>(null);
-
   return (
     <Router>
       <Switch>
-        <Route path="/" exact>
-          <Login setUser={setUser} />
+        <Route path="/login" exact>
+          <Login />
         </Route>
-        <Route path="/home" exact>
-          <Home user={user} />
+        <Route path="/" exact>
+          <Home />
         </Route>
       </Switch>
     </Router>

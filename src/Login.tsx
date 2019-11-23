@@ -2,11 +2,7 @@ import * as React from "react";
 import firebase from "firebase/app";
 import { useHistory } from "react-router-dom";
 
-type LoginProps = {
-  setUser: React.Dispatch<React.SetStateAction<firebase.User | null>>;
-};
-
-export default ({ setUser }: LoginProps) => {
+export default () => {
   const history = useHistory();
 
   const googleSignIn = React.useCallback(() => {
@@ -14,15 +10,14 @@ export default ({ setUser }: LoginProps) => {
     firebase
       .auth()
       .signInWithPopup(provider)
-      .then(function(result) {
-        setUser(result.user);
-        history.push("/home");
+      .then(function() {
+        history.push("/");
       })
       .catch(function(e) {
         // I should probably add some error handling here at some point.
         console.error(e);
       });
-  }, [history, setUser]);
+  }, [history]);
 
   return (
     <div>

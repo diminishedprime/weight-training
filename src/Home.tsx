@@ -1,28 +1,33 @@
 import * as React from "react";
 import firebase from "firebase/app";
-import { useHistory } from "react-router-dom";
+import * as hooks from "./hooks";
 
-type HomeProps = {
-  user: firebase.User | null;
-};
+export default () => {
+  const user = hooks.useForceSignIn();
 
-export default ({ user }: HomeProps) => {
-  const history = useHistory();
-
-  React.useEffect(() => {
+  const addRandomLift = React.useCallback(() => {
     if (user === null) {
-      history.push("/");
+      return;
     }
-  }, [user, history]);
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(user.uid)
+      .collection("lifts")
+      .add({ lift: "deadlift", weight: Math.random() * 200, date: new Date() });
+  }, [user]);
 
   if (user === null) {
-    return <div>Not logged in. You will be redirected.</div>;
+    return <div>Checking login status</div>;
   }
 
   return (
     <div>
       You're logged in as {user.email}
-      <Lifts />
+      <Lifts user={user} />
+      <button className="button" onClick={addRandomLift}>
+        Add random lift
+      </button>
     </div>
   );
 };
@@ -33,17 +38,19 @@ type Lift = {
   lift: "deadlift";
 };
 
-const Lifts = () => {
+const Lifts = ({ user }: { user: firebase.User }) => {
   const [lifts, setLifts] = React.useState<Lift[]>([]);
   React.useEffect(() => {
     firebase
       .firestore()
+      .collection("users")
+      .doc(user.uid)
       .collection("lifts")
-      .get()
-      .then(lifts => {
+      .orderBy("date", "desc")
+      .limit(5)
+      .onSnapshot(snapshot => {
         setLifts(
-          lifts.docs
-            .slice(0, 5)
+          snapshot.docs
             .map(doc => doc.data())
             .map(data => {
               const asDate = data.date.toDate();
@@ -52,7 +59,7 @@ const Lifts = () => {
             })
         );
       });
-  });
+  }, []);
   return (
     <div>
       Your recent lifts
