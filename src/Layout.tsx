@@ -1,18 +1,13 @@
 import * as React from "react";
 import firebase from "firebase/app";
-import * as hooks from "./hooks";
 import { Link } from "react-router-dom";
 import * as t from "./types";
 
 const Layout: React.FC<{}> = ({ children }) => {
-  const user = hooks.useForceSignIn();
   const [navActive, setNavActive] = React.useState(false);
   const signOut = React.useCallback(() => {
     firebase.auth().signOut();
   }, []);
-  if (user === null) {
-    return <div>Checking login status</div>;
-  }
 
   return (
     <>

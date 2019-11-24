@@ -96,6 +96,7 @@ const AddLift = ({
 };
 
 export default ({ liftType }: RecordLiftProps) => {
+  // TODO - this should really come from a state-store.
   const user = hooks.useForceSignIn();
   if (user === null) {
     return null;
