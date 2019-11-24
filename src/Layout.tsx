@@ -1,7 +1,8 @@
 import * as React from "react";
-import * as firebase from "firebase/app";
+import firebase from "firebase/app";
 import * as hooks from "./hooks";
 import { Link } from "react-router-dom";
+import * as t from "./types";
 
 const Layout: React.FC<{}> = ({ children }) => {
   const user = hooks.useForceSignIn();
@@ -29,7 +30,7 @@ const Layout: React.FC<{}> = ({ children }) => {
             role="button"
             className={`navbar-burger burger ${navActive && "is-active"}`}
             aria-label="menu"
-            aria-expanded="false"
+            aria-expanded={navActive}
             data-target="navbarBasicExample"
             onClick={() => {
               setNavActive(old => !old);
@@ -42,10 +43,24 @@ const Layout: React.FC<{}> = ({ children }) => {
         </div>
         <div className={`navbar-menu ${navActive && "is-active"}`}>
           <div className="navbar-end">
-            <div className="navbar-item">
-              <a className="button is-primary" onClick={signOut}>
+            <div className="navbar-dropdown">
+              <Link className="navbar-item" to="/">
+                Home
+              </Link>
+              {Object.values(t.LiftType).map(liftType => {
+                return (
+                  <Link
+                    key={`lift/${liftType}`}
+                    className="navbar-item"
+                    to={`/lift/${liftType}`}
+                  >
+                    {liftType}
+                  </Link>
+                );
+              })}
+              <button onClick={signOut} className="button is-danger is-small">
                 Sign Out
-              </a>
+              </button>
             </div>
           </div>
         </div>
