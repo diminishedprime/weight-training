@@ -73,6 +73,7 @@ export default ({
         <tr>
           <th>Date</th>
           <th>Weight</th>
+          <th>Reps</th>
           <th>Edit</th>
         </tr>
       </thead>
@@ -81,6 +82,7 @@ export default ({
           <tr key={lift.uid}>
             <td>{lift.date.toLocaleTimeString()}</td>
             <td>{lift.weight}</td>
+            <td>{lift.reps}</td>
             <td>
               {uid === undefined && (
                 <button
