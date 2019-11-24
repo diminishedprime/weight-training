@@ -14,7 +14,7 @@ export default ({
   user: firebase.User;
   liftType: t.LiftType;
 }) => {
-  const [lifts, setLifts] = React.useState<t.Lift[]>([]);
+  const [lifts, setLifts] = React.useState<t.DisplayLift[]>([]);
 
   React.useEffect(() => {
     firebase
@@ -32,7 +32,7 @@ export default ({
             const asDate = data.date.toDate();
             data["date"] = asDate;
             data["uid"] = doc.id;
-            return data as t.Lift;
+            return data as t.DisplayLift;
           })
         );
       });
@@ -62,6 +62,10 @@ export default ({
   const cancelEdit = React.useCallback(() => {
     setEditingState({ isEditing: false, uid: undefined });
   }, []);
+
+  if (lifts.length === 0) {
+    return <div>No lifts recorded.</div>;
+  }
 
   return (
     <table className="table is-striped is-fullwidth">
