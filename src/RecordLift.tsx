@@ -14,7 +14,6 @@ const AddLift = ({
   user
 }: RecordLiftProps & { user: firebase.User }) => {
   const [weight, setWeight] = React.useState<string>("");
-  const [date, setDate] = React.useState<Date>(new Date());
   const [reps, setReps] = React.useState<string>("1");
   const [addEnabled, setAddEnabled] = React.useState(false);
   React.useEffect(() => {
@@ -40,14 +39,6 @@ const AddLift = ({
     },
     []
   );
-  const onDateChange = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (e.target.valueAsDate) {
-        setDate(e.target.valueAsDate);
-      }
-    },
-    []
-  );
   const addLift = React.useCallback(() => {
     if (weight === "") {
       return;
@@ -55,7 +46,7 @@ const AddLift = ({
     const lift: t.Lift = {
       weight: parseInt(weight),
       type: liftType,
-      date,
+      date: new Date(),
       reps: parseInt(reps)
     };
     firebase
@@ -64,33 +55,31 @@ const AddLift = ({
       .doc(user.uid)
       .collection("lifts")
       .add(lift);
-  }, [date, weight, liftType, reps, user.uid]);
+  }, [weight, liftType, reps, user.uid]);
   return (
     <>
       <div className="field is-grouped">
+        <div className="control is-expanded">
+          <div className="control">
+            <label className="label">Reps</label>
+            <input
+              className="input"
+              placeholder="Reps"
+              value={reps}
+              onChange={onRepsChange}
+            />
+          </div>
+        </div>
         <div className="control">
-          <input
-            className="input"
-            type="date"
-            onChange={onDateChange}
-            value={date.toISOString().substr(0, 10)}
-          />
-        </div>
-        <div className="control is-expanded">
-          <input
-            className="input"
-            placeholder="Reps"
-            value={reps}
-            onChange={onRepsChange}
-          />
-        </div>
-        <div className="control is-expanded">
-          <input
-            className="input"
-            placeholder="Weight"
-            value={weight}
-            onChange={onWeightChange}
-          />
+          <label className="label">Weight</label>
+          <div className="control is-expanded">
+            <input
+              className="input"
+              placeholder="Weight"
+              value={weight}
+              onChange={onWeightChange}
+            />
+          </div>
         </div>
       </div>
       <div className="field is-right is-grouped is-grouped-right">
