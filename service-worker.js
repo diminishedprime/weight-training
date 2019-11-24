@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "diminishedprime.github.io/weight-training/precache-manifest.13e7b6f726e6bcfb4fd1336b57806023.js"
+  "diminishedprime.github.io/weight-training/precache-manifest.745127ac216c2f92c2a7328ed62f1824.js"
 );
 
 self.addEventListener('message', (event) => {

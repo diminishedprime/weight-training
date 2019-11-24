@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "897b129180fff0b980e1ff3ba5e44bb3",
+    "revision": "bd068cd80edb7e0fda91088d10c944bb",
     "url": "diminishedprime.github.io/weight-training/index.html"
   },
   {
-    "revision": "cb4d132266688451327d",
+    "revision": "9fc281625a24460f5236",
     "url": "diminishedprime.github.io/weight-training/static/css/main.99109b8f.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "diminishedprime.github.io/weight-training/static/js/2.0bca0d8d.chunk.js"
   },
   {
-    "revision": "cb4d132266688451327d",
-    "url": "diminishedprime.github.io/weight-training/static/js/main.94f655f6.chunk.js"
+    "revision": "9fc281625a24460f5236",
+    "url": "diminishedprime.github.io/weight-training/static/js/main.8220c014.chunk.js"
   },
   {
     "revision": "1101fe91064fa2ce826c",
