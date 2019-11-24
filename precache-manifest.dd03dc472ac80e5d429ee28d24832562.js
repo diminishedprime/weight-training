@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c2ac04ae2f4a3469fcc5f79132e54222",
+    "revision": "95699bc9ae4763dd84926f8b7442c1a1",
     "url": "/weight-training/index.html"
   },
   {
-    "revision": "1e30fb12dadd1167f25b",
+    "revision": "037f9e60f4b0d21e21fd",
     "url": "/weight-training/static/css/main.99109b8f.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/weight-training/static/js/2.aefbacb8.chunk.js"
   },
   {
-    "revision": "1e30fb12dadd1167f25b",
-    "url": "/weight-training/static/js/main.d0ddb267.chunk.js"
+    "revision": "037f9e60f4b0d21e21fd",
+    "url": "/weight-training/static/js/main.093065e3.chunk.js"
   },
   {
     "revision": "652d4d0b56745d89a163",
