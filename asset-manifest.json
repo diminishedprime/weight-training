@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/weight-training/static/css/main.99109b8f.chunk.css",
-    "main.js": "/weight-training/static/js/main.093065e3.chunk.js",
-    "main.js.map": "/weight-training/static/js/main.093065e3.chunk.js.map",
-    "runtime-main.js": "/weight-training/static/js/runtime-main.d246dc47.js",
-    "runtime-main.js.map": "/weight-training/static/js/runtime-main.d246dc47.js.map",
-    "static/js/2.aefbacb8.chunk.js": "/weight-training/static/js/2.aefbacb8.chunk.js",
-    "static/js/2.aefbacb8.chunk.js.map": "/weight-training/static/js/2.aefbacb8.chunk.js.map",
-    "index.html": "/weight-training/index.html",
-    "precache-manifest.dd03dc472ac80e5d429ee28d24832562.js": "/weight-training/precache-manifest.dd03dc472ac80e5d429ee28d24832562.js",
-    "service-worker.js": "/weight-training/service-worker.js",
-    "static/css/main.99109b8f.chunk.css.map": "/weight-training/static/css/main.99109b8f.chunk.css.map"
+    "main.css": "diminishedprime.github.io/weight-training/static/css/main.99109b8f.chunk.css",
+    "main.js": "diminishedprime.github.io/weight-training/static/js/main.94f655f6.chunk.js",
+    "main.js.map": "diminishedprime.github.io/weight-training/static/js/main.94f655f6.chunk.js.map",
+    "runtime-main.js": "diminishedprime.github.io/weight-training/static/js/runtime-main.5d6f70a4.js",
+    "runtime-main.js.map": "diminishedprime.github.io/weight-training/static/js/runtime-main.5d6f70a4.js.map",
+    "static/js/2.0bca0d8d.chunk.js": "diminishedprime.github.io/weight-training/static/js/2.0bca0d8d.chunk.js",
+    "static/js/2.0bca0d8d.chunk.js.map": "diminishedprime.github.io/weight-training/static/js/2.0bca0d8d.chunk.js.map",
+    "index.html": "diminishedprime.github.io/weight-training/index.html",
+    "precache-manifest.13e7b6f726e6bcfb4fd1336b57806023.js": "diminishedprime.github.io/weight-training/precache-manifest.13e7b6f726e6bcfb4fd1336b57806023.js",
+    "service-worker.js": "diminishedprime.github.io/weight-training/service-worker.js",
+    "static/css/main.99109b8f.chunk.css.map": "diminishedprime.github.io/weight-training/static/css/main.99109b8f.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.d246dc47.js",
-    "static/js/2.aefbacb8.chunk.js",
+    "static/js/runtime-main.5d6f70a4.js",
+    "static/js/2.0bca0d8d.chunk.js",
     "static/css/main.99109b8f.chunk.css",
-    "static/js/main.093065e3.chunk.js"
+    "static/js/main.94f655f6.chunk.js"
   ]
 }
