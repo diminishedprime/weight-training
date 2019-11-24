@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "diminishedprime.github.io/weight-training/static/css/main.99109b8f.chunk.css",
-    "main.js": "diminishedprime.github.io/weight-training/static/js/main.8220c014.chunk.js",
-    "main.js.map": "diminishedprime.github.io/weight-training/static/js/main.8220c014.chunk.js.map",
-    "runtime-main.js": "diminishedprime.github.io/weight-training/static/js/runtime-main.5d6f70a4.js",
-    "runtime-main.js.map": "diminishedprime.github.io/weight-training/static/js/runtime-main.5d6f70a4.js.map",
-    "static/js/2.0bca0d8d.chunk.js": "diminishedprime.github.io/weight-training/static/js/2.0bca0d8d.chunk.js",
-    "static/js/2.0bca0d8d.chunk.js.map": "diminishedprime.github.io/weight-training/static/js/2.0bca0d8d.chunk.js.map",
-    "index.html": "diminishedprime.github.io/weight-training/index.html",
-    "precache-manifest.745127ac216c2f92c2a7328ed62f1824.js": "diminishedprime.github.io/weight-training/precache-manifest.745127ac216c2f92c2a7328ed62f1824.js",
-    "service-worker.js": "diminishedprime.github.io/weight-training/service-worker.js",
-    "static/css/main.99109b8f.chunk.css.map": "diminishedprime.github.io/weight-training/static/css/main.99109b8f.chunk.css.map"
+    "main.css": "/weight-training/static/css/main.99109b8f.chunk.css",
+    "main.js": "/weight-training/static/js/main.76d39737.chunk.js",
+    "main.js.map": "/weight-training/static/js/main.76d39737.chunk.js.map",
+    "runtime-main.js": "/weight-training/static/js/runtime-main.d246dc47.js",
+    "runtime-main.js.map": "/weight-training/static/js/runtime-main.d246dc47.js.map",
+    "static/js/2.aefbacb8.chunk.js": "/weight-training/static/js/2.aefbacb8.chunk.js",
+    "static/js/2.aefbacb8.chunk.js.map": "/weight-training/static/js/2.aefbacb8.chunk.js.map",
+    "index.html": "/weight-training/index.html",
+    "precache-manifest.bc86a69e996efd060866318f1dcfb8bb.js": "/weight-training/precache-manifest.bc86a69e996efd060866318f1dcfb8bb.js",
+    "service-worker.js": "/weight-training/service-worker.js",
+    "static/css/main.99109b8f.chunk.css.map": "/weight-training/static/css/main.99109b8f.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.5d6f70a4.js",
-    "static/js/2.0bca0d8d.chunk.js",
+    "static/js/runtime-main.d246dc47.js",
+    "static/js/2.aefbacb8.chunk.js",
     "static/css/main.99109b8f.chunk.css",
-    "static/js/main.8220c014.chunk.js"
+    "static/js/main.76d39737.chunk.js"
   ]
 }
