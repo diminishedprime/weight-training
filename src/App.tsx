@@ -7,6 +7,8 @@ import React from "react";
 import "./App.sass";
 import Login from "./Login";
 import Home from "./Home";
+import * as t from "./types";
+import RecordLift from "./RecordLift";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBBu2D-owaz14CfZvmOqjSoN0oMde5D5NE",
@@ -29,6 +31,13 @@ const App: React.FC = () => {
         <Route path="/login" exact>
           <Login />
         </Route>
+        {Object.values(t.LiftType).map(liftType => {
+          return (
+            <Route key={`/lift/${liftType}`} path={`/lift/${liftType}`} exact>
+              <RecordLift liftType={liftType} />
+            </Route>
+          );
+        })}
         <Route path="/" exact>
           <Home />
         </Route>
