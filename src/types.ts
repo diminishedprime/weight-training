@@ -10,7 +10,6 @@ export type DisplayLift = { uid: string } & Lift;
 export type Lift = {
   date: Date;
   weight: number;
-  lift: "deadlift";
+  type: LiftType;
   reps: number;
-  missed: boolean;
 };

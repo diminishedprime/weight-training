@@ -22,7 +22,7 @@ export default ({
       .collection("users")
       .doc(user.uid)
       .collection("lifts")
-      .where("lift", "==", liftType)
+      .where("type", "==", liftType)
       .orderBy("date", "desc")
       .limit(5)
       .onSnapshot(snapshot => {
