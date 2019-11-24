@@ -4,6 +4,7 @@ import * as hooks from "./hooks";
 import LiftTable from "./LiftTable";
 import Layout from "./Layout";
 import * as t from "./types";
+import { Link } from "react-router-dom";
 
 export default () => {
   const user = hooks.useForceSignIn();
@@ -30,10 +31,15 @@ export default () => {
 
   return (
     <Layout>
-      <LiftTable liftType={t.LiftType.DEADLIFT} user={user} />
-      <button className="button" onClick={addRandomLift}>
-        Add random lift
-      </button>
+      {Object.values(t.LiftType).map(liftType => {
+        return (
+          <div>
+            <Link to={`/lift/${liftType}`}>
+              <button className="button">{liftType}</button>
+            </Link>
+          </div>
+        );
+      })}
     </Layout>
   );
 };
