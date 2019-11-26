@@ -57,6 +57,11 @@ const Layout: React.FC<{}> = ({ children }) => {
         </div>
       </nav>
       <div className="content">{children}</div>
+      <footer className="footer">
+        <strong>Weight Training</strong> by{" "}
+        <a href="https://github.com/diminishedprime">Matt Hamrick</a> v
+        {process.env.REACT_APP_VERSION}
+      </footer>
     </>
   );
 };
