@@ -13,15 +13,19 @@ export default () => {
 
   return (
     <Layout>
-      {Object.values(t.LiftType).map(liftType => {
-        return (
-          <div key={`/lift/${liftType}`}>
-            <Link to={`/lift/${liftType}`}>
-              <button className="button">{liftType}</button>
+      <div className="flex">
+        {Object.values(t.LiftType).map(liftType => {
+          return (
+            <Link
+              key={`/lift/${liftType}`}
+              to={`/lift/${liftType}`}
+              className="card lift-card"
+            >
+              <div className="card-content">{liftType}</div>
             </Link>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </Layout>
   );
 };
