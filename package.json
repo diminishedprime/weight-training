@@ -5,9 +5,10 @@
   "scripts": {
     "build": "react-scripts build",
     "deploy": "yarn build && firebase deploy",
+    "deploy:rules": "firebase deploy --only firestore:rules",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
-    "test": "react-scripts test"
+    "test": "firebase emulators:exec --only firestore 'yarn react-scripts test'"
   },
   "browserslist": {
     "production": [
@@ -32,6 +33,7 @@
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
+    "@firebase/testing": "^0.16.0",
     "@types/jest": "24.0.23",
     "@types/node": "12.12.12",
     "@types/react": "16.9.12",
