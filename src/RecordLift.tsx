@@ -9,6 +9,18 @@ type RecordLiftProps = {
   liftType: t.LiftType;
 };
 
+export const addLift = async (
+  firestore: firebase.firestore.Firestore,
+  uid: string,
+  lift: t.Lift
+): Promise<firebase.firestore.DocumentReference> => {
+  return firestore
+    .collection("users")
+    .doc(uid)
+    .collection("lifts")
+    .add(lift);
+};
+
 const AddLift = ({
   liftType,
   user
@@ -39,7 +51,7 @@ const AddLift = ({
     },
     []
   );
-  const addLift = React.useCallback(() => {
+  const addLiftOnClick = React.useCallback(() => {
     if (weight === "") {
       return;
     }
@@ -49,12 +61,7 @@ const AddLift = ({
       date: new Date(),
       reps: parseInt(reps)
     };
-    firebase
-      .firestore()
-      .collection("users")
-      .doc(user.uid)
-      .collection("lifts")
-      .add(lift);
+    addLift(firebase.firestore(), user.uid, lift);
   }, [weight, liftType, reps, user.uid]);
   return (
     <>
@@ -85,7 +92,7 @@ const AddLift = ({
       <div className="field is-right is-grouped is-grouped-right">
         <button
           className="button is-success"
-          onClick={addLift}
+          onClick={addLiftOnClick}
           disabled={!addEnabled}
         >
           Add
