@@ -25,7 +25,8 @@ export default ({
     const lifts = db
       .getLifts(firestore, user.uid)
       .where("type", "==", liftType)
-      .orderBy("date", "desc");
+      .orderBy("date", "desc")
+      .limit(50);
     db.onSnapshotGroupedBy(
       lifts,
       doc =>
