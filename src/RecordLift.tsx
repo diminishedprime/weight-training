@@ -102,7 +102,7 @@ export default ({ liftType }: RecordLiftProps) => {
       <div className="title">
         <div className="centered">{liftType}</div>
         <figure className="card-svg">
-          <img src={t.liftSvgMap[liftType]} width="50" />
+          <img src={t.liftSvgMap[liftType]} width="50" alt="" />
         </figure>
       </div>
       <AddLift liftType={liftType} user={user} />

@@ -22,7 +22,7 @@ export default () => {
               className="card lift-card flex-column flex-center"
             >
               <figure className="card-svg">
-                <img src={t.liftSvgMap[liftType]} width="50" />
+                <img src={t.liftSvgMap[liftType]} width="50" alt="" />
               </figure>
               <div className="">{liftType}</div>
             </Link>
