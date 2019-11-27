@@ -13,3 +13,5 @@ export type Lift = {
   type: LiftType;
   reps: number;
 };
+
+export type Optional<T> = { [P in keyof T]?: T[P] };

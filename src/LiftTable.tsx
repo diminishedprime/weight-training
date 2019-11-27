@@ -36,6 +36,7 @@ export default ({
             return data as t.DisplayLift;
           })
         );
+        setUpdateReps({});
       });
   }, [user.uid, liftType]);
 
@@ -55,7 +56,54 @@ export default ({
 
   const cancelEdit = React.useCallback(() => {
     setEditingState({ isEditing: false, uid: undefined });
+    setUpdateReps({});
   }, []);
+
+  const [updateReps, setUpdateReps] = React.useState<{
+    [liftUid: string]: string;
+  }>({});
+  const repsOnChange = React.useCallback(
+    (liftUid: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      setUpdateReps(old => {
+        const update = { ...old, [liftUid]: value };
+        console.log({ old, update });
+        return update;
+      });
+    },
+    []
+  );
+
+  const onClickUpdate = React.useCallback(
+    (uid: string) => async () => {
+      console.log({ uid }, updateReps[uid]);
+      if (uid && updateReps[uid]) {
+        const currentLift = lifts.find(lift => lift.uid === uid);
+        if (currentLift) {
+          if (currentLift.reps.toString() !== updateReps[uid]) {
+            console.log("this happened");
+            await db.updateLift(firebase.firestore(), user.uid, uid, {
+              reps: parseInt(updateReps[uid])
+            });
+            setEditingState({ isEditing: false, uid: undefined });
+          }
+        }
+      }
+    },
+    [updateReps, lifts, user.uid]
+  );
+
+  const [updateDisabled, setUpdateDisable] = React.useState(true);
+  React.useEffect(() => {
+    if (uid && updateReps[uid]) {
+      const currentLift = lifts.find(lift => lift.uid === uid);
+      if (currentLift) {
+        if (currentLift.reps.toString() !== updateReps[uid]) {
+          setUpdateDisable(false);
+        }
+      }
+    }
+  }, [lifts, uid, updateReps]);
 
   if (lifts.length === 0) {
     return <div>No lifts recorded.</div>;
@@ -76,11 +124,24 @@ export default ({
           <tr key={lift.uid}>
             <td>{lift.date.toLocaleTimeString()}</td>
             <td>{lift.weight}</td>
-            <td>{lift.reps}</td>
+            <td>
+              {isEditing && uid === lift.uid ? (
+                <input
+                  value={
+                    updateReps[lift.uid] !== undefined
+                      ? updateReps[lift.uid]
+                      : lift.reps
+                  }
+                  onChange={repsOnChange(lift.uid)}
+                />
+              ) : (
+                <>{lift.reps}</>
+              )}
+            </td>
             <td>
               {uid === undefined && (
                 <button
-                  className="button link is-danger"
+                  className="button link is-danger is-small"
                   disabled={isEditing && uid !== lift.uid}
                   onClick={() => {
                     setEditingState({ isEditing: true, uid: lift.uid });
@@ -97,6 +158,15 @@ export default ({
                       onClick={deleteLift(lift.uid)}
                     >
                       Delete
+                    </button>
+                  </p>
+                  <p className="control">
+                    <button
+                      className="button link is-success is-small"
+                      disabled={updateDisabled}
+                      onClick={onClickUpdate(lift.uid)}
+                    >
+                      Update
                     </button>
                   </p>
                   <p className="control">
