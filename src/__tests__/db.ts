@@ -85,5 +85,62 @@ describe("for the db", () => {
         (await sut.getLift(firestore, userUid, liftUid)).exists
       ).toBeFalsy();
     });
+
+    test("getLifts returns the correct collection", async () => {
+      const firestore = authedApp({ uid: userUid });
+      const actualCollection = sut.getLifts(firestore, userUid);
+      expect((await actualCollection.get()).size).toBe(0);
+      await sut.addLift(firestore, userUid, lift);
+      expect((await actualCollection.get()).size).toBe(1);
+    });
+
+    test("onSnapshotGroupedBy can group by date", async () => {
+      const lift1: t.Lift = {
+        weight: 200,
+        reps: 3,
+        type: t.LiftType.DEADLIFT,
+        date: new Date("2019-11-17T03:24:00")
+      };
+      const lift2: t.Lift = {
+        weight: 200,
+        reps: 3,
+        type: t.LiftType.DEADLIFT,
+        date: new Date("2019-11-17T03:26:17")
+      };
+      const lift3: t.Lift = {
+        weight: 200,
+        reps: 3,
+        type: t.LiftType.DEADLIFT,
+        date: new Date("2019-11-18T03:26:17")
+      };
+      const firestore = authedApp({ uid: userUid });
+      await sut.addLift(firestore, userUid, lift1);
+      await sut.addLift(firestore, userUid, lift2);
+      await sut.addLift(firestore, userUid, lift3);
+      const lifts = sut.getLifts(firestore, userUid);
+      const grouping: t.Grouping<t.DisplayLift> = await new Promise(resolve => {
+        sut.onSnapshotGroupedBy(
+          lifts,
+          doc =>
+            doc
+              .data()
+              .date.toDate()
+              .toISOString()
+              .slice(0, 10),
+          doc => {
+            const data = doc.data();
+            const asDate = data.date.toDate();
+            data["date"] = asDate;
+            data["uid"] = doc.id;
+            return data as t.DisplayLift;
+          },
+          grouping => {
+            resolve(grouping);
+          }
+        );
+      });
+      expect(grouping[lift1.date.toISOString().slice(0, 10)]).toHaveLength(2);
+      expect(grouping[lift3.date.toISOString().slice(0, 10)]).toHaveLength(1);
+    });
   });
 });

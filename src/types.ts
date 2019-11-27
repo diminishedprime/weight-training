@@ -15,3 +15,4 @@ export type Lift = {
 };
 
 export type Optional<T> = { [P in keyof T]?: T[P] };
+export type Grouping<T> = { [grouping: string]: T[] };

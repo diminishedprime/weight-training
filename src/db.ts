@@ -52,3 +52,32 @@ export const updateLift = async (
     .doc(liftUid)
     .update(liftUpdate);
 };
+
+export const getLifts = (
+  firestore: firebase.firestore.Firestore,
+  userUid: string
+): firebase.firestore.CollectionReference => {
+  return firestore
+    .collection("users")
+    .doc(userUid)
+    .collection("lifts");
+};
+
+export const onSnapshotGroupedBy = async <T>(
+  query: firebase.firestore.Query,
+  groupBy: (t: firebase.firestore.QueryDocumentSnapshot) => string,
+  docTransform: (t: firebase.firestore.QueryDocumentSnapshot) => T,
+  onSnapshot: (grouping: t.Grouping<T>) => void
+) => {
+  query.onSnapshot(snapshot => {
+    const grouped: t.Grouping<T> = snapshot.docs.reduce((acc, doc) => {
+      const groupKey = groupBy(doc);
+      if (!acc[groupKey]) {
+        acc[groupKey] = [];
+      }
+      acc[groupKey].push(docTransform(doc));
+      return acc;
+    }, {} as t.Grouping<T>);
+    onSnapshot(grouped);
+  });
+};
