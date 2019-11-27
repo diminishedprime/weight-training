@@ -9,6 +9,7 @@ import Login from "./Login";
 import Home from "./Home";
 import * as t from "./types";
 import RecordLift from "./RecordLift";
+import UpdateApp from "./UpdateApp";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBBu2D-owaz14CfZvmOqjSoN0oMde5D5NE",
@@ -27,6 +28,7 @@ firebase.initializeApp(firebaseConfig);
 const App: React.FC = () => {
   return (
     <Router>
+      <UpdateApp />
       <Switch>
         <Route path="/login" exact>
           <Login />
