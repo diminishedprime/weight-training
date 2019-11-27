@@ -1,10 +1,10 @@
 {
   "name": "weight-training",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "build": "react-scripts build",
-    "deploy": "yarn build && firebase deploy",
+    "deploy": "yarn version && yarn build && firebase deploy",
     "deploy:rules": "firebase deploy --only firestore:rules",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
