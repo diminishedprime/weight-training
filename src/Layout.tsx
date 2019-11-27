@@ -13,9 +13,11 @@ const Layout: React.FC<{}> = ({ children }) => {
     <>
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <Link to="/">
-            <div className="title">Weight Training</div>
-          </Link>
+          <div className="flex flex-center main-heading">
+            <Link to="/" className="title">
+              Weight Training
+            </Link>
+          </div>
 
           <a
             role="button"
