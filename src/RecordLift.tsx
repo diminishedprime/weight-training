@@ -4,21 +4,10 @@ import firebase from "firebase/app";
 import LiftTable from "./LiftTable";
 import Layout from "./Layout";
 import * as t from "./types";
+import * as db from "./db";
 
 type RecordLiftProps = {
   liftType: t.LiftType;
-};
-
-export const addLift = async (
-  firestore: firebase.firestore.Firestore,
-  uid: string,
-  lift: t.Lift
-): Promise<firebase.firestore.DocumentReference> => {
-  return firestore
-    .collection("users")
-    .doc(uid)
-    .collection("lifts")
-    .add(lift);
 };
 
 const AddLift = ({
@@ -61,7 +50,7 @@ const AddLift = ({
       date: new Date(),
       reps: parseInt(reps)
     };
-    addLift(firebase.firestore(), user.uid, lift);
+    db.addLift(firebase.firestore(), user.uid, lift);
   }, [weight, liftType, reps, user.uid]);
   return (
     <>

@@ -1,6 +1,7 @@
 import * as React from "react";
 import firebase from "firebase/app";
 import * as t from "./types";
+import * as db from "./db";
 
 type EditingState = {
   isEditing: boolean;
@@ -44,17 +45,10 @@ export default ({
   });
 
   const deleteLift = React.useCallback(
-    (uid: string) => () => {
-      firebase
-        .firestore()
-        .collection("users")
-        .doc(user.uid)
-        .collection("lifts")
-        .doc(uid)
-        .delete()
-        .then(() => {
-          setEditingState({ isEditing: false, uid: undefined });
-        });
+    (liftUid: string) => () => {
+      db.deleteLift(firebase.firestore(), user.uid, liftUid).then(() => {
+        setEditingState({ isEditing: false, uid: undefined });
+      });
     },
     [user.uid]
   );
