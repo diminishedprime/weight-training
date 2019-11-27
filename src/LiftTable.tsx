@@ -58,14 +58,22 @@ export default ({
   const deleteLift = React.useCallback(
     (liftUid: string) => () => {
       db.deleteLift(firebase.firestore(), user.uid, liftUid).then(() => {
-        setEditingState({ isEditing: false, uid: undefined });
+        setEditingState({
+          isEditing: false,
+          uid: undefined,
+          dateString: undefined
+        });
       });
     },
     [user.uid]
   );
 
   const cancelEdit = React.useCallback(() => {
-    setEditingState({ isEditing: false, uid: undefined });
+    setEditingState({
+      isEditing: false,
+      uid: undefined,
+      dateString: undefined
+    });
     setUpdateReps({});
   }, []);
 
@@ -79,27 +87,25 @@ export default ({
       e: React.ChangeEvent<HTMLInputElement>
     ) => {
       const value = e.target.value;
-      setUpdateReps(old => {
-        const update = { ...old, [dateString]: { [liftUid]: value } };
-        console.log({ old, update });
-        return update;
-      });
+      setUpdateReps(old => ({ ...old, [dateString]: { [liftUid]: value } }));
     },
     []
   );
 
   const onClickUpdate = React.useCallback(
     (uid: string, dateString: string) => async () => {
-      console.log({ uid }, updateReps[uid]);
-      if (uid && updateReps[uid]) {
+      if (uid && updateReps[dateString] && updateReps[dateString][uid]) {
         const currentLift = lifts[dateString].find(lift => lift.uid === uid);
         if (currentLift) {
           if (currentLift.reps.toString() !== updateReps[dateString][uid]) {
-            console.log("this happened");
             await db.updateLift(firebase.firestore(), user.uid, uid, {
               reps: parseInt(updateReps[dateString][uid])
             });
-            setEditingState({ isEditing: false, uid: undefined });
+            setEditingState({
+              isEditing: false,
+              uid: undefined,
+              dateString: undefined
+            });
           }
         }
       }
@@ -109,7 +115,12 @@ export default ({
 
   const [updateDisabled, setUpdateDisable] = React.useState(true);
   React.useEffect(() => {
-    if (uid && dateString && updateReps[uid]) {
+    if (
+      uid &&
+      dateString &&
+      updateReps[dateString] &&
+      updateReps[dateString][uid]
+    ) {
       const currentLift = lifts[dateString].find(lift => lift.uid === uid);
       if (currentLift) {
         if (currentLift.reps.toString() !== updateReps[dateString][uid]) {
@@ -151,6 +162,7 @@ export default ({
                       {isEditing && uid === lift.uid ? (
                         <input
                           value={
+                            updateReps[dateString] &&
                             updateReps[dateString][lift.uid] !== undefined
                               ? updateReps[dateString][lift.uid]
                               : lift.reps
@@ -167,7 +179,11 @@ export default ({
                           className="button link is-danger is-small"
                           disabled={isEditing && uid !== lift.uid}
                           onClick={() => {
-                            setEditingState({ isEditing: true, uid: lift.uid });
+                            setEditingState({
+                              isEditing: true,
+                              uid: lift.uid,
+                              dateString
+                            });
                           }}
                         >
                           Edit
