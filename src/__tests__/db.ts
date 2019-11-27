@@ -50,6 +50,21 @@ describe("for the db", () => {
       expect(actual.exists).toBeTruthy();
     });
 
+    test("an added lift can be updated.", async () => {
+      const firestore = authedApp({ uid: userUid });
+      const addedLift = await sut.addLift(firestore, userUid, lift);
+      const liftUid = (await addedLift.get()).id;
+      const firstValue = await sut.getLift(firestore, userUid, liftUid);
+      expect(firstValue.exists).toBeTruthy();
+      await sut.updateLift(firestore, userUid, liftUid, {
+        reps: lift.reps + 3
+      });
+      const actualAfterUpdate = (
+        await sut.getLift(firestore, userUid, liftUid)
+      ).data();
+      expect(actualAfterUpdate!.reps).toBe(6);
+    });
+
     test("a non-added lift cannot be retrieved from the db.", async () => {
       const firestore = authedApp({ uid: userUid });
       const actual = await sut.getLift(firestore, userUid, "made up lift id");

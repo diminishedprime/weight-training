@@ -38,3 +38,17 @@ export const addLift = async (
     .collection("lifts")
     .add(lift);
 };
+
+export const updateLift = async (
+  firestore: firebase.firestore.Firestore,
+  userUid: string,
+  liftUid: string,
+  liftUpdate: t.Optional<t.Lift>
+): Promise<void> => {
+  return firestore
+    .collection("users")
+    .doc(userUid)
+    .collection("lifts")
+    .doc(liftUid)
+    .update(liftUpdate);
+};
