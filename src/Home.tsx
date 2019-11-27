@@ -19,9 +19,12 @@ export default () => {
             <Link
               key={`/lift/${liftType}`}
               to={`/lift/${liftType}`}
-              className="card lift-card"
+              className="card lift-card flex-column flex-center"
             >
-              <div className="card-content">{liftType}</div>
+              <figure className="card-svg">
+                <img src={t.liftSvgMap[liftType]} width="50" />
+              </figure>
+              <div className="">{liftType}</div>
             </Link>
           );
         })}

@@ -45,15 +45,26 @@ body
   margin: 0 auto;
 
 .lift-card
-  margin: 10px;
-  height: 80px;
-  display: flex;
+  margin: 5px;
   flex-grow: 1;
-  max-width: 50%;
+
+.card-svg
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 
 .flex
   display: flex;
   flex-wrap: wrap;
+
+.flex-column
+  display: flex;
+  flex-direction: column;
+
+.flex-center
+  justify-items: center;
+  align-items: center;
 
 #root
   min-height: 100vh;
@@ -68,3 +79,10 @@ td
     font-size: inherit;
     border: 0;
     background-color: inherit;
+
+.content figure.card-svg
+  margin-bottom: 0;
+  margin-top: 0;
+
+.centered
+  text-align: center;
