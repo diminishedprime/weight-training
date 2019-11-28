@@ -1,3 +1,5 @@
+export const BAR_WEIGHT = 45;
+
 export enum LiftType {
   DEADLIFT = "deadlift",
   SQUAT = "squat",
@@ -6,7 +8,20 @@ export enum LiftType {
   OVERHEAD_PRESS = "overhead-press"
 }
 
+export enum WorkoutType {
+  CUSTOM = "custom",
+  FIVE_BY_FIVE = "five-by-five"
+}
+
 export type DisplayLift = { uid: string } & Lift;
+
+export type Program = Array<ProgramLift>;
+
+export type ProgramLift = {
+  weight: number;
+  type: LiftType;
+  reps: number;
+};
 
 export type Lift = {
   date: Date;
