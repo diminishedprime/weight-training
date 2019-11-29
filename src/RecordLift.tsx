@@ -133,14 +133,14 @@ const SimpleLiftTable = ({
   }, [currentLift, program.length]);
 
   const completeLift = React.useCallback(() => {
-    if (currentLift < program.length && user !== null) {
+    if (currentLift < program.length) {
       const lift: t.Lift = { ...program[currentLift], date: new Date() };
       // Don't need to block on this.
       db.addLift(firebase.firestore(), user.uid, lift);
       setCompletedLifts(old => ({ ...old, [currentLift]: true }));
       setCurrentLift(old => old + 1);
     }
-  }, [currentLift, program.length]);
+  }, [currentLift, program, user.uid]);
 
   return (
     <table className="table">
@@ -159,6 +159,7 @@ const SimpleLiftTable = ({
           const isCompleted = completedLifts[idx];
           return (
             <tr
+              key={idx}
               className={`${isSelected ? "is-selected" : ""} ${
                 isSkipped ? "is-skipped-row" : ""
               } ${isCompleted ? "is-completed-row" : ""}`}
@@ -187,11 +188,23 @@ const SimpleLiftTable = ({
   );
 };
 
-const FiveByFive = ({ user }: { user: firebase.User }) => {
+const FiveByFive = ({
+  user,
+  liftType
+}: {
+  user: firebase.User;
+  liftType: t.LiftType;
+}) => {
   // TODO persist the current workout in firebase so users don't lose progress on a refresh.
   // TODO add a calculator for estimating 1RM based on a 3x3 or 5x5.
-  // TODO change back to defaults so the UI must be traversed.
-  const [oneRepMax, setOneRepMax] = React.useState();
+  const [oneRepMax, setOneRepMax] = React.useState<number | undefined>();
+  React.useEffect(() => {
+    db.getOneRepMax(firebase.firestore(), user.uid, liftType).then(orm => {
+      if (orm !== undefined) {
+        setOneRepMax(orm);
+      }
+    });
+  }, [liftType, user.uid]);
   const [ready, setReady] = React.useState(false);
   const [program, setProgram] = React.useState<t.Program | undefined>(
     undefined
@@ -200,15 +213,26 @@ const FiveByFive = ({ user }: { user: firebase.User }) => {
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
       if (value.match(/^[0-9]*$/)) {
-        setOneRepMax(value);
+        if (value === "") {
+          setOneRepMax(undefined);
+        } else {
+          setOneRepMax(parseInt(value));
+        }
       }
     },
     []
   );
 
+  const onSetOneRepMax = React.useCallback(() => {
+    if (oneRepMax !== undefined) {
+      db.setOneRepMax(firebase.firestore(), user.uid, liftType, oneRepMax);
+      setReady(true);
+    }
+  }, [user.uid, liftType, oneRepMax]);
+
   React.useEffect(() => {
-    if (ready && oneRepMax) {
-      setProgram(programFor(t.WorkoutType.FIVE_BY_FIVE, parseInt(oneRepMax)));
+    if (ready && oneRepMax !== undefined) {
+      setProgram(programFor(t.WorkoutType.FIVE_BY_FIVE, oneRepMax));
     }
   }, [ready, oneRepMax]);
 
@@ -224,17 +248,15 @@ const FiveByFive = ({ user }: { user: firebase.User }) => {
                 className="input"
                 type="text"
                 placeholder="123"
-                value={oneRepMax}
+                value={oneRepMax === undefined ? "" : oneRepMax.toString()}
                 onChange={oneRepMaxOnChange}
               />
             </div>
             <div className="control">
               <button
                 className="button is-info"
-                disabled={oneRepMax === ""}
-                onClick={() => {
-                  setReady(true);
-                }}
+                disabled={oneRepMax === undefined}
+                onClick={onSetOneRepMax}
               >
                 Set
               </button>
@@ -287,7 +309,7 @@ const PreDefinedWorkout = ({
         <AddLift liftType={liftType} user={user} />
       )}
       {selectedWorkout === t.WorkoutType.FIVE_BY_FIVE && (
-        <FiveByFive user={user} />
+        <FiveByFive user={user} liftType={liftType} />
       )}
     </div>
   );
