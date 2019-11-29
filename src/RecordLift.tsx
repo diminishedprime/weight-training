@@ -91,15 +91,31 @@ const AddLift = ({
   );
 };
 
+const roundToNearestFive = (n: number): number => {
+  return 5 * Math.round(n / 5);
+};
+
 const programFor = (workout: t.WorkoutType, oneRepMax: number): t.Program => {
   if (workout === t.WorkoutType.FIVE_BY_FIVE) {
-    const targetWeight = oneRepMax * 0.8;
+    const targetWeight = roundToNearestFive(oneRepMax * 0.8);
     const splits = (targetWeight - t.BAR_WEIGHT) / 4;
     return [
       { weight: 45, reps: 5, type: t.LiftType.DEADLIFT },
-      { weight: 45 + splits, reps: 5, type: t.LiftType.DEADLIFT },
-      { weight: 45 + splits * 2, reps: 3, type: t.LiftType.DEADLIFT },
-      { weight: 45 + splits * 3, reps: 2, type: t.LiftType.DEADLIFT },
+      {
+        weight: roundToNearestFive(45 + splits),
+        reps: 5,
+        type: t.LiftType.DEADLIFT
+      },
+      {
+        weight: roundToNearestFive(45 + splits * 2),
+        reps: 3,
+        type: t.LiftType.DEADLIFT
+      },
+      {
+        weight: roundToNearestFive(45 + splits * 3),
+        reps: 2,
+        type: t.LiftType.DEADLIFT
+      },
       { weight: targetWeight, reps: 5, type: t.LiftType.DEADLIFT },
       { weight: targetWeight, reps: 5, type: t.LiftType.DEADLIFT },
       { weight: targetWeight, reps: 5, type: t.LiftType.DEADLIFT },
@@ -258,7 +274,7 @@ const FiveByFive = ({
                 disabled={oneRepMax === undefined}
                 onClick={onSetOneRepMax}
               >
-                Set
+                Start
               </button>
             </div>
           </div>
