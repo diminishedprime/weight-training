@@ -14,15 +14,19 @@ export const platesFor = (weight: number): t.PlateConfig => {
   }
   weight -= 45;
   const plates = emptyBar();
+  const acc: { plates: t.PlateConfig; remainingWeight: number } = {
+    plates,
+    remainingWeight: weight
+  };
   const thing = Object.values(t.PlateTypes).reduce(
     ({ plates, remainingWeight }, plateType) => {
       while (remainingWeight >= t.PlateWeight[plateType] * 2) {
-        plates[plateType] += 2;
+        (plates as any)[plateType] += 2;
         remainingWeight -= t.PlateWeight[plateType] * 2;
       }
       return { plates, remainingWeight };
     },
-    { plates, remainingWeight: weight }
+    acc
   );
   return thing.plates;
 };
@@ -30,7 +34,7 @@ export const platesFor = (weight: number): t.PlateConfig => {
 export const splitConfig = (plateConfig: t.PlateConfig): t.PlateConfig => {
   const copied: t.PlateConfig = Object.assign({}, plateConfig);
   Object.entries(copied).forEach(([plateType, num]) => {
-    copied[plateType] = num / 2;
+    (copied as any)[plateType] = num / 2;
   });
   return copied;
 };
