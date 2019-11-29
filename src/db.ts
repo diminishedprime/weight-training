@@ -2,7 +2,7 @@ import * as firebase from "firebase/app";
 import * as t from "./types";
 
 export const getLift = async (
-  firestore: firebase.firestore.Firestore,
+  firestore: t.Firestore,
   userUid: string,
   liftUid: string
 ): Promise<firebase.firestore.DocumentSnapshot> => {
@@ -15,7 +15,7 @@ export const getLift = async (
 };
 
 export const deleteLift = (
-  firestore: firebase.firestore.Firestore,
+  firestore: t.Firestore,
   userUid: string,
   liftUid: string
 ): Promise<void> => {
@@ -28,7 +28,7 @@ export const deleteLift = (
 };
 
 export const addLift = async (
-  firestore: firebase.firestore.Firestore,
+  firestore: t.Firestore,
   uid: string,
   lift: t.Lift
 ): Promise<firebase.firestore.DocumentReference> => {
@@ -40,7 +40,7 @@ export const addLift = async (
 };
 
 export const updateLift = async (
-  firestore: firebase.firestore.Firestore,
+  firestore: t.Firestore,
   userUid: string,
   liftUid: string,
   liftUpdate: t.Optional<t.Lift>
@@ -54,7 +54,7 @@ export const updateLift = async (
 };
 
 export const getLifts = (
-  firestore: firebase.firestore.Firestore,
+  firestore: t.Firestore,
   userUid: string
 ): firebase.firestore.CollectionReference => {
   return firestore

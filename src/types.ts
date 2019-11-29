@@ -1,3 +1,7 @@
+import * as firebase from "firebase/app";
+
+export type Firestore = firebase.firestore.Firestore;
+
 export const BAR_WEIGHT = 45;
 
 export enum LiftType {
