@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as hooks from "./hooks";
 import firebase from "firebase/app";
+import * as util from "./util";
 import LiftTable from "./LiftTable";
 import Layout from "./Layout";
 import * as t from "./types";
@@ -126,6 +127,26 @@ const programFor = (workout: t.WorkoutType, oneRepMax: number): t.Program => {
   return [];
 };
 
+const Plates = ({ plates }: { plates: t.PlateConfig }) => {
+  const plateGroup = Object.entries(plates).filter(([, number]) => number > 0);
+  return plateGroup.length === 0 ? (
+    <div>Nope</div>
+  ) : (
+    <div className="small-plates">
+      {plateGroup.map(([plateType, number]) => {
+        return (
+          <div
+            key={`${plateType}-${number}`}
+            className={`${plateType} small-plate`}
+          >
+            {number}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 const SimpleLiftTable = ({
   program,
   user
@@ -164,6 +185,7 @@ const SimpleLiftTable = ({
         <tr>
           <th>Reps</th>
           <th>Weight</th>
+          <th>Plates</th>
           <th></th>
           <th></th>
         </tr>
@@ -182,6 +204,11 @@ const SimpleLiftTable = ({
             >
               <td>{lift.reps}</td>
               <td>{lift.weight}</td>
+              <td className="plates">
+                <Plates
+                  plates={util.splitConfig(util.platesFor(lift.weight))}
+                />
+              </td>
               <td>
                 {isSelected && (
                   <button onClick={skipLift} className="button is-small">
@@ -296,7 +323,7 @@ const PreDefinedWorkout = ({
 }: RecordLiftProps & { user: firebase.User }) => {
   const [selectedWorkout, setSelectedWorkout] = React.useState<
     t.WorkoutType | undefined
-  >();
+  >(undefined);
 
   return (
     <div>
