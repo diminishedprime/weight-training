@@ -3,6 +3,7 @@ import * as firebase from "firebase/app";
 export type Firestore = firebase.firestore.Firestore;
 
 export const BAR_WEIGHT = 45;
+export const ONE_REP_MAX = "one-rep-max";
 
 export enum LiftType {
   DEADLIFT = "deadlift",
@@ -27,6 +28,12 @@ export type ProgramLift = {
   reps: number;
 };
 
+// db type
+export type UserDoc = {
+  [lift in LiftType]?: { [ONE_REP_MAX]?: number };
+};
+
+// db type (ish) the actual date is a firebase timestamp object.
 export type Lift = {
   date: Date;
   weight: number;

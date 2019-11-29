@@ -3,6 +3,9 @@ import * as t from "../types";
 import * as firebase from "@firebase/testing";
 import * as fs from "fs";
 
+const DEADLIFT = t.LiftType.DEADLIFT;
+const SQUAT = t.LiftType.SQUAT;
+
 const projectId = "weight-training-8a1ac";
 
 const rules = fs.readFileSync("firestore.rules", "utf8");
@@ -24,12 +27,69 @@ describe("for the db", () => {
     await Promise.all(firebase.apps().map(app => app.delete()));
   });
 
+  describe("for the user operations", () => {
+    const userUid = "matt2";
+
+    test("one rep max is initially undefined", async () => {
+      const firestore = authedApp({ uid: userUid });
+      const oneRepMaxes = await Promise.all(
+        Object.values(t.LiftType).map(async liftType => {
+          return sut.getOneRepMax(firestore, userUid, liftType);
+        })
+      );
+      oneRepMaxes.forEach(oneRepMax => {
+        expect(oneRepMax).toBeUndefined();
+      });
+    });
+
+    test("can set one rep max when not defined", async () => {
+      const firestore = authedApp({ uid: userUid });
+
+      for (const liftType of Object.values(t.LiftType)) {
+        await sut.setOneRepMax(firestore, userUid, liftType, 100);
+      }
+
+      const oneRepMaxes = await Promise.all(
+        Object.values(t.LiftType).map(async liftType => {
+          return sut.getOneRepMax(firestore, userUid, liftType);
+        })
+      );
+      oneRepMaxes.forEach(oneRepMax => {
+        expect(oneRepMax).not.toBeUndefined();
+      });
+    });
+
+    test("can override an existing one rep max", async () => {
+      const firestore = authedApp({ uid: userUid });
+      await sut.setOneRepMax(firestore, userUid, DEADLIFT, 100);
+      const oldDeadlift = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
+      await sut.setOneRepMax(firestore, userUid, DEADLIFT, 110);
+      const newDeadlift = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
+      expect(oldDeadlift).toEqual(100);
+      expect(oldDeadlift).not.toEqual(newDeadlift);
+      expect(newDeadlift).toEqual(110);
+    });
+
+    test("setting a one rep max does not clear out others", async () => {
+      const firestore = authedApp({ uid: userUid });
+      await sut.setOneRepMax(firestore, userUid, DEADLIFT, 100);
+      const oldDeadlift = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
+
+      await sut.setOneRepMax(firestore, userUid, SQUAT, 110);
+      const newSquat = await sut.getOneRepMax(firestore, userUid, SQUAT);
+      const newDeadlift = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
+      expect(oldDeadlift).toEqual(100);
+      expect(oldDeadlift).toEqual(newDeadlift);
+      expect(newSquat).toEqual(110);
+    });
+  });
+
   describe("for the lift operations", () => {
     const userUid = "matt";
     const lift: t.Lift = {
       weight: 200,
       reps: 3,
-      type: t.LiftType.DEADLIFT,
+      type: DEADLIFT,
       date: new Date()
     };
 
@@ -98,19 +158,19 @@ describe("for the db", () => {
       const lift1: t.Lift = {
         weight: 200,
         reps: 3,
-        type: t.LiftType.DEADLIFT,
+        type: DEADLIFT,
         date: new Date("2019-11-17T03:24:00")
       };
       const lift2: t.Lift = {
         weight: 200,
         reps: 3,
-        type: t.LiftType.DEADLIFT,
+        type: DEADLIFT,
         date: new Date("2019-11-17T03:26:17")
       };
       const lift3: t.Lift = {
         weight: 200,
         reps: 3,
-        type: t.LiftType.DEADLIFT,
+        type: DEADLIFT,
         date: new Date("2019-11-18T03:26:17")
       };
       const firestore = authedApp({ uid: userUid });

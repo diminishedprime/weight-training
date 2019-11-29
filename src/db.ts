@@ -1,6 +1,42 @@
 import * as firebase from "firebase/app";
 import * as t from "./types";
 
+export const setOneRepMax = async (
+  firestore: t.Firestore,
+  userUid: string,
+  liftType: t.LiftType,
+  weight: number
+) => {
+  const userDoc = firestore.collection("users").doc(userUid);
+  const userDocData = await userDoc.get();
+  const userData: t.UserDoc = { [liftType]: { [t.ONE_REP_MAX]: weight } };
+  if (userDocData.exists) {
+    return userDoc.update(userData);
+  } else {
+    return userDoc.set(userData);
+  }
+};
+
+export const getOneRepMax = async (
+  firestore: t.Firestore,
+  userUid: string,
+  liftType: t.LiftType
+): Promise<number | undefined> => {
+  const userDoc = await firestore
+    .collection("users")
+    .doc(userUid)
+    .get();
+  const userData = userDoc.data() as t.UserDoc;
+  if (userData === undefined) {
+    return undefined;
+  }
+  const liftData = userData[liftType];
+  if (liftData === undefined) {
+    return undefined;
+  }
+  return liftData[t.ONE_REP_MAX];
+};
+
 export const getLift = async (
   firestore: t.Firestore,
   userUid: string,
