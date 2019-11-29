@@ -26,3 +26,11 @@ export const platesFor = (weight: number): t.PlateConfig => {
   );
   return thing.plates;
 };
+
+export const splitConfig = (plateConfig: t.PlateConfig): t.PlateConfig => {
+  const copied: t.PlateConfig = Object.assign({}, plateConfig);
+  Object.entries(copied).forEach(([plateType, num]) => {
+    copied[plateType] = num / 2;
+  });
+  return copied;
+};

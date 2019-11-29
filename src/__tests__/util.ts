@@ -2,6 +2,21 @@ import * as sut from "../util";
 import * as t from "../types";
 
 describe("for the util functions", () => {
+  test("can split a plateConfig in half", () => {
+    const config = sut.platesFor(220);
+    const splitConfig = sut.splitConfig(config);
+    const expected = sut.emptyBar();
+    expected[t.PlateTypes.FORTY_FIVE] = 1;
+    expected[t.PlateTypes.TWENTY_FIVE] = 1;
+    expected[t.PlateTypes.TEN] = 1;
+    expected[t.PlateTypes.FIVE] = 1;
+    expected[t.PlateTypes.TWO_AND_A_HALF] = 1;
+
+    expect(splitConfig).not.toEqual(config);
+    expect(splitConfig).not.toBe(config);
+    expect(splitConfig).toEqual(expected);
+  });
+
   describe("for platesFor", () => {
     test("returns not-possible for weights below 45", () => {
       expect(sut.platesFor(30)).toBe("not-possible");
