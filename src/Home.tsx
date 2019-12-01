@@ -9,7 +9,6 @@ import * as db from "./db";
 export default () => {
   const user = hooks.useForceSignIn();
   const [prs, setPrs] = React.useState<t.UserDoc | undefined>();
-  console.log({ prs });
   React.useEffect(() => {
     if (user === null) {
       return;
