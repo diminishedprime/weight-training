@@ -139,13 +139,13 @@ export const getLifts = (
     .collection("lifts");
 };
 
-export const onSnapshotGroupedBy = async <T>(
+export const onSnapshotGroupedBy = <T>(
   query: firebase.firestore.Query,
   groupBy: (t: firebase.firestore.QueryDocumentSnapshot) => string,
   docTransform: (t: firebase.firestore.QueryDocumentSnapshot) => T,
   onSnapshot: (grouping: t.Grouping<T>) => void
-) => {
-  query.onSnapshot(snapshot => {
+): (() => void) => {
+  return query.onSnapshot(snapshot => {
     const grouped: t.Grouping<T> = snapshot.docs.reduce((acc, doc) => {
       const groupKey = groupBy(doc);
       if (!acc[groupKey]) {

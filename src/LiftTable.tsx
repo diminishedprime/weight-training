@@ -22,7 +22,7 @@ export default ({
       .where("type", "==", liftType)
       .orderBy("date", "desc")
       .limit(50);
-    db.onSnapshotGroupedBy(
+    return db.onSnapshotGroupedBy(
       lifts,
       doc =>
         doc
