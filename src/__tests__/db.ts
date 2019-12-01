@@ -156,7 +156,7 @@ describe("for the db", () => {
       const addedLift = await sut.addLift(firestore, userUid, lift);
       const liftUid = (await addedLift.get()).id;
       const actual = await sut.getLift(firestore, userUid, liftUid);
-      expect(actual.exists).toBeTruthy();
+      expect(actual).not.toBeUndefined();
     });
 
     test("an added lift can be updated.", async () => {
@@ -164,20 +164,18 @@ describe("for the db", () => {
       const addedLift = await sut.addLift(firestore, userUid, lift);
       const liftUid = (await addedLift.get()).id;
       const firstValue = await sut.getLift(firestore, userUid, liftUid);
-      expect(firstValue.exists).toBeTruthy();
+      expect(firstValue).not.toBeUndefined();
       await sut.updateLift(firestore, userUid, liftUid, {
         reps: lift.reps + 3
       });
-      const actualAfterUpdate = (
-        await sut.getLift(firestore, userUid, liftUid)
-      ).data();
+      const actualAfterUpdate = await sut.getLift(firestore, userUid, liftUid);
       expect(actualAfterUpdate!.reps).toBe(6);
     });
 
     test("a non-added lift cannot be retrieved from the db.", async () => {
       const firestore = authedApp({ uid: userUid });
       const actual = await sut.getLift(firestore, userUid, "made up lift id");
-      expect(actual.exists).toBeFalsy();
+      expect(actual).toBeUndefined();
     });
 
     test("deleting an added lift removes it from the db.", async () => {
@@ -186,13 +184,11 @@ describe("for the db", () => {
       const liftUid = (await addedLift.get()).id;
       // Exists in this part of the test.
       expect(
-        (await sut.getLift(firestore, userUid, liftUid)).exists
-      ).toBeTruthy();
+        await sut.getLift(firestore, userUid, liftUid)
+      ).not.toBeUndefined();
       await sut.deleteLift(firestore, userUid, liftUid);
       // Is removed by this part.
-      expect(
-        (await sut.getLift(firestore, userUid, liftUid)).exists
-      ).toBeFalsy();
+      expect(await sut.getLift(firestore, userUid, liftUid)).toBeUndefined();
     });
 
     test("getLifts returns the correct collection", async () => {

@@ -10,6 +10,7 @@ import Home from "./Home";
 import * as t from "./types";
 import RecordLift from "./RecordLift";
 import UpdateApp from "./UpdateApp";
+import EditLift from "./EditLift";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBBu2D-owaz14CfZvmOqjSoN0oMde5D5NE",
@@ -42,6 +43,9 @@ const App: React.FC = () => {
         })}
         <Route path="/" exact>
           <Home />
+        </Route>
+        <Route path="/lift/:liftId/edit" exact>
+          <EditLift />
         </Route>
       </Switch>
     </Router>

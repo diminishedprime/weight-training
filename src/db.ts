@@ -66,13 +66,22 @@ export const getLift = async (
   firestore: t.Firestore,
   userUid: string,
   liftUid: string
-): Promise<firebase.firestore.DocumentSnapshot> => {
-  return firestore
+): Promise<t.Lift | undefined> => {
+  const doc = await firestore
     .collection("users")
     .doc(userUid)
     .collection("lifts")
     .doc(liftUid)
     .get();
+  if (!doc.exists) {
+    return undefined;
+  }
+  const data = doc.data();
+  if (data === undefined) {
+    return undefined;
+  }
+  data.date = data.date.toDate();
+  return data as t.Lift;
 };
 
 export const deleteLift = (
