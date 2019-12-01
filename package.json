@@ -8,7 +8,7 @@
     "deploy:rules": "firebase deploy --only firestore:rules",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
-    "test": "firebase emulators:exec --only firestore 'yarn react-scripts test'"
+    "test": "firebase emulators:exec --only firestore 'yarn react-scripts test --runInBand'"
   },
   "browserslist": {
     "production": [
