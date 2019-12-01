@@ -1,4 +1,4 @@
-import * as firebase from "firebase/app";
+import firebase from "firebase/app";
 import * as t from "./types";
 
 export const setOneRepMax = async (
@@ -17,11 +17,13 @@ export const setOneRepMax = async (
     } else {
       const currentData = userDocData.data() as t.UserDoc;
       if (
-        currentData &&
-        currentData[liftType] &&
-        currentData[liftType]![t.ONE_REP_MAX] &&
-        currentData[liftType]![t.ONE_REP_MAX]! < weight
+        currentData[liftType] !== undefined &&
+        currentData[liftType]![t.ONE_REP_MAX] !== undefined &&
+        currentData[liftType]![t.ONE_REP_MAX]! > weight
       ) {
+        // do nothing, old record is larger than this lift.
+        // TODO - this would be wayyy better with the nullish operator once its live in cra.
+      } else {
         return userDoc.update(userData);
       }
     }
@@ -30,16 +32,26 @@ export const setOneRepMax = async (
   }
 };
 
+export const getUserDoc = async (
+  firestore: t.Firestore,
+  userUid: string
+): Promise<t.UserDoc | undefined> => {
+  const doc = await firestore
+    .collection("users")
+    .doc(userUid)
+    .get();
+  if (doc.exists) {
+    return doc.data() as t.UserDoc;
+  }
+  return undefined;
+};
+
 export const getOneRepMax = async (
   firestore: t.Firestore,
   userUid: string,
   liftType: t.LiftType
 ): Promise<number | undefined> => {
-  const userDoc = await firestore
-    .collection("users")
-    .doc(userUid)
-    .get();
-  const userData = userDoc.data() as t.UserDoc;
+  const userData = await getUserDoc(firestore, userUid);
   if (userData === undefined) {
     return undefined;
   }
