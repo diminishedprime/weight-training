@@ -5,13 +5,26 @@ export const setOneRepMax = async (
   firestore: t.Firestore,
   userUid: string,
   liftType: t.LiftType,
-  weight: number
+  weight: number,
+  options: { checkPrevious: boolean } = { checkPrevious: false }
 ) => {
   const userDoc = firestore.collection("users").doc(userUid);
   const userDocData = await userDoc.get();
   const userData: t.UserDoc = { [liftType]: { [t.ONE_REP_MAX]: weight } };
   if (userDocData.exists) {
-    return userDoc.update(userData);
+    if (!options.checkPrevious) {
+      return userDoc.update(userData);
+    } else {
+      const currentData = userDocData.data() as t.UserDoc;
+      if (
+        currentData &&
+        currentData[liftType] &&
+        currentData[liftType]![t.ONE_REP_MAX] &&
+        currentData[liftType]![t.ONE_REP_MAX]! < weight
+      ) {
+        return userDoc.update(userData);
+      }
+    }
   } else {
     return userDoc.set(userData);
   }
@@ -68,11 +81,17 @@ export const addLift = async (
   uid: string,
   lift: t.Lift
 ): Promise<firebase.firestore.DocumentReference> => {
-  return firestore
+  const docReference = firestore
     .collection("users")
     .doc(uid)
     .collection("lifts")
     .add(lift);
+  return docReference.then(async doc => {
+    await setOneRepMax(firestore, uid, lift.type, lift.weight, {
+      checkPrevious: true
+    });
+    return doc;
+  });
 };
 
 export const updateLift = async (
