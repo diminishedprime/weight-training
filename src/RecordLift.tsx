@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as hooks from "./hooks";
 import firebase from "firebase/app";
+import * as util from "./util";
 import LiftTable from "./LiftTable";
 import Layout from "./Layout";
 import * as t from "./types";
@@ -91,33 +92,81 @@ const AddLift = ({
   );
 };
 
-const programFor = (workout: t.WorkoutType, oneRepMax: number): t.Program => {
-  if (workout === t.WorkoutType.FIVE_BY_FIVE) {
-    const targetWeight = oneRepMax * 0.8;
-    const splits = (targetWeight - t.BAR_WEIGHT) / 4;
-    return [
-      { weight: 45, reps: 5, type: t.LiftType.DEADLIFT },
-      { weight: 45 + splits, reps: 5, type: t.LiftType.DEADLIFT },
-      { weight: 45 + splits * 2, reps: 3, type: t.LiftType.DEADLIFT },
-      { weight: 45 + splits * 3, reps: 2, type: t.LiftType.DEADLIFT },
-      { weight: targetWeight, reps: 5, type: t.LiftType.DEADLIFT },
-      { weight: targetWeight, reps: 5, type: t.LiftType.DEADLIFT },
-      { weight: targetWeight, reps: 5, type: t.LiftType.DEADLIFT },
-      { weight: targetWeight, reps: 5, type: t.LiftType.DEADLIFT },
-      { weight: targetWeight, reps: 5, type: t.LiftType.DEADLIFT }
-    ];
+const range = (to: number): Array<undefined> => {
+  const a: undefined[] = [];
+  for (let i = 0; i < to; i++) {
+    a.push(undefined);
   }
-  return [];
+  return a;
 };
 
-const SimpleLiftTable = ({ program }: { program: t.Program }) => {
+const Plates = ({ plates }: { plates: t.PlateConfig }) => {
+  const plateGroup: [t.PlateTypes, number][] = Object.entries(plates).filter(
+    ([, number]) => number > 0
+  ) as [t.PlateTypes, number][];
+  return plateGroup.length === 0 ? (
+    <div>Nope</div>
+  ) : (
+    <div className="small-plates">
+      {plateGroup.map(([plateType, number]) => {
+        return (
+          <React.Fragment key={`${plateType}-${number}`}>
+            {range(number).map((_, idx) => {
+              return (
+                <div
+                  key={`${plateType}-${number}-${idx}`}
+                  className={`${plateType} small-plate`}
+                >
+                  {t.PlateWeight[plateType]}
+                </div>
+              );
+            })}
+          </React.Fragment>
+        );
+      })}
+    </div>
+  );
+};
+
+const SimpleLiftTable = ({
+  program,
+  user
+}: {
+  program: t.Program;
+  user: firebase.User;
+}) => {
   const [currentLift, setCurrentLift] = React.useState(0);
+  const [skippedLifts, setSkippedLifts] = React.useState<{
+    [idx: string]: boolean;
+  }>({});
+  const [completedLifts, setCompletedLifts] = React.useState<{
+    [idx: string]: boolean;
+  }>({});
+
+  const skipLift = React.useCallback(() => {
+    if (currentLift < program.length) {
+      setSkippedLifts(old => ({ ...old, [currentLift]: true }));
+      setCurrentLift(old => old + 1);
+    }
+  }, [currentLift, program.length]);
+
+  const completeLift = React.useCallback(() => {
+    if (currentLift < program.length) {
+      const lift: t.Lift = { ...program[currentLift], date: new Date() };
+      // Don't need to block on this.
+      db.addLift(firebase.firestore(), user.uid, lift);
+      setCompletedLifts(old => ({ ...old, [currentLift]: true }));
+      setCurrentLift(old => old + 1);
+    }
+  }, [currentLift, program, user.uid]);
+
   return (
     <table className="table">
       <thead>
         <tr>
           <th>Reps</th>
           <th>Weight</th>
+          <th>Plates</th>
           <th></th>
           <th></th>
         </tr>
@@ -125,18 +174,34 @@ const SimpleLiftTable = ({ program }: { program: t.Program }) => {
       <tbody>
         {program.map((lift, idx) => {
           const isSelected = idx === currentLift;
+          const isSkipped = skippedLifts[idx];
+          const isCompleted = completedLifts[idx];
           return (
-            <tr className={isSelected ? "is-selected" : ""}>
+            <tr
+              key={idx}
+              className={`${isSelected ? "is-selected" : ""} ${
+                isSkipped ? "is-skipped-row" : ""
+              } ${isCompleted ? "is-completed-row" : ""}`}
+            >
               <td>{lift.reps}</td>
               <td>{lift.weight}</td>
+              <td className="plates">
+                <Plates
+                  plates={util.splitConfig(util.platesFor(lift.weight))}
+                />
+              </td>
               <td>
                 {isSelected && (
-                  <button className="button is-small">Skip</button>
+                  <button onClick={skipLift} className="button is-small">
+                    Skip
+                  </button>
                 )}
               </td>
               <td>
                 {isSelected && (
-                  <button className="button is-small">Done</button>
+                  <button onClick={completeLift} className="button is-small">
+                    Done
+                  </button>
                 )}
               </td>
             </tr>
@@ -147,11 +212,24 @@ const SimpleLiftTable = ({ program }: { program: t.Program }) => {
   );
 };
 
-const FiveByFive = () => {
+const FiveByFive = ({
+  user,
+  liftType
+}: {
+  user: firebase.User;
+  liftType: t.LiftType;
+}) => {
+  // TODO persist the current workout in firebase so users don't lose progress on a refresh.
   // TODO add a calculator for estimating 1RM based on a 3x3 or 5x5.
-  // TODO change back to defaults so the UI must be traversed.
-  const [oneRepMax, setOneRepMax] = React.useState((165 / 0.8).toString());
-  const [ready, setReady] = React.useState(true);
+  const [oneRepMax, setOneRepMax] = React.useState<number | undefined>();
+  React.useEffect(() => {
+    db.getOneRepMax(firebase.firestore(), user.uid, liftType).then(orm => {
+      if (orm !== undefined) {
+        setOneRepMax(orm);
+      }
+    });
+  }, [liftType, user.uid]);
+  const [ready, setReady] = React.useState(false);
   const [program, setProgram] = React.useState<t.Program | undefined>(
     undefined
   );
@@ -159,15 +237,26 @@ const FiveByFive = () => {
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
       if (value.match(/^[0-9]*$/)) {
-        setOneRepMax(value);
+        if (value === "") {
+          setOneRepMax(undefined);
+        } else {
+          setOneRepMax(parseInt(value));
+        }
       }
     },
     []
   );
 
+  const onSetOneRepMax = React.useCallback(() => {
+    if (oneRepMax !== undefined) {
+      db.setOneRepMax(firebase.firestore(), user.uid, liftType, oneRepMax);
+      setReady(true);
+    }
+  }, [user.uid, liftType, oneRepMax]);
+
   React.useEffect(() => {
-    if (ready && oneRepMax) {
-      setProgram(programFor(t.WorkoutType.FIVE_BY_FIVE, parseInt(oneRepMax)));
+    if (ready && oneRepMax !== undefined) {
+      setProgram(util.programFor(t.WorkoutType.FIVE_BY_FIVE, oneRepMax));
     }
   }, [ready, oneRepMax]);
 
@@ -183,19 +272,17 @@ const FiveByFive = () => {
                 className="input"
                 type="text"
                 placeholder="123"
-                value={oneRepMax}
+                value={oneRepMax === undefined ? "" : oneRepMax.toString()}
                 onChange={oneRepMaxOnChange}
               />
             </div>
             <div className="control">
               <button
                 className="button is-info"
-                disabled={oneRepMax === ""}
-                onClick={() => {
-                  setReady(true);
-                }}
+                disabled={oneRepMax === undefined}
+                onClick={onSetOneRepMax}
               >
-                Set
+                Start
               </button>
             </div>
           </div>
@@ -204,7 +291,7 @@ const FiveByFive = () => {
       {program && (
         <div>
           <div className="title is-7">Program</div>
-          <SimpleLiftTable program={program} />
+          <SimpleLiftTable program={program} user={user} />
         </div>
       )}
     </div>
@@ -217,7 +304,7 @@ const PreDefinedWorkout = ({
 }: RecordLiftProps & { user: firebase.User }) => {
   const [selectedWorkout, setSelectedWorkout] = React.useState<
     t.WorkoutType | undefined
-  >(t.WorkoutType.FIVE_BY_FIVE);
+  >(undefined);
 
   return (
     <div>
@@ -245,7 +332,9 @@ const PreDefinedWorkout = ({
       {selectedWorkout === t.WorkoutType.CUSTOM && (
         <AddLift liftType={liftType} user={user} />
       )}
-      {selectedWorkout === t.WorkoutType.FIVE_BY_FIVE && <FiveByFive />}
+      {selectedWorkout === t.WorkoutType.FIVE_BY_FIVE && (
+        <FiveByFive user={user} liftType={liftType} />
+      )}
     </div>
   );
 };

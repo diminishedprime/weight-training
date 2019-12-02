@@ -1,6 +1,6 @@
 {
   "name": "weight-training",
-  "version": "0.0.12",
+  "version": "0.0.15",
   "private": true,
   "scripts": {
     "build": "react-scripts build",
@@ -8,7 +8,7 @@
     "deploy:rules": "firebase deploy --only firestore:rules",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
-    "test": "firebase emulators:exec --only firestore 'yarn react-scripts test'"
+    "test": "firebase emulators:exec --only firestore 'yarn react-scripts test --runInBand'"
   },
   "browserslist": {
     "production": [

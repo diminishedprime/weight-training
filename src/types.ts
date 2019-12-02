@@ -1,4 +1,28 @@
+import * as firebase from "firebase/app";
+
+export type Firestore = firebase.firestore.Firestore;
+
 export const BAR_WEIGHT = 45;
+export const ONE_REP_MAX = "one-rep-max";
+
+export enum PlateTypes {
+  FORTY_FIVE = "forty-five",
+  // THIRTY_FIVE = 'thirty-five',
+  TWENTY_FIVE = "twenty-five",
+  TEN = "ten",
+  FIVE = "five",
+  TWO_AND_A_HALF = "two-and-a-half"
+}
+
+export const PlateWeight: { [plate in PlateTypes]: number } = {
+  [PlateTypes.FORTY_FIVE]: 45,
+  [PlateTypes.TWENTY_FIVE]: 25,
+  [PlateTypes.TEN]: 10,
+  [PlateTypes.FIVE]: 5,
+  [PlateTypes.TWO_AND_A_HALF]: 2.5
+};
+
+export type PlateConfig = { [plate in PlateTypes]: number } | "not-possible";
 
 export enum LiftType {
   DEADLIFT = "deadlift",
@@ -23,6 +47,12 @@ export type ProgramLift = {
   reps: number;
 };
 
+// db type
+export type UserDoc = {
+  [lift in LiftType]?: { [ONE_REP_MAX]?: number };
+};
+
+// db type (ish) the actual date is a firebase timestamp object.
 export type Lift = {
   date: Date;
   weight: number;

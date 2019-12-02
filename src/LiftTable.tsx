@@ -2,12 +2,7 @@ import * as React from "react";
 import firebase from "firebase/app";
 import * as t from "./types";
 import * as db from "./db";
-
-type EditingState = {
-  isEditing: boolean;
-  uid?: string;
-  dateString?: string;
-};
+import { Link } from "react-router-dom";
 
 export default ({
   user,
@@ -27,7 +22,7 @@ export default ({
       .where("type", "==", liftType)
       .orderBy("date", "desc")
       .limit(50);
-    db.onSnapshotGroupedBy(
+    return db.onSnapshotGroupedBy(
       lifts,
       doc =>
         doc
@@ -47,89 +42,6 @@ export default ({
       }
     );
   }, [user.uid, liftType]);
-
-  const [{ isEditing, uid, dateString }, setEditingState] = React.useState<
-    EditingState
-  >({
-    isEditing: false,
-    uid: undefined,
-    dateString: undefined
-  });
-
-  const deleteLift = React.useCallback(
-    (liftUid: string) => () => {
-      db.deleteLift(firebase.firestore(), user.uid, liftUid).then(() => {
-        setEditingState({
-          isEditing: false,
-          uid: undefined,
-          dateString: undefined
-        });
-      });
-    },
-    [user.uid]
-  );
-
-  const cancelEdit = React.useCallback(() => {
-    setEditingState({
-      isEditing: false,
-      uid: undefined,
-      dateString: undefined
-    });
-    setUpdateReps({});
-  }, []);
-
-  const [updateReps, setUpdateReps] = React.useState<{
-    [dateString: string]: {
-      [liftUid: string]: string;
-    };
-  }>({});
-  const repsOnChange = React.useCallback(
-    (liftUid: string, dateString: string) => (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const value = e.target.value;
-      setUpdateReps(old => ({ ...old, [dateString]: { [liftUid]: value } }));
-    },
-    []
-  );
-
-  const onClickUpdate = React.useCallback(
-    (uid: string, dateString: string) => async () => {
-      if (uid && updateReps[dateString] && updateReps[dateString][uid]) {
-        const currentLift = lifts[dateString].find(lift => lift.uid === uid);
-        if (currentLift) {
-          if (currentLift.reps.toString() !== updateReps[dateString][uid]) {
-            await db.updateLift(firebase.firestore(), user.uid, uid, {
-              reps: parseInt(updateReps[dateString][uid])
-            });
-            setEditingState({
-              isEditing: false,
-              uid: undefined,
-              dateString: undefined
-            });
-          }
-        }
-      }
-    },
-    [updateReps, lifts, user.uid]
-  );
-
-  const [updateDisabled, setUpdateDisable] = React.useState(true);
-  React.useEffect(() => {
-    if (
-      uid &&
-      dateString &&
-      updateReps[dateString] &&
-      updateReps[dateString][uid]
-    ) {
-      const currentLift = lifts[dateString].find(lift => lift.uid === uid);
-      if (currentLift) {
-        if (currentLift.reps.toString() !== updateReps[dateString][uid]) {
-          setUpdateDisable(false);
-        }
-      }
-    }
-  }, [lifts, uid, updateReps, dateString]);
 
   if (Object.keys(lifts).length === 0) {
     return <div>No lifts recorded.</div>;
@@ -151,7 +63,7 @@ export default ({
                   <th>Date</th>
                   <th>Weight</th>
                   <th>Reps</th>
-                  <th>Edit</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -159,66 +71,9 @@ export default ({
                   <tr key={lift.uid}>
                     <td>{lift.date.toLocaleTimeString()}</td>
                     <td>{lift.weight}</td>
+                    <td>{lift.reps}</td>
                     <td>
-                      {isEditing && uid === lift.uid ? (
-                        <input
-                          value={
-                            updateReps[dateString] &&
-                            updateReps[dateString][lift.uid] !== undefined
-                              ? updateReps[dateString][lift.uid]
-                              : lift.reps
-                          }
-                          onChange={repsOnChange(lift.uid, dateString)}
-                        />
-                      ) : (
-                        <>{lift.reps}</>
-                      )}
-                    </td>
-                    <td>
-                      {uid === undefined && (
-                        <button
-                          className="button link is-danger is-small"
-                          disabled={isEditing && uid !== lift.uid}
-                          onClick={() => {
-                            setEditingState({
-                              isEditing: true,
-                              uid: lift.uid,
-                              dateString
-                            });
-                          }}
-                        >
-                          Edit
-                        </button>
-                      )}
-                      {lift.uid === uid && isEditing && (
-                        <div className="field has-addons">
-                          <p className="control">
-                            <button
-                              className="button link is-danger is-small"
-                              onClick={deleteLift(lift.uid)}
-                            >
-                              Delete
-                            </button>
-                          </p>
-                          <p className="control">
-                            <button
-                              className="button link is-success is-small"
-                              disabled={updateDisabled}
-                              onClick={onClickUpdate(lift.uid, dateString)}
-                            >
-                              Update
-                            </button>
-                          </p>
-                          <p className="control">
-                            <button
-                              className="button is-warning is-small"
-                              onClick={cancelEdit}
-                            >
-                              Cancel
-                            </button>
-                          </p>
-                        </div>
-                      )}
+                      <Link to={`/lift/${lift.uid}/edit`}>Edit</Link>
                     </td>
                   </tr>
                 ))}
