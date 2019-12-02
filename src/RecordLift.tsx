@@ -92,20 +92,36 @@ const AddLift = ({
   );
 };
 
+const range = (to: number): Array<undefined> => {
+  const a: undefined[] = [];
+  for (let i = 0; i < to; i++) {
+    a.push(undefined);
+  }
+  return a;
+};
+
 const Plates = ({ plates }: { plates: t.PlateConfig }) => {
-  const plateGroup = Object.entries(plates).filter(([, number]) => number > 0);
+  const plateGroup: [t.PlateTypes, number][] = Object.entries(plates).filter(
+    ([, number]) => number > 0
+  ) as [t.PlateTypes, number][];
   return plateGroup.length === 0 ? (
     <div>Nope</div>
   ) : (
     <div className="small-plates">
       {plateGroup.map(([plateType, number]) => {
         return (
-          <div
-            key={`${plateType}-${number}`}
-            className={`${plateType} small-plate`}
-          >
-            {number}
-          </div>
+          <React.Fragment key={`${plateType}-${number}`}>
+            {range(number).map((_, idx) => {
+              return (
+                <div
+                  key={`${plateType}-${number}-${idx}`}
+                  className={`${plateType} small-plate`}
+                >
+                  {t.PlateWeight[plateType]}
+                </div>
+              );
+            })}
+          </React.Fragment>
         );
       })}
     </div>
