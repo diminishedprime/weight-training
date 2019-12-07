@@ -94,3 +94,7 @@ declare module "typesafe-actions" {
 }
 
 export const useSelector: rr.TypedUseSelectorHook<RootState> = rr.useSelector;
+
+export type RecordLiftProps = {
+  liftType: LiftType;
+};
