@@ -1,4 +1,8 @@
 import * as firebase from "firebase/app";
+import * as ta from "typesafe-actions";
+import * as rr from "react-redux";
+
+export * from "./actions";
 
 export type Firestore = firebase.firestore.Firestore;
 
@@ -74,3 +78,19 @@ export const liftSvgMap: { [lifttype in LiftType]: string } = {
   [LiftType.BENCH_PRESS]:
     "https://img.icons8.com/ios-filled/50/000000/bench-press.png"
 };
+
+export type RootAction = ta.ActionType<typeof import("./actions")>;
+
+export type RootState = {
+  localStorage: {
+    userDoc?: UserDoc;
+  };
+};
+
+declare module "typesafe-actions" {
+  interface Types {
+    RootAction: RootAction;
+  }
+}
+
+export const useSelector: rr.TypedUseSelectorHook<RootState> = rr.useSelector;

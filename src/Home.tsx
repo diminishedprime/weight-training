@@ -5,16 +5,20 @@ import Layout from "./Layout";
 import * as t from "./types";
 import { Link } from "react-router-dom";
 import * as db from "./db";
+import * as redux from "react-redux";
 
 export default () => {
   const user = hooks.useForceSignIn();
-  const [prs, setPrs] = React.useState<t.UserDoc | undefined>();
+  const userDoc = t.useSelector(s => s.localStorage && s.localStorage.userDoc);
+  const dispatch = redux.useDispatch();
   React.useEffect(() => {
     if (user === null) {
       return;
     }
     db.getUserDoc(firebase.firestore(), user.uid).then(userDoc => {
-      setPrs(userDoc);
+      if (userDoc !== undefined) {
+        dispatch(t.setUserDoc(userDoc));
+      }
     });
   }, [user]);
 
@@ -36,12 +40,16 @@ export default () => {
                 <img src={t.liftSvgMap[liftType]} width="50" alt="" />
               </figure>
               <div className="">{liftType}</div>
-              {prs && prs[liftType] && prs[liftType]![t.ONE_REP_MAX] && (
-                <div>
-                  PR:{" "}
-                  <span className="bold">{prs[liftType]![t.ONE_REP_MAX]}</span>
-                </div>
-              )}
+              {userDoc &&
+                userDoc[liftType] &&
+                userDoc[liftType]![t.ONE_REP_MAX] && (
+                  <div>
+                    PR:{" "}
+                    <span className="bold">
+                      {userDoc[liftType]![t.ONE_REP_MAX]}
+                    </span>
+                  </div>
+                )}
             </Link>
           );
         })}
