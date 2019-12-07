@@ -47,7 +47,7 @@ const TimeSince = ({ time }: { time: Date }) => {
       );
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [time]);
 
   return <span className={timeClass}>{displayTime}</span>;
 };
