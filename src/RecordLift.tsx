@@ -15,7 +15,7 @@ const AddLift = ({
   liftType,
   user
 }: RecordLiftProps & { user: firebase.User }) => {
-  const [weight, setWeight] = React.useState<string>("");
+  const [weight, setWeight] = React.useState<string>("45");
   const [reps, setReps] = React.useState<string>("1");
   const [addEnabled, setAddEnabled] = React.useState(false);
   React.useEffect(() => {
@@ -41,6 +41,18 @@ const AddLift = ({
     },
     []
   );
+  const addWeight = React.useCallback(
+    (amount: number) => () => {
+      setWeight(old => {
+        const nu = parseInt(old) + amount;
+        if (nu < 0) {
+          return "45";
+        }
+        return nu.toString();
+      });
+    },
+    []
+  );
   const addLiftOnClick = React.useCallback(() => {
     if (weight === "") {
       return;
@@ -55,6 +67,28 @@ const AddLift = ({
   }, [weight, liftType, reps, user.uid]);
   return (
     <>
+      <div className="field is-grouped">
+        <div className="control full-width">
+          <label className="label">Add Plate</label>
+          <div className="buttons has-addons is-right add-plates">
+            <button onClick={addWeight(90)} className="button">
+              45
+            </button>
+            <button onClick={addWeight(50)} className="button">
+              25
+            </button>
+            <button onClick={addWeight(20)} className="button">
+              10
+            </button>
+            <button onClick={addWeight(10)} className="button">
+              5
+            </button>
+            <button onClick={addWeight(5)} className="button">
+              2.5
+            </button>
+          </div>
+        </div>
+      </div>
       <div className="field is-grouped">
         <div className="control is-expanded">
           <div className="control">
