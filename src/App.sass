@@ -166,3 +166,78 @@ td.plates.plates.plates
 
 .full-width
   width: 100%;
+
+$bar-height-vw: 20;
+$aspect-ratio: 0.2;
+
+$bar-width-mm: 2200;
+
+$sleeve-width-mm: 415;
+$sleeve-height-mm: 50;
+$sleeve-width: percentage($sleeve-width-mm / $bar-width-mm);
+$sleeve-height: percentage($sleeve-height-mm / $bar-width-mm / $aspect-ratio);
+
+
+$bushing-width-mm: 30;
+$bushing-height-mm: 70;
+$bushing-width: percentage($bushing-width-mm / $bar-width-mm);
+$bushing-height: percentage($bushing-height-mm / $bar-width-mm / $aspect-ratio);
+
+$shaft-width-mm: 1310;
+$shaft-height-mm: 28;
+$shaft-width: percentage($shaft-width-mm / $bar-width-mm);
+$shaft-height: percentage($shaft-height-mm / $bar-width-mm / $aspect-ratio);
+
+$plate-height-mm: 450;
+$plate-width-mm: 54.61;
+$plate-width: $plate-width-mm / $bar-width-mm * $bar-height-vw / $aspect-ratio + unquote('vw');
+$plate-height: $plate-height-mm / $bar-width-mm * $bar-height-vw / $aspect-ratio + unquote('vw');
+
+
+.bar-wrapper
+  width: 100vw;
+  height: $bar-height-vw + unquote('vw');
+  display: flex;
+  align-items: center;
+  margin: auto;
+
+.bar-wrapper > .sleeve
+  width: $sleeve-width;
+  height: $sleeve-height;
+  background-color: green;
+
+.bar-wrapper > .bushing
+  width: $bushing-width;
+  height: $bushing-height;
+  background-color: orange;
+
+.bar-wrapper > .shaft
+  width: $shaft-width;
+  height: $shaft-height;
+  background-color: pink;
+
+.sleeve
+  display: flex;
+  align-items: center;
+
+.sleeve.left
+  flex-direction: row-reverse;
+
+.sleeve.right
+  flex-direction: row;
+
+.sleeve > .plate
+  width: $plate-width;
+  height: $plate-height;
+
+.plate
+  border: 1px solid black;
+
+.plate._45
+  background-color: blue;
+
+.plate._25
+  background-color: yellow;
+
+.plate._10
+  background-color: black;
