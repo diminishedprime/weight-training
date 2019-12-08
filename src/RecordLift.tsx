@@ -42,7 +42,6 @@ const PreDefinedWorkout = ({
         <div>
           <div className="title is-5">Select a workout</div>
           <div>
-            <button className="button">1 Rep Max</button>
             <button
               className="button"
               onClick={chooseWorkout(t.WorkoutType.THREE_BY_THREE)}
