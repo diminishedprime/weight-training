@@ -20,7 +20,7 @@ export default () => {
         dispatch(t.setUserDoc(userDoc));
       }
     });
-  }, [user]);
+  }, [user, dispatch]);
 
   if (user === null) {
     return <div>Checking login status</div>;

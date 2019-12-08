@@ -142,7 +142,7 @@ const XByX = ({
     if (oneRepMax !== undefined && ready) {
       setProgram(util.programFor(workoutType, oneRepMax, liftType));
     }
-  }, [oneRepMax, ready]);
+  }, [oneRepMax, ready, liftType, workoutType]);
 
   const oneRepMaxOnChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {

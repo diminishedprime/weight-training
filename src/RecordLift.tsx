@@ -33,7 +33,7 @@ const PreDefinedWorkout = ({
       setSelectedWorkout(workoutType);
       history.push(`/lift/${liftType}/${workoutType}`);
     },
-    [history]
+    [history, liftType]
   );
 
   return (
