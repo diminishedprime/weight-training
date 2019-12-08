@@ -1,6 +1,6 @@
 {
   "name": "weight-training",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "private": true,
   "scripts": {
     "build": "react-scripts build",
