@@ -38,8 +38,15 @@ export enum LiftType {
 
 export enum WorkoutType {
   CUSTOM = "custom",
-  FIVE_BY_FIVE = "five-by-five"
+  FIVE_BY_FIVE = "five-by-five",
+  THREE_BY_THREE = "three-by-three"
 }
+
+export const WorkoutTypeLabel = {
+  [WorkoutType.FIVE_BY_FIVE]: "5x5",
+  [WorkoutType.CUSTOM]: "Custom",
+  [WorkoutType.THREE_BY_THREE]: "3x3"
+};
 
 export type DisplayLift = { uid: string } & Lift;
 

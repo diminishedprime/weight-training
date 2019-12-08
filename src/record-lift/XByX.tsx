@@ -4,13 +4,6 @@ import * as t from "../types";
 import * as db from "../db";
 import firebase from "firebase/app";
 
-const range = (to: number): Array<undefined> => {
-  const a: undefined[] = [];
-  for (let i = 0; i < to; i++) {
-    a.push(undefined);
-  }
-  return a;
-};
 const Plates = ({ plates }: { plates: t.PlateConfig }) => {
   const plateGroup: [t.PlateTypes, number][] = Object.entries(plates).filter(
     ([, number]) => number > 0
@@ -22,7 +15,7 @@ const Plates = ({ plates }: { plates: t.PlateConfig }) => {
       {plateGroup.map(([plateType, number]) => {
         return (
           <React.Fragment key={`${plateType}-${number}`}>
-            {range(number).map((_, idx) => {
+            {util.range(number).map((_, idx) => {
               return (
                 <div
                   key={`${plateType}-${number}-${idx}`}
@@ -124,14 +117,19 @@ const SimpleLiftTable = ({
 
 const XByX = ({
   user,
-  liftType
+  liftType,
+  workoutType
 }: {
   user: firebase.User;
   liftType: t.LiftType;
+  workoutType: t.WorkoutType;
 }) => {
   // TODO persist the current workout in firebase so users don't lose progress on a refresh.
   // TODO add a calculator for estimating 1RM based on a 3x3 or 5x5.
+  const [program, setProgram] = React.useState<t.Program | undefined>();
   const [oneRepMax, setOneRepMax] = React.useState<number | undefined>();
+  const [ready, setReady] = React.useState(false);
+
   React.useEffect(() => {
     db.getOneRepMax(firebase.firestore(), user.uid, liftType).then(orm => {
       if (orm !== undefined) {
@@ -139,10 +137,13 @@ const XByX = ({
       }
     });
   }, [liftType, user.uid]);
-  const [ready, setReady] = React.useState(false);
-  const [program, setProgram] = React.useState<t.Program | undefined>(
-    undefined
-  );
+
+  React.useEffect(() => {
+    if (oneRepMax !== undefined && ready) {
+      setProgram(util.programFor(workoutType, oneRepMax, liftType));
+    }
+  }, [oneRepMax, ready]);
+
   const oneRepMaxOnChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
@@ -164,15 +165,9 @@ const XByX = ({
     }
   }, [user.uid, liftType, oneRepMax]);
 
-  React.useEffect(() => {
-    if (ready && oneRepMax !== undefined) {
-      setProgram(util.programFor(t.WorkoutType.FIVE_BY_FIVE, oneRepMax));
-    }
-  }, [ready, oneRepMax]);
-
   return (
     <div>
-      <div className="title is-5">5x5</div>
+      <div className="title is-5">{t.WorkoutTypeLabel[workoutType]}</div>
       {!ready && (
         <div className="field">
           <label className="label">Current One Rep Max</label>

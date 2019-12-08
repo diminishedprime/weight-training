@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import * as t from "./types";
 import AddLift from "./record-lift/Custom";
 import XByX from "./record-lift/XByX";
+import * as router from "react-router-dom";
 
 const PreDefinedWorkout = ({
   liftType,
@@ -14,6 +15,26 @@ const PreDefinedWorkout = ({
   const [selectedWorkout, setSelectedWorkout] = React.useState<
     t.WorkoutType | undefined
   >(undefined);
+  const location = router.useLocation();
+  const history = router.useHistory();
+
+  React.useEffect(() => {
+    const urlWorkoutType = location.pathname
+      .replace(`/lift/${liftType}/`, "")
+      .split("/")[0];
+    const workoutType = Object.values(t.WorkoutType).find(
+      a => a === urlWorkoutType
+    );
+    setSelectedWorkout(workoutType);
+  }, [location, liftType]);
+
+  const chooseWorkout = React.useCallback(
+    (workoutType: t.WorkoutType) => () => {
+      setSelectedWorkout(workoutType);
+      history.push(`${workoutType}`);
+    },
+    [history]
+  );
 
   return (
     <div>
@@ -22,16 +43,21 @@ const PreDefinedWorkout = ({
           <div className="title is-5">Select a workout</div>
           <div>
             <button className="button">1 Rep Max</button>
-            <button className="button">3x3</button>
             <button
               className="button"
-              onClick={() => setSelectedWorkout(t.WorkoutType.FIVE_BY_FIVE)}
+              onClick={chooseWorkout(t.WorkoutType.THREE_BY_THREE)}
+            >
+              3x3
+            </button>
+            <button
+              className="button"
+              onClick={chooseWorkout(t.WorkoutType.FIVE_BY_FIVE)}
             >
               5x5
             </button>
             <button
               className="button"
-              onClick={() => setSelectedWorkout(t.WorkoutType.CUSTOM)}
+              onClick={chooseWorkout(t.WorkoutType.CUSTOM)}
             >
               Custom
             </button>
@@ -41,8 +67,19 @@ const PreDefinedWorkout = ({
       {selectedWorkout === t.WorkoutType.CUSTOM && (
         <AddLift liftType={liftType} user={user} />
       )}
+      {selectedWorkout === t.WorkoutType.THREE_BY_THREE && (
+        <XByX
+          user={user}
+          liftType={liftType}
+          workoutType={t.WorkoutType.THREE_BY_THREE}
+        />
+      )}
       {selectedWorkout === t.WorkoutType.FIVE_BY_FIVE && (
-        <XByX user={user} liftType={liftType} />
+        <XByX
+          user={user}
+          liftType={liftType}
+          workoutType={t.WorkoutType.FIVE_BY_FIVE}
+        />
       )}
     </div>
   );

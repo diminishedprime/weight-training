@@ -36,7 +36,7 @@ const App: React.FC = () => {
         </Route>
         {Object.values(t.LiftType).map(liftType => {
           return (
-            <Route key={`/lift/${liftType}`} path={`/lift/${liftType}`} exact>
+            <Route key={`/lift/${liftType}`} path={`/lift/${liftType}`}>
               <RecordLift liftType={liftType} />
             </Route>
           );

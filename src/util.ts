@@ -39,40 +39,55 @@ export const splitConfig = (plateConfig: t.PlateConfig): t.PlateConfig => {
   return copied;
 };
 
-export const roundToNearestFive = (n: number): number => {
+export const nearestFive = (n: number): number => {
   return 5 * Math.round(n / 5);
+};
+
+const progressionFor = (
+  oneRepMax: number,
+  fraction: number,
+  liftsAtWeight: number,
+  reps: number,
+  type: t.LiftType
+): t.Program => {
+  const targetWeight = nearestFive(oneRepMax * fraction);
+  const jump = (targetWeight - t.BAR_WEIGHT) / 4;
+  return [
+    { weight: 45, reps: 5, type },
+    { weight: nearestFive(45 + jump), reps: 5, type },
+    {
+      weight: nearestFive(45 + jump * 2),
+      reps: 3,
+      type
+    },
+    {
+      weight: nearestFive(45 + jump * 3),
+      reps: 2,
+      type
+    },
+    ...range(liftsAtWeight).map(() => ({ weight: targetWeight, reps, type }))
+  ];
 };
 
 export const programFor = (
   workout: t.WorkoutType,
-  oneRepMax: number
+  oneRepMax: number,
+  liftType: t.LiftType
 ): t.Program => {
-  if (workout === t.WorkoutType.FIVE_BY_FIVE) {
-    const targetWeight = roundToNearestFive(oneRepMax * 0.8);
-    const splits = (targetWeight - t.BAR_WEIGHT) / 4;
-    return [
-      { weight: 45, reps: 5, type: t.LiftType.DEADLIFT },
-      {
-        weight: roundToNearestFive(45 + splits),
-        reps: 5,
-        type: t.LiftType.DEADLIFT
-      },
-      {
-        weight: roundToNearestFive(45 + splits * 2),
-        reps: 3,
-        type: t.LiftType.DEADLIFT
-      },
-      {
-        weight: roundToNearestFive(45 + splits * 3),
-        reps: 2,
-        type: t.LiftType.DEADLIFT
-      },
-      { weight: targetWeight, reps: 5, type: t.LiftType.DEADLIFT },
-      { weight: targetWeight, reps: 5, type: t.LiftType.DEADLIFT },
-      { weight: targetWeight, reps: 5, type: t.LiftType.DEADLIFT },
-      { weight: targetWeight, reps: 5, type: t.LiftType.DEADLIFT },
-      { weight: targetWeight, reps: 5, type: t.LiftType.DEADLIFT }
-    ];
+  switch (workout) {
+    case t.WorkoutType.FIVE_BY_FIVE:
+      return progressionFor(oneRepMax, 0.8, 5, 5, liftType);
+    case t.WorkoutType.THREE_BY_THREE:
+      return progressionFor(oneRepMax, 0.9, 3, 3, liftType);
+    default:
+      return [];
   }
-  return [];
+};
+
+export const range = (to: number): Array<undefined> => {
+  const a: undefined[] = [];
+  for (let i = 0; i < to; i++) {
+    a.push(undefined);
+  }
+  return a;
 };
