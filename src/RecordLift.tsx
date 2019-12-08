@@ -31,7 +31,7 @@ const PreDefinedWorkout = ({
   const chooseWorkout = React.useCallback(
     (workoutType: t.WorkoutType) => () => {
       setSelectedWorkout(workoutType);
-      history.push(`${workoutType}`);
+      history.push(`/lift/${liftType}/${workoutType}`);
     },
     [history]
   );
