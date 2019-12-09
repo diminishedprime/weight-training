@@ -189,9 +189,15 @@ $shaft-width: percentage($shaft-width-mm / $bar-width-mm);
 $shaft-height: percentage($shaft-height-mm / $bar-width-mm / $aspect-ratio);
 
 $plate-height-mm: 450;
-$plate-width-mm: 54.61;
+$plate-width-mm: 56;
 $plate-width: $plate-width-mm / $bar-width-mm * $bar-height-vw / $aspect-ratio + unquote('vw');
 $plate-height: $plate-height-mm / $bar-width-mm * $bar-height-vw / $aspect-ratio + unquote('vw');
+
+$_5_height-mm: $plate-height-mm / 1.5;
+$_5_plate_height: $_5_height-mm / $bar-width-mm * $bar-height-vw / $aspect-ratio + unquote('vw')
+
+$_2_5_height-mm: $plate-height-mm / 2;
+$_2_5_plate_height: $_2_5_height-mm / $bar-width-mm * $bar-height-vw / $aspect-ratio + unquote('vw')
 
 
 .bar-wrapper
@@ -230,14 +236,36 @@ $plate-height: $plate-height-mm / $bar-width-mm * $bar-height-vw / $aspect-ratio
   width: $plate-width;
   height: $plate-height;
 
+.sleeve > .plate._5
+  height: $_5_plate_height
+
+.sleeve > .plate._2\.5
+  height: $_2_5_plate_height;
+
 .plate
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  border: 0.5px solid black;
+  border-radius: 3px;
+
+.sideways-text
+  transform: rotate(90deg);
+  font-size: $plate-width
 
 .plate._45
   background-color: blue;
 
 .plate._25
-  background-color: yellow;
+  background-color: green;
+  color: black;
 
 .plate._10
   background-color: black;
+
+.plate._5
+  background-color: orange;
+
+.plate._2\.5
+  background-color: pink;

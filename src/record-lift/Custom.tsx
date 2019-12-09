@@ -2,6 +2,8 @@ import * as React from "react";
 import * as t from "../types";
 import * as db from "../db";
 import firebase from "firebase/app";
+import Bar from "../Bar";
+import * as util from "../util";
 
 const AddLift = ({
   liftType,
@@ -10,6 +12,7 @@ const AddLift = ({
   const [weight, setWeight] = React.useState<string>("45");
   const [reps, setReps] = React.useState<string>("1");
   const [addEnabled, setAddEnabled] = React.useState(false);
+  const plateConfig = util.platesFor(parseInt(weight));
   React.useEffect(() => {
     if (weight !== "") {
       setAddEnabled(true);
@@ -59,6 +62,7 @@ const AddLift = ({
   }, [weight, liftType, reps, user.uid]);
   return (
     <>
+      <Bar plateConfig={plateConfig} />
       <div className="field is-grouped">
         <div className="control full-width">
           <label className="label">Add Plate</label>

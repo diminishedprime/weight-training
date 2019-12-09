@@ -29,7 +29,15 @@ export default () => {
 
   return (
     <Layout>
-      <Bar />
+      <Bar
+        plateConfig={{
+          [t.PlateTypes.FORTY_FIVE]: 2,
+          [t.PlateTypes.TWENTY_FIVE]: 1,
+          [t.PlateTypes.TEN]: 1,
+          [t.PlateTypes.FIVE]: 0,
+          [t.PlateTypes.TWO_AND_A_HALF]: 0
+        }}
+      />
       <div className="flex">
         {Object.values(t.LiftType).map(liftType => {
           return (
