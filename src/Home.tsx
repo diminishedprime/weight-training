@@ -6,7 +6,6 @@ import * as t from "./types";
 import { Link } from "react-router-dom";
 import * as db from "./db";
 import * as redux from "react-redux";
-import Bar from "./Bar";
 
 export default () => {
   const user = hooks.useForceSignIn();
@@ -29,15 +28,6 @@ export default () => {
 
   return (
     <Layout>
-      <Bar
-        plateConfig={{
-          [t.PlateTypes.FORTY_FIVE]: 2,
-          [t.PlateTypes.TWENTY_FIVE]: 1,
-          [t.PlateTypes.TEN]: 1,
-          [t.PlateTypes.FIVE]: 0,
-          [t.PlateTypes.TWO_AND_A_HALF]: 0
-        }}
-      />
       <div className="flex">
         {Object.values(t.LiftType).map(liftType => {
           return (
