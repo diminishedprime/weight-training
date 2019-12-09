@@ -40,13 +40,13 @@ export default ({ plateConfig }: { plateConfig: t.PlateConfig }) => {
   }
   return (
     <div className="bar-wrapper">
-      <div className="sleeve left">
+      <div className="sleeve left metal">
         <PlatesFor side="left" plates={plates} />
       </div>
-      <div className="bushing"></div>
-      <div className="shaft"></div>
-      <div className="bushing"></div>
-      <div className="sleeve right">
+      <div className="bushing metal"></div>
+      <div className="shaft metal"></div>
+      <div className="bushing metal"></div>
+      <div className="sleeve right metal">
         <PlatesFor side="right" plates={plates} />
       </div>
     </div>
