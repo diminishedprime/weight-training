@@ -76,7 +76,7 @@ export default ({
         doc
           .data()
           .date.toDate()
-          .toISOString()
+          .toLocaleDateString()
           .slice(0, 10),
       doc => {
         const data = doc.data();
