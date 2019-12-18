@@ -28,3 +28,37 @@ export const useUpdateAvailable = (): boolean => {
   });
   return updateAvailable;
 };
+
+export enum LocalStorageKey {
+  X_BY_X = "@weight-training/x-by-x"
+}
+export const useLocalStorage = <T>(
+  key: LocalStorageKey,
+  initialValue: T
+): [T, React.Dispatch<React.SetStateAction<T>>, () => void] => {
+  const [value, setValue] = React.useState<T>(initialValue);
+  React.useEffect(() => {
+    const stringValue = window.localStorage.getItem(key);
+    if (stringValue === null) {
+      return;
+    }
+    const parsed = JSON.parse(stringValue);
+    setValue(parsed);
+  }, [key]);
+
+  React.useEffect(() => {
+    new Promise(resolve => {
+      window.localStorage.setItem(key, JSON.stringify(value));
+      resolve();
+    });
+  }, [value, key]);
+
+  const removeItem = React.useCallback(() => {
+    new Promise(resolve => {
+      window.localStorage.removeItem(key);
+      resolve();
+    });
+  }, [key]);
+
+  return [value, setValue, removeItem];
+};

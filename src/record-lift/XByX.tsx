@@ -3,6 +3,8 @@ import * as util from "../util";
 import * as t from "../types";
 import * as db from "../db";
 import firebase from "firebase/app";
+import * as hooks from "../hooks";
+import * as rrd from "react-router-dom";
 
 const Plates = ({ plates }: { plates: t.PlateConfig }) => {
   const plateGroup: [t.PlateTypes, number][] = Object.entries(plates).filter(
@@ -31,6 +33,13 @@ const Plates = ({ plates }: { plates: t.PlateConfig }) => {
     </div>
   );
 };
+
+interface XByXData {
+  currentLift: number;
+  skippedLifts: { [idx: string]: boolean };
+  completedLifts: { [idx: string]: boolean };
+}
+
 const SimpleLiftTable = ({
   program,
   user
@@ -38,30 +47,50 @@ const SimpleLiftTable = ({
   program: t.Program;
   user: firebase.User;
 }) => {
-  const [currentLift, setCurrentLift] = React.useState(0);
-  const [skippedLifts, setSkippedLifts] = React.useState<{
-    [idx: string]: boolean;
-  }>({});
-  const [completedLifts, setCompletedLifts] = React.useState<{
-    [idx: string]: boolean;
-  }>({});
+  const history = rrd.useHistory();
+  const [
+    { currentLift, skippedLifts, completedLifts },
+    updateXByXData,
+    cleanup
+  ] = hooks.useLocalStorage<XByXData>(hooks.LocalStorageKey.X_BY_X, {
+    currentLift: 0,
+    skippedLifts: {},
+    completedLifts: {}
+  });
+
+  const finishProgram = () => {
+    history.goBack();
+    cleanup();
+  };
 
   const skipLift = React.useCallback(() => {
     if (currentLift < program.length) {
-      setSkippedLifts(old => ({ ...old, [currentLift]: true }));
-      setCurrentLift(old => old + 1);
+      updateXByXData(current => {
+        return {
+          ...current,
+          currentLift: current.currentLift + 1,
+          skippedLifts: { ...current.skippedLifts, [currentLift]: true }
+        };
+      });
     }
-  }, [currentLift, program.length]);
+  }, [currentLift, program.length, updateXByXData]);
 
   const completeLift = React.useCallback(() => {
     if (currentLift < program.length) {
       const lift: t.Lift = { ...program[currentLift], date: new Date() };
       // Don't need to block on this.
       db.addLift(firebase.firestore(), user.uid, lift);
-      setCompletedLifts(old => ({ ...old, [currentLift]: true }));
-      setCurrentLift(old => old + 1);
+      updateXByXData(current => {
+        return {
+          ...current,
+          currentLift: current.currentLift + 1,
+          completedLifts: { ...current.completedLifts, [currentLift]: true }
+        };
+      });
+      /* setCompletedLifts(old => ({ ...old, [currentLift]: true }));
+       * setCurrentLift(old => old + 1); */
     }
-  }, [currentLift, program, user.uid]);
+  }, [currentLift, program, user.uid, updateXByXData]);
 
   return (
     <table className="table">
@@ -110,6 +139,22 @@ const SimpleLiftTable = ({
             </tr>
           );
         })}
+        {currentLift >= program.length && (
+          <tr>
+            <td />
+            <td />
+            <td />
+            <td />
+            <td>
+              <button
+                className="button is-small is-success is-outlined"
+                onClick={finishProgram}
+              >
+                Finish
+              </button>
+            </td>
+          </tr>
+        )}
       </tbody>
     </table>
   );
@@ -124,11 +169,22 @@ const XByX = ({
   liftType: t.LiftType;
   workoutType: t.WorkoutType;
 }) => {
-  // TODO persist the current workout in firebase so users don't lose progress on a refresh.
   // TODO add a calculator for estimating 1RM based on a 3x3 or 5x5.
+  const history = rrd.useHistory();
   const [program, setProgram] = React.useState<t.Program | undefined>();
   const [oneRepMax, setOneRepMax] = React.useState<number | undefined>();
-  const [ready, setReady] = React.useState(false);
+  const { started } = rrd.useParams();
+
+  const [ready, setReady] = React.useState(
+    started === undefined ? false : true
+  );
+
+  React.useEffect(() => {
+    if (ready && started === undefined) {
+      setReady(false);
+      setProgram(undefined);
+    }
+  }, [started, ready]);
 
   React.useEffect(() => {
     db.getOneRepMax(firebase.firestore(), user.uid, liftType).then(orm => {
@@ -162,8 +218,9 @@ const XByX = ({
     if (oneRepMax !== undefined) {
       db.setOneRepMax(firebase.firestore(), user.uid, liftType, oneRepMax);
       setReady(true);
+      history.push(`${history.location.pathname}/started`);
     }
-  }, [user.uid, liftType, oneRepMax]);
+  }, [user.uid, liftType, oneRepMax, history]);
 
   return (
     <div>
