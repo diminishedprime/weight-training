@@ -11,14 +11,12 @@ const TimeSince = ({ time }: { time: Date }) => {
   );
   const [timeClass, setTimeClass] = React.useState("");
   React.useEffect(() => {
-    const nowMoment = moment.utc();
     const timeUtcMoment = moment(time.toUTCString());
-    const timeSinceLift = moment.duration(
-      nowMoment.diff(timeUtcMoment, "milliseconds"),
-      "milliseconds"
-    );
     const interval = setInterval(() => {
-      timeSinceLift.add(1, "second");
+      const timeSinceLift = moment.duration(
+        moment.utc().diff(timeUtcMoment, "milliseconds"),
+        "milliseconds"
+      );
       const minutes = timeSinceLift.minutes();
       if (minutes >= 15 || timeSinceLift.asMinutes() >= 15) {
         setDisplayTime(time.toLocaleTimeString());
@@ -45,7 +43,7 @@ const TimeSince = ({ time }: { time: Date }) => {
           .toString()
           .padStart(2, "0")}`
       );
-    }, 1000);
+    }, 500);
     return () => clearInterval(interval);
   }, [time]);
 
