@@ -157,3 +157,28 @@ export const onSnapshotGroupedBy = <T>(
     onSnapshot(grouped);
   });
 };
+
+export const latestLiftOnSnapshot = (
+  userUid: string,
+  firestore: t.Firestore,
+  liftType: t.LiftType,
+  onSnapshot: (lift: t.Lift) => void
+): (() => void) => {
+  const liftsDoc = firestore
+    .collection("users")
+    .doc(userUid)
+    .collection("lifts")
+    .where("type", "==", liftType)
+    .limitToLast(1)
+    .orderBy("date");
+
+  return liftsDoc.onSnapshot(snapshot => {
+    const docs = snapshot.docs;
+    if (docs.length === 0) {
+      return;
+    }
+    const lift = docs[0].data();
+    lift.date = lift.date.toDate();
+    onSnapshot(lift as t.Lift);
+  });
+};

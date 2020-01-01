@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as util from "../util";
+import moment from "moment";
 import * as t from "../types";
 import * as db from "../db";
 import firebase from "firebase/app";
@@ -252,11 +253,105 @@ const XByX = ({
       )}
       {program && (
         <div>
-          <div className="title is-7">Program</div>
+          <LastLiftTime liftType={liftType} user={user} />
           <SimpleLiftTable program={program} user={user} />
         </div>
       )}
     </div>
+  );
+};
+
+// TODO - the data in here should probably be a re-usable hook.
+const LastLiftTime = ({
+  liftType,
+  user
+}: {
+  liftType: t.LiftType;
+  user: firebase.User;
+}) => {
+  const [lift, setLift] = React.useState<t.Lift | undefined>(undefined);
+  const [displayTime, setDisplayTime] = React.useState<string | undefined>(
+    undefined
+  );
+  const [timeClass, setTimeClass] = React.useState("");
+
+  React.useEffect(() => {
+    if (lift === undefined) {
+      return;
+    }
+    const then = moment(lift.date.toUTCString());
+    const duration = moment.duration(
+      moment.utc().diff(then, "milliseconds"),
+      "milliseconds"
+    );
+    if (duration.days() > 0) {
+      return;
+    }
+    console.log({ duration });
+  }, [lift]);
+
+  React.useEffect(() => {
+    return db.latestLiftOnSnapshot(
+      user.uid,
+      firebase.firestore(),
+      liftType,
+      setLift
+    );
+  }, [user.uid, firebase, liftType]);
+
+  React.useEffect(() => {
+    if (lift === undefined) {
+      return;
+    }
+    const timeUtcMoment = moment(lift.date.toUTCString());
+    const interval = setInterval(() => {
+      const timeSinceLift = moment.duration(
+        moment.utc().diff(timeUtcMoment, "milliseconds"),
+        "milliseconds"
+      );
+      const minutes = timeSinceLift.minutes();
+      if (minutes >= 15 || timeSinceLift.asMinutes() >= 15) {
+        setDisplayTime(undefined);
+        clearInterval(interval);
+        return;
+      }
+      if (minutes < 2) {
+        setTimeClass(old => {
+          if (old !== "has-text-danger") {
+            return "has-text-danger";
+          } else {
+            return old;
+          }
+        });
+      } else {
+        setTimeClass(old => {
+          return old === "has-text-success" ? old : "has-text-success";
+        });
+      }
+      const seconds = timeSinceLift.seconds();
+      setDisplayTime(
+        `${minutes.toString().padStart(2, "0")}:${seconds
+          .toString()
+          .padStart(2, "0")}`
+      );
+    }, 500);
+    return () => clearInterval(interval);
+  }, [liftType, lift]);
+
+  if (lift === undefined || displayTime === undefined) {
+    return null;
+  }
+
+  return (
+    <>
+      <div>
+        Last Lift:{" "}
+        <span className={timeClass}>{lift.date.toLocaleTimeString()}</span>
+      </div>
+      <div>
+        <span className={timeClass}>{displayTime}</span> ago.
+      </div>
+    </>
   );
 };
 
