@@ -38,7 +38,6 @@ export const useLiftsWithCache = (user: t.User | null, date?: string) => {
         dayBefore,
         dayAfter
       ).then(newDisplayLifts => {
-        console.log({ newDisplayLifts });
         setDisplayLifts(displayLifts => {
           const newStringified = JSON.stringify(newDisplayLifts);
           if (
