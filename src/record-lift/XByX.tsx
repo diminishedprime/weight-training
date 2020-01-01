@@ -304,7 +304,7 @@ const LastLiftTime = ({
       liftType,
       setLift
     );
-  }, [user.uid, firebase, liftType]);
+  }, [user.uid, liftType]);
 
   React.useEffect(() => {
     if (lift === undefined) {
