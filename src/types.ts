@@ -108,7 +108,8 @@ export type RecordLiftProps = {
 
 export enum LocalStorageKey {
   X_BY_X = "@weight-training/x-by-x",
-  USER = "@weight-training/user"
+  USER = "@weight-training/user",
+  LIFTS = "@weight-training/lifts"
 }
 
 export interface User {

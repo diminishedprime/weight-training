@@ -1,8 +1,63 @@
-import * as firebase from "firebase/app";
 import { useHistory } from "react-router-dom";
+
 import * as React from "react";
 import * as serviceWorker from "./serviceWorker";
 import * as t from "./types";
+import * as db from "./db";
+import moment from "moment";
+import firebase from "firebase/app";
+
+export const useLiftsWithCache = (user: t.User | null, date?: string) => {
+  const key = t.LocalStorageKey.LIFTS + date;
+  const [displayLifts, setDisplayLifts] = React.useState<
+    t.DisplayLift[] | undefined
+  >(() => {
+    const stringValue = window.localStorage.getItem(key);
+    if (stringValue === null) {
+      return undefined;
+    } else {
+      const parsed = JSON.parse(stringValue);
+      return parsed;
+    }
+  });
+
+  React.useEffect(() => {
+    if (user === null || date === undefined) {
+      return;
+    }
+    new Promise(resolve => {
+      const duration = moment.duration({ days: 1 });
+      const dayBefore = moment(date, "YYYY-MM-DD").toDate();
+      const dayAfter = moment(date, "YYYY-MM-DD")
+        .add(duration)
+        .toDate();
+
+      db.getLiftsBetween(
+        firebase.firestore(),
+        user.uid,
+        dayBefore,
+        dayAfter
+      ).then(newDisplayLifts => {
+        console.log({ newDisplayLifts });
+        setDisplayLifts(displayLifts => {
+          const newStringified = JSON.stringify(newDisplayLifts);
+          if (
+            displayLifts === undefined ||
+            JSON.stringify(displayLifts) !== newStringified
+          ) {
+            window.localStorage.setItem(key, newStringified);
+            return newDisplayLifts;
+          } else {
+            return displayLifts;
+          }
+        });
+        resolve();
+      });
+    });
+  }, [user, key, date]);
+
+  return displayLifts;
+};
 
 export const useForceSignIn = (): t.User | null => {
   const history = useHistory();
