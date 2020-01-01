@@ -1,11 +1,11 @@
 import * as React from "react";
-import * as hooks from "./hooks";
+import * as hooks from "../../hooks";
 import firebase from "firebase/app";
-import LiftTable from "./LiftTable";
-import Layout from "./Layout";
-import * as t from "./types";
-import AddLift from "./record-lift/Custom";
-import XByX from "./record-lift/XByX";
+import LiftTable from "../LiftTable";
+import Layout from "../Layout";
+import * as t from "../../types";
+import AddLift from "./Custom";
+import XByX from "./XByX";
 import * as router from "react-router-dom";
 
 const PreDefinedWorkout = ({

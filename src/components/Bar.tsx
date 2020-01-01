@@ -1,6 +1,6 @@
 import * as React from "react";
-import * as util from "./util";
-import * as t from "./types";
+import * as util from "../util";
+import * as t from "../types";
 
 const PlatesFor = ({
   side,

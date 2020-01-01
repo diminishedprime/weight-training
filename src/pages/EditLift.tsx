@@ -1,9 +1,9 @@
 import * as React from "react";
-import Layout from "./Layout";
+import Layout from "../components/Layout";
 import firebase from "firebase/app";
 import { useParams, useHistory } from "react-router-dom";
-import * as hooks from "./hooks";
-import * as db from "./db";
+import * as hooks from "../hooks";
+import * as db from "../db";
 
 export default () => {
   const { liftId } = useParams();

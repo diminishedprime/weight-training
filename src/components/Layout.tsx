@@ -1,7 +1,7 @@
 import * as React from "react";
 import firebase from "firebase/app";
 import { Link } from "react-router-dom";
-import * as t from "./types";
+import * as t from "../types";
 
 const Layout: React.FC<{}> = ({ children }) => {
   const [navActive, setNavActive] = React.useState(false);

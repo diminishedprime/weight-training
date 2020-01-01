@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as hooks from "./hooks";
+import * as hooks from "../hooks";
 
 export default () => {
   const update = hooks.useUpdateAvailable();

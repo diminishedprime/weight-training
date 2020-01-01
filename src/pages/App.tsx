@@ -7,9 +7,9 @@ import React from "react";
 import "./App.sass";
 import Login from "./Login";
 import Home from "./Home";
-import * as t from "./types";
-import RecordLift from "./RecordLift";
-import UpdateApp from "./UpdateApp";
+import * as t from "../types";
+import RecordLift from "../components/record-lift/RecordLift";
+import UpdateApp from "../components/UpdateApp";
 import EditLift from "./EditLift";
 
 const firebaseConfig = {

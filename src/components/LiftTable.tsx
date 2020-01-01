@@ -1,7 +1,7 @@
 import * as React from "react";
 import firebase from "firebase/app";
-import * as t from "./types";
-import * as db from "./db";
+import * as t from "../types";
+import * as db from "../db";
 import { Link } from "react-router-dom";
 import moment from "moment";
 

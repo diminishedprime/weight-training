@@ -1,7 +1,7 @@
 import * as React from "react";
 import firebase from "firebase/app";
 import { useHistory } from "react-router-dom";
-import Layout from "./Layout";
+import Layout from "../components/Layout";
 
 export default () => {
   const history = useHistory();

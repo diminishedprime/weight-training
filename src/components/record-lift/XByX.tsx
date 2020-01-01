@@ -1,10 +1,10 @@
 import * as React from "react";
-import * as util from "../util";
+import * as util from "../../util";
 import moment from "moment";
-import * as t from "../types";
-import * as db from "../db";
+import * as t from "../../types";
+import * as db from "../../db";
 import firebase from "firebase/app";
-import * as hooks from "../hooks";
+import * as hooks from "../../hooks";
 import * as rrd from "react-router-dom";
 
 const Plates = ({ plates }: { plates: t.PlateConfig }) => {

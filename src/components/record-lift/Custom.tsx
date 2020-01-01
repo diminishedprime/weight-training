@@ -1,9 +1,9 @@
 import * as React from "react";
-import * as t from "../types";
-import * as db from "../db";
+import * as t from "../../types";
+import * as db from "../../db";
 import firebase from "firebase/app";
 import Bar from "../Bar";
-import * as util from "../util";
+import * as util from "../../util";
 
 const AddLift = ({
   liftType,

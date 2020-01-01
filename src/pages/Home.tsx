@@ -1,10 +1,10 @@
 import * as React from "react";
-import * as hooks from "./hooks";
+import * as hooks from "../hooks";
 import firebase from "firebase/app";
-import Layout from "./Layout";
-import * as t from "./types";
+import Layout from "../components/Layout";
+import * as t from "../types";
 import { Link } from "react-router-dom";
-import * as db from "./db";
+import * as db from "../db";
 import * as redux from "react-redux";
 
 export default () => {
