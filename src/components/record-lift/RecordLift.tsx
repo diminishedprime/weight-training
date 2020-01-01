@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as hooks from "../../hooks";
 import LiftTable from "../LiftTable";
-import Layout from "../Layout";
 import * as t from "../../types";
 import AddLift from "./Custom";
 import XByX from "./XByX";
@@ -90,7 +89,7 @@ export default ({ liftType }: t.RecordLiftProps) => {
     return null;
   }
   return (
-    <Layout>
+    <>
       <div className="title">
         <div className="centered">{liftType}</div>
         <figure className="card-svg">
@@ -100,6 +99,6 @@ export default ({ liftType }: t.RecordLiftProps) => {
       <PreDefinedWorkout liftType={liftType} user={user} />
       <hr />
       <LiftTable liftType={liftType} user={user} />
-    </Layout>
+    </>
   );
 };

@@ -1,5 +1,4 @@
 import * as React from "react";
-import Layout from "../components/Layout";
 import firebase from "firebase/app";
 import { useParams, useHistory } from "react-router-dom";
 import * as hooks from "../hooks";
@@ -67,57 +66,55 @@ export default () => {
   }, [history, liftId, user]);
 
   return (
-    <Layout>
-      <div>
-        <div className="title is-5">Edit Lift</div>
-        <div className="field">
-          <label className="label">Weight</label>
-          <div className="control">
-            <input
-              className="input"
-              type="text"
-              placeholder="123"
-              value={weight}
-              onChange={onWeightChange}
-            />
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">Reps</label>
-          <div className="control">
-            <input
-              className="input"
-              type="text"
-              placeholder="1"
-              value={reps}
-              onChange={onRepsChange}
-            />
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">Date</label>
-          <div className="control">
-            <input className="input" type="text" readOnly value={date} />
-          </div>
-        </div>
-        <div className="field is-grouped">
-          <div className="control">
-            <button onClick={onDelete} className="button is-link is-danger">
-              Delete
-            </button>
-          </div>
-          <div className="control">
-            <button onClick={onUpdate} className="button is-link is-success">
-              Update
-            </button>
-          </div>
-          <div className="control">
-            <button onClick={onCancel} className="button is-link is-warning">
-              Cancel
-            </button>
-          </div>
+    <div>
+      <div className="title is-5">Edit Lift</div>
+      <div className="field">
+        <label className="label">Weight</label>
+        <div className="control">
+          <input
+            className="input"
+            type="text"
+            placeholder="123"
+            value={weight}
+            onChange={onWeightChange}
+          />
         </div>
       </div>
-    </Layout>
+      <div className="field">
+        <label className="label">Reps</label>
+        <div className="control">
+          <input
+            className="input"
+            type="text"
+            placeholder="1"
+            value={reps}
+            onChange={onRepsChange}
+          />
+        </div>
+      </div>
+      <div className="field">
+        <label className="label">Date</label>
+        <div className="control">
+          <input className="input" type="text" readOnly value={date} />
+        </div>
+      </div>
+      <div className="field is-grouped">
+        <div className="control">
+          <button onClick={onDelete} className="button is-link is-danger">
+            Delete
+          </button>
+        </div>
+        <div className="control">
+          <button onClick={onUpdate} className="button is-link is-success">
+            Update
+          </button>
+        </div>
+        <div className="control">
+          <button onClick={onCancel} className="button is-link is-warning">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };

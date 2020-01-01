@@ -4,6 +4,7 @@ import "firebase/auth";
 import "firebase/firestore";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React from "react";
+import Layout from "../components/Layout";
 import "./App.sass";
 import Login from "./Login";
 import Home from "./Home";
@@ -30,30 +31,32 @@ const App: React.FC = () => {
   return (
     <Router>
       <UpdateApp />
-      <Switch>
-        <Route path="/login" exact>
-          <Login />
-        </Route>
-        {Object.values(t.LiftType).map(liftType => {
-          return (
-            <Route
-              key={`/lift/${liftType}`}
-              path={[
-                `/lift/${liftType}/:program/:started`,
-                `/lift/${liftType}`
-              ]}
-            >
-              <RecordLift liftType={liftType} />
-            </Route>
-          );
-        })}
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/lift/:liftId/edit" exact>
-          <EditLift />
-        </Route>
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route path="/login" exact>
+            <Login />
+          </Route>
+          {Object.values(t.LiftType).map(liftType => {
+            return (
+              <Route
+                key={`/lift/${liftType}`}
+                path={[
+                  `/lift/${liftType}/:program/:started`,
+                  `/lift/${liftType}`
+                ]}
+              >
+                <RecordLift liftType={liftType} />
+              </Route>
+            );
+          })}
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/lift/:liftId/edit" exact>
+            <EditLift />
+          </Route>
+        </Switch>
+      </Layout>
     </Router>
   );
 };

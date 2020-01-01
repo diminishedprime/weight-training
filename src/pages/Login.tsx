@@ -1,7 +1,6 @@
 import * as React from "react";
 import firebase from "firebase/app";
 import { useHistory } from "react-router-dom";
-import Layout from "../components/Layout";
 
 export default () => {
   const history = useHistory();
@@ -21,12 +20,10 @@ export default () => {
   }, [history]);
 
   return (
-    <Layout>
-      <div>
-        <button onClick={googleSignIn} className="button is-link">
-          Sign In With Google
-        </button>
-      </div>
-    </Layout>
+    <div>
+      <button onClick={googleSignIn} className="button is-link">
+        Sign In With Google
+      </button>
+    </div>
   );
 };

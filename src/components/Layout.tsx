@@ -1,22 +1,42 @@
 import * as React from "react";
 import firebase from "firebase/app";
 import { Link } from "react-router-dom";
+import * as rrd from "react-router-dom";
 import * as t from "../types";
+
+interface HideLink extends rrd.LinkProps {
+  className?: string;
+}
 
 const Layout: React.FC<{}> = ({ children }) => {
   const [navActive, setNavActive] = React.useState(false);
+  const hideNav = React.useCallback(() => {
+    setNavActive(false);
+  }, []);
   const signOut = React.useCallback(() => {
     firebase.auth().signOut();
+    setNavActive(false);
   }, []);
+
+  const HideLink: React.FC<HideLink> = React.useCallback(
+    ({ to, children, className }) => {
+      return (
+        <Link className={className} to={to} onClick={hideNav}>
+          {children}
+        </Link>
+      );
+    },
+    [hideNav]
+  );
 
   return (
     <>
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <div className="flex flex-center main-heading">
-            <Link to="/" className="title">
+            <HideLink to="/" className="title">
               Weight Training
-            </Link>
+            </HideLink>
           </div>
 
           <a
@@ -36,19 +56,19 @@ const Layout: React.FC<{}> = ({ children }) => {
         </div>
         <div className={`navbar-menu ${navActive && "is-active"}`}>
           <div className="navbar-end">
-            <div className="navbar-dropdown">
-              <Link className="navbar-item" to="/">
+            <div className="navbar-dropdown" onClick={hideNav}>
+              <HideLink className="navbar-item" to="/">
                 Home
-              </Link>
+              </HideLink>
               {Object.values(t.LiftType).map(liftType => {
                 return (
-                  <Link
+                  <HideLink
                     key={`lift/${liftType}`}
                     className="navbar-item"
                     to={`/lift/${liftType}`}
                   >
                     {liftType}
-                  </Link>
+                  </HideLink>
                 );
               })}
               <button onClick={signOut} className="button is-danger is-small">
