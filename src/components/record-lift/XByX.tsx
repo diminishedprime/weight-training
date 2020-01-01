@@ -46,14 +46,14 @@ const SimpleLiftTable = ({
   user
 }: {
   program: t.Program;
-  user: firebase.User;
+  user: t.User;
 }) => {
   const history = rrd.useHistory();
   const [
     { currentLift, skippedLifts, completedLifts },
     updateXByXData,
     cleanup
-  ] = hooks.useLocalStorage<XByXData>(hooks.LocalStorageKey.X_BY_X, {
+  ] = hooks.useLocalStorage<XByXData>(t.LocalStorageKey.X_BY_X, {
     currentLift: 0,
     skippedLifts: {},
     completedLifts: {}
@@ -173,7 +173,7 @@ const XByX = ({
   liftType,
   workoutType
 }: {
-  user: firebase.User;
+  user: t.User;
   liftType: t.LiftType;
   workoutType: t.WorkoutType;
 }) => {
@@ -274,7 +274,7 @@ const LastLiftTime = ({
   user
 }: {
   liftType: t.LiftType;
-  user: firebase.User;
+  user: t.User;
 }) => {
   const [lift, setLift] = React.useState<t.Lift | undefined>(undefined);
   const [displayTime, setDisplayTime] = React.useState<string | undefined>(

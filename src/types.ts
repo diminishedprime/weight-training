@@ -105,3 +105,12 @@ export const useSelector: rr.TypedUseSelectorHook<RootState> = rr.useSelector;
 export type RecordLiftProps = {
   liftType: LiftType;
 };
+
+export enum LocalStorageKey {
+  X_BY_X = "@weight-training/x-by-x",
+  USER = "@weight-training/user"
+}
+
+export interface User {
+  uid: string;
+}

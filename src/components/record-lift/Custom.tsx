@@ -5,10 +5,7 @@ import firebase from "firebase/app";
 import Bar from "../Bar";
 import * as util from "../../util";
 
-const AddLift = ({
-  liftType,
-  user
-}: t.RecordLiftProps & { user: firebase.User }) => {
+const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
   const [weight, setWeight] = React.useState<string>("45");
   const [reps, setReps] = React.useState<string>("1");
   const [addEnabled, setAddEnabled] = React.useState(false);

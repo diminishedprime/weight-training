@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as hooks from "../../hooks";
-import firebase from "firebase/app";
 import LiftTable from "../LiftTable";
 import Layout from "../Layout";
 import * as t from "../../types";
@@ -11,7 +10,7 @@ import * as router from "react-router-dom";
 const PreDefinedWorkout = ({
   liftType,
   user
-}: t.RecordLiftProps & { user: firebase.User }) => {
+}: t.RecordLiftProps & { user: t.User }) => {
   const [selectedWorkout, setSelectedWorkout] = React.useState<
     t.WorkoutType | undefined
   >(undefined);

@@ -2,18 +2,26 @@ import * as firebase from "firebase/app";
 import { useHistory } from "react-router-dom";
 import * as React from "react";
 import * as serviceWorker from "./serviceWorker";
+import * as t from "./types";
 
-export const useForceSignIn = () => {
+export const useForceSignIn = (): t.User | null => {
   const history = useHistory();
-  const [user, setUser] = React.useState<firebase.User | null>(null);
+  const [user, setUser, cleanup] = useLocalStorage<t.User | null>(
+    t.LocalStorageKey.USER,
+    null
+  );
+
   React.useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
-      setUser(user);
       if (!user) {
+        cleanup();
         history.push("/login");
+      } else {
+        const u: t.User = { uid: user.uid };
+        setUser(u);
       }
     });
-  }, [history]);
+  }, [history, cleanup, setUser]);
   return user;
 };
 
@@ -29,28 +37,27 @@ export const useUpdateAvailable = (): boolean => {
   return updateAvailable;
 };
 
-export enum LocalStorageKey {
-  X_BY_X = "@weight-training/x-by-x"
-}
 export const useLocalStorage = <T>(
-  key: LocalStorageKey,
+  key: t.LocalStorageKey,
   initialValue: T
 ): [T, React.Dispatch<React.SetStateAction<T>>, () => void] => {
-  const [value, setValue] = React.useState<T>(initialValue);
-  React.useEffect(() => {
+  const [value, setValue] = React.useState<T>(() => {
     const stringValue = window.localStorage.getItem(key);
     if (stringValue === null) {
-      return;
+      return initialValue;
+    } else {
+      const parsed = JSON.parse(stringValue);
+      return parsed;
     }
-    const parsed = JSON.parse(stringValue);
-    setValue(parsed);
-  }, [key]);
+  });
 
   React.useEffect(() => {
-    new Promise(resolve => {
-      window.localStorage.setItem(key, JSON.stringify(value));
-      resolve();
-    });
+    if (value !== null && value !== undefined) {
+      new Promise(resolve => {
+        window.localStorage.setItem(key, JSON.stringify(value));
+        resolve();
+      });
+    }
   }, [value, key]);
 
   const removeItem = React.useCallback(() => {

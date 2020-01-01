@@ -50,13 +50,7 @@ const TimeSince = ({ time }: { time: Date }) => {
   return <span className={timeClass}>{displayTime}</span>;
 };
 
-export default ({
-  user,
-  liftType
-}: {
-  user: firebase.User;
-  liftType: t.LiftType;
-}) => {
+export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
   const [lifts, setLifts] = React.useState<{ [date: string]: t.DisplayLift[] }>(
     {}
   );
