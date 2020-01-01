@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/auth";
 import "firebase/firestore";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import React from "react";
 import Layout from "../components/Layout";
 import "./App.sass";
@@ -12,6 +12,7 @@ import * as t from "../types";
 import RecordLift from "../components/record-lift/RecordLift";
 import UpdateApp from "../components/UpdateApp";
 import EditLift from "./EditLift";
+import ViewLifts from "./ViewLifts";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBBu2D-owaz14CfZvmOqjSoN0oMde5D5NE",
@@ -26,6 +27,14 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+const FourOhFour = () => {
+  return (
+    <div>
+      There is no page here. Please go <Link to="/">Home</Link>
+    </div>
+  );
+};
 
 const App: React.FC = () => {
   return (
@@ -54,6 +63,12 @@ const App: React.FC = () => {
           </Route>
           <Route path="/lift/:liftId/edit" exact>
             <EditLift />
+          </Route>
+          <Route path="/lifts/:date" exact>
+            <ViewLifts />
+          </Route>
+          <Route>
+            <FourOhFour />
           </Route>
         </Switch>
       </Layout>

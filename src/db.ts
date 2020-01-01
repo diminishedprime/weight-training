@@ -139,6 +139,25 @@ export const getLifts = (
     .collection("lifts");
 };
 
+export const getLiftsBetween = async (
+  firestore: t.Firestore,
+  userUid: string,
+  dayBefore: Date,
+  dayAfter: Date
+): Promise<t.DisplayLift[]> => {
+  const lifts = await getLifts(firestore, userUid)
+    .where("date", ">", dayBefore)
+    .where("date", "<", dayAfter)
+    .get();
+  const displayLifts = lifts.docs.map(doc => {
+    const data = doc.data();
+    data.date = data.date.toDate();
+    data.uid = doc.id;
+    return data as t.DisplayLift;
+  });
+  return displayLifts;
+};
+
 export const onSnapshotGroupedBy = <T>(
   query: firebase.firestore.Query,
   groupBy: (t: firebase.firestore.QueryDocumentSnapshot) => string,
