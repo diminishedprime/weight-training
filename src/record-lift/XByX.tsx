@@ -101,7 +101,14 @@ const SimpleLiftTable = ({
           <th>Weight</th>
           <th>Plates</th>
           <th></th>
-          <th></th>
+          <th>
+            <button
+              className="button is-small is-success is-outlined"
+              onClick={finishProgram}
+            >
+              Finish
+            </button>
+          </th>
         </tr>
       </thead>
       <tbody>
