@@ -2,15 +2,13 @@ import * as React from "react";
 import * as hooks from "../hooks";
 import firebase from "firebase/app";
 import * as t from "../types";
-import { Link, useHistory } from "react-router-dom";
-import moment from "moment";
+import { Link } from "react-router-dom";
 import * as db from "../db";
 import * as redux from "react-redux";
-import Calendar from "react-calendar";
+import LiftCalendar from "../components/LiftCalendar";
 
 export default () => {
   const user = hooks.useForceSignIn();
-  const history = useHistory();
   const userDoc = t.useSelector(s => s.localStorage && s.localStorage.userDoc);
   const dispatch = redux.useDispatch();
   React.useEffect(() => {
@@ -56,18 +54,7 @@ export default () => {
           );
         })}
       </div>
-      <div className="home-calendar card lift-card">
-        <div>Lift Calendar</div>
-        <Calendar
-          onChange={date => {
-            if (date instanceof Array) {
-              return;
-            }
-            const urlDate = moment(date).format("YYYY-MM-DD");
-            history.push(`/lifts/${urlDate}`);
-          }}
-        />
-      </div>
+      <LiftCalendar />
     </>
   );
 };

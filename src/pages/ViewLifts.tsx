@@ -2,6 +2,7 @@ import * as React from "react";
 import * as hooks from "../hooks";
 import { useParams, Link } from "react-router-dom";
 import moment from "moment";
+import LiftCalendar from "../components/LiftCalendar";
 
 export default () => {
   const user = hooks.useForceSignIn();
@@ -15,6 +16,7 @@ export default () => {
 
   return (
     <>
+      <LiftCalendar />
       <div className="is-5">{date}</div>
       {lifts === undefined ? (
         <div>Loading...</div>

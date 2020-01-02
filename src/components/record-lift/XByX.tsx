@@ -294,7 +294,6 @@ const LastLiftTime = ({
     if (duration.days() > 0) {
       return;
     }
-    console.log({ duration });
   }, [lift]);
 
   React.useEffect(() => {

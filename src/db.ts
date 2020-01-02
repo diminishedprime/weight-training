@@ -1,4 +1,5 @@
 import firebase from "firebase/app";
+import moment from "moment";
 import * as t from "./types";
 
 export const setOneRepMax = async (
@@ -137,6 +138,23 @@ export const getLifts = (
     .collection("users")
     .doc(userUid)
     .collection("lifts");
+};
+
+export const getDaysWithLiftsBetween = async (
+  firestore: t.Firestore,
+  userUid: string,
+  startDate: Date,
+  endDate: Date
+): Promise<Set<string>> => {
+  const lifts = await getLifts(firestore, userUid)
+    .where("date", ">=", startDate)
+    .where("date", "<=", endDate)
+    .get();
+  return lifts.docs.reduce((acc, doc) => {
+    const m = moment(doc.data().date.toDate());
+    acc.add(m.format("YYYY-MM-DD"));
+    return acc;
+  }, new Set() as Set<string>);
 };
 
 export const getLiftsBetween = async (
