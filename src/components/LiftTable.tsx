@@ -56,32 +56,23 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
   );
 
   React.useEffect(() => {
-    const firestore = firebase.firestore();
-    const lifts = db
-      .getLifts(firestore, user.uid)
-      .where("type", "==", liftType)
-      .orderBy("date", "desc")
-      .limit(50);
-    return db.onSnapshotGroupedBy(
-      lifts,
-      doc =>
-        doc
-          .data()
-          .date.toDate()
-          .toLocaleDateString()
-          .slice(0, 10),
-      doc => {
-        const data = doc.data();
-        const asDate = data.date.toDate();
-        data["date"] = asDate;
-        data["uid"] = doc.id;
-        return data as t.DisplayLift;
-      },
-      grouping => {
-        setLifts(grouping);
+    return db.getLiftsOnSnapshot(
+      firebase.firestore(),
+      user,
+      query => query.where("type", "==", liftType).orderBy("date", "desc"),
+      lifts => {
+        const grouped = lifts.reduce((grouping, lift) => {
+          const liftKey = lift.date.toLocaleDateString().slice(0, 10);
+          if (grouping[liftKey] === undefined) {
+            grouping[liftKey] = [];
+          }
+          grouping[liftKey].push(lift);
+          return grouping;
+        }, {} as { [date: string]: t.DisplayLift[] });
+        setLifts(grouped);
       }
     );
-  }, [user.uid, liftType]);
+  }, [user, liftType]);
 
   if (Object.keys(lifts).length === 0) {
     return <div>No lifts recorded.</div>;

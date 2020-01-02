@@ -176,22 +176,22 @@ export const getLiftsBetween = async (
   return displayLifts;
 };
 
-export const onSnapshotGroupedBy = <T>(
-  query: firebase.firestore.Query,
-  groupBy: (t: firebase.firestore.QueryDocumentSnapshot) => string,
-  docTransform: (t: firebase.firestore.QueryDocumentSnapshot) => T,
-  onSnapshot: (grouping: t.Grouping<T>) => void
+export const getLiftsOnSnapshot = (
+  firestore: t.Firestore,
+  user: t.User,
+  modifyQuery: (query: firebase.firestore.Query) => firebase.firestore.Query,
+  onSnapshot: (lifts: t.DisplayLift[]) => void
 ): (() => void) => {
-  return query.onSnapshot(snapshot => {
-    const grouped: t.Grouping<T> = snapshot.docs.reduce((acc, doc) => {
-      const groupKey = groupBy(doc);
-      if (!acc[groupKey]) {
-        acc[groupKey] = [];
-      }
-      acc[groupKey].push(docTransform(doc));
-      return acc;
-    }, {} as t.Grouping<T>);
-    onSnapshot(grouped);
+  const getter = modifyQuery(getLifts(firestore, user.uid));
+  return getter.onSnapshot(snapshot => {
+    const lifts = snapshot.docs.map(doc => {
+      const data = doc.data();
+      data.date = data.date.toDate();
+      data.uid = doc.id;
+      const lift = data as t.DisplayLift;
+      return lift;
+    });
+    onSnapshot(lifts);
   });
 };
 
