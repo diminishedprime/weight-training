@@ -39,8 +39,6 @@ export default () => {
       .add(week)
       .toDate();
 
-    console.log({ startOfMonth, endOfMonth });
-
     db.getDaysWithLiftsBetween(
       firebase.firestore(),
       user.uid,
