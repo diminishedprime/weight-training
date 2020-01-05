@@ -8,19 +8,19 @@ $purple: #8a4d76;
 $pink: #fa7c91;
 $brown: #757763;
 $beige-light: #d0d1cd;
+$turquoise: hsl(171, 100%, 41%);
 $beige-lighter: #eff0eb;
 
 // Update Bulma's global variables
 $family-sans-serif: 'Nunito', sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
-$primary: $purple;
 $link: $pink;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
+$primary: $turquoise;
 
 // Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
@@ -285,3 +285,11 @@ $_2_5_plate_height: $_2_5_height-mm / $bar-width-mm * $bar-height-vw / $aspect-r
 
 .indent
   margin-left: 5px;
+
+.react-calendar__month-view__days__day--weekend
+  color: $primary;
+
+.react-calendar__tile--active
+  background-color: $primary !important;
+  color: $white !important;
+  font-weight: bold;

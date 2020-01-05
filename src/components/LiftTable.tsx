@@ -7,7 +7,7 @@ import moment from "moment";
 
 const TimeSince = ({ time }: { time: Date }) => {
   const [displayTime, setDisplayTime] = React.useState(
-    time.toLocaleTimeString()
+    moment(time).format("HH:MM")
   );
   const [timeClass, setTimeClass] = React.useState("");
   React.useEffect(() => {
@@ -19,7 +19,7 @@ const TimeSince = ({ time }: { time: Date }) => {
       );
       const minutes = timeSinceLift.minutes();
       if (minutes >= 15 || timeSinceLift.asMinutes() >= 15) {
-        setDisplayTime(time.toLocaleTimeString());
+        setDisplayTime(moment(time).format("HH:MM"));
         setTimeClass("");
         clearInterval(interval);
         return;
@@ -54,6 +54,7 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
   const [lifts, setLifts] = React.useState<{ [date: string]: t.DisplayLift[] }>(
     {}
   );
+  const [allLifts, setAllLifts] = React.useState<t.DisplayLift[]>([]);
 
   React.useEffect(() => {
     return db.getLiftsOnSnapshot(
@@ -61,6 +62,7 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
       user,
       query => query.where("type", "==", liftType).orderBy("date", "desc"),
       lifts => {
+        setAllLifts(lifts);
         const grouped = lifts.reduce((grouping, lift) => {
           const liftKey = lift.date.toLocaleDateString().slice(0, 10);
           if (grouping[liftKey] === undefined) {
@@ -82,8 +84,59 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
     lifts
   ).map(key => [key, lifts[key]]);
 
+  let seenDates = new Set();
+
   return (
     <>
+      <table className="table is-striped is-fullwidth">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Weight</th>
+            <th>Reps</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {allLifts.map((lift, liftIdx) => {
+            const date = lift.date.toLocaleDateString().substring(0, 10);
+            let headingRow;
+            if (!seenDates.has(date)) {
+              headingRow = (
+                <tr>
+                  <td
+                    align="center"
+                    colSpan={4}
+                    className="bold has-background-primary"
+                  >
+                    {date}
+                  </td>
+                </tr>
+              );
+              seenDates.add(date);
+            }
+            return (
+              <>
+                {headingRow && headingRow}
+                <tr key={lift.uid}>
+                  {liftIdx === 0 ? (
+                    <td>
+                      <TimeSince time={lift.date} />
+                    </td>
+                  ) : (
+                    <td>{moment(lift.date).format("HH:mm")}</td>
+                  )}
+                  <td>{lift.weight}</td>
+                  <td>{lift.reps}</td>
+                  <td>
+                    <Link to={`/lift/${lift.uid}/edit`}>Edit</Link>
+                  </td>
+                </tr>
+              </>
+            );
+          })}
+        </tbody>
+      </table>
       {dateGroups.map(
         ([dateString, lifts]: [string, t.DisplayLift[]], groupIdx) => {
           return (

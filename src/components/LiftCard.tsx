@@ -22,7 +22,9 @@ const LiftCard: React.FC<LiftCardProps> = ({ liftType, userDoc }) => {
       </figure>
       {userDoc && userDoc[liftType] && userDoc[liftType]![t.ONE_REP_MAX] && (
         <div>
-          PR: <span className="bold">{userDoc[liftType]![t.ONE_REP_MAX]}</span>
+          <span className="bold has-text-primary">
+            {userDoc[liftType]![t.ONE_REP_MAX]}
+          </span>
         </div>
       )}
     </Link>
