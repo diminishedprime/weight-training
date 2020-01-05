@@ -40,7 +40,8 @@ const Layout: React.FC<{}> = ({ children }) => {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <div className="flex flex-center main-heading">
-            <HideLink to="/" className="title">
+            <HideLink to="/" className="title flex flex-center">
+              <img src={c.images.dumbbell} width="50" alt="" />
               Weight Training
             </HideLink>
           </div>

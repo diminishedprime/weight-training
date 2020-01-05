@@ -4,6 +4,11 @@ import frontSquatImage from "./images/front_squat.png";
 import backSquatImage from "./images/back_squat.png";
 import overheadPressImage from "./images/overhead_press.png";
 import benchPressImage from "./images/bench_press.png";
+import dumbbellImage from "./images/dumbbell.png";
+
+export const images = {
+  dumbbell: dumbbellImage
+};
 
 export const liftMetadata: {
   [lifttype in t.LiftType]: { image: string; displayText: string };
