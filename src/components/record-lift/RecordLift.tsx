@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as hooks from "../../hooks";
 import LiftTable from "../LiftTable";
+import LiftCard from "../LiftCard";
 import * as t from "../../types";
 import AddLift from "./Custom";
 import XByX from "./XByX";
@@ -85,17 +86,14 @@ const PreDefinedWorkout = ({
 export default ({ liftType }: t.RecordLiftProps) => {
   // TODO - this should really come from a state-store.
   const user = hooks.useForceSignIn();
+  const userDoc = t.useSelector(s => s.localStorage && s.localStorage.userDoc);
   if (user === null) {
     return null;
   }
+
   return (
     <>
-      <div className="title">
-        <div className="centered">{liftType}</div>
-        <figure className="card-svg">
-          <img src={t.liftSvgMap[liftType]} width="50" alt="" />
-        </figure>
-      </div>
+      <LiftCard liftType={liftType} userDoc={userDoc} />
       <PreDefinedWorkout liftType={liftType} user={user} />
       <hr />
       <LiftTable liftType={liftType} user={user} />

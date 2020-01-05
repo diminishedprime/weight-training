@@ -1,11 +1,6 @@
 import firebase from "firebase/app";
 import * as ta from "typesafe-actions";
 import * as rr from "react-redux";
-import deadliftImage from "./images/deadlift.png";
-import frontSquatImage from "./images/front_squat.png";
-import backSquatImage from "./images/back_squat.png";
-import overheadPressImage from "./images/overhead_press.png";
-import benchPressImage from "./images/bench_press.png";
 
 export * from "./actions";
 
@@ -78,14 +73,6 @@ export type Lift = {
 
 export type Optional<T> = { [P in keyof T]?: T[P] };
 export type Grouping<T> = { [grouping: string]: T[] };
-
-export const liftSvgMap: { [lifttype in LiftType]: string } = {
-  [LiftType.DEADLIFT]: deadliftImage,
-  [LiftType.SQUAT]: backSquatImage,
-  [LiftType.FRONT_SQUAT]: frontSquatImage,
-  [LiftType.OVERHEAD_PRESS]: overheadPressImage,
-  [LiftType.BENCH_PRESS]: benchPressImage
-};
 
 export type RootAction = ta.ActionType<typeof import("./actions")>;
 

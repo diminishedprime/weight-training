@@ -2,10 +2,10 @@ import * as React from "react";
 import * as hooks from "../hooks";
 import firebase from "firebase/app";
 import * as t from "../types";
-import { Link } from "react-router-dom";
 import * as db from "../db";
 import * as redux from "react-redux";
 import LiftCalendar from "../components/LiftCalendar";
+import LiftCard from "../components/LiftCard";
 
 export default () => {
   const user = hooks.useForceSignIn();
@@ -29,30 +29,13 @@ export default () => {
   return (
     <>
       <div className="flex">
-        {Object.values(t.LiftType).map(liftType => {
-          return (
-            <Link
-              key={`/lift/${liftType}`}
-              to={`/lift/${liftType}`}
-              className="card lift-card flex-column flex-center"
-            >
-              <figure className="card-svg">
-                <img src={t.liftSvgMap[liftType]} width="50" alt="" />
-              </figure>
-              <div className="">{liftType}</div>
-              {userDoc &&
-                userDoc[liftType] &&
-                userDoc[liftType]![t.ONE_REP_MAX] && (
-                  <div>
-                    PR:{" "}
-                    <span className="bold">
-                      {userDoc[liftType]![t.ONE_REP_MAX]}
-                    </span>
-                  </div>
-                )}
-            </Link>
-          );
-        })}
+        {Object.values(t.LiftType).map(liftType => (
+          <LiftCard
+            liftType={liftType}
+            userDoc={userDoc}
+            key={`/lift/${liftType}`}
+          />
+        ))}
       </div>
       <LiftCalendar />
     </>
