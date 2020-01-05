@@ -37,7 +37,11 @@ const Layout: React.FC<{}> = ({ children }) => {
 
   return (
     <>
-      <nav className="navbar" role="navigation" aria-label="main navigation">
+      <nav
+        className="navbar is-fixed-top"
+        role="navigation"
+        aria-label="main navigation"
+      >
         <div className="navbar-brand">
           <div className="flex flex-center main-heading">
             <HideLink to="/" className="title flex flex-center">
