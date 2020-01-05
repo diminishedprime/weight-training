@@ -1,14 +1,16 @@
 import * as React from "react";
 import firebase from "firebase/app";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import * as rrd from "react-router-dom";
 import * as t from "../types";
+import * as c from "../constants";
 
 interface HideLink extends rrd.LinkProps {
   className?: string;
 }
 
 const Layout: React.FC<{}> = ({ children }) => {
+  const location = useLocation();
   const [navActive, setNavActive] = React.useState(false);
   const hideNav = React.useCallback(() => {
     setNavActive(false);
@@ -20,13 +22,17 @@ const Layout: React.FC<{}> = ({ children }) => {
 
   const HideLink: React.FC<HideLink> = React.useCallback(
     ({ to, children, className }) => {
+      let classNamePlus = className;
+      if (location.pathname === to) {
+        classNamePlus += " bold";
+      }
       return (
-        <Link className={className} to={to} onClick={hideNav}>
+        <Link className={classNamePlus} to={to} onClick={hideNav}>
           {children}
         </Link>
       );
     },
-    [hideNav]
+    [hideNav, location]
   );
 
   return (
@@ -60,17 +66,19 @@ const Layout: React.FC<{}> = ({ children }) => {
               <HideLink className="navbar-item" to="/">
                 Home
               </HideLink>
-              {Object.values(t.LiftType).map(liftType => {
-                return (
-                  <HideLink
-                    key={`lift/${liftType}`}
-                    className="navbar-item"
-                    to={`/lift/${liftType}`}
-                  >
-                    {liftType}
-                  </HideLink>
-                );
-              })}
+              <div className="indent">
+                {Object.values(t.LiftType).map(liftType => {
+                  return (
+                    <HideLink
+                      key={`lift/${liftType}`}
+                      className="navbar-item"
+                      to={`/lift/${liftType}`}
+                    >
+                      {c.liftMetadata[liftType].displayText}
+                    </HideLink>
+                  );
+                })}
+              </div>
               <button onClick={signOut} className="button is-danger is-small">
                 Sign Out
               </button>
