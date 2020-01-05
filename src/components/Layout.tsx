@@ -94,9 +94,6 @@ const Layout: React.FC<{}> = ({ children }) => {
           <a href="https://github.com/diminishedprime">Matt Hamrick</a> v
           {process.env.REACT_APP_VERSION}
         </div>
-        <div>
-          Icons by <a href="https://icons8.com">icons8</a>
-        </div>
       </footer>
     </>
   );
