@@ -27,7 +27,6 @@ export default () => {
   return (
     <>
       <LiftCalendar />
-      <div className="is-5">{date}</div>
       <LiftTable
         user={user}
         modifyQuery={query =>
