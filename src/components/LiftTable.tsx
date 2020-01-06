@@ -23,6 +23,7 @@ const TimeSince: React.FC<TimeSinceProps> = ({ liftUid, user, time }) => {
 
 export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
   const [lifts, setLifts] = React.useState<t.DisplayLift[]>([]);
+  const [editing, setEditing] = React.useState<string>();
 
   React.useEffect(() => {
     return db.getLiftsOnSnapshot(
@@ -65,7 +66,6 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
                   <th>Weight</th>
                   <th>Reps</th>
                   <th>Warmup</th>
-                  <th></th>
                 </tr>
               </>
             );
@@ -75,7 +75,13 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
           return (
             <React.Fragment key={lift.uid}>
               {headingRow && headingRow}
-              <tr key={lift.uid}>
+              <tr
+                key={lift.uid}
+                onClick={() =>
+                  setEditing(old => (old === lift.uid ? undefined : lift.uid))
+                }
+                className={editing === lift.uid ? "is-selected" : undefined}
+              >
                 {liftIdx === 0 ? (
                   <td>
                     <TimeSince
@@ -90,10 +96,16 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
                 <td>{lift.weight}</td>
                 <td>{lift.reps}</td>
                 <td align="center">{lift.warmup ? "✔️" : ""}</td>
-                <td>
-                  <Link to={`/lift/${lift.uid}/edit`}>Edit</Link>
-                </td>
               </tr>
+              {editing === lift.uid && (
+                <tr>
+                  <td colSpan={4}>
+                    <div className="flex flex-end">
+                      <Link to={`/lift/${lift.uid}/edit`}>Edit</Link>
+                    </div>
+                  </td>
+                </tr>
+              )}
             </React.Fragment>
           );
         })}
