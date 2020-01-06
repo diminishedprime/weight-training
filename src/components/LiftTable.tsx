@@ -116,7 +116,7 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
               seenDates.add(date);
             }
             return (
-              <>
+              <React.Fragment key={lift.uid}>
                 {headingRow && headingRow}
                 <tr key={lift.uid}>
                   {liftIdx === 0 ? (
@@ -132,7 +132,7 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
                     <Link to={`/lift/${lift.uid}/edit`}>Edit</Link>
                   </td>
                 </tr>
-              </>
+              </React.Fragment>
             );
           })}
         </tbody>

@@ -6,6 +6,7 @@ import * as db from "../../db";
 import firebase from "firebase/app";
 import * as hooks from "../../hooks";
 import * as rrd from "react-router-dom";
+import * as c from "../../constants";
 
 const Plates = ({ plates }: { plates: t.PlateConfig }) => {
   const plateGroup: [t.PlateTypes, number][] = Object.entries(plates).filter(
@@ -24,7 +25,7 @@ const Plates = ({ plates }: { plates: t.PlateConfig }) => {
                   key={`${plateType}-${number}-${idx}`}
                   className={`${plateType} small-plate`}
                 >
-                  {t.PlateWeight[plateType]}
+                  {c.plateWeight[plateType]}
                 </div>
               );
             })}

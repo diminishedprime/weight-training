@@ -1,4 +1,5 @@
 import * as t from "./types";
+import * as c from "./constants";
 
 export const emptyBar = (): t.PlateConfig => ({
   [t.PlateTypes.FORTY_FIVE]: 0,
@@ -20,9 +21,9 @@ export const platesFor = (weight: number): t.PlateConfig => {
   };
   const thing = Object.values(t.PlateTypes).reduce(
     ({ plates, remainingWeight }, plateType) => {
-      while (remainingWeight >= t.PlateWeight[plateType] * 2) {
+      while (remainingWeight >= c.plateWeight[plateType] * 2) {
         (plates as any)[plateType] += 2;
-        remainingWeight -= t.PlateWeight[plateType] * 2;
+        remainingWeight -= c.plateWeight[plateType] * 2;
       }
       return { plates, remainingWeight };
     },

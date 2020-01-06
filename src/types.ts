@@ -18,14 +18,6 @@ export enum PlateTypes {
   TWO_AND_A_HALF = "two-and-a-half"
 }
 
-export const PlateWeight: { [plate in PlateTypes]: number } = {
-  [PlateTypes.FORTY_FIVE]: 45,
-  [PlateTypes.TWENTY_FIVE]: 25,
-  [PlateTypes.TEN]: 10,
-  [PlateTypes.FIVE]: 5,
-  [PlateTypes.TWO_AND_A_HALF]: 2.5
-};
-
 export type PlateConfig = { [plate in PlateTypes]: number } | "not-possible";
 
 export enum LiftType {

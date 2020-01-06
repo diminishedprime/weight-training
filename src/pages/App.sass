@@ -22,9 +22,6 @@ $primary: $turquoise;
 
 // Update some of Bulma's component variables
 $control-border-width: 2px;
-$input-border-color: transparent;
-$input-shadow: none;
-
 $footer-padding: 1rem 1.5rem 1rem;
 
 // Import only what you need from Bulma
@@ -72,6 +69,9 @@ body
 .flex-center
   justify-items: center;
   align-items: center;
+
+.flex-between
+  justify-content: space-between;
 
 body, html, #root
   height: 100%;
@@ -174,8 +174,9 @@ td.plates.plates.plates
 .full-width
   width: 100%;
 
-$bar-height-vw: 20;
+$bar-width-vw: 95;
 $aspect-ratio: 0.2;
+$bar-height-vw: $bar-width-vw * $aspect-ratio;
 
 $bar-width-mm: 2200;
 
@@ -208,7 +209,7 @@ $_2_5_plate_height: $_2_5_height-mm / $bar-width-mm * $bar-height-vw / $aspect-r
 
 
 .bar-wrapper
-  width: 100vw;
+  width: $bar-width-vw + unquote('vw');
   height: $bar-height-vw + unquote('vw');
   display: flex;
   align-items: center;

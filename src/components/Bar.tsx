@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as util from "../util";
 import * as t from "../types";
+import * as c from "../constants";
 
 const PlatesFor = ({
   side,
@@ -18,9 +19,9 @@ const PlatesFor = ({
               return (
                 <div
                   key={`left-${type}-${plateIdx}`}
-                  className={`plate _${t.PlateWeight[type]}`}
+                  className={`plate _${c.plateWeight[type]}`}
                 >
-                  <div className="sideways-text">{t.PlateWeight[type]}</div>
+                  <div className="sideways-text">{c.plateWeight[type]}</div>
                 </div>
               );
             })}
