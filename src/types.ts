@@ -5,6 +5,7 @@ import * as rr from "react-redux";
 export * from "./actions";
 
 export type Firestore = firebase.firestore.Firestore;
+export type Timestamp = firebase.firestore.Timestamp;
 
 export const BAR_WEIGHT = 45;
 export const ONE_REP_MAX = "one-rep-max";
@@ -55,9 +56,8 @@ export type UserDoc = {
   [lift in LiftType]?: { [ONE_REP_MAX]?: number };
 };
 
-// db type (ish) the actual date is a firebase timestamp object.
 export type Lift = {
-  date: Date;
+  date: Timestamp;
   weight: number;
   type: LiftType;
   reps: number;

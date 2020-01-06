@@ -36,7 +36,7 @@ export default () => {
           <tbody>
             {lifts.map(lift => (
               <tr key={lift.uid}>
-                <td>{moment(lift.date).format("hh:mm a")}</td>
+                <td>{moment(lift.date.toDate()).format("hh:mm a")}</td>
                 <td>{lift.type}</td>
                 <td>{lift.weight}</td>
                 <td>{lift.reps}</td>

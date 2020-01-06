@@ -79,7 +79,10 @@ const SimpleLiftTable = ({
 
   const completeLift = React.useCallback(() => {
     if (currentLift < program.length) {
-      const lift: t.Lift = { ...program[currentLift], date: new Date() };
+      const lift: t.Lift = {
+        ...program[currentLift],
+        date: firebase.firestore.Timestamp.now()
+      };
       // Don't need to block on this.
       db.addLift(firebase.firestore(), user.uid, lift);
       updateXByXData(current => {
@@ -287,7 +290,8 @@ const LastLiftTime = ({
     if (lift === undefined) {
       return;
     }
-    const then = moment(lift.date.toUTCString());
+    const then = moment(lift.date.toDate().toUTCString());
+
     const duration = moment.duration(
       moment.utc().diff(then, "milliseconds"),
       "milliseconds"
@@ -310,7 +314,7 @@ const LastLiftTime = ({
     if (lift === undefined) {
       return;
     }
-    const timeUtcMoment = moment(lift.date.toUTCString());
+    const timeUtcMoment = moment(lift.date.toDate().toUTCString());
     const interval = setInterval(() => {
       const timeSinceLift = moment.duration(
         moment.utc().diff(timeUtcMoment, "milliseconds"),
@@ -353,7 +357,9 @@ const LastLiftTime = ({
     <>
       <div>
         Last Lift:{" "}
-        <span className={timeClass}>{lift.date.toLocaleTimeString()}</span>
+        <span className={timeClass}>
+          {lift.date.toDate().toLocaleTimeString()}
+        </span>
       </div>
       <div>
         <span className={timeClass}>{displayTime}</span> ago.

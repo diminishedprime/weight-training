@@ -16,7 +16,25 @@ export const useLiftsWithCache = (user: t.User | null, date?: string) => {
     if (stringValue === null) {
       return undefined;
     } else {
-      const parsed = JSON.parse(stringValue);
+      const parsed = JSON.parse(stringValue) as any[];
+      for (const parse of parsed) {
+        if (typeof parse.date === "string") {
+          // Send an event to firestore. Once we get very few or no entries
+          // here, we can delete this if branch.
+          firebase
+            .analytics()
+            .logEvent("exception", {
+              description: "Old Date format in localStorage",
+              fatal: false
+            });
+          parse.date = firebase.firestore.Timestamp.fromDate(parse.date);
+        } else {
+          parse.date = new firebase.firestore.Timestamp(
+            parse.date.seconds,
+            parse.date.milliseconds
+          );
+        }
+      }
       return parsed;
     }
   });

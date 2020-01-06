@@ -81,7 +81,6 @@ export const getLift = async (
   if (data === undefined) {
     return undefined;
   }
-  data.date = data.date.toDate();
   return data as t.Lift;
 };
 
@@ -169,7 +168,6 @@ export const getLiftsBetween = async (
     .get();
   const displayLifts = lifts.docs.map(doc => {
     const data = doc.data();
-    data.date = data.date.toDate();
     data.uid = doc.id;
     return data as t.DisplayLift;
   });
@@ -186,7 +184,6 @@ export const getLiftsOnSnapshot = (
   return getter.onSnapshot(snapshot => {
     const lifts = snapshot.docs.map(doc => {
       const data = doc.data();
-      data.date = data.date.toDate();
       data.uid = doc.id;
       const lift = data as t.DisplayLift;
       return lift;
@@ -215,7 +212,6 @@ export const latestLiftOnSnapshot = (
       return;
     }
     const lift = docs[0].data();
-    lift.date = lift.date.toDate();
     onSnapshot(lift as t.Lift);
   });
 };

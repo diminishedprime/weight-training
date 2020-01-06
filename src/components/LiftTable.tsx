@@ -5,13 +5,17 @@ import * as db from "../db";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
-const TimeSince = ({ time }: { time: Date }) => {
+interface TimeSinceProps {
+  time: t.Timestamp;
+}
+
+const TimeSince: React.FC<TimeSinceProps> = ({ time }) => {
   const [displayTime, setDisplayTime] = React.useState(
-    moment(time).format("HH:mm")
+    moment(time.toDate()).format("HH:mm")
   );
   const [timeClass, setTimeClass] = React.useState("");
   React.useEffect(() => {
-    const timeUtcMoment = moment(time.toUTCString());
+    const timeUtcMoment = moment(time.toDate().toUTCString());
     const interval = setInterval(() => {
       const timeSinceLift = moment.duration(
         moment.utc().diff(timeUtcMoment, "milliseconds"),
@@ -19,7 +23,7 @@ const TimeSince = ({ time }: { time: Date }) => {
       );
       const minutes = timeSinceLift.minutes();
       if (minutes >= 15 || timeSinceLift.asMinutes() >= 15) {
-        setDisplayTime(moment(time).format("HH:mm"));
+        setDisplayTime(moment(time.toDate()).format("HH:mm"));
         setTimeClass("");
         clearInterval(interval);
         return;
@@ -52,6 +56,7 @@ const TimeSince = ({ time }: { time: Date }) => {
 
 export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
   const [lifts, setLifts] = React.useState<t.DisplayLift[]>([]);
+  console.log({ lifts });
 
   React.useEffect(() => {
     return db.getLiftsOnSnapshot(
@@ -72,7 +77,10 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
     <table className="table is-striped is-fullwidth">
       <tbody>
         {lifts.map((lift, liftIdx) => {
-          const date = lift.date.toLocaleDateString().substring(0, 10);
+          const date = lift.date
+            .toDate()
+            .toLocaleDateString()
+            .substring(0, 10);
           let headingRow;
           if (!seenDates.has(date)) {
             headingRow = (
@@ -105,7 +113,7 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
                     <TimeSince time={lift.date} />
                   </td>
                 ) : (
-                  <td>{moment(lift.date).format("HH:mm")}</td>
+                  <td>{moment(lift.date.toDate()).format("HH:mm")}</td>
                 )}
                 <td>{lift.weight}</td>
                 <td>{lift.reps}</td>

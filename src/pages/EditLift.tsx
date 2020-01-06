@@ -36,7 +36,7 @@ export default () => {
       }
       setWeight(lift.weight.toString());
       setReps(lift.reps.toString());
-      setDate(lift.date.toISOString());
+      setDate(lift.date.toDate().toISOString());
     });
   }, [user, liftId]);
 
