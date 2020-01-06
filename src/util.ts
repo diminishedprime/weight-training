@@ -53,20 +53,21 @@ const progressionFor = (
 ): t.Program => {
   const targetWeight = nearestFive(oneRepMax * fraction);
   const jump = (targetWeight - t.BAR_WEIGHT) / 4;
+  const warmup = false;
+  const oneJump = nearestFive(45 + jump);
+  const twoJump = nearestFive(45 + jump * 2);
+  const threeJump = nearestFive(45 + jump * 3);
   return [
-    { weight: 45, reps: 5, type },
-    { weight: nearestFive(45 + jump), reps: 5, type },
-    {
-      weight: nearestFive(45 + jump * 2),
-      reps: 3,
-      type
-    },
-    {
-      weight: nearestFive(45 + jump * 3),
-      reps: 2,
-      type
-    },
-    ...range(liftsAtWeight).map(() => ({ weight: targetWeight, reps, type }))
+    { weight: 45, reps: 5, type, warmup: true },
+    { weight: oneJump, reps: 5, type, warmup: true },
+    { weight: twoJump, reps: 3, type, warmup: true },
+    { weight: threeJump, reps: 2, type, warmup: true },
+    ...range(liftsAtWeight).map(() => ({
+      weight: targetWeight,
+      reps,
+      type,
+      warmup
+    }))
   ];
 };
 

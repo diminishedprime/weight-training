@@ -9,6 +9,7 @@ export default () => {
   const [weight, setWeight] = React.useState("");
   const [reps, setReps] = React.useState("");
   const [date, setDate] = React.useState("");
+  const [warmup, setWarmup] = React.useState(false);
   const history = useHistory();
 
   const onWeightChange = React.useCallback(
@@ -37,6 +38,7 @@ export default () => {
       setWeight(lift.weight.toString());
       setReps(lift.reps.toString());
       setDate(lift.date.toDate().toISOString());
+      lift.warmup && setWarmup(lift.warmup);
     });
   }, [user, liftId]);
 
@@ -51,10 +53,11 @@ export default () => {
     if (weight !== "" && reps !== "" && liftId !== undefined) {
       db.updateLift(firebase.firestore(), user.uid, liftId, {
         weight: parseInt(weight),
-        reps: parseInt(reps)
+        reps: parseInt(reps),
+        warmup
       }).then(() => history.goBack());
     }
-  }, [history, weight, reps, liftId, user]);
+  }, [history, weight, reps, liftId, user, warmup]);
 
   const onDelete = React.useCallback(() => {
     if (user === null || liftId === undefined) {
@@ -97,6 +100,16 @@ export default () => {
         <div className="control">
           <input className="input" type="text" readOnly value={date} />
         </div>
+      </div>
+      <div className="field flex">
+        <label className="checkbox flex flex-center full-width flex-end">
+          <input
+            type="checkbox"
+            checked={warmup}
+            onChange={e => setWarmup(e.target.checked)}
+          />
+          Warmup
+        </label>
       </div>
       <div className="field is-grouped">
         <div className="control">

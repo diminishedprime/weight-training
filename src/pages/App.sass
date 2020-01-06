@@ -73,6 +73,12 @@ body
 .flex-between
   justify-content: space-between;
 
+.flex-end
+  justify-content: flex-end;
+
+.flex-grow
+  flex-grow: 1;
+
 body, html, #root
   height: 100%;
 
@@ -294,3 +300,7 @@ $_2_5_plate_height: $_2_5_height-mm / $bar-width-mm * $bar-height-vw / $aspect-r
   background-color: $primary !important;
   color: $white !important;
   font-weight: bold;
+
+label
+  input[type=checkbox]
+    margin-right: 5px;

@@ -12,7 +12,6 @@ interface SetWeightProps {
 }
 const SetWeight: React.FC<SetWeightProps> = ({ setWeight, weight }) => {
   const onWeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log({ value: e.target.value });
     if (e.target.value === "") {
       setWeight(undefined);
     } else {
@@ -80,6 +79,7 @@ const SetReps: React.FC<SetRepsProps> = ({ setReps, reps }) => {
 const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
   const [weight, setWeight] = React.useState<number | undefined>(45);
   const [reps, setReps] = React.useState(1);
+  const [warmup, setWarmup] = React.useState(false);
   const addEnabled = weight !== undefined;
   const plateConfig = util.platesFor(weight || 45);
   const addLiftOnClick = React.useCallback(() => {
@@ -90,10 +90,11 @@ const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
       weight: weight,
       type: liftType,
       date: firebase.firestore.Timestamp.now(),
-      reps: reps
+      reps: reps,
+      warmup
     };
     db.addLift(firebase.firestore(), user.uid, lift);
-  }, [weight, liftType, reps, user.uid]);
+  }, [weight, liftType, reps, user.uid, warmup]);
 
   return (
     <>
@@ -127,6 +128,16 @@ const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
       <div className="field is-grouped">
         <SetReps reps={reps} setReps={setReps} />
         <SetWeight weight={weight} setWeight={setWeight} />
+      </div>
+      <div className="field flex">
+        <label className="checkbox flex flex-center full-width flex-end">
+          <input
+            type="checkbox"
+            checked={warmup}
+            onChange={e => setWarmup(e.target.checked)}
+          />
+          Warmup
+        </label>
       </div>
       <div className="field flex flex-between">
         <button

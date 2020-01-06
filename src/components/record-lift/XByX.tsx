@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as util from "../../util";
-import moment from "moment";
 import * as t from "../../types";
 import * as db from "../../db";
 import firebase from "firebase/app";
@@ -50,6 +49,12 @@ const SimpleLiftTable = ({
   user: t.User;
 }) => {
   const history = rrd.useHistory();
+  const [lastLiftUid, setLastLiftUid] = React.useState<string>();
+  const {
+    moment: lastLiftMoment,
+    className: timeClassName,
+    displayString: timeDisplay
+  } = hooks.useTimeSinceLift(user, lastLiftUid);
   const [
     { currentLift, skippedLifts, completedLifts },
     updateXByXData,
@@ -59,6 +64,15 @@ const SimpleLiftTable = ({
     skippedLifts: {},
     completedLifts: {}
   });
+
+  React.useEffect(() => {
+    if (user === undefined) {
+      return;
+    }
+    db.getMostRecentLift(firebase.firestore(), user).then(
+      lift => lift && setLastLiftUid(lift.uid)
+    );
+  }, [user]);
 
   const finishProgram = () => {
     history.goBack();
@@ -84,7 +98,9 @@ const SimpleLiftTable = ({
         date: firebase.firestore.Timestamp.now()
       };
       // Don't need to block on this.
-      db.addLift(firebase.firestore(), user.uid, lift);
+      db.addLift(firebase.firestore(), user.uid, lift).then(lift =>
+        setLastLiftUid(lift.uid)
+      );
       updateXByXData(current => {
         return {
           ...current,
@@ -97,6 +113,43 @@ const SimpleLiftTable = ({
     }
   }, [currentLift, program, user.uid, updateXByXData]);
 
+  interface FinishRowProps {
+    complete?: boolean;
+  }
+  const FinishRow: React.FC<FinishRowProps> = ({ complete }) => (
+    <tr>
+      <td colSpan={4}>
+        <div className="control flex flex-center">
+          <div>
+            <button
+              onClick={finishProgram}
+              className={`button ${complete ? "is-success" : "is-danger"}`}
+            >
+              Finish
+            </button>
+          </div>
+
+          {!complete && (
+            <div className="flex flex-end flex-grow buttons">
+              <button
+                onClick={skipLift}
+                className="button is-outlined is-warning"
+              >
+                Skip
+              </button>
+              <button
+                onClick={completeLift}
+                className="button is-outlined is-success"
+              >
+                Done
+              </button>
+            </div>
+          )}
+        </div>
+      </td>
+    </tr>
+  );
+
   return (
     <table className="table">
       <thead>
@@ -104,15 +157,7 @@ const SimpleLiftTable = ({
           <th>Reps</th>
           <th>Weight</th>
           <th>Plates</th>
-          <th></th>
-          <th>
-            <button
-              className="button is-small is-success is-outlined"
-              onClick={finishProgram}
-            >
-              Finish
-            </button>
-          </th>
+          <th>Warmup</th>
         </tr>
       </thead>
       <tbody>
@@ -121,52 +166,44 @@ const SimpleLiftTable = ({
           const isSkipped = skippedLifts[idx];
           const isCompleted = completedLifts[idx];
           return (
-            <tr
-              key={idx}
-              className={`${isSelected ? "is-selected" : ""} ${
-                isSkipped ? "is-skipped-row" : ""
-              } ${isCompleted ? "is-completed-row" : ""}`}
-            >
-              <td>{lift.reps}</td>
-              <td>{lift.weight}</td>
-              <td className="plates">
-                <Plates
-                  plates={util.splitConfig(util.platesFor(lift.weight))}
-                />
-              </td>
-              <td>
-                {isSelected && (
-                  <button onClick={skipLift} className="button is-small">
-                    Skip
-                  </button>
-                )}
-              </td>
-              <td>
-                {isSelected && (
-                  <button onClick={completeLift} className="button is-small">
-                    Done
-                  </button>
-                )}
-              </td>
-            </tr>
+            <React.Fragment key={idx}>
+              <tr
+                key={idx}
+                className={`${isSelected ? "is-selected" : ""} ${
+                  isSkipped ? "is-skipped-row" : ""
+                } ${isCompleted ? "is-completed-row" : ""}`}
+              >
+                <td>{lift.reps}</td>
+                <td>{lift.weight}</td>
+                <td className="plates">
+                  <Plates
+                    plates={util.splitConfig(util.platesFor(lift.weight))}
+                  />
+                </td>
+                <td align="center">{lift.warmup ? "✔️" : ""}</td>
+              </tr>
+              {isSelected && timeDisplay && (
+                <tr>
+                  <td colSpan={4}>
+                    <div className="flex flex-between">
+                      <div>
+                        Last lift at:{" "}
+                        <span className={timeClassName}>
+                          {lastLiftMoment!.format("HH:mm")}
+                        </span>
+                      </div>
+                      <div>
+                        <span className={timeClassName}>{timeDisplay}</span> ago
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              )}
+              {isSelected && <FinishRow />}
+            </React.Fragment>
           );
         })}
-        {currentLift >= program.length && (
-          <tr>
-            <td />
-            <td />
-            <td />
-            <td />
-            <td>
-              <button
-                className="button is-small is-success is-outlined"
-                onClick={finishProgram}
-              >
-                Finish
-              </button>
-            </td>
-          </tr>
-        )}
+        {currentLift >= program.length && <FinishRow complete />}
       </tbody>
     </table>
   );
@@ -264,107 +301,10 @@ const XByX = ({
       )}
       {program && (
         <div>
-          <LastLiftTime liftType={liftType} user={user} />
           <SimpleLiftTable program={program} user={user} />
         </div>
       )}
     </div>
-  );
-};
-
-// TODO - the data in here should probably be a re-usable hook.
-const LastLiftTime = ({
-  liftType,
-  user
-}: {
-  liftType: t.LiftType;
-  user: t.User;
-}) => {
-  const [lift, setLift] = React.useState<t.Lift | undefined>(undefined);
-  const [displayTime, setDisplayTime] = React.useState<string | undefined>(
-    undefined
-  );
-  const [timeClass, setTimeClass] = React.useState("");
-
-  React.useEffect(() => {
-    if (lift === undefined) {
-      return;
-    }
-    const then = moment(lift.date.toDate().toUTCString());
-
-    const duration = moment.duration(
-      moment.utc().diff(then, "milliseconds"),
-      "milliseconds"
-    );
-    if (duration.days() > 0) {
-      return;
-    }
-  }, [lift]);
-
-  React.useEffect(() => {
-    return db.latestLiftOnSnapshot(
-      user.uid,
-      firebase.firestore(),
-      liftType,
-      setLift
-    );
-  }, [user.uid, liftType]);
-
-  React.useEffect(() => {
-    if (lift === undefined) {
-      return;
-    }
-    const timeUtcMoment = moment(lift.date.toDate().toUTCString());
-    const interval = setInterval(() => {
-      const timeSinceLift = moment.duration(
-        moment.utc().diff(timeUtcMoment, "milliseconds"),
-        "milliseconds"
-      );
-      const minutes = timeSinceLift.minutes();
-      if (minutes >= 15 || timeSinceLift.asMinutes() >= 15) {
-        setDisplayTime(undefined);
-        clearInterval(interval);
-        return;
-      }
-      if (minutes < 2) {
-        setTimeClass(old => {
-          if (old !== "has-text-danger") {
-            return "has-text-danger";
-          } else {
-            return old;
-          }
-        });
-      } else {
-        setTimeClass(old => {
-          return old === "has-text-success" ? old : "has-text-success";
-        });
-      }
-      const seconds = timeSinceLift.seconds();
-      setDisplayTime(
-        `${minutes.toString().padStart(2, "0")}:${seconds
-          .toString()
-          .padStart(2, "0")}`
-      );
-    }, 500);
-    return () => clearInterval(interval);
-  }, [liftType, lift]);
-
-  if (lift === undefined || displayTime === undefined) {
-    return null;
-  }
-
-  return (
-    <>
-      <div>
-        Last Lift:{" "}
-        <span className={timeClass}>
-          {lift.date.toDate().toLocaleTimeString()}
-        </span>
-      </div>
-      <div>
-        <span className={timeClass}>{displayTime}</span> ago.
-      </div>
-    </>
   );
 };
 

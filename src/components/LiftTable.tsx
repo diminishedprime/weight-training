@@ -4,59 +4,25 @@ import * as t from "../types";
 import * as db from "../db";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import * as hooks from "../hooks";
 
 interface TimeSinceProps {
+  user: t.User;
+  liftUid: string;
   time: t.Timestamp;
 }
 
-const TimeSince: React.FC<TimeSinceProps> = ({ time }) => {
-  const [displayTime, setDisplayTime] = React.useState(
-    moment(time.toDate()).format("HH:mm")
+const TimeSince: React.FC<TimeSinceProps> = ({ liftUid, user, time }) => {
+  const { className, displayString } = hooks.useTimeSinceLift(user, liftUid);
+  return (
+    <span className={className}>
+      {displayString || moment(time.toDate()).format("HH:mm")}
+    </span>
   );
-  const [timeClass, setTimeClass] = React.useState("");
-  React.useEffect(() => {
-    const timeUtcMoment = moment(time.toDate().toUTCString());
-    const interval = setInterval(() => {
-      const timeSinceLift = moment.duration(
-        moment.utc().diff(timeUtcMoment, "milliseconds"),
-        "milliseconds"
-      );
-      const minutes = timeSinceLift.minutes();
-      if (minutes >= 15 || timeSinceLift.asMinutes() >= 15) {
-        setDisplayTime(moment(time.toDate()).format("HH:mm"));
-        setTimeClass("");
-        clearInterval(interval);
-        return;
-      }
-      if (minutes < 2) {
-        setTimeClass(old => {
-          if (old !== "has-text-danger") {
-            return "has-text-danger";
-          } else {
-            return old;
-          }
-        });
-      } else {
-        setTimeClass(old => {
-          return old === "has-text-success" ? old : "has-text-success";
-        });
-      }
-      const seconds = timeSinceLift.seconds();
-      setDisplayTime(
-        `${minutes.toString().padStart(2, "0")}:${seconds
-          .toString()
-          .padStart(2, "0")}`
-      );
-    }, 500);
-    return () => clearInterval(interval);
-  }, [time]);
-
-  return <span className={timeClass}>{displayTime}</span>;
 };
 
 export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
   const [lifts, setLifts] = React.useState<t.DisplayLift[]>([]);
-  console.log({ lifts });
 
   React.useEffect(() => {
     return db.getLiftsOnSnapshot(
@@ -88,7 +54,7 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
                 <tr>
                   <td
                     align="center"
-                    colSpan={4}
+                    colSpan={5}
                     className="bold has-background-primary"
                   >
                     {date}
@@ -98,25 +64,32 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
                   <th>Date</th>
                   <th>Weight</th>
                   <th>Reps</th>
+                  <th>Warmup</th>
                   <th></th>
                 </tr>
               </>
             );
             seenDates.add(date);
           }
+          // TODO - make edit show up as a colSpan 4 after you tap a cell
           return (
             <React.Fragment key={lift.uid}>
               {headingRow && headingRow}
               <tr key={lift.uid}>
                 {liftIdx === 0 ? (
                   <td>
-                    <TimeSince time={lift.date} />
+                    <TimeSince
+                      liftUid={lift.uid}
+                      user={user}
+                      time={lift.date}
+                    />
                   </td>
                 ) : (
                   <td>{moment(lift.date.toDate()).format("HH:mm")}</td>
                 )}
                 <td>{lift.weight}</td>
                 <td>{lift.reps}</td>
+                <td align="center">{lift.warmup ? "✔️" : ""}</td>
                 <td>
                   <Link to={`/lift/${lift.uid}/edit`}>Edit</Link>
                 </td>

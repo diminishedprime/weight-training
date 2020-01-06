@@ -49,6 +49,7 @@ export type ProgramLift = {
   weight: number;
   type: LiftType;
   reps: number;
+  warmup: boolean;
 };
 
 // db type
@@ -61,6 +62,7 @@ export type Lift = {
   weight: number;
   type: LiftType;
   reps: number;
+  warmup: boolean | undefined;
 };
 
 export type Optional<T> = { [P in keyof T]?: T[P] };

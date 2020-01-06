@@ -2,6 +2,26 @@ import firebase from "firebase/app";
 import moment from "moment";
 import * as t from "./types";
 
+export const getMostRecentLift = async (
+  firestore: t.Firestore,
+  user: t.User
+): Promise<t.DisplayLift | undefined> => {
+  const lifts = await firestore
+    .collection("users")
+    .doc(user.uid)
+    .collection("lifts")
+    .limit(1)
+    .orderBy("date", "desc")
+    .get();
+  if (lifts.docs.length === 0) {
+    return undefined;
+  }
+  let doc = lifts.docs[0];
+  const data = doc.data();
+  data.uid = doc.id;
+  return data as t.DisplayLift;
+};
+
 export const setOneRepMax = async (
   firestore: t.Firestore,
   userUid: string,
@@ -101,7 +121,7 @@ export const addLift = async (
   firestore: t.Firestore,
   uid: string,
   lift: t.Lift
-): Promise<firebase.firestore.DocumentReference> => {
+): Promise<t.DisplayLift> => {
   const docReference = firestore
     .collection("users")
     .doc(uid)
@@ -111,7 +131,13 @@ export const addLift = async (
     await setOneRepMax(firestore, uid, lift.type, lift.weight, {
       checkPrevious: true
     });
-    return doc;
+    const d = await doc.get();
+    const data = d.data();
+    if (data === undefined) {
+      throw new Error("Doc was not added successfully");
+    }
+    data.uid = doc.id;
+    return data as t.DisplayLift;
   });
 };
 
