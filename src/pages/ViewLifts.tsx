@@ -1,53 +1,39 @@
 import * as React from "react";
 import * as hooks from "../hooks";
-import { useParams, Link } from "react-router-dom";
-import moment from "moment";
+import { useParams, useHistory } from "react-router-dom";
+import LiftTable from "../components/LiftTable";
 import LiftCalendar from "../components/LiftCalendar";
+import moment from "moment";
 
 export default () => {
   const user = hooks.useForceSignIn();
   const { date } = useParams();
+  const history = useHistory();
 
-  const lifts = hooks.useLiftsWithCache(user, date);
-
+  const parsedDate = moment(date, "YYYY-MM-DD");
+  if (!parsedDate.isValid()) {
+    history.push("/404");
+    return null;
+  }
   if (user === null) {
     return <div>Checking login status</div>;
   }
+
+  const startOfDay = moment(date, "YYYY-MM-DD").toDate();
+  const endOfDay = moment(date, "YYYY-MM-DD")
+    .add(1, "day")
+    .toDate();
 
   return (
     <>
       <LiftCalendar />
       <div className="is-5">{date}</div>
-      {lifts === undefined ? (
-        <div>Loading...</div>
-      ) : lifts.length === 0 ? (
-        <div>No lifts for this date</div>
-      ) : (
-        <table className="table is-striped is-fullwidth">
-          <thead>
-            <tr>
-              <th>Time</th>
-              <th>Type</th>
-              <th>Weight</th>
-              <th>Reps</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {lifts.map(lift => (
-              <tr key={lift.uid}>
-                <td>{moment(lift.date.toDate()).format("hh:mm a")}</td>
-                <td>{lift.type}</td>
-                <td>{lift.weight}</td>
-                <td>{lift.reps}</td>
-                <td>
-                  <Link to={`/lift/${lift.uid}/edit`}>Edit</Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+      <LiftTable
+        user={user}
+        modifyQuery={query =>
+          query.where("date", ">", startOfDay).where("date", "<", endOfDay)
+        }
+      />
     </>
   );
 };

@@ -96,7 +96,10 @@ export default ({ liftType }: t.RecordLiftProps) => {
       <LiftCard liftType={liftType} userDoc={userDoc} />
       <PreDefinedWorkout liftType={liftType} user={user} />
       <hr />
-      <LiftTable liftType={liftType} user={user} />
+      <LiftTable
+        modifyQuery={query => query.where("type", "==", liftType)}
+        user={user}
+      />
     </>
   );
 };

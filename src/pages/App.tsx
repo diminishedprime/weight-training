@@ -67,6 +67,9 @@ const App: React.FC = () => {
           <Route path="/lifts/:date" exact>
             <ViewLifts />
           </Route>
+          <Route path="/404" exact>
+            <FourOhFour />
+          </Route>
           <Route>
             <FourOhFour />
           </Route>

@@ -21,7 +21,12 @@ const TimeSince: React.FC<TimeSinceProps> = ({ liftUid, user, time }) => {
   );
 };
 
-export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
+interface LiftTableProps {
+  modifyQuery: (query: firebase.firestore.Query) => firebase.firestore.Query;
+  user: t.User;
+}
+
+const LiftTable: React.FC<LiftTableProps> = ({ modifyQuery, user }) => {
   const [lifts, setLifts] = React.useState<t.DisplayLift[]>([]);
   const [editing, setEditing] = React.useState<string>();
 
@@ -29,10 +34,10 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
     return db.getLiftsOnSnapshot(
       firebase.firestore(),
       user,
-      query => query.where("type", "==", liftType).orderBy("date", "desc"),
+      modifyQuery,
       setLifts
     );
-  }, [user, liftType]);
+  }, [user, modifyQuery]);
 
   if (lifts.length === 0) {
     return <div>No lifts recorded.</div>;
@@ -113,3 +118,4 @@ export default ({ user, liftType }: { user: t.User; liftType: t.LiftType }) => {
     </table>
   );
 };
+export default LiftTable;
