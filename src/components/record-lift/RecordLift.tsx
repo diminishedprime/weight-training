@@ -97,7 +97,12 @@ export default ({ liftType }: t.RecordLiftProps) => {
       <PreDefinedWorkout liftType={liftType} user={user} />
       <hr />
       <LiftTable
-        modifyQuery={query => query.where("type", "==", liftType)}
+        modifyQuery={query =>
+          query
+            .where("type", "==", liftType)
+            .orderBy("date", "desc")
+            .limit(50)
+        }
         user={user}
       />
     </>
