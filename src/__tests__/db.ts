@@ -113,16 +113,15 @@ describe("for the db", () => {
       weight: 200,
       reps: 3,
       type: DEADLIFT,
-      date: new Date()
+      date: firebase.firestore.Timestamp.now(),
+      warmup: false
     };
 
     test("adding a new lift puts it in the db.", async () => {
       const firestore = authedApp({ uid: userUid });
       const actual = await sut.addLift(firestore, userUid, lift);
-      const newLift = (await actual.get()).data();
-      // Change date to be a Date object instead of a firestore timestamp.
-      newLift!.date = newLift!.date.toDate();
-      expect(newLift).toEqual(lift);
+      delete actual.uid;
+      expect(actual).toEqual(lift);
     });
 
     test("adding a new lift sets the one-rep-max if unset.", async () => {
@@ -154,7 +153,7 @@ describe("for the db", () => {
     test("an added lift can be retrieved from the db.", async () => {
       const firestore = authedApp({ uid: userUid });
       const addedLift = await sut.addLift(firestore, userUid, lift);
-      const liftUid = (await addedLift.get()).id;
+      const liftUid = addedLift.uid;
       const actual = await sut.getLift(firestore, userUid, liftUid);
       expect(actual).not.toBeUndefined();
     });
@@ -162,7 +161,7 @@ describe("for the db", () => {
     test("an added lift can be updated.", async () => {
       const firestore = authedApp({ uid: userUid });
       const addedLift = await sut.addLift(firestore, userUid, lift);
-      const liftUid = (await addedLift.get()).id;
+      const liftUid = addedLift.uid;
       const firstValue = await sut.getLift(firestore, userUid, liftUid);
       expect(firstValue).not.toBeUndefined();
       await sut.updateLift(firestore, userUid, liftUid, {
@@ -181,7 +180,7 @@ describe("for the db", () => {
     test("deleting an added lift removes it from the db.", async () => {
       const firestore = authedApp({ uid: userUid });
       const addedLift = await sut.addLift(firestore, userUid, lift);
-      const liftUid = (await addedLift.get()).id;
+      const liftUid = addedLift.uid;
       // Exists in this part of the test.
       expect(
         await sut.getLift(firestore, userUid, liftUid)
