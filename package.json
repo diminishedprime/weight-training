@@ -1,11 +1,12 @@
 {
   "name": "weight-training",
-  "version": "0.0.35",
+  "version": "0.0.38",
   "private": true,
   "scripts": {
     "build": "react-scripts build",
     "deploy": "yarn version && yarn build && firebase deploy",
     "deploy:rules": "firebase deploy --only firestore:rules",
+    "migrate": "fireway",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test": "firebase emulators:exec --only firestore 'yarn react-scripts test --runInBand'"
@@ -46,6 +47,7 @@
     "@types/react-redux": "^7.1.5",
     "@types/react-router-dom": "^5.1.2",
     "firebase-tools": "^7.8.1",
+    "fireway": "^0.2.3",
     "node-sass": "^4.13.0",
     "react-scripts": "3.3.0",
     "typescript": "3.7.2"

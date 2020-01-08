@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as t from "../types";
 import firebase from "firebase/app";
 import Calendar from "react-calendar";
 import { useHistory, useParams } from "react-router-dom";
@@ -17,8 +18,12 @@ export default () => {
     if (user === null) {
       return;
     }
-    db.getDaysWithLifts(firebase.firestore(), user).then(setDaysWithLifts);
-  }, [user]);
+    db.getDaysWithLifts(firebase.firestore(), user).then(daysWithLifts =>
+      setDaysWithLifts(
+        new Set(daysWithLifts.map(day => day.utc().format("YYYY-MM-DD")))
+      )
+    );
+  }, [user, daysWithLifts]);
   const [date] = React.useState(() => {
     return dateUrlParam === undefined
       ? moment().toDate()
@@ -32,13 +37,13 @@ export default () => {
         calendarType="US"
         value={date}
         tileContent={tile => {
-          if (daysWithLifts.has(moment(tile.date).format("YYYY-MM-DD"))) {
+          if (daysWithLifts.has(moment.utc(tile.date).format("YYYY-MM-DD"))) {
             return <>*</>;
           }
           return null;
         }}
         tileClassName={tile => {
-          if (daysWithLifts.has(moment(tile.date).format("YYYY-MM-DD"))) {
+          if (daysWithLifts.has(moment.utc(tile.date).format("YYYY-MM-DD"))) {
             return "bold";
           }
           return null;
