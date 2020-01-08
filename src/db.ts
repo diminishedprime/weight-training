@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 import * as t from "./types";
 import store from "./store";
 import * as actions from "./actions";
+import moment from "moment";
 
 export const setOneRepMax = async (
   firestore: t.Firestore,
