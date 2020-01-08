@@ -14,6 +14,7 @@ const populateDaysWithLifts = async (firestore: admin.firestore.Firestore) => {
   const usersCollection = await firestore.collection("users").get();
   for (const userDoc of usersCollection.docs) {
     const userId = userDoc.id;
+    console.log(`Migrating data for user: ${userId}`);
     const lifts = await firestore
       .collection("users")
       .doc(userDoc.id)
@@ -21,7 +22,10 @@ const populateDaysWithLifts = async (firestore: admin.firestore.Firestore) => {
       .get();
     for (const liftDoc of lifts.docs) {
       const lift = liftDoc.data() as t.Lift;
-      const yyyyMMDD = moment(lift.date.toDate()).format("YYYY-MM-DD");
+      const yyyyMMDD = moment(lift.date.toDate())
+        // This is really hacky and only works for people lifting in my timezone...
+        .local()
+        .format("YYYY-MM-DD");
       await firestore
         .collection("users")
         .doc(userId)

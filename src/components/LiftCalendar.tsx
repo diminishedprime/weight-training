@@ -11,20 +11,19 @@ export default () => {
   const history = useHistory();
   const user = hooks.useForceSignIn();
   const { date: dateUrlParam } = useParams();
-  const [daysWithLiftsArray, setDaysWithLiftsArray] = hooks.useLocalStorage<
-    string[]
-  >(t.LocalStorageKey.DAYS_WITH_LIFTS, []);
-  const daysWithLifts = new Set(daysWithLiftsArray);
+  const [daysWithLifts, setDaysWithLifts] = React.useState<Set<string>>(
+    new Set()
+  );
   React.useEffect(() => {
     if (user === null) {
       return;
     }
-    if (daysWithLiftsArray === []) {
-      db.getDaysWithLifts(firebase.firestore(), user).then(
-        setDaysWithLiftsArray
-      );
-    }
-  }, [user, daysWithLiftsArray]);
+    db.getDaysWithLifts(firebase.firestore(), user).then(daysWithLifts =>
+      setDaysWithLifts(
+        new Set(daysWithLifts.map(day => day.utc().format("YYYY-MM-DD")))
+      )
+    );
+  }, [user, daysWithLifts]);
   const [date] = React.useState(() => {
     return dateUrlParam === undefined
       ? moment().toDate()
@@ -38,13 +37,13 @@ export default () => {
         calendarType="US"
         value={date}
         tileContent={tile => {
-          if (daysWithLifts.has(moment(tile.date).format("YYYY-MM-DD"))) {
+          if (daysWithLifts.has(moment.utc(tile.date).format("YYYY-MM-DD"))) {
             return <>*</>;
           }
           return null;
         }}
         tileClassName={tile => {
-          if (daysWithLifts.has(moment(tile.date).format("YYYY-MM-DD"))) {
+          if (daysWithLifts.has(moment.utc(tile.date).format("YYYY-MM-DD"))) {
             return "bold";
           }
           return null;

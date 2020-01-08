@@ -245,11 +245,11 @@ export const latestLiftOnSnapshot = (
 export const getDaysWithLifts = async (
   firestore: t.Firestore,
   user: t.User
-): Promise<Array<string>> => {
+): Promise<Array<moment.Moment>> => {
   const daysWithLifts = await firestore
     .collection("users")
     .doc(user.uid)
     .collection("daysWithLifts")
     .get();
-  return daysWithLifts.docs.map(doc => doc.id);
+  return daysWithLifts.docs.map(doc => moment.utc(doc.id, "YYYY-MM-DD"));
 };
