@@ -212,7 +212,10 @@ describe("for the db", () => {
 
     test("getLifts returns the correct collection", async () => {
       const firestore = authedApp({ uid: userUid });
-      const actualCollection = sut.getLifts(firestore, userUid);
+      const actualCollection = firestore
+        .collection("users")
+        .doc(userUid)
+        .collection("lifts");
       expect((await actualCollection.get()).size).toBe(0);
       await sut.addLift(firestore, userUid, lift);
       expect((await actualCollection.get()).size).toBe(1);

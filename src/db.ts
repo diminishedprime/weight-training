@@ -155,7 +155,7 @@ export const updateLift = async (
     .update(liftUpdate);
 };
 
-export const getLifts = (
+const getLiftsCollection = (
   firestore: t.Firestore,
   userUid: string
 ): firebase.firestore.CollectionReference => {
@@ -165,30 +165,13 @@ export const getLifts = (
     .collection("lifts");
 };
 
-export const getDaysWithLiftsBetween = async (
-  firestore: t.Firestore,
-  userUid: string,
-  startDate: Date,
-  endDate: Date
-): Promise<Set<string>> => {
-  const lifts = await getLifts(firestore, userUid)
-    .where("date", ">=", startDate)
-    .where("date", "<=", endDate)
-    .get();
-  return lifts.docs.reduce((acc, doc) => {
-    const m = moment(doc.data().date.toDate());
-    acc.add(m.format("YYYY-MM-DD"));
-    return acc;
-  }, new Set() as Set<string>);
-};
-
 export const getLiftsBetween = async (
   firestore: t.Firestore,
   userUid: string,
   dayBefore: Date,
   dayAfter: Date
 ): Promise<t.DisplayLift[]> => {
-  const lifts = await getLifts(firestore, userUid)
+  const lifts = await getLiftsCollection(firestore, userUid)
     .where("date", ">", dayBefore)
     .where("date", "<", dayAfter)
     .get();
@@ -206,7 +189,7 @@ export const getLiftsOnSnapshot = (
   modifyQuery: (query: firebase.firestore.Query) => firebase.firestore.Query,
   onSnapshot: (lifts: t.DisplayLift[]) => void
 ): (() => void) => {
-  const getter = modifyQuery(getLifts(firestore, user.uid));
+  const getter = modifyQuery(getLiftsCollection(firestore, user.uid));
   return getter.onSnapshot(snapshot => {
     const lifts = snapshot.docs.map(doc => {
       const data = doc.data();
