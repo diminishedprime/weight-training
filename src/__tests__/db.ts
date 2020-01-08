@@ -47,9 +47,7 @@ describe("for the db", () => {
       const daysWithLifts = await sut.getDaysWithLifts(firestore, {
         uid: userUid
       });
-      expect(daysWithLifts).toEqual(
-        new Set([moment(date, "YYYY-MM-DD").toDate()])
-      );
+      expect(daysWithLifts).toEqual(new Set([date]));
     });
 
     test("one rep max is initially undefined", async () => {
