@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "react-scripts build",
-    "deploy": "yarn version && yarn build && firebase deploy",
+    "deploy": "yarn version && yarn build && firebase deploy && git push",
     "deploy:rules": "firebase deploy --only firestore:rules",
     "migrate": "fireway",
     "eject": "react-scripts eject",
