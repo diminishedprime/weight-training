@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as t from "../types";
 import firebase from "firebase/app";
 import Calendar from "react-calendar";
 import { useHistory, useParams } from "react-router-dom";
@@ -10,16 +11,20 @@ export default () => {
   const history = useHistory();
   const user = hooks.useForceSignIn();
   const { date: dateUrlParam } = useParams();
-  const [daysWithLifts, setDaysWithLifts] = React.useState<Set<string>>(
-    new Set()
-  );
-  console.log(daysWithLifts);
+  const [daysWithLiftsArray, setDaysWithLiftsArray] = hooks.useLocalStorage<
+    string[]
+  >(t.LocalStorageKey.DAYS_WITH_LIFTS, []);
+  const daysWithLifts = new Set(daysWithLiftsArray);
   React.useEffect(() => {
     if (user === null) {
       return;
     }
-    db.getDaysWithLifts(firebase.firestore(), user).then(setDaysWithLifts);
-  }, [user]);
+    if (daysWithLiftsArray === []) {
+      db.getDaysWithLifts(firebase.firestore(), user).then(
+        setDaysWithLiftsArray
+      );
+    }
+  }, [user, daysWithLiftsArray]);
   const [date] = React.useState(() => {
     return dateUrlParam === undefined
       ? moment().toDate()
