@@ -1,26 +1,7 @@
 import firebase from "firebase/app";
-import moment from "moment";
 import * as t from "./types";
-
-export const getMostRecentLift = async (
-  firestore: t.Firestore,
-  user: t.User
-): Promise<t.DisplayLift | undefined> => {
-  const lifts = await firestore
-    .collection("users")
-    .doc(user.uid)
-    .collection("lifts")
-    .limit(1)
-    .orderBy("date", "desc")
-    .get();
-  if (lifts.docs.length === 0) {
-    return undefined;
-  }
-  let doc = lifts.docs[0];
-  const data = doc.data();
-  data.uid = doc.id;
-  return data as t.DisplayLift;
-};
+import store from "./store";
+import * as actions from "./actions";
 
 export const setOneRepMax = async (
   firestore: t.Firestore,
@@ -104,17 +85,19 @@ export const getLift = async (
   return data as t.Lift;
 };
 
-export const deleteLift = (
+export const deleteLift = async (
   firestore: t.Firestore,
   userUid: string,
   liftUid: string
 ): Promise<void> => {
-  return firestore
+  const deletedLift = await firestore
     .collection("users")
     .doc(userUid)
     .collection("lifts")
     .doc(liftUid)
     .delete();
+  store.dispatch(actions.nextForceUpdateLift());
+  return deletedLift;
 };
 
 export const addLift = async (
@@ -127,7 +110,7 @@ export const addLift = async (
     .doc(uid)
     .collection("lifts")
     .add(lift);
-  return docReference.then(async doc => {
+  const newLift = await docReference.then(async doc => {
     await setOneRepMax(firestore, uid, lift.type, lift.weight, {
       checkPrevious: true
     });
@@ -139,6 +122,8 @@ export const addLift = async (
     data.uid = doc.id;
     return data as t.DisplayLift;
   });
+  store.dispatch(actions.nextForceUpdateLift());
+  return newLift;
 };
 
 export const updateLift = async (
@@ -147,12 +132,14 @@ export const updateLift = async (
   liftUid: string,
   liftUpdate: t.Optional<t.Lift>
 ): Promise<void> => {
-  return firestore
+  const updatedLift = await firestore
     .collection("users")
     .doc(userUid)
     .collection("lifts")
     .doc(liftUid)
     .update(liftUpdate);
+  store.dispatch(actions.nextForceUpdateLift());
+  return updatedLift;
 };
 
 const getLiftsCollection = (
@@ -165,64 +152,36 @@ const getLiftsCollection = (
     .collection("lifts");
 };
 
-export const getLiftsBetween = async (
-  firestore: t.Firestore,
-  userUid: string,
-  dayBefore: Date,
-  dayAfter: Date
-): Promise<t.DisplayLift[]> => {
-  const lifts = await getLiftsCollection(firestore, userUid)
-    .where("date", ">", dayBefore)
-    .where("date", "<", dayAfter)
-    .get();
-  const displayLifts = lifts.docs.map(doc => {
-    const data = doc.data();
-    data.uid = doc.id;
-    return data as t.DisplayLift;
+type ModifyQuery = (
+  query: firebase.firestore.Query
+) => firebase.firestore.Query;
+
+// This is a bit of a hack, but hopefully it'll help me to not shoot myself in
+// the foot as much.
+interface LiftsQuerySnapshot extends firebase.firestore.QuerySnapshot {
+  marker: "liftsQuerySnapshot";
+}
+
+const toDisplayLifts = (
+  liftsCollection: LiftsQuerySnapshot
+): t.DisplayLift[] => {
+  const displayLifts = liftsCollection.docs.map(doc => {
+    const data = doc.data() as t.Lift;
+    const displayLift: t.DisplayLift = { ...data, uid: doc.id };
+    return displayLift;
   });
   return displayLifts;
 };
 
-export const getLiftsOnSnapshot = (
+export const lifts = async (
   firestore: t.Firestore,
   user: t.User,
-  modifyQuery: (query: firebase.firestore.Query) => firebase.firestore.Query,
-  onSnapshot: (lifts: t.DisplayLift[]) => void
-): (() => void) => {
-  const getter = modifyQuery(getLiftsCollection(firestore, user.uid));
-  return getter.onSnapshot(snapshot => {
-    const lifts = snapshot.docs.map(doc => {
-      const data = doc.data();
-      data.uid = doc.id;
-      const lift = data as t.DisplayLift;
-      return lift;
-    });
-    onSnapshot(lifts);
-  });
-};
-
-export const latestLiftOnSnapshot = (
-  userUid: string,
-  firestore: t.Firestore,
-  liftType: t.LiftType,
-  onSnapshot: (lift: t.Lift) => void
-): (() => void) => {
-  const liftsDoc = firestore
-    .collection("users")
-    .doc(userUid)
-    .collection("lifts")
-    .where("type", "==", liftType)
-    .limitToLast(1)
-    .orderBy("date");
-
-  return liftsDoc.onSnapshot(snapshot => {
-    const docs = snapshot.docs;
-    if (docs.length === 0) {
-      return;
-    }
-    const lift = docs[0].data();
-    onSnapshot(lift as t.Lift);
-  });
+  modifyQuery: ModifyQuery
+): Promise<t.DisplayLift[]> => {
+  const liftsCollection = await modifyQuery(
+    getLiftsCollection(firestore, user.uid)
+  ).get();
+  return toDisplayLifts(liftsCollection as LiftsQuerySnapshot);
 };
 
 export const getDaysWithLifts = async (

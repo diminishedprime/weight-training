@@ -13,7 +13,6 @@ export default () => {
   const [daysWithLifts, setDaysWithLifts] = React.useState<Set<string>>(
     new Set()
   );
-  console.log(daysWithLifts);
   React.useEffect(() => {
     if (user === null) {
       return;

@@ -9,11 +9,14 @@ const getInitialState = (): t.RootState => {
   if (fromStorage !== null) {
     localStorage = JSON.parse(fromStorage);
   }
-  return { localStorage };
+  return { localStorage, forceUpdateLift: 0 };
 };
 
 const rootReducer = ta
   .createReducer(getInitialState())
+  .handleAction([a.nextForceUpdateLift], state =>
+    Object.assign({}, state, { forceUpdateLift: state.forceUpdateLift + 1 })
+  )
   .handleAction([a.setUserDoc], (state, { payload: { userDoc } }) =>
     Object.assign({}, state, { localStorage: { userDoc } })
   );

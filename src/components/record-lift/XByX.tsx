@@ -69,9 +69,9 @@ const SimpleLiftTable = ({
     if (user === undefined) {
       return;
     }
-    db.getMostRecentLift(firebase.firestore(), user).then(
-      lift => lift && setLastLiftUid(lift.uid)
-    );
+    db.lifts(firebase.firestore(), user, query =>
+      query.limit(1).orderBy("date", "desc")
+    ).then(lifts => lifts.length === 1 && setLastLiftUid(lifts[0].uid));
   }, [user]);
 
   const finishProgram = () => {

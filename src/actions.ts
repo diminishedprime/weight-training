@@ -5,3 +5,8 @@ export const setUserDoc = ta.createAction(
   "setUserDoc",
   action => (userDoc: t.UserDoc) => action({ userDoc })
 );
+
+export const nextForceUpdateLift = ta.createAction(
+  "nextForceUpdateLift",
+  action => () => action({})
+);

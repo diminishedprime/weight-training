@@ -29,15 +29,11 @@ interface LiftTableProps {
 const LiftTable: React.FC<LiftTableProps> = ({ modifyQuery, user }) => {
   const [lifts, setLifts] = React.useState<t.DisplayLift[]>([]);
   const [editing, setEditing] = React.useState<string>();
+  const forceUpdate = t.useSelector(a => a.forceUpdateLift);
 
   React.useEffect(() => {
-    return db.getLiftsOnSnapshot(
-      firebase.firestore(),
-      user,
-      modifyQuery,
-      setLifts
-    );
-  }, [user, modifyQuery]);
+    db.lifts(firebase.firestore(), user, modifyQuery).then(setLifts);
+  }, [user, modifyQuery, forceUpdate]);
 
   if (lifts.length === 0) {
     return <div>No lifts recorded.</div>;

@@ -74,6 +74,7 @@ export type RootState = {
   localStorage: {
     userDoc?: UserDoc;
   };
+  forceUpdateLift: number;
 };
 
 declare module "typesafe-actions" {
