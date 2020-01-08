@@ -2,6 +2,7 @@ import * as sut from "../db";
 import * as t from "../types";
 import * as firebase from "@firebase/testing";
 import * as fs from "fs";
+import moment from "moment";
 
 const DEADLIFT = t.LiftType.DEADLIFT;
 const SQUAT = t.LiftType.SQUAT;
@@ -12,6 +13,10 @@ const rules = fs.readFileSync("firestore.rules", "utf8");
 
 const authedApp = (auth?: object) => {
   return firebase.initializeTestApp({ projectId, auth }).firestore();
+};
+
+const adminApp = () => {
+  return firebase.initializeAdminApp({ projectId }).firestore();
 };
 
 describe("for the db", () => {
@@ -29,6 +34,23 @@ describe("for the db", () => {
 
   describe("for the user operations", () => {
     const userUid = "matt2";
+
+    test("can get daysWithLifts", async () => {
+      const date = "2020-02-03";
+      await adminApp()
+        .collection("users")
+        .doc(userUid)
+        .collection("daysWithLifts")
+        .doc(date)
+        .set({ hasLift: true });
+      const firestore = authedApp({ uid: userUid });
+      const daysWithLifts = await sut.getDaysWithLifts(firestore, {
+        uid: userUid
+      });
+      expect(daysWithLifts).toEqual(
+        new Set([moment(date, "YYYY-MM-DD").toDate()])
+      );
+    });
 
     test("one rep max is initially undefined", async () => {
       const firestore = authedApp({ uid: userUid });

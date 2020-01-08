@@ -13,59 +13,33 @@ export default () => {
   const [daysWithLifts, setDaysWithLifts] = React.useState<Set<string>>(
     new Set()
   );
-  const [visibleDate, setVisibleDate] = React.useState(() => {
-    return dateUrlParam === undefined
-      ? moment()
-      : moment(dateUrlParam, "YYYY-MM-DD");
-  });
+  console.log(daysWithLifts);
+  React.useEffect(() => {
+    if (user === null) {
+      return;
+    }
+    db.getDaysWithLifts(firebase.firestore(), user).then(setDaysWithLifts);
+  }, [user]);
   const [date] = React.useState(() => {
     return dateUrlParam === undefined
       ? moment().toDate()
       : moment(dateUrlParam, "YYYY-MM-DD").toDate();
   });
 
-  React.useEffect(() => {
-    if (user === null) {
-      return () => {};
-    }
-    // TODO - this can do 7 days less and more and it we can show days from adjacent months.
-    const week = moment.duration(7, "days");
-    const startOfMonth = moment(visibleDate)
-      .startOf("month")
-      .subtract(week)
-      .toDate();
-    const endOfMonth = moment(visibleDate)
-      .endOf("month")
-      .add(week)
-      .toDate();
-
-    db.getDaysWithLiftsBetween(
-      firebase.firestore(),
-      user.uid,
-      startOfMonth,
-      endOfMonth
-    ).then(setDaysWithLifts);
-  }, [dateUrlParam, user, visibleDate]);
-
   return (
     <div className="home-calendar card lift-card">
       <div>Lift Calendar</div>
       <Calendar
-        onActiveDateChange={view => {
-          setVisibleDate(moment(view.activeStartDate));
-        }}
         calendarType="US"
         value={date}
         tileContent={tile => {
-          const day = moment(tile.date).format("YYYY-MM-DD");
-          if (daysWithLifts.has(day)) {
+          if (daysWithLifts.has(moment(tile.date).format("YYYY-MM-DD"))) {
             return <>*</>;
           }
           return null;
         }}
         tileClassName={tile => {
-          const day = moment(tile.date).format("YYYY-MM-DD");
-          if (daysWithLifts.has(day)) {
+          if (daysWithLifts.has(moment(tile.date).format("YYYY-MM-DD"))) {
             return "bold";
           }
           return null;

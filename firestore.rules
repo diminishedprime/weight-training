@@ -6,6 +6,9 @@ service cloud.firestore {
       match /lifts/{lift} {
         allow read, create, delete, update: if request.auth.uid == userId;
       }
+      match /daysWithLifts/{day} {
+        allow read: if request.auth.uid == userId;
+      }
     }
   }
 }

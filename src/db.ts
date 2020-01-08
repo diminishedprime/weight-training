@@ -241,3 +241,15 @@ export const latestLiftOnSnapshot = (
     onSnapshot(lift as t.Lift);
   });
 };
+
+export const getDaysWithLifts = async (
+  firestore: t.Firestore,
+  user: t.User
+): Promise<Set<string>> => {
+  const daysWithLifts = await firestore
+    .collection("users")
+    .doc(user.uid)
+    .collection("daysWithLifts")
+    .get();
+  return new Set(daysWithLifts.docs.map(doc => doc.id));
+};
