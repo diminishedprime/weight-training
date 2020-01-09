@@ -4,6 +4,77 @@ import store from "./store";
 import * as actions from "./actions";
 import moment from "moment";
 
+const updateCacheDateKeys = (
+  cacheKey: t.LocalStorageKey,
+  newMoment: moment.Moment
+) => {
+  const fromStorage = window.localStorage.getItem(t.cacheDateKey) || "{}";
+  const parsed = JSON.parse(fromStorage);
+  const newValue = { ...parsed, [cacheKey]: newMoment.unix() };
+  window.localStorage.setItem(t.cacheDateKey, JSON.stringify(newValue));
+};
+
+type CacheMoments = { [t in t.LocalStorageKey]?: moment.Moment };
+const getCacheDateKeys = (): CacheMoments => {
+  const fromStorage = window.localStorage.getItem(t.cacheDateKey) || "{}";
+  const parsed = JSON.parse(fromStorage) as {
+    [t in t.LocalStorageKey]: number;
+  };
+  const initialValue: CacheMoments = {};
+  const keys: t.LocalStorageKey[] = Object.keys(parsed) as t.LocalStorageKey[];
+  const cacheMoments = keys.reduce(
+    (acc: CacheMoments, key: t.LocalStorageKey) => {
+      const asMoment = moment.unix(parsed[key]);
+      acc[key] = asMoment;
+      return acc;
+    },
+    initialValue
+  );
+  return cacheMoments;
+};
+
+const requestWithCache = async <T>(
+  request: () => Promise<T>,
+  cacheKey: t.LocalStorageKey,
+  invalidateCache: (t: T, lastUpdate: moment.Moment) => boolean,
+  toJSON: (t: T) => string = t => JSON.stringify(t),
+  fromJSON: (asString: string) => T = s => JSON.parse(s)
+): Promise<T> => {
+  const fromCache = window.localStorage.getItem(cacheKey);
+  if (fromCache === null) {
+    console.log(`no value stored for: ${cacheKey}`);
+    const newValue = await request();
+    const jsoned = toJSON(newValue);
+    // TODO - I want to do this, but I need to have a better sense of equality first.
+    // const reParsed = fromJSON(jsoned);
+    // if (reParsed !== newValue) {
+    //   console.error("Value not same after stringiy/parse loop", {
+    //     before: newValue,
+    //     after: reParsed
+    //   });
+    //   throw new Error("Value not same after stringify/parse loop");
+    // }
+    updateCacheDateKeys(cacheKey, moment.utc());
+    window.localStorage.setItem(cacheKey, jsoned);
+    return newValue;
+  } else {
+    const cachedValue: T = fromJSON(fromCache);
+    const cacheMoments = getCacheDateKeys();
+    const useCache = invalidateCache(cachedValue, cacheMoments[cacheKey]!);
+    if (useCache) {
+      console.log("skipping network request");
+      return cachedValue;
+    } else {
+      console.log(`busting cache`);
+      const newValue = await request();
+      const jsoned = toJSON(newValue);
+      updateCacheDateKeys(cacheKey, moment.utc());
+      window.localStorage.setItem(cacheKey, jsoned);
+      return newValue;
+    }
+  }
+};
+
 export const setOneRepMax = async (
   firestore: t.Firestore,
   userUid: string,
@@ -35,7 +106,23 @@ export const setOneRepMax = async (
   }
 };
 
+const oneMinuteSince = (_: any, then: moment.Moment) => {
+  const now = moment.utc();
+  const diff = moment.duration(now.diff(then));
+  return diff.asMinutes() < 1;
+};
+
 export const getUserDoc = async (
+  firestore: t.Firestore,
+  userUid: string
+): Promise<t.UserDoc | undefined> => {
+  return requestWithCache(
+    () => getUserDocH(firestore, userUid),
+    t.LocalStorageKey.USER_DOC,
+    oneMinuteSince
+  );
+};
+export const getUserDocH = async (
   firestore: t.Firestore,
   userUid: string
 ): Promise<t.UserDoc | undefined> => {
@@ -186,6 +273,22 @@ export const lifts = async (
 };
 
 export const getDaysWithLifts = async (
+  firestore: t.Firestore,
+  user: t.User
+): Promise<Array<moment.Moment>> => {
+  return requestWithCache(
+    () => getDaysWithLiftsH(firestore, user),
+    t.LocalStorageKey.DAYS_WITH_LIFTS,
+    oneMinuteSince,
+    undefined,
+    (s: string) => {
+      const parsed: string[] = JSON.parse(s);
+      return parsed.map(s => moment.utc(s));
+    }
+  );
+};
+
+const getDaysWithLiftsH = async (
   firestore: t.Firestore,
   user: t.User
 ): Promise<Array<moment.Moment>> => {

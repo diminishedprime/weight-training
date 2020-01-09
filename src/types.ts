@@ -89,10 +89,13 @@ export type RecordLiftProps = {
   liftType: LiftType;
 };
 
+export const cacheDateKey = "@weight-training/cache-date-key";
+
 export enum LocalStorageKey {
   DAYS_WITH_LIFTS = "@weight-training/days-with-lifts",
   X_BY_X = "@weight-training/x-by-x",
   USER = "@weight-training/user",
+  USER_DOC = "@weight-training/user-doc",
   LIFTS = "@weight-training/lifts"
 }
 
