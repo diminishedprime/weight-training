@@ -42,7 +42,6 @@ const requestWithCache = async <T>(
 ): Promise<T> => {
   const fromCache = window.localStorage.getItem(cacheKey);
   if (fromCache === null) {
-    console.log(`no value stored for: ${cacheKey}`);
     const newValue = await request();
     const jsoned = toJSON(newValue);
     // TODO - I want to do this, but I need to have a better sense of equality first.
@@ -62,10 +61,8 @@ const requestWithCache = async <T>(
     const cacheMoments = getCacheDateKeys();
     const useCache = invalidateCache(cachedValue, cacheMoments[cacheKey]!);
     if (useCache) {
-      console.log("skipping network request");
       return cachedValue;
     } else {
-      console.log(`busting cache`);
       const newValue = await request();
       const jsoned = toJSON(newValue);
       updateCacheDateKeys(cacheKey, moment.utc());
