@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as t from "../types";
 import firebase from "firebase/app";
 import Calendar from "react-calendar";
 import { useHistory, useParams } from "react-router-dom";
@@ -18,12 +17,10 @@ export default () => {
     if (user === null) {
       return;
     }
-    db.getDaysWithLifts(firebase.firestore(), user).then(daysWithLifts =>
-      setDaysWithLifts(
-        new Set(daysWithLifts.map(day => day.utc().format("YYYY-MM-DD")))
-      )
+    db.getDaysWithLifts(firebase.firestore(), user).then(dwl =>
+      setDaysWithLifts(new Set(dwl.map(day => day.utc().format("YYYY-MM-DD"))))
     );
-  }, [user, daysWithLifts]);
+  }, [user]);
   const [date] = React.useState(() => {
     return dateUrlParam === undefined
       ? moment().toDate()
