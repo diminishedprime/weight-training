@@ -1,9 +1,9 @@
-import * as React from "react";
 import firebase from "firebase/app";
+import * as React from "react";
 import { Link, useLocation } from "react-router-dom";
 import * as rrd from "react-router-dom";
-import * as t from "./types";
 import * as c from "./constants";
+import * as t from "./types";
 
 interface HideLink extends rrd.LinkProps {
   className?: string;
@@ -32,7 +32,7 @@ const Layout: React.FC<{}> = ({ children }) => {
         </Link>
       );
     },
-    [hideNav, location]
+    [hideNav, location],
   );
 
   return (
@@ -57,7 +57,7 @@ const Layout: React.FC<{}> = ({ children }) => {
             aria-expanded={navActive}
             data-target="navbarBasicExample"
             onClick={() => {
-              setNavActive(old => !old);
+              setNavActive((old) => !old);
             }}
           >
             <span aria-hidden="true"></span>
@@ -72,7 +72,7 @@ const Layout: React.FC<{}> = ({ children }) => {
                 Home
               </HideLink>
               <div className="indent">
-                {Object.values(t.LiftType).map(liftType => {
+                {Object.values(t.LiftType).map((liftType) => {
                   return (
                     <HideLink
                       key={`lift/${liftType}`}

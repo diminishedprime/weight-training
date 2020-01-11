@@ -1,7 +1,7 @@
 import * as React from "react";
-import * as t from "../types";
-import * as c from "../constants";
 import { Link } from "react-router-dom";
+import * as c from "../constants";
+import * as t from "../types";
 
 interface LiftCardProps {
   liftType: t.LiftType;

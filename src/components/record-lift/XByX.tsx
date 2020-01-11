@@ -1,16 +1,16 @@
-import * as React from "react";
-import * as util from "../../util";
-import * as t from "../../types";
-import * as db from "../../db";
 import firebase from "firebase/app";
-import * as hooks from "../../hooks";
+import * as React from "react";
 import * as rrd from "react-router-dom";
 import * as c from "../../constants";
+import * as db from "../../db";
+import * as hooks from "../../hooks";
+import * as t from "../../types";
+import * as util from "../../util";
 
 const Plates = ({ plates }: { plates: t.PlateConfig }) => {
-  const plateGroup: [t.PlateTypes, number][] = Object.entries(plates).filter(
-    ([, number]) => number > 0
-  ) as [t.PlateTypes, number][];
+  const plateGroup: Array<[t.PlateTypes, number]> = Object.entries(plates).filter(
+    ([, number]) => number > 0,
+  ) as Array<[t.PlateTypes, number]>;
   return plateGroup.length === 0 ? (
     <div>Nope</div>
   ) : (
@@ -43,7 +43,7 @@ interface XByXData {
 
 const SimpleLiftTable = ({
   program,
-  user
+  user,
 }: {
   program: t.Program;
   user: t.User;
@@ -53,25 +53,25 @@ const SimpleLiftTable = ({
   const {
     moment: lastLiftMoment,
     className: timeClassName,
-    displayString: timeDisplay
+    displayString: timeDisplay,
   } = hooks.useTimeSinceLift(user, lastLiftUid);
   const [
     { currentLift, skippedLifts, completedLifts },
     updateXByXData,
-    cleanup
+    cleanup,
   ] = hooks.useLocalStorage<XByXData>(t.LocalStorageKey.X_BY_X, {
     currentLift: 0,
     skippedLifts: {},
-    completedLifts: {}
+    completedLifts: {},
   });
 
   React.useEffect(() => {
     if (user === undefined) {
       return;
     }
-    db.lifts(firebase.firestore(), user, query =>
-      query.limit(1).orderBy("date", "desc")
-    ).then(lifts => lifts.length === 1 && setLastLiftUid(lifts[0].uid));
+    db.lifts(firebase.firestore(), user, (query) =>
+      query.limit(1).orderBy("date", "desc"),
+    ).then((lifts) => lifts.length === 1 && setLastLiftUid(lifts[0].uid));
   }, [user]);
 
   const finishProgram = () => {
@@ -81,11 +81,11 @@ const SimpleLiftTable = ({
 
   const skipLift = React.useCallback(() => {
     if (currentLift < program.length) {
-      updateXByXData(current => {
+      updateXByXData((current) => {
         return {
           ...current,
           currentLift: current.currentLift + 1,
-          skippedLifts: { ...current.skippedLifts, [currentLift]: true }
+          skippedLifts: { ...current.skippedLifts, [currentLift]: true },
         };
       });
     }
@@ -95,17 +95,17 @@ const SimpleLiftTable = ({
     if (currentLift < program.length) {
       const lift: t.Lift = {
         ...program[currentLift],
-        date: firebase.firestore.Timestamp.now()
+        date: firebase.firestore.Timestamp.now(),
       };
       // Don't need to block on this.
-      db.addLift(firebase.firestore(), user.uid, lift).then(lift =>
-        setLastLiftUid(lift.uid)
+      db.addLift(firebase.firestore(), user.uid, lift).then((lift) =>
+        setLastLiftUid(lift.uid),
       );
-      updateXByXData(current => {
+      updateXByXData((current) => {
         return {
           ...current,
           currentLift: current.currentLift + 1,
-          completedLifts: { ...current.completedLifts, [currentLift]: true }
+          completedLifts: { ...current.completedLifts, [currentLift]: true },
         };
       });
       /* setCompletedLifts(old => ({ ...old, [currentLift]: true }));
@@ -212,7 +212,7 @@ const SimpleLiftTable = ({
 const XByX = ({
   user,
   liftType,
-  workoutType
+  workoutType,
 }: {
   user: t.User;
   liftType: t.LiftType;
@@ -225,7 +225,7 @@ const XByX = ({
   const { started } = rrd.useParams();
 
   const [ready, setReady] = React.useState(
-    started === undefined ? false : true
+    started === undefined ? false : true,
   );
 
   React.useEffect(() => {
@@ -236,7 +236,7 @@ const XByX = ({
   }, [started, ready]);
 
   React.useEffect(() => {
-    db.getOneRepMax(firebase.firestore(), user.uid, liftType).then(orm => {
+    db.getOneRepMax(firebase.firestore(), user.uid, liftType).then((orm) => {
       if (orm !== undefined) {
         setOneRepMax(orm);
       }
@@ -260,7 +260,7 @@ const XByX = ({
         }
       }
     },
-    []
+    [],
   );
 
   const onSetOneRepMax = React.useCallback(() => {

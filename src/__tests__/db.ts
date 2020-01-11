@@ -1,8 +1,8 @@
-import * as sut from "../db";
-import * as t from "../types";
 import * as firebase from "@firebase/testing";
 import * as fs from "fs";
 import moment from "moment";
+import * as sut from "../db";
+import * as t from "../types";
 
 const DEADLIFT = t.LiftType.DEADLIFT;
 const SQUAT = t.LiftType.SQUAT;
@@ -29,7 +29,7 @@ describe("for the db", () => {
   });
 
   afterAll(async () => {
-    await Promise.all(firebase.apps().map(app => app.delete()));
+    await Promise.all(firebase.apps().map((app) => app.delete()));
   });
 
   describe("for the user operations", () => {
@@ -45,7 +45,7 @@ describe("for the db", () => {
         .set({ hasLift: true });
       const firestore = authedApp({ uid: userUid });
       const daysWithLifts = await sut.getDaysWithLifts(firestore, {
-        uid: userUid
+        uid: userUid,
       });
       expect(daysWithLifts).toEqual(new Set([date]));
     });
@@ -53,11 +53,11 @@ describe("for the db", () => {
     test("one rep max is initially undefined", async () => {
       const firestore = authedApp({ uid: userUid });
       const oneRepMaxes = await Promise.all(
-        Object.values(t.LiftType).map(async liftType => {
+        Object.values(t.LiftType).map(async (liftType) => {
           return sut.getOneRepMax(firestore, userUid, liftType);
-        })
+        }),
       );
-      oneRepMaxes.forEach(oneRepMax => {
+      oneRepMaxes.forEach((oneRepMax) => {
         expect(oneRepMax).toBeUndefined();
       });
     });
@@ -70,11 +70,11 @@ describe("for the db", () => {
       }
 
       const oneRepMaxes = await Promise.all(
-        Object.values(t.LiftType).map(async liftType => {
+        Object.values(t.LiftType).map(async (liftType) => {
           return sut.getOneRepMax(firestore, userUid, liftType);
-        })
+        }),
       );
-      oneRepMaxes.forEach(oneRepMax => {
+      oneRepMaxes.forEach((oneRepMax) => {
         expect(oneRepMax).not.toBeUndefined();
       });
     });
@@ -95,7 +95,7 @@ describe("for the db", () => {
         const firestore = authedApp({ uid: userUid });
         await sut.setOneRepMax(firestore, userUid, DEADLIFT, 100);
         await sut.setOneRepMax(firestore, userUid, DEADLIFT, 90, {
-          checkPrevious: true
+          checkPrevious: true,
         });
 
         const actual = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
@@ -105,7 +105,7 @@ describe("for the db", () => {
         const firestore = authedApp({ uid: userUid });
         await sut.setOneRepMax(firestore, userUid, DEADLIFT, 100);
         await sut.setOneRepMax(firestore, userUid, DEADLIFT, 90, {
-          checkPrevious: false
+          checkPrevious: false,
         });
 
         const actual = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
@@ -134,7 +134,7 @@ describe("for the db", () => {
       reps: 3,
       type: DEADLIFT,
       date: firebase.firestore.Timestamp.now(),
-      warmup: false
+      warmup: false,
     };
 
     test("adding a new lift puts it in the db.", async () => {
@@ -185,7 +185,7 @@ describe("for the db", () => {
       const firstValue = await sut.getLift(firestore, userUid, liftUid);
       expect(firstValue).not.toBeUndefined();
       await sut.updateLift(firestore, userUid, liftUid, {
-        reps: lift.reps + 3
+        reps: lift.reps + 3,
       });
       const actualAfterUpdate = await sut.getLift(firestore, userUid, liftUid);
       expect(actualAfterUpdate!.reps).toBe(6);
@@ -203,7 +203,7 @@ describe("for the db", () => {
       const liftUid = addedLift.uid;
       // Exists in this part of the test.
       expect(
-        await sut.getLift(firestore, userUid, liftUid)
+        await sut.getLift(firestore, userUid, liftUid),
       ).not.toBeUndefined();
       await sut.deleteLift(firestore, userUid, liftUid);
       // Is removed by this part.

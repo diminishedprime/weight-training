@@ -1,13 +1,13 @@
-import * as t from "./types";
-import deadliftImage from "./images/deadlift.png";
-import frontSquatImage from "./images/front_squat.png";
 import backSquatImage from "./images/back_squat.png";
-import overheadPressImage from "./images/overhead_press.png";
 import benchPressImage from "./images/bench_press.png";
+import deadliftImage from "./images/deadlift.png";
 import dumbbellImage from "./images/dumbbell.png";
+import frontSquatImage from "./images/front_squat.png";
+import overheadPressImage from "./images/overhead_press.png";
+import * as t from "./types";
 
 export const images = {
-  dumbbell: dumbbellImage
+  dumbbell: dumbbellImage,
 };
 
 export const plateWeight: { [plate in t.PlateTypes]: number } = {
@@ -15,7 +15,7 @@ export const plateWeight: { [plate in t.PlateTypes]: number } = {
   [t.PlateTypes.TWENTY_FIVE]: 25,
   [t.PlateTypes.TEN]: 10,
   [t.PlateTypes.FIVE]: 5,
-  [t.PlateTypes.TWO_AND_A_HALF]: 2.5
+  [t.PlateTypes.TWO_AND_A_HALF]: 2.5,
 };
 
 export const plateWeights: number[] = Object.values(plateWeight);
@@ -27,14 +27,14 @@ export const liftMetadata: {
   [t.LiftType.SQUAT]: { image: backSquatImage, displayText: "Back Squat" },
   [t.LiftType.FRONT_SQUAT]: {
     image: frontSquatImage,
-    displayText: "Front Squat"
+    displayText: "Front Squat",
   },
   [t.LiftType.OVERHEAD_PRESS]: {
     image: overheadPressImage,
-    displayText: "Overhead Press"
+    displayText: "Overhead Press",
   },
   [t.LiftType.BENCH_PRESS]: {
     image: benchPressImage,
-    displayText: "Bench Press"
-  }
+    displayText: "Bench Press",
+  },
 };

@@ -1,10 +1,10 @@
-import * as React from "react";
-import * as t from "../../types";
-import * as db from "../../db";
 import firebase from "firebase/app";
-import Bar from "../Bar";
-import * as util from "../../util";
+import * as React from "react";
 import * as c from "../../constants";
+import * as db from "../../db";
+import * as t from "../../types";
+import * as util from "../../util";
+import Bar from "../Bar";
 
 interface SetWeightProps {
   setWeight: React.Dispatch<React.SetStateAction<number | undefined>>;
@@ -29,9 +29,9 @@ const SetWeight: React.FC<SetWeightProps> = ({ setWeight, weight }) => {
         className="input"
         type="number"
         onBlur={() => {
-          setWeight(old => (old === undefined || old < 45 ? 45 : old));
+          setWeight((old) => (old === undefined || old < 45 ? 45 : old));
         }}
-        onKeyDown={evt =>
+        onKeyDown={(evt) =>
           (evt.key === "e" || evt.key === ".") && evt.preventDefault()
         }
         onChange={onWeightChange}
@@ -52,7 +52,7 @@ const SetReps: React.FC<SetRepsProps> = ({ setReps, reps }) => {
       <div className="buttons has-addons">
         <button
           className="button is-outlined is-danger"
-          onClick={() => setReps(a => Math.max(1, a - 1))}
+          onClick={() => setReps((a) => Math.max(1, a - 1))}
         >
           -
         </button>
@@ -67,7 +67,7 @@ const SetReps: React.FC<SetRepsProps> = ({ setReps, reps }) => {
         </button>
         <button
           className="button is-outlined is-success"
-          onClick={() => setReps(a => a + 1)}
+          onClick={() => setReps((a) => a + 1)}
         >
           +
         </button>
@@ -87,11 +87,11 @@ const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
       return;
     }
     const lift: t.Lift = {
-      weight: weight,
+      weight,
       type: liftType,
       date: firebase.firestore.Timestamp.now(),
-      reps: reps,
-      warmup
+      reps,
+      warmup,
     };
     db.addLift(firebase.firestore(), user.uid, lift);
   }, [weight, liftType, reps, user.uid, warmup]);
@@ -106,7 +106,7 @@ const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
             {Object.entries(c.plateWeight).map(([plate, weight]) => (
               <button
                 key={`add-weight-${weight}`}
-                onClick={() => setWeight(old => old! + weight * 2)}
+                onClick={() => setWeight((old) => old! + weight * 2)}
                 disabled={weight === undefined}
                 className="button"
               >
@@ -134,7 +134,7 @@ const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
           <input
             type="checkbox"
             checked={warmup}
-            onChange={e => setWarmup(e.target.checked)}
+            onChange={(e) => setWarmup(e.target.checked)}
           />
           Warmup
         </label>

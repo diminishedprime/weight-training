@@ -1,12 +1,12 @@
 import firebase from "firebase/app";
-import * as t from "./types";
-import store from "./store";
-import * as actions from "./actions";
 import moment from "moment";
+import * as actions from "./actions";
+import store from "./store";
+import * as t from "./types";
 
 const updateCacheDateKeys = (
   cacheKey: t.LocalStorageKey,
-  newMoment: moment.Moment
+  newMoment: moment.Moment,
 ) => {
   const fromStorage = window.localStorage.getItem(t.cacheDateKey) || "{}";
   const parsed = JSON.parse(fromStorage);
@@ -28,7 +28,7 @@ const getCacheDateKeys = (): CacheMoments => {
       acc[key] = asMoment;
       return acc;
     },
-    initialValue
+    initialValue,
   );
   return cacheMoments;
 };
@@ -37,8 +37,8 @@ const requestWithCache = async <T>(
   request: () => Promise<T>,
   cacheKey: t.LocalStorageKey,
   invalidateCache: (t: T, lastUpdate: moment.Moment) => boolean,
-  toJSON: (t: T) => string = t => JSON.stringify(t),
-  fromJSON: (asString: string) => T = s => JSON.parse(s)
+  toJSON: (t: T) => string = (t) => JSON.stringify(t),
+  fromJSON: (asString: string) => T = (s) => JSON.parse(s),
 ): Promise<T> => {
   const fromCache = window.localStorage.getItem(cacheKey);
   if (fromCache === null) {
@@ -77,7 +77,7 @@ export const setOneRepMax = async (
   userUid: string,
   liftType: t.LiftType,
   weight: number,
-  options: { checkPrevious: boolean } = { checkPrevious: false }
+  options: { checkPrevious: boolean } = { checkPrevious: false },
 ) => {
   const userDoc = firestore.collection("users").doc(userUid);
   const userDocData = await userDoc.get();
@@ -111,17 +111,17 @@ const oneMinuteSince = (_: any, then: moment.Moment) => {
 
 export const getUserDoc = async (
   firestore: t.Firestore,
-  userUid: string
+  userUid: string,
 ): Promise<t.UserDoc | undefined> => {
   return requestWithCache(
     () => getUserDocH(firestore, userUid),
     t.LocalStorageKey.USER_DOC,
-    oneMinuteSince
+    oneMinuteSince,
   );
 };
 export const getUserDocH = async (
   firestore: t.Firestore,
-  userUid: string
+  userUid: string,
 ): Promise<t.UserDoc | undefined> => {
   const doc = await firestore
     .collection("users")
@@ -136,7 +136,7 @@ export const getUserDocH = async (
 export const getOneRepMax = async (
   firestore: t.Firestore,
   userUid: string,
-  liftType: t.LiftType
+  liftType: t.LiftType,
 ): Promise<number | undefined> => {
   const userData = await getUserDoc(firestore, userUid);
   if (userData === undefined) {
@@ -152,7 +152,7 @@ export const getOneRepMax = async (
 export const getLift = async (
   firestore: t.Firestore,
   userUid: string,
-  liftUid: string
+  liftUid: string,
 ): Promise<t.Lift | undefined> => {
   const doc = await firestore
     .collection("users")
@@ -173,7 +173,7 @@ export const getLift = async (
 export const deleteLift = async (
   firestore: t.Firestore,
   userUid: string,
-  liftUid: string
+  liftUid: string,
 ): Promise<void> => {
   const deletedLift = await firestore
     .collection("users")
@@ -188,16 +188,16 @@ export const deleteLift = async (
 export const addLift = async (
   firestore: t.Firestore,
   uid: string,
-  lift: t.Lift
+  lift: t.Lift,
 ): Promise<t.DisplayLift> => {
   const docReference = firestore
     .collection("users")
     .doc(uid)
     .collection("lifts")
     .add(lift);
-  const newLift = await docReference.then(async doc => {
+  const newLift = await docReference.then(async (doc) => {
     await setOneRepMax(firestore, uid, lift.type, lift.weight, {
-      checkPrevious: true
+      checkPrevious: true,
     });
     const d = await doc.get();
     const data = d.data();
@@ -215,7 +215,7 @@ export const updateLift = async (
   firestore: t.Firestore,
   userUid: string,
   liftUid: string,
-  liftUpdate: t.Optional<t.Lift>
+  liftUpdate: t.Optional<t.Lift>,
 ): Promise<void> => {
   const updatedLift = await firestore
     .collection("users")
@@ -229,7 +229,7 @@ export const updateLift = async (
 
 const getLiftsCollection = (
   firestore: t.Firestore,
-  userUid: string
+  userUid: string,
 ): firebase.firestore.CollectionReference => {
   return firestore
     .collection("users")
@@ -238,7 +238,7 @@ const getLiftsCollection = (
 };
 
 type ModifyQuery = (
-  query: firebase.firestore.Query
+  query: firebase.firestore.Query,
 ) => firebase.firestore.Query;
 
 // This is a bit of a hack, but hopefully it'll help me to not shoot myself in
@@ -248,9 +248,9 @@ interface LiftsQuerySnapshot extends firebase.firestore.QuerySnapshot {
 }
 
 const toDisplayLifts = (
-  liftsCollection: LiftsQuerySnapshot
+  liftsCollection: LiftsQuerySnapshot,
 ): t.DisplayLift[] => {
-  const displayLifts = liftsCollection.docs.map(doc => {
+  const displayLifts = liftsCollection.docs.map((doc) => {
     const data = doc.data() as t.Lift;
     const displayLift: t.DisplayLift = { ...data, uid: doc.id };
     return displayLift;
@@ -261,18 +261,18 @@ const toDisplayLifts = (
 export const lifts = async (
   firestore: t.Firestore,
   user: t.User,
-  modifyQuery: ModifyQuery
+  modifyQuery: ModifyQuery,
 ): Promise<t.DisplayLift[]> => {
   const liftsCollection = await modifyQuery(
-    getLiftsCollection(firestore, user.uid)
+    getLiftsCollection(firestore, user.uid),
   ).get();
   return toDisplayLifts(liftsCollection as LiftsQuerySnapshot);
 };
 
 export const getDaysWithLifts = async (
   firestore: t.Firestore,
-  user: t.User
-): Promise<Array<moment.Moment>> => {
+  user: t.User,
+): Promise<moment.Moment[]> => {
   return requestWithCache(
     () => getDaysWithLiftsH(firestore, user),
     t.LocalStorageKey.DAYS_WITH_LIFTS,
@@ -280,19 +280,19 @@ export const getDaysWithLifts = async (
     undefined,
     (s: string) => {
       const parsed: string[] = JSON.parse(s);
-      return parsed.map(s => moment.utc(s));
-    }
+      return parsed.map((s) => moment.utc(s));
+    },
   );
 };
 
 const getDaysWithLiftsH = async (
   firestore: t.Firestore,
-  user: t.User
-): Promise<Array<moment.Moment>> => {
+  user: t.User,
+): Promise<moment.Moment[]> => {
   const daysWithLifts = await firestore
     .collection("users")
     .doc(user.uid)
     .collection("daysWithLifts")
     .get();
-  return daysWithLifts.docs.map(doc => moment.utc(doc.id, "YYYY-MM-DD"));
+  return daysWithLifts.docs.map((doc) => moment.utc(doc.id, "YYYY-MM-DD"));
 };

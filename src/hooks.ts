@@ -1,20 +1,20 @@
 import { useHistory } from "react-router-dom";
 
+import firebase from "firebase/app";
+import moment from "moment";
 import * as React from "react";
+import * as db from "./db";
 import * as serviceWorker from "./serviceWorker";
 import * as t from "./types";
-import * as db from "./db";
-import moment from "moment";
-import firebase from "firebase/app";
 
 const formatFor = (
-  m: moment.Moment
+  m: moment.Moment,
 ): { className?: string; displayString?: string } => {
   const timeSinceLift = moment.duration(
     moment()
       .utc()
       .diff(m, "milliseconds"),
-    "milliseconds"
+    "milliseconds",
   );
   const minutes = timeSinceLift.minutes();
   if (minutes >= 15 || timeSinceLift.asMinutes() >= 15) {
@@ -32,13 +32,13 @@ const formatFor = (
     displayString: `${minutes
       .toString()
       .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`,
-    className: timeClass
+    className: timeClass,
   };
 };
 
 export const useTimeSinceLift = (
   user: t.User | undefined,
-  liftUid: string | undefined
+  liftUid: string | undefined,
 ): { moment?: moment.Moment; className?: string; displayString?: string } => {
   const [m, setMoment] = React.useState<moment.Moment>();
   const [className, setClassName] = React.useState<string>();
@@ -48,7 +48,7 @@ export const useTimeSinceLift = (
     if (user === undefined || liftUid === undefined) {
       return;
     }
-    db.getLift(firebase.firestore(), user.uid, liftUid).then(lift => {
+    db.getLift(firebase.firestore(), user.uid, liftUid).then((lift) => {
       if (lift === undefined) {
         return;
       }
@@ -79,11 +79,11 @@ export const useForceSignIn = (): t.User | null => {
   const history = useHistory();
   const [user, setUser, cleanup] = useLocalStorage<t.User | null>(
     t.LocalStorageKey.USER,
-    null
+    null,
   );
 
   React.useEffect(() => {
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (!user) {
         cleanup();
         history.push("/login");
@@ -102,7 +102,7 @@ export const useUpdateAvailable = (): boolean => {
     serviceWorker.register({
       onUpdate: () => {
         setUpdateAvailable(true);
-      }
+      },
     });
   });
   return updateAvailable;
@@ -110,7 +110,7 @@ export const useUpdateAvailable = (): boolean => {
 
 export const useLocalStorage = <T>(
   key: t.LocalStorageKey,
-  initialValue: T
+  initialValue: T,
 ): [T, React.Dispatch<React.SetStateAction<T>>, () => void] => {
   const [value, setValue] = React.useState<T>(() => {
     const stringValue = window.localStorage.getItem(key);
@@ -124,7 +124,7 @@ export const useLocalStorage = <T>(
 
   React.useEffect(() => {
     if (value !== null && value !== undefined) {
-      new Promise(resolve => {
+      new Promise((resolve) => {
         window.localStorage.setItem(key, JSON.stringify(value));
         resolve();
       });
@@ -132,7 +132,7 @@ export const useLocalStorage = <T>(
   }, [value, key]);
 
   const removeItem = React.useCallback(() => {
-    new Promise(resolve => {
+    new Promise((resolve) => {
       window.localStorage.removeItem(key);
       resolve();
     });

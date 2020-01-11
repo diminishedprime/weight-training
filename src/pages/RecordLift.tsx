@@ -1,15 +1,15 @@
 import * as React from "react";
-import * as hooks from "../hooks";
-import LiftTable from "../components/LiftTable";
+import * as router from "react-router-dom";
 import LiftCard from "../components/LiftCard";
-import * as t from "../types";
+import LiftTable from "../components/LiftTable";
 import AddLift from "../components/record-lift/Custom";
 import XByX from "../components/record-lift/XByX";
-import * as router from "react-router-dom";
+import * as hooks from "../hooks";
+import * as t from "../types";
 
 const PreDefinedWorkout = ({
   liftType,
-  user
+  user,
 }: t.RecordLiftProps & { user: t.User }) => {
   const [selectedWorkout, setSelectedWorkout] = React.useState<
     t.WorkoutType | undefined
@@ -22,7 +22,7 @@ const PreDefinedWorkout = ({
       .replace(`/lift/${liftType}/`, "")
       .split("/")[0];
     const workoutType = Object.values(t.WorkoutType).find(
-      a => a === urlWorkoutType
+      (a) => a === urlWorkoutType,
     );
     setSelectedWorkout(workoutType);
   }, [location, liftType]);
@@ -32,7 +32,7 @@ const PreDefinedWorkout = ({
       setSelectedWorkout(workoutType);
       history.push(`/lift/${liftType}/${workoutType}`);
     },
-    [history, liftType]
+    [history, liftType],
   );
 
   return (
@@ -86,7 +86,7 @@ const PreDefinedWorkout = ({
 export default ({ liftType }: t.RecordLiftProps) => {
   // TODO - this should really come from a state-store.
   const user = hooks.useForceSignIn();
-  const userDoc = t.useSelector(s => s.localStorage && s.localStorage.userDoc);
+  const userDoc = t.useSelector((s) => s.localStorage && s.localStorage.userDoc);
   if (user === null) {
     return null;
   }
@@ -97,7 +97,7 @@ export default ({ liftType }: t.RecordLiftProps) => {
       <PreDefinedWorkout liftType={liftType} user={user} />
       <hr />
       <LiftTable
-        modifyQuery={query =>
+        modifyQuery={(query) =>
           query
             .where("type", "==", liftType)
             .orderBy("date", "desc")

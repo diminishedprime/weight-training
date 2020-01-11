@@ -1,9 +1,9 @@
-import * as React from "react";
-import * as hooks from "../hooks";
-import { useParams, useHistory } from "react-router-dom";
-import LiftTable from "../components/LiftTable";
-import LiftCalendar from "../components/LiftCalendar";
 import moment from "moment";
+import * as React from "react";
+import { useHistory, useParams } from "react-router-dom";
+import LiftCalendar from "../components/LiftCalendar";
+import LiftTable from "../components/LiftTable";
+import * as hooks from "../hooks";
 
 export default () => {
   const user = hooks.useForceSignIn();
@@ -29,7 +29,7 @@ export default () => {
       <LiftCalendar />
       <LiftTable
         user={user}
-        modifyQuery={query =>
+        modifyQuery={(query) =>
           query.where("date", ">", startOfDay).where("date", "<", endOfDay)
         }
       />

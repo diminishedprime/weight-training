@@ -19,7 +19,7 @@ describe("For firestore", () => {
   });
 
   afterAll(async () => {
-    await Promise.all(firebase.apps().map(app => app.delete()));
+    await Promise.all(firebase.apps().map((app) => app.delete()));
   });
 
   describe("for authed users own lift data", () => {

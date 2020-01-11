@@ -1,5 +1,5 @@
-import * as React from "react";
 import firebase from "firebase/app";
+import * as React from "react";
 import { useHistory } from "react-router-dom";
 
 export default () => {

@@ -1,8 +1,8 @@
-import * as React from "react";
 import firebase from "firebase/app";
-import { useParams, useHistory } from "react-router-dom";
-import * as hooks from "../hooks";
+import * as React from "react";
+import { useHistory, useParams } from "react-router-dom";
 import * as db from "../db";
+import * as hooks from "../hooks";
 
 export default () => {
   const { liftId } = useParams();
@@ -16,13 +16,13 @@ export default () => {
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setWeight(e.target.value);
     },
-    []
+    [],
   );
   const onRepsChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setReps(e.target.value);
     },
-    []
+    [],
   );
 
   const user = hooks.useForceSignIn();
@@ -30,7 +30,7 @@ export default () => {
     if (user === null || liftId === undefined) {
       return;
     }
-    db.getLift(firebase.firestore(), user.uid, liftId).then(lift => {
+    db.getLift(firebase.firestore(), user.uid, liftId).then((lift) => {
       if (lift === undefined) {
         // TODO this could have better error handling.
         return;
@@ -54,7 +54,7 @@ export default () => {
       db.updateLift(firebase.firestore(), user.uid, liftId, {
         weight: parseInt(weight),
         reps: parseInt(reps),
-        warmup
+        warmup,
       }).then(() => history.goBack());
     }
   }, [history, weight, reps, liftId, user, warmup]);
@@ -64,7 +64,7 @@ export default () => {
       return;
     }
     db.deleteLift(firebase.firestore(), user.uid, liftId).then(() =>
-      history.goBack()
+      history.goBack(),
     );
   }, [history, liftId, user]);
 
@@ -106,7 +106,7 @@ export default () => {
           <input
             type="checkbox"
             checked={warmup}
-            onChange={e => setWarmup(e.target.checked)}
+            onChange={(e) => setWarmup(e.target.checked)}
           />
           Warmup
         </label>

@@ -1,14 +1,14 @@
 import * as React from "react";
-import * as util from "../util";
-import * as t from "../types";
 import * as c from "../constants";
+import * as t from "../types";
+import * as util from "../util";
 
 const PlatesFor = ({
   side,
-  plates
+  plates,
 }: {
   side: "left" | "right";
-  plates: [t.PlateTypes, number][];
+  plates: Array<[t.PlateTypes, number]>;
 }) => {
   return (
     <>
@@ -33,11 +33,11 @@ const PlatesFor = ({
 };
 
 export default ({ plateConfig }: { plateConfig: t.PlateConfig }) => {
-  let plates: [t.PlateTypes, number][] = [];
+  let plates: Array<[t.PlateTypes, number]> = [];
   if (plateConfig !== "not-possible") {
     plates = Object.entries(util.splitConfig(plateConfig)).filter(
-      ([_, count]) => count > 0
-    ) as [t.PlateTypes, number][];
+      ([_, count]) => count > 0,
+    ) as Array<[t.PlateTypes, number]>;
   }
   return (
     <div className="bar-wrapper">

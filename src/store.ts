@@ -1,7 +1,7 @@
 import * as redux from "redux";
 import * as ta from "typesafe-actions";
-import * as t from "./types";
 import * as a from "./actions";
+import * as t from "./types";
 
 const getInitialState = (): t.RootState => {
   let localStorage = {};
@@ -14,19 +14,19 @@ const getInitialState = (): t.RootState => {
 
 const rootReducer = ta
   .createReducer(getInitialState())
-  .handleAction([a.nextForceUpdateLift], state =>
-    Object.assign({}, state, { forceUpdateLift: state.forceUpdateLift + 1 })
+  .handleAction([a.nextForceUpdateLift], (state) =>
+    Object.assign({}, state, { forceUpdateLift: state.forceUpdateLift + 1 }),
   )
   .handleAction([a.setUserDoc], (state, { payload: { userDoc } }) =>
-    Object.assign({}, state, { localStorage: { userDoc } })
+    Object.assign({}, state, { localStorage: { userDoc } }),
   );
 
-const saveToLocalStorage: redux.Middleware<{}, t.RootState> = store => next => (
-  action: t.RootAction
+const saveToLocalStorage: redux.Middleware<{}, t.RootState> = (store) => (next) => (
+  action: t.RootAction,
 ) => {
-  let result = next(action);
+  const result = next(action);
   if (ta.isActionOf(a.setUserDoc, action)) {
-    new Promise(resolve => {
+    new Promise((resolve) => {
       const localStorageString = JSON.stringify(store.getState().localStorage);
       window.localStorage.setItem("@mjh/weight-training", localStorageString);
       resolve();
@@ -37,7 +37,7 @@ const saveToLocalStorage: redux.Middleware<{}, t.RootState> = store => next => (
 
 const store = redux.createStore(
   rootReducer,
-  redux.applyMiddleware(saveToLocalStorage)
+  redux.applyMiddleware(saveToLocalStorage),
 );
 
 export default store;

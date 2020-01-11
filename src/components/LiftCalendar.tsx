@@ -1,8 +1,8 @@
-import * as React from "react";
 import firebase from "firebase/app";
+import moment from "moment";
+import * as React from "react";
 import Calendar from "react-calendar";
 import { useHistory, useParams } from "react-router-dom";
-import moment from "moment";
 import * as db from "../db";
 import * as hooks from "../hooks";
 
@@ -11,14 +11,14 @@ export default () => {
   const user = hooks.useForceSignIn();
   const { date: dateUrlParam } = useParams();
   const [daysWithLifts, setDaysWithLifts] = React.useState<Set<string>>(
-    new Set()
+    new Set(),
   );
   React.useEffect(() => {
     if (user === null) {
       return;
     }
-    db.getDaysWithLifts(firebase.firestore(), user).then(dwl =>
-      setDaysWithLifts(new Set(dwl.map(day => day.utc().format("YYYY-MM-DD"))))
+    db.getDaysWithLifts(firebase.firestore(), user).then((dwl) =>
+      setDaysWithLifts(new Set(dwl.map((day) => day.utc().format("YYYY-MM-DD")))),
     );
   }, [user]);
   const [date] = React.useState(() => {
@@ -33,19 +33,19 @@ export default () => {
       <Calendar
         calendarType="US"
         value={date}
-        tileContent={tile => {
+        tileContent={(tile) => {
           if (daysWithLifts.has(moment.utc(tile.date).format("YYYY-MM-DD"))) {
             return <>*</>;
           }
           return null;
         }}
-        tileClassName={tile => {
+        tileClassName={(tile) => {
           if (daysWithLifts.has(moment.utc(tile.date).format("YYYY-MM-DD"))) {
             return "bold";
           }
           return null;
         }}
-        onChange={date => {
+        onChange={(date) => {
           if (date instanceof Array) {
             return;
           }

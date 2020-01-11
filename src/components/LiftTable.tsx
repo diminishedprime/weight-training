@@ -1,10 +1,10 @@
-import * as React from "react";
 import firebase from "firebase/app";
-import * as t from "../types";
-import * as db from "../db";
-import { Link } from "react-router-dom";
 import moment from "moment";
+import * as React from "react";
+import { Link } from "react-router-dom";
+import * as db from "../db";
 import * as hooks from "../hooks";
+import * as t from "../types";
 
 interface TimeSinceProps {
   user: t.User;
@@ -29,7 +29,7 @@ interface LiftTableProps {
 const LiftTable: React.FC<LiftTableProps> = ({ modifyQuery, user }) => {
   const [lifts, setLifts] = React.useState<t.DisplayLift[]>([]);
   const [editing, setEditing] = React.useState<string>();
-  const forceUpdate = t.useSelector(a => a.forceUpdateLift);
+  const forceUpdate = t.useSelector((a) => a.forceUpdateLift);
 
   React.useEffect(() => {
     db.lifts(firebase.firestore(), user, modifyQuery).then(setLifts);
@@ -39,7 +39,7 @@ const LiftTable: React.FC<LiftTableProps> = ({ modifyQuery, user }) => {
     return <div>No lifts recorded.</div>;
   }
 
-  let seenDates = new Set();
+  const seenDates = new Set();
 
   return (
     <table className="table is-striped is-fullwidth">
@@ -79,7 +79,7 @@ const LiftTable: React.FC<LiftTableProps> = ({ modifyQuery, user }) => {
               <tr
                 key={lift.uid}
                 onClick={() =>
-                  setEditing(old => (old === lift.uid ? undefined : lift.uid))
+                  setEditing((old) => (old === lift.uid ? undefined : lift.uid))
                 }
                 className={editing === lift.uid ? "is-selected" : undefined}
               >
