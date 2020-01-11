@@ -9,7 +9,8 @@
     "migrate": "fireway",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
-    "test": "firebase emulators:exec --only firestore 'yarn react-scripts test --runInBand'"
+    "test": "firebase emulators:exec --only firestore 'yarn react-scripts test --runInBand'",
+    "lint": "tslint -c tslint.json 'src/**/*.ts*'"
   },
   "browserslist": {
     "production": [
@@ -50,6 +51,7 @@
     "fireway": "^0.2.3",
     "node-sass": "^4.13.0",
     "react-scripts": "3.3.0",
+    "tslint": "^5.20.1",
     "typescript": "3.7.2"
   }
 }
