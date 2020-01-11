@@ -66,7 +66,7 @@ export interface Lift {
 }
 
 export type Optional<T> = { [P in keyof T]?: T[P] };
-export interface Grouping<T> { [grouping: string]: T[] }
+export interface Grouping<T> { [grouping: string]: T[]; }
 
 export type RootAction = ta.ActionType<typeof import("./actions")>;
 

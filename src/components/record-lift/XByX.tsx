@@ -8,20 +8,20 @@ import * as t from "../../types";
 import * as util from "../../util";
 
 const Plates = ({ plates }: { plates: t.PlateConfig }) => {
-  const plateGroup: Array<[t.PlateTypes, number]> = Object.entries(plates).filter(
-    ([, number]) => number > 0,
-  ) as Array<[t.PlateTypes, number]>;
+  const plateGroup: Array<[t.PlateTypes, number]> = Object.entries(
+    plates
+  ).filter(([, num]) => num > 0) as Array<[t.PlateTypes, number]>;
   return plateGroup.length === 0 ? (
     <div>Nope</div>
   ) : (
     <div className="small-plates">
-      {plateGroup.map(([plateType, number]) => {
+      {plateGroup.map(([plateType, num]) => {
         return (
-          <React.Fragment key={`${plateType}-${number}`}>
-            {util.range(number).map((_, idx) => {
+          <React.Fragment key={`${plateType}-${num}`}>
+            {util.range(num).map((_, idx) => {
               return (
                 <div
-                  key={`${plateType}-${number}-${idx}`}
+                  key={`${plateType}-${num}-${idx}`}
                   className={`${plateType} small-plate`}
                 >
                   {c.plateWeight[plateType]}
@@ -43,7 +43,7 @@ interface XByXData {
 
 const SimpleLiftTable = ({
   program,
-  user,
+  user
 }: {
   program: t.Program;
   user: t.User;
@@ -53,16 +53,16 @@ const SimpleLiftTable = ({
   const {
     moment: lastLiftMoment,
     className: timeClassName,
-    displayString: timeDisplay,
+    displayString: timeDisplay
   } = hooks.useTimeSinceLift(user, lastLiftUid);
   const [
     { currentLift, skippedLifts, completedLifts },
     updateXByXData,
-    cleanup,
+    cleanup
   ] = hooks.useLocalStorage<XByXData>(t.LocalStorageKey.X_BY_X, {
     currentLift: 0,
     skippedLifts: {},
-    completedLifts: {},
+    completedLifts: {}
   });
 
   React.useEffect(() => {
@@ -70,7 +70,7 @@ const SimpleLiftTable = ({
       return;
     }
     db.lifts(firebase.firestore(), user, (query) =>
-      query.limit(1).orderBy("date", "desc"),
+      query.limit(1).orderBy("date", "desc")
     ).then((lifts) => lifts.length === 1 && setLastLiftUid(lifts[0].uid));
   }, [user]);
 
@@ -85,7 +85,7 @@ const SimpleLiftTable = ({
         return {
           ...current,
           currentLift: current.currentLift + 1,
-          skippedLifts: { ...current.skippedLifts, [currentLift]: true },
+          skippedLifts: { ...current.skippedLifts, [currentLift]: true }
         };
       });
     }
@@ -95,17 +95,17 @@ const SimpleLiftTable = ({
     if (currentLift < program.length) {
       const lift: t.Lift = {
         ...program[currentLift],
-        date: firebase.firestore.Timestamp.now(),
+        date: firebase.firestore.Timestamp.now()
       };
       // Don't need to block on this.
       db.addLift(firebase.firestore(), user.uid, lift).then((lift) =>
-        setLastLiftUid(lift.uid),
+        setLastLiftUid(lift.uid)
       );
       updateXByXData((current) => {
         return {
           ...current,
           currentLift: current.currentLift + 1,
-          completedLifts: { ...current.completedLifts, [currentLift]: true },
+          completedLifts: { ...current.completedLifts, [currentLift]: true }
         };
       });
       /* setCompletedLifts(old => ({ ...old, [currentLift]: true }));
@@ -212,7 +212,7 @@ const SimpleLiftTable = ({
 const XByX = ({
   user,
   liftType,
-  workoutType,
+  workoutType
 }: {
   user: t.User;
   liftType: t.LiftType;
@@ -225,7 +225,7 @@ const XByX = ({
   const { started } = rrd.useParams();
 
   const [ready, setReady] = React.useState(
-    started === undefined ? false : true,
+    started === undefined ? false : true
   );
 
   React.useEffect(() => {
@@ -256,11 +256,11 @@ const XByX = ({
         if (value === "") {
           setOneRepMax(undefined);
         } else {
-          setOneRepMax(parseInt(value));
+          setOneRepMax(parseInt(value, 10));
         }
       }
     },
-    [],
+    []
   );
 
   const onSetOneRepMax = React.useCallback(() => {

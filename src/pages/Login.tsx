@@ -10,10 +10,10 @@ export default () => {
     firebase
       .auth()
       .signInWithPopup(provider)
-      .then(function() {
+      .then(() => {
         history.push("/");
       })
-      .catch(function(e) {
+      .catch((e) => {
         // I should probably add some error handling here at some point.
         console.error(e);
       });

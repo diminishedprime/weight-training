@@ -16,13 +16,13 @@ export default () => {
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setWeight(e.target.value);
     },
-    [],
+    []
   );
   const onRepsChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setReps(e.target.value);
     },
-    [],
+    []
   );
 
   const user = hooks.useForceSignIn();
@@ -38,7 +38,9 @@ export default () => {
       setWeight(lift.weight.toString());
       setReps(lift.reps.toString());
       setDate(lift.date.toDate().toISOString());
-      lift.warmup && setWarmup(lift.warmup);
+      if (lift.warmup !== undefined) {
+        setWarmup(lift.warmup);
+      }
     });
   }, [user, liftId]);
 
@@ -52,9 +54,9 @@ export default () => {
     }
     if (weight !== "" && reps !== "" && liftId !== undefined) {
       db.updateLift(firebase.firestore(), user.uid, liftId, {
-        weight: parseInt(weight),
-        reps: parseInt(reps),
-        warmup,
+        weight: parseInt(weight, 10),
+        reps: parseInt(reps, 10),
+        warmup
       }).then(() => history.goBack());
     }
   }, [history, weight, reps, liftId, user, warmup]);
@@ -64,7 +66,7 @@ export default () => {
       return;
     }
     db.deleteLift(firebase.firestore(), user.uid, liftId).then(() =>
-      history.goBack(),
+      history.goBack()
     );
   }, [history, liftId, user]);
 

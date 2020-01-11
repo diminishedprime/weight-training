@@ -15,17 +15,20 @@ const getInitialState = (): t.RootState => {
 const rootReducer = ta
   .createReducer(getInitialState())
   .handleAction([a.nextForceUpdateLift], (state) =>
-    Object.assign({}, state, { forceUpdateLift: state.forceUpdateLift + 1 }),
+    Object.assign({}, state, { forceUpdateLift: state.forceUpdateLift + 1 })
   )
   .handleAction([a.setUserDoc], (state, { payload: { userDoc } }) =>
-    Object.assign({}, state, { localStorage: { userDoc } }),
+    Object.assign({}, state, { localStorage: { userDoc } })
   );
 
-const saveToLocalStorage: redux.Middleware<{}, t.RootState> = (store) => (next) => (
-  action: t.RootAction,
-) => {
+const saveToLocalStorage: redux.Middleware<{}, t.RootState> = (store) => (
+  next
+) => (action: t.RootAction) => {
   const result = next(action);
   if (ta.isActionOf(a.setUserDoc, action)) {
+    // This seems like it's probably a bug in tslint, but this is a simple
+    // enough fix.
+    // tslint:disable-next-line:no-unused-expression
     new Promise((resolve) => {
       const localStorageString = JSON.stringify(store.getState().localStorage);
       window.localStorage.setItem("@mjh/weight-training", localStorageString);
@@ -37,7 +40,7 @@ const saveToLocalStorage: redux.Middleware<{}, t.RootState> = (store) => (next) 
 
 const store = redux.createStore(
   rootReducer,
-  redux.applyMiddleware(saveToLocalStorage),
+  redux.applyMiddleware(saveToLocalStorage)
 );
 
 export default store;

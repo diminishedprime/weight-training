@@ -32,7 +32,7 @@ const Layout: React.FC<{}> = ({ children }) => {
         </Link>
       );
     },
-    [hideNav, location],
+    [hideNav, location]
   );
 
   return (
