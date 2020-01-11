@@ -2,8 +2,8 @@ import * as React from "react";
 import firebase from "firebase/app";
 import { Link, useLocation } from "react-router-dom";
 import * as rrd from "react-router-dom";
-import * as t from "../types";
-import * as c from "../constants";
+import * as t from "./types";
+import * as c from "./constants";
 
 interface HideLink extends rrd.LinkProps {
   className?: string;

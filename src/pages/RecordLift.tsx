@@ -1,10 +1,10 @@
 import * as React from "react";
-import * as hooks from "../../hooks";
-import LiftTable from "../LiftTable";
-import LiftCard from "../LiftCard";
-import * as t from "../../types";
-import AddLift from "./Custom";
-import XByX from "./XByX";
+import * as hooks from "../hooks";
+import LiftTable from "../components/LiftTable";
+import LiftCard from "../components/LiftCard";
+import * as t from "../types";
+import AddLift from "../components/record-lift/Custom";
+import XByX from "../components/record-lift/XByX";
 import * as router from "react-router-dom";
 
 const PreDefinedWorkout = ({
