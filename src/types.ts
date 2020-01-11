@@ -106,7 +106,13 @@ export interface User {
   uid: string;
 }
 
+export enum WeightUnit {
+  KILOGRAM = "kg",
+  POUND = "lb"
+}
+
 export interface Settings {
   version: "1";
   showOlympic: boolean;
+  unit: WeightUnit;
 }

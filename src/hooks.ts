@@ -143,7 +143,7 @@ interface UseSettings {
 export const useSettings = (): UseSettings => {
   const [settings, setSettings] = useLocalStorage<t.Settings>(
     t.LocalStorageKey.SETTINGS,
-    { version: "1", showOlympic: true }
+    { version: "1", showOlympic: true, unit: t.WeightUnit.POUND }
   );
 
   return { settings, setSettings };
