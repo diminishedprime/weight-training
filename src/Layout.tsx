@@ -84,6 +84,9 @@ const Layout: React.FC<{}> = ({ children }) => {
                   );
                 })}
               </div>
+              <HideLink className="navbar-item" to="/settings">
+                Settings
+              </HideLink>
               <button onClick={signOut} className="button is-danger is-small">
                 Sign Out
               </button>

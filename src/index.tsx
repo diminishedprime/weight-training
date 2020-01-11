@@ -14,6 +14,7 @@ import FourOhFour from "./pages/FourOhFour";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import RecordLift from "./pages/RecordLift";
+import Settings from "./pages/Settings";
 import ViewLifts from "./pages/ViewLifts";
 import * as serviceWorker from "./serviceWorker";
 import store from "./store";
@@ -27,7 +28,7 @@ serviceWorker.register({
     if (registration.waiting) {
       registration.waiting.postMessage({ type: "SKIP_WAITING" });
     }
-  },
+  }
 });
 
 const firebaseConfig = {
@@ -38,7 +39,7 @@ const firebaseConfig = {
   storageBucket: "weight-training-8a1ac.appspot.com",
   messagingSenderId: "21223491336",
   appId: "1:21223491336:web:7378ae65a038e84eda8ebd",
-  measurementId: "G-4F9TH5XYE6",
+  measurementId: "G-4F9TH5XYE6"
 };
 
 // Initialize Firebase
@@ -50,6 +51,9 @@ const App: React.FC = () => {
       <UpdateApp />
       <Layout>
         <Switch>
+          <Route path="/settings" exact>
+            <Settings />
+          </Route>
           <Route path="/login" exact>
             <Login />
           </Route>
@@ -59,7 +63,7 @@ const App: React.FC = () => {
                 key={`/lift/${liftType}`}
                 path={[
                   `/lift/${liftType}/:program/:started`,
-                  `/lift/${liftType}`,
+                  `/lift/${liftType}`
                 ]}
               >
                 <RecordLift liftType={liftType} />
@@ -91,5 +95,5 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById("root"),
+  document.getElementById("root")
 );
