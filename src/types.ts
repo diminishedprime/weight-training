@@ -16,7 +16,7 @@ export enum PlateTypes {
   TWENTY_FIVE = "twenty-five",
   TEN = "ten",
   FIVE = "five",
-  TWO_AND_A_HALF = "two-and-a-half",
+  TWO_AND_A_HALF = "two-and-a-half"
 }
 
 export type PlateConfig = { [plate in PlateTypes]: number } | "not-possible";
@@ -26,19 +26,19 @@ export enum LiftType {
   SQUAT = "squat",
   FRONT_SQUAT = "front-squat",
   BENCH_PRESS = "bench-press",
-  OVERHEAD_PRESS = "overhead-press",
+  OVERHEAD_PRESS = "overhead-press"
 }
 
 export enum WorkoutType {
   CUSTOM = "custom",
   FIVE_BY_FIVE = "five-by-five",
-  THREE_BY_THREE = "three-by-three",
+  THREE_BY_THREE = "three-by-three"
 }
 
 export const WorkoutTypeLabel = {
   [WorkoutType.FIVE_BY_FIVE]: "5x5",
   [WorkoutType.CUSTOM]: "Custom",
-  [WorkoutType.THREE_BY_THREE]: "3x3",
+  [WorkoutType.THREE_BY_THREE]: "3x3"
 };
 
 export type DisplayLift = { uid: string } & Lift;
@@ -66,7 +66,9 @@ export interface Lift {
 }
 
 export type Optional<T> = { [P in keyof T]?: T[P] };
-export interface Grouping<T> { [grouping: string]: T[]; }
+export interface Grouping<T> {
+  [grouping: string]: T[];
+}
 
 export type RootAction = ta.ActionType<typeof import("./actions")>;
 
@@ -92,13 +94,19 @@ export interface RecordLiftProps {
 export const cacheDateKey = "@weight-training/cache-date-key";
 
 export enum LocalStorageKey {
+  SETTINGS = "@weight-training/settings",
   DAYS_WITH_LIFTS = "@weight-training/days-with-lifts",
   X_BY_X = "@weight-training/x-by-x",
   USER = "@weight-training/user",
   USER_DOC = "@weight-training/user-doc",
-  LIFTS = "@weight-training/lifts",
+  LIFTS = "@weight-training/lifts"
 }
 
 export interface User {
   uid: string;
+}
+
+export interface Settings {
+  version: "1";
+  showOlympic: boolean;
 }

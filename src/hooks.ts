@@ -134,3 +134,17 @@ export const useLocalStorage = <T>(
 
   return [value, setValue, removeItem];
 };
+
+interface UseSettings {
+  settings: t.Settings;
+  setSettings: React.Dispatch<React.SetStateAction<t.Settings>>;
+}
+
+export const useSettings = (): UseSettings => {
+  const [settings, setSettings] = useLocalStorage<t.Settings>(
+    t.LocalStorageKey.SETTINGS,
+    { version: "1", showOlympic: true }
+  );
+
+  return { settings, setSettings };
+};
