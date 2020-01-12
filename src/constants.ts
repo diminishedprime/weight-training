@@ -38,5 +38,13 @@ export const liftMetadata: {
   [t.LiftType.BENCH_PRESS]: {
     image: benchPressImage,
     displayText: "Bench Press"
+  },
+  [t.LiftType.CLEAN_AND_JERK]: {
+    image: dumbbellImage,
+    displayText: "Clean and Jerk"
+  },
+  [t.LiftType.SNATCH]: {
+    image: dumbbellImage,
+    displayText: "Snatch"
   }
 };
