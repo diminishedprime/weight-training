@@ -3,9 +3,13 @@ import * as React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import * as db from "../db";
 import * as hooks from "../hooks";
+import * as t from "../types";
 
 export default () => {
   const { liftId } = useParams();
+  const {
+    settings: { unit }
+  } = hooks.useSettings();
   const [weight, setWeight] = React.useState("");
   const [reps, setReps] = React.useState("");
   const [date, setDate] = React.useState("");
@@ -35,7 +39,7 @@ export default () => {
         // TODO this could have better error handling.
         return;
       }
-      setWeight(lift.weight.toString());
+      setWeight(lift.weight.value.toString());
       setReps(lift.reps.toString());
       setDate(lift.date.toDate().toISOString());
       if (lift.warmup !== undefined) {
@@ -54,12 +58,12 @@ export default () => {
     }
     if (weight !== "" && reps !== "" && liftId !== undefined) {
       db.updateLift(firebase.firestore(), user.uid, liftId, {
-        weight: parseInt(weight, 10),
+        weight: new t.Weight(parseInt(weight, 10), unit),
         reps: parseInt(reps, 10),
         warmup
       }).then(() => history.goBack());
     }
-  }, [history, weight, reps, liftId, user, warmup]);
+  }, [history, weight, reps, liftId, user, warmup, unit]);
 
   const onDelete = React.useCallback(() => {
     if (user === null || liftId === undefined) {

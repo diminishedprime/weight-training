@@ -1,8 +1,10 @@
 import firebase from "firebase/app";
 import * as rr from "react-redux";
 import * as ta from "typesafe-actions";
+import { Weight } from "./Weight";
 
-export * from "./actions";
+export { Weight } from "./Weight";
+export * from "../actions";
 
 export type Firestore = firebase.firestore.Firestore;
 export type Timestamp = firebase.firestore.Timestamp;
@@ -46,7 +48,7 @@ export type DisplayLift = { uid: string } & Lift;
 export type Program = ProgramLift[];
 
 export interface ProgramLift {
-  weight: number;
+  weight: Weight;
   type: LiftType;
   reps: number;
   warmup: boolean;
@@ -54,12 +56,12 @@ export interface ProgramLift {
 
 // db type
 export type UserDoc = {
-  [lift in LiftType]?: { [ONE_REP_MAX]?: number };
+  [lift in LiftType]?: { [ONE_REP_MAX]?: Weight };
 };
 
 export interface Lift {
   date: Timestamp;
-  weight: number;
+  weight: Weight;
   type: LiftType;
   reps: number;
   warmup: boolean | undefined;
@@ -70,7 +72,7 @@ export interface Grouping<T> {
   [grouping: string]: T[];
 }
 
-export type RootAction = ta.ActionType<typeof import("./actions")>;
+export type RootAction = ta.ActionType<typeof import("../actions")>;
 
 export interface RootState {
   localStorage: {

@@ -2,24 +2,38 @@ import firebase from "firebase/app";
 import * as React from "react";
 import * as c from "../../constants";
 import * as db from "../../db";
+import * as hooks from "../../hooks";
 import * as t from "../../types";
 import * as util from "../../util";
 import Bar from "../Bar";
 
 interface SetWeightProps {
-  setWeight: React.Dispatch<React.SetStateAction<number | undefined>>;
-  weight?: number;
+  setWeight: React.Dispatch<React.SetStateAction<t.Weight | undefined>>;
+  weight?: t.Weight;
 }
 const SetWeight: React.FC<SetWeightProps> = ({ setWeight, weight }) => {
+  const {
+    settings: { unit }
+  } = hooks.useSettings();
   const onWeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === "") {
       setWeight(undefined);
     } else {
-      if (e.target.valueAsNumber > 1500) {
-        setWeight(1500);
+      if (unit === t.WeightUnit.POUND && e.target.valueAsNumber > 1500) {
+        setWeight(t.Weight.lbs(1500));
         return;
+      } else if (
+        unit === t.WeightUnit.KILOGRAM &&
+        e.target.valueAsNumber > t.Weight.lbsToKilo(1500)
+      ) {
+        setWeight(t.Weight.kilo(t.Weight.lbsToKilo(1500)));
+      } else {
+        setWeight((old) =>
+          old === undefined
+            ? new t.Weight(e.target.valueAsNumber, unit)
+            : old.withValue(e.target.valueAsNumber)
+        );
       }
-      setWeight(e.target.valueAsNumber);
     }
   };
   return (
@@ -29,13 +43,17 @@ const SetWeight: React.FC<SetWeightProps> = ({ setWeight, weight }) => {
         className="input"
         type="number"
         onBlur={() => {
-          setWeight((old) => (old === undefined || old < 45 ? 45 : old));
+          setWeight((old) =>
+            old === undefined || old.lessThanEq(t.Weight.bar())
+              ? t.Weight.bar()
+              : old
+          );
         }}
         onKeyDown={(evt) =>
           (evt.key === "e" || evt.key === ".") && evt.preventDefault()
         }
         onChange={onWeightChange}
-        value={weight === undefined ? "" : weight}
+        value={weight === undefined ? "" : weight.value}
       />
     </div>
   );
@@ -77,11 +95,13 @@ const SetReps: React.FC<SetRepsProps> = ({ setReps, reps }) => {
 };
 
 const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
-  const [weight, setWeight] = React.useState<number | undefined>(45);
+  const [weight, setWeight] = React.useState<t.Weight | undefined>(
+    t.Weight.bar()
+  );
   const [reps, setReps] = React.useState(1);
   const [warmup, setWarmup] = React.useState(false);
   const addEnabled = weight !== undefined;
-  const plateConfig = util.platesFor(weight || 45);
+  const plateConfig = util.platesFor(weight || t.Weight.bar());
   const addLiftOnClick = React.useCallback(() => {
     if (weight === undefined) {
       return;
@@ -91,7 +111,7 @@ const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
       type: liftType,
       date: firebase.firestore.Timestamp.now(),
       reps,
-      warmup,
+      warmup
     };
     db.addLift(firebase.firestore(), user.uid, lift);
   }, [weight, liftType, reps, user.uid, warmup]);
@@ -105,13 +125,13 @@ const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
           <div className="buttons has-addons is-right add-plates">
             {Object.entries(c.plateWeight).map(([plate, weight]) => (
               <button
-                key={`add-weight-${weight}`}
-                onClick={() => setWeight((old) => old! + weight * 2)}
+                key={`add-weight-${weight.value}`}
+                onClick={() => setWeight((old) => old!.add(weight.multiply(2)))}
                 disabled={weight === undefined}
                 className="button"
               >
                 <div>
-                  {weight}
+                  {weight.value}
                   {plateConfig !== "not-possible" &&
                     plateConfig[plate as t.PlateTypes] !== 0 && (
                       <span className="has-text-primary">
@@ -142,7 +162,7 @@ const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
       <div className="field flex flex-between">
         <button
           className="button is-danger is-outlined"
-          onClick={() => setWeight(45)}
+          onClick={() => setWeight(t.Weight.bar())}
         >
           Clear Bar
         </button>

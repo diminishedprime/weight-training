@@ -23,7 +23,7 @@ const LiftCard: React.FC<LiftCardProps> = ({ liftType, userDoc }) => {
       {userDoc && userDoc[liftType] && userDoc[liftType]![t.ONE_REP_MAX] && (
         <div>
           <span className="bold has-text-primary">
-            {userDoc[liftType]![t.ONE_REP_MAX]}
+            {userDoc[liftType]![t.ONE_REP_MAX]!.value}
           </span>
         </div>
       )}

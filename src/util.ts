@@ -6,28 +6,32 @@ export const emptyBar = (): t.PlateConfig => ({
   [t.PlateTypes.TWENTY_FIVE]: 0,
   [t.PlateTypes.TEN]: 0,
   [t.PlateTypes.FIVE]: 0,
-  [t.PlateTypes.TWO_AND_A_HALF]: 0,
+  [t.PlateTypes.TWO_AND_A_HALF]: 0
 });
 
-export const platesFor = (weight: number): t.PlateConfig => {
-  if (weight < 45) {
+export const platesFor = (weight: t.Weight): t.PlateConfig => {
+  const barWeight = t.Weight.bar();
+  if (weight.value < barWeight.value) {
     return "not-possible";
   }
-  weight -= 45;
   const plates = emptyBar();
-  const acc: { plates: t.PlateConfig; remainingWeight: number } = {
+  const acc: { plates: t.PlateConfig; remainingWeight: t.Weight } = {
     plates,
-    remainingWeight: weight,
+    remainingWeight: weight.subtract(t.Weight.bar())
   };
   const thing = Object.values(t.PlateTypes).reduce(
     ({ plates, remainingWeight }, plateType) => {
-      while (remainingWeight >= c.plateWeight[plateType] * 2) {
+      while (
+        remainingWeight.greaterThanEq(c.plateWeight[plateType].multiply(2))
+      ) {
         (plates as any)[plateType] += 2;
-        remainingWeight -= c.plateWeight[plateType] * 2;
+        remainingWeight = remainingWeight.subtract(
+          c.plateWeight[plateType].multiply(2)
+        );
       }
       return { plates, remainingWeight };
     },
-    acc,
+    acc
   );
   return thing.plates;
 };
@@ -40,25 +44,22 @@ export const splitConfig = (plateConfig: t.PlateConfig): t.PlateConfig => {
   return copied;
 };
 
-export const nearestFive = (n: number): number => {
-  return 5 * Math.round(n / 5);
-};
-
 const progressionFor = (
-  oneRepMax: number,
+  oneRepMax: t.Weight,
   fraction: number,
   liftsAtWeight: number,
   reps: number,
-  type: t.LiftType,
+  type: t.LiftType
 ): t.Program => {
-  const targetWeight = nearestFive(oneRepMax * fraction);
-  const jump = (targetWeight - t.BAR_WEIGHT) / 4;
+  const bar = t.Weight.bar();
+  const targetWeight = oneRepMax.multiply(fraction).nearestFive();
+  const jump = targetWeight.subtract(bar).divide(4);
   const warmup = false;
-  const oneJump = nearestFive(45 + jump);
-  const twoJump = nearestFive(45 + jump * 2);
-  const threeJump = nearestFive(45 + jump * 3);
+  const oneJump = bar.add(jump).nearestFive();
+  const twoJump = bar.add(jump.multiply(2)).nearestFive();
+  const threeJump = bar.add(jump.multiply(3)).nearestFive();
   return [
-    { weight: 45, reps: 5, type, warmup: true },
+    { weight: bar, reps: 5, type, warmup: true },
     { weight: oneJump, reps: 5, type, warmup: true },
     { weight: twoJump, reps: 3, type, warmup: true },
     { weight: threeJump, reps: 2, type, warmup: true },
@@ -66,15 +67,15 @@ const progressionFor = (
       weight: targetWeight,
       reps,
       type,
-      warmup,
-    })),
+      warmup
+    }))
   ];
 };
 
 export const programFor = (
   workout: t.WorkoutType,
-  oneRepMax: number,
-  liftType: t.LiftType,
+  oneRepMax: t.Weight,
+  liftType: t.LiftType
 ): t.Program => {
   switch (workout) {
     case t.WorkoutType.FIVE_BY_FIVE:

@@ -24,7 +24,7 @@ const Plates = ({ plates }: { plates: t.PlateConfig }) => {
                   key={`${plateType}-${num}-${idx}`}
                   className={`${plateType} small-plate`}
                 >
-                  {c.plateWeight[plateType]}
+                  {c.plateWeight[plateType].value}
                 </div>
               );
             })}
@@ -174,7 +174,7 @@ const SimpleLiftTable = ({
                 } ${isCompleted ? "is-completed-row" : ""}`}
               >
                 <td>{lift.reps}</td>
-                <td>{lift.weight}</td>
+                <td>{lift.weight.toString()}</td>
                 <td className="plates">
                   <Plates
                     plates={util.splitConfig(util.platesFor(lift.weight))}
@@ -220,8 +220,11 @@ const XByX = ({
 }) => {
   // TODO add a calculator for estimating 1RM based on a 3x3 or 5x5.
   const history = rrd.useHistory();
+  const {
+    settings: { unit }
+  } = hooks.useSettings();
   const [program, setProgram] = React.useState<t.Program | undefined>();
-  const [oneRepMax, setOneRepMax] = React.useState<number | undefined>();
+  const [oneRepMax, setOneRepMax] = React.useState<t.Weight | undefined>();
   const { started } = rrd.useParams();
 
   const [ready, setReady] = React.useState(
@@ -249,6 +252,8 @@ const XByX = ({
     }
   }, [oneRepMax, ready, liftType, workoutType]);
 
+  console.log(program);
+
   const oneRepMaxOnChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
@@ -256,11 +261,11 @@ const XByX = ({
         if (value === "") {
           setOneRepMax(undefined);
         } else {
-          setOneRepMax(parseInt(value, 10));
+          setOneRepMax(new t.Weight(parseInt(value, 10), unit));
         }
       }
     },
-    []
+    [unit]
   );
 
   const onSetOneRepMax = React.useCallback(() => {
@@ -283,7 +288,7 @@ const XByX = ({
                 className="input"
                 type="text"
                 placeholder="123"
-                value={oneRepMax === undefined ? "" : oneRepMax.toString()}
+                value={oneRepMax === undefined ? "" : oneRepMax.value}
                 onChange={oneRepMaxOnChange}
               />
             </div>

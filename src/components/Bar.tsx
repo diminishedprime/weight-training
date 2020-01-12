@@ -5,7 +5,7 @@ import * as util from "../util";
 
 const PlatesFor = ({
   side,
-  plates,
+  plates
 }: {
   side: "left" | "right";
   plates: Array<[t.PlateTypes, number]>;
@@ -19,9 +19,11 @@ const PlatesFor = ({
               return (
                 <div
                   key={`left-${type}-${plateIdx}`}
-                  className={`plate _${c.plateWeight[type]}`}
+                  className={`plate _${c.plateWeight[type].value}`}
                 >
-                  <div className="sideways-text">{c.plateWeight[type]}</div>
+                  <div className="sideways-text">
+                    {c.plateWeight[type].value}
+                  </div>
                 </div>
               );
             })}
@@ -36,7 +38,7 @@ export default ({ plateConfig }: { plateConfig: t.PlateConfig }) => {
   let plates: Array<[t.PlateTypes, number]> = [];
   if (plateConfig !== "not-possible") {
     plates = Object.entries(util.splitConfig(plateConfig)).filter(
-      ([_, count]) => count > 0,
+      ([_, count]) => count > 0
     ) as Array<[t.PlateTypes, number]>;
   }
   return (

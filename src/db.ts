@@ -6,7 +6,7 @@ import * as t from "./types";
 
 const updateCacheDateKeys = (
   cacheKey: t.LocalStorageKey,
-  newMoment: moment.Moment,
+  newMoment: moment.Moment
 ) => {
   const fromStorage = window.localStorage.getItem(t.cacheDateKey) || "{}";
   const parsed = JSON.parse(fromStorage);
@@ -28,7 +28,7 @@ const getCacheDateKeys = (): CacheMoments => {
       acc[key] = asMoment;
       return acc;
     },
-    initialValue,
+    initialValue
   );
   return cacheMoments;
 };
@@ -37,8 +37,8 @@ const requestWithCache = async <T>(
   request: () => Promise<T>,
   cacheKey: t.LocalStorageKey,
   invalidateCache: (t: T, lastUpdate: moment.Moment) => boolean,
-  toJSON: (t: T) => string = (t) => JSON.stringify(t),
-  fromJSON: (asString: string) => T = (s) => JSON.parse(s),
+  toJSON: (t: T) => string,
+  fromJSON: (asString: string) => T
 ): Promise<T> => {
   const fromCache = window.localStorage.getItem(cacheKey);
   if (fromCache === null) {
@@ -76,22 +76,21 @@ export const setOneRepMax = async (
   firestore: t.Firestore,
   userUid: string,
   liftType: t.LiftType,
-  weight: number,
-  options: { checkPrevious: boolean } = { checkPrevious: false },
+  weight: t.Weight,
+  options: { checkPrevious: boolean } = { checkPrevious: false }
 ) => {
   const userDoc = firestore.collection("users").doc(userUid);
   const userDocData = await userDoc.get();
-  const userData: t.UserDoc = { [liftType]: { [t.ONE_REP_MAX]: weight } };
+  const userData: t.UserDoc = {
+    [liftType]: { [t.ONE_REP_MAX]: weight.asObject() }
+  };
   if (userDocData.exists) {
     if (!options.checkPrevious) {
       return userDoc.update(userData);
     } else {
       const currentData = userDocData.data() as t.UserDoc;
-      if (
-        currentData[liftType] !== undefined &&
-        currentData[liftType]![t.ONE_REP_MAX] !== undefined &&
-        currentData[liftType]![t.ONE_REP_MAX]! > weight
-      ) {
+      const orm = currentData[liftType]?.[t.ONE_REP_MAX];
+      if (orm !== undefined && t.Weight.fromJSON(orm).greaterThan(weight)) {
         // do nothing, old record is larger than this lift.
         // TODO - this would be wayyy better with the nullish operator once its live in cra.
       } else {
@@ -111,24 +110,42 @@ const oneMinuteSince = (_: any, then: moment.Moment) => {
 
 export const getUserDoc = async (
   firestore: t.Firestore,
-  userUid: string,
+  userUid: string
 ): Promise<t.UserDoc | undefined> => {
   return requestWithCache(
     () => getUserDocH(firestore, userUid),
     t.LocalStorageKey.USER_DOC,
     oneMinuteSince,
+    JSON.stringify,
+    (s: string) => {
+      const doc = JSON.parse(s) as t.UserDoc;
+      Object.values(doc).forEach((value) => {
+        const orm = value![t.ONE_REP_MAX];
+        if (orm !== undefined) {
+          value![t.ONE_REP_MAX] = new t.Weight(orm.value, orm.unit);
+        }
+      });
+      return doc;
+    }
   );
 };
 export const getUserDocH = async (
   firestore: t.Firestore,
-  userUid: string,
+  userUid: string
 ): Promise<t.UserDoc | undefined> => {
   const doc = await firestore
     .collection("users")
     .doc(userUid)
     .get();
   if (doc.exists) {
-    return doc.data() as t.UserDoc;
+    const data = doc.data() as t.UserDoc;
+    Object.values(data).forEach((value) => {
+      const orm = value![t.ONE_REP_MAX];
+      if (orm !== undefined) {
+        value![t.ONE_REP_MAX] = t.Weight.fromJSON(orm);
+      }
+    });
+    return data;
   }
   return undefined;
 };
@@ -136,8 +153,8 @@ export const getUserDocH = async (
 export const getOneRepMax = async (
   firestore: t.Firestore,
   userUid: string,
-  liftType: t.LiftType,
-): Promise<number | undefined> => {
+  liftType: t.LiftType
+): Promise<t.Weight | undefined> => {
   const userData = await getUserDoc(firestore, userUid);
   if (userData === undefined) {
     return undefined;
@@ -152,7 +169,7 @@ export const getOneRepMax = async (
 export const getLift = async (
   firestore: t.Firestore,
   userUid: string,
-  liftUid: string,
+  liftUid: string
 ): Promise<t.Lift | undefined> => {
   const doc = await firestore
     .collection("users")
@@ -173,7 +190,7 @@ export const getLift = async (
 export const deleteLift = async (
   firestore: t.Firestore,
   userUid: string,
-  liftUid: string,
+  liftUid: string
 ): Promise<void> => {
   const deletedLift = await firestore
     .collection("users")
@@ -188,16 +205,18 @@ export const deleteLift = async (
 export const addLift = async (
   firestore: t.Firestore,
   uid: string,
-  lift: t.Lift,
+  lift: t.Lift
 ): Promise<t.DisplayLift> => {
+  const copy = { ...lift };
+  (copy as any).weight = copy.weight.asObject();
   const docReference = firestore
     .collection("users")
     .doc(uid)
     .collection("lifts")
-    .add(lift);
+    .add(copy);
   const newLift = await docReference.then(async (doc) => {
     await setOneRepMax(firestore, uid, lift.type, lift.weight, {
-      checkPrevious: true,
+      checkPrevious: true
     });
     const d = await doc.get();
     const data = d.data();
@@ -215,21 +234,25 @@ export const updateLift = async (
   firestore: t.Firestore,
   userUid: string,
   liftUid: string,
-  liftUpdate: t.Optional<t.Lift>,
+  liftUpdate: t.Optional<t.Lift>
 ): Promise<void> => {
+  const copy = { ...liftUpdate };
+  if (copy.weight !== undefined) {
+    (copy as any).weight = copy.weight.asObject();
+  }
   const updatedLift = await firestore
     .collection("users")
     .doc(userUid)
     .collection("lifts")
     .doc(liftUid)
-    .update(liftUpdate);
+    .update(copy);
   store.dispatch(actions.nextForceUpdateLift());
   return updatedLift;
 };
 
 const getLiftsCollection = (
   firestore: t.Firestore,
-  userUid: string,
+  userUid: string
 ): firebase.firestore.CollectionReference => {
   return firestore
     .collection("users")
@@ -238,7 +261,7 @@ const getLiftsCollection = (
 };
 
 type ModifyQuery = (
-  query: firebase.firestore.Query,
+  query: firebase.firestore.Query
 ) => firebase.firestore.Query;
 
 // This is a bit of a hack, but hopefully it'll help me to not shoot myself in
@@ -248,7 +271,7 @@ interface LiftsQuerySnapshot extends firebase.firestore.QuerySnapshot {
 }
 
 const toDisplayLifts = (
-  liftsCollection: LiftsQuerySnapshot,
+  liftsCollection: LiftsQuerySnapshot
 ): t.DisplayLift[] => {
   const displayLifts = liftsCollection.docs.map((doc) => {
     const data = doc.data() as t.Lift;
@@ -261,33 +284,33 @@ const toDisplayLifts = (
 export const lifts = async (
   firestore: t.Firestore,
   user: t.User,
-  modifyQuery: ModifyQuery,
+  modifyQuery: ModifyQuery
 ): Promise<t.DisplayLift[]> => {
   const liftsCollection = await modifyQuery(
-    getLiftsCollection(firestore, user.uid),
+    getLiftsCollection(firestore, user.uid)
   ).get();
   return toDisplayLifts(liftsCollection as LiftsQuerySnapshot);
 };
 
 export const getDaysWithLifts = async (
   firestore: t.Firestore,
-  user: t.User,
+  user: t.User
 ): Promise<moment.Moment[]> => {
   return requestWithCache(
     () => getDaysWithLiftsH(firestore, user),
     t.LocalStorageKey.DAYS_WITH_LIFTS,
     oneMinuteSince,
-    undefined,
+    JSON.stringify,
     (s: string) => {
       const parsed: string[] = JSON.parse(s);
       return parsed.map((s) => moment.utc(s));
-    },
+    }
   );
 };
 
 const getDaysWithLiftsH = async (
   firestore: t.Firestore,
-  user: t.User,
+  user: t.User
 ): Promise<moment.Moment[]> => {
   const daysWithLifts = await firestore
     .collection("users")

@@ -9,7 +9,9 @@ import * as t from "../types";
 
 export default () => {
   const user = hooks.useForceSignIn();
-  const userDoc = t.useSelector((s) => s.localStorage && s.localStorage.userDoc);
+  const userDoc = t.useSelector(
+    (s) => s.localStorage && s.localStorage.userDoc
+  );
   const dispatch = redux.useDispatch();
   React.useEffect(() => {
     if (user === null) {

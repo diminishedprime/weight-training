@@ -94,7 +94,7 @@ const LiftTable: React.FC<LiftTableProps> = ({ modifyQuery, user }) => {
                 ) : (
                   <td>{moment(lift.date.toDate()).format("HH:mm")}</td>
                 )}
-                <td>{lift.weight}</td>
+                <td>{lift.weight.value}</td>
                 <td>{lift.reps}</td>
                 <td align="center">{lift.warmup ? "✔️" : ""}</td>
               </tr>
