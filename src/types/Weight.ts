@@ -113,12 +113,26 @@ export class Weight {
     }
   }
 
+  public toPound(): Weight {
+    let newValue = this.value;
+    if (this.unit === WeightUnit.KILOGRAM) {
+      newValue = Weight.kiloToLbs(this.value);
+    }
+    return new Weight(newValue, WeightUnit.KILOGRAM);
+  }
   public toKilo(): Weight {
     let newValue = this.value;
     if (this.unit === WeightUnit.POUND) {
       newValue = Weight.lbsToKilo(this.value);
     }
     return new Weight(newValue, WeightUnit.KILOGRAM);
+  }
+
+  public toUnit(unit: WeightUnit): Weight {
+    if (unit === WeightUnit.KILOGRAM) {
+      return this.toKilo();
+    }
+    return this.toPound();
   }
 
   public divide = (b: number): Weight => {

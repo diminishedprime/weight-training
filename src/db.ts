@@ -184,6 +184,8 @@ export const getLift = async (
   if (data === undefined) {
     return undefined;
   }
+  // TODO - I should fix this by having separate db types.
+  data.weight = t.Weight.fromJSON(data.weight);
   return data as t.Lift;
 };
 
@@ -275,6 +277,7 @@ const toDisplayLifts = (
 ): t.DisplayLift[] => {
   const displayLifts = liftsCollection.docs.map((doc) => {
     const data = doc.data() as t.Lift;
+    data.weight = t.Weight.fromJSON(data.weight);
     const displayLift: t.DisplayLift = { ...data, uid: doc.id };
     return displayLift;
   });

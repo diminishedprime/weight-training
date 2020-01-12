@@ -6,58 +6,8 @@ import * as hooks from "../../hooks";
 import * as t from "../../types";
 import * as util from "../../util";
 import Bar from "../Bar";
-
-interface SetWeightProps {
-  setWeight: React.Dispatch<React.SetStateAction<t.Weight | undefined>>;
-  weight?: t.Weight;
-}
-const SetWeight: React.FC<SetWeightProps> = ({ setWeight, weight }) => {
-  const {
-    settings: { unit }
-  } = hooks.useSettings();
-  const onWeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value === "") {
-      setWeight(undefined);
-    } else {
-      if (unit === t.WeightUnit.POUND && e.target.valueAsNumber > 1500) {
-        setWeight(t.Weight.lbs(1500));
-        return;
-      } else if (
-        unit === t.WeightUnit.KILOGRAM &&
-        e.target.valueAsNumber > t.Weight.lbsToKilo(1500)
-      ) {
-        setWeight(t.Weight.kilo(t.Weight.lbsToKilo(1500)));
-      } else {
-        setWeight((old) =>
-          old === undefined
-            ? new t.Weight(e.target.valueAsNumber, unit)
-            : old.withValue(e.target.valueAsNumber)
-        );
-      }
-    }
-  };
-  return (
-    <div className="control is-expanded">
-      <label className="label">Weight</label>
-      <input
-        className="input"
-        type="number"
-        onBlur={() => {
-          setWeight((old) =>
-            old === undefined || old.lessThanEq(t.Weight.bar())
-              ? t.Weight.bar()
-              : old
-          );
-        }}
-        onKeyDown={(evt) =>
-          (evt.key === "e" || evt.key === ".") && evt.preventDefault()
-        }
-        onChange={onWeightChange}
-        value={weight === undefined ? "" : weight.value}
-      />
-    </div>
-  );
-};
+import WeightInput from "../general/WeightInput";
+import WithLabel from "../general/WithLabel";
 
 interface SetRepsProps {
   setReps: React.Dispatch<React.SetStateAction<number>>;
@@ -147,7 +97,9 @@ const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
       </div>
       <div className="field is-grouped">
         <SetReps reps={reps} setReps={setReps} />
-        <SetWeight weight={weight} setWeight={setWeight} />
+        <WithLabel label="Weight">
+          <WeightInput setWeight={setWeight} weight={weight} />
+        </WithLabel>
       </div>
       <div className="field flex">
         <label className="checkbox flex flex-center full-width flex-end">

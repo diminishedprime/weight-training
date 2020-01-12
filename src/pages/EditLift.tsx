@@ -4,24 +4,16 @@ import { useHistory, useParams } from "react-router-dom";
 import * as db from "../db";
 import * as hooks from "../hooks";
 import * as t from "../types";
+import WeightInput from "../components/general/WeightInput";
 
 export default () => {
   const { liftId } = useParams();
-  const {
-    settings: { unit }
-  } = hooks.useSettings();
-  const [weight, setWeight] = React.useState("");
+  const [weight, setWeight] = React.useState<t.Weight | undefined>();
   const [reps, setReps] = React.useState("");
   const [date, setDate] = React.useState("");
   const [warmup, setWarmup] = React.useState(false);
   const history = useHistory();
 
-  const onWeightChange = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setWeight(e.target.value);
-    },
-    []
-  );
   const onRepsChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setReps(e.target.value);
@@ -39,7 +31,7 @@ export default () => {
         // TODO this could have better error handling.
         return;
       }
-      setWeight(lift.weight.value.toString());
+      setWeight(lift.weight);
       setReps(lift.reps.toString());
       setDate(lift.date.toDate().toISOString());
       if (lift.warmup !== undefined) {
@@ -56,14 +48,14 @@ export default () => {
     if (user === null) {
       return;
     }
-    if (weight !== "" && reps !== "" && liftId !== undefined) {
+    if (weight !== undefined && reps !== "" && liftId !== undefined) {
       db.updateLift(firebase.firestore(), user.uid, liftId, {
-        weight: new t.Weight(parseInt(weight, 10), unit),
+        weight,
         reps: parseInt(reps, 10),
         warmup
       }).then(() => history.goBack());
     }
-  }, [history, weight, reps, liftId, user, warmup, unit]);
+  }, [history, weight, reps, liftId, user, warmup]);
 
   const onDelete = React.useCallback(() => {
     if (user === null || liftId === undefined) {
@@ -79,15 +71,7 @@ export default () => {
       <div className="title is-5">Edit Lift</div>
       <div className="field">
         <label className="label">Weight</label>
-        <div className="control">
-          <input
-            className="input"
-            type="text"
-            placeholder="123"
-            value={weight}
-            onChange={onWeightChange}
-          />
-        </div>
+        <WeightInput weight={weight} setWeight={setWeight} />
       </div>
       <div className="field">
         <label className="label">Reps</label>
