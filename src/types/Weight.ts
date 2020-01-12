@@ -1,8 +1,9 @@
-import { WeightUnit } from "./index";
+import { Weight as DBWeight } from "./db";
+import { ToFirestore, WeightUnit } from "./index";
 
 const lbsToKiloRatio = 0.453592;
 
-export class Weight {
+export class Weight implements DBWeight, ToFirestore {
   public static kiloToLbs = (value: number) => {
     return value / lbsToKiloRatio;
   };
@@ -15,6 +16,10 @@ export class Weight {
     return new Weight(value, WeightUnit.POUND);
   };
 
+  public static zero = (): Weight => {
+    return new Weight(0, WeightUnit.POUND);
+  };
+
   public static kilo = (value: number): Weight => {
     return new Weight(value, WeightUnit.KILOGRAM);
   };
@@ -23,9 +28,10 @@ export class Weight {
     return new Weight(45, WeightUnit.POUND);
   };
 
-  public static fromJSON(json: { value: number; unit: string }): Weight {
-    return new Weight(json.value, json.unit as WeightUnit);
-  }
+  public static fromFirestoreData = (o: object): Weight => {
+    // TODO add a schema check here.
+    return new Weight((o as any).value, (o as any).unit as WeightUnit);
+  };
 
   public value: number;
   public unit: WeightUnit;

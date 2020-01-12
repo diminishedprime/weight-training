@@ -1,16 +1,26 @@
 import firebase from "firebase/app";
 import * as rr from "react-redux";
 import * as ta from "typesafe-actions";
+import { LiftType } from "./common";
+import { WeightUnit } from "./common";
+import { Lift } from "./Lift";
+import { UserDoc } from "./UserDoc";
 import { Weight } from "./Weight";
 
+// TODO - This should be removed once I make a proper UserDoc class
+export * from "./common";
 export { Weight } from "./Weight";
+export { UserDoc } from "./UserDoc";
+export { Lift } from "./Lift";
 export * from "../actions";
 
 export type Firestore = firebase.firestore.Firestore;
-export type Timestamp = firebase.firestore.Timestamp;
+export class Timestamp extends firebase.firestore.Timestamp {}
 
 export const BAR_WEIGHT = 45;
-export const ONE_REP_MAX = "one-rep-max";
+export interface ToFirestore {
+  asObject(): object;
+}
 
 export enum PlateTypes {
   FORTY_FIVE = "forty-five",
@@ -22,16 +32,6 @@ export enum PlateTypes {
 }
 
 export type PlateConfig = { [plate in PlateTypes]: number } | "not-possible";
-
-export enum LiftType {
-  DEADLIFT = "deadlift",
-  SQUAT = "squat",
-  FRONT_SQUAT = "front-squat",
-  BENCH_PRESS = "bench-press",
-  OVERHEAD_PRESS = "overhead-press",
-  CLEAN_AND_JERK = "clean-and-jerk",
-  SNATCH = "snatch"
-}
 
 export enum WorkoutType {
   CUSTOM = "custom",
@@ -45,8 +45,6 @@ export const WorkoutTypeLabel = {
   [WorkoutType.THREE_BY_THREE]: "3x3"
 };
 
-export type DisplayLift = { uid: string } & Lift;
-
 export type Program = ProgramLift[];
 
 export interface ProgramLift {
@@ -54,19 +52,6 @@ export interface ProgramLift {
   type: LiftType;
   reps: number;
   warmup: boolean;
-}
-
-// db type
-export type UserDoc = {
-  [lift in LiftType]?: { [ONE_REP_MAX]?: Weight };
-};
-
-export interface Lift {
-  date: Timestamp;
-  weight: Weight;
-  type: LiftType;
-  reps: number;
-  warmup: boolean | undefined;
 }
 
 export type Optional<T> = { [P in keyof T]?: T[P] };
@@ -110,13 +95,17 @@ export interface User {
   uid: string;
 }
 
-export enum WeightUnit {
-  KILOGRAM = "kg",
-  POUND = "lb"
-}
-
 export interface Settings {
   version: "1";
   showOlympic: boolean;
   unit: WeightUnit;
+}
+
+export class DisplayLift extends Lift {
+  public uid: string;
+
+  constructor(lift: Lift, uid: string) {
+    super(lift);
+    this.uid = uid;
+  }
 }

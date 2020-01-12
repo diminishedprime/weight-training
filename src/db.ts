@@ -79,26 +79,16 @@ export const setOneRepMax = async (
   weight: t.Weight,
   options: { checkPrevious: boolean } = { checkPrevious: false }
 ) => {
-  const userDoc = firestore.collection("users").doc(userUid);
-  const userDocData = await userDoc.get();
-  const userData: t.UserDoc = {
-    [liftType]: { [t.ONE_REP_MAX]: weight.asObject() }
-  };
-  if (userDocData.exists) {
-    if (!options.checkPrevious) {
-      return userDoc.update(userData);
-    } else {
-      const currentData = userDocData.data() as t.UserDoc;
-      const orm = currentData[liftType]?.[t.ONE_REP_MAX];
-      if (orm !== undefined && t.Weight.fromJSON(orm).greaterThan(weight)) {
-        // do nothing, old record is larger than this lift.
-        // TODO - this would be wayyy better with the nullish operator once its live in cra.
-      } else {
-        return userDoc.update(userData);
-      }
-    }
+  const currentUserDoc = await getUserDocH(firestore, userUid);
+  const userDoc = getUserDocReference(firestore, userUid);
+  if (!options.checkPrevious) {
+    currentUserDoc.setORM(liftType, weight);
+    return userDoc.update(currentUserDoc.asObject());
   } else {
-    return userDoc.set(userData);
+    if (currentUserDoc.getORM(liftType).lessThan(weight)) {
+      currentUserDoc.setORM(liftType, weight);
+      return userDoc.update(currentUserDoc.asObject());
+    }
   }
 };
 
@@ -119,35 +109,35 @@ export const getUserDoc = async (
     JSON.stringify,
     (s: string) => {
       const doc = JSON.parse(s) as t.UserDoc;
-      Object.values(doc).forEach((value) => {
-        const orm = value![t.ONE_REP_MAX];
-        if (orm !== undefined) {
-          value![t.ONE_REP_MAX] = new t.Weight(orm.value, orm.unit);
-        }
-      });
-      return doc;
+      return t.UserDoc.fromFirestoreData(doc);
     }
   );
+};
+
+export const getUserDocReference = (
+  firestore: t.Firestore,
+  userUid: string
+) => {
+  const docReference = firestore.collection("users").doc(userUid);
+  return docReference;
 };
 export const getUserDocH = async (
   firestore: t.Firestore,
   userUid: string
-): Promise<t.UserDoc | undefined> => {
-  const doc = await firestore
-    .collection("users")
-    .doc(userUid)
-    .get();
+): Promise<t.UserDoc> => {
+  const docReference = getUserDocReference(firestore, userUid);
+  const doc = await docReference.get();
   if (doc.exists) {
-    const data = doc.data() as t.UserDoc;
-    Object.values(data).forEach((value) => {
-      const orm = value![t.ONE_REP_MAX];
-      if (orm !== undefined) {
-        value![t.ONE_REP_MAX] = t.Weight.fromJSON(orm);
-      }
-    });
-    return data;
+    const data = doc.data();
+    if (data === undefined) {
+      throw new Error(`This shouldn't be able to happen`);
+    }
+    return t.UserDoc.fromFirestoreData(data);
+  } else {
+    const nu = t.UserDoc.empty();
+    await docReference.set(nu.asObject());
+    return nu;
   }
-  return undefined;
 };
 
 export const getOneRepMax = async (
@@ -184,9 +174,7 @@ export const getLift = async (
   if (data === undefined) {
     return undefined;
   }
-  // TODO - I should fix this by having separate db types.
-  data.weight = t.Weight.fromJSON(data.weight);
-  return data as t.Lift;
+  return t.Lift.fromFirestoreData(data);
 };
 
 export const deleteLift = async (
@@ -277,9 +265,7 @@ const toDisplayLifts = (
 ): t.DisplayLift[] => {
   const displayLifts = liftsCollection.docs.map((doc) => {
     const data = doc.data() as t.Lift;
-    data.weight = t.Weight.fromJSON(data.weight);
-    const displayLift: t.DisplayLift = { ...data, uid: doc.id };
-    return displayLift;
+    return t.Lift.fromFirestoreData(data).withUid(doc.id);
   });
   return displayLifts;
 };

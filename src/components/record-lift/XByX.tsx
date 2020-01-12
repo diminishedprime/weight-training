@@ -96,10 +96,10 @@ const SimpleLiftTable = ({
 
   const completeLift = React.useCallback(() => {
     if (currentLift < program.length) {
-      const lift: t.Lift = {
+      const lift: t.Lift = new t.Lift({
         ...program[currentLift],
         date: firebase.firestore.Timestamp.now()
-      };
+      });
       // Don't need to block on this.
       db.addLift(firebase.firestore(), user.uid, lift).then((lift) =>
         setLastLiftUid(lift.uid)

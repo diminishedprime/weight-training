@@ -8,14 +8,9 @@ const getInitialState = (): t.RootState => {
   const fromStorage = window.localStorage.getItem("@mjh/weight-training");
   if (fromStorage !== null) {
     localStorage = JSON.parse(fromStorage);
-    const userDoc = (localStorage as any).userDoc as t.UserDoc;
-    if (userDoc !== undefined) {
-      Object.values(userDoc).forEach((value) => {
-        const orm = value![t.ONE_REP_MAX];
-        if (orm !== undefined) {
-          value![t.ONE_REP_MAX] = new t.Weight(orm.value, orm.unit);
-        }
-      });
+    const o = (localStorage as any).userDoc;
+    if (o !== undefined) {
+      (localStorage as any).userDoc = t.UserDoc.fromFirestoreData(o);
     }
   }
   return { localStorage, forceUpdateLift: 0 };

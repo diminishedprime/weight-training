@@ -10,7 +10,8 @@
     "object-literal-sort-keys": false,
     "no-shadowed-variable": false,
     "trailing-comma": false,
-    "semicolon": [true, "always", "ignore-bound-class-methods"]
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
+    "max-classes-per-file": false
   },
   "rulesDirectory": []
 }
