@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import * as c from "../constants";
-import * as t from "../types";
 import * as hooks from "../hooks";
+import * as t from "../types";
 
 interface LiftCardProps {
   liftType: t.LiftType;

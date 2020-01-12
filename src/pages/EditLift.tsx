@@ -1,10 +1,10 @@
 import firebase from "firebase/app";
 import * as React from "react";
 import { useHistory, useParams } from "react-router-dom";
+import WeightInput from "../components/general/WeightInput";
 import * as db from "../db";
 import * as hooks from "../hooks";
 import * as t from "../types";
-import WeightInput from "../components/general/WeightInput";
 
 export default () => {
   const { liftId } = useParams();

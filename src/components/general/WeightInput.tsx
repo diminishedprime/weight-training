@@ -1,6 +1,6 @@
 import * as React from "react";
-import * as t from "../../types";
 import * as hooks from "../../hooks";
+import * as t from "../../types";
 
 interface WeightInput
   extends React.DetailedHTMLProps<
