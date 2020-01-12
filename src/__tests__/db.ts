@@ -45,9 +45,9 @@ describe("for the db", () => {
         .set({ hasLift: true });
       const firestore = authedApp({ uid: userUid });
       const daysWithLifts = await sut.getDaysWithLifts(firestore, {
-        uid: userUid,
+        uid: userUid
       });
-      expect(daysWithLifts).toEqual(new Set([date]));
+      expect(daysWithLifts.data).toEqual([moment.utc(date, "YYYY-MM-DD")]);
     });
 
     test("one rep max is initially undefined", async () => {
@@ -55,10 +55,10 @@ describe("for the db", () => {
       const oneRepMaxes = await Promise.all(
         Object.values(t.LiftType).map(async (liftType) => {
           return sut.getOneRepMax(firestore, userUid, liftType);
-        }),
+        })
       );
       oneRepMaxes.forEach((oneRepMax) => {
-        expect(oneRepMax).toBeUndefined();
+        expect(oneRepMax.asObject()).toEqual(t.Weight.zero().asObject());
       });
     });
 
@@ -66,82 +66,82 @@ describe("for the db", () => {
       const firestore = authedApp({ uid: userUid });
 
       for (const liftType of Object.values(t.LiftType)) {
-        await sut.setOneRepMax(firestore, userUid, liftType, 100);
+        await sut.setOneRepMax(firestore, userUid, liftType, t.Weight.lbs(100));
       }
 
       const oneRepMaxes = await Promise.all(
         Object.values(t.LiftType).map(async (liftType) => {
           return sut.getOneRepMax(firestore, userUid, liftType);
-        }),
+        })
       );
       oneRepMaxes.forEach((oneRepMax) => {
-        expect(oneRepMax).not.toBeUndefined();
+        expect(oneRepMax.asObject()).toEqual(t.Weight.lbs(100).asObject());
       });
     });
 
     test("can override an existing one rep max", async () => {
       const firestore = authedApp({ uid: userUid });
-      await sut.setOneRepMax(firestore, userUid, DEADLIFT, 100);
+      await sut.setOneRepMax(firestore, userUid, DEADLIFT, t.Weight.lbs(100));
       const oldDeadlift = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
-      await sut.setOneRepMax(firestore, userUid, DEADLIFT, 110);
+      await sut.setOneRepMax(firestore, userUid, DEADLIFT, t.Weight.lbs(110));
       const newDeadlift = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
-      expect(oldDeadlift).toEqual(100);
-      expect(oldDeadlift).not.toEqual(newDeadlift);
-      expect(newDeadlift).toEqual(110);
+      expect(oldDeadlift.asObject()).toEqual(t.Weight.lbs(100).asObject());
+      expect(oldDeadlift.asObject()).not.toEqual(newDeadlift.asObject());
+      expect(newDeadlift.asObject()).toEqual(t.Weight.lbs(110).asObject());
     });
 
     describe("when using the options flag", () => {
       test("checkPrevious: true overwrites when value is larger", async () => {
         const firestore = authedApp({ uid: userUid });
-        await sut.setOneRepMax(firestore, userUid, DEADLIFT, 100);
-        await sut.setOneRepMax(firestore, userUid, DEADLIFT, 90, {
-          checkPrevious: true,
+        await sut.setOneRepMax(firestore, userUid, DEADLIFT, t.Weight.lbs(100));
+        await sut.setOneRepMax(firestore, userUid, DEADLIFT, t.Weight.lbs(90), {
+          checkPrevious: true
         });
 
         const actual = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
-        expect(actual).toEqual(100);
+        expect(actual.asObject()).toEqual(t.Weight.lbs(100).asObject());
       });
       test("checkPrevious: false overwrites when value is larger", async () => {
         const firestore = authedApp({ uid: userUid });
-        await sut.setOneRepMax(firestore, userUid, DEADLIFT, 100);
-        await sut.setOneRepMax(firestore, userUid, DEADLIFT, 90, {
-          checkPrevious: false,
+        await sut.setOneRepMax(firestore, userUid, DEADLIFT, t.Weight.lbs(100));
+        await sut.setOneRepMax(firestore, userUid, DEADLIFT, t.Weight.lbs(90), {
+          checkPrevious: false
         });
 
         const actual = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
-        expect(actual).toEqual(90);
+        expect(actual.asObject()).toEqual(t.Weight.lbs(90).asObject());
       });
     });
 
     test("setting a one rep max does not clear out others", async () => {
       const firestore = authedApp({ uid: userUid });
-      await sut.setOneRepMax(firestore, userUid, DEADLIFT, 100);
+      await sut.setOneRepMax(firestore, userUid, DEADLIFT, t.Weight.lbs(100));
       const oldDeadlift = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
 
-      await sut.setOneRepMax(firestore, userUid, SQUAT, 110);
+      await sut.setOneRepMax(firestore, userUid, SQUAT, t.Weight.lbs(110));
       const newSquat = await sut.getOneRepMax(firestore, userUid, SQUAT);
       const newDeadlift = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
-      expect(oldDeadlift).toEqual(100);
-      expect(oldDeadlift).toEqual(newDeadlift);
-      expect(newSquat).toEqual(110);
+      expect(oldDeadlift.asObject()).toEqual(t.Weight.lbs(100).asObject());
+      expect(oldDeadlift.asObject()).toEqual(newDeadlift.asObject());
+      expect(newSquat.asObject()).toEqual(t.Weight.lbs(110).asObject());
     });
   });
 
   describe("for the lift operations", () => {
     const userUid = "matt";
-    const lift: t.Lift = {
-      weight: 200,
+    const lift: t.Lift = new t.Lift({
+      weight: t.Weight.lbs(200),
       reps: 3,
       type: DEADLIFT,
       date: firebase.firestore.Timestamp.now(),
-      warmup: false,
-    };
+      warmup: false
+    });
 
     test("adding a new lift puts it in the db.", async () => {
       const firestore = authedApp({ uid: userUid });
       const actual = await sut.addLift(firestore, userUid, lift);
       delete actual.uid;
-      expect(actual).toEqual(lift);
+      expect(actual.asObject()).toEqual(lift.asObject());
     });
 
     test("adding a new lift sets the one-rep-max if unset.", async () => {
@@ -149,25 +149,37 @@ describe("for the db", () => {
       await sut.addLift(firestore, userUid, lift);
 
       const actual = await sut.getOneRepMax(firestore, userUid, lift.type);
-      expect(actual).toEqual(lift.weight);
+      expect(actual.asObject()).toEqual(lift.weight.asObject());
     });
 
     test("adding a new lift updates the one-rep-max if larger.", async () => {
       const firestore = authedApp({ uid: userUid });
-      await sut.setOneRepMax(firestore, userUid, lift.type, lift.weight - 10);
+      await sut.setOneRepMax(
+        firestore,
+        userUid,
+        lift.type,
+        lift.weight.subtract(t.Weight.lbs(10))
+      );
       await sut.addLift(firestore, userUid, lift);
 
       const actual = await sut.getOneRepMax(firestore, userUid, lift.type);
-      expect(actual).toEqual(lift.weight);
+      expect(actual.asObject()).toEqual(lift.weight.asObject());
     });
 
     test("adding a new lift does not update the one-rep-max if smaller.", async () => {
       const firestore = authedApp({ uid: userUid });
-      await sut.setOneRepMax(firestore, userUid, lift.type, lift.weight + 10);
+      await sut.setOneRepMax(
+        firestore,
+        userUid,
+        lift.type,
+        lift.weight.add(t.Weight.lbs(10))
+      );
       await sut.addLift(firestore, userUid, lift);
 
       const actual = await sut.getOneRepMax(firestore, userUid, lift.type);
-      expect(actual).toEqual(lift.weight + 10);
+      expect(actual!.asObject()).toEqual(
+        lift.weight.add(t.Weight.lbs(10)).asObject()
+      );
     });
 
     test("an added lift can be retrieved from the db.", async () => {
@@ -185,7 +197,7 @@ describe("for the db", () => {
       const firstValue = await sut.getLift(firestore, userUid, liftUid);
       expect(firstValue).not.toBeUndefined();
       await sut.updateLift(firestore, userUid, liftUid, {
-        reps: lift.reps + 3,
+        reps: lift.reps + 3
       });
       const actualAfterUpdate = await sut.getLift(firestore, userUid, liftUid);
       expect(actualAfterUpdate!.reps).toBe(6);
@@ -203,22 +215,11 @@ describe("for the db", () => {
       const liftUid = addedLift.uid;
       // Exists in this part of the test.
       expect(
-        await sut.getLift(firestore, userUid, liftUid),
+        await sut.getLift(firestore, userUid, liftUid)
       ).not.toBeUndefined();
       await sut.deleteLift(firestore, userUid, liftUid);
       // Is removed by this part.
       expect(await sut.getLift(firestore, userUid, liftUid)).toBeUndefined();
-    });
-
-    test("getLifts returns the correct collection", async () => {
-      const firestore = authedApp({ uid: userUid });
-      const actualCollection = firestore
-        .collection("users")
-        .doc(userUid)
-        .collection("lifts");
-      expect((await actualCollection.get()).size).toBe(0);
-      await sut.addLift(firestore, userUid, lift);
-      expect((await actualCollection.get()).size).toBe(1);
     });
   });
 });

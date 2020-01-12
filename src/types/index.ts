@@ -15,11 +15,15 @@ export { Lift } from "./Lift";
 export * from "../actions";
 
 export type Firestore = firebase.firestore.Firestore;
-export class Timestamp extends firebase.firestore.Timestamp {}
+export type Timestamp = firebase.firestore.Timestamp;
 
 export const BAR_WEIGHT = 45;
 export interface ToFirestore {
   asObject(): object;
+}
+
+export interface AsJson {
+  asJSON(): string;
 }
 
 export enum PlateTypes {

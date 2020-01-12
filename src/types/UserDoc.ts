@@ -1,12 +1,12 @@
 import { LiftType, ONE_REP_MAX } from "./common";
 import { UserDoc as DBUserDoc } from "./db";
-import { ToFirestore, Weight } from "./index";
+import { ToFirestore, Weight, AsJson } from "./index";
 
 interface MaybeORM {
   [ONE_REP_MAX]: Weight;
 }
 
-export class UserDoc implements DBUserDoc, ToFirestore {
+export class UserDoc implements DBUserDoc, ToFirestore, AsJson {
   public static empty = (): UserDoc => {
     return new UserDoc({
       [LiftType.BENCH_PRESS]: {},
@@ -61,4 +61,11 @@ export class UserDoc implements DBUserDoc, ToFirestore {
   public asObject(): object {
     return JSON.parse(JSON.stringify(this));
   }
+
+  public asJSON(): string {
+    return JSON.stringify(this.asObject());
+  }
+  public static fromJSON = (s: string): UserDoc => {
+    return UserDoc.fromFirestoreData(JSON.parse(s));
+  };
 }

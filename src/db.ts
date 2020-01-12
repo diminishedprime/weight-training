@@ -33,17 +33,16 @@ const getCacheDateKeys = (): CacheMoments => {
   return cacheMoments;
 };
 
-const requestWithCache = async <T>(
+const requestWithCache = async <T extends t.AsJson>(
   request: () => Promise<T>,
   cacheKey: t.LocalStorageKey,
   invalidateCache: (t: T, lastUpdate: moment.Moment) => boolean,
-  toJSON: (t: T) => string,
   fromJSON: (asString: string) => T
 ): Promise<T> => {
   const fromCache = window.localStorage.getItem(cacheKey);
   if (fromCache === null) {
     const newValue = await request();
-    const jsoned = toJSON(newValue);
+    const jsoned = newValue.asJSON();
     // TODO - I want to do this, but I need to have a better sense of equality first.
     // const reParsed = fromJSON(jsoned);
     // if (reParsed !== newValue) {
@@ -64,7 +63,7 @@ const requestWithCache = async <T>(
       return cachedValue;
     } else {
       const newValue = await request();
-      const jsoned = toJSON(newValue);
+      const jsoned = newValue.asJSON();
       updateCacheDateKeys(cacheKey, moment.utc());
       window.localStorage.setItem(cacheKey, jsoned);
       return newValue;
@@ -81,14 +80,12 @@ export const setOneRepMax = async (
 ) => {
   const currentUserDoc = await getUserDocH(firestore, userUid);
   const userDoc = getUserDocReference(firestore, userUid);
-  if (!options.checkPrevious) {
+  if (
+    !options.checkPrevious ||
+    currentUserDoc.getORM(liftType).lessThan(weight)
+  ) {
     currentUserDoc.setORM(liftType, weight);
     return userDoc.update(currentUserDoc.asObject());
-  } else {
-    if (currentUserDoc.getORM(liftType).lessThan(weight)) {
-      currentUserDoc.setORM(liftType, weight);
-      return userDoc.update(currentUserDoc.asObject());
-    }
   }
 };
 
@@ -98,19 +95,15 @@ const oneMinuteSince = (_: any, then: moment.Moment) => {
   return diff.asMinutes() < 1;
 };
 
-export const getUserDoc = async (
+export const getUserDocCached = async (
   firestore: t.Firestore,
   userUid: string
-): Promise<t.UserDoc | undefined> => {
+): Promise<t.UserDoc> => {
   return requestWithCache(
     () => getUserDocH(firestore, userUid),
     t.LocalStorageKey.USER_DOC,
     oneMinuteSince,
-    JSON.stringify,
-    (s: string) => {
-      const doc = JSON.parse(s) as t.UserDoc;
-      return t.UserDoc.fromFirestoreData(doc);
-    }
+    t.UserDoc.fromJSON
   );
 };
 
@@ -144,16 +137,9 @@ export const getOneRepMax = async (
   firestore: t.Firestore,
   userUid: string,
   liftType: t.LiftType
-): Promise<t.Weight | undefined> => {
-  const userData = await getUserDoc(firestore, userUid);
-  if (userData === undefined) {
-    return undefined;
-  }
-  const liftData = userData[liftType];
-  if (liftData === undefined) {
-    return undefined;
-  }
-  return liftData[t.ONE_REP_MAX];
+): Promise<t.Weight> => {
+  const userData = await getUserDocH(firestore, userUid);
+  return userData.getORM(liftType);
 };
 
 export const getLift = async (
@@ -213,8 +199,7 @@ export const addLift = async (
     if (data === undefined) {
       throw new Error("Doc was not added successfully");
     }
-    data.uid = doc.id;
-    return data as t.DisplayLift;
+    return t.Lift.fromFirestoreData(data).withUid(doc.id);
   });
   store.dispatch(actions.nextForceUpdateLift());
   return newLift;
@@ -264,7 +249,7 @@ const toDisplayLifts = (
   liftsCollection: LiftsQuerySnapshot
 ): t.DisplayLift[] => {
   const displayLifts = liftsCollection.docs.map((doc) => {
-    const data = doc.data() as t.Lift;
+    const data = doc.data();
     return t.Lift.fromFirestoreData(data).withUid(doc.id);
   });
   return displayLifts;
@@ -284,27 +269,40 @@ export const lifts = async (
 export const getDaysWithLifts = async (
   firestore: t.Firestore,
   user: t.User
-): Promise<moment.Moment[]> => {
+): Promise<DaysWithLifts> => {
   return requestWithCache(
     () => getDaysWithLiftsH(firestore, user),
     t.LocalStorageKey.DAYS_WITH_LIFTS,
     oneMinuteSince,
-    JSON.stringify,
-    (s: string) => {
-      const parsed: string[] = JSON.parse(s);
-      return parsed.map((s) => moment.utc(s));
-    }
+    DaysWithLifts.fromJSON
   );
 };
+
+class DaysWithLifts implements t.AsJson {
+  data: moment.Moment[];
+
+  static fromJSON = (s: string): DaysWithLifts => {
+    const parsed: string[] = JSON.parse(s);
+    return new DaysWithLifts(parsed.map((s) => moment.utc(s)));
+  };
+  constructor(days: moment.Moment[]) {
+    this.data = days;
+  }
+  asJSON() {
+    return JSON.stringify(this.data);
+  }
+}
 
 const getDaysWithLiftsH = async (
   firestore: t.Firestore,
   user: t.User
-): Promise<moment.Moment[]> => {
+): Promise<DaysWithLifts> => {
   const daysWithLifts = await firestore
     .collection("users")
     .doc(user.uid)
     .collection("daysWithLifts")
     .get();
-  return daysWithLifts.docs.map((doc) => moment.utc(doc.id, "YYYY-MM-DD"));
+  return new DaysWithLifts(
+    daysWithLifts.docs.map((doc) => moment.utc(doc.id, "YYYY-MM-DD"))
+  );
 };

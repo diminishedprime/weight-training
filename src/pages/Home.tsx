@@ -20,7 +20,7 @@ export default () => {
     if (user === null) {
       return;
     }
-    db.getUserDoc(firebase.firestore(), user.uid).then((userDoc) => {
+    db.getUserDocCached(firebase.firestore(), user.uid).then((userDoc) => {
       if (userDoc !== undefined) {
         dispatch(t.setUserDoc(userDoc));
       }

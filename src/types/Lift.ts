@@ -1,3 +1,4 @@
+import firebase from "firebase/app";
 import { Lift as DBLift } from "./db";
 import { DisplayLift } from "./index";
 import { LiftType, Timestamp, ToFirestore, Weight } from "./index";
@@ -5,7 +6,7 @@ import { LiftType, Timestamp, ToFirestore, Weight } from "./index";
 export class Lift implements DBLift, ToFirestore {
   public static s = (): Lift => {
     return new Lift({
-      date: Timestamp.now(),
+      date: firebase.firestore.Timestamp.now(),
       weight: Weight.zero(),
       type: LiftType.BENCH_PRESS,
       reps: 0,

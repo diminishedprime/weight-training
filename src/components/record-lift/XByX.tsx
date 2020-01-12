@@ -255,8 +255,6 @@ const XByX = ({
     }
   }, [oneRepMax, ready, liftType, workoutType]);
 
-  console.log(program);
-
   const oneRepMaxOnChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;

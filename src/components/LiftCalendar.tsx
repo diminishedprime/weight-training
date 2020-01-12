@@ -11,14 +11,16 @@ export default () => {
   const user = hooks.useForceSignIn();
   const { date: dateUrlParam } = useParams();
   const [daysWithLifts, setDaysWithLifts] = React.useState<Set<string>>(
-    new Set(),
+    new Set()
   );
   React.useEffect(() => {
     if (user === null) {
       return;
     }
     db.getDaysWithLifts(firebase.firestore(), user).then((dwl) =>
-      setDaysWithLifts(new Set(dwl.map((day) => day.utc().format("YYYY-MM-DD")))),
+      setDaysWithLifts(
+        new Set(dwl.data.map((day) => day.utc().format("YYYY-MM-DD")))
+      )
     );
   }, [user]);
   const [date] = React.useState(() => {
