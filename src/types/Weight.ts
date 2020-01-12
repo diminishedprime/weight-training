@@ -48,7 +48,11 @@ export class Weight {
   }
 
   public toString(): string {
-    return `${this.value}${this.unit}`;
+    return `${this.value.toFixed(1).replace(/[.,]0$/, "")}${this.unit}`;
+  }
+
+  public display(unit: WeightUnit): string {
+    return this.toUnit(unit).toString();
   }
 
   public add(...rest: Weight[]): Weight {
@@ -118,7 +122,7 @@ export class Weight {
     if (this.unit === WeightUnit.KILOGRAM) {
       newValue = Weight.kiloToLbs(this.value);
     }
-    return new Weight(newValue, WeightUnit.KILOGRAM);
+    return new Weight(newValue, WeightUnit.POUND);
   }
   public toKilo(): Weight {
     let newValue = this.value;

@@ -27,6 +27,9 @@ interface LiftTableProps {
 }
 
 const LiftTable: React.FC<LiftTableProps> = ({ modifyQuery, user }) => {
+  const {
+    settings: { unit }
+  } = hooks.useSettings();
   const [lifts, setLifts] = React.useState<t.DisplayLift[]>([]);
   const [editing, setEditing] = React.useState<string>();
   const forceUpdate = t.useSelector((a) => a.forceUpdateLift);
@@ -94,7 +97,7 @@ const LiftTable: React.FC<LiftTableProps> = ({ modifyQuery, user }) => {
                 ) : (
                   <td>{moment(lift.date.toDate()).format("HH:mm")}</td>
                 )}
-                <td>{lift.weight.toString()}</td>
+                <td>{lift.weight.display(unit)}</td>
                 <td>{lift.reps}</td>
                 <td align="center">{lift.warmup ? "✔️" : ""}</td>
               </tr>

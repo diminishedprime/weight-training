@@ -48,6 +48,9 @@ const SimpleLiftTable = ({
   program: t.Program;
   user: t.User;
 }) => {
+  const {
+    settings: { unit }
+  } = hooks.useSettings();
   const history = rrd.useHistory();
   const [lastLiftUid, setLastLiftUid] = React.useState<string>();
   const {
@@ -174,7 +177,7 @@ const SimpleLiftTable = ({
                 } ${isCompleted ? "is-completed-row" : ""}`}
               >
                 <td>{lift.reps}</td>
-                <td>{lift.weight.toString()}</td>
+                <td>{lift.weight.display(unit)}</td>
                 <td className="plates">
                   <Plates
                     plates={util.splitConfig(util.platesFor(lift.weight))}
