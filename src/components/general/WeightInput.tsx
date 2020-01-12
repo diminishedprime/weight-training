@@ -33,7 +33,7 @@ const WeightInput: React.FC<WeightInput> = ({ weight, setWeight }) => {
     } else {
       setWeight(undefined);
     }
-  }, [unit, value]);
+  }, [unit, value, setWeight]);
 
   return (
     <div className="field has-addons has-addons-right">

@@ -2,7 +2,6 @@ import firebase from "firebase/app";
 import * as React from "react";
 import * as c from "../../constants";
 import * as db from "../../db";
-import * as hooks from "../../hooks";
 import * as t from "../../types";
 import * as util from "../../util";
 import Bar from "../Bar";
