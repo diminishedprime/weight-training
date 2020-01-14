@@ -152,11 +152,9 @@ export const useSettings = (): UseSettings => {
 export const useMeasurePage = (pageTitle: string) => {
   const location = useLocation();
   React.useEffect(() => {
-    firebase
-      .analytics()
-      .logEvent("page_view", {
-        page_title: pageTitle,
-        page_path: location.pathname
-      });
-  }, []);
+    firebase.analytics().logEvent("page_view", {
+      page_title: pageTitle,
+      page_path: location.pathname
+    });
+  }, [location.pathname, pageTitle]);
 };

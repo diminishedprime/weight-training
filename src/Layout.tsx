@@ -50,7 +50,7 @@ const Layout: React.FC<{}> = ({ children }) => {
             </HideLink>
           </div>
 
-          <a
+          <div
             role="button"
             className={`navbar-burger burger ${navActive && "is-active"}`}
             aria-label="menu"
@@ -63,7 +63,7 @@ const Layout: React.FC<{}> = ({ children }) => {
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-          </a>
+          </div>
         </div>
         <div className={`navbar-menu ${navActive && "is-active"}`}>
           <div className="navbar-end">
