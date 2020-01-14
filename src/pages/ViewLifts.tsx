@@ -6,6 +6,7 @@ import LiftTable from "../components/LiftTable";
 import * as hooks from "../hooks";
 
 export default () => {
+  hooks.useMeasurePage("View Lifts");
   const user = hooks.useForceSignIn();
   const { date } = useParams();
   const history = useHistory();

@@ -9,6 +9,7 @@ import * as t from "../types";
 import * as util from "../util";
 
 export default () => {
+  hooks.useMeasurePage("Home");
   const user = hooks.useForceSignIn();
   const { settings } = hooks.useSettings();
   const userDoc = t.useSelector(
