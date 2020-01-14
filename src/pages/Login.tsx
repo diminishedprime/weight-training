@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import * as hooks from "../hooks";
 
 export default () => {
-  hooks.useMeasurePage("404");
+  hooks.useMeasurePage("Login");
   const history = useHistory();
 
   const googleSignIn = React.useCallback(() => {
