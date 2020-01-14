@@ -30,7 +30,17 @@ export class Weight implements DBWeight, ToFirestore {
 
   public static fromFirestoreData = (o: object): Weight => {
     // TODO add a schema check here.
-    return new Weight((o as any).value, (o as any).unit as WeightUnit);
+    // TODO - do the same thing that I did for userdoc.
+    console.log({ o });
+    switch ((o as any).version) {
+      case undefined: {
+        const dbVal: { value: number; unit: WeightUnit } = o as any;
+        return new Weight(dbVal.value, dbVal.unit);
+      }
+      default: {
+        throw new Error(`Cannot parse this object: ${JSON.stringify(o)}`);
+      }
+    }
   };
 
   public value: number;
@@ -54,6 +64,7 @@ export class Weight implements DBWeight, ToFirestore {
   }
 
   public toString(): string {
+    console.log(this);
     return `${this.value.toFixed(1).replace(/[.,]0$/, "")}${this.unit}`;
   }
 
