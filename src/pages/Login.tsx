@@ -6,6 +6,7 @@ import * as hooks from "../hooks";
 export default () => {
   hooks.useMeasurePage("Login");
   const history = useHistory();
+  const [error, setError] = React.useState();
 
   const googleSignIn = React.useCallback(() => {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -16,13 +17,15 @@ export default () => {
         history.push("/");
       })
       .catch((e) => {
-        // I should probably add some error handling here at some point.
-        console.error(e);
+        setError(e);
       });
   }, [history]);
 
   return (
     <div>
+      {error && (
+        <div>There was an error logging in: {JSON.stringify(error)}</div>
+      )}
       <button onClick={googleSignIn} className="button is-link">
         Sign In With Google
       </button>
