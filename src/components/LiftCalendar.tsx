@@ -19,7 +19,7 @@ export default () => {
     }
     db.getDaysWithLifts(firebase.firestore(), user).then((dwl) =>
       setDaysWithLifts(
-        new Set(dwl.data.map((day) => day.utc().format("YYYY-MM-DD")))
+        new Set(dwl.data.map((day) => day.local().format("YYYY-MM-DD")))
       )
     );
   }, [user]);

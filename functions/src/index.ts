@@ -1,25 +1,22 @@
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
-import * as moment from "moment";
 
 admin.initializeApp();
 const db = admin.firestore();
 
 // Since there's no simple way to do a query unique days from firebase, this
-// implements a simple index that keeps track of days that have a lift recorded.
+// implements a simple index that only keeps track of lift times.
 export const indexNewLiftDays = functions.firestore
   .document("users/{userId}/lifts/{liftId}")
   .onCreate(async (snap, context) => {
     const userId = context.params.userId;
 
-    const newLift = snap.data();
-    const newYYYYMMDD = moment((newLift as any).date.toDate()).format(
-      "YYYY-MM-DD"
-    );
+    const newLift = snap.data() as any;
+    const liftTime = newLift.date;
+    const t = liftTime;
     await db
       .collection("users")
       .doc(userId)
-      .collection("daysWithLifts")
-      .doc(newYYYYMMDD)
-      .set({ hasLift: true });
+      .collection("liftTimes")
+      .add({ t });
   });

@@ -1,4 +1,3 @@
-import moment from "moment";
 import * as admin from "firebase-admin";
 import * as t from "../../src/types";
 import serviceAccount from "./service-account.json";
@@ -22,16 +21,12 @@ const populateDaysWithLifts = async (firestore: admin.firestore.Firestore) => {
       .get();
     for (const liftDoc of lifts.docs) {
       const lift = liftDoc.data() as t.Lift;
-      const yyyyMMDD = moment(lift.date.toDate())
-        // This is really hacky and only works for people lifting in my timezone...
-        .local()
-        .format("YYYY-MM-DD");
+      const t = lift.date;
       await firestore
         .collection("users")
         .doc(userId)
-        .collection("daysWithLifts")
-        .doc(yyyyMMDD)
-        .set({ hasLift: true });
+        .collection("liftTimes")
+        .add({ t });
     }
   }
 };

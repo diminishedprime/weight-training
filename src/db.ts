@@ -276,10 +276,14 @@ class DaysWithLifts implements t.AsJson {
       const parsed = o as string[];
       return new DaysWithLifts(parsed.map((s) => moment.utc(s)));
     }
+    if (o.version === "2") {
+      const parsed: { data: moment.Moment[]; version: string } = o as any;
+      return new DaysWithLifts(parsed.data.map((s) => moment.utc(s)));
+    }
     throw new Error("Cannot parse data");
   };
   public data: moment.Moment[];
-  public version = "1";
+  public version = "2";
   constructor(days: moment.Moment[]) {
     this.data = days;
   }
@@ -298,9 +302,9 @@ const getDaysWithLiftsH = async (
   const daysWithLifts = await firestore
     .collection("users")
     .doc(user.uid)
-    .collection("daysWithLifts")
+    .collection("liftTimes")
     .get();
   return new DaysWithLifts(
-    daysWithLifts.docs.map((doc) => moment.utc(doc.id, "YYYY-MM-DD"))
+    daysWithLifts.docs.map((doc) => moment(doc.data().t.toDate(), "YYYY-MM-DD"))
   );
 };

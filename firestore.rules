@@ -9,6 +9,9 @@ service cloud.firestore {
       match /daysWithLifts/{day} {
         allow read: if request.auth.uid == userId;
       }
+      match /liftTimes/{liftTimeId} {
+        allow read: if request.auth.uid == userId;
+      }
     }
   }
 }
