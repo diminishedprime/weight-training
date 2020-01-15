@@ -7,6 +7,7 @@ import * as hooks from "../hooks";
 import * as t from "../types";
 
 export default () => {
+  hooks.useMeasurePage("Edit Lift");
   const { liftId } = useParams();
   const [weight, setWeight] = React.useState<t.Weight | undefined>();
   const [reps, setReps] = React.useState("");

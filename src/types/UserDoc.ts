@@ -1,12 +1,12 @@
-import { LiftType, ONE_REP_MAX } from "./common";
+import { ONE_REP_MAX, WeightUnit, LiftType } from "./common";
 import { UserDoc as DBUserDoc } from "./db";
-import { ToFirestore, Weight, AsJson } from "./index";
+import { ToFirestore, Weight, AsJson, Versioned } from "./index";
 
 interface MaybeORM {
   [ONE_REP_MAX]: Weight;
 }
 
-export class UserDoc implements DBUserDoc, ToFirestore, AsJson {
+export class UserDoc implements DBUserDoc, ToFirestore, AsJson, Versioned {
   public static empty = (): UserDoc => {
     return new UserDoc({
       [LiftType.BENCH_PRESS]: {},
@@ -20,8 +20,20 @@ export class UserDoc implements DBUserDoc, ToFirestore, AsJson {
   };
 
   public static fromFirestoreData = (o: object): UserDoc => {
-    const userDoc: DBUserDoc = o as DBUserDoc;
-    return new UserDoc(userDoc);
+    switch ((o as any).version) {
+      case "1":
+      case undefined: {
+        const userDoc: {
+          [lift in LiftType]: {
+            [ONE_REP_MAX]: { value: number; unit: WeightUnit };
+          };
+        } = o as any;
+        return new UserDoc(userDoc);
+      }
+      default: {
+        throw new Error(`Cannot parse version: ${(o as any).version}`);
+      }
+    }
   };
   public [LiftType.BENCH_PRESS]: MaybeORM;
   public [LiftType.CLEAN_AND_JERK]: MaybeORM;
@@ -30,12 +42,16 @@ export class UserDoc implements DBUserDoc, ToFirestore, AsJson {
   public [LiftType.OVERHEAD_PRESS]: MaybeORM;
   public [LiftType.SNATCH]: MaybeORM;
   public [LiftType.SQUAT]: MaybeORM;
+  public version = "1";
+  public getVersion() {
+    return this.version;
+  }
 
   constructor(dbUserDoc: DBUserDoc) {
     Object.values(dbUserDoc).forEach((value) => {
       const orm = value![ONE_REP_MAX];
       if (orm !== undefined) {
-        value![ONE_REP_MAX] = new Weight(orm.value, orm.unit);
+        value![ONE_REP_MAX] = Weight.fromFirestoreData(orm);
       }
     });
 

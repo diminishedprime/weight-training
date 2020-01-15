@@ -22,6 +22,11 @@ export interface ToFirestore {
   asObject(): object;
 }
 
+export interface Versioned {
+  version: string;
+  getVersion(): string;
+}
+
 export interface AsJson {
   asJSON(): string;
 }

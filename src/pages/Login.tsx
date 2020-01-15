@@ -1,8 +1,10 @@
 import firebase from "firebase/app";
 import * as React from "react";
 import { useHistory } from "react-router-dom";
+import * as hooks from "../hooks";
 
 export default () => {
+  hooks.useMeasurePage("Login");
   const history = useHistory();
 
   const googleSignIn = React.useCallback(() => {

@@ -6,6 +6,7 @@ import * as hooks from "../hooks";
 import * as t from "../types";
 
 export default () => {
+  hooks.useMeasurePage("Settings");
   const { settings, setSettings } = hooks.useSettings();
   const { showOlympic, unit } = settings;
   const toggleOlympic = () => {

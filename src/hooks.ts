@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import firebase from "firebase/app";
 import moment from "moment";
@@ -147,4 +147,14 @@ export const useSettings = (): UseSettings => {
   );
 
   return { settings, setSettings };
+};
+
+export const useMeasurePage = (pageTitle: string) => {
+  const location = useLocation();
+  React.useEffect(() => {
+    firebase.analytics().logEvent("page_view", {
+      page_title: pageTitle,
+      page_path: location.pathname
+    });
+  }, [location.pathname, pageTitle]);
 };
