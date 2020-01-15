@@ -279,17 +279,24 @@ export const getDaysWithLifts = async (
 };
 
 class DaysWithLifts implements t.AsJson {
-  data: moment.Moment[];
-
-  static fromJSON = (s: string): DaysWithLifts => {
-    const parsed: string[] = JSON.parse(s);
-    return new DaysWithLifts(parsed.map((s) => moment.utc(s)));
+  public static fromJSON = (s: string): DaysWithLifts => {
+    const o: any = JSON.parse(s);
+    if (o.version === "1" || o.version === undefined) {
+      const parsed = o as string[];
+      return new DaysWithLifts(parsed.map((s) => moment.utc(s)));
+    }
+    throw new Error("Cannot parse data");
   };
+  public data: moment.Moment[];
+  public version = "1";
   constructor(days: moment.Moment[]) {
     this.data = days;
   }
-  asJSON() {
-    return JSON.stringify(this.data);
+  public getVersion(): string {
+    return this.version;
+  }
+  public asJSON() {
+    return JSON.stringify(this);
   }
 }
 

@@ -1,9 +1,9 @@
 import firebase from "firebase/app";
 import { Lift as DBLift } from "./db";
-import { DisplayLift } from "./index";
+import { DisplayLift, AsJson } from "./index";
 import { LiftType, Timestamp, ToFirestore, Weight } from "./index";
 
-export class Lift implements DBLift, ToFirestore {
+export class Lift implements DBLift, ToFirestore, AsJson {
   public static s = (): Lift => {
     return new Lift({
       date: firebase.firestore.Timestamp.now(),
@@ -15,9 +15,24 @@ export class Lift implements DBLift, ToFirestore {
   };
 
   public static fromFirestoreData = (o: object): Lift => {
-    const lift: DBLift = o as DBLift;
-    return new Lift(lift);
+    switch ((o as any).version) {
+      case "1":
+      case undefined: {
+        const dbVal: {
+          date: Timestamp;
+          weight: Weight;
+          type: LiftType;
+          reps: number;
+          warmup: boolean | undefined;
+        } = o as any;
+        return new Lift(dbVal);
+      }
+      default: {
+        throw new Error(`Cannot parse version: ${(o as any).version}`);
+      }
+    }
   };
+  public version = "1";
   public date: Timestamp;
   public weight: Weight;
   public type: LiftType;
@@ -32,8 +47,16 @@ export class Lift implements DBLift, ToFirestore {
     this.warmup = lift.warmup;
   }
 
+  public getVersion(): string {
+    return this.version;
+  }
+
+  public asJSON(): string {
+    return JSON.stringify(this);
+  }
+
   public asObject(): object {
-    return JSON.parse(JSON.stringify(this));
+    return JSON.parse(this.asJSON());
   }
 
   public withUid(uid: string): DisplayLift {

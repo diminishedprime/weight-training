@@ -1,6 +1,6 @@
-import { ONE_REP_MAX, WeightUnit, LiftType } from "./common";
+import { LiftType, ONE_REP_MAX, WeightUnit } from "./common";
 import { UserDoc as DBUserDoc } from "./db";
-import { ToFirestore, Weight, AsJson, Versioned } from "./index";
+import { AsJson, ToFirestore, Versioned, Weight } from "./index";
 
 interface MaybeORM {
   [ONE_REP_MAX]: Weight;
@@ -35,6 +35,9 @@ export class UserDoc implements DBUserDoc, ToFirestore, AsJson, Versioned {
       }
     }
   };
+  public static fromJSON = (s: string): UserDoc => {
+    return UserDoc.fromFirestoreData(JSON.parse(s));
+  };
   public [LiftType.BENCH_PRESS]: MaybeORM;
   public [LiftType.CLEAN_AND_JERK]: MaybeORM;
   public [LiftType.DEADLIFT]: MaybeORM;
@@ -43,9 +46,6 @@ export class UserDoc implements DBUserDoc, ToFirestore, AsJson, Versioned {
   public [LiftType.SNATCH]: MaybeORM;
   public [LiftType.SQUAT]: MaybeORM;
   public version = "1";
-  public getVersion() {
-    return this.version;
-  }
 
   constructor(dbUserDoc: DBUserDoc) {
     Object.values(dbUserDoc).forEach((value) => {
@@ -65,6 +65,9 @@ export class UserDoc implements DBUserDoc, ToFirestore, AsJson, Versioned {
     this[LiftType.SNATCH] = userDoc[LiftType.SNATCH];
     this[LiftType.SQUAT] = userDoc[LiftType.SQUAT];
   }
+  public getVersion() {
+    return this.version;
+  }
 
   public setORM(liftType: LiftType, weight: Weight) {
     this[liftType][ONE_REP_MAX] = weight;
@@ -81,7 +84,4 @@ export class UserDoc implements DBUserDoc, ToFirestore, AsJson, Versioned {
   public asJSON(): string {
     return JSON.stringify(this.asObject());
   }
-  public static fromJSON = (s: string): UserDoc => {
-    return UserDoc.fromFirestoreData(JSON.parse(s));
-  };
 }

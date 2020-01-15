@@ -27,7 +27,7 @@ export interface Versioned {
   getVersion(): string;
 }
 
-export interface AsJson {
+export interface AsJson extends Versioned {
   asJSON(): string;
 }
 

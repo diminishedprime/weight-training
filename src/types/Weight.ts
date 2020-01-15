@@ -1,9 +1,9 @@
 import { Weight as DBWeight } from "./db";
-import { ToFirestore, WeightUnit } from "./index";
+import { ToFirestore, Versioned, WeightUnit } from "./index";
 
 const lbsToKiloRatio = 0.453592;
 
-export class Weight implements DBWeight, ToFirestore {
+export class Weight implements DBWeight, ToFirestore, Versioned {
   public static kiloToLbs = (value: number) => {
     return value / lbsToKiloRatio;
   };
@@ -29,26 +29,29 @@ export class Weight implements DBWeight, ToFirestore {
   };
 
   public static fromFirestoreData = (o: object): Weight => {
-    // TODO add a schema check here.
-    // TODO - do the same thing that I did for userdoc.
-    console.log({ o });
     switch ((o as any).version) {
+      case "1":
       case undefined: {
         const dbVal: { value: number; unit: WeightUnit } = o as any;
         return new Weight(dbVal.value, dbVal.unit);
       }
       default: {
-        throw new Error(`Cannot parse this object: ${JSON.stringify(o)}`);
+        throw new Error(`Cannot parse version: ${(o as any).version}`);
       }
     }
   };
 
   public value: number;
   public unit: WeightUnit;
+  public version = "1";
 
   constructor(value: number, unit: WeightUnit) {
     this.value = value;
     this.unit = unit;
+  }
+
+  public getVersion(): string {
+    return this.version;
   }
 
   public asObject(): object {
@@ -64,7 +67,6 @@ export class Weight implements DBWeight, ToFirestore {
   }
 
   public toString(): string {
-    console.log(this);
     return `${this.value.toFixed(1).replace(/[.,]0$/, "")}${this.unit}`;
   }
 
