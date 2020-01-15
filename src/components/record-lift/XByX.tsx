@@ -6,6 +6,8 @@ import * as db from "../../db";
 import * as hooks from "../../hooks";
 import * as t from "../../types";
 import * as util from "../../util";
+import WeightInput from "../general/WeightInput";
+import WithLabel from "../general/WithLabel";
 
 const Plates = ({ plates }: { plates: t.PlateConfig }) => {
   const plateGroup: Array<[t.PlateTypes, number]> = Object.entries(
@@ -231,12 +233,10 @@ const XByX = ({
 }) => {
   // TODO add a calculator for estimating 1RM based on a 3x3 or 5x5.
   const history = rrd.useHistory();
-  const {
-    settings: { unit }
-  } = hooks.useSettings();
   const [program, setProgram] = React.useState<t.Program | undefined>();
   const [oneRepMax, setOneRepMax] = React.useState<t.Weight | undefined>();
   const { started } = rrd.useParams();
+  const userDoc = t.useSelector((s) => s.localStorage.userDoc);
 
   const [ready, setReady] = React.useState(
     started === undefined ? false : true
@@ -250,12 +250,10 @@ const XByX = ({
   }, [started, ready]);
 
   React.useEffect(() => {
-    db.getOneRepMax(firebase.firestore(), user.uid, liftType).then((orm) => {
-      if (orm !== undefined) {
-        setOneRepMax(orm);
-      }
-    });
-  }, [liftType, user.uid]);
+    if (userDoc !== undefined) {
+      setOneRepMax(userDoc.getORM(liftType));
+    }
+  }, [userDoc, liftType]);
 
   React.useEffect(() => {
     if (oneRepMax !== undefined && ready) {
@@ -264,23 +262,8 @@ const XByX = ({
     }
   }, [oneRepMax, ready, liftType, workoutType]);
 
-  const oneRepMaxOnChange = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const value = e.target.value;
-      if (value.match(/^[0-9]*$/)) {
-        if (value === "") {
-          setOneRepMax(undefined);
-        } else {
-          setOneRepMax(new t.Weight(parseInt(value, 10), unit));
-        }
-      }
-    },
-    [unit]
-  );
-
   const onSetOneRepMax = React.useCallback(() => {
     if (oneRepMax !== undefined) {
-      db.setOneRepMax(firebase.firestore(), user.uid, liftType, oneRepMax);
       setReady(true);
       history.push(`${history.location.pathname}/started`);
     }
@@ -290,29 +273,25 @@ const XByX = ({
     <div>
       <div className="title is-5">{t.WorkoutTypeLabel[workoutType]}</div>
       {!ready && (
-        <div className="field">
-          <label className="label">Current One Rep Max</label>
-          <div className="field has-addons is-full-width">
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                placeholder="123"
-                value={oneRepMax === undefined ? "" : oneRepMax.value}
-                onChange={oneRepMaxOnChange}
-              />
-            </div>
-            <div className="control">
-              <button
-                className="button is-info"
-                disabled={oneRepMax === undefined}
-                onClick={onSetOneRepMax}
-              >
-                Start
-              </button>
-            </div>
-          </div>
-        </div>
+        <>
+          <WithLabel
+            label="Current One Rep Max"
+            childrenClasses={["has-addons"]}
+          >
+            <button
+              className="button is-info sm-margin-right"
+              disabled={oneRepMax === undefined}
+              onClick={onSetOneRepMax}
+            >
+              Start
+            </button>
+            <WeightInput
+              weight={oneRepMax}
+              setWeight={setOneRepMax}
+              fullWidth
+            />
+          </WithLabel>
+        </>
       )}
       {program && (
         <div>

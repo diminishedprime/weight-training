@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as hooks from "../../hooks";
 import * as t from "../../types";
+import classNames from "classnames";
 
 interface WeightInput
   extends React.DetailedHTMLProps<
@@ -9,9 +10,14 @@ interface WeightInput
   > {
   weight?: t.Weight;
   setWeight: React.Dispatch<React.SetStateAction<t.Weight | undefined>>;
+  fullWidth?: boolean;
 }
 
-const WeightInput: React.FC<WeightInput> = ({ weight, setWeight }) => {
+const WeightInput: React.FC<WeightInput> = ({
+  weight,
+  setWeight,
+  fullWidth
+}) => {
   const {
     settings: { unit: defaultUnit }
   } = hooks.useSettings();
@@ -36,10 +42,10 @@ const WeightInput: React.FC<WeightInput> = ({ weight, setWeight }) => {
   }, [unit, value, setWeight]);
 
   return (
-    <div className="field has-addons has-addons-right">
+    <div className="field has-addons has-addons-right flex-grow">
       <p className="control is-expanded">
         <input
-          className="input"
+          className={classNames("input", { "is-full-width": fullWidth })}
           type="number"
           placeholder="123"
           value={value === undefined ? "" : value}
