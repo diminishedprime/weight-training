@@ -1,9 +1,12 @@
+import * as fromFirestore from "../fromFirestore";
 import { Weight as DBWeight } from "./db";
 import { AsFirestore, Versioned, WeightUnit } from "./index";
 
 const lbsToKiloRatio = 0.453592;
 
 export class Weight implements DBWeight, AsFirestore, Versioned {
+
+  public static fromFirestoreData = fromFirestore.weightFromFirestore;
   public static kiloToLbs = (value: number) => {
     return value / lbsToKiloRatio;
   };
@@ -26,19 +29,6 @@ export class Weight implements DBWeight, AsFirestore, Versioned {
 
   public static bar = (): Weight => {
     return new Weight(45, WeightUnit.POUND);
-  };
-
-  public static fromFirestoreData = (o: object): Weight => {
-    switch ((o as any).version) {
-      case "1":
-      case undefined: {
-        const dbVal: { value: number; unit: WeightUnit } = o as any;
-        return new Weight(dbVal.value, dbVal.unit);
-      }
-      default: {
-        throw new Error(`Cannot parse version: ${(o as any).version}`);
-      }
-    }
   };
 
   public value: number;

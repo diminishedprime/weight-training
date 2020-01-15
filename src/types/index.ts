@@ -17,6 +17,8 @@ export * from "../actions";
 export type Firestore = firebase.firestore.Firestore;
 export type Timestamp = firebase.firestore.Timestamp;
 
+export type FromFirestore<T> = (o: object) => T;
+
 export const BAR_WEIGHT = 45;
 export interface AsFirestore {
   asObject(): object;

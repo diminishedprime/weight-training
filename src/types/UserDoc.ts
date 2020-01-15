@@ -1,4 +1,5 @@
-import { LiftType, ONE_REP_MAX, WeightUnit } from "./common";
+import * as fromFirestore from "../fromFirestore";
+import { LiftType, ONE_REP_MAX } from "./common";
 import { UserDoc as DBUserDoc } from "./db";
 import { AsFirestore, AsJson, Versioned, Weight } from "./index";
 
@@ -7,6 +8,8 @@ interface MaybeORM {
 }
 
 export class UserDoc implements DBUserDoc, AsFirestore, AsJson, Versioned {
+
+  public static fromFirestoreData = fromFirestore.userDocFromFirestore;
   public static empty = (): UserDoc => {
     return new UserDoc({
       [LiftType.BENCH_PRESS]: {},
@@ -17,23 +20,6 @@ export class UserDoc implements DBUserDoc, AsFirestore, AsJson, Versioned {
       [LiftType.SNATCH]: {},
       [LiftType.SQUAT]: {}
     });
-  };
-
-  public static fromFirestoreData = (o: object): UserDoc => {
-    switch ((o as any).version) {
-      case "1":
-      case undefined: {
-        const userDoc: {
-          [lift in LiftType]: {
-            [ONE_REP_MAX]: { value: number; unit: WeightUnit };
-          };
-        } = o as any;
-        return new UserDoc(userDoc);
-      }
-      default: {
-        throw new Error(`Cannot parse version: ${(o as any).version}`);
-      }
-    }
   };
   public static fromJSON = (s: string): UserDoc => {
     return UserDoc.fromFirestoreData(JSON.parse(s));
