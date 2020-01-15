@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import * as db from "../db";
 import * as hooks from "../hooks";
 import * as t from "../types";
+import * as c from "../constants";
+import classNames from "classnames";
 
 interface TimeSinceProps {
   user: t.User;
@@ -24,14 +26,20 @@ const TimeSince: React.FC<TimeSinceProps> = ({ liftUid, user, time }) => {
 interface LiftTableProps {
   modifyQuery: (query: firebase.firestore.Query) => firebase.firestore.Query;
   user: t.User;
+  showType?: boolean;
 }
 
-const LiftTable: React.FC<LiftTableProps> = ({ modifyQuery, user }) => {
+const LiftTable: React.FC<LiftTableProps> = ({
+  modifyQuery,
+  user,
+  showType
+}) => {
   const {
     settings: { unit }
   } = hooks.useSettings();
   const [lifts, setLifts] = React.useState<t.DisplayLift[]>([]);
   const [editing, setEditing] = React.useState<string>();
+  const userDoc = t.useSelector((a) => a.localStorage.userDoc);
   const forceUpdate = t.useSelector((a) => a.forceUpdateLift);
 
   React.useEffect(() => {
@@ -53,6 +61,7 @@ const LiftTable: React.FC<LiftTableProps> = ({ modifyQuery, user }) => {
             .toLocaleDateString()
             .substring(0, 10);
           let headingRow;
+          console.log({ userDoc, lift });
           if (!seenDates.has(date)) {
             headingRow = (
               <>
@@ -66,6 +75,7 @@ const LiftTable: React.FC<LiftTableProps> = ({ modifyQuery, user }) => {
                   </td>
                 </tr>
                 <tr>
+                  {showType && <th>Type</th>}
                   <th>Date</th>
                   <th>Weight</th>
                   <th>Reps</th>
@@ -86,6 +96,7 @@ const LiftTable: React.FC<LiftTableProps> = ({ modifyQuery, user }) => {
                 }
                 className={editing === lift.uid ? "is-selected" : undefined}
               >
+                {showType && <td>{c.liftMetadata[lift.type].displayText}</td>}
                 {liftIdx === 0 ? (
                   <td>
                     <TimeSince
@@ -97,7 +108,14 @@ const LiftTable: React.FC<LiftTableProps> = ({ modifyQuery, user }) => {
                 ) : (
                   <td>{moment(lift.date.toDate()).format("HH:mm")}</td>
                 )}
-                <td>{lift.weight.display(unit)}</td>
+                <td
+                  className={classNames({
+                    "has-text-primary":
+                      userDoc && userDoc.getORM(lift.type).equal(lift.weight)
+                  })}
+                >
+                  {lift.weight.display(unit)}
+                </td>
                 <td>{lift.reps}</td>
                 <td align="center">{lift.warmup ? "✔️" : ""}</td>
               </tr>

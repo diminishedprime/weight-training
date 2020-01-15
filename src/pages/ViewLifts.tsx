@@ -29,6 +29,7 @@ export default () => {
     <>
       <LiftCalendar />
       <LiftTable
+        showType
         user={user}
         modifyQuery={(query) =>
           query.where("date", ">", startOfDay).where("date", "<", endOfDay)
