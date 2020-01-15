@@ -267,7 +267,7 @@ const XByX = ({
       setReady(true);
       history.push(`${history.location.pathname}/started`);
     }
-  }, [user.uid, liftType, oneRepMax, history]);
+  }, [oneRepMax, history]);
 
   return (
     <div>
