@@ -1,12 +1,12 @@
 import { LiftType, ONE_REP_MAX, WeightUnit } from "./common";
 import { UserDoc as DBUserDoc } from "./db";
-import { AsJson, ToFirestore, Versioned, Weight } from "./index";
+import { AsFirestore, AsJson, Versioned, Weight } from "./index";
 
 interface MaybeORM {
   [ONE_REP_MAX]: Weight;
 }
 
-export class UserDoc implements DBUserDoc, ToFirestore, AsJson, Versioned {
+export class UserDoc implements DBUserDoc, AsFirestore, AsJson, Versioned {
   public static empty = (): UserDoc => {
     return new UserDoc({
       [LiftType.BENCH_PRESS]: {},

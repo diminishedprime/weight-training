@@ -1,9 +1,9 @@
 import firebase from "firebase/app";
 import { Lift as DBLift } from "./db";
-import { DisplayLift, AsJson } from "./index";
-import { LiftType, Timestamp, ToFirestore, Weight } from "./index";
+import { AsJson, DisplayLift } from "./index";
+import { AsFirestore, LiftType, Timestamp, Weight } from "./index";
 
-export class Lift implements DBLift, ToFirestore, AsJson {
+export class Lift implements DBLift, AsFirestore, AsJson {
   public static s = (): Lift => {
     return new Lift({
       date: firebase.firestore.Timestamp.now(),

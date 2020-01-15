@@ -43,15 +43,6 @@ const requestWithCache = async <T extends t.AsJson>(
   if (fromCache === null) {
     const newValue = await request();
     const jsoned = newValue.asJSON();
-    // TODO - I want to do this, but I need to have a better sense of equality first.
-    // const reParsed = fromJSON(jsoned);
-    // if (reParsed !== newValue) {
-    //   console.error("Value not same after stringiy/parse loop", {
-    //     before: newValue,
-    //     after: reParsed
-    //   });
-    //   throw new Error("Value not same after stringify/parse loop");
-    // }
     updateCacheDateKeys(cacheKey, moment.utc());
     window.localStorage.setItem(cacheKey, jsoned);
     return newValue;

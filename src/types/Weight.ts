@@ -1,9 +1,9 @@
 import { Weight as DBWeight } from "./db";
-import { ToFirestore, Versioned, WeightUnit } from "./index";
+import { AsFirestore, Versioned, WeightUnit } from "./index";
 
 const lbsToKiloRatio = 0.453592;
 
-export class Weight implements DBWeight, ToFirestore, Versioned {
+export class Weight implements DBWeight, AsFirestore, Versioned {
   public static kiloToLbs = (value: number) => {
     return value / lbsToKiloRatio;
   };

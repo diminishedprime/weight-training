@@ -18,7 +18,7 @@ export type Firestore = firebase.firestore.Firestore;
 export type Timestamp = firebase.firestore.Timestamp;
 
 export const BAR_WEIGHT = 45;
-export interface ToFirestore {
+export interface AsFirestore {
   asObject(): object;
 }
 
