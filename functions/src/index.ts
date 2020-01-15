@@ -20,3 +20,5 @@ export const indexNewLiftDays = functions.firestore
       .collection("liftTimes")
       .add({ t });
   });
+
+// TODO - add in a section that removes timestamps when a document is deleted
