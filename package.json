@@ -50,7 +50,6 @@
     "@types/react-redux": "^7.1.5",
     "@types/react-router-dom": "^5.1.2",
     "firebase-tools": "^7.8.1",
-    "fireway": "^0.2.3",
     "node-sass": "^4.13.0",
     "react-scripts": "3.3.0",
     "tslint": "^5.20.1",
