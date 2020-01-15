@@ -61,7 +61,6 @@ const LiftTable: React.FC<LiftTableProps> = ({
             .toLocaleDateString()
             .substring(0, 10);
           let headingRow;
-          console.log({ userDoc, lift });
           if (!seenDates.has(date)) {
             headingRow = (
               <>
