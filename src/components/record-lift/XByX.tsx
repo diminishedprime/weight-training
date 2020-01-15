@@ -43,10 +43,12 @@ interface XByXData {
 
 const SimpleLiftTable = ({
   program,
-  user
+  user,
+  workoutType
 }: {
   program: t.Program;
   user: t.User;
+  workoutType: t.WorkoutType;
 }) => {
   const {
     settings: { unit }
@@ -77,10 +79,16 @@ const SimpleLiftTable = ({
     ).then((lifts) => lifts.length === 1 && setLastLiftUid(lifts[0].uid));
   }, [user]);
 
-  const finishProgram = () => {
+  const finishProgram = React.useCallback(() => {
+    const completedAllLifts =
+      Object.values(skippedLifts).length === 0 &&
+      Object.values(completedLifts).length === program.length;
+    firebase
+      .analytics()
+      .logEvent("level_end", { workoutType, completedAllLifts });
     history.goBack();
     cleanup();
-  };
+  }, [workoutType, skippedLifts, completedLifts, program, cleanup, history]);
 
   const skipLift = React.useCallback(() => {
     if (currentLift < program.length) {
@@ -252,6 +260,7 @@ const XByX = ({
   React.useEffect(() => {
     if (oneRepMax !== undefined && ready) {
       setProgram(util.programFor(workoutType, oneRepMax, liftType));
+      firebase.analytics().logEvent("level_start", { workoutType });
     }
   }, [oneRepMax, ready, liftType, workoutType]);
 
@@ -307,7 +316,11 @@ const XByX = ({
       )}
       {program && (
         <div>
-          <SimpleLiftTable program={program} user={user} />
+          <SimpleLiftTable
+            program={program}
+            user={user}
+            workoutType={workoutType}
+          />
         </div>
       )}
     </div>
