@@ -54,7 +54,6 @@ const requestWithCache = async <T extends t.AsJson>(
       return cachedValue;
     } else {
       const newValue = await request();
-      console.log({ newValue });
       const jsoned = newValue.asJSON();
       updateCacheDateKeys(cacheKey, moment.utc());
       window.localStorage.setItem(cacheKey, jsoned);
@@ -96,7 +95,6 @@ export const getUserDocCached = async (
   firestore: t.Firestore,
   userUid: string
 ): Promise<t.UserDoc> => {
-  console.log("getting user doc");
   return requestWithCache(
     () => getUserDocH(firestore, userUid),
     t.LocalStorageKey.USER_DOC,
@@ -124,7 +122,6 @@ export const getUserDocH = async (
     if (data === undefined) {
       throw new Error(`This shouldn't be able to happen`);
     }
-    console.log("firestore data", { data });
     return t.UserDoc.fromFirestoreData(data);
   } else {
     const nu = t.UserDoc.empty();

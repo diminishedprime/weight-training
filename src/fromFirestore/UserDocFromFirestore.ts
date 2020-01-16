@@ -86,6 +86,7 @@ export const userDocFromJSON = (s: string): t.UserDoc => {
         );
       });
     }
+    // es-lint-disable-next-line no-fallthrough
     case "1":
     case undefined: {
       firebase
