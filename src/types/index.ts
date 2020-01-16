@@ -14,6 +14,11 @@ export { UserDoc } from "./UserDoc";
 export { Lift } from "./Lift";
 export * from "../actions";
 
+export interface OneRepMax {
+  weight: Weight;
+  time: Timestamp;
+}
+
 export type Firestore = firebase.firestore.Firestore;
 export type Timestamp = firebase.firestore.Timestamp;
 

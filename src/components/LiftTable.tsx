@@ -110,7 +110,8 @@ const LiftTable: React.FC<LiftTableProps> = ({
                 <td
                   className={classNames({
                     "has-text-primary":
-                      userDoc && userDoc.getORM(lift.type).equal(lift.weight)
+                      userDoc &&
+                      userDoc.getORM(lift.type).weight.equal(lift.weight)
                   })}
                 >
                   {lift.weight.display(unit)}

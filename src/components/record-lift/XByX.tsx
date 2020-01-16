@@ -251,7 +251,7 @@ const XByX = ({
 
   React.useEffect(() => {
     if (userDoc !== undefined) {
-      setOneRepMax(userDoc.getORM(liftType));
+      setOneRepMax(userDoc.getORM(liftType).weight);
     }
   }, [userDoc, liftType]);
 

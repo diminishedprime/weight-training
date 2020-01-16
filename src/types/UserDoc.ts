@@ -1,43 +1,87 @@
+import firebase from "firebase/app";
 import * as fromFirestore from "../fromFirestore";
 import { LiftType, ONE_REP_MAX } from "./common";
 import { UserDoc as DBUserDoc } from "./db";
-import { AsFirestore, AsJson, Versioned, Weight } from "./index";
+import {
+  AsFirestore,
+  AsJson,
+  Versioned,
+  Weight,
+  Timestamp,
+  OneRepMax
+} from "./index";
 
-interface MaybeORM {
-  [ONE_REP_MAX]: Weight;
+interface LiftMeta {
+  [ONE_REP_MAX]: OneRepMax;
 }
 
 export class UserDoc implements DBUserDoc, AsFirestore, AsJson, Versioned {
-
   public static fromFirestoreData = fromFirestore.userDocFromFirestore;
+  public static fromJSON = fromFirestore.userDocFromJSON;
+
   public static empty = (): UserDoc => {
     return new UserDoc({
-      [LiftType.BENCH_PRESS]: {},
-      [LiftType.CLEAN_AND_JERK]: {},
-      [LiftType.DEADLIFT]: {},
-      [LiftType.FRONT_SQUAT]: {},
-      [LiftType.OVERHEAD_PRESS]: {},
-      [LiftType.SNATCH]: {},
-      [LiftType.SQUAT]: {}
+      [LiftType.BENCH_PRESS]: {
+        [ONE_REP_MAX]: {
+          weight: Weight.zero(),
+          time: firebase.firestore.Timestamp.now()
+        }
+      },
+      [LiftType.CLEAN_AND_JERK]: {
+        [ONE_REP_MAX]: {
+          weight: Weight.zero(),
+          time: firebase.firestore.Timestamp.now()
+        }
+      },
+      [LiftType.DEADLIFT]: {
+        [ONE_REP_MAX]: {
+          weight: Weight.zero(),
+          time: firebase.firestore.Timestamp.now()
+        }
+      },
+      [LiftType.FRONT_SQUAT]: {
+        [ONE_REP_MAX]: {
+          weight: Weight.zero(),
+          time: firebase.firestore.Timestamp.now()
+        }
+      },
+      [LiftType.OVERHEAD_PRESS]: {
+        [ONE_REP_MAX]: {
+          weight: Weight.zero(),
+          time: firebase.firestore.Timestamp.now()
+        }
+      },
+      [LiftType.SNATCH]: {
+        [ONE_REP_MAX]: {
+          weight: Weight.zero(),
+          time: firebase.firestore.Timestamp.now()
+        }
+      },
+      [LiftType.SQUAT]: {
+        [ONE_REP_MAX]: {
+          weight: Weight.zero(),
+          time: firebase.firestore.Timestamp.now()
+        }
+      }
     });
   };
-  public static fromJSON = (s: string): UserDoc => {
-    return UserDoc.fromFirestoreData(JSON.parse(s));
-  };
-  public [LiftType.BENCH_PRESS]: MaybeORM;
-  public [LiftType.CLEAN_AND_JERK]: MaybeORM;
-  public [LiftType.DEADLIFT]: MaybeORM;
-  public [LiftType.FRONT_SQUAT]: MaybeORM;
-  public [LiftType.OVERHEAD_PRESS]: MaybeORM;
-  public [LiftType.SNATCH]: MaybeORM;
-  public [LiftType.SQUAT]: MaybeORM;
-  public version = "1";
+  public [LiftType.BENCH_PRESS]: LiftMeta;
+  public [LiftType.CLEAN_AND_JERK]: LiftMeta;
+  public [LiftType.DEADLIFT]: LiftMeta;
+  public [LiftType.FRONT_SQUAT]: LiftMeta;
+  public [LiftType.OVERHEAD_PRESS]: LiftMeta;
+  public [LiftType.SNATCH]: LiftMeta;
+  public [LiftType.SQUAT]: LiftMeta;
+  public version = "2";
 
   constructor(dbUserDoc: DBUserDoc) {
     Object.values(dbUserDoc).forEach((value) => {
-      const orm = value![ONE_REP_MAX];
+      const orm = value[ONE_REP_MAX];
       if (orm !== undefined) {
-        value![ONE_REP_MAX] = Weight.fromFirestoreData(orm);
+        value[ONE_REP_MAX] = {
+          weight: Weight.fromFirestoreData(orm.weight),
+          time: orm.time
+        };
       }
     });
 
@@ -55,12 +99,12 @@ export class UserDoc implements DBUserDoc, AsFirestore, AsJson, Versioned {
     return this.version;
   }
 
-  public setORM(liftType: LiftType, weight: Weight) {
-    this[liftType][ONE_REP_MAX] = weight;
+  public setORM(liftType: LiftType, weight: Weight, time: Timestamp) {
+    this[liftType][ONE_REP_MAX] = { weight, time };
   }
 
-  public getORM(liftType: LiftType): Weight {
-    return this[liftType][ONE_REP_MAX] || Weight.zero();
+  public getORM(liftType: LiftType): OneRepMax {
+    return this[liftType][ONE_REP_MAX];
   }
 
   public asObject(): object {

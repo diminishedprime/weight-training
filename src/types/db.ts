@@ -7,7 +7,7 @@ export interface Weight {
 }
 
 export interface MaybeORM {
-  [t.ONE_REP_MAX]?: Weight;
+  [t.ONE_REP_MAX]: { weight: Weight; time: t.Timestamp };
 }
 
 export type UserDoc = {

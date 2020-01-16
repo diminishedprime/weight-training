@@ -54,6 +54,7 @@ const requestWithCache = async <T extends t.AsJson>(
       return cachedValue;
     } else {
       const newValue = await request();
+      console.log({ newValue });
       const jsoned = newValue.asJSON();
       updateCacheDateKeys(cacheKey, moment.utc());
       window.localStorage.setItem(cacheKey, jsoned);
@@ -67,17 +68,22 @@ export const setOneRepMax = async (
   userUid: string,
   liftType: t.LiftType,
   weight: t.Weight,
+  time: t.Timestamp,
   options: { checkPrevious: boolean } = { checkPrevious: false }
 ) => {
   const currentUserDoc = await getUserDocH(firestore, userUid);
   const userDoc = getUserDocReference(firestore, userUid);
   if (
     !options.checkPrevious ||
-    currentUserDoc.getORM(liftType).lessThan(weight)
+    currentUserDoc.getORM(liftType).weight.lessThan(weight)
   ) {
-    currentUserDoc.setORM(liftType, weight);
+    currentUserDoc.setORM(liftType, weight, time);
     return userDoc.update(currentUserDoc.asObject());
   }
+};
+
+const alwaysBust = (_1: any, _2: moment.Moment) => {
+  return false;
 };
 
 const oneMinuteSince = (_: any, then: moment.Moment) => {
@@ -90,10 +96,12 @@ export const getUserDocCached = async (
   firestore: t.Firestore,
   userUid: string
 ): Promise<t.UserDoc> => {
+  console.log("getting user doc");
   return requestWithCache(
     () => getUserDocH(firestore, userUid),
     t.LocalStorageKey.USER_DOC,
-    oneMinuteSince,
+    // oneMinuteSince,
+    alwaysBust,
     t.UserDoc.fromJSON
   );
 };
@@ -116,6 +124,7 @@ export const getUserDocH = async (
     if (data === undefined) {
       throw new Error(`This shouldn't be able to happen`);
     }
+    console.log("firestore data", { data });
     return t.UserDoc.fromFirestoreData(data);
   } else {
     const nu = t.UserDoc.empty();
@@ -128,7 +137,7 @@ export const getOneRepMax = async (
   firestore: t.Firestore,
   userUid: string,
   liftType: t.LiftType
-): Promise<t.Weight> => {
+): Promise<t.OneRepMax> => {
   const userData = await getUserDocH(firestore, userUid);
   return userData.getORM(liftType);
 };
@@ -182,7 +191,7 @@ export const addLift = async (
     .collection("lifts")
     .add(copy);
   const newLift = await docReference.then(async (doc) => {
-    await setOneRepMax(firestore, uid, lift.type, lift.weight, {
+    await setOneRepMax(firestore, uid, lift.type, lift.weight, lift.date, {
       checkPrevious: true
     });
     const d = await doc.get();

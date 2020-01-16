@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import * as c from "../constants";
 import * as hooks from "../hooks";
 import * as t from "../types";
+import moment from "moment";
 
 interface LiftCardProps {
   liftType: t.LiftType;
@@ -24,11 +25,19 @@ const LiftCard: React.FC<LiftCardProps> = ({ liftType, userDoc }) => {
       <figure className="card-svg">
         <img src={c.liftMetadata[liftType].image} width="50" alt="" />
       </figure>
-      {userDoc && userDoc[liftType] && userDoc[liftType]![t.ONE_REP_MAX] && (
+      {userDoc && userDoc.getORM(liftType).weight.greaterThan(t.Weight.zero()) && (
         <div>
           <span className="bold has-text-primary">
-            {userDoc[liftType]![t.ONE_REP_MAX]!.display(unit)}
+            {userDoc.getORM(liftType).weight.display(unit)}{" "}
           </span>
+          {moment(userDoc.getORM(liftType).time.toDate()).calendar(undefined, {
+            lastDay: "[Yesterday]",
+            sameDay: "[Today]",
+            nextDay: "[Tomorrow]",
+            lastWeek: "[last] dddd",
+            nextWeek: "dddd",
+            sameElse: "L"
+          })}{" "}
         </div>
       )}
     </Link>
