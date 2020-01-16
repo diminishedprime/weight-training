@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import * as rrd from "react-router-dom";
 import * as c from "./constants";
 import * as t from "./types";
+import CatchError from "./components/CatchError";
 
 interface HideLink extends rrd.LinkProps {
   className?: string;
@@ -94,7 +95,11 @@ const Layout: React.FC<{}> = ({ children }) => {
           </div>
         </div>
       </nav>
-      <div className="content">{children}</div>
+      <div className="content">
+        <CatchError>
+          <>{children}</>
+        </CatchError>
+      </div>
       <footer className="footer">
         <div>
           <strong>Weight Training</strong> by{" "}

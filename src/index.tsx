@@ -19,6 +19,7 @@ import ViewLifts from "./pages/ViewLifts";
 import * as serviceWorker from "./serviceWorker";
 import store from "./store";
 import * as t from "./types";
+import CatchError from "./components/CatchError";
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
@@ -33,47 +34,49 @@ serviceWorker.register({
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <UpdateApp />
-      <Layout>
-        <Switch>
-          <Route path="/settings" exact>
-            <Settings />
-          </Route>
-          <Route path="/login" exact>
-            <Login />
-          </Route>
-          {Object.values(t.LiftType).map((liftType) => {
-            return (
-              <Route
-                key={`/lift/${liftType}`}
-                path={[
-                  `/lift/${liftType}/:program/:started`,
-                  `/lift/${liftType}`
-                ]}
-              >
-                <RecordLift liftType={liftType} />
-              </Route>
-            );
-          })}
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/lift/:liftId/edit" exact>
-            <EditLift />
-          </Route>
-          <Route path="/lifts/:date" exact>
-            <ViewLifts />
-          </Route>
-          <Route path="/404" exact>
-            <FourOhFour />
-          </Route>
-          <Route>
-            <FourOhFour />
-          </Route>
-        </Switch>
-      </Layout>
-    </Router>
+    <CatchError>
+      <Router>
+        <UpdateApp />
+        <Layout>
+          <Switch>
+            <Route path="/settings" exact>
+              <Settings />
+            </Route>
+            <Route path="/login" exact>
+              <Login />
+            </Route>
+            {Object.values(t.LiftType).map((liftType) => {
+              return (
+                <Route
+                  key={`/lift/${liftType}`}
+                  path={[
+                    `/lift/${liftType}/:program/:started`,
+                    `/lift/${liftType}`
+                  ]}
+                >
+                  <RecordLift liftType={liftType} />
+                </Route>
+              );
+            })}
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/lift/:liftId/edit" exact>
+              <EditLift />
+            </Route>
+            <Route path="/lifts/:date" exact>
+              <ViewLifts />
+            </Route>
+            <Route path="/404" exact>
+              <FourOhFour />
+            </Route>
+            <Route>
+              <FourOhFour />
+            </Route>
+          </Switch>
+        </Layout>
+      </Router>
+    </CatchError>
   );
 };
 
