@@ -111,6 +111,16 @@ export const getUserDocReference = (
   const docReference = firestore.collection("users").doc(userUid);
   return docReference;
 };
+
+export const setUserDoc = async (
+  firestore: t.Firestore,
+  user: t.User,
+  userDoc: t.UserDoc
+): Promise<void> => {
+  const docReference = getUserDocReference(firestore, user.uid);
+  return docReference.set(userDoc.asObject());
+};
+
 export const getUserDocH = async (
   firestore: t.Firestore,
   userUid: string
