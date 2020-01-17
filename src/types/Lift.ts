@@ -5,7 +5,6 @@ import { AsJson, DisplayLift } from "./index";
 import { AsFirestore, LiftType, Timestamp, Weight } from "./index";
 
 export class Lift implements DBLift, AsFirestore, AsJson {
-
   public static fromFirestoreData = fromFirestore.liftFromFirestore;
   public static s = (): Lift => {
     return new Lift({
@@ -40,7 +39,7 @@ export class Lift implements DBLift, AsFirestore, AsJson {
     return JSON.stringify(this);
   }
 
-  public asObject(): object {
+  public asFirestore(): object {
     return JSON.parse(this.asJSON());
   }
 

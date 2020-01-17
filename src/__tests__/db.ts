@@ -58,7 +58,7 @@ describe("for the db", () => {
         })
       );
       oneRepMaxes.forEach((oneRepMax) => {
-        expect(oneRepMax.asObject()).toEqual(t.Weight.zero().asObject());
+        expect(oneRepMax.asObject()).toEqual(t.Weight.zero().asFirestore());
       });
     });
 
@@ -75,7 +75,7 @@ describe("for the db", () => {
         })
       );
       oneRepMaxes.forEach((oneRepMax) => {
-        expect(oneRepMax.asObject()).toEqual(t.Weight.lbs(100).asObject());
+        expect(oneRepMax.asObject()).toEqual(t.Weight.lbs(100).asFirestore());
       });
     });
 
@@ -85,9 +85,9 @@ describe("for the db", () => {
       const oldDeadlift = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
       await sut.setOneRepMax(firestore, userUid, DEADLIFT, t.Weight.lbs(110));
       const newDeadlift = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
-      expect(oldDeadlift.asObject()).toEqual(t.Weight.lbs(100).asObject());
+      expect(oldDeadlift.asObject()).toEqual(t.Weight.lbs(100).asFirestore());
       expect(oldDeadlift.asObject()).not.toEqual(newDeadlift.asObject());
-      expect(newDeadlift.asObject()).toEqual(t.Weight.lbs(110).asObject());
+      expect(newDeadlift.asObject()).toEqual(t.Weight.lbs(110).asFirestore());
     });
 
     describe("when using the options flag", () => {
@@ -99,7 +99,7 @@ describe("for the db", () => {
         });
 
         const actual = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
-        expect(actual.asObject()).toEqual(t.Weight.lbs(100).asObject());
+        expect(actual.asObject()).toEqual(t.Weight.lbs(100).asFirestore());
       });
       test("checkPrevious: false overwrites when value is larger", async () => {
         const firestore = authedApp({ uid: userUid });
@@ -109,7 +109,7 @@ describe("for the db", () => {
         });
 
         const actual = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
-        expect(actual.asObject()).toEqual(t.Weight.lbs(90).asObject());
+        expect(actual.asObject()).toEqual(t.Weight.lbs(90).asFirestore());
       });
     });
 
@@ -121,9 +121,9 @@ describe("for the db", () => {
       await sut.setOneRepMax(firestore, userUid, SQUAT, t.Weight.lbs(110));
       const newSquat = await sut.getOneRepMax(firestore, userUid, SQUAT);
       const newDeadlift = await sut.getOneRepMax(firestore, userUid, DEADLIFT);
-      expect(oldDeadlift.asObject()).toEqual(t.Weight.lbs(100).asObject());
+      expect(oldDeadlift.asObject()).toEqual(t.Weight.lbs(100).asFirestore());
       expect(oldDeadlift.asObject()).toEqual(newDeadlift.asObject());
-      expect(newSquat.asObject()).toEqual(t.Weight.lbs(110).asObject());
+      expect(newSquat.asObject()).toEqual(t.Weight.lbs(110).asFirestore());
     });
   });
 
@@ -141,7 +141,7 @@ describe("for the db", () => {
       const firestore = authedApp({ uid: userUid });
       const actual = await sut.addLift(firestore, userUid, lift);
       delete actual.uid;
-      expect(actual.asObject()).toEqual(lift.asObject());
+      expect(actual.asFirestore()).toEqual(lift.asFirestore());
     });
 
     test("adding a new lift sets the one-rep-max if unset.", async () => {
@@ -149,7 +149,7 @@ describe("for the db", () => {
       await sut.addLift(firestore, userUid, lift);
 
       const actual = await sut.getOneRepMax(firestore, userUid, lift.type);
-      expect(actual.asObject()).toEqual(lift.weight.asObject());
+      expect(actual.asObject()).toEqual(lift.weight.asFirestore());
     });
 
     test("adding a new lift updates the one-rep-max if larger.", async () => {
@@ -163,7 +163,7 @@ describe("for the db", () => {
       await sut.addLift(firestore, userUid, lift);
 
       const actual = await sut.getOneRepMax(firestore, userUid, lift.type);
-      expect(actual.asObject()).toEqual(lift.weight.asObject());
+      expect(actual.asObject()).toEqual(lift.weight.asFirestore());
     });
 
     test("adding a new lift does not update the one-rep-max if smaller.", async () => {
@@ -178,7 +178,7 @@ describe("for the db", () => {
 
       const actual = await sut.getOneRepMax(firestore, userUid, lift.type);
       expect(actual!.asObject()).toEqual(
-        lift.weight.add(t.Weight.lbs(10)).asObject()
+        lift.weight.add(t.Weight.lbs(10)).asFirestore()
       );
     });
 

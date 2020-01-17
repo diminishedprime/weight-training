@@ -77,7 +77,7 @@ export const setOneRepMax = async (
     currentUserDoc.getORM(liftType).weight.lessThan(weight)
   ) {
     currentUserDoc.setORM(liftType, weight, time);
-    return userDoc.update(currentUserDoc.asObject());
+    return userDoc.update(currentUserDoc.asFirestore());
   }
 };
 
@@ -118,7 +118,7 @@ export const setUserDoc = async (
   userDoc: t.UserDoc
 ): Promise<void> => {
   const docReference = getUserDocReference(firestore, user.uid);
-  return docReference.set(userDoc.asObject());
+  return docReference.set(userDoc.asFirestore());
 };
 
 export const getUserDocH = async (
@@ -135,7 +135,7 @@ export const getUserDocH = async (
     return t.UserDoc.fromFirestoreData(data);
   } else {
     const nu = t.UserDoc.empty();
-    await docReference.set(nu.asObject());
+    await docReference.set(nu.asFirestore());
     return nu;
   }
 };
@@ -191,7 +191,7 @@ export const addLift = async (
   lift: t.Lift
 ): Promise<t.DisplayLift> => {
   const copy = { ...lift };
-  (copy as any).weight = copy.weight.asObject();
+  (copy as any).weight = copy.weight.asFirestore();
   const docReference = firestore
     .collection("users")
     .doc(uid)
@@ -220,7 +220,7 @@ export const updateLift = async (
 ): Promise<void> => {
   const copy = { ...liftUpdate };
   if (copy.weight !== undefined) {
-    (copy as any).weight = copy.weight.asObject();
+    (copy as any).weight = copy.weight.asFirestore();
   }
   const updatedLift = await firestore
     .collection("users")

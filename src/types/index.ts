@@ -26,7 +26,7 @@ export type FromFirestore<T> = (o: object) => T;
 
 export const BAR_WEIGHT = 45;
 export interface AsFirestore {
-  asObject(): object;
+  asFirestore(): object;
 }
 
 export interface Versioned {

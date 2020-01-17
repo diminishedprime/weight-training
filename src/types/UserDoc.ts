@@ -112,12 +112,12 @@ export class UserDoc implements DBUserDoc, AsFirestore, AsJson, Versioned {
     return this[liftType][ONE_REP_MAX];
   }
 
-  public asObject(): object {
+  public asFirestore(): object {
     return JSON.parse(JSON.stringify(this));
   }
 
   public asJSON(): string {
-    return JSON.stringify(this.asObject());
+    return JSON.stringify(this.asFirestore());
   }
   public getRecords(): PR[] {
     return Object.values(LiftType)
