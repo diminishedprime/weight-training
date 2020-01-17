@@ -34,9 +34,8 @@ nav
   padding: 5px;
   flex-grow: 1;
 
-@media screen and (min-width: 50em)
-  body
-    max-width: 50em;
+body
+  max-width: 50em;
 
 body
   margin: 0 auto;
@@ -316,3 +315,11 @@ label
 
 .sm-text
   font-size: .5em;
+
+.nav-inner
+  max-width: 50em;
+  margin: 0 auto;
+
+@media (min-width: 50em)
+  .nav-inner
+    min-width: 50em;

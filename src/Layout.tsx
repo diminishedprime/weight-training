@@ -39,58 +39,60 @@ const Layout: React.FC<{}> = ({ children }) => {
   return (
     <>
       <nav
-        className="navbar is-fixed-top"
+        className="navbar is-fixed-top has-background-primary"
         role="navigation"
         aria-label="main navigation"
       >
-        <div className="navbar-brand has-background-primary">
-          <div className="flex flex-center main-heading">
-            <HideLink to="/" className="title flex flex-center">
-              <img src={c.images.dumbbell} width="50" alt="" />
-              Weight Training
-            </HideLink>
-          </div>
+        <div className="nav-inner">
+          <div className="navbar-brand">
+            <div className="flex flex-center main-heading">
+              <HideLink to="/" className="title flex flex-center">
+                <img src={c.images.dumbbell} width="50" alt="" />
+                Weight Training
+              </HideLink>
+            </div>
 
-          <div
-            role="button"
-            className={`navbar-burger burger ${navActive && "is-active"}`}
-            aria-label="menu"
-            aria-expanded={navActive}
-            data-target="navbarBasicExample"
-            onClick={() => {
-              setNavActive((old) => !old);
-            }}
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+            <div
+              role="button"
+              className={`navbar-burger burger ${navActive && "is-active"}`}
+              aria-label="menu"
+              aria-expanded={navActive}
+              data-target="navbarBasicExample"
+              onClick={() => {
+                setNavActive((old) => !old);
+              }}
+            >
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </div>
           </div>
-        </div>
-        <div className={`navbar-menu ${navActive && "is-active"}`}>
-          <div className="navbar-end">
-            <div className="navbar-dropdown" onClick={hideNav}>
-              <HideLink className="navbar-item" to="/">
-                Home
-              </HideLink>
-              <div className="indent">
-                {Object.values(t.LiftType).map((liftType) => {
-                  return (
-                    <HideLink
-                      key={`lift/${liftType}`}
-                      className="navbar-item"
-                      to={`/lift/${liftType}`}
-                    >
-                      {c.liftMetadata[liftType].displayText}
-                    </HideLink>
-                  );
-                })}
+          <div className={`navbar-menu ${navActive && "is-active"}`}>
+            <div className="navbar-end">
+              <div className="navbar-dropdown" onClick={hideNav}>
+                <HideLink className="navbar-item" to="/">
+                  Home
+                </HideLink>
+                <div className="indent">
+                  {Object.values(t.LiftType).map((liftType) => {
+                    return (
+                      <HideLink
+                        key={`lift/${liftType}`}
+                        className="navbar-item"
+                        to={`/lift/${liftType}`}
+                      >
+                        {c.liftMetadata[liftType].displayText}
+                      </HideLink>
+                    );
+                  })}
+                </div>
+                <HideLink className="navbar-item" to="/settings">
+                  Settings
+                </HideLink>
+                <button onClick={signOut} className="button is-danger is-small">
+                  Sign Out
+                </button>
               </div>
-              <HideLink className="navbar-item" to="/settings">
-                Settings
-              </HideLink>
-              <button onClick={signOut} className="button is-danger is-small">
-                Sign Out
-              </button>
             </div>
           </div>
         </div>
