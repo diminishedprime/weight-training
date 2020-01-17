@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
-import * as t from "../types";
-import store from "../store";
 import * as db from "../db";
+import store from "../store";
+import * as t from "../types";
 
 type V1BaseDb = {
   [lift in t.LiftType]: {
