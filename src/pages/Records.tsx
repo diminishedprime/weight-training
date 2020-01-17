@@ -61,7 +61,7 @@ const Records = () => {
       )}
       {noRecords.length !== 0 && (
         <>
-          <div>The following no recorded records</div>
+          <div>The following have no recorded records</div>
           <ul>
             {noRecords.map((pr) => (
               <li key={pr.liftType}>
