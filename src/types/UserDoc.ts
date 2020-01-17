@@ -5,14 +5,19 @@ import { UserDoc as DBUserDoc } from "./db";
 import {
   AsFirestore,
   AsJson,
-  Versioned,
-  Weight,
+  OneRepMax,
   Timestamp,
-  OneRepMax
+  Versioned,
+  Weight
 } from "./index";
 
 interface LiftMeta {
   [ONE_REP_MAX]: OneRepMax;
+}
+
+interface PR {
+  orm: OneRepMax;
+  liftType: LiftType;
 }
 
 export class UserDoc implements DBUserDoc, AsFirestore, AsJson, Versioned {
@@ -113,5 +118,19 @@ export class UserDoc implements DBUserDoc, AsFirestore, AsJson, Versioned {
 
   public asJSON(): string {
     return JSON.stringify(this.asObject());
+  }
+  public getRecords(): PR[] {
+    return Object.values(LiftType)
+      .map((liftType) => {
+        return { liftType, orm: this.getORM(liftType) };
+      })
+      .filter((pr) => !pr.orm.weight.equal(Weight.zero()));
+  }
+  public getEmptyRecords(): PR[] {
+    return Object.values(LiftType)
+      .map((liftType) => {
+        return { liftType, orm: this.getORM(liftType) };
+      })
+      .filter((pr) => pr.orm.weight.equal(Weight.zero()));
   }
 }

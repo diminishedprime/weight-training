@@ -14,6 +14,7 @@ import FourOhFour from "./pages/FourOhFour";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import RecordLift from "./pages/RecordLift";
+import Records from "./pages/Records";
 import Settings from "./pages/Settings";
 import ViewLifts from "./pages/ViewLifts";
 import * as serviceWorker from "./serviceWorker";
@@ -66,6 +67,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/lifts/:date" exact>
               <ViewLifts />
+            </Route>
+            <Route path="/records" exact>
+              <Records />
             </Route>
             <Route path="/404" exact>
               <FourOhFour />

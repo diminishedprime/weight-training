@@ -2,9 +2,8 @@ import firebase from "firebase/app";
 import * as React from "react";
 import { Link, useLocation } from "react-router-dom";
 import * as rrd from "react-router-dom";
-import * as c from "./constants";
-import * as t from "./types";
 import CatchError from "./components/CatchError";
+import * as c from "./constants";
 
 interface HideLink extends rrd.LinkProps {
   className?: string;
@@ -72,6 +71,9 @@ const Layout: React.FC<{}> = ({ children }) => {
               <div className="navbar-dropdown" onClick={hideNav}>
                 <HideLink className="navbar-item" to="/">
                   Home
+                </HideLink>
+                <HideLink className="navbar-item" to="/records">
+                  Records
                 </HideLink>
                 <HideLink className="navbar-item" to="/settings">
                   Settings
