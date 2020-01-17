@@ -73,25 +73,17 @@ const Layout: React.FC<{}> = ({ children }) => {
                 <HideLink className="navbar-item" to="/">
                   Home
                 </HideLink>
-                <div className="indent">
-                  {Object.values(t.LiftType).map((liftType) => {
-                    return (
-                      <HideLink
-                        key={`lift/${liftType}`}
-                        className="navbar-item"
-                        to={`/lift/${liftType}`}
-                      >
-                        {c.liftMetadata[liftType].displayText}
-                      </HideLink>
-                    );
-                  })}
-                </div>
                 <HideLink className="navbar-item" to="/settings">
                   Settings
                 </HideLink>
-                <button onClick={signOut} className="button is-danger is-small">
-                  Sign Out
-                </button>
+                <div className="navbar-item">
+                  <button
+                    onClick={signOut}
+                    className="button is-danger is-small"
+                  >
+                    Sign Out
+                  </button>
+                </div>
               </div>
             </div>
           </div>

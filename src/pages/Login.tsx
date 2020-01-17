@@ -26,6 +26,7 @@ export default () => {
       {error && (
         <div>There was an error logging in: {JSON.stringify(error)}</div>
       )}
+      <p>Log in with Google to use this application.</p>
       <button onClick={googleSignIn} className="button is-link">
         Sign In With Google
       </button>
