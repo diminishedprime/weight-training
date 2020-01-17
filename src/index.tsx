@@ -1,13 +1,22 @@
-import "firebase/analytics";
 import firebase from "firebase/app";
+
+import "firebase/analytics";
 import "firebase/auth";
 import "firebase/firestore";
+import "./index.sass";
+
+import store from "./store";
+import * as t from "./types";
+
 import React from "react";
 import ReactDOM from "react-dom";
+
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import * as serviceWorker from "./serviceWorker";
+
+import CatchError from "./components/CatchError";
 import UpdateApp from "./components/UpdateApp";
-import "./index.sass";
 import Layout from "./Layout";
 import EditLift from "./pages/EditLift";
 import FourOhFour from "./pages/FourOhFour";
@@ -17,10 +26,6 @@ import RecordLift from "./pages/RecordLift";
 import Records from "./pages/Records";
 import Settings from "./pages/Settings";
 import ViewLifts from "./pages/ViewLifts";
-import * as serviceWorker from "./serviceWorker";
-import store from "./store";
-import * as t from "./types";
-import CatchError from "./components/CatchError";
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
