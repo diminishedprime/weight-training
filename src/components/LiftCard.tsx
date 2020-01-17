@@ -1,9 +1,9 @@
+import moment from "moment";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import * as c from "../constants";
 import * as hooks from "../hooks";
 import * as t from "../types";
-import moment from "moment";
 
 interface LiftCardProps {
   liftType: t.LiftType;

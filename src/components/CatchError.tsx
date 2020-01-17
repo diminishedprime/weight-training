@@ -1,6 +1,6 @@
+import firebase from "firebase/app";
 import * as React from "react";
 import * as t from "../types";
-import firebase from "firebase/app";
 
 interface ErrorBoundaryProps {
   readonly children: JSX.Element | JSX.Element[];
@@ -15,12 +15,12 @@ class ErrorBoundary extends React.Component<
   ErrorBoundaryProps,
   ErrorBoundaryState
 > {
-  readonly state: ErrorBoundaryState = {
+  public readonly state: ErrorBoundaryState = {
     error: undefined,
     errorInfo: undefined
   };
 
-  componentDidCatch(error: any, errorInfo: any) {
+  public componentDidCatch(error: any, errorInfo: any) {
     firebase.analytics().logEvent("exception", {
       description: error && error.toString(),
       fatal: true,
@@ -32,7 +32,7 @@ class ErrorBoundary extends React.Component<
     });
   }
 
-  clearLocalStorage() {
+  public clearLocalStorage() {
     const user = window.localStorage.getItem(t.LocalStorageKey.USER);
     window.localStorage.clear();
     if (user !== null) {
@@ -40,7 +40,7 @@ class ErrorBoundary extends React.Component<
     }
   }
 
-  render() {
+  public render() {
     const { error, errorInfo } = this.state;
     if (errorInfo) {
       const errorDetails =

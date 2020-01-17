@@ -1,12 +1,12 @@
+import classNames from "classnames";
 import firebase from "firebase/app";
 import moment from "moment";
 import * as React from "react";
 import { Link } from "react-router-dom";
+import * as c from "../constants";
 import * as db from "../db";
 import * as hooks from "../hooks";
 import * as t from "../types";
-import * as c from "../constants";
-import classNames from "classnames";
 
 interface TimeSinceProps {
   user: t.User;

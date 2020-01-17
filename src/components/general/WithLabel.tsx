@@ -1,6 +1,6 @@
-import * as React from "react";
 import classNames from "classnames";
 import { ClassArray } from "classnames/types";
+import * as React from "react";
 
 interface WithLabelProps {
   label: string;
