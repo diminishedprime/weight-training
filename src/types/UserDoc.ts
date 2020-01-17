@@ -11,6 +11,8 @@ import {
   Weight
 } from "./index";
 
+// TODO - change this to be an indexed type of a new enum for the types of lifts
+// that can have records (1s, 3s, 5s, 10s).
 interface LiftMeta {
   [ONE_REP_MAX]: OneRepMax;
 }
