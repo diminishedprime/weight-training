@@ -44,6 +44,7 @@ const tryUpdateORMTimes = async (userDoc: t.UserDoc) => {
           query
             .where("weight.unit", "==", orm.weight.unit)
             .where("weight.value", "==", orm.weight.value)
+            .where("type", "==", liftType)
             .limit(1)
         )
         .then((lifts) => {
