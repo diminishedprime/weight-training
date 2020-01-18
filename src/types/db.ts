@@ -1,26 +1,31 @@
 import * as t from "./index";
 // db type
 
-export interface Weight {
+export interface WeightField {
   value: number;
   unit: t.WeightUnit;
   version: "1";
 }
 
-export interface Record {
+export interface TimeStampField {
+  seconds: number;
+  nanoseconds: number;
+}
+
+export interface RecordField {
   [t.ONE_REP_MAX]: {
-    weight: Weight;
-    time: t.TimeStamp;
+    weight: WeightField;
+    time: TimeStampField;
   };
 }
 
 export type UserDoc = {
-  [lift in t.LiftType]: Record;
+  [lift in t.LiftType]: RecordField;
 };
 
-export interface Lift {
+export interface LiftDoc {
   date: t.FirestoreTimestamp;
-  weight: Weight;
+  weight: WeightField;
   type: t.LiftType;
   reps: number;
   warmup: boolean | undefined;

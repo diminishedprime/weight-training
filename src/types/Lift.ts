@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import * as fromFirestore from "../fromFirestore";
-import { Lift as DBLift } from "./db";
+import { LiftDoc } from "./db";
 import { AsJson, DisplayLift } from "./index";
 import {
   AsFirestore,
@@ -10,11 +10,11 @@ import {
   Weight
 } from "./index";
 
-export class Lift implements DBLift, AsFirestore, AsJson, Equals<Lift> {
+export class Lift implements LiftDoc, AsFirestore, AsJson, Equals<Lift> {
   public static VERSION: "1" = "1";
   public static fromFirestoreData = fromFirestore.liftFromFirestore;
 
-  public static fromDb = (lift: DBLift) => {
+  public static fromDb = (lift: LiftDoc) => {
     return new Lift(
       lift.date,
       Weight.fromFirestoreData(lift.weight),
