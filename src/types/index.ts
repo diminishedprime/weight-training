@@ -109,7 +109,7 @@ export enum LocalStorageKey {
   SETTINGS = "@weight-training/settings",
   DAYS_WITH_LIFTS = "@weight-training/days-with-lifts",
   X_BY_X = "@weight-training/x-by-x",
-  USER = "@weight-training/user",
+  FIREBASE_USER = "@weight-training/user",
   USER_DOC = "@weight-training/user-doc",
   LIFTS = "@weight-training/lifts"
 }

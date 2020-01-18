@@ -33,10 +33,10 @@ class ErrorBoundary extends React.Component<
   }
 
   public clearLocalStorage() {
-    const user = window.localStorage.getItem(t.LocalStorageKey.USER);
+    const user = window.localStorage.getItem(t.LocalStorageKey.FIREBASE_USER);
     window.localStorage.clear();
     if (user !== null) {
-      window.localStorage.setItem(t.LocalStorageKey.USER, user);
+      window.localStorage.setItem(t.LocalStorageKey.FIREBASE_USER, user);
     }
   }
 

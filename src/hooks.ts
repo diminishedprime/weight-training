@@ -78,7 +78,7 @@ export const useTimeSinceLift = (
 export const useForceSignIn = (): t.FirebaseUser | null => {
   const history = useHistory();
   const [user, setUser, cleanup] = useLocalStorage<t.FirebaseUser | null>(
-    t.LocalStorageKey.USER,
+    t.LocalStorageKey.FIREBASE_USER,
     null
   );
 

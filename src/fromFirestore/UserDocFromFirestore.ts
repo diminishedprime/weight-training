@@ -35,7 +35,9 @@ export interface V2Db {
 type V2Json = V2Db;
 
 const tryUpdateORMTimes = async (userDoc: t.UserDoc) => {
-  const userString = window.localStorage.getItem(t.LocalStorageKey.USER);
+  const userString = window.localStorage.getItem(
+    t.LocalStorageKey.FIREBASE_USER
+  );
   if (userString !== null) {
     const user = JSON.parse(userString) as t.FirebaseUser;
     const promises = Object.values(t.LiftType).map(async (liftType) => {
