@@ -10,7 +10,7 @@ import * as t from "../types";
 const PreDefinedWorkout = ({
   liftType,
   user
-}: t.RecordLiftProps & { user: t.User }) => {
+}: t.RecordLiftProps & { user: t.FirebaseUser }) => {
   const [selectedWorkout, setSelectedWorkout] = React.useState<
     t.WorkoutType | undefined
   >(undefined);

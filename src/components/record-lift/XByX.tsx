@@ -49,7 +49,7 @@ const SimpleLiftTable = ({
   workoutType
 }: {
   program: t.Program;
-  user: t.User;
+  user: t.FirebaseUser;
   workoutType: t.WorkoutType;
 }) => {
   const {
@@ -228,7 +228,7 @@ const XByX = ({
   liftType,
   workoutType
 }: {
-  user: t.User;
+  user: t.FirebaseUser;
   liftType: t.LiftType;
   workoutType: t.WorkoutType;
 }) => {

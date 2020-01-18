@@ -43,7 +43,10 @@ const SetReps: React.FC<SetRepsProps> = ({ setReps, reps }) => {
   );
 };
 
-const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
+const AddLift = ({
+  liftType,
+  user
+}: t.RecordLiftProps & { user: t.FirebaseUser }) => {
   const [weight, setWeight] = React.useState<t.Weight | undefined>(
     t.Weight.bar()
   );

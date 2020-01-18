@@ -114,7 +114,7 @@ export enum LocalStorageKey {
   LIFTS = "@weight-training/lifts"
 }
 
-export interface User {
+export interface FirebaseUser {
   uid: string;
 }
 

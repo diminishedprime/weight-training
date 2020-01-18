@@ -37,7 +37,7 @@ type V2Json = V2Db;
 const tryUpdateORMTimes = async (userDoc: t.UserDoc) => {
   const userString = window.localStorage.getItem(t.LocalStorageKey.USER);
   if (userString !== null) {
-    const user = JSON.parse(userString) as t.User;
+    const user = JSON.parse(userString) as t.FirebaseUser;
     const promises = Object.values(t.LiftType).map(async (liftType) => {
       const orm = userDoc.getORM(liftType);
       return db

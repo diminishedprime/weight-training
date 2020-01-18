@@ -37,7 +37,7 @@ const formatFor = (
 };
 
 export const useTimeSinceLift = (
-  user: t.User | undefined,
+  user: t.FirebaseUser | undefined,
   liftUid: string | undefined
 ): { moment?: moment.Moment; className?: string; displayString?: string } => {
   const [m, setMoment] = React.useState<moment.Moment>();
@@ -75,9 +75,9 @@ export const useTimeSinceLift = (
   return { moment: m, className, displayString };
 };
 
-export const useForceSignIn = (): t.User | null => {
+export const useForceSignIn = (): t.FirebaseUser | null => {
   const history = useHistory();
-  const [user, setUser, cleanup] = useLocalStorage<t.User | null>(
+  const [user, setUser, cleanup] = useLocalStorage<t.FirebaseUser | null>(
     t.LocalStorageKey.USER,
     null
   );
@@ -88,7 +88,7 @@ export const useForceSignIn = (): t.User | null => {
         cleanup();
         history.push("/login");
       } else {
-        const u: t.User = { uid: user.uid };
+        const u: t.FirebaseUser = { uid: user.uid };
         setUser(u);
       }
     });

@@ -9,7 +9,7 @@ import * as hooks from "../hooks";
 import * as t from "../types";
 
 interface TimeSinceProps {
-  user: t.User;
+  user: t.FirebaseUser;
   liftUid: string;
   time: t.FirestoreTimestamp;
 }
@@ -25,7 +25,7 @@ const TimeSince: React.FC<TimeSinceProps> = ({ liftUid, user, time }) => {
 
 interface LiftTableProps {
   modifyQuery: (query: firebase.firestore.Query) => firebase.firestore.Query;
-  user: t.User;
+  user: t.FirebaseUser;
   showType?: boolean;
 }
 

@@ -114,7 +114,7 @@ export const getUserDocReference = (
 
 export const setUserDoc = async (
   firestore: t.Firestore,
-  user: t.User,
+  user: t.FirebaseUser,
   userDoc: t.UserDoc
 ): Promise<void> => {
   const docReference = getUserDocReference(firestore, user.uid);
@@ -264,7 +264,7 @@ const toDisplayLifts = (
 
 export const lifts = async (
   firestore: t.Firestore,
-  user: t.User,
+  user: t.FirebaseUser,
   modifyQuery: ModifyQuery
 ): Promise<t.DisplayLift[]> => {
   const liftsCollection = await modifyQuery(
@@ -275,7 +275,7 @@ export const lifts = async (
 
 export const getDaysWithLifts = async (
   firestore: t.Firestore,
-  user: t.User
+  user: t.FirebaseUser
 ): Promise<DaysWithLifts> => {
   return requestWithCache(
     () => getDaysWithLiftsH(firestore, user),
@@ -313,7 +313,7 @@ class DaysWithLifts implements t.AsJson {
 
 const getDaysWithLiftsH = async (
   firestore: t.Firestore,
-  user: t.User
+  user: t.FirebaseUser
 ): Promise<DaysWithLifts> => {
   const daysWithLifts = await firestore
     .collection("users")
