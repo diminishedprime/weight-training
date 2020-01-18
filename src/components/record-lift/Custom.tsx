@@ -58,14 +58,13 @@ const AddLift = ({
     if (weight === undefined) {
       return;
     }
-    const lift: t.Lift = new t.Lift({
+    const lift: t.Lift = new t.Lift(
+      firebase.firestore.Timestamp.now(),
       weight,
-      type: liftType,
-      date: firebase.firestore.Timestamp.now(),
+      liftType,
       reps,
-      warmup,
-      version: t.Lift.VERSION
-    });
+      warmup
+    );
     db.addLift(firebase.firestore(), user.uid, lift);
   }, [weight, liftType, reps, user.uid, warmup]);
 

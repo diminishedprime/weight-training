@@ -192,6 +192,7 @@ describe("for the db", () => {
       expect(oldDeadlift.weight.asFirestore()).toEqual(
         newDeadlift.weight.asFirestore()
       );
+
       expect(newSquat.weight.asFirestore()).toEqual(
         t.Weight.lbs(110).asFirestore()
       );
@@ -200,12 +201,13 @@ describe("for the db", () => {
 
   describe("for the lift operations", () => {
     const userUid = "matt";
-    const lift: t.Lift = new t.Lift({
+    const lift: t.Lift = t.Lift.fromDb({
       weight: t.Weight.lbs(200),
       reps: 3,
       type: DEADLIFT,
       date: firebase.firestore.Timestamp.now(),
-      warmup: false
+      warmup: false,
+      version: "1"
     });
 
     test("adding a new lift puts it in the db.", async () => {

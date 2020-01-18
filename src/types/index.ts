@@ -127,8 +127,15 @@ export interface Settings {
 export class DisplayLift extends Lift {
   public uid: string;
 
-  constructor(lift: Lift, uid: string) {
-    super(lift);
+  constructor(
+    date: FirestoreTimestamp,
+    weight: Weight,
+    type: LiftType,
+    reps: number,
+    warmup: boolean,
+    uid: string
+  ) {
+    super(date, weight, type, reps, warmup);
     this.uid = uid;
   }
 }

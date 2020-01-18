@@ -190,13 +190,11 @@ export const addLift = async (
   uid: string,
   lift: t.Lift
 ): Promise<t.DisplayLift> => {
-  const copy = { ...lift };
-  (copy as any).weight = copy.weight.asFirestore();
   const docReference = firestore
     .collection("users")
     .doc(uid)
     .collection("lifts")
-    .add(copy);
+    .add(lift.asFirestore());
   const newLift = await docReference.then(async (doc) => {
     await setOneRepMax(firestore, uid, lift.type, lift.weight, lift.date, {
       checkPrevious: true

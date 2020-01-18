@@ -4,6 +4,7 @@ import * as t from "./index";
 export interface Weight {
   value: number;
   unit: t.WeightUnit;
+  version: "1";
 }
 
 export interface Record {

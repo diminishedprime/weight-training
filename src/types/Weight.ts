@@ -6,7 +6,7 @@ const lbsToKiloRatio = 0.453592;
 
 export class Weight
   implements DBWeight, AsFirestore, Versioned, Equals<Weight>, AsJson {
-  public static VERSION = "1";
+  public static VERSION: "1" = "1";
   public static fromFirestoreData = fromFirestore.weightFromFirestore;
   public static kiloToLbs = (value: number) => {
     return value / lbsToKiloRatio;

@@ -17,7 +17,7 @@ export const liftFromFirestore: t.FromFirestore<t.Lift> = (
     case "1":
     case undefined: {
       const dbVal: V1Db = o as any;
-      return new t.Lift(dbVal);
+      return t.Lift.fromDb(dbVal);
     }
     default: {
       throw new Error(`Cannot parse version: ${(o as any).version}`);

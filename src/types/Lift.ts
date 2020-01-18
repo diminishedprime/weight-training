@@ -13,16 +13,26 @@ import {
 export class Lift implements DBLift, AsFirestore, AsJson, Equals<Lift> {
   public static VERSION: "1" = "1";
   public static fromFirestoreData = fromFirestore.liftFromFirestore;
-  public static s = (): Lift => {
-    return new Lift({
-      date: firebase.firestore.Timestamp.now(),
-      weight: Weight.zero(),
-      type: LiftType.BENCH_PRESS,
-      reps: 0,
-      warmup: false,
-      version: "1"
-    });
+
+  public static fromDb = (lift: DBLift) => {
+    return new Lift(
+      lift.date,
+      Weight.fromFirestoreData(lift.weight),
+      lift.type,
+      lift.reps,
+      lift.warmup || false
+    );
   };
+
+  public clone(): Lift {
+    return new Lift(
+      this.date,
+      this.weight.clone(),
+      this.type,
+      this.reps,
+      this.warmup || false
+    );
+  }
 
   public version = Lift.VERSION;
   public date: FirestoreTimestamp;
@@ -31,12 +41,18 @@ export class Lift implements DBLift, AsFirestore, AsJson, Equals<Lift> {
   public reps: number;
   public warmup: boolean | undefined;
 
-  constructor(lift: DBLift) {
-    this.date = lift.date;
-    this.weight = Weight.fromFirestoreData(lift.weight);
-    this.type = lift.type;
-    this.reps = lift.reps;
-    this.warmup = lift.warmup;
+  constructor(
+    date: FirestoreTimestamp,
+    weight: Weight,
+    type: LiftType,
+    reps: number,
+    warmup: boolean
+  ) {
+    this.date = date;
+    this.weight = weight;
+    this.type = type;
+    this.reps = reps;
+    this.warmup = warmup;
   }
   public equals(other: Lift): boolean {
     return this.asJSON() === other.asJSON();
@@ -55,6 +71,13 @@ export class Lift implements DBLift, AsFirestore, AsJson, Equals<Lift> {
   }
 
   public withUid(uid: string): DisplayLift {
-    return new DisplayLift(this, uid);
+    return new DisplayLift(
+      this.date,
+      this.weight,
+      this.type,
+      this.reps,
+      this.warmup || false,
+      uid
+    );
   }
 }
