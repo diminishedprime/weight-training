@@ -23,4 +23,5 @@ export interface Lift {
   type: t.LiftType;
   reps: number;
   warmup: boolean | undefined;
+  version: "1";
 }

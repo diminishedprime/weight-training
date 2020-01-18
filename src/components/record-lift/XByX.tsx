@@ -108,6 +108,7 @@ const SimpleLiftTable = ({
     if (currentLift < program.length) {
       const lift: t.Lift = new t.Lift({
         ...program[currentLift],
+        version: t.Lift.VERSION,
         date: firebase.firestore.Timestamp.now()
       });
       // Don't need to block on this.

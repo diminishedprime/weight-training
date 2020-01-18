@@ -60,7 +60,8 @@ const AddLift = ({ liftType, user }: t.RecordLiftProps & { user: t.User }) => {
       type: liftType,
       date: firebase.firestore.Timestamp.now(),
       reps,
-      warmup
+      warmup,
+      version: t.Lift.VERSION
     });
     db.addLift(firebase.firestore(), user.uid, lift);
   }, [weight, liftType, reps, user.uid, warmup]);

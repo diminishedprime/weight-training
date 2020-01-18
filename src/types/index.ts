@@ -29,6 +29,10 @@ export type TimeStamp = {
 export type FromFirestore<T> = (o: object) => T;
 
 export const BAR_WEIGHT = 45;
+
+export interface Equals<T> {
+  equals(a: T): boolean;
+}
 export interface AsFirestore {
   asFirestore(): object;
 }

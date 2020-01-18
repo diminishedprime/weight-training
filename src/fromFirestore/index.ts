@@ -1,3 +1,3 @@
-export * from "./LiftFromFirestore";
-export * from "./UserDocFromFirestore";
-export * from "./WeightFromFirestore";
+export { liftFromFirestore } from "./LiftFromFirestore";
+export { userDocFromFirestore, userDocFromJSON } from "./UserDocFromFirestore";
+export { weightFromFirestore } from "./WeightFromFirestore";
