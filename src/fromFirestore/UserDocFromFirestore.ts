@@ -9,7 +9,7 @@ interface V1RecordDb {
   [t.ONE_REP_MAX]?: Weight.V1Db;
 }
 
-interface V1Db {
+export interface V1Db {
   deadlift: V1RecordDb;
   squat: V1RecordDb;
   "front-squat": V1RecordDb;
@@ -88,7 +88,7 @@ export const userDocFromFirestore: t.FromFirestore<t.UserDoc> = (
       const defaultRecord: V2RecordDb = {
         [t.ONE_REP_MAX]: {
           weight: { value: 0, unit: t.WeightUnit.POUND, version: "1" },
-          time: firebase.firestore.Timestamp.now()
+          time: firebase.firestore.Timestamp.fromMillis(0)
         }
       };
       const newDoc: V2Db = {
@@ -111,7 +111,7 @@ export const userDocFromFirestore: t.FromFirestore<t.UserDoc> = (
         newDoc[liftType] = {
           [t.ONE_REP_MAX]: {
             weight,
-            time: firebase.firestore.Timestamp.now()
+            time: firebase.firestore.Timestamp.fromMillis(0)
           }
         };
       });

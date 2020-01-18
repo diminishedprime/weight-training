@@ -5,6 +5,7 @@ import { UserDoc as DBUserDoc } from "./db";
 import {
   AsFirestore,
   AsJson,
+  Equals,
   FirestoreTimestamp,
   OneRepMax,
   Versioned,
@@ -22,52 +23,54 @@ interface PR {
   liftType: LiftType;
 }
 
-export class UserDoc implements DBUserDoc, AsFirestore, AsJson, Versioned {
+export class UserDoc
+  implements DBUserDoc, AsFirestore, AsJson, Versioned, Equals<UserDoc> {
   public static fromFirestoreData = fromFirestore.userDocFromFirestore;
   public static fromJSON = fromFirestore.userDocFromJSON;
 
   public static empty = (): UserDoc => {
+    const defaultTime = firebase.firestore.Timestamp.fromMillis(0);
     return new UserDoc({
       [LiftType.BENCH_PRESS]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
-          time: firebase.firestore.Timestamp.now()
+          time: defaultTime
         }
       },
       [LiftType.CLEAN_AND_JERK]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
-          time: firebase.firestore.Timestamp.now()
+          time: defaultTime
         }
       },
       [LiftType.DEADLIFT]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
-          time: firebase.firestore.Timestamp.now()
+          time: defaultTime
         }
       },
       [LiftType.FRONT_SQUAT]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
-          time: firebase.firestore.Timestamp.now()
+          time: defaultTime
         }
       },
       [LiftType.OVERHEAD_PRESS]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
-          time: firebase.firestore.Timestamp.now()
+          time: defaultTime
         }
       },
       [LiftType.SNATCH]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
-          time: firebase.firestore.Timestamp.now()
+          time: defaultTime
         }
       },
       [LiftType.SQUAT]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
-          time: firebase.firestore.Timestamp.now()
+          time: defaultTime
         }
       }
     });
@@ -138,5 +141,9 @@ export class UserDoc implements DBUserDoc, AsFirestore, AsJson, Versioned {
         return { liftType, orm: this.getORM(liftType) };
       })
       .filter((pr) => pr.orm.weight.equals(Weight.zero()));
+  }
+
+  public equals(other: UserDoc): boolean {
+    return this.asJSON() === other.asJSON();
   }
 }
