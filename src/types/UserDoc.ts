@@ -130,13 +130,13 @@ export class UserDoc implements DBUserDoc, AsFirestore, AsJson, Versioned {
       .map((liftType) => {
         return { liftType, orm: this.getORM(liftType) };
       })
-      .filter((pr) => !pr.orm.weight.equal(Weight.zero()));
+      .filter((pr) => !pr.orm.weight.equals(Weight.zero()));
   }
   public getEmptyRecords(): PR[] {
     return Object.values(LiftType)
       .map((liftType) => {
         return { liftType, orm: this.getORM(liftType) };
       })
-      .filter((pr) => pr.orm.weight.equal(Weight.zero()));
+      .filter((pr) => pr.orm.weight.equals(Weight.zero()));
   }
 }

@@ -1,10 +1,11 @@
 import * as fromFirestore from "../fromFirestore";
 import { Weight as DBWeight } from "./db";
-import { AsFirestore, Versioned, WeightUnit } from "./index";
+import { AsFirestore, AsJson, Equals, Versioned, WeightUnit } from "./index";
 
 const lbsToKiloRatio = 0.453592;
 
-export class Weight implements DBWeight, AsFirestore, Versioned {
+export class Weight
+  implements DBWeight, AsFirestore, Versioned, Equals<Weight>, AsJson {
   public static VERSION = "1";
   public static fromFirestoreData = fromFirestore.weightFromFirestore;
   public static kiloToLbs = (value: number) => {
@@ -91,10 +92,10 @@ export class Weight implements DBWeight, AsFirestore, Versioned {
   }
 
   public lessThanEq(b: Weight): boolean {
-    return this.equal(b) || this.lessThan(b);
+    return this.equals(b) || this.lessThan(b);
   }
 
-  public equal(b: Weight): boolean {
+  public equals(b: Weight): boolean {
     if (this.unit === b.unit) {
       return this.value === b.value;
     } else if (this.unit === WeightUnit.KILOGRAM) {
@@ -114,7 +115,7 @@ export class Weight implements DBWeight, AsFirestore, Versioned {
     }
   }
   public greaterThanEq(b: Weight): boolean {
-    return this.equal(b) || this.greaterThan(b);
+    return this.equals(b) || this.greaterThan(b);
   }
   public greaterThan(b: Weight): boolean {
     if (this.unit === b.unit) {
@@ -157,5 +158,9 @@ export class Weight implements DBWeight, AsFirestore, Versioned {
 
   public nearestFive(): Weight {
     return new Weight(5 * Math.round(this.value / 5), this.unit);
+  }
+
+  public asJSON(): string {
+    return JSON.stringify(this);
   }
 }
