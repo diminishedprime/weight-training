@@ -1,11 +1,10 @@
 import firebase from "firebase/app";
 import * as React from "react";
 import { useHistory, useParams } from "react-router-dom";
-import WeightInput from "../components/general/WeightInput";
+import * as g from "../components/general";
 import * as db from "../db";
 import * as hooks from "../hooks";
 import * as t from "../types";
-import * as g from "../components/general";
 
 export default () => {
   hooks.useMeasurePage("Edit Lift");

@@ -4,6 +4,7 @@ import * as t from "../types";
 import * as sut from "./UserDocFromFirestore";
 
 // For some fucking reason, this makes my tests pass???
+// tslint:disable-next-line no-unused-expression
 firebase.firestore;
 
 describe("for migrating UserDoc from firestore", () => {

@@ -1,6 +1,5 @@
 import firebase from "firebase/app";
 import * as db from "../db";
-import store from "../store";
 import * as t from "../types";
 import * as timestamp from "./Timestamp";
 import * as Weight from "./WeightFromFirestore";

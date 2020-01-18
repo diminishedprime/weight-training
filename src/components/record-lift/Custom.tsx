@@ -5,9 +5,9 @@ import * as db from "../../db";
 import * as t from "../../types";
 import * as util from "../../util";
 import Bar from "../Bar";
+import * as g from "../general";
 import WeightInput from "../general/WeightInput";
 import WithLabel from "../general/WithLabel";
-import * as g from "../general";
 
 const AddLift = ({
   liftType,

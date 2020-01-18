@@ -1,4 +1,3 @@
-import firebase from "firebase/app";
 import * as fromFirestore from "../fromFirestore";
 import { LiftDoc } from "./db";
 import { AsJson, DisplayLift } from "./index";
@@ -24,16 +23,6 @@ export class Lift implements LiftDoc, AsFirestore, AsJson, Equals<Lift> {
     );
   };
 
-  public clone(): Lift {
-    return new Lift(
-      this.date,
-      this.weight.clone(),
-      this.type,
-      this.reps,
-      this.warmup || false
-    );
-  }
-
   public version = Lift.VERSION;
   public date: FirestoreTimestamp;
   public weight: Weight;
@@ -53,6 +42,16 @@ export class Lift implements LiftDoc, AsFirestore, AsJson, Equals<Lift> {
     this.type = type;
     this.reps = reps;
     this.warmup = warmup;
+  }
+
+  public clone(): Lift {
+    return new Lift(
+      this.date,
+      this.weight.clone(),
+      this.type,
+      this.reps,
+      this.warmup || false
+    );
   }
   public equals(other: Lift): boolean {
     return this.asJSON() === other.asJSON();
