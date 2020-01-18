@@ -13,7 +13,7 @@ interface WeightInput
   fullWidth?: boolean;
 }
 
-const WeightInput: React.FC<WeightInput> = ({
+export const WeightInput: React.FC<WeightInput> = ({
   weight,
   setWeight,
   fullWidth

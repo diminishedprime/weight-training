@@ -5,22 +5,16 @@ import WeightInput from "../components/general/WeightInput";
 import * as db from "../db";
 import * as hooks from "../hooks";
 import * as t from "../types";
+import * as g from "../components/general";
 
 export default () => {
   hooks.useMeasurePage("Edit Lift");
   const { liftId } = useParams();
   const [weight, setWeight] = React.useState<t.Weight | undefined>();
-  const [reps, setReps] = React.useState("");
+  const [reps, setReps] = React.useState<number>(1);
   const [date, setDate] = React.useState("");
   const [warmup, setWarmup] = React.useState(false);
   const history = useHistory();
-
-  const onRepsChange = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setReps(e.target.value);
-    },
-    []
-  );
 
   const user = hooks.useForceSignIn();
   React.useEffect(() => {
@@ -33,7 +27,7 @@ export default () => {
         return;
       }
       setWeight(lift.weight);
-      setReps(lift.reps.toString());
+      setReps(lift.reps);
       setDate(lift.date.toDate().toISOString());
       if (lift.warmup !== undefined) {
         setWarmup(lift.warmup);
@@ -49,10 +43,10 @@ export default () => {
     if (user === null) {
       return;
     }
-    if (weight !== undefined && reps !== "" && liftId !== undefined) {
+    if (weight !== undefined && liftId !== undefined) {
       db.updateLift(firebase.firestore(), user.uid, liftId, {
         weight,
-        reps: parseInt(reps, 10),
+        reps,
         warmup
       }).then(() => history.goBack());
     }
@@ -70,21 +64,11 @@ export default () => {
   return (
     <div>
       <div className="title is-5">Edit Lift</div>
-      <div className="field">
-        <label className="label">Weight</label>
-        <WeightInput weight={weight} setWeight={setWeight} />
-      </div>
-      <div className="field">
-        <label className="label">Reps</label>
-        <div className="control">
-          <input
-            className="input"
-            type="text"
-            placeholder="1"
-            value={reps}
-            onChange={onRepsChange}
-          />
-        </div>
+      <div className="field is-grouped">
+        <g.SetReps reps={reps} setReps={setReps} />
+        <g.WithLabel label="Weight">
+          <g.WeightInput setWeight={setWeight} weight={weight} />
+        </g.WithLabel>
       </div>
       <div className="field">
         <label className="label">Date</label>

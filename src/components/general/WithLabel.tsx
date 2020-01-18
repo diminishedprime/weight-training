@@ -8,7 +8,7 @@ interface WithLabelProps {
   childrenClasses?: ClassArray;
 }
 
-const WithLabel: React.FC<WithLabelProps> = ({
+export const WithLabel: React.FC<WithLabelProps> = ({
   label,
   children,
   fieldClasses = [],
