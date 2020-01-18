@@ -1,10 +1,10 @@
 import * as t from "../types";
 
-export type V1Db = {
+export interface V1Db {
   value: number;
   unit: t.WeightUnit;
   version: "1";
-};
+}
 
 export const weightFromFirestore: t.FromFirestore<t.Weight> = (
   o: object

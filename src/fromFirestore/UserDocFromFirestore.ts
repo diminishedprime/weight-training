@@ -2,27 +2,27 @@ import firebase from "firebase/app";
 import * as db from "../db";
 import store from "../store";
 import * as t from "../types";
-import * as Weight from "./WeightFromFirestore";
 import * as timestamp from "./Timestamp";
+import * as Weight from "./WeightFromFirestore";
 
-type V1RecordDb = {
+interface V1RecordDb {
   [t.ONE_REP_MAX]?: Weight.V1Db;
-};
+}
 
-type V1Db = {
+interface V1Db {
   deadlift: V1RecordDb;
   squat: V1RecordDb;
   "front-squat": V1RecordDb;
   "bench-press": V1RecordDb;
   "overhead-press": V1RecordDb;
   version?: "1";
-};
+}
 type V1Json = V1Db;
 
-type V2RecordDb = {
+interface V2RecordDb {
   [t.ONE_REP_MAX]: { weight: Weight.V1Db; time: timestamp.V1 };
-};
-type V2Db = {
+}
+interface V2Db {
   deadlift: V2RecordDb;
   squat: V2RecordDb;
   "front-squat": V2RecordDb;
@@ -31,7 +31,7 @@ type V2Db = {
   "clean-and-jerk": V2RecordDb;
   snatch: V2RecordDb;
   version: "2";
-};
+}
 type V2Json = V2Db;
 
 const tryUpdateORMTimes = async (userDoc: t.UserDoc) => {
@@ -92,14 +92,14 @@ export const userDocFromFirestore: t.FromFirestore<t.UserDoc> = (
         }
       };
       const newDoc: V2Db = {
-        deadlift: defaultRecord,
-        squat: defaultRecord,
+        "deadlift": defaultRecord,
+        "squat": defaultRecord,
         "front-squat": defaultRecord,
         "bench-press": defaultRecord,
         "overhead-press": defaultRecord,
         "clean-and-jerk": defaultRecord,
-        snatch: defaultRecord,
-        version: "2"
+        "snatch": defaultRecord,
+        "version": "2"
       };
       Object.values(t.LiftType).forEach((liftType) => {
         const liftMeta: V1RecordDb | undefined = (userDoc as any)[liftType];

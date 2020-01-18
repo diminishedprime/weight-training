@@ -5,8 +5,8 @@ import { UserDoc as DBUserDoc } from "./db";
 import {
   AsFirestore,
   AsJson,
-  OneRepMax,
   FirestoreTimestamp,
+  OneRepMax,
   Versioned,
   Weight
 } from "./index";

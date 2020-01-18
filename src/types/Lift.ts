@@ -4,17 +4,14 @@ import { Lift as DBLift } from "./db";
 import { AsJson, DisplayLift } from "./index";
 import {
   AsFirestore,
-  LiftType,
+  Equals,
   FirestoreTimestamp,
-  Weight,
-  Equals
+  LiftType,
+  Weight
 } from "./index";
 
 export class Lift implements DBLift, AsFirestore, AsJson, Equals<Lift> {
   public static VERSION: "1" = "1";
-  public equals(other: Lift): boolean {
-    return this.asJSON() === other.asJSON();
-  }
   public static fromFirestoreData = fromFirestore.liftFromFirestore;
   public static s = (): Lift => {
     return new Lift({
@@ -40,6 +37,9 @@ export class Lift implements DBLift, AsFirestore, AsJson, Equals<Lift> {
     this.type = lift.type;
     this.reps = lift.reps;
     this.warmup = lift.warmup;
+  }
+  public equals(other: Lift): boolean {
+    return this.asJSON() === other.asJSON();
   }
 
   public getVersion(): string {

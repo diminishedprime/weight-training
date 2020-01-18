@@ -1,6 +1,6 @@
 import firebase from "firebase";
-import * as sut from "./LiftFromFirestore";
 import * as t from "../types";
+import * as sut from "./LiftFromFirestore";
 
 describe("for migrating lift from firestore", () => {
   beforeEach(() => {

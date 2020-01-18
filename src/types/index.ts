@@ -21,10 +21,10 @@ export interface OneRepMax {
 
 export type Firestore = firebase.firestore.Firestore;
 export type FirestoreTimestamp = firebase.firestore.Timestamp;
-export type TimeStamp = {
+export interface TimeStamp {
   seconds: number;
   nanoseconds: number;
-};
+}
 
 export type FromFirestore<T> = (o: object) => T;
 

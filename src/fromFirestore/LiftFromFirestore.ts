@@ -1,14 +1,14 @@
 import * as t from "../types";
 import * as Weight from "./WeightFromFirestore";
 
-export type V1Db = {
+export interface V1Db {
   date: t.FirestoreTimestamp;
   weight: Weight.V1Db;
   type: t.LiftType;
   reps: number;
   warmup: boolean | undefined;
   version: "1";
-};
+}
 
 export const liftFromFirestore: t.FromFirestore<t.Lift> = (
   o: object
