@@ -1,12 +1,18 @@
 import * as t from "../types";
 
+export type V1Db = {
+  value: number;
+  unit: t.WeightUnit;
+  version: "1";
+};
+
 export const weightFromFirestore: t.FromFirestore<t.Weight> = (
   o: object
 ): t.Weight => {
   switch ((o as any).version) {
     case "1":
     case undefined: {
-      const dbVal: { value: number; unit: t.WeightUnit } = o as any;
+      const dbVal: V1Db = o as any;
       return new t.Weight(dbVal.value, dbVal.unit);
     }
     default: {

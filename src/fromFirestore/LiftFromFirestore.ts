@@ -7,7 +7,7 @@ export const liftFromFirestore: t.FromFirestore<t.Lift> = (
     case "1":
     case undefined: {
       const dbVal: {
-        date: t.Timestamp;
+        date: t.FirestoreTimestamp;
         weight: t.Weight;
         type: t.LiftType;
         reps: number;

@@ -11,7 +11,7 @@ import * as t from "../types";
 interface TimeSinceProps {
   user: t.User;
   liftUid: string;
-  time: t.Timestamp;
+  time: t.FirestoreTimestamp;
 }
 
 const TimeSince: React.FC<TimeSinceProps> = ({ liftUid, user, time }) => {

@@ -7,7 +7,10 @@ export interface Weight {
 }
 
 export interface MaybeORM {
-  [t.ONE_REP_MAX]: { weight: Weight; time: t.Timestamp };
+  [t.ONE_REP_MAX]: {
+    weight: Weight;
+    time: t.TimeStamp;
+  };
 }
 
 export type UserDoc = {
@@ -15,7 +18,7 @@ export type UserDoc = {
 };
 
 export interface Lift {
-  date: t.Timestamp;
+  date: t.FirestoreTimestamp;
   weight: Weight;
   type: t.LiftType;
   reps: number;

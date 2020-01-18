@@ -6,7 +6,7 @@ import {
   AsFirestore,
   AsJson,
   OneRepMax,
-  Timestamp,
+  FirestoreTimestamp,
   Versioned,
   Weight
 } from "./index";
@@ -85,10 +85,14 @@ export class UserDoc implements DBUserDoc, AsFirestore, AsJson, Versioned {
     Object.values(dbUserDoc).forEach((value) => {
       const orm = value[ONE_REP_MAX];
       if (orm !== undefined) {
-        value[ONE_REP_MAX] = {
+        const oneRepMax: OneRepMax = {
           weight: Weight.fromFirestoreData(orm.weight),
-          time: orm.time
+          time: new firebase.firestore.Timestamp(
+            orm.time.seconds,
+            orm.time.nanoseconds
+          )
         };
+        value[ONE_REP_MAX] = oneRepMax;
       }
     });
 
@@ -106,7 +110,7 @@ export class UserDoc implements DBUserDoc, AsFirestore, AsJson, Versioned {
     return this.version;
   }
 
-  public setORM(liftType: LiftType, weight: Weight, time: Timestamp) {
+  public setORM(liftType: LiftType, weight: Weight, time: FirestoreTimestamp) {
     this[liftType][ONE_REP_MAX] = { weight, time };
   }
 

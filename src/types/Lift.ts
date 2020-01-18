@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import * as fromFirestore from "../fromFirestore";
 import { Lift as DBLift } from "./db";
 import { AsJson, DisplayLift } from "./index";
-import { AsFirestore, LiftType, Timestamp, Weight } from "./index";
+import { AsFirestore, LiftType, FirestoreTimestamp, Weight } from "./index";
 
 export class Lift implements DBLift, AsFirestore, AsJson {
   public static fromFirestoreData = fromFirestore.liftFromFirestore;
@@ -17,7 +17,7 @@ export class Lift implements DBLift, AsFirestore, AsJson {
   };
 
   public version = "1";
-  public date: Timestamp;
+  public date: FirestoreTimestamp;
   public weight: Weight;
   public type: LiftType;
   public reps: number;

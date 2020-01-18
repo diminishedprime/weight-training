@@ -67,7 +67,7 @@ export const setOneRepMax = async (
   userUid: string,
   liftType: t.LiftType,
   weight: t.Weight,
-  time: t.Timestamp,
+  time: t.FirestoreTimestamp,
   options: { checkPrevious: boolean } = { checkPrevious: false }
 ) => {
   const currentUserDoc = await getUserDocH(firestore, userUid);

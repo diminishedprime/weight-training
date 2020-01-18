@@ -16,11 +16,15 @@ export * from "../actions";
 
 export interface OneRepMax {
   weight: Weight;
-  time: Timestamp;
+  time: FirestoreTimestamp;
 }
 
 export type Firestore = firebase.firestore.Firestore;
-export type Timestamp = firebase.firestore.Timestamp;
+export type FirestoreTimestamp = firebase.firestore.Timestamp;
+export type TimeStamp = {
+  seconds: number;
+  nanoseconds: number;
+};
 
 export type FromFirestore<T> = (o: object) => T;
 
@@ -31,7 +35,6 @@ export interface AsFirestore {
 
 export interface Versioned {
   version: string;
-  getVersion(): string;
 }
 
 export interface AsJson extends Versioned {
