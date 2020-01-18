@@ -10,27 +10,27 @@ interface V1RecordDb {
 }
 
 export interface V1Db {
-  deadlift: V1RecordDb;
-  squat: V1RecordDb;
+  "deadlift": V1RecordDb;
+  "squat": V1RecordDb;
   "front-squat": V1RecordDb;
   "bench-press": V1RecordDb;
   "overhead-press": V1RecordDb;
-  version?: "1";
+  "version"?: "1";
 }
 type V1Json = V1Db;
 
 interface V2RecordDb {
   [t.ONE_REP_MAX]: { weight: Weight.V1Db; time: timestamp.V1 };
 }
-interface V2Db {
-  deadlift: V2RecordDb;
-  squat: V2RecordDb;
+export interface V2Db {
+  "deadlift": V2RecordDb;
+  "squat": V2RecordDb;
   "front-squat": V2RecordDb;
   "bench-press": V2RecordDb;
   "overhead-press": V2RecordDb;
   "clean-and-jerk": V2RecordDb;
-  snatch: V2RecordDb;
-  version: "2";
+  "snatch": V2RecordDb;
+  "version": "2";
 }
 type V2Json = V2Db;
 
