@@ -6,7 +6,7 @@ export interface Weight {
   unit: t.WeightUnit;
 }
 
-export interface MaybeORM {
+export interface Record {
   [t.ONE_REP_MAX]: {
     weight: Weight;
     time: t.TimeStamp;
@@ -14,7 +14,7 @@ export interface MaybeORM {
 }
 
 export type UserDoc = {
-  [lift in t.LiftType]: MaybeORM;
+  [lift in t.LiftType]: Record;
 };
 
 export interface Lift {
