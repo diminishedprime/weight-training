@@ -104,6 +104,7 @@ export const cacheDateKey = "@weight-training/cache-date-key";
 export enum LocalStorageKey {
   SETTINGS = "@weight-training/settings",
   DAYS_WITH_LIFTS = "@weight-training/days-with-lifts",
+  DAYS_WITH_LIFTS_LOCAL = "@weight-training/days-with-lifts-local",
   X_BY_X = "@weight-training/x-by-x",
   FIREBASE_USER = "@weight-training/user",
   USER_DOC = "@weight-training/user-doc",

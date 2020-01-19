@@ -66,7 +66,10 @@ export class Lift implements LiftDoc, AsFirestore, AsJson, Equals<Lift> {
   }
 
   public asFirestore(): object {
-    return JSON.parse(this.asJSON());
+    const nu = JSON.parse(this.asJSON());
+    // This is necessary because firestore does special handling of timestamps.
+    nu.date = this.date;
+    return nu;
   }
 
   public withUid(uid: string): DisplayLift {

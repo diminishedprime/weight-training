@@ -91,6 +91,12 @@ const oneMinuteSince = (_: any, then: moment.Moment) => {
   return diff.asMinutes() < 1;
 };
 
+const oneDaySince = (_: any, then: moment.Moment) => {
+  const now = moment.utc();
+  const diff = moment.duration(now.diff(then));
+  return diff.asDays() < 1;
+};
+
 export const getUserDocCached = async (
   firestore: t.Firestore,
   userUid: string
@@ -207,6 +213,7 @@ export const addLift = async (
     return t.Lift.fromFirestoreData(data).withUid(doc.id);
   });
   store.dispatch(actions.nextForceUpdateLift());
+  addLocalLift(firestore, newLift);
   return newLift;
 };
 
@@ -275,12 +282,22 @@ export const getDaysWithLifts = async (
   firestore: t.Firestore,
   user: t.FirebaseUser
 ): Promise<DaysWithLifts> => {
-  return requestWithCache(
-    () => getDaysWithLiftsH(firestore, user),
+  const cached = await requestWithCache(
+    () => {
+      const result = getDaysWithLiftsH(firestore, user);
+      // Clear out local storage when we actually query firebase.
+      window.localStorage.removeItem(t.LocalStorageKey.DAYS_WITH_LIFTS_LOCAL);
+      return result;
+    },
     t.LocalStorageKey.DAYS_WITH_LIFTS,
-    oneMinuteSince,
+    oneDaySince,
     DaysWithLifts.fromJSON
   );
+  const localLifts = DaysWithLifts.fromJSON(
+    window.localStorage.getItem(t.LocalStorageKey.DAYS_WITH_LIFTS_LOCAL) || "[]"
+  );
+  cached.data = cached.data.concat(localLifts.data);
+  return cached;
 };
 
 class DaysWithLifts implements t.AsJson {
@@ -308,6 +325,18 @@ class DaysWithLifts implements t.AsJson {
     return JSON.stringify(this);
   }
 }
+
+const addLocalLift = async (firestore: t.Firestore, lift: t.Lift) => {
+  const currentLocal = DaysWithLifts.fromJSON(
+    window.localStorage.getItem(t.LocalStorageKey.DAYS_WITH_LIFTS_LOCAL) || "[]"
+  );
+  currentLocal.data.push(moment.utc(lift.date.toDate()));
+  const newLocal = currentLocal.asJSON();
+  window.localStorage.setItem(
+    t.LocalStorageKey.DAYS_WITH_LIFTS_LOCAL,
+    newLocal
+  );
+};
 
 const getDaysWithLiftsH = async (
   firestore: t.Firestore,
