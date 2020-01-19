@@ -6,8 +6,7 @@ import * as db from "../../db";
 import * as hooks from "../../hooks";
 import * as t from "../../types";
 import * as util from "../../util";
-import WeightInput from "../general/WeightInput";
-import WithLabel from "../general/WithLabel";
+import * as g from "../general";
 
 const Plates = ({ plates }: { plates: t.PlateConfig }) => {
   const plateGroup: Array<[t.PlateTypes, number]> = Object.entries(
@@ -237,6 +236,9 @@ const XByX = ({
 }) => {
   // TODO add a calculator for estimating 1RM based on a 3x3 or 5x5.
   const history = rrd.useHistory();
+  const {
+    settings: { unit }
+  } = hooks.useSettings();
   const [program, setProgram] = React.useState<t.Program | undefined>();
   const [oneRepMax, setOneRepMax] = React.useState<t.Weight | undefined>();
   const { started } = rrd.useParams();
@@ -272,14 +274,19 @@ const XByX = ({
       history.push(`${history.location.pathname}/started`);
     }
   }, [oneRepMax, history]);
+  const topSet =
+    oneRepMax &&
+    util
+      .programFor(workoutType, oneRepMax, liftType)
+      .sort((a, b) => b.weight.compare(a.weight))[0];
 
   return (
     <div>
       <div className="title is-5">{t.WorkoutTypeLabel[workoutType]}</div>
       {!ready && (
         <>
-          <WithLabel
-            label="Current One Rep Max"
+          <g.WithLabel
+            label="Target One Rep Max"
             childrenClasses={["has-addons"]}
           >
             <button
@@ -289,12 +296,22 @@ const XByX = ({
             >
               Start
             </button>
-            <WeightInput
+            <g.WeightInput
               weight={oneRepMax}
               setWeight={setOneRepMax}
               fullWidth
             />
-          </WithLabel>
+          </g.WithLabel>
+          {topSet && (
+            <div className="">
+              <div className="flex-grow">
+                Top set:{" "}
+                <span className="bold">
+                  {topSet && topSet.reps}x{topSet.weight.display(unit)}
+                </span>
+              </div>
+            </div>
+          )}
         </>
       )}
       {program && (

@@ -127,6 +127,10 @@ export class Weight
     }
   }
 
+  public compare(b: Weight): number {
+    return this.lessThan(b) ? -1 : this.greaterThan(b) ? 1 : 0;
+  }
+
   public toPound(): Weight {
     let newValue = this.value;
     if (this.unit === WeightUnit.KILOGRAM) {
@@ -151,6 +155,11 @@ export class Weight
 
   public divide = (b: number): Weight => {
     return new Weight(this.value / b, this.unit);
+  };
+
+  public fraction = (b: Weight): number => {
+    const withUnits = b.toUnit(this.unit);
+    return this.value / withUnits.value;
   };
   public multiply = (b: number): Weight => {
     return new Weight(this.value * b, this.unit);
