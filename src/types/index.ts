@@ -6,9 +6,11 @@ import { WeightUnit } from "./common";
 import { Lift } from "./Lift";
 import { UserDoc } from "./UserDoc";
 import { Weight } from "./Weight";
+import { Program2 } from "./Program";
 
 // TODO - This should be removed once I make a proper UserDoc class
 export * from "./common";
+export * from "./Program";
 export { Weight } from "./Weight";
 export { UserDoc } from "./UserDoc";
 export { Lift } from "./Lift";
@@ -85,6 +87,7 @@ export interface RootState {
     userDoc?: UserDoc;
   };
   forceUpdateLift: number;
+  program?: Program2;
 }
 
 declare module "typesafe-actions" {
