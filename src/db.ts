@@ -348,6 +348,8 @@ const getDaysWithLiftsH = async (
     .collection("liftTimes")
     .get();
   return new DaysWithLifts(
-    daysWithLifts.docs.map((doc) => moment(doc.data().t.toDate(), "YYYY-MM-DD"))
+    daysWithLifts.docs.map((doc) =>
+      t.Timestamp.from(doc.data().t as t.FirestoreTimestamp).toMoment()
+    )
   );
 };

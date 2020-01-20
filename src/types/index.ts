@@ -14,6 +14,7 @@ export * from "./Program";
 export { Weight } from "./Weight";
 export { UserDoc } from "./UserDoc";
 export { Lift } from "./Lift";
+export * from "./Timestamp";
 export * from "../actions";
 
 export interface OneRepMax {
