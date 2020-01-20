@@ -1,5 +1,4 @@
 import React from "react";
-import * as c from "../constants";
 import { LiftType, WorkoutType, ProgramLift } from "./index";
 import { Weight } from "./Weight";
 
@@ -41,7 +40,7 @@ class BarbellLift implements TableRow {
     return (
       <tr>
         <td>{this.weight}</td>
-        <td>{c.liftMetadata[this.liftType].displayText}</td>
+        <td>{this.liftType}</td>
         <td>{this.reps}</td>
         <td>{this.warmup}</td>
       </tr>
