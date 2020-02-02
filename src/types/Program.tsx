@@ -1,8 +1,8 @@
+import classnames from "classnames";
 import React from "react";
+import { WeightUnit } from "./common";
 import { LiftType, WorkoutType } from "./index";
 import { Weight } from "./Weight";
-import { WeightUnit } from "./common";
-import classnames from "classnames";
 
 interface Title {
   title(): JSX.Element;
@@ -23,15 +23,25 @@ interface TableRow {
 }
 
 class BodyWeightExercise implements TableRow {
-  reps: number;
-  type: "pullup" | "chinup" | "pushup";
-  warmup: boolean;
+  public reps: number;
+  public type: "pullup" | "chinup" | "pushup";
+  public warmup: boolean;
 
-  length() {
+  constructor(
+    reps: number,
+    type: "pullup" | "chinup" | "pushup",
+    warmup: boolean
+  ) {
+    this.reps = reps;
+    this.type = type;
+    this.warmup = warmup;
+  }
+
+  public length() {
     return 3;
   }
 
-  row({
+  public row({
     skipped,
     finished,
     selected
@@ -55,7 +65,7 @@ class BodyWeightExercise implements TableRow {
     );
   }
 
-  header(): JSX.Element {
+  public header(): JSX.Element {
     return (
       <thead>
         <tr>
@@ -66,30 +76,50 @@ class BodyWeightExercise implements TableRow {
       </thead>
     );
   }
-
-  constructor(
-    reps: number,
-    type: "pullup" | "chinup" | "pushup",
-    warmup: boolean
-  ) {
-    this.reps = reps;
-    this.type = type;
-    this.warmup = warmup;
-  }
 }
 
 class BarbellLift implements TableRow {
-  weight: Weight;
-  targetORM: Weight;
-  liftType: LiftType;
-  reps: number;
-  warmup: boolean;
 
-  length(): number {
+  public static from = (thing: {
+    weight: Weight;
+    targetORM: Weight;
+    liftType: LiftType;
+    reps: number;
+    warmup: boolean;
+  }): BarbellLift => {
+    return new BarbellLift(
+      thing.weight,
+      thing.targetORM,
+      thing.liftType,
+      thing.reps,
+      thing.warmup
+    );
+  };
+  public weight: Weight;
+  public targetORM: Weight;
+  public liftType: LiftType;
+  public reps: number;
+  public warmup: boolean;
+
+  constructor(
+    weight: Weight,
+    targetORM: Weight,
+    liftType: LiftType,
+    reps: number,
+    warmup: boolean
+  ) {
+    this.weight = weight;
+    this.targetORM = targetORM;
+    this.liftType = liftType;
+    this.reps = reps;
+    this.warmup = warmup;
+  }
+
+  public length(): number {
     return 4;
   }
 
-  header(): JSX.Element {
+  public header(): JSX.Element {
     return (
       <thead>
         <tr>
@@ -102,7 +132,7 @@ class BarbellLift implements TableRow {
     );
   }
 
-  row({
+  public row({
     skipped,
     finished,
     selected
@@ -126,36 +156,6 @@ class BarbellLift implements TableRow {
       </tr>
     );
   }
-
-  static from = (thing: {
-    weight: Weight;
-    targetORM: Weight;
-    liftType: LiftType;
-    reps: number;
-    warmup: boolean;
-  }): BarbellLift => {
-    return new BarbellLift(
-      thing.weight,
-      thing.targetORM,
-      thing.liftType,
-      thing.reps,
-      thing.warmup
-    );
-  };
-
-  constructor(
-    weight: Weight,
-    targetORM: Weight,
-    liftType: LiftType,
-    reps: number,
-    warmup: boolean
-  ) {
-    this.weight = weight;
-    this.targetORM = targetORM;
-    this.liftType = liftType;
-    this.reps = reps;
-    this.warmup = warmup;
-  }
 }
 
 type ProgramSectionData = ProgramSectionDataGeneric<
@@ -163,19 +163,19 @@ type ProgramSectionData = ProgramSectionDataGeneric<
 >;
 
 class ProgramSection implements Table, Title {
-  data: ProgramSectionData;
-  titleText: string;
+  public data: ProgramSectionData;
+  public titleText: string;
 
   constructor(titleText: string, data: ProgramSectionData) {
     this.titleText = titleText;
     this.data = data;
   }
 
-  title(): JSX.Element {
+  public title(): JSX.Element {
     return <div className="is-5">{this.titleText}</div>;
   }
 
-  table({
+  public table({
     isActive,
     finishSection
   }: {
@@ -266,20 +266,19 @@ class ProgramSection implements Table, Title {
   }
 }
 
-type ProgramSectionDataGeneric<T extends TableRow> = Array<T>;
+type ProgramSectionDataGeneric<T extends TableRow> = T[];
 
 export class ProgramBuilder {
-  private data: Array<ProgramSection>;
 
-  static pushups = (): ProgramSection => {
-    let data: BodyWeightExercise[] = [
+  public static pushups = (): ProgramSection => {
+    const data: BodyWeightExercise[] = [
       new BodyWeightExercise(2, "pullup", true),
       new BodyWeightExercise(5, "pullup", false)
     ];
     return new ProgramSection("Simple Pullup", data);
   };
 
-  static xByX = (
+  public static xByX = (
     liftType: LiftType,
     workoutType: WorkoutType,
     targetORM: Weight
@@ -297,35 +296,36 @@ export class ProgramBuilder {
     }
     return new ProgramSection(`${liftType} ${workoutType}`, data);
   };
+  private data: ProgramSection[];
 
   constructor() {
     this.data = [];
   }
 
-  addProgramSection(programSection: ProgramSection) {
+  public addProgramSection(programSection: ProgramSection) {
     this.data.push(programSection);
     return this;
   }
 
-  build() {
+  public build() {
     return new Program2(this.data);
   }
 }
 
 export class Program2 {
-  // TODO - Add section for notes from the trainer, both for the Program, and
-  // for each program section.
-  private exercises: Array<ProgramSection>;
 
-  static builder = (): ProgramBuilder => {
+  public static builder = (): ProgramBuilder => {
     return new ProgramBuilder();
   };
+  // TODO - Add section for notes from the trainer, both for the Program, and
+  // for each program section.
+  private exercises: ProgramSection[];
 
-  constructor(exercises: Array<ProgramSection>) {
+  constructor(exercises: ProgramSection[]) {
     this.exercises = exercises;
   }
 
-  tables(): JSX.Element {
+  public tables(): JSX.Element {
     const [activeExercise, setActiveExercise] = React.useState(0);
     const finishSection = React.useCallback(() => {
       setActiveExercise((old) => old + 1);

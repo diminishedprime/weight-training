@@ -21,11 +21,11 @@ import EditLift from "./pages/EditLift";
 import FourOhFour from "./pages/FourOhFour";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Programs from "./pages/Programs";
 import RecordLift from "./pages/RecordLift";
 import Records from "./pages/Records";
 import Settings from "./pages/Settings";
 import ViewLifts from "./pages/ViewLifts";
-import Programs from "./pages/Programs";
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

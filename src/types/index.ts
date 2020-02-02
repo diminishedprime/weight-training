@@ -4,9 +4,9 @@ import * as ta from "typesafe-actions";
 import { LiftType } from "./common";
 import { WeightUnit } from "./common";
 import { Lift } from "./Lift";
+import { Program2 } from "./Program";
 import { UserDoc } from "./UserDoc";
 import { Weight } from "./Weight";
-import { Program2 } from "./Program";
 
 // TODO - This should be removed once I make a proper UserDoc class
 export * from "./common";
