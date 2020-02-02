@@ -1,13 +1,9 @@
 import * as t from "../index";
 import { WeightField } from "./WeightField";
-import { RecordField } from "./RecordField";
-// db type
+
 export * from "./WeightField";
 export * from "./TimeStampField";
-
-export type UserDoc = {
-  [lift in t.LiftType]: RecordField;
-};
+export * from "./UserDoc";
 
 export enum LiftDocType {
   BARBELL = "barbell"
