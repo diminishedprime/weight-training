@@ -22,6 +22,62 @@ interface TableRow {
   length(): number;
 }
 
+class BodyWeightExercise implements TableRow {
+  reps: number;
+  type: "pullup" | "chinup" | "pushup";
+  warmup: boolean;
+
+  length() {
+    return 3;
+  }
+
+  row({
+    skipped,
+    finished,
+    selected
+  }: {
+    selected: boolean;
+    skipped: boolean;
+    finished: boolean;
+  }): JSX.Element {
+    // TODO - figure out a better way to get the default units here.
+    const cn = classnames({
+      "is-selected": selected,
+      "has-background-success": finished,
+      "has-background-warning": skipped
+    });
+    return (
+      <tr className={cn}>
+        <td>{this.type}</td>
+        <td>{this.reps}</td>
+        <td>{this.warmup}</td>
+      </tr>
+    );
+  }
+
+  header(): JSX.Element {
+    return (
+      <thead>
+        <tr>
+          <th>Exercise</th>
+          <th>Reps</th>
+          <th>Warmup</th>
+        </tr>
+      </thead>
+    );
+  }
+
+  constructor(
+    reps: number,
+    type: "pullup" | "chinup" | "pushup",
+    warmup: boolean
+  ) {
+    this.reps = reps;
+    this.type = type;
+    this.warmup = warmup;
+  }
+}
+
 class BarbellLift implements TableRow {
   weight: Weight;
   targetORM: Weight;
@@ -102,18 +158,9 @@ class BarbellLift implements TableRow {
   }
 }
 
-interface DumbellLift {
-  weight: Weight;
-  dumbellLiftType: "curl" | "hammer-curl";
-  reps: number;
-  warmup: boolean;
-}
-
-interface BodyweightExercise {
-  reps: number;
-  bodyweightExerciseType: "pullup" | "chinup" | "pushup";
-  warmup: boolean;
-}
+type ProgramSectionData = ProgramSectionDataGeneric<
+  BodyWeightExercise | BarbellLift
+>;
 
 class ProgramSection implements Table, Title {
   data: ProgramSectionData;
@@ -219,10 +266,18 @@ class ProgramSection implements Table, Title {
   }
 }
 
-type ProgramSectionData = Array<BarbellLift>;
+type ProgramSectionDataGeneric<T extends TableRow> = Array<T>;
 
 export class ProgramBuilder {
   private data: Array<ProgramSection>;
+
+  static pushups = (): ProgramSection => {
+    let data: BodyWeightExercise[] = [
+      new BodyWeightExercise(2, "pullup", true),
+      new BodyWeightExercise(5, "pullup", false)
+    ];
+    return new ProgramSection("Simple Pullup", data);
+  };
 
   static xByX = (
     liftType: LiftType,

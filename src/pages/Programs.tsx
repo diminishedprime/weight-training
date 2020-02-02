@@ -11,13 +11,7 @@ const Programs: React.FC = () => {
         t.Weight.lbs(225)
       )
     )
-    .addProgramSection(
-      ProgramBuilder.xByX(
-        t.LiftType.BENCH_PRESS,
-        t.WorkoutType.THREE_BY_THREE,
-        t.Weight.lbs(225)
-      )
-    )
+    .addProgramSection(ProgramBuilder.pushups())
     .build();
 
   return (
