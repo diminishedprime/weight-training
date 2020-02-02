@@ -24,6 +24,9 @@ export class Lift implements AsFirestore, Equals<Lift> {
 
   private firestoreDoc: LiftDoc;
 
+  // todo update this constructor to take a LiftDoc instead of arguments. I'm
+  // trying to make it where this can eventually take any lift type, even if
+  // it's not exactly like a BarbellLift.
   constructor(
     date: FirestoreTimestamp,
     weight: Weight,
