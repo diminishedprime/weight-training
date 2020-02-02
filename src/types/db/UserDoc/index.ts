@@ -3,10 +3,8 @@ import * as db from "../../../db";
 import * as t from "../../../types";
 import { RecordField as RecordFieldV1 } from "../RecordField/v1";
 import { RecordField as RecordFieldV2 } from "../RecordField/v2";
-import { TimeStampField as TimeStampFieldV1 } from "../TimeStampField/v1";
 import { UserDoc as V1Db } from "../UserDoc/v1";
 import { UserDoc as V2Db } from "../UserDoc/v2";
-import { WeightField as WeightV1 } from "../WeightField/v1";
 
 export * from "./v2";
 
