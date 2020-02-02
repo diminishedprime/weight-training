@@ -38,9 +38,7 @@ const tryUpdateORMTimes = async (userDoc: t.UserDoc) => {
   }
 };
 
-export const fromFirestore: t.FromFirestore<t.UserDoc> = (
-  o: object
-): t.UserDoc => {
+export const toUserDoc: t.FromFirestore<t.UserDoc> = (o: object): t.UserDoc => {
   switch ((o as any).version) {
     case "2": {
       const userDoc: V2Db = o as any;
@@ -103,7 +101,7 @@ export const fromFirestore: t.FromFirestore<t.UserDoc> = (
   }
 };
 
-export const fromJSON = (s: string): t.UserDoc => {
+export const userDocfromJSON = (s: string): t.UserDoc => {
   const parsed = JSON.parse(s);
-  return fromFirestore(parsed);
+  return toUserDoc(parsed);
 };

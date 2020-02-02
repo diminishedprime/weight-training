@@ -19,7 +19,7 @@ describe("for migrating UserDoc from firestore", () => {
       "bench-press": {},
       "overhead-press": {}
     };
-    const actual = sut.fromFirestore(jsonObject);
+    const actual = sut.toUserDoc(jsonObject);
     expect(actual.asJSON()).toEqual(t.UserDoc.empty().asJSON());
   });
 
@@ -44,7 +44,7 @@ describe("for migrating UserDoc from firestore", () => {
       "overhead-press": pr1,
       "version": "2"
     };
-    const actual = sut.fromFirestore(jsonObject);
+    const actual = sut.toUserDoc(jsonObject);
     const expected = t.UserDoc.empty();
     const ten = t.Weight.lbs(10);
     const tenNano = new firebase.firestore.Timestamp(0, 10);

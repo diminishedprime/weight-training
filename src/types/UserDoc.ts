@@ -1,5 +1,5 @@
 import firebase from "firebase/app";
-import { fromFirestore, fromJSON } from "../types/db/UserDoc";
+import { toUserDoc, userDocfromJSON } from "../types/db/UserDoc";
 import { LiftType, ONE_REP_MAX } from "./common";
 import { UserDoc as DBUserDoc } from "./db";
 import {
@@ -25,8 +25,8 @@ interface PR {
 
 export class UserDoc
   implements DBUserDoc, AsFirestore, AsJson, Versioned, Equals<UserDoc> {
-  public static fromFirestoreData = fromFirestore;
-  public static fromJSON = fromJSON;
+  public static fromFirestoreData = toUserDoc;
+  public static fromJSON = userDocfromJSON;
 
   public static empty = (): UserDoc => {
     const defaultTime = firebase.firestore.Timestamp.fromMillis(0);
