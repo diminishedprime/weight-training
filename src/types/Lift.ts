@@ -1,5 +1,5 @@
-import * as fromFirestore from "../fromFirestore";
 import { LiftDoc, LiftDocType } from "./db";
+import { toLift } from "./db/LiftDoc";
 import { DisplayLift } from "./index";
 import {
   AsFirestore,
@@ -10,7 +10,7 @@ import {
 } from "./index";
 
 export class Lift implements AsFirestore, Equals<Lift> {
-  public static fromFirestoreData = fromFirestore.liftFromFirestore;
+  public static fromFirestoreData = toLift;
 
   public static fromDb = (lift: LiftDoc) => {
     return new Lift(
