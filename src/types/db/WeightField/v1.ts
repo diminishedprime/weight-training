@@ -1,4 +1,4 @@
-import { WeightUnit } from "../../WeightUnit";
+import { WeightUnit } from "../../WeightUnit/v1";
 
 export interface WeightField {
   value: number;
