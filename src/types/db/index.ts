@@ -1,19 +1,9 @@
 import * as t from "../index";
 import { WeightField } from "./WeightField";
+import { RecordField } from "./RecordField";
 // db type
 export * from "./WeightField";
-
-export interface TimeStampField {
-  seconds: number;
-  nanoseconds: number;
-}
-
-export interface RecordField {
-  [t.ONE_REP_MAX]: {
-    weight: WeightField;
-    time: TimeStampField;
-  };
-}
+export * from "./TimeStampField";
 
 export type UserDoc = {
   [lift in t.LiftType]: RecordField;
