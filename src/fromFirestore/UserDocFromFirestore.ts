@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import * as db from "../db";
 import * as t from "../types";
-import * as timestamp from "./Timestamp";
+import { TimeStampField as TimeStampFieldV1 } from "../types/db/TimeStampField/v1";
 import * as Weight from "./WeightFromFirestore";
 
 interface V1RecordDb {
@@ -19,7 +19,7 @@ export interface V1Db {
 type V1Json = V1Db;
 
 interface V2RecordDb {
-  [t.ONE_REP_MAX]: { weight: Weight.V1Db; time: timestamp.V1 };
+  [t.ONE_REP_MAX]: { weight: Weight.V1Db; time: TimeStampFieldV1 };
 }
 export interface V2Db {
   "deadlift": V2RecordDb;

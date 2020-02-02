@@ -207,7 +207,9 @@ describe("for the db", () => {
       type: DEADLIFT,
       date: firebase.firestore.Timestamp.now(),
       warmup: false,
-      version: "1"
+      version: "1",
+      liftDocType: t.LiftDocType.BARBELL,
+      liftDocVersion: "1"
     });
 
     test("adding a new lift puts it in the db.", async () => {

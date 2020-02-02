@@ -9,7 +9,7 @@
     "migrate": "fireway",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
-    "test": "firebase emulators:exec --only firestore 'yarn react-scripts test --runInBand'",
+    "test": "yarn run tsc && firebase emulators:exec --only firestore 'yarn react-scripts test --runInBand'",
     "lint": "tslint -c tslint.json 'src/**/*.ts*'"
   },
   "browserslist": {

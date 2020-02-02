@@ -21,7 +21,9 @@ describe("for migrating lift from firestore", () => {
         type: t.LiftType.BENCH_PRESS,
         reps: 3,
         warmup: true,
-        version: "1"
+        version: "1",
+        liftDocType: t.LiftDocType.BARBELL,
+        liftDocVersion: "1"
       }).asFirestore()
     );
   });
