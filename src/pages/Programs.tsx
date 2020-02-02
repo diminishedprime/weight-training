@@ -1,22 +1,22 @@
 import * as React from "react";
+import * as rrd from "react-router-dom";
 import * as t from "../types";
 import { ProgramBuilder } from "../types";
-import * as rrd from "react-router-dom";
 
-export type BarbellLiftParams = {
+export interface BarbellLiftParams {
   type: "barbell-program";
   programName: t.LiftType;
   liftType: t.LiftType;
   workoutType: t.WorkoutType;
   oneRepMax: string;
-};
+}
 
 type ProgramsParams = BarbellLiftParams;
 
 function paramsToObject(params: URLSearchParams) {
   const entries = params.entries();
-  let result: any = {};
-  for (let entry of entries) {
+  const result: any = {};
+  for (const entry of entries) {
     // each 'entry' is a [key, value] tupple
     const [key, value] = entry;
     result[key] = value;

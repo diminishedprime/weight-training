@@ -1,10 +1,10 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import LiftCard from "../components/LiftCard";
 import LiftTable from "../components/LiftTable";
+import AddLift from "../components/record-lift/Custom";
 import * as hooks from "../hooks";
 import * as t from "../types";
-import { Link } from "react-router-dom";
-import AddLift from "../components/record-lift/Custom";
 
 export default ({ liftType }: t.RecordLiftProps) => {
   hooks.useMeasurePage("Record Lift");
