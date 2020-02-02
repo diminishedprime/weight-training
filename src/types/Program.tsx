@@ -56,7 +56,6 @@ class BarbellLift implements TableRow {
     finished: boolean;
   }): JSX.Element {
     // TODO - figure out a better way to get the default units here.
-    console.log({ selected });
     const cn = classnames({
       "is-selected": selected,
       "has-background-success": finished,
@@ -141,6 +140,12 @@ class ProgramSection implements Table, Title {
     const [finished, setFinished] = React.useState<Set<number>>(new Set());
     const complete = current >= this.data.length;
 
+    React.useEffect(() => {
+      if (current >= this.data.length) {
+        finishSection();
+      }
+    }, [current]);
+
     return (
       <table className="table">
         {this.data[0].header()}
@@ -156,11 +161,24 @@ class ProgramSection implements Table, Title {
                 <tr>
                   <td colSpan={row.length()}>
                     <div className="control flex flex-center">
-                      <div>
-                        <button onClick={finishSection} className={`button`}>
-                          Finish
-                        </button>
-                      </div>
+                      {idx + 1 < this.data.length && (
+                        <div>
+                          <button
+                            onClick={() => {
+                              setSkipped((old) => {
+                                for (let i = idx; i <= this.data.length; i++) {
+                                  old.add(i);
+                                }
+                                return new Set(old);
+                              });
+                              finishSection();
+                            }}
+                            className={`button is-danger`}
+                          >
+                            Skip Remaining
+                          </button>
+                        </div>
+                      )}
                       {!complete && (
                         <div className="flex flex-end flex-grow buttons">
                           <button
@@ -203,8 +221,48 @@ class ProgramSection implements Table, Title {
 
 type ProgramSectionData = Array<BarbellLift>;
 
+export class ProgramBuilder {
+  private data: Array<ProgramSection>;
+
+  static xByX = (
+    liftType: LiftType,
+    workoutType: WorkoutType,
+    targetORM: Weight
+  ): ProgramSection => {
+    let data: BarbellLift[] = [];
+    switch (workoutType) {
+      case WorkoutType.FIVE_BY_FIVE:
+        data = progressionFor(targetORM, 0.8, 5, 5, liftType);
+        break;
+      case WorkoutType.THREE_BY_THREE:
+        data = progressionFor(targetORM, 0.9, 3, 3, liftType);
+        break;
+      default:
+        throw new Error(`${workoutType} is not accounted for yet.`);
+    }
+    return new ProgramSection(`${liftType} ${workoutType}`, data);
+  };
+
+  constructor() {
+    this.data = [];
+  }
+
+  addProgramSection(programSection: ProgramSection) {
+    this.data.push(programSection);
+    return this;
+  }
+
+  build() {
+    return new Program2(this.data);
+  }
+}
+
 export class Program2 {
   private exercises: Array<ProgramSection>;
+
+  static builder = (): ProgramBuilder => {
+    return new ProgramBuilder();
+  };
 
   constructor(exercises: Array<ProgramSection>) {
     this.exercises = exercises;
@@ -226,27 +284,6 @@ export class Program2 {
       </React.Fragment>
     );
   }
-
-  static forLift = (
-    liftType: LiftType,
-    workoutType: WorkoutType,
-    targetORM: Weight
-  ): Program2 => {
-    let data: BarbellLift[] = [];
-    switch (workoutType) {
-      case WorkoutType.FIVE_BY_FIVE:
-        data = progressionFor(targetORM, 0.8, 5, 5, liftType);
-        break;
-      case WorkoutType.THREE_BY_THREE:
-        data = progressionFor(targetORM, 0.9, 3, 3, liftType);
-        break;
-      default:
-        throw new Error(`${workoutType} is not accounted for yet.`);
-    }
-    return new Program2([
-      new ProgramSection(`${liftType} ${workoutType}`, data)
-    ]);
-  };
 }
 
 const progressionFor = (
