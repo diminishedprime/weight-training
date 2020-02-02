@@ -1,6 +1,6 @@
 import * as fromFirestore from "../fromFirestore";
-import { LiftDoc } from "./db";
-import { AsJson, DisplayLift } from "./index";
+import { LiftDoc, LiftDocType } from "./db";
+import { DisplayLift } from "./index";
 import {
   AsFirestore,
   Equals,
@@ -32,6 +32,8 @@ export class Lift implements AsFirestore, Equals<Lift> {
     warmup: boolean
   ) {
     this.firestoreDoc = {
+      liftDocVersion: "1",
+      liftDocType: LiftDocType.BARBELL,
       date,
       weight,
       type,

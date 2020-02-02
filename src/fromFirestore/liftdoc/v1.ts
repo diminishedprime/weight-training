@@ -1,30 +1,15 @@
-import * as t from "./index";
-// db type
+import * as t from "../../types";
+// TODO - instead of keeping the types copied, I can have all the types exist in
+// the types, but only export the latest version.
+
+enum LiftDocType {
+  BARBELL = "barbell"
+}
 
 export interface WeightField {
   value: number;
   unit: t.WeightUnit;
   version: "1";
-}
-
-export interface TimeStampField {
-  seconds: number;
-  nanoseconds: number;
-}
-
-export interface RecordField {
-  [t.ONE_REP_MAX]: {
-    weight: WeightField;
-    time: TimeStampField;
-  };
-}
-
-export type UserDoc = {
-  [lift in t.LiftType]: RecordField;
-};
-
-export enum LiftDocType {
-  BARBELL = "barbell"
 }
 
 interface DeadliftDoc {
