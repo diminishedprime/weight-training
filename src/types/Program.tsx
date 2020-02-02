@@ -144,7 +144,7 @@ class ProgramSection implements Table, Title {
       if (current >= this.data.length) {
         finishSection();
       }
-    }, [current]);
+    }, [current, finishSection]);
 
     return (
       <table className="table">
@@ -258,6 +258,8 @@ export class ProgramBuilder {
 }
 
 export class Program2 {
+  // TODO - Add section for notes from the trainer, both for the Program, and
+  // for each program section.
   private exercises: Array<ProgramSection>;
 
   static builder = (): ProgramBuilder => {
