@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 import * as rr from "react-redux";
 import * as ta from "typesafe-actions";
 import { LiftType } from "./common";
+import { LiftDoc as DBLiftDoc } from "./db/LiftDoc";
 import { Lift } from "./Lift";
 import { Program2 } from "./Program";
 import { UserDoc } from "./UserDoc";
@@ -130,15 +131,8 @@ export interface Settings {
 export class DisplayLift extends Lift {
   public uid: string;
 
-  constructor(
-    date: FirestoreTimestamp,
-    weight: Weight,
-    type: LiftType,
-    reps: number,
-    warmup: boolean,
-    uid: string
-  ) {
-    super(date, weight, type, reps, warmup);
+  constructor({ uid, ...firestoreDoc }: DBLiftDoc & { uid: string }) {
+    super(firestoreDoc);
     this.uid = uid;
   }
 }

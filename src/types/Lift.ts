@@ -1,4 +1,4 @@
-import { LiftDoc, LiftDocType } from "./db";
+import { LiftDoc } from "./db";
 import { toLift } from "./db/LiftDoc";
 import { DisplayLift } from "./index";
 import {
@@ -13,37 +13,13 @@ export class Lift implements AsFirestore, Equals<Lift> {
   public static fromFirestoreData = toLift;
 
   public static fromDb = (lift: LiftDoc) => {
-    return new Lift(
-      lift.date,
-      Weight.fromFirestoreData(lift.weight),
-      lift.type,
-      lift.reps,
-      lift.warmup || false
-    );
+    return new Lift(lift);
   };
 
   private firestoreDoc: LiftDoc;
 
-  // todo update this constructor to take a LiftDoc instead of arguments. I'm
-  // trying to make it where this can eventually take any lift type, even if
-  // it's not exactly like a BarbellLift.
-  constructor(
-    date: FirestoreTimestamp,
-    weight: Weight,
-    type: LiftType,
-    reps: number,
-    warmup: boolean
-  ) {
-    this.firestoreDoc = {
-      liftDocVersion: "1",
-      liftDocType: LiftDocType.BARBELL,
-      date,
-      weight,
-      type,
-      reps,
-      warmup,
-      version: "1"
-    };
+  constructor(firestoreDoc: LiftDoc) {
+    this.firestoreDoc = firestoreDoc;
   }
 
   public getWeight(): Weight {
@@ -67,13 +43,7 @@ export class Lift implements AsFirestore, Equals<Lift> {
   }
 
   public clone(): Lift {
-    return new Lift(
-      this.firestoreDoc.date,
-      this.getWeight(),
-      this.firestoreDoc.type,
-      this.firestoreDoc.reps,
-      this.firestoreDoc.warmup || false
-    );
+    return new Lift({ ...this.firestoreDoc });
   }
   public equals(other: Lift): boolean {
     return this.asJSON() === other.asJSON();
@@ -95,13 +65,6 @@ export class Lift implements AsFirestore, Equals<Lift> {
   }
 
   public withUid(uid: string): DisplayLift {
-    return new DisplayLift(
-      this.firestoreDoc.date,
-      this.getWeight(),
-      this.firestoreDoc.type,
-      this.firestoreDoc.reps,
-      this.firestoreDoc.warmup || false,
-      uid
-    );
+    return new DisplayLift({ ...this.firestoreDoc, uid });
   }
 }

@@ -17,7 +17,7 @@ export const toLift: t.FromFirestore<t.Lift> = (o: object): t.Lift => {
           const dbVal: V1 = o as any;
           const withLiftDocStuff = Object.assign({}, dbVal, {
             liftDocVersion: "1",
-            liftDocType: "barbellLift"
+            liftDocType: t.LiftDocType.BARBELL
           });
           return toLift(withLiftDocStuff);
         }

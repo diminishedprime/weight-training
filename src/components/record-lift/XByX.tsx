@@ -106,13 +106,16 @@ const SimpleLiftTable = ({
   const completeLift = React.useCallback(() => {
     if (currentLift < program.length) {
       const pLift = program[currentLift];
-      const lift: t.Lift = new t.Lift(
-        firebase.firestore.Timestamp.now(),
-        pLift.weight,
-        pLift.type,
-        pLift.reps,
-        pLift.warmup
-      );
+      const lift: t.Lift = new t.Lift({
+        date: firebase.firestore.Timestamp.now(),
+        weight: pLift.weight,
+        type: pLift.type,
+        reps: pLift.reps,
+        warmup: pLift.warmup,
+        version: "1",
+        liftDocType: t.LiftDocType.BARBELL,
+        liftDocVersion: "1"
+      });
       // Don't need to block on this.
       db.addLift(firebase.firestore(), user.uid, lift).then((lift) =>
         setLastLiftUid(lift.uid)
