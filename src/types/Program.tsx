@@ -1,6 +1,6 @@
 import classnames from "classnames";
 import React from "react";
-import { WeightUnit } from "./common";
+import { WeightUnit } from "./WeightUnit";
 import { LiftType, WorkoutType } from "./index";
 import { Weight } from "./Weight";
 

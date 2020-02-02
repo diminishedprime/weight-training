@@ -6,9 +6,4 @@ export enum LiftType {
   OVERHEAD_PRESS = "overhead-press"
 }
 
-export enum WeightUnit {
-  KILOGRAM = "kg",
-  POUND = "lb"
-}
-
 export const ONE_REP_MAX = "one-rep-max";
