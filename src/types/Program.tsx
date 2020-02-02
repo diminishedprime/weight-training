@@ -1,14 +1,24 @@
 import React from "react";
 import { LiftType, WorkoutType } from "./index";
 import { Weight } from "./Weight";
+import { WeightUnit } from "./common";
+import classnames from "classnames";
+
+interface Title {
+  title(): JSX.Element;
+}
 
 interface Table {
-  table(): JSX.Element;
+  table(context: { isActive: boolean; finishSection: () => void }): JSX.Element;
 }
 
 interface TableRow {
   header(): JSX.Element;
-  row(): JSX.Element;
+  row(context: {
+    skipped: boolean;
+    finished: boolean;
+    selected: boolean;
+  }): JSX.Element;
   length(): number;
 }
 
@@ -36,10 +46,25 @@ class BarbellLift implements TableRow {
     );
   }
 
-  row(): JSX.Element {
+  row({
+    skipped,
+    finished,
+    selected
+  }: {
+    selected: boolean;
+    skipped: boolean;
+    finished: boolean;
+  }): JSX.Element {
+    // TODO - figure out a better way to get the default units here.
+    console.log({ selected });
+    const cn = classnames({
+      "is-selected": selected,
+      "has-background-success": finished,
+      "has-background-warning": skipped
+    });
     return (
-      <tr>
-        <td>{this.weight}</td>
+      <tr className={cn}>
+        <td>{this.weight.display(WeightUnit.POUND)}</td>
         <td>{this.liftType}</td>
         <td>{this.reps}</td>
         <td>{this.warmup}</td>
@@ -91,28 +116,86 @@ interface BodyweightExercise {
   warmup: boolean;
 }
 
-class ProgramSection implements Table {
+class ProgramSection implements Table, Title {
   data: ProgramSectionData;
-  current: undefined | number;
+  titleText: string;
 
-  constructor(data: ProgramSectionData) {
+  constructor(titleText: string, data: ProgramSectionData) {
+    this.titleText = titleText;
     this.data = data;
   }
 
-  table(): JSX.Element {
+  title(): JSX.Element {
+    return <div className="is-5">{this.titleText}</div>;
+  }
+
+  table({
+    isActive,
+    finishSection
+  }: {
+    isActive: boolean;
+    finishSection: () => void;
+  }): JSX.Element {
+    const [current, setCurrent] = React.useState(0);
+    const [skipped, setSkipped] = React.useState<Set<number>>(new Set());
+    const [finished, setFinished] = React.useState<Set<number>>(new Set());
+    const complete = current >= this.data.length;
+
     return (
-      <table>
+      <table className="table">
         {this.data[0].header()}
-        {this.data.map((row, idx) => (
-          <>
-            {row.row()}
-            {idx === this.current && (
-              <tr>
-                <td colSpan={row.length()}>Hi!</td>
-              </tr>
-            )}
-          </>
-        ))}
+        <tbody>
+          {this.data.map((row, idx) => (
+            <React.Fragment key={`table-${idx}`}>
+              {row.row({
+                skipped: skipped.has(idx),
+                finished: finished.has(idx),
+                selected: isActive && idx === current
+              })}
+              {isActive && idx === current && (
+                <tr>
+                  <td colSpan={row.length()}>
+                    <div className="control flex flex-center">
+                      <div>
+                        <button onClick={finishSection} className={`button`}>
+                          Finish
+                        </button>
+                      </div>
+                      {!complete && (
+                        <div className="flex flex-end flex-grow buttons">
+                          <button
+                            onClick={() => {
+                              setCurrent((old) => old + 1);
+                              setSkipped((old) => {
+                                old.add(idx);
+                                return new Set(old);
+                              });
+                            }}
+                            className="button is-outlined is-warning"
+                          >
+                            Skip
+                          </button>
+                          <button
+                            onClick={() => {
+                              setCurrent((old) => old + 1);
+                              setFinished((old) => {
+                                old.add(idx);
+                                return new Set(old);
+                              });
+                            }}
+                            className="button is-outlined is-success"
+                          >
+                            Done
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              )}
+            </React.Fragment>
+          ))}
+        </tbody>
       </table>
     );
   }
@@ -125,6 +208,23 @@ export class Program2 {
 
   constructor(exercises: Array<ProgramSection>) {
     this.exercises = exercises;
+  }
+
+  tables(): JSX.Element {
+    const [activeExercise, setActiveExercise] = React.useState(0);
+    const finishSection = React.useCallback(() => {
+      setActiveExercise((old) => old + 1);
+    }, []);
+    return (
+      <React.Fragment>
+        {this.exercises.map((section, idx) => (
+          <React.Fragment key={`program-${idx}`}>
+            {section.title()}
+            {section.table({ isActive: idx === activeExercise, finishSection })}
+          </React.Fragment>
+        ))}
+      </React.Fragment>
+    );
   }
 
   static forLift = (
@@ -143,7 +243,9 @@ export class Program2 {
       default:
         throw new Error(`${workoutType} is not accounted for yet.`);
     }
-    return new Program2([new ProgramSection(data)]);
+    return new Program2([
+      new ProgramSection(`${liftType} ${workoutType}`, data)
+    ]);
   };
 }
 
