@@ -1,11 +1,7 @@
 import * as t from "../index";
+import { WeightField } from "./WeightField";
 // db type
-
-export interface WeightField {
-  value: number;
-  unit: t.WeightUnit;
-  version: "1";
-}
+export * from "./WeightField";
 
 export interface TimeStampField {
   seconds: number;
