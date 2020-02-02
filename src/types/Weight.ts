@@ -8,6 +8,10 @@ export class Weight
   implements WeightField, AsFirestore, Versioned, Equals<Weight>, AsJson {
   public static VERSION: "1" = "1";
   public static fromFirestoreData = toWeight;
+  public static fromJSON = (s: string): Weight => {
+    const parsed = JSON.parse(s);
+    return Weight.fromFirestoreData(parsed);
+  };
   public static kiloToLbs = (value: number) => {
     return value / lbsToKiloRatio;
   };

@@ -1,22 +1,67 @@
 import * as React from "react";
 import * as t from "../types";
 import { ProgramBuilder } from "../types";
+import * as rrd from "react-router-dom";
 
-const Programs: React.FC = () => {
-  const program: t.Program2 = t.Program2.builder()
+export type BarbellLiftParams = {
+  type: "barbell-program";
+  programName: t.LiftType;
+  liftType: t.LiftType;
+  workoutType: t.WorkoutType;
+  oneRepMax: string;
+};
+
+type ProgramsParams = BarbellLiftParams;
+
+function paramsToObject(params: URLSearchParams) {
+  const entries = params.entries();
+  let result: any = {};
+  for (let entry of entries) {
+    // each 'entry' is a [key, value] tupple
+    const [key, value] = entry;
+    result[key] = value;
+  }
+  return result;
+}
+
+const barbellProgram = (programsParams: BarbellLiftParams): t.Program2 => {
+  const oneRepMax = t.Weight.fromJSON(programsParams.oneRepMax);
+  return t.Program2.builder()
     .addProgramSection(
       ProgramBuilder.xByX(
-        t.LiftType.DEADLIFT,
-        t.WorkoutType.THREE_BY_THREE,
-        t.Weight.lbs(225)
+        programsParams.liftType,
+        programsParams.workoutType,
+        oneRepMax
       )
     )
-    .addProgramSection(ProgramBuilder.pushups())
     .build();
+};
+
+const Programs: React.FC = () => {
+  const location = rrd.useLocation();
+  const params = new URLSearchParams(location.search.substring(1));
+  const [program, setProgram] = React.useState(() => {
+    return t.Program2.builder().build();
+  });
+
+  // This is weird, but seems necessary. If the .tables function diretly returns
+  // the element instead of a way to construct the element, everything goes to
+  // shit.
+  const Tables = program.tables();
+
+  React.useEffect(() => {
+    if (params.get("type") === "barbell-program") {
+      setProgram(
+        barbellProgram((paramsToObject(params) as any) as BarbellLiftParams)
+      );
+    }
+  }, [params.get("type")]);
 
   return (
     <div>
-      <div>{program.tables()}</div>
+      <div>
+        <Tables />
+      </div>
     </div>
   );
 };

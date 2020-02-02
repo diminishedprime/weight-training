@@ -322,12 +322,12 @@ export class Program2 {
     this.exercises = exercises;
   }
 
-  public tables(): JSX.Element {
+  public tables(): () => JSX.Element {
     const [activeExercise, setActiveExercise] = React.useState(0);
     const finishSection = React.useCallback(() => {
       setActiveExercise((old) => old + 1);
     }, []);
-    return (
+    return () => (
       <React.Fragment>
         {this.exercises.map((section, idx) => (
           <React.Fragment key={`program-${idx}`}>
