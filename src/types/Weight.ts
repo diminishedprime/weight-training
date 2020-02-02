@@ -1,4 +1,3 @@
-import * as fromFirestore from "../fromFirestore";
 import { WeightField } from "./db";
 import { toWeight } from "./db/WeightField";
 import { AsFirestore, AsJson, Equals, Versioned, WeightUnit } from "./index";

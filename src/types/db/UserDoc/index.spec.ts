@@ -1,7 +1,7 @@
 import firebase from "firebase";
 import "firebase/analytics";
-import * as t from "../types";
-import * as sut from "./UserDocFromFirestore";
+import * as t from "../../../types";
+import * as sut from "./index";
 
 // For some fucking reason, this makes my tests pass???
 // tslint:disable-next-line no-unused-expression
@@ -17,7 +17,7 @@ describe("for migrating UserDoc from firestore", () => {
       "bench-press": {},
       "overhead-press": {}
     };
-    const actual = sut.userDocFromFirestore(jsonObject);
+    const actual = sut.fromFirestore(jsonObject);
     expect(actual.asJSON()).toEqual(t.UserDoc.empty().asJSON());
   });
 
@@ -44,7 +44,7 @@ describe("for migrating UserDoc from firestore", () => {
       "snatch": pr2,
       "version": "2"
     };
-    const actual = sut.userDocFromFirestore(jsonObject);
+    const actual = sut.fromFirestore(jsonObject);
     const expected = t.UserDoc.empty();
     const ten = t.Weight.lbs(10);
     const tenNano = new firebase.firestore.Timestamp(0, 10);
