@@ -1,39 +1,14 @@
 import firebase from "firebase/app";
 import * as db from "../../../db";
 import * as t from "../../../types";
+import { RecordField as RecordFieldV1 } from "../RecordField/v1";
+import { RecordField as RecordFieldV2 } from "../RecordField/v2";
 import { TimeStampField as TimeStampFieldV1 } from "../TimeStampField/v1";
+import { UserDoc as V1Db } from "../UserDoc/v1";
+import { UserDoc as V2Db } from "../UserDoc/v2";
 import { WeightField as WeightV1 } from "../WeightField/v1";
 
-export * from "./v1";
-
-interface V1RecordDb {
-  [t.ONE_REP_MAX]?: WeightV1;
-}
-
-export interface V1Db {
-  "deadlift": V1RecordDb;
-  "squat": V1RecordDb;
-  "front-squat": V1RecordDb;
-  "bench-press": V1RecordDb;
-  "overhead-press": V1RecordDb;
-  "version"?: "1";
-}
-type V1Json = V1Db;
-
-interface V2RecordDb {
-  [t.ONE_REP_MAX]: { weight: WeightV1; time: TimeStampFieldV1 };
-}
-export interface V2Db {
-  "deadlift": V2RecordDb;
-  "squat": V2RecordDb;
-  "front-squat": V2RecordDb;
-  "bench-press": V2RecordDb;
-  "overhead-press": V2RecordDb;
-  "clean-and-jerk": V2RecordDb;
-  "snatch": V2RecordDb;
-  "version": "2";
-}
-type V2Json = V2Db;
+export * from "./v2";
 
 const tryUpdateORMTimes = async (userDoc: t.UserDoc) => {
   const userString = window.localStorage.getItem(
@@ -72,7 +47,7 @@ export const fromFirestore: t.FromFirestore<t.UserDoc> = (
     case "2": {
       const userDoc: V2Db = o as any;
       Object.values(t.LiftType).forEach((liftType) => {
-        const liftMeta = userDoc[liftType as t.LiftType];
+        const liftMeta = userDoc[liftType];
         const orm = liftMeta[t.ONE_REP_MAX];
         const jsonTime = orm.time;
         orm.time = new firebase.firestore.Timestamp(
@@ -88,7 +63,7 @@ export const fromFirestore: t.FromFirestore<t.UserDoc> = (
         .analytics()
         .logEvent("old_db_version", { version: "1", type: "UserDoc" });
       const userDoc: V1Db = o as any;
-      const defaultRecord: V2RecordDb = {
+      const defaultRecord: RecordFieldV2 = {
         [t.ONE_REP_MAX]: {
           weight: { value: 0, unit: t.WeightUnit.POUND, version: "1" },
           time: firebase.firestore.Timestamp.fromMillis(0)
@@ -100,12 +75,10 @@ export const fromFirestore: t.FromFirestore<t.UserDoc> = (
         "front-squat": defaultRecord,
         "bench-press": defaultRecord,
         "overhead-press": defaultRecord,
-        "clean-and-jerk": defaultRecord,
-        "snatch": defaultRecord,
         "version": "2"
       };
       Object.values(t.LiftType).forEach((liftType) => {
-        const liftMeta: V1RecordDb | undefined = (userDoc as any)[liftType];
+        const liftMeta: RecordFieldV1 | undefined = (userDoc as any)[liftType];
         const weight = liftMeta?.[t.ONE_REP_MAX] || {
           value: 0,
           unit: t.WeightUnit.POUND,
@@ -134,26 +107,5 @@ export const fromFirestore: t.FromFirestore<t.UserDoc> = (
 
 export const fromJSON = (s: string): t.UserDoc => {
   const parsed = JSON.parse(s);
-  switch (parsed.version) {
-    case "2": {
-      const asJson: V2Json = parsed as any;
-      return t.UserDoc.fromFirestoreData(asJson);
-    }
-    // es-lint-disable-next-line no-fallthrough
-    case "1":
-    case undefined: {
-      firebase
-        .analytics()
-        .logEvent("old_json_version", { version: "1", type: "UserDoc" });
-      const asJson: V1Json = parsed as any;
-      return t.UserDoc.fromFirestoreData(asJson);
-    }
-    default: {
-      const exceptionString = `Cannot parse json version: ${parsed.version}`;
-      firebase
-        .analytics()
-        .logEvent("exception", { description: exceptionString, fatal: true });
-      throw new Error(exceptionString);
-    }
-  }
+  return fromFirestore(parsed);
 };

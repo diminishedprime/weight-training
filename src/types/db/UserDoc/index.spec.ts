@@ -2,6 +2,8 @@ import firebase from "firebase";
 import "firebase/analytics";
 import * as t from "../../../types";
 import * as sut from "./index";
+import { UserDoc as V1Db } from "./v1";
+import { UserDoc as V2Db } from "./v2";
 
 // For some fucking reason, this makes my tests pass???
 // tslint:disable-next-line no-unused-expression
@@ -9,7 +11,7 @@ firebase.firestore;
 
 describe("for migrating UserDoc from firestore", () => {
   test("Can parse V1 into UserDoc object", () => {
-    const jsonObject: sut.V1Db = {
+    const jsonObject: V1Db = {
       "version": "1",
       "deadlift": {},
       "squat": {},
@@ -34,14 +36,12 @@ describe("for migrating UserDoc from firestore", () => {
         time: { seconds: 10, nanoseconds: 0 }
       }
     };
-    const jsonObject: sut.V2Db = {
+    const jsonObject: V2Db = {
       "deadlift": pr1,
       "squat": pr1,
       "front-squat": pr1,
       "bench-press": pr1,
       "overhead-press": pr1,
-      "clean-and-jerk": pr1,
-      "snatch": pr2,
       "version": "2"
     };
     const actual = sut.fromFirestore(jsonObject);

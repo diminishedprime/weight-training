@@ -31,6 +31,7 @@ export class UserDoc
   public static empty = (): UserDoc => {
     const defaultTime = firebase.firestore.Timestamp.fromMillis(0);
     return new UserDoc({
+      version: "2",
       [LiftType.BENCH_PRESS]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
@@ -68,10 +69,11 @@ export class UserDoc
   public [LiftType.FRONT_SQUAT]: LiftMeta;
   public [LiftType.OVERHEAD_PRESS]: LiftMeta;
   public [LiftType.SQUAT]: LiftMeta;
-  public version = "2";
+  public version: "2" = "2";
 
   constructor(dbUserDoc: DBUserDoc) {
-    Object.values(dbUserDoc).forEach((value) => {
+    Object.values(LiftType).forEach((liftType) => {
+      const value = dbUserDoc[liftType];
       const orm = value[ONE_REP_MAX];
       if (orm !== undefined) {
         const oneRepMax: OneRepMax = {
