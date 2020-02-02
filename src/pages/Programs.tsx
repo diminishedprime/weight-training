@@ -43,7 +43,10 @@ const barbellProgram = (programsParams: BarbellLiftParams): t.Program2 => {
 
 const Programs: React.FC = () => {
   const location = rrd.useLocation();
-  const params = new URLSearchParams(location.search.substring(1));
+  const params = React.useMemo(
+    () => paramsToObject(new URLSearchParams(location.search.substring(1))),
+    [location.search]
+  );
   const [program, setProgram] = React.useState(() => {
     return t.Program2.builder().build();
   });
@@ -54,12 +57,10 @@ const Programs: React.FC = () => {
   const Tables = program.tables();
 
   React.useEffect(() => {
-    if (params.get("type") === "barbell-program") {
-      setProgram(
-        barbellProgram((paramsToObject(params) as any) as BarbellLiftParams)
-      );
+    if (params.type === "barbell-program") {
+      setProgram(barbellProgram(params as BarbellLiftParams));
     }
-  }, [params.get("type")]);
+  }, [params.type, params]);
 
   return (
     <div>
