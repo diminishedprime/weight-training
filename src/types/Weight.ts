@@ -1,5 +1,6 @@
 import * as fromFirestore from "../fromFirestore";
 import { WeightField } from "./db";
+import { toWeight } from "./db/WeightField";
 import { AsFirestore, AsJson, Equals, Versioned, WeightUnit } from "./index";
 
 const lbsToKiloRatio = 0.453592;
@@ -7,7 +8,7 @@ const lbsToKiloRatio = 0.453592;
 export class Weight
   implements WeightField, AsFirestore, Versioned, Equals<Weight>, AsJson {
   public static VERSION: "1" = "1";
-  public static fromFirestoreData = fromFirestore.weightFromFirestore;
+  public static fromFirestoreData = toWeight;
   public static kiloToLbs = (value: number) => {
     return value / lbsToKiloRatio;
   };

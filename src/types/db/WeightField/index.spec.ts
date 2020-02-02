@@ -1,6 +1,7 @@
 import firebase from "firebase";
-import * as t from "../types";
-import * as sut from "./WeightFromFirestore";
+import * as t from "../../../types";
+import * as sut from "./index";
+import { WeightField as V1 } from "./v1";
 
 describe("for migrating lift from firestore", () => {
   beforeEach(() => {
@@ -26,13 +27,12 @@ describe("for migrating lift from firestore", () => {
   });
 
   test("Can parse V1 into Weight object", () => {
-    const now = firebase.firestore.Timestamp.now();
-    const jsonObject: sut.V1Db = {
+    const jsonObject: V1 = {
       version: "1",
       value: 22,
       unit: t.WeightUnit.KILOGRAM
     };
-    const actual = sut.weightFromFirestore(jsonObject);
+    const actual = sut.toWeight(jsonObject);
     expect(actual).toEqual(t.Weight.kilo(22));
   });
 });
