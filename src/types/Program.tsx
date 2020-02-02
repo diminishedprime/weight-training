@@ -79,7 +79,6 @@ class BodyWeightExercise implements TableRow {
 }
 
 class BarbellLift implements TableRow {
-
   public static from = (thing: {
     weight: Weight;
     targetORM: Weight;
@@ -269,7 +268,6 @@ class ProgramSection implements Table, Title {
 type ProgramSectionDataGeneric<T extends TableRow> = T[];
 
 export class ProgramBuilder {
-
   public static pushups = (): ProgramSection => {
     const data: BodyWeightExercise[] = [
       new BodyWeightExercise(2, "pullup", true),
@@ -313,7 +311,6 @@ export class ProgramBuilder {
 }
 
 export class Program2 {
-
   public static builder = (): ProgramBuilder => {
     return new ProgramBuilder();
   };

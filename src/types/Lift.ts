@@ -9,7 +9,7 @@ import {
   Weight
 } from "./index";
 
-export class Lift implements LiftDoc, AsFirestore, AsJson, Equals<Lift> {
+export class Lift implements AsFirestore, AsJson, Equals<Lift> {
   public static VERSION: "1" = "1";
   public static fromFirestoreData = fromFirestore.liftFromFirestore;
 
@@ -22,6 +22,8 @@ export class Lift implements LiftDoc, AsFirestore, AsJson, Equals<Lift> {
       lift.warmup || false
     );
   };
+
+  private firestoreDoc: LiftDoc;
 
   public version = Lift.VERSION;
   public date: FirestoreTimestamp;
@@ -42,6 +44,14 @@ export class Lift implements LiftDoc, AsFirestore, AsJson, Equals<Lift> {
     this.type = type;
     this.reps = reps;
     this.warmup = warmup;
+    this.firestoreDoc = {
+      date,
+      weight,
+      type,
+      reps,
+      warmup,
+      version: "1"
+    };
   }
 
   public clone(): Lift {
