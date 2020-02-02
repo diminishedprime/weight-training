@@ -3,9 +3,7 @@ export enum LiftType {
   SQUAT = "squat",
   FRONT_SQUAT = "front-squat",
   BENCH_PRESS = "bench-press",
-  OVERHEAD_PRESS = "overhead-press",
-  CLEAN_AND_JERK = "clean-and-jerk",
-  SNATCH = "snatch"
+  OVERHEAD_PRESS = "overhead-press"
 }
 
 export enum WeightUnit {

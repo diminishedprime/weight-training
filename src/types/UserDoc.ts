@@ -37,12 +37,6 @@ export class UserDoc
           time: defaultTime
         }
       },
-      [LiftType.CLEAN_AND_JERK]: {
-        [ONE_REP_MAX]: {
-          weight: Weight.zero(),
-          time: defaultTime
-        }
-      },
       [LiftType.DEADLIFT]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
@@ -61,12 +55,6 @@ export class UserDoc
           time: defaultTime
         }
       },
-      [LiftType.SNATCH]: {
-        [ONE_REP_MAX]: {
-          weight: Weight.zero(),
-          time: defaultTime
-        }
-      },
       [LiftType.SQUAT]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
@@ -76,11 +64,9 @@ export class UserDoc
     });
   };
   public [LiftType.BENCH_PRESS]: LiftMeta;
-  public [LiftType.CLEAN_AND_JERK]: LiftMeta;
   public [LiftType.DEADLIFT]: LiftMeta;
   public [LiftType.FRONT_SQUAT]: LiftMeta;
   public [LiftType.OVERHEAD_PRESS]: LiftMeta;
-  public [LiftType.SNATCH]: LiftMeta;
   public [LiftType.SQUAT]: LiftMeta;
   public version = "2";
 
@@ -102,11 +88,9 @@ export class UserDoc
     const userDoc = dbUserDoc as UserDoc;
 
     this[LiftType.BENCH_PRESS] = userDoc[LiftType.BENCH_PRESS];
-    this[LiftType.CLEAN_AND_JERK] = userDoc[LiftType.CLEAN_AND_JERK];
     this[LiftType.DEADLIFT] = userDoc[LiftType.DEADLIFT];
     this[LiftType.FRONT_SQUAT] = userDoc[LiftType.FRONT_SQUAT];
     this[LiftType.OVERHEAD_PRESS] = userDoc[LiftType.OVERHEAD_PRESS];
-    this[LiftType.SNATCH] = userDoc[LiftType.SNATCH];
     this[LiftType.SQUAT] = userDoc[LiftType.SQUAT];
   }
   public getVersion() {

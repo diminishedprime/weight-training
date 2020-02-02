@@ -6,12 +6,10 @@ import LiftCard from "../components/LiftCard";
 import * as db from "../db";
 import * as hooks from "../hooks";
 import * as t from "../types";
-import * as util from "../util";
 
 export default () => {
   hooks.useMeasurePage("Home");
   const user = hooks.useForceSignIn();
-  const { settings } = hooks.useSettings();
   const userDoc = t.useSelector(
     (s) => s.localStorage && s.localStorage.userDoc
   );
@@ -35,7 +33,7 @@ export default () => {
   return (
     <>
       <div className="flex">
-        {util.liftsForSettings(settings).map((liftType) => (
+        {Object.values(t.LiftType).map((liftType) => (
           <LiftCard
             liftType={liftType}
             userDoc={userDoc}

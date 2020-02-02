@@ -1,25 +1,6 @@
 import * as c from "./constants";
 import * as t from "./types";
 
-export const isOlympic = (liftType: t.LiftType) => {
-  return (
-    liftType === t.LiftType.CLEAN_AND_JERK || liftType === t.LiftType.SNATCH
-  );
-};
-
-export const liftsForSettings = (settings: t.Settings): t.LiftType[] => {
-  const showOlympic = settings.showOlympic;
-  return Object.values(t.LiftType).filter((liftType) => {
-    if (!showOlympic) {
-      return (
-        liftType !== t.LiftType.CLEAN_AND_JERK && liftType !== t.LiftType.SNATCH
-      );
-    } else {
-      return true;
-    }
-  });
-};
-
 export const emptyBar = (): t.PlateConfig => ({
   [t.PlateTypes.FORTY_FIVE]: 0,
   [t.PlateTypes.TWENTY_FIVE]: 0,
