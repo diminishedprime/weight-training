@@ -221,8 +221,10 @@ describe("for the db", () => {
       const firestore = authedApp({ uid: userUid });
       await sut.addLift(firestore, userUid, lift);
 
-      const actual = await sut.getOneRepMax(firestore, userUid, lift.type);
-      expect(actual.weight.asFirestore()).toEqual(lift.weight.asFirestore());
+      const actual = await sut.getOneRepMax(firestore, userUid, lift.getType());
+      expect(actual.weight.asFirestore()).toEqual(
+        lift.getWeight().asFirestore()
+      );
     });
 
     test("adding a new lift updates the one-rep-max if larger.", async () => {
@@ -230,14 +232,16 @@ describe("for the db", () => {
       await sut.setOneRepMax(
         firestore,
         userUid,
-        lift.type,
-        lift.weight.subtract(t.Weight.lbs(10)),
+        lift.getType(),
+        lift.getWeight().subtract(t.Weight.lbs(10)),
         now
       );
       await sut.addLift(firestore, userUid, lift);
 
-      const actual = await sut.getOneRepMax(firestore, userUid, lift.type);
-      expect(actual.weight.asFirestore()).toEqual(lift.weight.asFirestore());
+      const actual = await sut.getOneRepMax(firestore, userUid, lift.getType());
+      expect(actual.weight.asFirestore()).toEqual(
+        lift.getWeight().asFirestore()
+      );
     });
 
     test("adding a new lift does not update the one-rep-max if smaller.", async () => {
@@ -245,15 +249,18 @@ describe("for the db", () => {
       await sut.setOneRepMax(
         firestore,
         userUid,
-        lift.type,
-        lift.weight.add(t.Weight.lbs(10)),
+        lift.getType(),
+        lift.getWeight().add(t.Weight.lbs(10)),
         now
       );
       await sut.addLift(firestore, userUid, lift);
 
-      const actual = await sut.getOneRepMax(firestore, userUid, lift.type);
+      const actual = await sut.getOneRepMax(firestore, userUid, lift.getType());
       expect(actual!.weight.asFirestore()).toEqual(
-        lift.weight.add(t.Weight.lbs(10)).asFirestore()
+        lift
+          .getWeight()
+          .add(t.Weight.lbs(10))
+          .asFirestore()
       );
     });
 
@@ -272,10 +279,10 @@ describe("for the db", () => {
       const firstValue = await sut.getLift(firestore, userUid, liftUid);
       expect(firstValue).not.toBeUndefined();
       await sut.updateLift(firestore, userUid, liftUid, {
-        reps: lift.reps + 3
+        reps: lift.getReps() + 3
       });
       const actualAfterUpdate = await sut.getLift(firestore, userUid, liftUid);
-      expect(actualAfterUpdate!.reps).toBe(6);
+      expect(actualAfterUpdate!.getReps()).toBe(6);
     });
 
     test("a non-added lift cannot be retrieved from the db.", async () => {

@@ -9,8 +9,7 @@ import {
   Weight
 } from "./index";
 
-export class Lift implements AsFirestore, AsJson, Equals<Lift> {
-  public static VERSION: "1" = "1";
+export class Lift implements AsFirestore, Equals<Lift> {
   public static fromFirestoreData = fromFirestore.liftFromFirestore;
 
   public static fromDb = (lift: LiftDoc) => {
@@ -25,13 +24,6 @@ export class Lift implements AsFirestore, AsJson, Equals<Lift> {
 
   private firestoreDoc: LiftDoc;
 
-  public version = Lift.VERSION;
-  public date: FirestoreTimestamp;
-  public weight: Weight;
-  public type: LiftType;
-  public reps: number;
-  public warmup: boolean | undefined;
-
   constructor(
     date: FirestoreTimestamp,
     weight: Weight,
@@ -39,11 +31,6 @@ export class Lift implements AsFirestore, AsJson, Equals<Lift> {
     reps: number,
     warmup: boolean
   ) {
-    this.date = date;
-    this.weight = weight;
-    this.type = type;
-    this.reps = reps;
-    this.warmup = warmup;
     this.firestoreDoc = {
       date,
       weight,
@@ -54,13 +41,33 @@ export class Lift implements AsFirestore, AsJson, Equals<Lift> {
     };
   }
 
+  getWeight(): Weight {
+    return Weight.fromFirestoreData(this.firestoreDoc.weight);
+  }
+
+  getDate(): FirestoreTimestamp {
+    return this.firestoreDoc.date;
+  }
+
+  getType(): LiftType {
+    return this.firestoreDoc.type;
+  }
+
+  getReps(): number {
+    return this.firestoreDoc.reps;
+  }
+
+  getWarmup(): boolean {
+    return this.firestoreDoc.warmup || false;
+  }
+
   public clone(): Lift {
     return new Lift(
-      this.date,
-      this.weight.clone(),
-      this.type,
-      this.reps,
-      this.warmup || false
+      this.firestoreDoc.date,
+      this.getWeight(),
+      this.firestoreDoc.type,
+      this.firestoreDoc.reps,
+      this.firestoreDoc.warmup || false
     );
   }
   public equals(other: Lift): boolean {
@@ -68,27 +75,27 @@ export class Lift implements AsFirestore, AsJson, Equals<Lift> {
   }
 
   public getVersion(): string {
-    return this.version;
+    return this.firestoreDoc.version;
   }
 
   public asJSON(): string {
-    return JSON.stringify(this);
+    return JSON.stringify(this.firestoreDoc);
   }
 
   public asFirestore(): object {
     const nu = JSON.parse(this.asJSON());
     // This is necessary because firestore does special handling of timestamps.
-    nu.date = this.date;
+    nu.date = this.firestoreDoc.date;
     return nu;
   }
 
   public withUid(uid: string): DisplayLift {
     return new DisplayLift(
-      this.date,
-      this.weight,
-      this.type,
-      this.reps,
-      this.warmup || false,
+      this.firestoreDoc.date,
+      this.getWeight(),
+      this.firestoreDoc.type,
+      this.firestoreDoc.reps,
+      this.firestoreDoc.warmup || false,
       uid
     );
   }

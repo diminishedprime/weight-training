@@ -52,7 +52,7 @@ export const useTimeSinceLift = (
       if (lift === undefined) {
         return;
       }
-      const m = moment(lift.date.toDate());
+      const m = moment(lift.getDate().toDate());
       setMoment(m);
       const format = formatFor(m);
       setDisplayString(format.displayString);

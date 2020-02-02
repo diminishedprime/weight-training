@@ -25,12 +25,15 @@ export default () => {
         // TODO this could have better error handling.
         return;
       }
-      setWeight(lift.weight);
-      setReps(lift.reps);
-      setDate(lift.date.toDate().toISOString());
-      if (lift.warmup !== undefined) {
-        setWarmup(lift.warmup);
-      }
+      setWeight(lift.getWeight());
+      setReps(lift.getReps());
+      setDate(
+        lift
+          .getDate()
+          .toDate()
+          .toISOString()
+      );
+      setWarmup(lift.getWarmup());
     });
   }, [user, liftId]);
 

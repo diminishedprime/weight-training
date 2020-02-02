@@ -13,6 +13,7 @@ export * from "./common";
 export * from "./Program";
 export { Weight } from "./Weight";
 export { UserDoc } from "./UserDoc";
+export * from "./db";
 export { Lift } from "./Lift";
 export * from "./Timestamp";
 export * from "../actions";
@@ -32,12 +33,12 @@ export const BAR_WEIGHT = 45;
 export interface Equals<T> {
   equals(a: T): boolean;
 }
-export interface AsFirestore {
+export interface AsFirestore extends Versioned {
   asFirestore(): object;
 }
 
 export interface Versioned {
-  version: string;
+  getVersion: () => string;
 }
 
 export interface AsJson extends Versioned {

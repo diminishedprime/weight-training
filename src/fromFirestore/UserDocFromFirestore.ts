@@ -53,7 +53,7 @@ const tryUpdateORMTimes = async (userDoc: t.UserDoc) => {
           if (lifts.length === 0) {
             return;
           } else {
-            userDoc.setORM(liftType, orm.weight, lifts[0].date);
+            userDoc.setORM(liftType, orm.weight, lifts[0].getDate());
           }
         });
     });

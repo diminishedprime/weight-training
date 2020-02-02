@@ -53,12 +53,6 @@ describe("for migrating UserDoc from firestore", () => {
     expected.setORM(t.LiftType.FRONT_SQUAT, ten, tenNano);
     expected.setORM(t.LiftType.BENCH_PRESS, ten, tenNano);
     expected.setORM(t.LiftType.OVERHEAD_PRESS, ten, tenNano);
-    expected.setORM(t.LiftType.CLEAN_AND_JERK, ten, tenNano);
-    expected.setORM(
-      t.LiftType.SNATCH,
-      t.Weight.kilo(30),
-      new firebase.firestore.Timestamp(10, 0)
-    );
     expect(actual.asFirestore()).toEqual(expected.asFirestore());
   });
 });

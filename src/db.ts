@@ -202,9 +202,16 @@ export const addLift = async (
     .collection("lifts")
     .add(lift.asFirestore());
   const newLift = await docReference.then(async (doc) => {
-    await setOneRepMax(firestore, uid, lift.type, lift.weight, lift.date, {
-      checkPrevious: true
-    });
+    await setOneRepMax(
+      firestore,
+      uid,
+      lift.getType(),
+      lift.getWeight(),
+      lift.getDate(),
+      {
+        checkPrevious: true
+      }
+    );
     const d = await doc.get();
     const data = d.data();
     if (data === undefined) {
@@ -221,12 +228,10 @@ export const updateLift = async (
   firestore: t.Firestore,
   userUid: string,
   liftUid: string,
-  liftUpdate: t.Optional<t.Lift>
+  // TODO - this might need some special handling.
+  liftUpdate: t.Optional<t.LiftDoc>
 ): Promise<void> => {
   const copy = { ...liftUpdate };
-  if (copy.weight !== undefined) {
-    (copy as any).weight = copy.weight.asFirestore();
-  }
   const updatedLift = await firestore
     .collection("users")
     .doc(userUid)
@@ -330,7 +335,7 @@ const addLocalLift = async (firestore: t.Firestore, lift: t.Lift) => {
   const currentLocal = DaysWithLifts.fromJSON(
     window.localStorage.getItem(t.LocalStorageKey.DAYS_WITH_LIFTS_LOCAL) || "[]"
   );
-  currentLocal.data.push(moment.utc(lift.date.toDate()));
+  currentLocal.data.push(moment.utc(lift.getDate().toDate()));
   const newLocal = currentLocal.asJSON();
   window.localStorage.setItem(
     t.LocalStorageKey.DAYS_WITH_LIFTS_LOCAL,

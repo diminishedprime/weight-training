@@ -5,7 +5,6 @@ import { AsFirestore, FirestoreTimestamp } from "./index";
 import { TimeStampField } from "./db";
 
 export class Timestamp implements AsFirestore, TimeStampField {
-
   public static from = (
     ts: { seconds: number; nanoseconds: number } | FirestoreTimestamp
   ): Timestamp => {
@@ -13,6 +12,7 @@ export class Timestamp implements AsFirestore, TimeStampField {
   };
   public seconds: number;
   public nanoseconds: number;
+  private version = "1";
 
   constructor({ seconds, nanoseconds }: TimeStampField) {
     this.seconds = seconds;
@@ -33,5 +33,9 @@ export class Timestamp implements AsFirestore, TimeStampField {
 
   public asFirestore(): object {
     return this.toFirebaseTimestamp();
+  }
+
+  getVersion(): string {
+    return this.version;
   }
 }

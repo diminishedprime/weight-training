@@ -56,7 +56,8 @@ const LiftTable: React.FC<LiftTableProps> = ({
     <table className="table is-striped is-fullwidth">
       <tbody>
         {lifts.map((lift, liftIdx) => {
-          const date = lift.date
+          const date = lift
+            .getDate()
             .toDate()
             .toLocaleDateString()
             .substring(0, 10);
@@ -95,29 +96,34 @@ const LiftTable: React.FC<LiftTableProps> = ({
                 }
                 className={editing === lift.uid ? "is-selected" : undefined}
               >
-                {showType && <td>{c.liftMetadata[lift.type].displayText}</td>}
+                {showType && (
+                  <td>{c.liftMetadata[lift.getType()].displayText}</td>
+                )}
+
                 {liftIdx === 0 ? (
                   <td>
                     <TimeSince
                       liftUid={lift.uid}
                       user={user}
-                      time={lift.date}
+                      time={lift.getDate()}
                     />
                   </td>
                 ) : (
-                  <td>{moment(lift.date.toDate()).format("HH:mm")}</td>
+                  <td>{moment(lift.getDate().toDate()).format("HH:mm")}</td>
                 )}
                 <td
                   className={classNames({
                     "has-text-primary":
                       userDoc &&
-                      userDoc.getORM(lift.type).weight.equals(lift.weight)
+                      userDoc
+                        .getORM(lift.getType())
+                        .weight.equals(lift.getWeight())
                   })}
                 >
-                  {lift.weight.display(unit)}
+                  {lift.getWeight().display(unit)}
                 </td>
-                <td>{lift.reps}</td>
-                <td align="center">{lift.warmup ? "✔️" : ""}</td>
+                <td>{lift.getReps()}</td>
+                <td align="center">{lift.getWarmup() ? "✔️" : ""}</td>
               </tr>
               {editing === lift.uid && (
                 <tr>
