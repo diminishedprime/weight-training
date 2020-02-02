@@ -1,7 +1,7 @@
 import * as t from "../types";
-import * as Weight from "./WeightFromFirestore";
-import { LiftDoc as LiftDocV2 } from "../types/db/LiftDoc/v2";
 import { LiftDoc as LiftDocV1 } from "../types/db/LiftDoc/v1";
+import { LiftDoc as LiftDocV2 } from "../types/db/LiftDoc/v2";
+import * as Weight from "./WeightFromFirestore";
 
 export const liftFromFirestore: t.FromFirestore<t.Lift> = (
   o: object

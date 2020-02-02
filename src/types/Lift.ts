@@ -43,23 +43,23 @@ export class Lift implements AsFirestore, Equals<Lift> {
     };
   }
 
-  getWeight(): Weight {
+  public getWeight(): Weight {
     return Weight.fromFirestoreData(this.firestoreDoc.weight);
   }
 
-  getDate(): FirestoreTimestamp {
+  public getDate(): FirestoreTimestamp {
     return this.firestoreDoc.date;
   }
 
-  getType(): LiftType {
+  public getType(): LiftType {
     return this.firestoreDoc.type;
   }
 
-  getReps(): number {
+  public getReps(): number {
     return this.firestoreDoc.reps;
   }
 
-  getWarmup(): boolean {
+  public getWarmup(): boolean {
     return this.firestoreDoc.warmup || false;
   }
 

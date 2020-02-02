@@ -1,7 +1,7 @@
 import firebase from "firebase";
 import * as t from "../types";
-import * as sut from "./LiftFromFirestore";
 import { LiftDoc as LiftDocV1 } from "../types/db/LiftDoc/v1";
+import * as sut from "./LiftFromFirestore";
 
 describe("for migrating lift from firestore", () => {
   test("Can parse V1 into Lift object", () => {

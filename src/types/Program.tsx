@@ -1,8 +1,8 @@
 import classnames from "classnames";
 import React from "react";
-import { WeightUnit } from "./WeightUnit";
 import { LiftType, WorkoutType } from "./index";
 import { Weight } from "./Weight";
+import { WeightUnit } from "./WeightUnit";
 
 interface Title {
   title(): JSX.Element;

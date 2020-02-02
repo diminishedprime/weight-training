@@ -35,7 +35,7 @@ export class Timestamp implements AsFirestore, TimeStampField {
     return this.toFirebaseTimestamp();
   }
 
-  getVersion(): string {
+  public getVersion(): string {
     return this.version;
   }
 }

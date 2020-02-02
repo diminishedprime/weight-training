@@ -2,11 +2,11 @@ import firebase from "firebase/app";
 import * as rr from "react-redux";
 import * as ta from "typesafe-actions";
 import { LiftType } from "./common";
-import { WeightUnit } from "./WeightUnit";
 import { Lift } from "./Lift";
 import { Program2 } from "./Program";
 import { UserDoc } from "./UserDoc";
 import { Weight } from "./Weight";
+import { WeightUnit } from "./WeightUnit";
 
 // TODO - This should be removed once I make a proper UserDoc class
 export * from "./common";
