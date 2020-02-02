@@ -25,6 +25,7 @@ import RecordLift from "./pages/RecordLift";
 import Records from "./pages/Records";
 import Settings from "./pages/Settings";
 import ViewLifts from "./pages/ViewLifts";
+import Programs from "./pages/Programs";
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
@@ -44,6 +45,9 @@ const App: React.FC = () => {
         <UpdateApp />
         <Layout>
           <Switch>
+            <Route path="/programs">
+              <Programs />
+            </Route>
             <Route path="/settings" exact>
               <Settings />
             </Route>

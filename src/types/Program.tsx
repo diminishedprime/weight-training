@@ -1,5 +1,5 @@
 import React from "react";
-import { LiftType, WorkoutType, ProgramLift } from "./index";
+import { LiftType, WorkoutType } from "./index";
 import { Weight } from "./Weight";
 
 interface Table {
@@ -94,6 +94,7 @@ interface BodyweightExercise {
 class ProgramSection implements Table {
   data: ProgramSectionData;
   current: undefined | number;
+
   constructor(data: ProgramSectionData) {
     this.data = data;
   }
