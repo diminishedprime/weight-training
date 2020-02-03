@@ -10,7 +10,6 @@ import { UserDoc } from "./UserDoc";
 import { Weight } from "./Weight";
 import { WeightUnit } from "./WeightUnit";
 
-// TODO - This should be removed once I make a proper UserDoc class
 export * from "./common";
 export * from "./Program";
 export * from "./WeightUnit";

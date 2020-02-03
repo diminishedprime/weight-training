@@ -85,8 +85,6 @@ export default ({ liftType }: t.RecordLiftProps) => {
     return null;
   }
 
-  // TODO - Make it where you can choose the target 1RM weight for 3s and 5s.
-
   return (
     <>
       <LiftCard liftType={liftType} userDoc={userDoc} />

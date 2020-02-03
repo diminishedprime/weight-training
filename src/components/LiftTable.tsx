@@ -76,7 +76,7 @@ const LiftTable: React.FC<LiftTableProps> = ({
                 </tr>
                 <tr>
                   {showType && <th>Type</th>}
-                  <th>Date</th>
+                  <th>Time</th>
                   <th>Weight</th>
                   <th>Reps</th>
                   <th>Warmup</th>
