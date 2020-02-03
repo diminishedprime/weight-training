@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 import * as rr from "react-redux";
 import * as ta from "typesafe-actions";
 import { LiftType } from "./common";
+import { PlateTypes } from "./common";
 import { LiftDoc as DBLiftDoc } from "./db/LiftDoc";
 import { Lift } from "./Lift";
 import { Program2 } from "./Program";
@@ -45,15 +46,6 @@ export interface Versioned {
 
 export interface AsJson extends Versioned {
   asJSON(): string;
-}
-
-export enum PlateTypes {
-  FORTY_FIVE = "forty-five",
-  // THIRTY_FIVE = 'thirty-five',
-  TWENTY_FIVE = "twenty-five",
-  TEN = "ten",
-  FIVE = "five",
-  TWO_AND_A_HALF = "two-and-a-half"
 }
 
 export type PlateConfig = { [plate in PlateTypes]: number } | "not-possible";

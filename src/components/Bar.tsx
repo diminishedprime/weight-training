@@ -34,7 +34,10 @@ const PlatesFor = ({
   );
 };
 
-export default ({ plateConfig }: { plateConfig: t.PlateConfig }) => {
+export default ({ weight }: { weight: t.Weight }) => {
+  const plateConfig = React.useMemo(() => {
+    return util.platesFor(weight || t.Weight.bar());
+  }, [weight]);
   let plates: Array<[t.PlateTypes, number]> = [];
   if (plateConfig !== "not-possible") {
     plates = Object.entries(util.splitConfig(plateConfig)).filter(

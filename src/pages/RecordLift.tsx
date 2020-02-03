@@ -4,7 +4,6 @@ import * as b from "../components/general";
 import LiftCard from "../components/LiftCard";
 import LiftTable from "../components/LiftTable";
 import AddLift from "../components/record-lift/Custom";
-import * as c from "../constants";
 import * as hooks from "../hooks";
 import * as t from "../types";
 
@@ -81,9 +80,6 @@ export default ({ liftType }: t.RecordLiftProps) => {
   const user = hooks.useForceSignIn();
   const userDoc = t.useSelector(
     (s) => s.localStorage && s.localStorage.userDoc
-  );
-  const [targetORM, setTargetORM] = React.useState<t.Weight | undefined>(
-    userDoc?.getORM(liftType).weight
   );
   if (user === null) {
     return null;

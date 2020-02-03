@@ -39,7 +39,7 @@ const AddLift = ({
 
   return (
     <>
-      <Bar plateConfig={plateConfig} />
+      <Bar weight={weight || t.Weight.bar()} />
       <div className="field is-grouped">
         <div className="control full-width">
           <label className="label">Add Plate</label>

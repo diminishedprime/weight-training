@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 import moment from "moment";
 import React from "react";
 import { Link } from "react-router-dom";
+import Bar from "../components/Bar";
 import * as db from "../db";
 import * as t from "../types";
 import { LiftType, WorkoutType } from "./index";
@@ -176,12 +177,21 @@ class BarbellLift implements TableRow {
       "has-background-warning": skipped
     });
     return (
-      <tr className={cn}>
-        <td>{this.weight.display(WeightUnit.POUND)}</td>
-        <td>{this.liftType}</td>
-        <td>{this.reps}</td>
-        <td align="center">{this.warmup ? "✔️" : ""}</td>
-      </tr>
+      <>
+        <tr className={cn}>
+          <td>{this.weight.display(WeightUnit.POUND)}</td>
+          <td>{this.liftType}</td>
+          <td>{this.reps}</td>
+          <td align="center">{this.warmup ? "✔️" : ""}</td>
+        </tr>
+        {selected && (
+          <tr>
+            <td colSpan={4}>
+              <Bar weight={this.weight} />
+            </td>
+          </tr>
+        )}
+      </>
     );
   }
 }

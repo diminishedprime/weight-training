@@ -1,6 +1,7 @@
 import { WeightField } from "./db";
 import { toWeight } from "./db/WeightField";
-import { AsFirestore, AsJson, Equals, Versioned, WeightUnit } from "./index";
+import { AsFirestore, AsJson, Equals, Versioned } from "./index";
+import { WeightUnit } from "./WeightUnit";
 
 const lbsToKiloRatio = 0.453592;
 
