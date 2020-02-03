@@ -85,7 +85,6 @@ const LiftTable: React.FC<LiftTableProps> = ({
             );
             seenDates.add(date);
           }
-          // TODO - make edit show up as a colSpan 4 after you tap a cell
           return (
             <React.Fragment key={lift.uid}>
               {headingRow && headingRow}
@@ -127,7 +126,7 @@ const LiftTable: React.FC<LiftTableProps> = ({
               </tr>
               {editing === lift.uid && (
                 <tr>
-                  <td colSpan={4}>
+                  <td colSpan={5}>
                     <div className="flex flex-end">
                       <Link to={`/lift/${lift.uid}/edit`}>Edit</Link>
                     </div>

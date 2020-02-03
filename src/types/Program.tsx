@@ -180,7 +180,7 @@ class BarbellLift implements TableRow {
         <td>{this.weight.display(WeightUnit.POUND)}</td>
         <td>{this.liftType}</td>
         <td>{this.reps}</td>
-        <td>{this.warmup}</td>
+        <td align="center">{this.warmup ? "✔️" : ""}</td>
       </tr>
     );
   }

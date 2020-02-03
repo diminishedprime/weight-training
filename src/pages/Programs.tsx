@@ -38,10 +38,6 @@ const barbellProgram = (programsParams: BarbellLiftParams): t.Program2 => {
     .build();
 };
 
-// TODO - it's important that the program section can actually record their lifts.
-// TODO - add a lift table that includes the lifts that have been done so far
-// for a program.
-
 const Programs: React.FC = () => {
   const location = rrd.useLocation();
   const params = React.useMemo(
