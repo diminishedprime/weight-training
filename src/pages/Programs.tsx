@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as rrd from "react-router-dom";
+import * as hooks from "../hooks";
 import * as t from "../types";
 import { ProgramBuilder } from "../types";
 
@@ -47,6 +48,7 @@ const Programs: React.FC = () => {
     () => paramsToObject(new URLSearchParams(location.search.substring(1))),
     [location.search]
   );
+  const user = hooks.useForceSignIn();
   const [program, setProgram] = React.useState(() => {
     return t.Program2.builder().build();
   });
@@ -54,13 +56,18 @@ const Programs: React.FC = () => {
   // This is weird, but seems necessary. If the .tables function diretly returns
   // the element instead of a way to construct the element, everything goes to
   // shit.
-  const Tables = program.tables();
 
   React.useEffect(() => {
     if (params.type === "barbell-program") {
       setProgram(barbellProgram(params as BarbellLiftParams));
     }
   }, [params.type, params]);
+
+  if (user === null) {
+    return null;
+  }
+
+  const Tables = program.tables({ user });
 
   return (
     <div>

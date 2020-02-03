@@ -1,5 +1,10 @@
 import classnames from "classnames";
+import firebase from "firebase/app";
+import moment from "moment";
 import React from "react";
+import { Link } from "react-router-dom";
+import * as db from "../db";
+import * as t from "../types";
 import { LiftType, WorkoutType } from "./index";
 import { Weight } from "./Weight";
 import { WeightUnit } from "./WeightUnit";
@@ -14,10 +19,12 @@ interface Table {
 
 interface TableRow {
   header(): JSX.Element;
+  completeExercise(user: t.FirebaseUser): void;
   row(context: {
+    selected: boolean;
     skipped: boolean;
     finished: boolean;
-    selected: boolean;
+    user: t.FirebaseUser;
   }): JSX.Element;
   length(): number;
 }
@@ -35,6 +42,11 @@ class BodyWeightExercise implements TableRow {
     this.reps = reps;
     this.type = type;
     this.warmup = warmup;
+  }
+
+  public completeExercise() {
+    // TODO - update this once I actually have body weight exercises implemented.
+    console.log("I did it");
   }
 
   public length() {
@@ -131,14 +143,31 @@ class BarbellLift implements TableRow {
     );
   }
 
+  public completeExercise(user: t.FirebaseUser) {
+    console.log("adding lift");
+    db.addLift(
+      firebase.firestore(),
+      user.uid,
+      t.Lift.forBarbellLift(
+        this.weight,
+        this.liftType,
+        this.reps,
+        this.warmup,
+        firebase.firestore.Timestamp.now()
+      )
+    );
+  }
+
   public row({
     skipped,
     finished,
-    selected
+    selected,
+    user
   }: {
     selected: boolean;
     skipped: boolean;
     finished: boolean;
+    user: t.FirebaseUser;
   }): JSX.Element {
     // TODO - figure out a better way to get the default units here.
     const cn = classnames({
@@ -176,10 +205,12 @@ class ProgramSection implements Table, Title {
 
   public table({
     isActive,
-    finishSection
+    finishSection,
+    user
   }: {
     isActive: boolean;
     finishSection: () => void;
+    user: t.FirebaseUser;
   }): JSX.Element {
     const [current, setCurrent] = React.useState(0);
     const [skipped, setSkipped] = React.useState<Set<number>>(new Set());
@@ -201,7 +232,8 @@ class ProgramSection implements Table, Title {
               {row.row({
                 skipped: skipped.has(idx),
                 finished: finished.has(idx),
-                selected: isActive && idx === current
+                selected: isActive && idx === current,
+                user
               })}
               {isActive && idx === current && (
                 <tr>
@@ -246,6 +278,7 @@ class ProgramSection implements Table, Title {
                                 old.add(idx);
                                 return new Set(old);
                               });
+                              row.completeExercise(user);
                             }}
                             className="button is-outlined is-success"
                           >
@@ -322,20 +355,38 @@ export class Program2 {
     this.exercises = exercises;
   }
 
-  public tables(): () => JSX.Element {
+  public tables({ user }: { user: t.FirebaseUser }): () => JSX.Element {
     const [activeExercise, setActiveExercise] = React.useState(0);
+    const [doneWithSections, setDoneWithSections] = React.useState(false);
+
     const finishSection = React.useCallback(() => {
       setActiveExercise((old) => old + 1);
+      setDoneWithSections(true);
     }, []);
+
     return () => (
-      <React.Fragment>
+      <div>
         {this.exercises.map((section, idx) => (
           <React.Fragment key={`program-${idx}`}>
             {section.title()}
-            {section.table({ isActive: idx === activeExercise, finishSection })}
+            {section.table({
+              isActive: idx === activeExercise,
+              finishSection,
+              user
+            })}
           </React.Fragment>
         ))}
-      </React.Fragment>
+        {doneWithSections && (
+          <div>
+            <Link to="/">
+              <button className="button">Home</button>
+            </Link>
+            <Link to={`/lifts/${moment().format("YYYY-MM-DD")}`}>
+              <button className="button">Today's Exercises</button>
+            </Link>
+          </div>
+        )}
+      </div>
     );
   }
 }

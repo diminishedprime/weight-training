@@ -1,3 +1,4 @@
+import * as t from "../types";
 import { LiftDoc } from "./db";
 import { toLift } from "./db/LiftDoc";
 import { DisplayLift } from "./index";
@@ -11,6 +12,26 @@ import {
 
 export class Lift implements AsFirestore, Equals<Lift> {
   public static fromFirestoreData = toLift;
+
+  public static forBarbellLift = (
+    weight: Weight,
+    liftType: LiftType,
+    reps: number,
+    warmup: boolean,
+    date: FirestoreTimestamp
+  ) => {
+    const doc: LiftDoc = {
+      weight,
+      type: liftType,
+      reps,
+      warmup,
+      date,
+      version: "1",
+      liftDocType: t.LiftDocType.BARBELL,
+      liftDocVersion: "1"
+    };
+    return new Lift(doc);
+  };
 
   public static fromDb = (lift: LiftDoc) => {
     return new Lift(lift);

@@ -191,20 +191,21 @@ export const deleteLift = async (
   return deletedLift;
 };
 
+// TODO change userUid & uids throughout to take the actual user type.
 export const addLift = async (
   firestore: t.Firestore,
-  uid: string,
+  userUid: string,
   lift: t.Lift
 ): Promise<t.DisplayLift> => {
   const docReference = firestore
     .collection("users")
-    .doc(uid)
+    .doc(userUid)
     .collection("lifts")
     .add(lift.asFirestore());
   const newLift = await docReference.then(async (doc) => {
     await setOneRepMax(
       firestore,
-      uid,
+      userUid,
       lift.getType(),
       lift.getWeight(),
       lift.getDate(),
