@@ -17,6 +17,9 @@ interface BarbellTemplate {
 
 type ExerciseTemplate = BarbellTemplate | ProgramNotesTemplate;
 
+// TODO - this is the one that should be rendered, not the one that I currently
+// have. I should pull out all the table & row functions into a react component
+// that has a ProgramTemplate.
 export interface ProgramTemplate {
   title: string;
   exercises: Array<ExerciseTemplate>;
