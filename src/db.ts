@@ -359,3 +359,31 @@ const getDaysWithLiftsH = async (
     )
   );
 };
+
+export const getRecentPrograms = async (
+  firestore: t.Firestore,
+  user: t.FirebaseUser
+): Promise<t.ProgramDoc[]> => {
+  const programsCollection = await firestore
+    .collection("users")
+    .doc(user.uid)
+    .collection("programs")
+    .orderBy("time", "desc")
+    .limit(5)
+    .get();
+  return programsCollection.docs.map((doc) => doc.data() as t.ProgramDoc);
+};
+
+export const addProgram = async (
+  firestore: t.Firestore,
+  user: t.FirebaseUser,
+  program: t.ProgramDoc
+): Promise<t.ProgramDoc> => {
+  const added = await firestore
+    .collection("users")
+    .doc(user.uid)
+    .collection("programs")
+    .add(program);
+  const thing = await added.get();
+  return thing.data() as t.ProgramDoc;
+};

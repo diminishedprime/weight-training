@@ -36,6 +36,44 @@ describe("for the db", () => {
   describe("for the user operations", () => {
     const userUid = "matt2";
 
+    describe("for the program operations", () => {
+      test("can add a new program", async () => {
+        const firestore = authedApp({ uid: userUid });
+        const program: t.ProgramDoc = {
+          title: "My program",
+          time: firebase.firestore.Timestamp.fromMillis(50),
+          version: "1",
+          liftUids: ["123"]
+        };
+        const actual = await sut.addProgram(
+          firestore,
+          { uid: userUid },
+          program
+        );
+        expect(actual).toEqual(program);
+      });
+
+      test("recent lifts are ordered by date", async () => {
+        const firestore = authedApp({ uid: userUid });
+        const program1: t.ProgramDoc = {
+          title: "My program",
+          time: firebase.firestore.Timestamp.fromMillis(50),
+          version: "1",
+          liftUids: ["123"]
+        };
+        const program2: t.ProgramDoc = {
+          title: "My program",
+          time: firebase.firestore.Timestamp.fromMillis(20),
+          version: "1",
+          liftUids: ["122"]
+        };
+        await sut.addProgram(firestore, { uid: userUid }, program1);
+        await sut.addProgram(firestore, { uid: userUid }, program2);
+        const actual = await sut.getRecentPrograms(firestore, { uid: userUid });
+        expect(actual).toEqual([program1, program2]);
+      });
+    });
+
     test("can get daysWithLifts", async () => {
       await adminApp()
         .collection("users")

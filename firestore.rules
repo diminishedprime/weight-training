@@ -12,6 +12,9 @@ service cloud.firestore {
       match /liftTimes/{liftTimeId} {
         allow read: if request.auth.uid == userId;
       }
+      match /programs/{programId} {
+        allow read, create: if request.auth.uid == userId;
+      }
     }
   }
 }
