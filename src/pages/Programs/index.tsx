@@ -3,6 +3,7 @@ import * as rrd from "react-router-dom";
 import * as hooks from "../../hooks";
 import * as t from "../../types";
 import { ProgramBuilder } from "../../types";
+import Tables from "./Tables";
 
 export interface BarbellLiftParams {
   type: "barbell-program";
@@ -63,12 +64,12 @@ const Programs: React.FC = () => {
     return null;
   }
 
-  const Tables = program.tables({ user });
+  /* const Tables = program.tables({ user }); */
 
   return (
     <div>
       <div>
-        <Tables />
+        <Tables user={user} exercises={program.getExercises()} />
       </div>
     </div>
   );

@@ -200,148 +200,13 @@ type ProgramSectionData = ProgramSectionDataGeneric<
   BodyWeightExercise | BarbellLift
 >;
 
-class ProgramSection implements Table, Title {
+export class ProgramSection {
   public data: ProgramSectionData;
   public titleText: string;
 
   constructor(titleText: string, data: ProgramSectionData) {
     this.titleText = titleText;
     this.data = data;
-  }
-
-  public title(): JSX.Element {
-    return <div className="is-5">{this.titleText}</div>;
-  }
-
-  public table({
-    isActive,
-    finishSection,
-    user,
-    localStorageKey
-  }: {
-    isActive: boolean;
-    finishSection: () => void;
-    user: t.FirebaseUser;
-    localStorageKey: string;
-  }): JSX.Element {
-    const currentKey = localStorageKey + "-current";
-    const skippedKey = localStorageKey + "-skipped";
-    const finishedKey = localStorageKey + "-finished";
-    const [current, setCurrent] = React.useState(() => {
-      const currentString = window.localStorage.getItem(currentKey);
-      if (currentString === null) {
-        return 0;
-      } else {
-        return parseInt(currentString, 0);
-      }
-    });
-    const [skipped, setSkipped] = React.useState<Set<number>>(() => {
-      const skippedString = window.localStorage.getItem(skippedKey);
-      if (skippedString === null) {
-        return new Set();
-      } else {
-        return new Set(JSON.parse(skippedString));
-      }
-    });
-    const [finished, setFinished] = React.useState<Set<number>>(() => {
-      const finishedString = window.localStorage.getItem(finishedKey);
-      if (finishedString === null) {
-        return new Set();
-      } else {
-        return new Set(JSON.parse(finishedString));
-      }
-    });
-    const complete = current >= this.data.length;
-
-    React.useEffect(() => {
-      if (current < this.data.length) {
-        window.localStorage.setItem(finishedKey, JSON.stringify([...finished]));
-        window.localStorage.setItem(skippedKey, JSON.stringify([...skipped]));
-        window.localStorage.setItem(currentKey, current.toString());
-      }
-    }, [finished, skipped, current, currentKey, finishedKey, skippedKey]);
-
-    React.useEffect(() => {
-      if (current >= this.data.length) {
-        window.localStorage.removeItem(finishedKey);
-        window.localStorage.removeItem(skippedKey);
-        window.localStorage.removeItem(currentKey);
-        finishSection();
-      }
-    }, [current, finishSection, currentKey, finishedKey, skippedKey]);
-
-    return (
-      <table className="table">
-        {this.data[0].header()}
-        <tbody>
-          {this.data.map((row, idx) => (
-            <React.Fragment key={`table-${idx}`}>
-              {row.row({
-                skipped: skipped.has(idx),
-                finished: finished.has(idx),
-                selected: isActive && idx === current,
-                user
-              })}
-              {isActive && idx === current && (
-                <tr>
-                  <td colSpan={row.length()}>
-                    <div className="control flex flex-center">
-                      {idx + 1 < this.data.length && (
-                        <div>
-                          <button
-                            onClick={() => {
-                              setSkipped((old) => {
-                                for (let i = idx; i <= this.data.length; i++) {
-                                  old.add(i);
-                                }
-                                return new Set(old);
-                              });
-                              setCurrent(this.data.length);
-                            }}
-                            className={`button is-danger`}
-                          >
-                            Skip Remaining
-                          </button>
-                        </div>
-                      )}
-                      {!complete && (
-                        <div className="flex flex-end flex-grow buttons">
-                          <button
-                            onClick={() => {
-                              setCurrent((old) => old + 1);
-                              setSkipped((old) => {
-                                old.add(idx);
-                                return new Set(old);
-                              });
-                            }}
-                            className="button is-outlined is-warning"
-                          >
-                            Skip
-                          </button>
-                          <button
-                            onClick={() => {
-                              setCurrent((old) => old + 1);
-                              setFinished((old) => {
-                                old.add(idx);
-                                return new Set(old);
-                              });
-                              row.completeExercise(user);
-                            }}
-                            className="button is-outlined is-success"
-                          >
-                            Done
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  </td>
-                </tr>
-              )}
-            </React.Fragment>
-          ))}
-        </tbody>
-      </table>
-    );
   }
 }
 
@@ -402,40 +267,8 @@ export class Program2 {
     this.exercises = exercises;
   }
 
-  public tables({ user }: { user: t.FirebaseUser }): () => JSX.Element {
-    const [activeExercise, setActiveExercise] = React.useState(0);
-    const [doneWithSections, setDoneWithSections] = React.useState(false);
-
-    const finishSection = React.useCallback(() => {
-      setActiveExercise((old) => old + 1);
-      setDoneWithSections(true);
-    }, []);
-
-    return () => (
-      <div>
-        {this.exercises.map((section, idx) => (
-          <React.Fragment key={`program-${idx}`}>
-            {section.title()}
-            {section.table({
-              isActive: idx === activeExercise,
-              finishSection,
-              user,
-              localStorageKey: `@weight-training/${idx}/'`
-            })}
-          </React.Fragment>
-        ))}
-        {doneWithSections && (
-          <div>
-            <Link to="/">
-              <button className="button">Home</button>
-            </Link>
-            <Link to={`/lifts/${moment().format("YYYY-MM-DD")}`}>
-              <button className="button">Today's Exercises</button>
-            </Link>
-          </div>
-        )}
-      </div>
-    );
+  public getExercises() {
+    return this.exercises;
   }
 }
 
