@@ -1,4 +1,4 @@
-import { Firestore, FirebaseUser } from "../types";
+import { FirebaseUser, Firestore } from "../types";
 
 export const userDoc = (firestore: Firestore, user: FirebaseUser) => {
   return firestore.collection("users").doc(user.uid);

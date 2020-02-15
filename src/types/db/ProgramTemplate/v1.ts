@@ -22,6 +22,6 @@ type ExerciseTemplate = BarbellTemplate | ProgramNotesTemplate;
 // that has a ProgramTemplate.
 export interface ProgramTemplate {
   title: string;
-  exercises: Array<ExerciseTemplate>;
+  exercises: ExerciseTemplate[];
   version: "1";
 }
