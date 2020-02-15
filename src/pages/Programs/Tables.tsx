@@ -13,7 +13,6 @@ interface ProgramSectionTableProps {
   localStorageKey: string;
 }
 
-// TODO add in section to home page to resume a program if there's anything in localstorage.
 const ProgramSectionTable: React.FC<ProgramSectionTableProps> = ({
   user,
   section,
