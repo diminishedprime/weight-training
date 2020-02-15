@@ -1,5 +1,5 @@
-import * as t from "../types";
-import * as sut from "../util";
+import * as t from "./types";
+import * as sut from "./util";
 
 describe("for the util functions", () => {
   test("can split a plateConfig in half", () => {
