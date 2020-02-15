@@ -1,8 +1,8 @@
 import firebase from "firebase/app";
 import moment from "moment";
-import * as actions from "./actions";
-import store from "./store";
-import * as t from "./types";
+import * as actions from "../actions";
+import store from "../store";
+import * as t from "../types";
 
 const updateCacheDateKeys = (
   cacheKey: t.LocalStorageKey,
