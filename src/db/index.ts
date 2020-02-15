@@ -3,6 +3,7 @@ import moment from "moment";
 import * as actions from "../actions";
 import store from "../store";
 import * as t from "../types";
+import * as docs from "./docs";
 
 const updateCacheDateKeys = (
   cacheKey: t.LocalStorageKey,
@@ -71,7 +72,7 @@ export const setOneRepMax = async (
   options: { checkPrevious: boolean } = { checkPrevious: false }
 ) => {
   const currentUserDoc = await getUserDocH(firestore, user);
-  const userDoc = getUserDocReference(firestore, user);
+  const userDoc = docs.userDoc(firestore, user);
   if (
     !options.checkPrevious ||
     currentUserDoc.getORM(liftType).weight.lessThan(weight)
@@ -110,20 +111,12 @@ export const getUserDocCached = async (
   );
 };
 
-export const getUserDocReference = (
-  firestore: t.Firestore,
-  user: t.FirebaseUser
-) => {
-  const docReference = firestore.collection("users").doc(user.uid);
-  return docReference;
-};
-
 export const setUserDoc = async (
   firestore: t.Firestore,
   user: t.FirebaseUser,
   userDoc: t.UserDoc
 ): Promise<void> => {
-  const docReference = getUserDocReference(firestore, user);
+  const docReference = docs.userDoc(firestore, user);
   return docReference.set(userDoc.asFirestore());
 };
 
@@ -131,7 +124,7 @@ export const getUserDocH = async (
   firestore: t.Firestore,
   user: t.FirebaseUser
 ): Promise<t.UserDoc> => {
-  const docReference = getUserDocReference(firestore, user);
+  const docReference = docs.userDoc(firestore, user);
   const doc = await docReference.get();
   if (doc.exists) {
     const data = doc.data();
@@ -160,12 +153,7 @@ export const getLift = async (
   user: t.FirebaseUser,
   liftUid: string
 ): Promise<t.Lift | undefined> => {
-  const doc = await firestore
-    .collection("users")
-    .doc(user.uid)
-    .collection("lifts")
-    .doc(liftUid)
-    .get();
+  const doc = await docs.liftDoc(firestore, user, liftUid).get();
   if (!doc.exists) {
     return undefined;
   }
@@ -181,12 +169,7 @@ export const deleteLift = async (
   user: t.FirebaseUser,
   liftUid: string
 ): Promise<void> => {
-  const deletedLift = await firestore
-    .collection("users")
-    .doc(user.uid)
-    .collection("lifts")
-    .doc(liftUid)
-    .delete();
+  const deletedLift = await docs.liftDoc(firestore, user, liftUid).delete();
   store.dispatch(actions.nextForceUpdateLift());
   return deletedLift;
 };
@@ -196,10 +179,8 @@ export const addLift = async (
   user: t.FirebaseUser,
   lift: t.Lift
 ): Promise<t.DisplayLift> => {
-  const docReference = firestore
-    .collection("users")
-    .doc(user.uid)
-    .collection("lifts")
+  const docReference = docs
+    .liftsCollection(firestore, user)
     .add(lift.asFirestore());
   const newLift = await docReference.then(async (doc) => {
     await setOneRepMax(
@@ -232,24 +213,9 @@ export const updateLift = async (
   liftUpdate: t.Optional<t.LiftDoc>
 ): Promise<void> => {
   const copy = { ...liftUpdate };
-  const updatedLift = await firestore
-    .collection("users")
-    .doc(user.uid)
-    .collection("lifts")
-    .doc(liftUid)
-    .update(copy);
+  const updatedLift = await docs.liftDoc(firestore, user, liftUid).update(copy);
   store.dispatch(actions.nextForceUpdateLift());
   return updatedLift;
-};
-
-const getLiftsCollection = (
-  firestore: t.Firestore,
-  user: t.FirebaseUser
-): firebase.firestore.CollectionReference => {
-  return firestore
-    .collection("users")
-    .doc(user.uid)
-    .collection("lifts");
 };
 
 type ModifyQuery = (
@@ -278,7 +244,7 @@ export const lifts = async (
   modifyQuery: ModifyQuery
 ): Promise<t.DisplayLift[]> => {
   const liftsCollection = await modifyQuery(
-    getLiftsCollection(firestore, user)
+    docs.liftsCollection(firestore, user)
   ).get();
   return toDisplayLifts(liftsCollection as LiftsQuerySnapshot);
 };
@@ -347,11 +313,7 @@ const getDaysWithLiftsH = async (
   firestore: t.Firestore,
   user: t.FirebaseUser
 ): Promise<DaysWithLifts> => {
-  const daysWithLifts = await firestore
-    .collection("users")
-    .doc(user.uid)
-    .collection("liftTimes")
-    .get();
+  const daysWithLifts = await docs.liftTimesCollection(firestore, user).get();
   return new DaysWithLifts(
     daysWithLifts.docs.map((doc) =>
       t.Timestamp.from(doc.data().t as t.FirestoreTimestamp).toMoment()
@@ -363,10 +325,8 @@ export const getRecentPrograms = async (
   firestore: t.Firestore,
   user: t.FirebaseUser
 ): Promise<t.ProgramDoc[]> => {
-  const programsCollection = await firestore
-    .collection("users")
-    .doc(user.uid)
-    .collection("programs")
+  const programsCollection = await docs
+    .programsCollection(firestore, user)
     .orderBy("time", "desc")
     .limit(5)
     .get();
@@ -378,11 +338,7 @@ export const addProgram = async (
   user: t.FirebaseUser,
   program: t.ProgramDoc
 ): Promise<t.ProgramDoc> => {
-  const added = await firestore
-    .collection("users")
-    .doc(user.uid)
-    .collection("programs")
-    .add(program);
+  const added = await docs.programsCollection(firestore, user).add(program);
   const thing = await added.get();
   return thing.data() as t.ProgramDoc;
 };
