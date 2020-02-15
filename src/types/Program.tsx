@@ -1,14 +1,8 @@
 import classnames from "classnames";
-import firebase from "firebase/app";
-import moment from "moment";
 import React from "react";
-import { Link } from "react-router-dom";
-import Bar from "../components/Bar";
-import * as db from "../db";
 import * as t from "../types";
 import { LiftType, WorkoutType } from "./index";
 import { Weight } from "./Weight";
-import { WeightUnit } from "./WeightUnit";
 
 interface Title {
   title(): JSX.Element;
@@ -91,7 +85,7 @@ class BodyWeightExercise implements TableRow {
   }
 }
 
-class BarbellLift implements TableRow {
+export class BarbellLift {
   public static from = (thing: {
     weight: Weight;
     targetORM: Weight;
@@ -126,79 +120,19 @@ class BarbellLift implements TableRow {
     this.reps = reps;
     this.warmup = warmup;
   }
-
-  public length(): number {
-    return 4;
-  }
-
-  public header(): JSX.Element {
-    return (
-      <thead>
-        <tr>
-          <th>Weight</th>
-          <th>Lift</th>
-          <th>Reps</th>
-          <th>Warmup</th>
-        </tr>
-      </thead>
-    );
-  }
-
-  public completeExercise(user: t.FirebaseUser) {
-    console.log("adding lift");
-    db.addLift(
-      firebase.firestore(),
-      user,
-      t.Lift.forBarbellLift(
-        this.weight,
-        this.liftType,
-        this.reps,
-        this.warmup,
-        firebase.firestore.Timestamp.now()
-      )
-    );
-  }
-
-  public row({
-    skipped,
-    finished,
-    selected,
-    user
-  }: {
-    selected: boolean;
-    skipped: boolean;
-    finished: boolean;
-    user: t.FirebaseUser;
-  }): JSX.Element {
-    // TODO - figure out a better way to get the default units here.
-    const cn = classnames({
-      "is-selected": selected,
-      "has-background-success": finished,
-      "has-background-warning": skipped
-    });
-    return (
-      <>
-        <tr className={cn}>
-          <td>{this.weight.display(WeightUnit.POUND)}</td>
-          <td>{this.liftType}</td>
-          <td>{this.reps}</td>
-          <td align="center">{this.warmup ? "✔️" : ""}</td>
-        </tr>
-        {selected && (
-          <tr>
-            <td colSpan={4}>
-              <Bar weight={this.weight} />
-            </td>
-          </tr>
-        )}
-      </>
-    );
-  }
 }
 
-type ProgramSectionData = ProgramSectionDataGeneric<
-  BodyWeightExercise | BarbellLift
->;
+interface BarbellLifts {
+  rows: BarbellLift[];
+  type: "BarbellLifts";
+}
+
+interface BodyWeightExercises {
+  rows: BodyWeightExercise[];
+  type: "BodyWeightExercise";
+}
+
+type ProgramSectionData = BarbellLifts | BodyWeightExercises;
 
 export class ProgramSection {
   public data: ProgramSectionData;
@@ -210,15 +144,16 @@ export class ProgramSection {
   }
 }
 
-type ProgramSectionDataGeneric<T extends TableRow> = T[];
-
 export class ProgramBuilder {
   public static pushups = (): ProgramSection => {
-    const data: BodyWeightExercise[] = [
+    const rows: BodyWeightExercise[] = [
       new BodyWeightExercise(2, "pullup", true),
       new BodyWeightExercise(5, "pullup", false)
     ];
-    return new ProgramSection("Simple Pullup", data);
+    return new ProgramSection("Simple Pullup", {
+      rows,
+      type: "BodyWeightExercise"
+    });
   };
 
   public static xByX = (
@@ -226,18 +161,21 @@ export class ProgramBuilder {
     workoutType: WorkoutType,
     targetORM: Weight
   ): ProgramSection => {
-    let data: BarbellLift[] = [];
+    let rows: BarbellLift[] = [];
     switch (workoutType) {
       case WorkoutType.FIVE_BY_FIVE:
-        data = progressionFor(targetORM, 0.8, 5, 5, liftType);
+        rows = progressionFor(targetORM, 0.8, 5, 5, liftType);
         break;
       case WorkoutType.THREE_BY_THREE:
-        data = progressionFor(targetORM, 0.9, 3, 3, liftType);
+        rows = progressionFor(targetORM, 0.9, 3, 3, liftType);
         break;
       default:
         throw new Error(`${workoutType} is not accounted for yet.`);
     }
-    return new ProgramSection(`${liftType} ${workoutType}`, data);
+    return new ProgramSection(`${liftType} ${workoutType}`, {
+      rows,
+      type: "BarbellLifts"
+    });
   };
   private data: ProgramSection[];
 
