@@ -34,8 +34,8 @@ const AddLift = ({
       liftDocType: t.LiftDocType.BARBELL,
       liftDocVersion: "1"
     });
-    db.addLift(firebase.firestore(), user.uid, lift);
-  }, [weight, liftType, reps, user.uid, warmup]);
+    db.addLift(firebase.firestore(), user, lift);
+  }, [weight, liftType, reps, user, warmup]);
 
   return (
     <>

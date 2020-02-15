@@ -20,7 +20,7 @@ export default () => {
     if (user === null || liftId === undefined) {
       return;
     }
-    db.getLift(firebase.firestore(), user.uid, liftId).then((lift) => {
+    db.getLift(firebase.firestore(), user, liftId).then((lift) => {
       if (lift === undefined) {
         // TODO this could have better error handling.
         return;
@@ -46,7 +46,7 @@ export default () => {
       return;
     }
     if (weight !== undefined && liftId !== undefined) {
-      db.updateLift(firebase.firestore(), user.uid, liftId, {
+      db.updateLift(firebase.firestore(), user, liftId, {
         weight,
         reps,
         warmup
@@ -58,7 +58,7 @@ export default () => {
     if (user === null || liftId === undefined) {
       return;
     }
-    db.deleteLift(firebase.firestore(), user.uid, liftId).then(() =>
+    db.deleteLift(firebase.firestore(), user, liftId).then(() =>
       history.goBack()
     );
   }, [history, liftId, user]);

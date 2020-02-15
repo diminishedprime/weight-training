@@ -48,7 +48,7 @@ export const useTimeSinceLift = (
     if (user === undefined || liftUid === undefined) {
       return;
     }
-    db.getLift(firebase.firestore(), user.uid, liftUid).then((lift) => {
+    db.getLift(firebase.firestore(), user, liftUid).then((lift) => {
       if (lift === undefined) {
         return;
       }

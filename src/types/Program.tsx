@@ -148,7 +148,7 @@ class BarbellLift implements TableRow {
     console.log("adding lift");
     db.addLift(
       firebase.firestore(),
-      user.uid,
+      user,
       t.Lift.forBarbellLift(
         this.weight,
         this.liftType,
