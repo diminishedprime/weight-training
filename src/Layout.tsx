@@ -53,7 +53,8 @@ const Layout: React.FC<{}> = ({ children }) => {
 
             <div
               role="button"
-              className={`navbar-burger burger ${navActive && "is-active"}`}
+              className={`navbar-burger burger ${navActive &&
+                "is-active"} test-nav-button`}
               aria-label="menu"
               aria-expanded={navActive}
               data-target="navbarBasicExample"
@@ -75,7 +76,10 @@ const Layout: React.FC<{}> = ({ children }) => {
                 <HideLink className="navbar-item" to="/records">
                   Records
                 </HideLink>
-                <HideLink className="navbar-item" to="/settings">
+                <HideLink
+                  className="navbar-item test-settings-link"
+                  to="/settings"
+                >
                   Settings
                 </HideLink>
                 <div className="navbar-item">
