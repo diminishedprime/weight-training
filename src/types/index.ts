@@ -100,6 +100,7 @@ export interface RecordLiftProps {
 export const cacheDateKey = "@weight-training/cache-date-key";
 
 export enum LocalStorageKey {
+  ActivePrograms = "@weight-training/active-programs",
   SETTINGS = "@weight-training/settings",
   DAYS_WITH_LIFTS = "@weight-training/days-with-lifts",
   DAYS_WITH_LIFTS_LOCAL = "@weight-training/days-with-lifts-local",

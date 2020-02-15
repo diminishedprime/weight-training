@@ -178,9 +178,16 @@ export class ProgramBuilder {
     });
   };
   private data: ProgramSection[];
+  private displayName: string;
 
   constructor() {
     this.data = [];
+    this.displayName = "";
+  }
+
+  public setDisplayName(displayName: string) {
+    this.displayName = displayName;
+    return this;
   }
 
   public addProgramSection(programSection: ProgramSection) {
@@ -189,7 +196,12 @@ export class ProgramBuilder {
   }
 
   public build() {
-    return new Program2(this.data);
+    if (this.displayName === "") {
+      throw new Error(
+        "Display name cannot be blank, make sure to call .setDisplayName() in the builder"
+      );
+    }
+    return new Program2(this.data, this.displayName);
   }
 }
 
@@ -200,13 +212,19 @@ export class Program2 {
   // TODO - Add section for notes from the trainer, both for the Program, and
   // for each program section.
   private exercises: ProgramSection[];
+  private displayName: string;
 
-  constructor(exercises: ProgramSection[]) {
+  constructor(exercises: ProgramSection[], displayName: string) {
     this.exercises = exercises;
+    this.displayName = displayName;
   }
 
   public getExercises() {
     return this.exercises;
+  }
+
+  public getDisplayName(): string {
+    return this.displayName;
   }
 }
 

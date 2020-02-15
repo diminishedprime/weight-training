@@ -29,6 +29,7 @@ function paramsToObject(params: URLSearchParams) {
 const barbellProgram = (programsParams: BarbellLiftParams): t.Program2 => {
   const oneRepMax = t.Weight.fromJSON(programsParams.oneRepMax);
   return t.Program2.builder()
+    .setDisplayName(`${programsParams.liftType} ${programsParams.workoutType}`)
     .addProgramSection(
       ProgramBuilder.xByX(
         programsParams.liftType,
@@ -46,19 +47,15 @@ const Programs: React.FC = () => {
     [location.search]
   );
   const user = hooks.useForceSignIn();
-  const [program, setProgram] = React.useState(() => {
-    return t.Program2.builder().build();
-  });
-
-  // This is weird, but seems necessary. If the .tables function diretly returns
-  // the element instead of a way to construct the element, everything goes to
-  // shit.
-
-  React.useEffect(() => {
+  const [program] = React.useState(() => {
     if (params.type === "barbell-program") {
-      setProgram(barbellProgram(params as BarbellLiftParams));
+      return barbellProgram(params as BarbellLiftParams);
+    } else {
+      return t.Program2.builder()
+        .setDisplayName("ignore")
+        .build();
     }
-  }, [params.type, params]);
+  });
 
   if (user === null) {
     return null;
@@ -69,7 +66,12 @@ const Programs: React.FC = () => {
   return (
     <div>
       <div>
-        <Tables user={user} exercises={program.getExercises()} />
+        <Tables
+          displayText={program.getDisplayName()}
+          programUrl={`${location.pathname}${location.search}`}
+          user={user}
+          exercises={program.getExercises()}
+        />
       </div>
     </div>
   );

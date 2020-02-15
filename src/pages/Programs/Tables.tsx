@@ -1,6 +1,7 @@
 import moment from "moment";
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { useActivePrograms } from "../../hooks";
 import { FirebaseUser, ProgramSection } from "../../types";
 import BarbellTable from "./BarbellTable";
 
@@ -46,9 +47,17 @@ const ProgramSectionTable: React.FC<ProgramSectionTableProps> = ({
 interface TableProps {
   user: FirebaseUser;
   exercises: ProgramSection[];
+  programUrl: string;
+  displayText: string;
 }
 
-const Tables: React.FC<TableProps> = ({ user, exercises }) => {
+const Tables: React.FC<TableProps> = ({
+  user,
+  exercises,
+  programUrl,
+  displayText
+}) => {
+  const { addActiveProgram, removeActiveProgram } = useActivePrograms();
   const [activeExercise, setActiveExercise] = React.useState(0);
   const [doneWithSections, setDoneWithSections] = React.useState(false);
 
@@ -56,6 +65,20 @@ const Tables: React.FC<TableProps> = ({ user, exercises }) => {
     setActiveExercise((old) => old + 1);
     setDoneWithSections(true);
   }, []);
+
+  React.useEffect(() => {
+    if (doneWithSections) {
+      removeActiveProgram(programUrl);
+    } else {
+      addActiveProgram(programUrl, displayText);
+    }
+  }, [
+    doneWithSections,
+    removeActiveProgram,
+    addActiveProgram,
+    displayText,
+    programUrl
+  ]);
 
   return (
     <div>

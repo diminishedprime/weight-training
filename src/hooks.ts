@@ -158,3 +158,48 @@ export const useMeasurePage = (pageTitle: string) => {
     });
   }, [location.pathname, pageTitle]);
 };
+
+interface ActivePrograms {
+  programs: { [programUrl: string]: { displayText: string; url: string } };
+  version: "1";
+}
+
+type UseActivePrograms = () => {
+  activePrograms: ActivePrograms;
+  addActiveProgram: (programUrl: string, displayText: string) => void;
+  removeActiveProgram: (programUrl: string) => void;
+};
+
+export const useActivePrograms: UseActivePrograms = () => {
+  const [activePrograms, setActivePrograms] = useLocalStorage<ActivePrograms>(
+    t.LocalStorageKey.ActivePrograms,
+    { programs: {}, version: "1" }
+  );
+
+  const addActiveProgram = React.useCallback(
+    (programUrl: string, displayText: string) => {
+      if (displayText !== "ignore") {
+        setActivePrograms((old) => ({
+          ...old,
+          programs: {
+            ...old.programs,
+            [programUrl]: { displayText, url: programUrl }
+          }
+        }));
+      }
+    },
+    [setActivePrograms]
+  );
+
+  const removeActiveProgram = React.useCallback(
+    (programUrl: string) => {
+      setActivePrograms((old) => {
+        delete old.programs[programUrl];
+        return { ...old };
+      });
+    },
+    [setActivePrograms]
+  );
+
+  return { activePrograms, addActiveProgram, removeActiveProgram };
+};

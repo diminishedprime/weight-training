@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import * as React from "react";
 import * as redux from "react-redux";
+import { Link } from "react-router-dom";
 import LiftCalendar from "../components/LiftCalendar";
 import LiftCard from "../components/LiftCard";
 import * as db from "../db";
@@ -26,12 +27,28 @@ export default () => {
     });
   }, [user, dispatch]);
 
+  const { activePrograms } = hooks.useActivePrograms();
+
   if (user === null) {
     return <div>Checking login status</div>;
   }
 
   return (
     <>
+      {Object.values(activePrograms.programs).length > 0 && (
+        <>
+          <h3>In-Progress Programs</h3>
+          <ul>
+            {Object.values(activePrograms.programs).map((program) => {
+              return (
+                <li>
+                  <Link to={program.url}>{program.displayText}</Link>
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      )}
       <div className="flex">
         {Object.values(t.LiftType).map((liftType) => (
           <LiftCard
