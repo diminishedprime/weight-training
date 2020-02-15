@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as rrd from "react-router-dom";
-import * as hooks from "../hooks";
-import * as t from "../types";
-import { ProgramBuilder } from "../types";
+import * as hooks from "../../hooks";
+import * as t from "../../types";
+import { ProgramBuilder } from "../../types";
 
 export interface BarbellLiftParams {
   type: "barbell-program";
