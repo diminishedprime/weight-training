@@ -5,7 +5,7 @@ import { LiftType } from "./common";
 import { PlateTypes } from "./common";
 import { LiftDoc as DBLiftDoc } from "./db/LiftDoc";
 import { Lift } from "./Lift";
-import { Program2 } from "./Program";
+import { Program } from "./Program";
 import { UserDoc } from "./UserDoc";
 import { Weight } from "./Weight";
 import { WeightUnit } from "./WeightUnit";
@@ -75,7 +75,7 @@ export interface RootState {
     userDoc?: UserDoc;
   };
   forceUpdateLift: number;
-  program?: Program2;
+  program?: Program;
 }
 
 declare module "typesafe-actions" {

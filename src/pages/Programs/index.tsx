@@ -17,7 +17,7 @@ const Programs: React.FC = () => {
     if (params?.type === "barbell-program") {
       return barbellProgram(params);
     } else {
-      return t.Program2.builder()
+      return t.Program.builder()
         .setDisplayName("ignore")
         .build();
     }

@@ -92,11 +92,11 @@ export class ProgramBuilder {
         "Display name cannot be blank, make sure to call .setDisplayName() in the builder"
       );
     }
-    return new Program2(this.data, this.displayName);
+    return new Program(this.data, this.displayName);
   }
 }
 
-export class Program2 {
+export class Program {
   public static builder = (): ProgramBuilder => {
     return new ProgramBuilder();
   };

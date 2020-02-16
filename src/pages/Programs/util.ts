@@ -1,6 +1,6 @@
 import {
   LiftType,
-  Program2,
+  Program,
   ProgramBuilder,
   Weight,
   WorkoutType
@@ -60,8 +60,8 @@ export const paramsToProgramsParams = (
   throw new Error(`${type} is not yet supported.`);
 };
 
-export const barbellProgram = (programsParams: BarbellLiftParams): Program2 => {
-  return Program2.builder()
+export const barbellProgram = (programsParams: BarbellLiftParams): Program => {
+  return Program.builder()
     .setDisplayName(`${programsParams.liftType} ${programsParams.workoutType}`)
     .addProgramSection(
       ProgramBuilder.xByX(
