@@ -4,8 +4,9 @@ import deadliftImage from "./images/deadlift.png";
 import dumbbellImage from "./images/dumbbell.png";
 import frontSquatImage from "./images/front_squat.png";
 import overheadPressImage from "./images/overhead_press.png";
-import { LiftType, PlateTypes } from "./types/common";
+import { PlateTypes } from "./types/common";
 import { Weight } from "./types/Weight";
+import { LiftType } from "./types/db";
 
 export const images = {
   dumbbell: dumbbellImage

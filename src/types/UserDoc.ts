@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import { toUserDoc, userDocfromJSON } from "../types/db/UserDoc";
-import { LiftType, ONE_REP_MAX } from "./common";
-import { UserDoc as DBUserDoc } from "./db";
+import { ONE_REP_MAX } from "./common";
+import { UserDoc as DBUserDoc, LiftType } from "./db";
 import {
   AsFirestore,
   AsJson,
