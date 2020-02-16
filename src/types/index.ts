@@ -61,15 +61,6 @@ export const WorkoutTypeLabel = {
   [WorkoutType.THREE_BY_THREE]: "3x3"
 };
 
-export type Program = ProgramLift[];
-
-export interface ProgramLift {
-  weight: Weight;
-  type: LiftType;
-  reps: number;
-  warmup: boolean;
-}
-
 export type Optional<T> = { [P in keyof T]?: T[P] };
 export interface Grouping<T> {
   [grouping: string]: T[];

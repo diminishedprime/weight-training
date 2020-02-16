@@ -44,49 +44,6 @@ export const splitConfig = (plateConfig: t.PlateConfig): t.PlateConfig => {
   return copied;
 };
 
-const progressionFor = (
-  oneRepMax: t.Weight,
-  fraction: number,
-  liftsAtWeight: number,
-  reps: number,
-  type: t.LiftType
-): t.Program => {
-  const bar = t.Weight.bar();
-  const targetWeight = oneRepMax.multiply(fraction).nearestFive();
-  const jump = targetWeight.subtract(bar).divide(4);
-  const warmup = false;
-  const oneJump = bar.add(jump).nearestFive();
-  const twoJump = bar.add(jump.multiply(2)).nearestFive();
-  const threeJump = bar.add(jump.multiply(3)).nearestFive();
-  return [
-    { weight: bar, reps: 5, type, warmup: true },
-    { weight: oneJump, reps: 5, type, warmup: true },
-    { weight: twoJump, reps: 3, type, warmup: true },
-    { weight: threeJump, reps: 2, type, warmup: true },
-    ...range(liftsAtWeight).map(() => ({
-      weight: targetWeight,
-      reps,
-      type,
-      warmup
-    }))
-  ];
-};
-
-export const programFor = (
-  workout: t.WorkoutType,
-  oneRepMax: t.Weight,
-  liftType: t.LiftType
-): t.Program => {
-  switch (workout) {
-    case t.WorkoutType.FIVE_BY_FIVE:
-      return progressionFor(oneRepMax, 0.8, 5, 5, liftType);
-    case t.WorkoutType.THREE_BY_THREE:
-      return progressionFor(oneRepMax, 0.9, 3, 3, liftType);
-    default:
-      return [];
-  }
-};
-
 export const range = (to: number): undefined[] => {
   const a: undefined[] = [];
   for (let i = 0; i < to; i++) {
