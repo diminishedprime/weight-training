@@ -80,7 +80,7 @@ const Tables: React.FC<TableProps> = ({
   ]);
 
   return (
-    <div>
+    <div className="programs-tables">
       {exercises.map((section, idx) => (
         <ProgramSectionTable
           user={user}

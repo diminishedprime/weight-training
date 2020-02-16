@@ -1,11 +1,11 @@
 import { useHistory, useLocation } from "react-router-dom";
 
-import firebase from "firebase/app";
 import moment from "moment";
 import * as React from "react";
 import * as db from "./db";
 import * as serviceWorker from "./serviceWorker";
 import * as t from "./types";
+import { useSelector } from "./types";
 
 const formatFor = (
   m: moment.Moment
@@ -40,6 +40,7 @@ export const useTimeSinceLift = (
   user: t.FirebaseUser | undefined,
   liftUid: string | undefined
 ): { moment?: moment.Moment; className?: string; displayString?: string } => {
+  const firestore = useSelector((a) => a.firestore);
   const [m, setMoment] = React.useState<moment.Moment>();
   const [className, setClassName] = React.useState<string>();
   const [displayString, setDisplayString] = React.useState();
@@ -48,7 +49,7 @@ export const useTimeSinceLift = (
     if (user === undefined || liftUid === undefined) {
       return;
     }
-    db.getLift(firebase.firestore(), user, liftUid).then((lift) => {
+    db.getLift(firestore, user, liftUid).then((lift) => {
       if (lift === undefined) {
         return;
       }
@@ -58,7 +59,7 @@ export const useTimeSinceLift = (
       setDisplayString(format.displayString);
       setClassName(format.className);
     });
-  }, [user, liftUid]);
+  }, [user, liftUid, firestore]);
 
   React.useEffect(() => {
     if (m === undefined) {
@@ -77,6 +78,7 @@ export const useTimeSinceLift = (
 
 export const useForceSignIn = (): t.FirebaseUser | null => {
   const history = useHistory();
+  const firebase = useSelector((a) => a.firebase);
   const [user, setUser, cleanup] = useLocalStorage<t.FirebaseUser | null>(
     t.LocalStorageKey.FIREBASE_USER,
     null
@@ -92,7 +94,7 @@ export const useForceSignIn = (): t.FirebaseUser | null => {
         setUser(u);
       }
     });
-  }, [history, cleanup, setUser]);
+  }, [history, cleanup, setUser, firebase]);
   return user;
 };
 
@@ -151,12 +153,13 @@ export const useSettings = (): UseSettings => {
 
 export const useMeasurePage = (pageTitle: string) => {
   const location = useLocation();
+  const firebase = useSelector((a) => a.firebase);
   React.useEffect(() => {
     firebase.analytics().logEvent("page_view", {
       page_title: pageTitle,
       page_path: location.pathname
     });
-  }, [location.pathname, pageTitle]);
+  }, [location.pathname, pageTitle, firebase]);
 };
 
 interface ActivePrograms {

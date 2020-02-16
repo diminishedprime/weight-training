@@ -1,12 +1,18 @@
+import firebase from "firebase/app";
 import * as ta from "typesafe-actions";
 import * as t from "./types";
 
 export const setUserDoc = ta.createAction(
   "setUserDoc",
-  (action) => (userDoc: t.UserDoc) => action({ userDoc }),
+  (action) => (userDoc: t.UserDoc) => action({ userDoc })
 );
 
 export const nextForceUpdateLift = ta.createAction(
   "nextForceUpdateLift",
-  (action) => () => action({}),
+  (action) => () => action({})
+);
+
+export const setFirebase = ta.createAction(
+  "set-firebase",
+  (action) => (f: typeof firebase) => action({ firebase: f })
 );

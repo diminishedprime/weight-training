@@ -79,6 +79,7 @@ export type RootAction = ta.ActionType<typeof import("../actions")>;
 
 export interface RootState {
   firestore: Firestore;
+  firebase: typeof firebase;
   localStorage: {
     userDoc?: UserDoc;
   };

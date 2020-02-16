@@ -29,11 +29,19 @@ const getInitialState = (): t.RootState => {
       (localStorage as any).userDoc = t.UserDoc.fromJSON(JSON.stringify(o));
     }
   }
-  return { localStorage, forceUpdateLift: 0, firestore: firebase.firestore() };
+  return {
+    localStorage,
+    forceUpdateLift: 0,
+    firebase,
+    firestore: firebase.firestore()
+  };
 };
 
 const rootReducer = ta
   .createReducer(getInitialState())
+  .handleAction([a.setFirebase], (state, { payload: { firebase } }) =>
+    Object.assign({}, state, { firebase })
+  )
   .handleAction([a.nextForceUpdateLift], (state) =>
     Object.assign({}, state, { forceUpdateLift: state.forceUpdateLift + 1 })
   )

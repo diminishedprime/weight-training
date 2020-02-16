@@ -6,6 +6,7 @@ import LiftTable from "../components/LiftTable";
 import AddLift from "../components/record-lift/Custom";
 import * as hooks from "../hooks";
 import * as t from "../types";
+import { barbellLiftParams } from "./Programs/util";
 
 const workoutTypeMeta: { [t in t.WorkoutType]: string } = {
   [t.WorkoutType.THREE_BY_THREE]: "3x3",
@@ -62,9 +63,13 @@ const GetToProgram: React.FC<GetToProgramProps> = ({
       )}
       {workoutType !== undefined && targetOneRepMax !== undefined && (
         <Link
-          to={`/programs/${liftType}?type=${"barbell-program"}&liftType=${liftType}&workoutType=${
-            t.WorkoutType.THREE_BY_THREE
-          }&oneRepMax=${targetOneRepMax.asJSON()}`}
+          to={barbellLiftParams({
+            oneRepMax: targetOneRepMax,
+            programName: liftType,
+            type: "barbell-program",
+            liftType,
+            workoutType
+          })}
         >
           <button className="button">Go!</button>
         </Link>
