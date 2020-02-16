@@ -1,9 +1,9 @@
 import firebase from "firebase/app";
 import * as rr from "react-redux";
 import * as ta from "typesafe-actions";
-import { LiftType } from "./db/LiftType";
 import { PlateTypes } from "./common";
 import { LiftDoc as DBLiftDoc } from "./db/LiftDoc";
+import { LiftType } from "./db/LiftType";
 import { Lift } from "./Lift";
 import { Program } from "./Program";
 import { UserDoc } from "./UserDoc";

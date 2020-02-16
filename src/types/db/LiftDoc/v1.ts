@@ -1,6 +1,6 @@
 import * as t from "../../../types";
-import { WeightField } from "../WeightField/v1";
 import { LiftType } from "../LiftType/v1";
+import { WeightField } from "../WeightField/v1";
 
 export interface LiftDoc {
   date: t.FirestoreTimestamp;
