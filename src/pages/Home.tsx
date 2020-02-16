@@ -41,7 +41,7 @@ export default () => {
           <ul>
             {Object.values(activePrograms.programs).map((program) => {
               return (
-                <li>
+                <li key={program.url}>
                   <Link to={program.url}>{program.displayText}</Link>
                 </li>
               );

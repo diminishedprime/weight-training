@@ -57,7 +57,7 @@ export const paramsToProgramsParams = (
     };
     return result;
   }
-  throw new Error("${type} is not yet supported.");
+  throw new Error(`${type} is not yet supported.`);
 };
 
 export const barbellProgram = (programsParams: BarbellLiftParams): Program2 => {
