@@ -4,7 +4,7 @@ import React from "react";
 import Bar from "../../components/Bar";
 import * as db from "../../db";
 import * as hooks from "../../hooks";
-import { BarbellLift, FirebaseUser, Lift } from "../../types";
+import { BarbellLift, FirebaseUser, Lift, useSelector } from "../../types";
 import usePersistentRowProgress from "./usePersistentRowProgress";
 
 interface BarbellRowProps {
@@ -75,6 +75,7 @@ const BarbellTable: React.FC<BarbellTableProps> = ({
     rows,
     finishSection
   );
+  const firestore = useSelector((a) => a.firestore);
   const complete = current >= rows.length;
 
   return (
@@ -121,7 +122,7 @@ const BarbellTable: React.FC<BarbellTableProps> = ({
                         <button
                           onClick={finishLift(idx, () => {
                             db.addLift(
-                              firebase.firestore(),
+                              firestore,
                               user,
                               Lift.forBarbellLift(
                                 row.weight,

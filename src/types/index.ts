@@ -78,6 +78,7 @@ export interface Grouping<T> {
 export type RootAction = ta.ActionType<typeof import("../actions")>;
 
 export interface RootState {
+  firestore: Firestore;
   localStorage: {
     userDoc?: UserDoc;
   };

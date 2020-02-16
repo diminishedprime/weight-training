@@ -1,4 +1,5 @@
 import firebase from "firebase/app";
+import "firebase/firestore";
 import * as redux from "redux";
 import * as ta from "typesafe-actions";
 import * as a from "./actions";
@@ -28,7 +29,7 @@ const getInitialState = (): t.RootState => {
       (localStorage as any).userDoc = t.UserDoc.fromJSON(JSON.stringify(o));
     }
   }
-  return { localStorage, forceUpdateLift: 0 };
+  return { localStorage, forceUpdateLift: 0, firestore: firebase.firestore() };
 };
 
 const rootReducer = ta
