@@ -1,5 +1,6 @@
 import * as t from "../../../types";
 import { WeightField } from "../WeightField";
+import { LiftType } from "../LiftType/v1";
 
 export enum LiftDocType {
   BARBELL = "barbell"
@@ -8,7 +9,7 @@ export enum LiftDocType {
 interface DeadliftDoc {
   date: t.FirestoreTimestamp;
   weight: WeightField;
-  type: t.LiftType.DEADLIFT;
+  type: LiftType.DEADLIFT;
   reps: number;
   warmup: boolean | undefined;
   version: "1";
@@ -19,7 +20,7 @@ interface DeadliftDoc {
 interface SquatDoc {
   date: t.FirestoreTimestamp;
   weight: WeightField;
-  type: t.LiftType.SQUAT;
+  type: LiftType.SQUAT;
   reps: number;
   warmup: boolean | undefined;
   version: "1";
@@ -30,7 +31,7 @@ interface SquatDoc {
 interface FrontSquatDoc {
   date: t.FirestoreTimestamp;
   weight: WeightField;
-  type: t.LiftType.FRONT_SQUAT;
+  type: LiftType.FRONT_SQUAT;
   reps: number;
   warmup: boolean | undefined;
   version: "1";
@@ -41,7 +42,7 @@ interface FrontSquatDoc {
 interface BenchPressDoc {
   date: t.FirestoreTimestamp;
   weight: WeightField;
-  type: t.LiftType.BENCH_PRESS;
+  type: LiftType.BENCH_PRESS;
   reps: number;
   warmup: boolean | undefined;
   version: "1";
@@ -52,7 +53,7 @@ interface BenchPressDoc {
 interface OverheadPressDoc {
   date: t.FirestoreTimestamp;
   weight: WeightField;
-  type: t.LiftType.OVERHEAD_PRESS;
+  type: LiftType.OVERHEAD_PRESS;
   reps: number;
   warmup: boolean | undefined;
   version: "1";
