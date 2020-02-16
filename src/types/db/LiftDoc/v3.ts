@@ -1,6 +1,8 @@
 import firebase from "firebase/app";
-import { LiftType } from "../LiftType/v2";
+import { LiftType as LiftTypeV1 } from "../LiftType/v1";
+import { LiftType, migrateV1 as liftTypeMigrateV1 } from "../LiftType/v2";
 import { WeightField } from "../WeightField";
+import { LiftDoc as V2 } from "./v2";
 
 interface DeadliftDoc {
   date: firebase.firestore.Timestamp;
@@ -71,4 +73,27 @@ type BaseLiftDoc =
   | BenchPressDoc
   | OverheadPressDoc;
 
-export type LiftDoc = BaseLiftDoc & { v: "3" };
+export type LiftDoc = BaseLiftDoc & { version: "3" };
+
+export const migrateV2 = (v2: V2): LiftDoc => {
+  const type = liftTypeMigrateV1(v2.type);
+  const baseDoc = {
+    warmup: v2.warmup || false,
+    reps: v2.reps,
+    date: v2.date,
+    weight: v2.weight,
+    type
+  };
+  switch (v2.type) {
+    case LiftTypeV1.BENCH_PRESS:
+      return { ...(baseDoc as BenchPressDoc), version: "3" };
+    case LiftTypeV1.DEADLIFT:
+      return { ...(baseDoc as DeadliftDoc), version: "3" };
+    case LiftTypeV1.FRONT_SQUAT:
+      return { ...(baseDoc as FrontSquatDoc), version: "3" };
+    case LiftTypeV1.OVERHEAD_PRESS:
+      return { ...(baseDoc as OverheadPressDoc), version: "3" };
+    case LiftTypeV1.SQUAT:
+      return { ...(baseDoc as SquatDoc), version: "3" };
+  }
+};

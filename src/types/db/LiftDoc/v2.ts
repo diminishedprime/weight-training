@@ -1,3 +1,4 @@
+import { LiftDoc as V1 } from "./v1";
 import * as t from "../../../types";
 import { LiftType } from "../LiftType/v1";
 import { WeightField } from "../WeightField";
@@ -67,3 +68,12 @@ export type LiftDoc =
   | FrontSquatDoc
   | BenchPressDoc
   | OverheadPressDoc;
+
+export const migrateV1 = (v1: V1): LiftDoc => {
+  const v2: LiftDoc = {
+    ...v1,
+    liftDocType: LiftDocType.BARBELL,
+    liftDocVersion: "1"
+  };
+  return v2;
+};
