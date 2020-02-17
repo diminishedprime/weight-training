@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import { toUserDoc, userDocfromJSON } from "../types/db/UserDoc";
 import { ONE_REP_MAX } from "./common";
-import { LiftType, UserDoc as DBUserDoc } from "./db";
+import { UserDoc as DBUserDoc, LiftType } from "./db";
 import {
   AsFirestore,
   AsJson,
@@ -31,32 +31,44 @@ export class UserDoc
   public static empty = (): UserDoc => {
     const defaultTime = firebase.firestore.Timestamp.fromMillis(0);
     return new UserDoc({
-      version: "2",
-      [LiftType.BENCH_PRESS]: {
+      version: "3",
+      [LiftType.Snatch]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
           time: defaultTime
         }
       },
-      [LiftType.DEADLIFT]: {
+      [LiftType.CleanAndJerk]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
           time: defaultTime
         }
       },
-      [LiftType.FRONT_SQUAT]: {
+      [LiftType.BenchPress]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
           time: defaultTime
         }
       },
-      [LiftType.OVERHEAD_PRESS]: {
+      [LiftType.Deadlift]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
           time: defaultTime
         }
       },
-      [LiftType.SQUAT]: {
+      [LiftType.FrontSquat]: {
+        [ONE_REP_MAX]: {
+          weight: Weight.zero(),
+          time: defaultTime
+        }
+      },
+      [LiftType.OverheadPress]: {
+        [ONE_REP_MAX]: {
+          weight: Weight.zero(),
+          time: defaultTime
+        }
+      },
+      [LiftType.Squat]: {
         [ONE_REP_MAX]: {
           weight: Weight.zero(),
           time: defaultTime
@@ -64,12 +76,14 @@ export class UserDoc
       }
     });
   };
-  public [LiftType.BENCH_PRESS]: LiftMeta;
-  public [LiftType.DEADLIFT]: LiftMeta;
-  public [LiftType.FRONT_SQUAT]: LiftMeta;
-  public [LiftType.OVERHEAD_PRESS]: LiftMeta;
-  public [LiftType.SQUAT]: LiftMeta;
-  public version: "2" = "2";
+  public [LiftType.BenchPress]: LiftMeta;
+  public [LiftType.Deadlift]: LiftMeta;
+  public [LiftType.FrontSquat]: LiftMeta;
+  public [LiftType.OverheadPress]: LiftMeta;
+  public [LiftType.Squat]: LiftMeta;
+  public [LiftType.CleanAndJerk]: LiftMeta;
+  public [LiftType.Snatch]: LiftMeta;
+  public version: "3" = "3";
 
   constructor(dbUserDoc: DBUserDoc) {
     Object.values(LiftType).forEach((liftType) => {
@@ -89,11 +103,13 @@ export class UserDoc
 
     const userDoc = dbUserDoc as UserDoc;
 
-    this[LiftType.BENCH_PRESS] = userDoc[LiftType.BENCH_PRESS];
-    this[LiftType.DEADLIFT] = userDoc[LiftType.DEADLIFT];
-    this[LiftType.FRONT_SQUAT] = userDoc[LiftType.FRONT_SQUAT];
-    this[LiftType.OVERHEAD_PRESS] = userDoc[LiftType.OVERHEAD_PRESS];
-    this[LiftType.SQUAT] = userDoc[LiftType.SQUAT];
+    this[LiftType.BenchPress] = userDoc[LiftType.BenchPress];
+    this[LiftType.Deadlift] = userDoc[LiftType.Deadlift];
+    this[LiftType.FrontSquat] = userDoc[LiftType.FrontSquat];
+    this[LiftType.OverheadPress] = userDoc[LiftType.OverheadPress];
+    this[LiftType.Squat] = userDoc[LiftType.Squat];
+    this[LiftType.Snatch] = userDoc[LiftType.Snatch];
+    this[LiftType.CleanAndJerk] = userDoc[LiftType.CleanAndJerk];
   }
   public getVersion() {
     return this.version;

@@ -27,17 +27,22 @@ export const plateWeights: Weight[] = Object.values(plateWeight);
 export const liftMetadata: {
   [lifttype in LiftType]: { image: string; displayText: string };
 } = {
-  [LiftType.DEADLIFT]: { image: deadliftImage, displayText: "Deadlift" },
-  [LiftType.SQUAT]: { image: backSquatImage, displayText: "Back Squat" },
-  [LiftType.FRONT_SQUAT]: {
+  [LiftType.CleanAndJerk]: {
+    image: dumbbellImage,
+    displayText: "Clean And Jerk"
+  },
+  [LiftType.Snatch]: { image: dumbbellImage, displayText: "Snatch" },
+  [LiftType.Deadlift]: { image: deadliftImage, displayText: "Deadlift" },
+  [LiftType.Squat]: { image: backSquatImage, displayText: "Back Squat" },
+  [LiftType.FrontSquat]: {
     image: frontSquatImage,
     displayText: "Front Squat"
   },
-  [LiftType.OVERHEAD_PRESS]: {
+  [LiftType.OverheadPress]: {
     image: overheadPressImage,
     displayText: "Overhead Press"
   },
-  [LiftType.BENCH_PRESS]: {
+  [LiftType.BenchPress]: {
     image: benchPressImage,
     displayText: "Bench Press"
   }

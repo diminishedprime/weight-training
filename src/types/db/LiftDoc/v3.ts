@@ -4,7 +4,7 @@ import { LiftType, migrateV1 as liftTypeMigrateV1 } from "../LiftType/v2";
 import { WeightField } from "../WeightField";
 import { LiftDoc as V2 } from "./v2";
 
-interface DeadliftDoc {
+export interface DeadliftDoc {
   date: firebase.firestore.Timestamp;
   weight: WeightField;
   type: LiftType.Deadlift;
@@ -12,7 +12,7 @@ interface DeadliftDoc {
   warmup: boolean;
 }
 
-interface SquatDoc {
+export interface SquatDoc {
   date: firebase.firestore.Timestamp;
   weight: WeightField;
   type: LiftType.Squat;
@@ -20,7 +20,7 @@ interface SquatDoc {
   warmup: boolean;
 }
 
-interface FrontSquatDoc {
+export interface FrontSquatDoc {
   date: firebase.firestore.Timestamp;
   weight: WeightField;
   type: LiftType.FrontSquat;
@@ -28,7 +28,7 @@ interface FrontSquatDoc {
   warmup: boolean;
 }
 
-interface BenchPressDoc {
+export interface BenchPressDoc {
   date: firebase.firestore.Timestamp;
   weight: WeightField;
   type: LiftType.BenchPress;
@@ -36,7 +36,7 @@ interface BenchPressDoc {
   warmup: boolean;
 }
 
-interface OverheadPressDoc {
+export interface OverheadPressDoc {
   date: firebase.firestore.Timestamp;
   weight: WeightField;
   type: LiftType.OverheadPress;
@@ -44,7 +44,7 @@ interface OverheadPressDoc {
   warmup: boolean;
 }
 
-interface SnatchDoc {
+export interface SnatchDoc {
   date: firebase.firestore.Timestamp;
   weight: WeightField;
   type: LiftType.Snatch;
@@ -54,7 +54,7 @@ interface SnatchDoc {
   startPosition: "high hang" | "above the knee" | "below the knee" | "floor";
 }
 
-interface CleanAndJerkDoc {
+export interface CleanAndJerkDoc {
   date: firebase.firestore.Timestamp;
   weight: WeightField;
   type: LiftType.CleanAndJerk;

@@ -1,6 +1,6 @@
 import * as t from "../types";
 import { LiftDoc } from "./db";
-import { toLift } from "./db/LiftDoc";
+import { toLift, BenchPressDoc } from "./db/LiftDoc";
 import { DisplayLift } from "./index";
 import {
   AsFirestore,
@@ -20,17 +20,66 @@ export class Lift implements AsFirestore, Equals<Lift> {
     warmup: boolean,
     date: FirestoreTimestamp
   ) => {
-    const doc: LiftDoc = {
-      weight,
-      type: liftType,
-      reps,
-      warmup,
-      date,
-      version: "1",
-      liftDocType: t.LiftDocType.BARBELL,
-      liftDocVersion: "1"
-    };
-    return new Lift(doc);
+    switch (liftType) {
+      case LiftType.Snatch:
+      case LiftType.CleanAndJerk:
+        throw new Error("Bad!");
+      case LiftType.BenchPress:
+        return new Lift({
+          version: "3",
+          ...{
+            weight,
+            type: liftType,
+            reps,
+            warmup,
+            date
+          }
+        });
+      case LiftType.FrontSquat:
+        return new Lift({
+          version: "3",
+          ...{
+            weight,
+            type: liftType,
+            reps,
+            warmup,
+            date
+          }
+        });
+      case LiftType.Deadlift:
+        return new Lift({
+          version: "3",
+          ...{
+            weight,
+            type: liftType,
+            reps,
+            warmup,
+            date
+          }
+        });
+      case LiftType.OverheadPress:
+        return new Lift({
+          version: "3",
+          ...{
+            weight,
+            type: liftType,
+            reps,
+            warmup,
+            date
+          }
+        });
+      case LiftType.Squat:
+        return new Lift({
+          version: "3",
+          ...{
+            weight,
+            type: liftType,
+            reps,
+            warmup,
+            date
+          }
+        });
+    }
   };
 
   public static fromDb = (lift: LiftDoc) => {

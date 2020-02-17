@@ -1,6 +1,8 @@
 import firebase from "firebase";
 import "firebase/analytics";
 import * as t from "../../../types";
+import { LiftType as LiftTypeV1 } from "../LiftType/v1";
+import { LiftType as LiftTypeV2 } from "../LiftType/v2";
 import * as sut from "./index";
 import { UserDoc as V1Db } from "./v1";
 import { UserDoc as V2Db } from "./v2";
@@ -48,11 +50,11 @@ describe("for migrating UserDoc from firestore", () => {
     const expected = t.UserDoc.empty();
     const ten = t.Weight.lbs(10);
     const tenNano = new firebase.firestore.Timestamp(0, 10);
-    expected.setORM(t.LiftType.DEADLIFT, ten, tenNano);
-    expected.setORM(t.LiftType.SQUAT, ten, tenNano);
-    expected.setORM(t.LiftType.FRONT_SQUAT, ten, tenNano);
-    expected.setORM(t.LiftType.BENCH_PRESS, ten, tenNano);
-    expected.setORM(t.LiftType.OVERHEAD_PRESS, ten, tenNano);
+    expected.setORM(LiftTypeV2.Deadlift, ten, tenNano);
+    expected.setORM(LiftTypeV2.Squat, ten, tenNano);
+    expected.setORM(LiftTypeV2.FrontSquat, ten, tenNano);
+    expected.setORM(LiftTypeV2.BenchPress, ten, tenNano);
+    expected.setORM(LiftTypeV2.OverheadPress, ten, tenNano);
     expect(actual.asFirestore()).toEqual(expected.asFirestore());
   });
 });

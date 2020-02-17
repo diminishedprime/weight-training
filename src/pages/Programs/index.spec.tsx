@@ -22,9 +22,9 @@ describe("Programs Page", () => {
   test("/programs deadlift 3x3 renders", () => {
     const url = util.barbellLiftParams({
       workoutType: t.WorkoutType.THREE_BY_THREE,
-      programName: t.LiftType.DEADLIFT,
+      programName: t.LiftType.Deadlift,
       oneRepMax: t.Weight.lbs(225),
-      liftType: t.LiftType.DEADLIFT,
+      liftType: t.LiftType.Deadlift,
       type: "barbell-program"
     });
     const wrapper = mount(

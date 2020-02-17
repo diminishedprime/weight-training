@@ -72,6 +72,7 @@ export type LiftDoc =
 export const migrateV1 = (v1: V1): LiftDoc => {
   const v2: LiftDoc = {
     ...v1,
+    version: "1",
     liftDocType: LiftDocType.BARBELL,
     liftDocVersion: "1"
   };

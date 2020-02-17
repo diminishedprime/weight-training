@@ -4,8 +4,8 @@ import moment from "moment";
 import * as sut from "../db";
 import * as t from "../types";
 
-const DEADLIFT = t.LiftType.DEADLIFT;
-const SQUAT = t.LiftType.SQUAT;
+const DEADLIFT = t.LiftType.Deadlift;
+const SQUAT = t.LiftType.Squat;
 
 const projectId = "weight-training-8a1ac";
 
@@ -225,9 +225,7 @@ describe("for the db", () => {
       type: DEADLIFT,
       date: firebase.firestore.Timestamp.now(),
       warmup: false,
-      version: "1",
-      liftDocType: t.LiftDocType.BARBELL,
-      liftDocVersion: "1"
+      version: "3"
     });
 
     test("adding a new lift puts it in the db.", async () => {
