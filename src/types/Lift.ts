@@ -1,4 +1,4 @@
-import { LiftDoc } from "./db";
+import { BarbellLiftType, LiftDoc } from "./db";
 import {
   CleanAndJerkPosition,
   CleanAndJerkStyle,
@@ -60,15 +60,12 @@ export class Lift implements AsFirestore, Equals<Lift> {
 
   public static forBarbellLift = (
     weight: Weight,
-    liftType: LiftType,
+    liftType: BarbellLiftType,
     reps: number,
     warmup: boolean,
     date: FirestoreTimestamp
   ) => {
     switch (liftType) {
-      case LiftType.Snatch:
-      case LiftType.CleanAndJerk:
-        throw new Error("Bad!");
       case LiftType.BenchPress:
         return new Lift({
           version: "3",

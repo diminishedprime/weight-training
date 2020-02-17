@@ -10,6 +10,25 @@ export enum LiftType {
   CleanAndJerk = "clean-and-jerk"
 }
 
+export type BarbellLiftType =
+  | LiftType.Deadlift
+  | LiftType.Squat
+  | LiftType.FrontSquat
+  | LiftType.BenchPress
+  | LiftType.OverheadPress;
+
+export const barbellLiftTypes: BarbellLiftType[] = [
+  LiftType.Deadlift,
+  LiftType.Squat,
+  LiftType.FrontSquat,
+  LiftType.BenchPress,
+  LiftType.OverheadPress
+];
+
+export const toLiftType = (t: BarbellLiftType): LiftType => {
+  return t;
+};
+
 export const migrateV1 = (liftType: V1): LiftType => {
   switch (liftType) {
     case V1.BENCH_PRESS:

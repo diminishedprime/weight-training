@@ -3,7 +3,6 @@ import * as rr from "react-redux";
 import * as ta from "typesafe-actions";
 import { PlateTypes } from "./common";
 import { LiftDoc as DBLiftDoc } from "./db/LiftDoc";
-import { LiftType } from "./db/LiftType";
 import { Lift } from "./Lift";
 import { Program } from "./Program";
 import { UserDoc } from "./UserDoc";
@@ -85,10 +84,6 @@ declare module "typesafe-actions" {
 }
 
 export const useSelector: rr.TypedUseSelectorHook<RootState> = rr.useSelector;
-
-export interface RecordLiftProps {
-  liftType: LiftType;
-}
 
 export const cacheDateKey = "@weight-training/cache-date-key";
 

@@ -54,7 +54,7 @@ const App: React.FC = () => {
               <Route path="/login" exact>
                 <Login />
               </Route>
-              {Object.values(t.LiftType).map((liftType) => {
+              {Object.values(t.barbellLiftTypes).map((liftType) => {
                 return (
                   <Route
                     key={`/lift/${liftType}`}

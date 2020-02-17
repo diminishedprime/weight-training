@@ -9,10 +9,12 @@ import * as g from "../general";
 import WeightInput from "../general/WeightInput";
 import WithLabel from "../general/WithLabel";
 
-const AddLift = ({
-  liftType,
-  user
-}: t.RecordLiftProps & { user: t.FirebaseUser }) => {
+interface AddLiftProps {
+  liftType: t.BarbellLiftType;
+  user: t.FirebaseUser;
+}
+
+const AddLift: React.FC<AddLiftProps> = ({ liftType, user }) => {
   const [weight, setWeight] = React.useState<t.Weight | undefined>(
     t.Weight.bar()
   );

@@ -1,4 +1,5 @@
-import { LiftType, WorkoutType } from "./index";
+import { BarbellLiftType } from "./db";
+import { WorkoutType } from "./index";
 import { Weight } from "./Weight";
 
 interface BodyWeightExercise {
@@ -10,7 +11,7 @@ interface BodyWeightExercise {
 export interface BarbellLift {
   weight: Weight;
   targetORM: Weight;
-  liftType: LiftType;
+  liftType: BarbellLiftType;
   reps: number;
   warmup: boolean;
 }
@@ -45,7 +46,7 @@ export class ProgramBuilder {
   };
 
   public static xByX = (
-    liftType: LiftType,
+    liftType: BarbellLiftType,
     workoutType: WorkoutType,
     targetORM: Weight
   ): ProgramSection => {
@@ -124,7 +125,7 @@ const progressionFor = (
   fraction: number,
   liftsAtWeight: number,
   reps: number,
-  liftType: LiftType
+  liftType: BarbellLiftType
 ): BarbellLift[] => {
   const bar = Weight.bar();
   const targetORM = oneRepMax.multiply(fraction).nearestFive();

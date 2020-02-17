@@ -1,5 +1,5 @@
 import {
-  LiftType,
+  BarbellLiftType,
   Program,
   ProgramBuilder,
   Weight,
@@ -8,8 +8,8 @@ import {
 
 export interface BarbellLiftParams {
   type: "barbell-program";
-  programName: LiftType;
-  liftType: LiftType;
+  programName: BarbellLiftType;
+  liftType: BarbellLiftType;
   workoutType: WorkoutType;
   oneRepMax: Weight;
 }
@@ -48,10 +48,11 @@ export const paramsToProgramsParams = (
     if (oneRepMax === null) {
       throw new Error("?oneRepMax is required");
     }
+    // TODO - add in an asserts for the type assertions.
     const result: BarbellLiftParams = {
       type,
-      programName: programName as LiftType,
-      liftType: liftType as LiftType,
+      programName: programName as BarbellLiftType,
+      liftType: liftType as BarbellLiftType,
       workoutType: workoutType as WorkoutType,
       oneRepMax: Weight.fromJSON(oneRepMax)
     };

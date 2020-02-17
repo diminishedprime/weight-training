@@ -15,7 +15,7 @@ const workoutTypeMeta: { [t in t.WorkoutType]: string } = {
 };
 
 interface GetToProgramProps {
-  liftType: t.LiftType;
+  liftType: t.BarbellLiftType;
   userDoc?: t.UserDoc;
   user: t.FirebaseUser;
 }
@@ -80,7 +80,11 @@ const GetToProgram: React.FC<GetToProgramProps> = ({
   );
 };
 
-export default ({ liftType }: t.RecordLiftProps) => {
+interface RecordBarbellLiftProps {
+  liftType: t.BarbellLiftType;
+}
+
+const RecordBarbellLift: React.FC<RecordBarbellLiftProps> = ({ liftType }) => {
   hooks.useMeasurePage("Record Lift");
   const user = hooks.useForceSignIn();
   const userDoc = t.useSelector(
@@ -107,3 +111,5 @@ export default ({ liftType }: t.RecordLiftProps) => {
     </>
   );
 };
+
+export default RecordBarbellLift;
