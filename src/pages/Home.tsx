@@ -50,13 +50,21 @@ export default () => {
         </>
       )}
       <div className="flex">
-        {Object.values(t.LiftType).map((liftType) => (
-          <LiftCard
-            liftType={liftType}
-            userDoc={userDoc}
-            key={`/lift/${liftType}`}
-          />
-        ))}
+        {Object.values(t.LiftType)
+          // TODO - there should be smarter error detection around routing &
+          // creating of these cards.
+          .filter(
+            (liftType) =>
+              liftType !== t.LiftType.CleanAndJerk &&
+              liftType !== t.LiftType.Snatch
+          )
+          .map((liftType) => (
+            <LiftCard
+              liftType={liftType}
+              userDoc={userDoc}
+              key={`/lift/${liftType}`}
+            />
+          ))}
       </div>
       <LiftCalendar />
     </>
