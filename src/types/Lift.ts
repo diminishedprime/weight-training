@@ -1,5 +1,11 @@
 import { LiftDoc } from "./db";
-import { toLift } from "./db/LiftDoc";
+import {
+  CleanAndJerkPosition,
+  CleanAndJerkStyle,
+  SnatchPosition,
+  SnatchStyle,
+  toLift
+} from "./db/LiftDoc";
 import { DisplayLift } from "./index";
 import {
   AsFirestore,
@@ -11,6 +17,46 @@ import {
 
 export class Lift implements AsFirestore, Equals<Lift> {
   public static fromFirestoreData = toLift;
+
+  public static cleanAndJerk = (
+    date: FirestoreTimestamp,
+    weight: Weight,
+    reps: number,
+    warmup: boolean,
+    style: CleanAndJerkStyle,
+    startPosition: CleanAndJerkPosition
+  ): Lift => {
+    return new Lift({
+      type: LiftType.CleanAndJerk,
+      startPosition,
+      style,
+      date,
+      weight,
+      reps,
+      warmup,
+      version: "3"
+    });
+  };
+
+  public static snatch = (
+    date: FirestoreTimestamp,
+    weight: Weight,
+    reps: number,
+    warmup: boolean,
+    style: SnatchStyle,
+    startPosition: SnatchPosition
+  ): Lift => {
+    return new Lift({
+      type: LiftType.Snatch,
+      startPosition,
+      style,
+      date,
+      weight,
+      reps,
+      warmup,
+      version: "3"
+    });
+  };
 
   public static forBarbellLift = (
     weight: Weight,

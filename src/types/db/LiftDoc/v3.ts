@@ -44,14 +44,40 @@ export interface OverheadPressDoc {
   warmup: boolean;
 }
 
+export enum SnatchStyle {
+  Full = "full",
+  Muscle = "muscle",
+  Power = "power"
+}
+
+export enum SnatchPosition {
+  HighHang = "high-hang",
+  AboveTheKnee = "above-the-knee",
+  BelowTheKnee = "below-the-knee",
+  Floor = "floor"
+}
+
 export interface SnatchDoc {
   date: firebase.firestore.Timestamp;
   weight: WeightField;
   type: LiftType.Snatch;
   reps: number;
   warmup: boolean;
-  style: "full" | "muscle" | "power";
-  startPosition: "high hang" | "above the knee" | "below the knee" | "floor";
+  style: SnatchStyle;
+  startPosition: SnatchPosition;
+}
+
+export enum CleanAndJerkStyle {
+  Full = "full",
+  Muscle = "muscle",
+  Power = "power"
+}
+
+export enum CleanAndJerkPosition {
+  HighHang = "high-hang",
+  AboveTheKnee = "above-the-knee",
+  BelowTheKnee = "below-the-knee",
+  Floor = "floor"
 }
 
 export interface CleanAndJerkDoc {
@@ -60,8 +86,8 @@ export interface CleanAndJerkDoc {
   type: LiftType.CleanAndJerk;
   reps: number;
   warmup: boolean;
-  style: "full" | "muscle" | "power";
-  startPosition: "high hang" | "above the knee" | "below the knee" | "floor";
+  style: CleanAndJerkStyle;
+  startPosition: CleanAndJerkPosition;
 }
 
 type BaseLiftDoc =
