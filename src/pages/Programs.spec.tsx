@@ -1,10 +1,10 @@
 import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from "react";
-import TestWrapper from "../../test-utils/TestWrapper";
-import * as t from "../../types";
-import Programs from "../Programs";
-import * as util from "./util";
+import TestWrapper from "../test-utils/TestWrapper";
+import * as t from "../types";
+import Programs from "./Programs";
+import * as util from "./Programs/util";
 
 configure({ adapter: new Adapter() });
 
