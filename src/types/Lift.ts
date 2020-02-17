@@ -1,6 +1,5 @@
-import * as t from "../types";
 import { LiftDoc } from "./db";
-import { toLift, BenchPressDoc } from "./db/LiftDoc";
+import { toLift } from "./db/LiftDoc";
 import { DisplayLift } from "./index";
 import {
   AsFirestore,

@@ -1,5 +1,5 @@
-import { RecordField } from "../RecordField/v2";
 import { LiftType } from "../LiftType/v1";
+import { RecordField } from "../RecordField/v2";
 
 type UserDocContents = {
   [lift in LiftType]: RecordField;

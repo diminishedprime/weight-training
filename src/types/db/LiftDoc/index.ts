@@ -1,8 +1,5 @@
 import * as t from "../../../types";
-import { LiftDoc as V1 } from "./v1";
-import { LiftDoc as V2, LiftDocType } from "./v2";
-import { LiftDoc as V3 } from "./v3";
-import { migrate, LiftDocTypes } from "./migrate";
+import { LiftDocTypes, migrate } from "./migrate";
 
 export * from "./v3";
 

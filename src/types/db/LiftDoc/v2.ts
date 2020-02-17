@@ -1,7 +1,7 @@
-import { LiftDoc as V1 } from "./v1";
 import * as t from "../../../types";
 import { LiftType } from "../LiftType/v1";
 import { WeightField } from "../WeightField";
+import { LiftDoc as V1 } from "./v1";
 
 export enum LiftDocType {
   BARBELL = "barbell"

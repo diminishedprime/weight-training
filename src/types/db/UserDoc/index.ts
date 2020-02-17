@@ -1,13 +1,13 @@
 import firebase from "firebase/app";
 import * as db from "../../../db";
 import * as t from "../../../types";
+import { LiftType } from "../LiftType";
+import { LiftType as LiftTypeV1 } from "../LiftType/v1";
 import { RecordField as RecordFieldV1 } from "../RecordField/v1";
 import { RecordField as RecordFieldV2 } from "../RecordField/v2";
 import { UserDoc as V1Db } from "../UserDoc/v1";
 import { UserDoc as V2Db } from "../UserDoc/v2";
 import { UserDoc as V3Db } from "../UserDoc/v3";
-import { LiftType } from "../LiftType";
-import { LiftType as LiftTypeV1 } from "../LiftType/v1";
 
 export * from "./v3";
 
