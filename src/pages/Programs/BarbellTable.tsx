@@ -3,7 +3,7 @@ import React from "react";
 import Bar from "../../components/Bar";
 import * as db from "../../db";
 import * as hooks from "../../hooks";
-import { BarbellLift, FirebaseUser, Lift, useSelector } from "../../types";
+import { BarbellLift, FirebaseUser, Lift } from "../../types";
 import * as util from "../../util";
 import usePersistentRowProgress from "./usePersistentRowProgress";
 
@@ -75,7 +75,7 @@ const BarbellTable: React.FC<BarbellTableProps> = ({
     rows,
     finishSection
   );
-  const firestore = useSelector((a) => a.firestore);
+  const firestore = hooks.useFirestore();
   const complete = current >= rows.length;
 
   return (

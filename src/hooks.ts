@@ -7,6 +7,10 @@ import * as serviceWorker from "./serviceWorker";
 import * as t from "./types";
 import { useSelector } from "./types";
 
+export const useFirestore = () => {
+  return useSelector((a) => a.firestore);
+};
+
 const formatFor = (
   m: moment.Moment
 ): { className?: string; displayString?: string } => {

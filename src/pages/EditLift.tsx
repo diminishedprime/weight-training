@@ -7,7 +7,7 @@ import * as t from "../types";
 
 export default () => {
   const { liftId } = useParams();
-  const firestore = t.useSelector((a) => a.firestore);
+  const firestore = hooks.useFirestore();
   const cleanupPagePath = React.useCallback(
     (pageName: string) => pageName.replace(`${liftId}`, "{liftId}"),
     [liftId]

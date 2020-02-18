@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as c from "../../constants";
 import * as db from "../../db";
+import * as hooks from "../../hooks";
 import * as t from "../../types";
 import * as util from "../../util";
 import Bar from "../Bar";
@@ -14,7 +15,7 @@ interface AddLiftProps {
 }
 
 const AddLift: React.FC<AddLiftProps> = ({ liftType, user }) => {
-  const firestore = t.useSelector((a) => a.firestore);
+  const firestore = hooks.useFirestore();
   const [weight, setWeight] = React.useState<t.Weight | undefined>(
     t.Weight.bar()
   );

@@ -10,7 +10,7 @@ import * as t from "../types";
 export default () => {
   hooks.useMeasurePage("Home");
   const user = hooks.useForceSignIn();
-  const firestore = t.useSelector((a) => a.firestore);
+  const firestore = hooks.useFirestore();
   const userDoc = t.useSelector(
     (s) => s.localStorage && s.localStorage.userDoc
   );
