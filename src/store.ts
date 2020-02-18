@@ -39,6 +39,9 @@ const getInitialState = (): t.RootState => {
 
 const rootReducer = ta
   .createReducer(getInitialState())
+  .handleAction([a.setFirestore], (state, { payload: { firestore } }) =>
+    Object.assign({}, state, { firestore })
+  )
   .handleAction([a.setFirebase], (state, { payload: { firebase } }) =>
     Object.assign({}, state, { firebase })
   )

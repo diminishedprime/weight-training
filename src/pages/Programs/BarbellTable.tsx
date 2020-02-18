@@ -105,7 +105,7 @@ const BarbellTable: React.FC<BarbellTableProps> = ({
                       <div>
                         <button
                           onClick={skipRemaining(idx)}
-                          className={`button is-danger`}
+                          className={`button is-danger is-skip-remaining-button`}
                         >
                           Skip Remaining
                         </button>
@@ -115,7 +115,7 @@ const BarbellTable: React.FC<BarbellTableProps> = ({
                       <div className="flex flex-end flex-grow buttons">
                         <button
                           onClick={skipLift(idx)}
-                          className="button is-outlined is-warning"
+                          className="button is-outlined is-warning is-skip-button"
                         >
                           Skip
                         </button>
@@ -133,7 +133,7 @@ const BarbellTable: React.FC<BarbellTableProps> = ({
                               )
                             );
                           })}
-                          className="button is-outlined is-success"
+                          className="button is-outlined is-success is-done-button"
                         >
                           Done
                         </button>

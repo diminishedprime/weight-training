@@ -16,3 +16,8 @@ export const setFirebase = ta.createAction(
   "set-firebase",
   (action) => (f: typeof firebase) => action({ firebase: f })
 );
+
+export const setFirestore = ta.createAction(
+  "set-firestore",
+  (action) => (firestore: firebase.firestore.Firestore) => action({ firestore })
+);

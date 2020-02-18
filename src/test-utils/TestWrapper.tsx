@@ -1,8 +1,9 @@
 import React from "react";
+import firebase from "firebase/app";
 import { Provider } from "react-redux";
 import { MemoryRouter as Router } from "react-router-dom";
 import store from "../store";
-import { setFirebase } from "../types";
+import { setFirebase, setFirestore } from "../types";
 
 const mockFirebase: any = {
   auth: () => ({
@@ -12,21 +13,35 @@ const mockFirebase: any = {
   })
 };
 
-store.dispatch(setFirebase(mockFirebase));
+interface Initializations {
+  localApp?: firebase.firestore.Firestore;
+  firebase?: typeof firebase;
+}
 
 interface TestWrapperProps {
   initialEntries?: string[];
 }
 
-const TestWrapper: React.FC<TestWrapperProps> = ({
-  children,
-  initialEntries
-}) => {
-  return (
-    <Provider store={store}>
-      <Router initialEntries={initialEntries}>{children}</Router>
-    </Provider>
-  );
-};
+export const initalizeTestWrapper: (
+  cb: () => JSX.Element,
+  props?: TestWrapperProps & Initializations
+) => React.FC<TestWrapperProps> = (cb, props) => {
+  const { localApp, firebase, ...testWrapperProps } = props || {};
+  if (firebase === undefined) {
+    store.dispatch(setFirebase(mockFirebase));
+  } else {
+    store.dispatch(setFirebase(firebase));
+  }
+  if (localApp !== undefined) {
+    store.dispatch(setFirestore(localApp));
+  }
 
-export default TestWrapper;
+  const TestWrapper: React.FC<TestWrapperProps> = ({ initialEntries }) => {
+    return (
+      <Provider store={store}>
+        <Router initialEntries={initialEntries}>{cb()}</Router>
+      </Provider>
+    );
+  };
+  return () => <TestWrapper {...testWrapperProps} />;
+};

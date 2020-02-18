@@ -1,5 +1,10 @@
 import * as firebase from "@firebase/testing";
-import * as fs from "fs";
+import {
+  authedApp,
+  adminApp,
+  loadFirestoreRules,
+  clearFirestoreData
+} from "../test-utils";
 import moment from "moment";
 import * as sut from "../db";
 import * as t from "../types";
@@ -7,26 +12,15 @@ import * as t from "../types";
 const DEADLIFT = t.LiftType.Deadlift;
 const SQUAT = t.LiftType.Squat;
 
-const projectId = "weight-training-8a1ac";
-
-const rules = fs.readFileSync("firestore.rules", "utf8");
 const now = firebase.firestore.Timestamp.now();
-
-const authedApp = (auth?: object) => {
-  return firebase.initializeTestApp({ projectId, auth }).firestore();
-};
-
-const adminApp = () => {
-  return firebase.initializeAdminApp({ projectId }).firestore();
-};
 
 describe("for the db", () => {
   beforeAll(async () => {
-    await firebase.loadFirestoreRules({ projectId, rules });
+    await loadFirestoreRules();
   });
 
   beforeEach(async () => {
-    await firebase.clearFirestoreData({ projectId });
+    await clearFirestoreData();
   });
 
   afterAll(async () => {
