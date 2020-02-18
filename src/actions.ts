@@ -1,4 +1,3 @@
-import firebase from "firebase/app";
 import * as ta from "typesafe-actions";
 import * as t from "./types";
 
@@ -14,7 +13,7 @@ export const nextForceUpdateLift = ta.createAction(
 
 export const setFirebase = ta.createAction(
   "set-firebase",
-  (action) => (f: typeof firebase) => action({ firebase: f })
+  (action) => (f: t.Firebase) => action({ firebase: f })
 );
 
 export const setFirestore = ta.createAction(

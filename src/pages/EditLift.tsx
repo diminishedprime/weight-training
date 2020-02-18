@@ -5,6 +5,9 @@ import * as db from "../db";
 import * as hooks from "../hooks";
 import * as t from "../types";
 
+// TODO - add a test that the weight can be updated. I think it doesn't work as
+// is because it doesn't turn into into the right format for firebase right now.
+
 export default () => {
   const { liftId } = useParams();
   const firestore = hooks.useFirestore();

@@ -1,4 +1,3 @@
-import firebase from "firebase/app";
 import moment from "moment";
 import * as React from "react";
 import Calendar from "react-calendar";
@@ -13,16 +12,17 @@ export default () => {
   const [daysWithLifts, setDaysWithLifts] = React.useState<Set<string>>(
     new Set()
   );
+  const firestore = hooks.useFirestore();
   React.useEffect(() => {
     if (user === null) {
       return;
     }
-    db.getDaysWithLifts(firebase.firestore(), user).then((dwl) =>
+    db.getDaysWithLifts(firestore, user).then((dwl) =>
       setDaysWithLifts(
         new Set(dwl.data.map((day) => day.local().format("YYYY-MM-DD")))
       )
     );
-  }, [user]);
+  }, [user, firestore]);
   const [date] = React.useState(() => {
     return dateUrlParam === undefined
       ? moment().toDate()

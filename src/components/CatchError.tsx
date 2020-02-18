@@ -1,5 +1,5 @@
-import firebase from "firebase/app";
 import * as React from "react";
+import store from "../store";
 import * as t from "../types";
 
 interface ErrorBoundaryProps {
@@ -21,7 +21,7 @@ class ErrorBoundary extends React.Component<
   };
 
   public componentDidCatch(error: any, errorInfo: any) {
-    firebase.analytics().logEvent("exception", {
+    store.getState().analytics?.logEvent("exception", {
       description: error && error.toString(),
       fatal: true,
       errorInfo

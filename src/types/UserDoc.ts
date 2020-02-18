@@ -1,5 +1,6 @@
-import firebase from "firebase/app";
+import { ZERO_TIME } from "../constants";
 import { toUserDoc, userDocfromJSON } from "../types/db/UserDoc";
+import * as util from "../util";
 import { ONE_REP_MAX } from "./common";
 import { LiftType, UserDoc as DBUserDoc } from "./db";
 import {
@@ -29,7 +30,7 @@ export class UserDoc
   public static fromJSON = userDocfromJSON;
 
   public static empty = (): UserDoc => {
-    const defaultTime = firebase.firestore.Timestamp.fromMillis(0);
+    const defaultTime = ZERO_TIME();
     return new UserDoc({
       version: "3",
       [LiftType.Snatch]: {
@@ -92,10 +93,7 @@ export class UserDoc
       if (orm !== undefined) {
         const oneRepMax: OneRepMax = {
           weight: Weight.fromFirestoreData(orm.weight),
-          time: new firebase.firestore.Timestamp(
-            orm.time.seconds,
-            orm.time.nanoseconds
-          )
+          time: util.timestamp(orm.time.seconds, orm.time.nanoseconds)
         };
         value[ONE_REP_MAX] = oneRepMax;
       }

@@ -1,9 +1,8 @@
-import firebase from "firebase/app";
 import React from "react";
 import { Provider } from "react-redux";
 import { MemoryRouter as Router } from "react-router-dom";
 import store from "../store";
-import { setFirebase, setFirestore } from "../types";
+import { Firebase, Firestore, setFirebase, setFirestore } from "../types";
 
 const mockFirebase: any = {
   auth: () => ({
@@ -14,8 +13,8 @@ const mockFirebase: any = {
 };
 
 interface Initializations {
-  localApp?: firebase.firestore.Firestore;
-  firebase?: typeof firebase;
+  localApp?: Firestore;
+  firebase?: Firebase;
 }
 
 interface TestWrapperProps {

@@ -1,4 +1,3 @@
-import firebase from "firebase";
 import * as t from "../../../types";
 import * as sut from "./index";
 import { WeightField as V1 } from "./v1";

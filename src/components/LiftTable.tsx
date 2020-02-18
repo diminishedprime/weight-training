@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import firebase from "firebase/app";
 import moment from "moment";
 import * as React from "react";
 import { Link } from "react-router-dom";
@@ -24,7 +23,7 @@ const TimeSince: React.FC<TimeSinceProps> = ({ liftUid, user, time }) => {
 };
 
 interface LiftTableProps {
-  modifyQuery: (query: firebase.firestore.Query) => firebase.firestore.Query;
+  modifyQuery: (query: t.Query) => t.Query;
   user: t.FirebaseUser;
   showType?: boolean;
 }
@@ -41,10 +40,11 @@ const LiftTable: React.FC<LiftTableProps> = ({
   const [editing, setEditing] = React.useState<string>();
   const userDoc = t.useSelector((a) => a.localStorage.userDoc);
   const forceUpdate = t.useSelector((a) => a.forceUpdateLift);
+  const firestore = hooks.useFirestore();
 
   React.useEffect(() => {
-    db.lifts(firebase.firestore(), user, modifyQuery).then(setLifts);
-  }, [user, modifyQuery, forceUpdate]);
+    db.lifts(firestore, user, modifyQuery).then(setLifts);
+  }, [user, modifyQuery, forceUpdate, firestore]);
 
   if (lifts.length === 0) {
     return <div>No lifts recorded.</div>;

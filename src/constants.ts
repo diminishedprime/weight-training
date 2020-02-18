@@ -9,6 +9,7 @@ import { PlateTypes } from "./types/common";
 import { LiftType } from "./types/db";
 import { Weight } from "./types/Weight";
 
+// TODO - put this into the timestamp class as a static method.
 export const ZERO_TIME = () => firebase.firestore.Timestamp.fromMillis(0);
 
 export const images = {
