@@ -1,12 +1,12 @@
-import firebase from "firebase";
 import * as t from "../../../types";
 import { LiftType as LiftTypeV1 } from "../LiftType/v1";
 import * as sut from "./index";
 import { LiftDoc as V1 } from "./v1";
+import * as util from "../../../util";
 
 describe("for migrating lift from firestore", () => {
   test("Can parse V1 into Lift object", () => {
-    const now = firebase.firestore.Timestamp.now();
+    const now = util.now();
     const jsonObject: V1 = {
       date: now,
       type: LiftTypeV1.BENCH_PRESS,

@@ -1,4 +1,3 @@
-import firebase from "firebase";
 import { mockAnalytics } from "../../../test-utils";
 import * as t from "../../../types";
 import { LiftType as LiftTypeV1 } from "../LiftType/v1";
@@ -6,10 +5,7 @@ import { LiftType as LiftTypeV2 } from "../LiftType/v2";
 import * as sut from "./index";
 import { UserDoc as V1Db } from "./v1";
 import { UserDoc as V2Db } from "./v2";
-
-// For some fucking reason, this makes my tests pass???
-// tslint:disable-next-line no-unused-expression
-firebase.firestore;
+import { timestamp } from "../../../util";
 
 describe("for migrating UserDoc from firestore", () => {
   test("Can parse V1 into UserDoc object", () => {
@@ -39,12 +35,6 @@ describe("for migrating UserDoc from firestore", () => {
         time: { seconds: 0, nanoseconds: 10 }
       }
     };
-    const pr2 = {
-      [t.ONE_REP_MAX]: {
-        weight: { value: 30, unit: t.WeightUnit.KILOGRAM, version: "1" as "1" },
-        time: { seconds: 10, nanoseconds: 0 }
-      }
-    };
     const jsonObject: V2Db = {
       "deadlift": pr1,
       "squat": pr1,
@@ -56,7 +46,7 @@ describe("for migrating UserDoc from firestore", () => {
     const actual = sut.toUserDoc(jsonObject);
     const expected = t.UserDoc.empty();
     const ten = t.Weight.lbs(10);
-    const tenNano = new firebase.firestore.Timestamp(0, 10);
+    const tenNano = timestamp(0, 10);
     expected.setORM(LiftTypeV2.Deadlift, ten, tenNano);
     expected.setORM(LiftTypeV2.Squat, ten, tenNano);
     expected.setORM(LiftTypeV2.FrontSquat, ten, tenNano);

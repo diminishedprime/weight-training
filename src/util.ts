@@ -2,6 +2,10 @@ import firebase from "firebase/app";
 import * as c from "./constants";
 import * as t from "./types";
 
+export const now = (): t.FirestoreTimestamp => {
+  return firebase.firestore.Timestamp.now();
+};
+
 export const timestamp = (
   seconds: number,
   nanoseconds: number
