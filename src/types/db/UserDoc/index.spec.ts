@@ -1,11 +1,11 @@
 import { mockAnalytics } from "../../../test-utils";
 import * as t from "../../../types";
+import { timestamp } from "../../../util";
 import { LiftType as LiftTypeV1 } from "../LiftType/v1";
 import { LiftType as LiftTypeV2 } from "../LiftType/v2";
 import * as sut from "./index";
 import { UserDoc as V1Db } from "./v1";
 import { UserDoc as V2Db } from "./v2";
-import { timestamp } from "../../../util";
 
 describe("for migrating UserDoc from firestore", () => {
   test("Can parse V1 into UserDoc object", () => {

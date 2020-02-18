@@ -4,9 +4,9 @@ import moment from "moment";
 import * as React from "react";
 import * as db from "./db";
 import * as serviceWorker from "./serviceWorker";
+import store from "./store";
 import * as t from "./types";
 import { useSelector } from "./types";
-import store from "./store";
 
 const formatFor = (
   m: moment.Moment

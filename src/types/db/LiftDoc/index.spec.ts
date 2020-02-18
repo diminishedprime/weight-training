@@ -1,8 +1,8 @@
 import * as t from "../../../types";
+import * as util from "../../../util";
 import { LiftType as LiftTypeV1 } from "../LiftType/v1";
 import * as sut from "./index";
 import { LiftDoc as V1 } from "./v1";
-import * as util from "../../../util";
 
 describe("for migrating lift from firestore", () => {
   test("Can parse V1 into Lift object", () => {
