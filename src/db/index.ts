@@ -1,4 +1,3 @@
-import firebase from "firebase/app";
 import moment from "moment";
 import * as actions from "../actions";
 import store from "../store";
@@ -217,9 +216,7 @@ export const updateLift = async (
   return updatedLift;
 };
 
-type ModifyQuery = (
-  query: firebase.firestore.Query
-) => firebase.firestore.Query;
+type ModifyQuery = (query: t.Query) => t.Query;
 
 // This is a bit of a hack, but hopefully it'll help me to not shoot myself in
 // the foot as much.

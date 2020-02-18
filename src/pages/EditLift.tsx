@@ -1,4 +1,3 @@
-import firebase from "firebase/app";
 import * as React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import * as g from "../components/general";
@@ -8,6 +7,7 @@ import * as t from "../types";
 
 export default () => {
   const { liftId } = useParams();
+  const firestore = t.useSelector((a) => a.firestore);
   const cleanupPagePath = React.useCallback(
     (pageName: string) => pageName.replace(`${liftId}`, "{liftId}"),
     [liftId]
@@ -24,7 +24,7 @@ export default () => {
     if (user === null || liftId === undefined) {
       return;
     }
-    db.getLift(firebase.firestore(), user, liftId).then((lift) => {
+    db.getLift(firestore, user, liftId).then((lift) => {
       if (lift === undefined) {
         // TODO this could have better error handling.
         return;
@@ -39,7 +39,7 @@ export default () => {
       );
       setWarmup(lift.getWarmup());
     });
-  }, [user, liftId]);
+  }, [user, liftId, firestore]);
 
   const onCancel = React.useCallback(() => {
     history.goBack();
@@ -50,22 +50,20 @@ export default () => {
       return;
     }
     if (weight !== undefined && liftId !== undefined) {
-      db.updateLift(firebase.firestore(), user, liftId, {
+      db.updateLift(firestore, user, liftId, {
         weight,
         reps,
         warmup
       }).then(() => history.goBack());
     }
-  }, [history, weight, reps, liftId, user, warmup]);
+  }, [history, weight, reps, liftId, user, warmup, firestore]);
 
   const onDelete = React.useCallback(() => {
     if (user === null || liftId === undefined) {
       return;
     }
-    db.deleteLift(firebase.firestore(), user, liftId).then(() =>
-      history.goBack()
-    );
-  }, [history, liftId, user]);
+    db.deleteLift(firestore, user, liftId).then(() => history.goBack());
+  }, [history, liftId, user, firestore]);
 
   return (
     <div>

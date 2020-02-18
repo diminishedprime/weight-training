@@ -1,4 +1,3 @@
-import firebase from "firebase/app";
 import * as React from "react";
 import * as c from "../../constants";
 import * as db from "../../db";
@@ -15,6 +14,7 @@ interface AddLiftProps {
 }
 
 const AddLift: React.FC<AddLiftProps> = ({ liftType, user }) => {
+  const firestore = t.useSelector((a) => a.firestore);
   const [weight, setWeight] = React.useState<t.Weight | undefined>(
     t.Weight.bar()
   );
@@ -31,10 +31,10 @@ const AddLift: React.FC<AddLiftProps> = ({ liftType, user }) => {
       liftType,
       reps,
       warmup,
-      firebase.firestore.Timestamp.now()
+      util.now()
     );
-    db.addLift(firebase.firestore(), user, lift);
-  }, [weight, liftType, reps, user, warmup]);
+    db.addLift(firestore, user, lift);
+  }, [weight, liftType, reps, user, warmup, firestore]);
 
   return (
     <>

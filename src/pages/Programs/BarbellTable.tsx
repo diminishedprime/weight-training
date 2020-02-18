@@ -1,10 +1,10 @@
 import classnames from "classnames";
-import firebase from "firebase/app";
 import React from "react";
 import Bar from "../../components/Bar";
 import * as db from "../../db";
 import * as hooks from "../../hooks";
 import { BarbellLift, FirebaseUser, Lift, useSelector } from "../../types";
+import * as util from "../../util";
 import usePersistentRowProgress from "./usePersistentRowProgress";
 
 interface BarbellRowProps {
@@ -129,7 +129,7 @@ const BarbellTable: React.FC<BarbellTableProps> = ({
                                 row.liftType,
                                 row.reps,
                                 row.warmup,
-                                firebase.firestore.Timestamp.now()
+                                util.now()
                               )
                             );
                           })}
