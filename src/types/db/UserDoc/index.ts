@@ -1,6 +1,8 @@
-import firebase from "firebase/app";
+import { ZERO_TIME } from "../../../constants";
 import * as db from "../../../db";
+import store from "../../../store";
 import * as t from "../../../types";
+import { timestamp } from "../../../util";
 import { LiftType } from "../LiftType";
 import { LiftType as LiftTypeV1 } from "../LiftType/v1";
 import { RecordField as RecordFieldV1 } from "../RecordField/v1";
@@ -20,7 +22,7 @@ const tryUpdateORMTimes = async (userDoc: t.UserDoc) => {
     const promises = Object.values(LiftType).map(async (liftType) => {
       const orm = userDoc.getORM(liftType);
       return db
-        .lifts(firebase.firestore(), user, (query) =>
+        .lifts(store.getState().firebase.firestore(), user, (query) =>
           query
             .where("weight.unit", "==", orm.weight.unit)
             .where("weight.value", "==", orm.weight.value)
@@ -36,7 +38,7 @@ const tryUpdateORMTimes = async (userDoc: t.UserDoc) => {
         });
     });
     Promise.all(promises).then(() => {
-      db.setUserDoc(firebase.firestore(), user, userDoc);
+      db.setUserDoc(store.getState().firebase.firestore(), user, userDoc);
     });
   }
 };
@@ -55,15 +57,12 @@ export const toUserDoc: t.FromFirestore<t.UserDoc> = (o: object): t.UserDoc => {
         const liftMeta = userDoc[liftType];
         const orm = liftMeta[t.ONE_REP_MAX];
         const jsonTime = orm.time;
-        orm.time = new firebase.firestore.Timestamp(
-          jsonTime.seconds,
-          jsonTime.nanoseconds
-        );
+        orm.time = timestamp(jsonTime.seconds, jsonTime.nanoseconds);
       });
       const defaultRecord: RecordFieldV2 = {
         [t.ONE_REP_MAX]: {
           weight: { value: 0, unit: t.WeightUnit.POUND, version: "1" },
-          time: firebase.firestore.Timestamp.fromMillis(0)
+          time: ZERO_TIME()
         }
       };
       const v3: V3Db = {
@@ -76,14 +75,15 @@ export const toUserDoc: t.FromFirestore<t.UserDoc> = (o: object): t.UserDoc => {
     }
     case "1":
     case undefined: {
-      firebase
-        .analytics()
-        .logEvent("old_db_version", { version: "1", type: "UserDoc" });
+      store.getState().analytics?.logEvent("old_db_version", {
+        version: "1",
+        type: "UserDoc"
+      });
       const userDoc: V1Db = o as any;
       const defaultRecord: RecordFieldV2 = {
         [t.ONE_REP_MAX]: {
           weight: { value: 0, unit: t.WeightUnit.POUND, version: "1" },
-          time: firebase.firestore.Timestamp.fromMillis(0)
+          time: ZERO_TIME()
         }
       };
       const newDoc: V2Db = {
@@ -104,7 +104,7 @@ export const toUserDoc: t.FromFirestore<t.UserDoc> = (o: object): t.UserDoc => {
         newDoc[liftType] = {
           [t.ONE_REP_MAX]: {
             weight,
-            time: firebase.firestore.Timestamp.fromMillis(0)
+            time: ZERO_TIME()
           }
         };
       });
@@ -112,9 +112,10 @@ export const toUserDoc: t.FromFirestore<t.UserDoc> = (o: object): t.UserDoc => {
     }
     default: {
       const exceptionString = `Cannot parse db version: ${(o as any).version}`;
-      firebase
-        .analytics()
-        .logEvent("exception", { description: exceptionString, fatal: true });
+      store.getState().analytics?.logEvent("exception", {
+        description: exceptionString,
+        fatal: true
+      });
       throw new Error(exceptionString);
     }
   }

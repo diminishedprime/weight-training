@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import "firebase/analytics";
+import { mockAnalytics } from "../../../test-utils";
 import * as t from "../../../types";
 import { LiftType as LiftTypeV1 } from "../LiftType/v1";
 import { LiftType as LiftTypeV2 } from "../LiftType/v2";
@@ -13,6 +13,8 @@ firebase.firestore;
 
 describe("for migrating UserDoc from firestore", () => {
   test("Can parse V1 into UserDoc object", () => {
+    const analyticsMock = jest.fn();
+    mockAnalytics({ logEvent: analyticsMock });
     const jsonObject: V1Db = {
       "version": "1",
       "deadlift": {},
@@ -23,6 +25,11 @@ describe("for migrating UserDoc from firestore", () => {
     };
     const actual = sut.toUserDoc(jsonObject);
     expect(actual.asJSON()).toEqual(t.UserDoc.empty().asJSON());
+    expect(analyticsMock).toBeCalled();
+    expect(analyticsMock).toBeCalledWith("old_db_version", {
+      type: "UserDoc",
+      version: "1"
+    });
   });
 
   test("Can parse V2 into UserDoc object", () => {

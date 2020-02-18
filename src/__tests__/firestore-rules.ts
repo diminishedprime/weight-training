@@ -1,25 +1,19 @@
 import * as firebase from "@firebase/testing";
-import * as fs from "fs";
-
-const projectId = "weight-training-8a1ac";
-
-const rules = fs.readFileSync("firestore.rules", "utf8");
-
-const authedApp = (auth?: object) => {
-  return firebase.initializeTestApp({ projectId, auth }).firestore();
-};
+import * as testUtil from "../test-utils";
+import { authedApp } from "../test-utils";
 
 describe("For firestore", () => {
   beforeAll(async () => {
-    await firebase.loadFirestoreRules({ projectId, rules });
+    testUtil.mockAnalytics();
+    await testUtil.loadFirestoreRules();
   });
 
   beforeEach(async () => {
-    await firebase.clearFirestoreData({ projectId });
+    await testUtil.clearFirestoreData();
   });
 
   afterAll(async () => {
-    await Promise.all(firebase.apps().map((app) => app.delete()));
+    await testUtil.clearApps();
   });
 
   describe("for authed users own lift data", () => {

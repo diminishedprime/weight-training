@@ -1,5 +1,13 @@
+import firebase from "firebase/app";
 import * as c from "./constants";
 import * as t from "./types";
+
+export const timestamp = (
+  seconds: number,
+  nanoseconds: number
+): t.FirestoreTimestamp => {
+  return new firebase.firestore.Timestamp(seconds, nanoseconds);
+};
 
 export const emptyBar = (): t.PlateConfig => ({
   [t.PlateTypes.FORTY_FIVE]: 0,

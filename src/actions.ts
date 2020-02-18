@@ -21,3 +21,8 @@ export const setFirestore = ta.createAction(
   "set-firestore",
   (action) => (firestore: firebase.firestore.Firestore) => action({ firestore })
 );
+
+export const setAnalytics = ta.createAction(
+  "set-analytics",
+  (action) => (analytics: firebase.analytics.Analytics) => action({ analytics })
+);

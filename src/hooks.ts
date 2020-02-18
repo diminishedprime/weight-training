@@ -6,6 +6,7 @@ import * as db from "./db";
 import * as serviceWorker from "./serviceWorker";
 import * as t from "./types";
 import { useSelector } from "./types";
+import store from "./store";
 
 const formatFor = (
   m: moment.Moment
@@ -155,7 +156,7 @@ export const useMeasurePage = (pageTitle: string) => {
   const location = useLocation();
   const firebase = useSelector((a) => a.firebase);
   React.useEffect(() => {
-    firebase.analytics().logEvent("page_view", {
+    store.getState().analytics?.logEvent("page_view", {
       page_title: pageTitle,
       page_path: location.pathname
     });

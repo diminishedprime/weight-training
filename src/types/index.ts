@@ -25,6 +25,7 @@ export interface OneRepMax {
 }
 
 export type Firestore = firebase.firestore.Firestore;
+export type Analytics = firebase.analytics.Analytics;
 export type FirestoreTimestamp = firebase.firestore.Timestamp;
 
 export type FromFirestore<T> = (o: object) => T;
@@ -68,6 +69,8 @@ export interface Grouping<T> {
 export type RootAction = ta.ActionType<typeof import("../actions")>;
 
 export interface RootState {
+  // This won't actually ever be undefined, but testing man. Makes you do crazy things.
+  analytics?: Analytics;
   firestore: Firestore;
   firebase: typeof firebase;
   localStorage: {

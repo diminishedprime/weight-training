@@ -30,6 +30,9 @@ const getInitialState = (): t.RootState => {
     }
   }
   return {
+    // TODO - put in the same hack for firebase.auth(),
+    // This is a hack to make testing work, but in practice this object should always be defined.
+    analytics: firebase.analytics && firebase.analytics(),
     localStorage,
     forceUpdateLift: 0,
     firebase,
@@ -39,6 +42,9 @@ const getInitialState = (): t.RootState => {
 
 const rootReducer = ta
   .createReducer(getInitialState())
+  .handleAction([a.setAnalytics], (state, { payload: { analytics } }) =>
+    Object.assign({}, state, { analytics })
+  )
   .handleAction([a.setFirestore], (state, { payload: { firestore } }) =>
     Object.assign({}, state, { firestore })
   )

@@ -1,3 +1,4 @@
+import firebase from "firebase/app";
 import backSquatImage from "./images/back_squat.png";
 import benchPressImage from "./images/bench_press.png";
 import deadliftImage from "./images/deadlift.png";
@@ -7,6 +8,8 @@ import overheadPressImage from "./images/overhead_press.png";
 import { PlateTypes } from "./types/common";
 import { LiftType } from "./types/db";
 import { Weight } from "./types/Weight";
+
+export const ZERO_TIME = () => firebase.firestore.Timestamp.fromMillis(0);
 
 export const images = {
   dumbbell: dumbbellImage
