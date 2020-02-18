@@ -7,6 +7,7 @@ import { barbellProgram, paramsToProgramsParams } from "./util";
 
 const Programs: React.FC = () => {
   const location = rrd.useLocation();
+  hooks.useMeasurePage("Programs", (a) => a.replace(location.search, ""));
   const params = React.useMemo(
     () =>
       paramsToProgramsParams(new URLSearchParams(location.search.substring(1))),

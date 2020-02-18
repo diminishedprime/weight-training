@@ -6,9 +6,13 @@ import LiftTable from "../components/LiftTable";
 import * as hooks from "../hooks";
 
 export default () => {
-  hooks.useMeasurePage("View Lifts");
   const user = hooks.useForceSignIn();
   const { date } = useParams();
+  const cleanupPage = React.useCallback(
+    (page: string) => page.replace(`${date}`, "{date}"),
+    [date]
+  );
+  hooks.useMeasurePage("View Lifts", cleanupPage);
   const history = useHistory();
 
   const parsedDate = moment(date, "YYYY-MM-DD");

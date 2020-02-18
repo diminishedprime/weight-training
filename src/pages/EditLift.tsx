@@ -7,8 +7,12 @@ import * as hooks from "../hooks";
 import * as t from "../types";
 
 export default () => {
-  hooks.useMeasurePage("Edit Lift");
   const { liftId } = useParams();
+  const cleanupPagePath = React.useCallback(
+    (pageName: string) => pageName.replace(`${liftId}`, "{liftId}"),
+    [liftId]
+  );
+  hooks.useMeasurePage("Edit Lift", cleanupPagePath);
   const [weight, setWeight] = React.useState<t.Weight | undefined>();
   const [reps, setReps] = React.useState<number>(1);
   const [date, setDate] = React.useState("");

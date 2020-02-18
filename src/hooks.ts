@@ -151,18 +151,23 @@ export const useSettings = (): UseSettings => {
   return { settings, setSettings };
 };
 
-export const useMeasurePage = (pageTitle: string) => {
+export const useMeasurePage = (
+  pageTitle: string,
+  cleanup?: (path: string) => string
+) => {
   const location = useLocation();
   const analytics = useSelector((a) => a.analytics);
   React.useEffect(() => {
     if (analytics === undefined) {
       return;
     }
+    const pagePath =
+      cleanup === undefined ? location.pathname : cleanup(location.pathname);
     analytics.logEvent("page_view", {
       page_title: pageTitle,
-      page_path: location.pathname
+      page_path: pagePath
     });
-  }, [location.pathname, pageTitle, analytics]);
+  }, [location.pathname, pageTitle, analytics, cleanup]);
 };
 
 interface ActivePrograms {
