@@ -1,18 +1,18 @@
 import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from "react";
+import * as db from "../db";
+import store from "../store";
 import {
-  initalizeTestWrapper,
-  loadFirestoreRules,
-  clearFirestoreData,
+  authedApp,
   clearApps,
-  authedApp
+  clearFirestoreData,
+  initalizeTestWrapper,
+  loadFirestoreRules
 } from "../test-utils";
 import * as t from "../types";
 import Programs from "./Programs";
 import * as util from "./Programs/util";
-import store from "../store";
-import * as db from "../db";
 
 configure({ adapter: new Adapter() });
 
@@ -38,14 +38,14 @@ describe("Programs Page", () => {
   });
 
   describe("/programs deadlift 3x3", () => {
+    const url = util.barbellLiftParams({
+      workoutType: t.WorkoutType.THREE_BY_THREE,
+      programName: t.LiftType.Deadlift,
+      oneRepMax: t.Weight.lbs(225),
+      liftType: t.LiftType.Deadlift,
+      type: "barbell-program"
+    });
     test("renders without error", () => {
-      const url = util.barbellLiftParams({
-        workoutType: t.WorkoutType.THREE_BY_THREE,
-        programName: t.LiftType.Deadlift,
-        oneRepMax: t.Weight.lbs(225),
-        liftType: t.LiftType.Deadlift,
-        type: "barbell-program"
-      });
       const TestWrapper = initalizeTestWrapper(() => <Programs />, {
         initialEntries: [url]
       });
@@ -55,13 +55,6 @@ describe("Programs Page", () => {
     });
 
     test("Done adds lift and moves foward", async () => {
-      const url = util.barbellLiftParams({
-        workoutType: t.WorkoutType.THREE_BY_THREE,
-        programName: t.LiftType.Squat,
-        oneRepMax: t.Weight.lbs(225),
-        liftType: t.LiftType.Squat,
-        type: "barbell-program"
-      });
       const localApp = authedApp({ uid: "test-user" });
       const TestWrapper = initalizeTestWrapper(() => <Programs />, {
         initialEntries: [url],
@@ -80,13 +73,6 @@ describe("Programs Page", () => {
     });
 
     test("Skip does not adds lift and moves foward", async () => {
-      const url = util.barbellLiftParams({
-        workoutType: t.WorkoutType.THREE_BY_THREE,
-        programName: t.LiftType.BenchPress,
-        oneRepMax: t.Weight.lbs(225),
-        liftType: t.LiftType.BenchPress,
-        type: "barbell-program"
-      });
       const localApp = authedApp({ uid: "test-user" });
       const TestWrapper = initalizeTestWrapper(() => <Programs />, {
         initialEntries: [url],
@@ -103,13 +89,6 @@ describe("Programs Page", () => {
     });
 
     test("Skip remaining does not adds lift and moves all the way forward", async () => {
-      const url = util.barbellLiftParams({
-        workoutType: t.WorkoutType.THREE_BY_THREE,
-        programName: t.LiftType.OverheadPress,
-        oneRepMax: t.Weight.lbs(225),
-        liftType: t.LiftType.OverheadPress,
-        type: "barbell-program"
-      });
       const localApp = authedApp({ uid: "test-user" });
       const TestWrapper = initalizeTestWrapper(() => <Programs />, {
         initialEntries: [url],

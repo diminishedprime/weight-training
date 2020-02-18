@@ -1,12 +1,12 @@
 import * as firebase from "@firebase/testing";
-import {
-  authedApp,
-  adminApp,
-  loadFirestoreRules,
-  clearFirestoreData
-} from "../test-utils";
 import moment from "moment";
 import * as sut from "../db";
+import {
+  adminApp,
+  authedApp,
+  clearFirestoreData,
+  loadFirestoreRules
+} from "../test-utils";
 import * as t from "../types";
 
 const DEADLIFT = t.LiftType.Deadlift;

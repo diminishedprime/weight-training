@@ -1,5 +1,5 @@
-import React from "react";
 import firebase from "firebase/app";
+import React from "react";
 import { Provider } from "react-redux";
 import { MemoryRouter as Router } from "react-router-dom";
 import store from "../store";
