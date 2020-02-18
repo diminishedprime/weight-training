@@ -11,11 +11,6 @@ export const nextForceUpdateLift = ta.createAction(
   (action) => () => action({})
 );
 
-export const setFirebase = ta.createAction(
-  "set-firebase",
-  (action) => (f: t.Firebase) => action({ firebase: f })
-);
-
 export const setFirestore = ta.createAction(
   "set-firestore",
   (action) => (firestore: t.Firestore) => action({ firestore })

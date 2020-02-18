@@ -3,7 +3,6 @@ import * as ta from "typesafe-actions";
 import {
   Analytics,
   Auth,
-  Firebase,
   Firestore,
   FirestoreTimestamp,
   PlateTypes
@@ -74,7 +73,6 @@ export interface RootState {
   analytics: Analytics;
   auth: Auth;
   firestore: Firestore;
-  firebase: Firebase;
   localStorage: {
     userDoc?: UserDoc;
   };

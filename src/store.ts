@@ -34,7 +34,6 @@ const getInitialState = (): t.RootState => {
     auth: firebase.auth && firebase.auth(),
     localStorage,
     forceUpdateLift: 0,
-    firebase,
     firestore: firebase.firestore()
   };
 };
@@ -49,9 +48,6 @@ const rootReducer = ta
   )
   .handleAction([a.setFirestore], (state, { payload: { firestore } }) =>
     Object.assign({}, state, { firestore })
-  )
-  .handleAction([a.setFirebase], (state, { payload: { firebase } }) =>
-    Object.assign({}, state, { firebase })
   )
   .handleAction([a.nextForceUpdateLift], (state) =>
     Object.assign({}, state, { forceUpdateLift: state.forceUpdateLift + 1 })

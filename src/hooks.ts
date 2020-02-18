@@ -82,14 +82,14 @@ export const useTimeSinceLift = (
 
 export const useForceSignIn = (): t.FirebaseUser | null => {
   const history = useHistory();
-  const firebase = useSelector((a) => a.firebase);
+  const auth = useSelector((a) => a.auth);
   const [user, setUser, cleanup] = useLocalStorage<t.FirebaseUser | null>(
     t.LocalStorageKey.FIREBASE_USER,
     null
   );
 
   React.useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user) => {
       if (!user) {
         cleanup();
         history.push("/login");
@@ -98,7 +98,7 @@ export const useForceSignIn = (): t.FirebaseUser | null => {
         setUser(u);
       }
     });
-  }, [history, cleanup, setUser, firebase]);
+  }, [history, cleanup, setUser, auth]);
   return user;
 };
 
