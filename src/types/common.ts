@@ -1,5 +1,10 @@
-export const ONE_REP_MAX = "one-rep-max";
+import firebase from "firebase/app";
 
+export const ONE_REP_MAX = "one-rep-max";
+export type Firestore = firebase.firestore.Firestore;
+export type Analytics = firebase.analytics.Analytics;
+export type FirestoreTimestamp = firebase.firestore.Timestamp;
+export type Firebase = typeof firebase;
 export enum PlateTypes {
   FORTY_FIVE = "forty-five",
   // THIRTY_FIVE = 'thirty-five',

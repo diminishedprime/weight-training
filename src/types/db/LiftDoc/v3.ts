@@ -1,11 +1,11 @@
-import firebase from "firebase/app";
+import { FirestoreTimestamp } from "../../common";
 import { LiftType as LiftTypeV1 } from "../LiftType/v1";
 import { LiftType, migrateV1 as liftTypeMigrateV1 } from "../LiftType/v2";
 import { WeightField } from "../WeightField";
 import { LiftDoc as V2 } from "./v2";
 
 export interface DeadliftDoc {
-  date: firebase.firestore.Timestamp;
+  date: FirestoreTimestamp;
   weight: WeightField;
   type: LiftType.Deadlift;
   reps: number;
@@ -13,7 +13,7 @@ export interface DeadliftDoc {
 }
 
 export interface SquatDoc {
-  date: firebase.firestore.Timestamp;
+  date: FirestoreTimestamp;
   weight: WeightField;
   type: LiftType.Squat;
   reps: number;
@@ -21,7 +21,7 @@ export interface SquatDoc {
 }
 
 export interface FrontSquatDoc {
-  date: firebase.firestore.Timestamp;
+  date: FirestoreTimestamp;
   weight: WeightField;
   type: LiftType.FrontSquat;
   reps: number;
@@ -29,7 +29,7 @@ export interface FrontSquatDoc {
 }
 
 export interface BenchPressDoc {
-  date: firebase.firestore.Timestamp;
+  date: FirestoreTimestamp;
   weight: WeightField;
   type: LiftType.BenchPress;
   reps: number;
@@ -37,7 +37,7 @@ export interface BenchPressDoc {
 }
 
 export interface OverheadPressDoc {
-  date: firebase.firestore.Timestamp;
+  date: FirestoreTimestamp;
   weight: WeightField;
   type: LiftType.OverheadPress;
   reps: number;
@@ -58,7 +58,7 @@ export enum SnatchPosition {
 }
 
 export interface SnatchDoc {
-  date: firebase.firestore.Timestamp;
+  date: FirestoreTimestamp;
   weight: WeightField;
   type: LiftType.Snatch;
   reps: number;
@@ -81,7 +81,7 @@ export enum CleanAndJerkPosition {
 }
 
 export interface CleanAndJerkDoc {
-  date: firebase.firestore.Timestamp;
+  date: FirestoreTimestamp;
   weight: WeightField;
   type: LiftType.CleanAndJerk;
   reps: number;

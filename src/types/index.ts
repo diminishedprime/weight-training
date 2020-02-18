@@ -1,7 +1,12 @@
-import firebase from "firebase/app";
 import * as rr from "react-redux";
 import * as ta from "typesafe-actions";
-import { PlateTypes } from "./common";
+import {
+  Analytics,
+  Firebase,
+  Firestore,
+  FirestoreTimestamp,
+  PlateTypes
+} from "./common";
 import { LiftDoc as DBLiftDoc } from "./db/LiftDoc";
 import { Lift } from "./Lift";
 import { Program } from "./Program";
@@ -23,10 +28,6 @@ export interface OneRepMax {
   weight: Weight;
   time: FirestoreTimestamp;
 }
-
-export type Firestore = firebase.firestore.Firestore;
-export type Analytics = firebase.analytics.Analytics;
-export type FirestoreTimestamp = firebase.firestore.Timestamp;
 
 export type FromFirestore<T> = (o: object) => T;
 
@@ -72,7 +73,7 @@ export interface RootState {
   // This won't actually ever be undefined, but testing man. Makes you do crazy things.
   analytics?: Analytics;
   firestore: Firestore;
-  firebase: typeof firebase;
+  firebase: Firebase;
   localStorage: {
     userDoc?: UserDoc;
   };
