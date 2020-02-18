@@ -9,7 +9,7 @@ const rules = fs.readFileSync("firestore.rules", "utf8");
 
 export * from "./TestWrapper";
 
-type MockAnalytics = (arg?: { logEvent?: Function }) => void;
+type MockAnalytics = (arg?: { logEvent?: jest.Mock<any, any> }) => void;
 
 export const mockAnalytics: MockAnalytics = (arg) => {
   const logEvent = arg?.logEvent;

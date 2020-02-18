@@ -1,5 +1,4 @@
 import { ZERO_TIME } from "../../../constants";
-import * as db from "../../../db";
 import store from "../../../store";
 import * as t from "../../../types";
 import { timestamp } from "../../../util";

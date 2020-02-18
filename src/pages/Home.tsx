@@ -25,7 +25,7 @@ export default () => {
         dispatch(t.setUserDoc(userDoc));
       }
     });
-  }, [user, dispatch]);
+  }, [user, dispatch, firestore]);
 
   const { activePrograms } = hooks.useActivePrograms();
 
