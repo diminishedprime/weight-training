@@ -18,10 +18,14 @@ export const setFirebase = ta.createAction(
 
 export const setFirestore = ta.createAction(
   "set-firestore",
-  (action) => (firestore: firebase.firestore.Firestore) => action({ firestore })
+  (action) => (firestore: t.Firestore) => action({ firestore })
 );
 
 export const setAnalytics = ta.createAction(
   "set-analytics",
-  (action) => (analytics: firebase.analytics.Analytics) => action({ analytics })
+  (action) => (analytics: t.Analytics) => action({ analytics })
+);
+
+export const setAuth = ta.createAction("set-auth", (action) => (auth: t.Auth) =>
+  action({ auth })
 );

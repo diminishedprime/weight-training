@@ -2,16 +2,17 @@ import firebase from "firebase/app";
 import * as React from "react";
 import { useHistory } from "react-router-dom";
 import * as hooks from "../hooks";
+import * as t from "../types";
 
 export default () => {
   hooks.useMeasurePage("Login");
+  const auth = t.useSelector((a) => a.auth);
   const history = useHistory();
   const [error, setError] = React.useState();
 
   const googleSignIn = React.useCallback(() => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    firebase
-      .auth()
+    auth
       .signInWithPopup(provider)
       .then(() => {
         history.push("/");
@@ -19,7 +20,7 @@ export default () => {
       .catch((e) => {
         setError(e);
       });
-  }, [history]);
+  }, [history, auth]);
 
   return (
     <div>

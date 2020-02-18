@@ -2,6 +2,7 @@ import * as rr from "react-redux";
 import * as ta from "typesafe-actions";
 import {
   Analytics,
+  Auth,
   Firebase,
   Firestore,
   FirestoreTimestamp,
@@ -70,8 +71,8 @@ export interface Grouping<T> {
 export type RootAction = ta.ActionType<typeof import("../actions")>;
 
 export interface RootState {
-  // This won't actually ever be undefined, but testing man. Makes you do crazy things.
-  analytics?: Analytics;
+  analytics: Analytics;
+  auth: Auth;
   firestore: Firestore;
   firebase: Firebase;
   localStorage: {

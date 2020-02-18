@@ -2,7 +2,14 @@ import React from "react";
 import { Provider } from "react-redux";
 import { MemoryRouter as Router } from "react-router-dom";
 import store from "../store";
-import { Firebase, Firestore, setFirebase, setFirestore } from "../types";
+import {
+  Auth,
+  Firebase,
+  Firestore,
+  setAuth,
+  setFirebase,
+  setFirestore
+} from "../types";
 
 const mockFirebase: any = {
   auth: () => ({
@@ -15,6 +22,7 @@ const mockFirebase: any = {
 interface Initializations {
   localApp?: Firestore;
   firebase?: Firebase;
+  auth?: Auth;
 }
 
 interface TestWrapperProps {
@@ -25,7 +33,7 @@ export const initalizeTestWrapper: (
   cb: () => JSX.Element,
   props?: TestWrapperProps & Initializations
 ) => React.FC<TestWrapperProps> = (cb, props) => {
-  const { localApp, firebase, ...testWrapperProps } = props || {};
+  const { localApp, firebase, auth, ...testWrapperProps } = props || {};
   if (firebase === undefined) {
     store.dispatch(setFirebase(mockFirebase));
   } else {
@@ -33,6 +41,9 @@ export const initalizeTestWrapper: (
   }
   if (localApp !== undefined) {
     store.dispatch(setFirestore(localApp));
+  }
+  if (auth !== undefined) {
+    store.dispatch(setAuth(auth));
   }
 
   const TestWrapper: React.FC<TestWrapperProps> = ({ initialEntries }) => {

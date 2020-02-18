@@ -1,9 +1,9 @@
-import firebase from "firebase/app";
 import * as React from "react";
 import { Link, useLocation } from "react-router-dom";
 import * as rrd from "react-router-dom";
 import CatchError from "./components/CatchError";
 import * as c from "./constants";
+import { useSelector } from "./types";
 
 interface HideLink extends rrd.LinkProps {
   className?: string;
@@ -12,13 +12,14 @@ interface HideLink extends rrd.LinkProps {
 const Layout: React.FC<{}> = ({ children }) => {
   const location = useLocation();
   const [navActive, setNavActive] = React.useState(false);
+  const auth = useSelector((a) => a.auth);
   const hideNav = React.useCallback(() => {
     setNavActive(false);
   }, []);
   const signOut = React.useCallback(() => {
-    firebase.auth().signOut();
+    auth.signOut();
     setNavActive(false);
-  }, []);
+  }, [auth]);
 
   const HideLink: React.FC<HideLink> = React.useCallback(
     ({ to, children, className }) => {
