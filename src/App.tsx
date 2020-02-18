@@ -37,6 +37,50 @@ serviceWorker.register({
   }
 });
 
+export const Routes: React.FC = () => {
+  return (
+    <Switch>
+      <Route path="/programs">
+        <Programs />
+      </Route>
+      <Route path="/settings" exact>
+        <Settings />
+      </Route>
+      <Route path="/login" exact>
+        <Login />
+      </Route>
+      {Object.values(t.barbellLiftTypes).map((liftType) => {
+        return (
+          <Route
+            key={`/lift/${liftType}`}
+            path={[`/lift/${liftType}/:program/:started`, `/lift/${liftType}`]}
+          >
+            <RecordLift liftType={liftType} />
+          </Route>
+        );
+      })}
+      <Route path="/" exact>
+        <Home />
+      </Route>
+      <Route path="/lift/:liftId/edit" exact>
+        <EditLift />
+      </Route>
+      <Route path="/lifts/:date" exact>
+        <ViewLifts />
+      </Route>
+      <Route path="/records" exact>
+        <Records />
+      </Route>
+      <Route path="/404" exact>
+        <FourOhFour />
+      </Route>
+      <Route>
+        <FourOhFour />
+      </Route>
+    </Switch>
+  );
+};
+
 const App: React.FC = () => {
   return (
     <Provider store={store}>
@@ -44,48 +88,7 @@ const App: React.FC = () => {
         <Router>
           <UpdateApp />
           <Layout>
-            <Switch>
-              <Route path="/programs">
-                <Programs />
-              </Route>
-              <Route path="/settings" exact>
-                <Settings />
-              </Route>
-              <Route path="/login" exact>
-                <Login />
-              </Route>
-              {Object.values(t.barbellLiftTypes).map((liftType) => {
-                return (
-                  <Route
-                    key={`/lift/${liftType}`}
-                    path={[
-                      `/lift/${liftType}/:program/:started`,
-                      `/lift/${liftType}`
-                    ]}
-                  >
-                    <RecordLift liftType={liftType} />
-                  </Route>
-                );
-              })}
-              <Route path="/" exact>
-                <Home />
-              </Route>
-              <Route path="/lift/:liftId/edit" exact>
-                <EditLift />
-              </Route>
-              <Route path="/lifts/:date" exact>
-                <ViewLifts />
-              </Route>
-              <Route path="/records" exact>
-                <Records />
-              </Route>
-              <Route path="/404" exact>
-                <FourOhFour />
-              </Route>
-              <Route>
-                <FourOhFour />
-              </Route>
-            </Switch>
+            <Routes />
           </Layout>
         </Router>
       </CatchError>

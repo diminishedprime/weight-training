@@ -45,7 +45,9 @@ export const WeightInput: React.FC<WeightInput> = ({
     <div className="field has-addons has-addons-right flex-grow">
       <p className="control is-expanded">
         <input
-          className={classNames("input", { "is-full-width": fullWidth })}
+          className={classNames("input", "weight-input", {
+            "is-full-width": fullWidth
+          })}
           type="number"
           placeholder="123"
           value={value === undefined ? "" : value}

@@ -4,6 +4,7 @@ import React from "react";
 import * as db from "../db";
 import store from "../store";
 import {
+  actWait,
   authedApp,
   clearApps,
   clearFirestoreData,
@@ -66,7 +67,7 @@ describe("Programs Page", () => {
       const doneButton = wrapper.find(".is-done-button");
       doneButton.simulate("click");
       // Give enough time for the lift to be added to the database.
-      await sleep(1000);
+      await actWait(1000);
       expect(wrapper.find(".has-background-success").exists()).toBeTruthy();
       const lifts = await db.lifts(localApp, { uid: "test-user" }, (a) => a);
       expect(lifts.length).toBe(1);
@@ -105,11 +106,3 @@ describe("Programs Page", () => {
     });
   });
 });
-
-const sleep = (ms: number): Promise<void> => {
-  return new Promise((resolve) => {
-    window.setTimeout(() => {
-      resolve();
-    }, ms);
-  });
-};

@@ -32,9 +32,6 @@ export const initalizeTestWrapper: (
   if (localApp !== undefined) {
     store.dispatch(setFirestore(localApp));
   }
-  if (auth !== undefined) {
-    store.dispatch(setAuth(auth));
-  }
 
   const TestWrapper: React.FC<TestWrapperProps> = ({ initialEntries }) => {
     return (
