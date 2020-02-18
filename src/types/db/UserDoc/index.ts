@@ -13,42 +13,11 @@ import { UserDoc as V3Db } from "../UserDoc/v3";
 
 export * from "./v3";
 
-const tryUpdateORMTimes = async (userDoc: t.UserDoc) => {
-  const userString = window.localStorage.getItem(
-    t.LocalStorageKey.FIREBASE_USER
-  );
-  if (userString !== null) {
-    const user = JSON.parse(userString) as t.FirebaseUser;
-    const promises = Object.values(LiftType).map(async (liftType) => {
-      const orm = userDoc.getORM(liftType);
-      return db
-        .lifts(store.getState().firebase.firestore(), user, (query) =>
-          query
-            .where("weight.unit", "==", orm.weight.unit)
-            .where("weight.value", "==", orm.weight.value)
-            .where("type", "==", liftType)
-            .limit(1)
-        )
-        .then((lifts) => {
-          if (lifts.length === 0) {
-            return;
-          } else {
-            userDoc.setORM(liftType, orm.weight, lifts[0].getDate());
-          }
-        });
-    });
-    Promise.all(promises).then(() => {
-      db.setUserDoc(store.getState().firebase.firestore(), user, userDoc);
-    });
-  }
-};
-
 export const toUserDoc: t.FromFirestore<t.UserDoc> = (o: object): t.UserDoc => {
   switch ((o as any).version) {
     case "3": {
       const userDoc: V3Db = o as any;
       const newUserDoc = new t.UserDoc(userDoc);
-      tryUpdateORMTimes(newUserDoc);
       return newUserDoc;
     }
     case "2": {

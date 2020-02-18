@@ -82,15 +82,15 @@ export const setOneRepMax = async (
   }
 };
 
-const alwaysBust = (_1: any, _2: moment.Moment) => {
-  return false;
-};
-
-// const oneMinuteSince = (_: any, then: moment.Moment) => {
-//   const now = moment.utc();
-//   const diff = moment.duration(now.diff(then));
-//   return diff.asMinutes() < 1;
+// const alwaysBust = (_1: any, _2: moment.Moment) => {
+//   return false;
 // };
+
+const oneMinuteSince = (_: any, then: moment.Moment) => {
+  const now = moment.utc();
+  const diff = moment.duration(now.diff(then));
+  return diff.asMinutes() < 1;
+};
 
 const oneDaySince = (_: any, then: moment.Moment) => {
   const now = moment.utc();
@@ -105,8 +105,7 @@ export const getUserDocCached = async (
   return requestWithCache(
     () => getUserDocH(firestore, user),
     t.LocalStorageKey.USER_DOC,
-    // oneMinuteSince,
-    alwaysBust,
+    oneMinuteSince,
     t.UserDoc.fromJSON
   );
 };

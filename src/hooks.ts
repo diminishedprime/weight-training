@@ -154,13 +154,16 @@ export const useSettings = (): UseSettings => {
 
 export const useMeasurePage = (pageTitle: string) => {
   const location = useLocation();
-  const firebase = useSelector((a) => a.firebase);
+  const analytics = useSelector((a) => a.analytics);
   React.useEffect(() => {
-    store.getState().analytics?.logEvent("page_view", {
+    if (analytics === undefined) {
+      return;
+    }
+    analytics.logEvent("page_view", {
       page_title: pageTitle,
       page_path: location.pathname
     });
-  }, [location.pathname, pageTitle, firebase]);
+  }, [location.pathname, pageTitle, analytics]);
 };
 
 interface ActivePrograms {

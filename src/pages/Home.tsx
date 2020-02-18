@@ -1,4 +1,3 @@
-import firebase from "firebase/app";
 import * as React from "react";
 import * as redux from "react-redux";
 import { Link } from "react-router-dom";
@@ -11,6 +10,7 @@ import * as t from "../types";
 export default () => {
   hooks.useMeasurePage("Home");
   const user = hooks.useForceSignIn();
+  const firestore = t.useSelector((a) => a.firestore);
   const userDoc = t.useSelector(
     (s) => s.localStorage && s.localStorage.userDoc
   );
@@ -20,7 +20,7 @@ export default () => {
     if (user === null) {
       return;
     }
-    db.getUserDocCached(firebase.firestore(), user).then((userDoc) => {
+    db.getUserDocCached(firestore, user).then((userDoc) => {
       if (userDoc !== undefined) {
         dispatch(t.setUserDoc(userDoc));
       }
