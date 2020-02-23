@@ -1,8 +1,15 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { MemoryRouter as Router } from "react-router-dom";
+import * as db from "../db";
 import store from "../store";
-import { Auth, Firestore, setAuth, setFirestore } from "../types";
+import {
+  Auth,
+  Firestore,
+  setAuth,
+  setFirestore,
+  setWeightTrainingDb
+} from "../types";
 
 interface Initializations {
   localApp?: Firestore;
@@ -31,6 +38,7 @@ export const initalizeTestWrapper: (
   }
   if (localApp !== undefined) {
     store.dispatch(setFirestore(localApp));
+    store.dispatch(setWeightTrainingDb(db.initializedWith(localApp)));
   }
 
   const TestWrapper: React.FC<TestWrapperProps> = ({ initialEntries }) => {

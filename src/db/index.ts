@@ -4,6 +4,8 @@ import store from "../store";
 import * as t from "../types";
 import * as docs from "./docs";
 
+// TODO - remove store.dispatch from the db entirely and have it be managed through redux or something.
+
 const updateCacheDateKeys = (
   cacheKey: t.LocalStorageKey,
   newMoment: moment.Moment

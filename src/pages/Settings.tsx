@@ -14,7 +14,7 @@ export default () => {
     if (unit !== undefined) {
       setSettings((old) => ({ ...old, unit }));
     }
-  }, [unit]);
+  }, [unit, setSettings]);
 
   return (
     <>

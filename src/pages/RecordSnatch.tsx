@@ -33,7 +33,7 @@ const RecordSnatch: React.FC = () => {
         startPosition
       );
     }
-  }, [user, weight, reps, warmup, style, startPosition]);
+  }, [user, weight, reps, warmup, style, startPosition, db]);
 
   const modifyQuery = React.useCallback(
     (q: t.Query) => q.orderBy("date", "desc"),

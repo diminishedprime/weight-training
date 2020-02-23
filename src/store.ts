@@ -44,6 +44,9 @@ const getInitialState = (): t.RootState => {
 
 const rootReducer = ta
   .createReducer(getInitialState())
+  .handleAction([a.setWeightTrainingDb], (state, { payload: { db } }) =>
+    Object.assign({}, state, { db })
+  )
   .handleAction([a.setAuth], (state, { payload: { auth } }) =>
     Object.assign({}, state, { auth })
   )

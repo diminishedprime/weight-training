@@ -24,3 +24,8 @@ export const setAnalytics = ta.createAction(
 export const setAuth = ta.createAction("set-auth", (action) => (auth: t.Auth) =>
   action({ auth })
 );
+
+export const setWeightTrainingDb = ta.createAction(
+  "set-db",
+  (action) => (db: t.WeightTrainingDb) => action({ db })
+);

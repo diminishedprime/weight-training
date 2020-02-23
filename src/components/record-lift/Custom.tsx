@@ -5,8 +5,6 @@ import * as t from "../../types";
 import * as util from "../../util";
 import BarInput from "../BarInput";
 import * as g from "../general";
-import WeightInput from "../general/WeightInput";
-import WithLabel from "../general/WithLabel";
 
 interface AddLiftProps {
   liftType: t.BarbellLiftType;

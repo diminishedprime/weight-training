@@ -9,7 +9,6 @@ import {
 } from "./common";
 import {
   LiftDoc as DBLiftDoc,
-  SnatchDoc,
   SnatchPosition,
   SnatchStyle
 } from "./db/LiftDoc";
