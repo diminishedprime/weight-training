@@ -41,21 +41,18 @@ const AddLift: React.FC<AddLiftProps> = ({ liftType, user }) => {
   return (
     <>
       <BarInput weight={weight} onWeightChange={setWeight} />
-      <div className="field is-grouped">
+      <div className="field is-grouped flex">
         <g.SetReps reps={reps} setReps={setReps} />
-        <WithLabel label="Weight">
-          <WeightInput setWeight={setWeight} weight={weight} />
-        </WithLabel>
-      </div>
-      <div className="field flex">
-        <label className="checkbox flex flex-center full-width flex-end">
-          <input
-            type="checkbox"
-            checked={warmup}
-            onChange={(e) => setWarmup(e.target.checked)}
-          />
-          Warmup
-        </label>
+        <div className="field flex">
+          <label className="checkbox flex flex-center full-width flex-end">
+            <input
+              type="checkbox"
+              checked={warmup}
+              onChange={(e) => setWarmup(e.target.checked)}
+            />
+            Warmup
+          </label>
+        </div>
       </div>
       <div className="field flex flex-between">
         <button
