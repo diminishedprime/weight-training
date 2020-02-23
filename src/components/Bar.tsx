@@ -1,7 +1,7 @@
 import * as React from "react";
+import AutosizeInput from "react-input-autosize";
 import * as t from "../types";
 import * as util from "../util";
-import AutosizeInput from "react-input-autosize";
 
 const PlatesFor = ({
   side,

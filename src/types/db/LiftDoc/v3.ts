@@ -45,9 +45,9 @@ export interface OverheadPressDoc {
 }
 
 export enum SnatchStyle {
-  Full = "full",
   Muscle = "muscle",
-  Power = "power"
+  Power = "power",
+  Full = "full"
 }
 
 export enum SnatchPosition {

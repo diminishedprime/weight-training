@@ -7,7 +7,12 @@ import {
   FirestoreTimestamp,
   Plate
 } from "./common";
-import { LiftDoc as DBLiftDoc } from "./db/LiftDoc";
+import {
+  LiftDoc as DBLiftDoc,
+  SnatchDoc,
+  SnatchPosition,
+  SnatchStyle
+} from "./db/LiftDoc";
 import { Lift } from "./Lift";
 import { Program } from "./Program";
 import { UserDoc } from "./UserDoc";
@@ -69,6 +74,18 @@ export interface Grouping<T> {
 
 export type RootAction = ta.ActionType<typeof import("../actions")>;
 
+export interface WeightTrainingDb {
+  addSnatch: (
+    user: FirebaseUser,
+    date: FirestoreTimestamp,
+    weight: Weight,
+    reps: number,
+    warmup: boolean,
+    style: SnatchStyle,
+    startPosition: SnatchPosition
+  ) => Promise<DisplayLift>;
+}
+
 export interface RootState {
   analytics: Analytics;
   auth: Auth;
@@ -76,6 +93,7 @@ export interface RootState {
   localStorage: {
     userDoc?: UserDoc;
   };
+  db: WeightTrainingDb;
   forceUpdateLift: number;
   program?: Program;
 }

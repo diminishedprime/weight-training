@@ -3,6 +3,7 @@ import "firebase/firestore";
 import * as redux from "redux";
 import * as ta from "typesafe-actions";
 import * as a from "./actions";
+import * as db from "./db";
 import * as t from "./types";
 
 const firebaseConfig = {
@@ -29,12 +30,15 @@ const getInitialState = (): t.RootState => {
       (localStorage as any).userDoc = t.UserDoc.fromJSON(JSON.stringify(o));
     }
   }
+
+  const firestore = firebase.firestore();
   return {
+    db: db.initializedWith(firestore),
     analytics: firebase.analytics && firebase.analytics(),
     auth: firebase.auth && firebase.auth(),
     localStorage,
     forceUpdateLift: 0,
-    firestore: firebase.firestore()
+    firestore
   };
 };
 

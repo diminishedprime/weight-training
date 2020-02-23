@@ -338,3 +338,56 @@ export const addProgram = async (
   const thing = await added.get();
   return thing.data() as t.ProgramDoc;
 };
+
+const addSnatch = async (
+  firestore: t.Firestore,
+  user: t.FirebaseUser,
+  date: t.FirestoreTimestamp,
+  weight: t.Weight,
+  reps: number,
+  warmup: boolean,
+  style: t.SnatchStyle,
+  startPosition: t.SnatchPosition
+): Promise<t.DisplayLift> => {
+  const lift = t.Lift.snatch(date, weight, reps, warmup, style, startPosition);
+  const docReference = docs
+    .liftsCollection(firestore, user)
+    .add(lift.asFirestore());
+  const newLift = await docReference.then(async (doc) => {
+    // TODO - figure out how 1RMs should work for snatches, etc.
+    // await setOneRepMax(...);
+    const d = await doc.get();
+    const data = d.data();
+    if (data === undefined) {
+      throw new Error("Doc was not added successfully");
+    }
+    return t.Lift.fromFirestoreData(data).withUid(doc.id);
+  });
+  store.dispatch(actions.nextForceUpdateLift());
+  addLocalLift(firestore, newLift);
+  return newLift;
+};
+
+export const initializedWith = (firestore: t.Firestore): t.WeightTrainingDb => {
+  return {
+    addSnatch: (
+      user: t.FirebaseUser,
+      date: t.FirestoreTimestamp,
+      weight: t.Weight,
+      reps: number,
+      warmup: boolean,
+      style: t.SnatchStyle,
+      startPosition: t.SnatchPosition
+    ) =>
+      addSnatch(
+        firestore,
+        user,
+        date,
+        weight,
+        reps,
+        warmup,
+        style,
+        startPosition
+      )
+  };
+};

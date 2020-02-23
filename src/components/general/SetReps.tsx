@@ -35,3 +35,5 @@ export const SetReps: React.FC<SetRepsProps> = ({ setReps, reps }) => {
     </div>
   );
 };
+
+export default SetReps;
