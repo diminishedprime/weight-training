@@ -33,8 +33,13 @@ export class Weight
     return new Weight(value, WeightUnit.KILOGRAM);
   };
 
-  public static bar = (): Weight => {
-    return new Weight(45, WeightUnit.POUND);
+  public static bar = (unit: WeightUnit = WeightUnit.POUND): Weight => {
+    switch (unit) {
+      case WeightUnit.POUND:
+        return new Weight(45, unit);
+      case WeightUnit.KILOGRAM:
+        return new Weight(20, unit);
+    }
   };
 
   public value: number;
@@ -66,7 +71,7 @@ export class Weight
     return `${this.value.toFixed(1).replace(/[.,]0$/, "")}${this.unit}`;
   }
 
-  public display(unit: WeightUnit): string {
+  public display(unit: WeightUnit = this.unit): string {
     return this.toUnit(unit).toString();
   }
 

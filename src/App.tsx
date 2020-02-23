@@ -23,6 +23,7 @@ import Login from "./pages/Login";
 import Programs from "./pages/Programs";
 import RecordLift from "./pages/RecordLift";
 import Records from "./pages/Records";
+import RecordSnatch from "./pages/RecordSnatch";
 import Settings from "./pages/Settings";
 import ViewLifts from "./pages/ViewLifts";
 
@@ -59,6 +60,9 @@ export const Routes: React.FC = () => {
           </Route>
         );
       })}
+      <Route path={`/lift/snatch`}>
+        <RecordSnatch />
+      </Route>
       <Route path="/" exact>
         <Home />
       </Route>

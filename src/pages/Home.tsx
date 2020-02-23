@@ -49,7 +49,7 @@ export default () => {
           </ul>
         </>
       )}
-      <div className="flex">
+      <div className="flex flex-wrap">
         {Object.values(t.LiftType)
           // TODO - there should be smarter error detection around routing &
           // creating of these cards.

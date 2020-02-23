@@ -59,15 +59,21 @@ body
 
 .flex
   display: flex;
+
+.flex-wrap
   flex-wrap: wrap;
 
 .flex-column
   display: flex;
   flex-direction: column;
 
+.flex-between
+  justify-content: space-between;
+
 .flex-center
   justify-items: center;
   align-items: center;
+  justify-content: center;
 
 .flex-between
   justify-content: space-between;
@@ -219,6 +225,7 @@ $_2_5_plate_height: $_2_5_height-mm / $bar-width-mm * $bar-height-vw / $aspect-r
   display: flex;
   align-items: center;
   margin: auto;
+  margin-bottom: 2em;
 
 .bar-wrapper > .sleeve
   width: $sleeve-width;
@@ -231,6 +238,11 @@ $_2_5_plate_height: $_2_5_height-mm / $bar-width-mm * $bar-height-vw / $aspect-r
 .bar-wrapper > .shaft
   width: $shaft-width;
   height: $shaft-height;
+
+.shaft > div
+  display: flex;
+  justify-content: center;
+  font-size: 3em;
 
 .sleeve
   display: flex;
@@ -246,10 +258,10 @@ $_2_5_plate_height: $_2_5_height-mm / $bar-width-mm * $bar-height-vw / $aspect-r
   width: $plate-width;
   height: $plate-height;
 
-.sleeve > .plate._5
+.sleeve > .plate.plate_5_lbs
   height: $_5_plate_height
 
-.sleeve > .plate._2\.5
+.sleeve > .plate.plate_2_5_lbs
   height: $_2_5_plate_height;
 
 .plate
@@ -264,21 +276,46 @@ $_2_5_plate_height: $_2_5_height-mm / $bar-width-mm * $bar-height-vw / $aspect-r
   transform: rotate(90deg);
   font-size: $plate-width
 
-.plate._45
+.plate.plate_45_lbs
   background-color: blue;
 
-.plate._25
+.plate.plate_35_lbs
+    background-color: yellow;
+    color: black;
+
+.plate.plate_25_lbs
   background-color: green;
   color: black;
 
-.plate._10
+.plate.plate_10_lbs
   background-color: black;
 
-.plate._5
+.plate.plate_5_lbs
   background-color: orange;
 
-.plate._2\.5
+.plate.plate_2_5_lbs
   background-color: pink;
+
+
+.plate.plate_5_kilo
+  color: black;
+  background-color: white;
+
+.plate.plate_10_kilo
+  color: black;
+  background-color: green;
+
+.plate.plate_15_kilo
+  color: black;
+  background-color: yellow;
+
+.plate.plate_20_kilo
+  color: white;
+  background-color: blue;
+
+.plate.plate_25_kilo
+  background-color: red;
+
 
 .metal
   background-image: linear-gradient(180deg, hsl(0,0%,78%)  0%, hsl(0,0%,90%) 47%, hsl(0,0%,78%) 53%, hsl(0,0%,70%)100%);
@@ -312,6 +349,9 @@ label
 
 .sm-margin-right
   margin-right: 5px;
+
+.m-margin-bottom
+  margin-bottom: 10px;
 
 .sm-text
   font-size: .5em;

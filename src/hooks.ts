@@ -218,3 +218,18 @@ export const useActivePrograms: UseActivePrograms = () => {
 
   return { activePrograms, addActiveProgram, removeActiveProgram };
 };
+
+interface UseDefaultBar {
+  weight: t.Weight;
+  setWeight: React.Dispatch<React.SetStateAction<t.Weight>>;
+}
+
+export const useDefaultBar = (initialWeight?: t.Weight): UseDefaultBar => {
+  const {
+    settings: { unit: defaultUnit }
+  } = useSettings();
+  const [weight, setWeight] = React.useState(
+    initialWeight || t.Weight.bar(defaultUnit)
+  );
+  return { weight, setWeight };
+};

@@ -5,7 +5,7 @@ import {
   Auth,
   Firestore,
   FirestoreTimestamp,
-  PlateTypes
+  Plate
 } from "./common";
 import { LiftDoc as DBLiftDoc } from "./db/LiftDoc";
 import { Lift } from "./Lift";
@@ -48,7 +48,7 @@ export interface AsJson extends Versioned {
   asJSON(): string;
 }
 
-export type PlateConfig = { [plate in PlateTypes]: number } | "not-possible";
+export type PlateConfig = Plate[] | "not-possible";
 
 export enum WorkoutType {
   CUSTOM = "custom",

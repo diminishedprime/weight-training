@@ -15,32 +15,24 @@ export const timestamp = (
   return new firebase.firestore.Timestamp(seconds, nanoseconds);
 };
 
-export const emptyBar = (): t.PlateConfig => ({
-  [t.PlateTypes.FORTY_FIVE]: 0,
-  [t.PlateTypes.TWENTY_FIVE]: 0,
-  [t.PlateTypes.TEN]: 0,
-  [t.PlateTypes.FIVE]: 0,
-  [t.PlateTypes.TWO_AND_A_HALF]: 0
-});
-
+// Returns half the plates needed to make weight.
 export const platesFor = (weight: t.Weight): t.PlateConfig => {
-  const barWeight = t.Weight.bar();
-  if (weight.value < barWeight.value) {
+  const barWeight = t.Weight.bar(weight.unit);
+  if (weight.lessThan(barWeight)) {
     return "not-possible";
   }
-  const plates = emptyBar();
-  const acc: { plates: t.PlateConfig; remainingWeight: t.Weight } = {
+  const plates: t.Plate[] = [];
+  const acc = {
     plates,
-    remainingWeight: weight.subtract(t.Weight.bar())
+    remainingWeight: weight.subtract(barWeight)
   };
-  const thing = Object.values(t.PlateTypes).reduce(
-    ({ plates, remainingWeight }, plateType) => {
-      while (
-        remainingWeight.greaterThanEq(c.plateWeight[plateType].multiply(2))
-      ) {
-        (plates as any)[plateType] += 2;
+  const thing = platesForUnit(weight.unit).reduce(
+    ({ plates, remainingWeight }, currentPlate) => {
+      while (remainingWeight.greaterThanEq(currentPlate.weight.multiply(2))) {
+        // plates.push()(plates as any)[plateType] += 2;
+        plates.push(currentPlate);
         remainingWeight = remainingWeight.subtract(
-          c.plateWeight[plateType].multiply(2)
+          currentPlate.weight.multiply(2)
         );
       }
       return { plates, remainingWeight };
@@ -50,18 +42,19 @@ export const platesFor = (weight: t.Weight): t.PlateConfig => {
   return thing.plates;
 };
 
-export const splitConfig = (plateConfig: t.PlateConfig): t.PlateConfig => {
-  const copied: t.PlateConfig = Object.assign({}, plateConfig);
-  Object.entries(copied).forEach(([plateType, num]) => {
-    (copied as any)[plateType] = num / 2;
-  });
-  return copied;
-};
-
 export const range = (to: number): undefined[] => {
   const a: undefined[] = [];
   for (let i = 0; i < to; i++) {
     a.push(undefined);
   }
   return a;
+};
+
+export const platesForUnit = (unit: t.WeightUnit): t.Plate[] => {
+  const plates = Object.values(c.plates).filter(
+    (plate) => plate.weight.unit === unit
+  );
+  return plates.sort((a, b) =>
+    a.weight.lessThanEq(b.weight) ? 1 : a.weight.equals(b.weight) ? 0 : -1
+  );
 };

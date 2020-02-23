@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as c from "../constants";
 import * as t from "../types";
 import * as util from "../util";
 
@@ -8,25 +7,16 @@ const PlatesFor = ({
   plates
 }: {
   side: "left" | "right";
-  plates: Array<[t.PlateTypes, number]>;
+  plates: t.Plate[];
 }) => {
   return (
     <>
-      {plates.map(([type, count]) => {
+      {plates.map((plate, idx) => {
         return (
-          <React.Fragment key={`${side}-${type}`}>
-            {util.range(count).map((_, plateIdx) => {
-              return (
-                <div
-                  key={`left-${type}-${plateIdx}`}
-                  className={`plate _${c.plateWeight[type].value}`}
-                >
-                  <div className="sideways-text">
-                    {c.plateWeight[type].value}
-                  </div>
-                </div>
-              );
-            })}
+          <React.Fragment key={`${side}-${idx}`}>
+            <div className={`plate ${plate.cssClass}`}>
+              <div className="sideways-text">{plate.weight.display()}</div>
+            </div>
           </React.Fragment>
         );
       })}
@@ -34,26 +24,37 @@ const PlatesFor = ({
   );
 };
 
-export default ({ weight }: { weight: t.Weight }) => {
-  const plateConfig = React.useMemo(() => {
-    return util.platesFor(weight || t.Weight.bar());
-  }, [weight]);
-  let plates: Array<[t.PlateTypes, number]> = [];
-  if (plateConfig !== "not-possible") {
-    plates = Object.entries(util.splitConfig(plateConfig)).filter(
-      ([_, count]) => count > 0
-    ) as Array<[t.PlateTypes, number]>;
-  }
+export default ({
+  weight,
+  showWeight,
+  unit
+}: {
+  weight: t.Weight;
+  unit?: t.WeightUnit;
+  showWeight?: true;
+}) => {
+  const plates = React.useMemo(() => {
+    return util.platesFor(weight || t.Weight.bar(unit));
+  }, [weight, unit]);
   return (
     <div className="bar-wrapper">
       <div className="sleeve left metal">
-        <PlatesFor side="left" plates={plates} />
+        {plates !== "not-possible" && <PlatesFor side="left" plates={plates} />}
       </div>
       <div className="bushing metal"></div>
-      <div className="shaft metal"></div>
+      <div className="shaft metal">
+        {plates !== "not-possible" && showWeight && (
+          <div>{weight.display()}</div>
+        )}
+        {plates === "not-possible" && (
+          <div>Not Possible: {weight.display()}</div>
+        )}
+      </div>
       <div className="bushing metal"></div>
       <div className="sleeve right metal">
-        <PlatesFor side="right" plates={plates} />
+        {plates !== "not-possible" && (
+          <PlatesFor side="right" plates={plates} />
+        )}
       </div>
     </div>
   );
