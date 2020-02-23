@@ -13,6 +13,10 @@ export class Weight
     const parsed = JSON.parse(s);
     return Weight.fromFirestoreData(parsed);
   };
+
+  public static forUnit = (unit: WeightUnit) => (value: number) => {
+    return new Weight(value, unit);
+  };
   public static kiloToLbs = (value: number) => {
     return value / lbsToKiloRatio;
   };
@@ -49,6 +53,12 @@ export class Weight
   constructor(value: number, unit: WeightUnit) {
     this.value = value;
     this.unit = unit;
+  }
+
+  public setValue(value: number): Weight {
+    const nu = this.clone();
+    nu.value = value;
+    return nu;
   }
 
   public getVersion(): string {

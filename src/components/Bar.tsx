@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as t from "../types";
 import * as util from "../util";
+import AutosizeInput from "react-input-autosize";
 
 const PlatesFor = ({
   side,
@@ -24,14 +25,49 @@ const PlatesFor = ({
   );
 };
 
+interface ShowWeightProps {
+  weight: t.Weight;
+  setWeight?: React.Dispatch<React.SetStateAction<t.Weight>>;
+}
+
+const ShowWeight: React.FC<ShowWeightProps> = ({ weight, setWeight }) => {
+  const [asText, setAsText] = React.useState<string | undefined>(
+    weight.value.toString()
+  );
+
+  React.useEffect(() => {
+    setAsText(weight.value.toFixed(1).replace(".0", ""));
+  }, [weight]);
+
+  const updateWeight = React.useCallback(() => {
+    if (asText !== undefined && asText !== "" && setWeight !== undefined) {
+      setWeight((old) => t.Weight.forUnit(old.unit)(parseInt(asText, 10)));
+    }
+  }, [asText, setWeight]);
+
+  return (
+    <AutosizeInput
+      className="weight-input"
+      type="number"
+      style={{ fontSize: "1.0em" }}
+      onFocus={(e) => e.target.select()}
+      onBlur={() => updateWeight()}
+      onChange={(e) => setAsText(e.target.value)}
+      value={asText}
+    />
+  );
+};
+
 export default ({
   weight,
   showWeight,
-  unit
+  unit,
+  setWeight
 }: {
   weight: t.Weight;
   unit?: t.WeightUnit;
   showWeight?: true;
+  setWeight?: React.Dispatch<React.SetStateAction<t.Weight>>;
 }) => {
   const plates = React.useMemo(() => {
     return util.platesFor(weight || t.Weight.bar(unit));
@@ -44,10 +80,19 @@ export default ({
       <div className="bushing metal"></div>
       <div className="shaft metal">
         {plates !== "not-possible" && showWeight && (
-          <div>{weight.display()}</div>
+          <div className="flex flex-center">
+            <ShowWeight weight={weight} setWeight={setWeight} />
+            <span>{weight.unit}</span>
+          </div>
         )}
         {plates === "not-possible" && (
-          <div>Not Possible: {weight.display()}</div>
+          <div>
+            <span>
+              Cannot make{" "}
+              <span className="has-text-primary">{weight.display()}</span> with
+              the available plates.
+            </span>
+          </div>
         )}
       </div>
       <div className="bushing metal"></div>

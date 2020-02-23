@@ -71,7 +71,7 @@ const BarInput: React.FC<BarInputProps> = ({
 
   return (
     <>
-      <Bar weight={weight} showWeight unit={unit} />
+      <Bar weight={weight} showWeight unit={unit} setWeight={setWeight} />
       <PlateButtons unit={unit} onClick={onPlateClick} />
       <div className="flex flex-between">
         <button className="button is-danger is-outlined" onClick={resetBar}>
