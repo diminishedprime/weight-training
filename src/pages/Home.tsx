@@ -53,11 +53,7 @@ export default () => {
         {Object.values(t.LiftType)
           // TODO - there should be smarter error detection around routing &
           // creating of these cards.
-          .filter(
-            (liftType) =>
-              liftType !== t.LiftType.CleanAndJerk &&
-              liftType !== t.LiftType.Snatch
-          )
+          .filter((liftType) => liftType !== t.LiftType.CleanAndJerk)
           .map((liftType) => (
             <LiftCard
               liftType={liftType}
