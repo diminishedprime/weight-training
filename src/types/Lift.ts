@@ -2,6 +2,7 @@ import { BarbellLiftType, LiftDoc } from "./db";
 import {
   CleanAndJerkPosition,
   CleanAndJerkStyle,
+  SnatchDoc,
   SnatchPosition,
   SnatchStyle,
   toLift
@@ -179,4 +180,51 @@ export class Lift implements AsFirestore, Equals<Lift> {
   public withUid(uid: string): DisplayLift {
     return new DisplayLift({ ...this.firestoreDoc, uid });
   }
+
+  public prettyName(): string {
+    const doc = this.firestoreDoc;
+    switch (doc.type) {
+      case LiftType.Snatch:
+        return prettyNameSnatch(doc);
+      default:
+        return "Not implemented complain at matt.";
+    }
+  }
 }
+
+const prettyNameSnatch = (snatch: SnatchDoc): string => {
+  if (
+    snatch.startPosition === SnatchPosition.Floor &&
+    snatch.style === SnatchStyle.Full
+  ) {
+    return "Full";
+  }
+  let firstPart;
+  switch (snatch.startPosition) {
+    case SnatchPosition.HighHang:
+      firstPart = "HH";
+      break;
+    case SnatchPosition.AboveTheKnee:
+      firstPart = "AK";
+      break;
+    case SnatchPosition.BelowTheKnee:
+      firstPart = "BK";
+      break;
+    case SnatchPosition.Floor:
+      firstPart = "F";
+      break;
+  }
+
+  let secondPart;
+  switch (snatch.style) {
+    case SnatchStyle.Muscle:
+      secondPart = "M";
+      break;
+    case SnatchStyle.Power:
+      secondPart = "P";
+      break;
+    case SnatchStyle.Full:
+      secondPart = "F";
+  }
+  return `${firstPart}-${secondPart}`;
+};

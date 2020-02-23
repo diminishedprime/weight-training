@@ -3,6 +3,7 @@ import BarInput from "../components/BarInput";
 import Checkbox from "../components/general/Checkbox";
 import Select from "../components/general/Select";
 import SetReps from "../components/general/SetReps";
+import SnatchTable from "../components/SnatchTable";
 import * as hooks from "../hooks";
 import * as t from "../types";
 import * as util from "../util";
@@ -34,12 +35,18 @@ const RecordSnatch: React.FC = () => {
     }
   }, [user, weight, reps, warmup, style, startPosition]);
 
+  const modifyQuery = React.useCallback(
+    (q: t.Query) => q.orderBy("date", "desc"),
+    []
+  );
+
   if (user === null) {
     return null;
   }
 
   return (
     <>
+      <h2 className="is-3 subtitle centered">Snatch</h2>
       <BarInput weight={weight} onWeightChange={setWeight} />
       <div className="flex flex-between m-margin-top flex-items-center">
         <Select<t.SnatchPosition>
@@ -73,6 +80,8 @@ const RecordSnatch: React.FC = () => {
           Add
         </button>
       </div>
+      <hr />
+      <SnatchTable user={user} modifyQuery={modifyQuery} />
     </>
   );
 };
