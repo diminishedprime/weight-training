@@ -1,6 +1,6 @@
 import React from "react";
-import Select from "./Select";
 import * as t from "../../types";
+import Select from "./Select";
 
 interface SelectUnitProps {
   update: (unit: t.WeightUnit) => void;
