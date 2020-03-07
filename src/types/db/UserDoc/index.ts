@@ -1,7 +1,7 @@
 import { ZERO_TIME } from "../../../constants";
 import store from "../../../store";
 import * as t from "../../../types";
-import { timestamp } from "../../../util";
+import { withBrand } from "../index";
 import { LiftType } from "../LiftType";
 import { LiftType as LiftTypeV1 } from "../LiftType/v1";
 import { RecordField as RecordFieldV1 } from "../RecordField/v1";
@@ -21,24 +21,18 @@ export const toUserDoc: t.FromFirestore<t.UserDoc> = (o: object): t.UserDoc => {
     }
     case "2": {
       const userDoc: V2Db = o as any;
-      Object.values(LiftTypeV1).forEach((liftType) => {
-        const liftMeta = userDoc[liftType];
-        const orm = liftMeta[t.ONE_REP_MAX];
-        const jsonTime = orm.time;
-        orm.time = timestamp(jsonTime.seconds, jsonTime.nanoseconds);
-      });
       const defaultRecord: RecordFieldV2 = {
         [t.ONE_REP_MAX]: {
           weight: { value: 0, unit: t.WeightUnit.POUND, version: "1" },
-          time: ZERO_TIME()
+          time: withBrand(ZERO_TIME())
         }
       };
-      const v3: V3Db = {
+      const v3: V3Db = withBrand({
         ...userDoc,
         version: "3",
         [LiftType.Snatch]: defaultRecord,
         [LiftType.CleanAndJerk]: defaultRecord
-      };
+      });
       return toUserDoc(v3);
     }
     case "1":
@@ -51,7 +45,7 @@ export const toUserDoc: t.FromFirestore<t.UserDoc> = (o: object): t.UserDoc => {
       const defaultRecord: RecordFieldV2 = {
         [t.ONE_REP_MAX]: {
           weight: { value: 0, unit: t.WeightUnit.POUND, version: "1" },
-          time: ZERO_TIME()
+          time: withBrand(ZERO_TIME())
         }
       };
       const newDoc: V2Db = {
@@ -72,7 +66,7 @@ export const toUserDoc: t.FromFirestore<t.UserDoc> = (o: object): t.UserDoc => {
         newDoc[liftType] = {
           [t.ONE_REP_MAX]: {
             weight,
-            time: ZERO_TIME()
+            time: withBrand(ZERO_TIME())
           }
         };
       });

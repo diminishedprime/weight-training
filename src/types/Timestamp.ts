@@ -1,22 +1,21 @@
 import moment from "moment";
 import * as util from "../util";
-import { AsFirestore, FirestoreTimestamp } from "./index";
+import { FirestoreTimestamp, HasFirestoreField } from "./index";
 
-import { TimeStampField } from "./db";
+import { TimeStampField, withBrand } from "./db";
 
-export class Timestamp implements AsFirestore<TimeStampField>, TimeStampField {
+export class Timestamp implements HasFirestoreField<TimeStampField> {
   public static from = (
     ts: { seconds: number; nanoseconds: number } | FirestoreTimestamp
   ): Timestamp => {
-    return new Timestamp(ts);
+    return new Timestamp(withBrand(ts));
   };
-  public seconds: number;
-  public nanoseconds: number;
+
+  public firestoreField: TimeStampField;
   private version = "1";
 
-  constructor({ seconds, nanoseconds }: TimeStampField) {
-    this.seconds = seconds;
-    this.nanoseconds = nanoseconds;
+  constructor(timestampField: TimeStampField) {
+    this.firestoreField = timestampField;
   }
 
   public toMoment(): moment.Moment {
@@ -28,14 +27,21 @@ export class Timestamp implements AsFirestore<TimeStampField>, TimeStampField {
   }
 
   public toFirebaseTimestamp(): FirestoreTimestamp {
-    return util.timestamp(this.seconds, this.nanoseconds);
+    return util.timestamp(
+      this.firestoreField.seconds,
+      this.firestoreField.nanoseconds
+    );
   }
 
   public asFirestore(): TimeStampField {
-    return this.toFirebaseTimestamp();
+    return this.firestoreField;
   }
 
   public getVersion(): string {
     return this.version;
+  }
+
+  public asJSON(): string {
+    return JSON.stringify(this.firestoreField);
   }
 }

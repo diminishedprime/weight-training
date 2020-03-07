@@ -1,3 +1,4 @@
+import { FirestoreField } from "../index";
 import { LiftType } from "../LiftType/v2";
 import { RecordField } from "../RecordField/v2";
 
@@ -7,4 +8,5 @@ type UserDocContents = {
 
 export type UserDoc = {
   version: "3";
-} & UserDocContents;
+} & UserDocContents &
+  FirestoreField;

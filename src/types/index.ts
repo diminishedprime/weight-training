@@ -33,6 +33,9 @@ export interface OneRepMax {
   time: FirestoreTimestamp;
 }
 
+// TODO - this method should be generic on o. It should only work for signatures
+// from versioed firestoreFields. (which requires me to add a marker interface
+// for versioned firestore fields.)
 export type FromFirestore<T> = (o: object) => T;
 
 export const BAR_WEIGHT = 45;
@@ -40,6 +43,8 @@ export const BAR_WEIGHT = 45;
 export interface Equals<T> {
   equals(a: T): boolean;
 }
+
+// Deprecated
 export interface AsFirestore<T> extends Versioned {
   asFirestore(): T;
 }
@@ -48,6 +53,7 @@ export interface Versioned {
   getVersion: () => string;
 }
 
+// Deprecated
 export interface AsJson extends Versioned {
   asJSON(): string;
 }
