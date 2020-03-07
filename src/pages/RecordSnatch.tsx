@@ -50,20 +50,20 @@ const RecordSnatch: React.FC = () => {
       <BarInput weight={weight} onWeightChange={setWeight} />
       <div className="flex flex-between m-margin-top flex-items-center">
         <Select<t.SnatchPosition>
+          toValue={(t) => t}
+          toText={(t) => t}
+          label="Position"
           initial={startPosition}
-          onChange={setStartPosition}
-          options={Object.values(t.SnatchPosition).map((pos) => ({
-            value: pos,
-            label: pos as string
-          }))}
+          update={setStartPosition}
+          options={Object.values(t.SnatchPosition)}
         />
         <Select<t.SnatchStyle>
+          toValue={(t) => t}
+          toText={(t) => t}
+          label="Style"
           initial={style}
-          onChange={setStyle}
-          options={Object.values(t.SnatchStyle).map((pos) => ({
-            value: pos,
-            label: pos as string
-          }))}
+          update={setStyle}
+          options={Object.values(t.SnatchStyle)}
         />
 
         <Checkbox

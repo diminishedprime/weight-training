@@ -73,9 +73,7 @@ export default () => {
       <div className="title is-5">Edit Lift</div>
       <div className="field is-grouped">
         <g.SetReps reps={reps} setReps={setReps} />
-        <g.WithLabel label="Weight">
-          <g.WeightInput setWeight={setWeight} weight={weight} />
-        </g.WithLabel>
+        <g.WeightInput update={setWeight} initial={weight} />
       </div>
       <div className="field">
         <label className="label">Date</label>

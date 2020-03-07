@@ -25,7 +25,12 @@ interface PR {
 }
 
 export class UserDoc
-  implements DBUserDoc, AsFirestore, AsJson, Versioned, Equals<UserDoc> {
+  implements
+    DBUserDoc,
+    AsFirestore<DBUserDoc>,
+    AsJson,
+    Versioned,
+    Equals<UserDoc> {
   public static fromFirestoreData = toUserDoc;
   public static fromJSON = userDocfromJSON;
 
@@ -121,7 +126,9 @@ export class UserDoc
     return this[liftType][ONE_REP_MAX];
   }
 
-  public asFirestore(): object {
+  public asFirestore(): DBUserDoc {
+    // TODO - this can be cleaned up if I switch to this implementing
+    // 'HasField<T>' where T is DBUserDoc.
     return JSON.parse(JSON.stringify(this));
   }
 

@@ -1,48 +1,63 @@
-import * as React from "react";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import MUISelect from "@material-ui/core/Select";
+import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 
-export interface Option<T> {
-  label: string;
-  value: T;
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1)
+  }
+}));
+
+interface Select2Props<T> {
+  label?: string;
+  options: T[];
+  toValue: (t: T) => string;
+  toText: (t: T) => string;
+  initial?: T;
+  update: (t: T) => void;
 }
 
-interface SelectProps<T> {
-  options: Array<Option<T>>;
-  initial: T;
-  onChange: React.Dispatch<React.SetStateAction<T>>;
-}
-
-// T must be able to be stringy in order for this to work. I want to say that
-// the constraints are that T must be an enum, but I can't figure out how to do
-// that.
 const Select = <T extends unknown>({
-  onChange,
+  toValue,
+  toText,
+  label,
+  initial,
   options,
-  initial
-}: SelectProps<T>) => {
-  const [selected, setSelected] = React.useState<T>(initial);
+  update
+}: Select2Props<T>) => {
+  const classes = useStyles();
+  const [localValue, setLocalValue] = React.useState<T | "">(initial || "");
+
+  const onChange = (
+    event: React.ChangeEvent<{ name?: string; value: unknown }>
+  ) => {
+    setLocalValue(event.target.value as T | "");
+  };
 
   React.useEffect(() => {
-    if (selected !== undefined) {
-      onChange(selected);
+    if (localValue !== "") {
+      update(localValue);
     }
-  }, [selected, onChange]);
+  }, [localValue, update]);
 
   return (
-    <div className="select">
-      <select
-        value={((selected as any) as string) || "__DEFAULT_VALUE"}
-        onChange={(e) => setSelected((e.target.value as any) as T)}
-      >
-        {options.map(({ label, value }) => (
-          <option
-            key={(value as any) as string}
-            value={(value as any) as string}
-          >
-            {label}
-          </option>
-        ))}
-      </select>
-    </div>
+    <FormControl className={classes.formControl}>
+      {label && <InputLabel>{label}</InputLabel>}
+      <MUISelect value={localValue} onChange={onChange}>
+        {options.map((option) => {
+          const value = toValue(option);
+          const text = toText(option);
+          return (
+            <MenuItem key={value} value={value}>
+              {text}
+            </MenuItem>
+          );
+        })}
+      </MUISelect>
+    </FormControl>
   );
 };
 

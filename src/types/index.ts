@@ -40,8 +40,8 @@ export const BAR_WEIGHT = 45;
 export interface Equals<T> {
   equals(a: T): boolean;
 }
-export interface AsFirestore extends Versioned {
-  asFirestore(): object;
+export interface AsFirestore<T> extends Versioned {
+  asFirestore(): T;
 }
 
 export interface Versioned {

@@ -56,8 +56,8 @@ const GetToProgram: React.FC<GetToProgramProps> = ({
       {workoutType !== undefined && (
         <b.WithLabel label="Target One Rep Max">
           <b.WeightInput
-            setWeight={setTargetOneRepMax}
-            weight={targetOneRepMax}
+            update={setTargetOneRepMax}
+            initial={targetOneRepMax}
           />
         </b.WithLabel>
       )}

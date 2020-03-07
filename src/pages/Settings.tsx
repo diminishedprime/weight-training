@@ -1,6 +1,5 @@
 import * as React from "react";
-import Select from "../components/general/Select";
-import WithLabel from "../components/general/WithLabel";
+import SelectUnit from "../components/general/SelectUnit";
 import * as hooks from "../hooks";
 import * as t from "../types";
 
@@ -21,16 +20,7 @@ export default () => {
       <h2 className="title">Settings</h2>
       <div className="settings-entry">
         <h4 className="subtitle">General</h4>
-        <WithLabel label="Units">
-          <Select<t.WeightUnit>
-            onChange={setUnit}
-            initial={unit}
-            options={[
-              { label: "Kilogram", value: t.WeightUnit.KILOGRAM },
-              { label: "Pound", value: t.WeightUnit.POUND }
-            ]}
-          />
-        </WithLabel>
+        <SelectUnit update={setUnit} initial={unit} />
       </div>
     </>
   );

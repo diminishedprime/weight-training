@@ -6,7 +6,12 @@ import { WeightUnit } from "./WeightUnit";
 const lbsToKiloRatio = 0.453592;
 
 export class Weight
-  implements WeightField, AsFirestore, Versioned, Equals<Weight>, AsJson {
+  implements
+    WeightField,
+    AsFirestore<WeightField>,
+    Versioned,
+    Equals<Weight>,
+    AsJson {
   public static VERSION: "1" = "1";
   public static fromFirestoreData = toWeight;
   public static fromJSON = (s: string): Weight => {
@@ -65,8 +70,8 @@ export class Weight
     return this.version;
   }
 
-  public asFirestore(): object {
-    return JSON.parse(JSON.stringify(this));
+  public asFirestore(): WeightField {
+    return { value: this.value, unit: this.unit, version: this.version };
   }
 
   public clone(): Weight {

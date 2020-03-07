@@ -16,7 +16,7 @@ import {
   Weight
 } from "./index";
 
-export class Lift implements AsFirestore, Equals<Lift> {
+export class Lift implements AsFirestore<LiftDoc>, Equals<Lift> {
   public static fromFirestoreData = toLift;
 
   public static cleanAndJerk = (
@@ -170,11 +170,8 @@ export class Lift implements AsFirestore, Equals<Lift> {
     return JSON.stringify(this.firestoreDoc);
   }
 
-  public asFirestore(): object {
-    const nu = JSON.parse(this.asJSON());
-    // This is necessary because firestore does special handling of timestamps.
-    nu.date = this.firestoreDoc.date;
-    return nu;
+  public asFirestore(): LiftDoc {
+    return this.firestoreDoc;
   }
 
   public withUid(uid: string): DisplayLift {
