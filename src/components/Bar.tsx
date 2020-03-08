@@ -63,20 +63,30 @@ const ShowWeight: React.FC<ShowWeightProps> = ({ weight, setWeight }) => {
   );
 };
 
-export default ({
-  weight,
-  showWeight,
-  unit,
-  setWeight
-}: {
+interface BarProps {
   weight: t.Weight;
   unit?: t.WeightUnit;
   showWeight?: true;
   setWeight?: React.Dispatch<React.SetStateAction<t.Weight>>;
+  updatePlateConfig?: (config: t.PlateConfig) => void;
+}
+
+export const Bar: React.FC<BarProps> = ({
+  weight,
+  showWeight,
+  unit,
+  setWeight,
+  updatePlateConfig
 }) => {
   const plates = React.useMemo(() => {
     return util.platesFor(weight || t.Weight.bar(unit));
   }, [weight, unit]);
+
+  React.useEffect(() => {
+    if (updatePlateConfig !== undefined) {
+      updatePlateConfig(plates);
+    }
+  }, [plates, updatePlateConfig]);
   return (
     <div className="bar-wrapper">
       <div className="sleeve left metal">
@@ -109,3 +119,5 @@ export default ({
     </div>
   );
 };
+
+export default Bar;
