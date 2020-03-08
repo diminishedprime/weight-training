@@ -1,7 +1,7 @@
-import * as React from "react";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import * as React from "react";
 
 interface SetRepsProps {
   setReps: React.Dispatch<React.SetStateAction<number>>;

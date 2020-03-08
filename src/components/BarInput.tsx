@@ -1,15 +1,15 @@
+import Badge from "@material-ui/core/Badge";
+import Button from "@material-ui/core/Button";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormGroup from "@material-ui/core/FormGroup";
+import { makeStyles } from "@material-ui/core/styles";
 import * as React from "react";
 import Bar from "../components/Bar";
 import * as hooks from "../hooks";
 import * as t from "../types";
 import * as util from "../util";
-import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-import Badge from "@material-ui/core/Badge";
 import SelectUnit from "./general/SelectUnit";
 
 interface PlateButtonsProps {
