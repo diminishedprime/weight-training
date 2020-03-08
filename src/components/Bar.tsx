@@ -3,6 +3,11 @@ import AutosizeInput from "react-input-autosize";
 import * as t from "../types";
 import * as util from "../util";
 
+// TODO - using a combination of media queries and viewportWidths, make the bar
+// fit the screen, but also be pretty. Right now, everything is hard-coded based
+//on viewportWidths, but it should be doable via media queries (and computable in
+// ts using mui stuff)
+
 const PlatesFor = ({
   side,
   plates
