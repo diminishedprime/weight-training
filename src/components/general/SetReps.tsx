@@ -1,7 +1,14 @@
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { makeStyles } from "@material-ui/core/styles";
 import * as React from "react";
+
+const useStyles = makeStyles((theme) => ({
+  formControlLabel: {
+    marginLeft: 0
+  }
+}));
 
 interface SetRepsProps {
   setReps: React.Dispatch<React.SetStateAction<number>>;
@@ -9,8 +16,10 @@ interface SetRepsProps {
 }
 
 export const SetReps: React.FC<SetRepsProps> = ({ setReps, reps }) => {
+  const classes = useStyles();
   return (
     <FormControlLabel
+      className={classes.formControlLabel}
       labelPlacement="top"
       label={`Reps: ${reps}`}
       control={

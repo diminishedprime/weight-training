@@ -1,3 +1,7 @@
+import Button from "@material-ui/core/Button";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { makeStyles } from "@material-ui/core/styles";
 import * as React from "react";
 import * as db from "../../db";
 import * as hooks from "../../hooks";
@@ -6,12 +10,22 @@ import * as util from "../../util";
 import BarInput from "../BarInput";
 import * as g from "../general";
 
+const useStyles = makeStyles((theme) => ({
+  controlRow: {
+    marginBottom: theme.spacing(1),
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "flex-end"
+  }
+}));
+
 interface AddLiftProps {
   liftType: t.BarbellLiftType;
   user: t.FirebaseUser;
 }
 
 const AddLift: React.FC<AddLiftProps> = ({ liftType, user }) => {
+  const classes = useStyles();
   const firestore = hooks.useFirestore();
   const {
     settings: { unit: defaultUnit }
@@ -39,27 +53,25 @@ const AddLift: React.FC<AddLiftProps> = ({ liftType, user }) => {
   return (
     <>
       <BarInput weight={weight} onWeightChange={setWeight} />
-      <div className="field is-grouped flex">
+      <div className={classes.controlRow}>
         <g.SetReps reps={reps} setReps={setReps} />
-        <div className="field flex">
-          <label className="checkbox flex flex-center full-width flex-end">
-            <input
-              type="checkbox"
-              checked={warmup}
+        <FormControlLabel
+          label="Warmup"
+          control={
+            <Checkbox
+              value={warmup}
               onChange={(e) => setWarmup(e.target.checked)}
             />
-            Warmup
-          </label>
-        </div>
-      </div>
-      <div className="field flex flex-between">
-        <button
-          className="button is-success"
+          }
+        />
+        <Button
+          variant="contained"
+          color="primary"
           onClick={addLiftOnClick}
           disabled={!addEnabled}
         >
-          Add Lift
-        </button>
+          Add
+        </Button>
       </div>
     </>
   );

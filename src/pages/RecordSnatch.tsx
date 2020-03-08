@@ -1,6 +1,9 @@
+import Button from "@material-ui/core/Button";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { makeStyles } from "@material-ui/core/styles";
 import * as React from "react";
 import BarInput from "../components/BarInput";
-import Checkbox from "../components/general/Checkbox";
 import Select from "../components/general/Select";
 import SetReps from "../components/general/SetReps";
 import SnatchTable from "../components/SnatchTable";
@@ -8,7 +11,21 @@ import * as hooks from "../hooks";
 import * as t from "../types";
 import * as util from "../util";
 
+const useStyles = makeStyles((theme) => ({
+  controlRow: {
+    marginBottom: theme.spacing(1),
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "baseline"
+  },
+  select: {
+    "min-width": "7.5em"
+  }
+}));
+
 const RecordSnatch: React.FC = () => {
+  const classes = useStyles();
+
   hooks.useMeasurePage("Record Snatch");
   const user = hooks.useForceSignIn();
   const db = t.useSelector((a) => a.db);
@@ -48,8 +65,9 @@ const RecordSnatch: React.FC = () => {
     <>
       <h2 className="is-3 subtitle centered">Snatch</h2>
       <BarInput weight={weight} onWeightChange={setWeight} />
-      <div className="flex flex-between m-margin-top flex-items-center">
+      <div className={classes.controlRow}>
         <Select<t.SnatchPosition>
+          className={classes.select}
           toValue={(t) => t}
           toText={(t) => t}
           label="Position"
@@ -58,6 +76,7 @@ const RecordSnatch: React.FC = () => {
           options={Object.values(t.SnatchPosition)}
         />
         <Select<t.SnatchStyle>
+          className={classes.select}
           toValue={(t) => t}
           toText={(t) => t}
           label="Style"
@@ -65,20 +84,21 @@ const RecordSnatch: React.FC = () => {
           update={setStyle}
           options={Object.values(t.SnatchStyle)}
         />
-
-        <Checkbox
+        <FormControlLabel
           label="Warmup"
-          onChange={(e) => setWarmup(e.target.checked)}
+          control={
+            <Checkbox
+              value={warmup}
+              onChange={(e) => setWarmup(e.target.checked)}
+            />
+          }
         />
       </div>
-      <div className="flex flex-between m-margin-top flex-items-end">
+      <div className={classes.controlRow}>
         <SetReps reps={reps} setReps={setReps} />
-        <button
-          onClick={addSnatch}
-          className="button is-primary is-outlined m-margin-top"
-        >
+        <Button color="primary" variant="contained" onClick={addSnatch}>
           Add
-        </button>
+        </Button>
       </div>
       <hr />
       <SnatchTable user={user} modifyQuery={modifyQuery} />
