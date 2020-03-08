@@ -1,5 +1,7 @@
 import Button from "@material-ui/core/Button";
+import FormControl from "@material-ui/core/FormControl";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import InputLabel from "@material-ui/core/InputLabel";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import * as React from "react";
 import * as hooks from "../../hooks";
@@ -10,12 +12,16 @@ interface WeightInput
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
+  label?: string;
   initial?: t.Weight;
   update: (weight: t.Weight) => void;
-  fullWidth?: boolean;
 }
 
-export const WeightInput: React.FC<WeightInput> = ({ initial, update }) => {
+export const WeightInput: React.FC<WeightInput> = ({
+  initial,
+  update,
+  label
+}) => {
   const {
     settings: { unit: defaultUnit }
   } = hooks.useSettings();
@@ -85,8 +91,10 @@ export const WeightInput: React.FC<WeightInput> = ({ initial, update }) => {
   );
 
   return (
-    <div>
+    <FormControl variant="outlined">
+      <InputLabel>{label || "Weight"}</InputLabel>
       <OutlinedInput
+        label={label || "Weight"}
         endAdornment={
           <InputAdornment position="end">
             <Button disabled={localValue === undefined} onClick={toggleUnit}>
@@ -95,14 +103,13 @@ export const WeightInput: React.FC<WeightInput> = ({ initial, update }) => {
           </InputAdornment>
         }
         inputProps={{
-          "aria-label": "weight",
+          "aria-label": label || "Weight",
           "pattern": /[0-9]+/
         }}
         onChange={onChange}
         value={localValue?.getValue() || ""}
-        labelWidth={0}
       />
-    </div>
+    </FormControl>
   );
 };
 

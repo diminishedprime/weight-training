@@ -1,3 +1,7 @@
+import Button from "@material-ui/core/Button";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { makeStyles } from "@material-ui/core/styles";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import * as b from "../components/general";
@@ -7,6 +11,20 @@ import AddLift from "../components/record-lift/Custom";
 import * as hooks from "../hooks";
 import * as t from "../types";
 import { barbellLiftParams } from "./Programs/util";
+
+const useStyles = makeStyles((theme) => ({
+  workoutHeading: {
+    marginLeft: theme.spacing(2),
+    fontSize: theme.spacing(3),
+    marginBottom: theme.spacing(1)
+  },
+  controlRow: {
+    marginBottom: theme.spacing(1),
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "baseline"
+  }
+}));
 
 const workoutTypeMeta: { [t in t.WorkoutType]: string } = {
   [t.WorkoutType.THREE_BY_THREE]: "3x3",
@@ -24,6 +42,7 @@ const GetToProgram: React.FC<GetToProgramProps> = ({
   userDoc,
   user
 }) => {
+  const classes = useStyles();
   const [addLift, setAddLift] = React.useState(false);
 
   const [workoutType, setWorkoutType] = React.useState<
@@ -35,47 +54,65 @@ const GetToProgram: React.FC<GetToProgramProps> = ({
   return (
     <React.Fragment>
       {!addLift && workoutType === undefined && (
-        <React.Fragment>
-          <button
-            className="button"
-            onClick={() => setWorkoutType(t.WorkoutType.THREE_BY_THREE)}
-          >
-            3x3
-          </button>
-          <button
-            className="button"
-            onClick={() => setWorkoutType(t.WorkoutType.FIVE_BY_FIVE)}
-          >
-            5x5
-          </button>
-          <button className="button" onClick={() => setAddLift(true)}>
-            Add Single
-          </button>
-        </React.Fragment>
-      )}
-      {workoutType !== undefined && <div>{workoutTypeMeta[workoutType]}</div>}
-      {workoutType !== undefined && (
-        <b.WithLabel label="Target One Rep Max">
-          <b.WeightInput
-            update={setTargetOneRepMax}
-            initial={targetOneRepMax}
+        <div className={classes.controlRow}>
+          <FormControlLabel
+            labelPlacement="top"
+            label="Program"
+            control={
+              <ButtonGroup>
+                <Button
+                  className="button"
+                  onClick={() => setWorkoutType(t.WorkoutType.THREE_BY_THREE)}
+                >
+                  3x3
+                </Button>
+                <Button
+                  className="button"
+                  onClick={() => setWorkoutType(t.WorkoutType.FIVE_BY_FIVE)}
+                >
+                  5x5
+                </Button>
+              </ButtonGroup>
+            }
           />
-        </b.WithLabel>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setAddLift(true)}
+          >
+            Add Single
+          </Button>
+        </div>
       )}
-      {workoutType !== undefined && targetOneRepMax !== undefined && (
-        <Link
-          to={barbellLiftParams({
-            oneRepMax: targetOneRepMax,
-            programName: liftType,
-            type: "barbell-program",
-            liftType,
-            workoutType
-          })}
-        >
-          <button className="button">Go!</button>
-        </Link>
+      {workoutType !== undefined && (
+        <>
+          <div className={classes.workoutHeading}>
+            {workoutTypeMeta[workoutType]}
+          </div>
+          <div className={classes.controlRow}>
+            <b.WeightInput
+              label="Target One Rep Max"
+              update={setTargetOneRepMax}
+              initial={targetOneRepMax}
+            />
+            {targetOneRepMax !== undefined && (
+              <Link
+                to={barbellLiftParams({
+                  oneRepMax: targetOneRepMax,
+                  programName: liftType,
+                  type: "barbell-program",
+                  liftType,
+                  workoutType
+                })}
+              >
+                <Button variant="contained" color="primary">
+                  Go!
+                </Button>
+              </Link>
+            )}
+          </div>
+        </>
       )}
-
       {addLift && <AddLift liftType={liftType} user={user} />}
     </React.Fragment>
   );

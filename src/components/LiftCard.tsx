@@ -3,6 +3,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import { makeStyles } from "@material-ui/core/styles";
+import classnames from "classnames";
 import moment from "moment";
 import * as React from "react";
 import { Link } from "react-router-dom";
@@ -35,9 +36,14 @@ const useStyles = makeStyles((theme) => ({
 interface LiftCardProps {
   liftType: t.LiftType;
   userDoc?: t.UserDoc;
+  className?: string;
 }
 
-const LiftCard: React.FC<LiftCardProps> = ({ liftType, userDoc }) => {
+const LiftCard: React.FC<LiftCardProps> = ({
+  liftType,
+  userDoc,
+  className
+}) => {
   const {
     settings: { unit }
   } = hooks.useSettings();
@@ -45,7 +51,7 @@ const LiftCard: React.FC<LiftCardProps> = ({ liftType, userDoc }) => {
 
   return (
     <Link to={`/lift/${liftType}`}>
-      <Card className={classes.root}>
+      <Card className={classnames(classes.root, className)}>
         <CardHeader
           className={classes.header}
           subheader={t.Metadata.forLiftType(liftType).displayText}
