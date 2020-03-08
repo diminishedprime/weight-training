@@ -24,7 +24,9 @@ const GetToProgram: React.FC<GetToProgramProps> = ({
   userDoc,
   user
 }) => {
-  const [addLift, setAddLift] = React.useState(false);
+  // TODO - change this back to false.
+
+  const [addLift, setAddLift] = React.useState(true);
   const [workoutType, setWorkoutType] = React.useState<
     t.WorkoutType | undefined
   >();

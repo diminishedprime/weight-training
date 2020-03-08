@@ -18,9 +18,11 @@ interface Select2Props<T> {
   toText: (t: T) => string;
   initial?: T;
   update: (t: T) => void;
+  className?: string;
 }
 
 const Select = <T extends unknown>({
+  className,
   toValue,
   toText,
   label,
@@ -46,7 +48,12 @@ const Select = <T extends unknown>({
   return (
     <FormControl className={classes.formControl}>
       {label && <InputLabel>{label}</InputLabel>}
-      <MUISelect value={localValue} onChange={onChange}>
+      <MUISelect
+        autoWidth
+        value={localValue}
+        onChange={onChange}
+        className={className}
+      >
         {options.map((option) => {
           const value = toValue(option);
           const text = toText(option);

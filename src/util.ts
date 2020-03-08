@@ -16,20 +16,38 @@ export const timestamp = (
 };
 
 // Returns half the plates needed to make weight.
-export const platesFor = (weight: t.Weight): t.PlateConfig => {
+// TODO - this code is getting pretty hairy. It needs some tests. Especially for
+// the cases where consolidate is on or off and the baseConfig is more or less
+// than the target weight.
+export const platesFor = (
+  weight: t.Weight,
+  baseConfig: t.PlateConfig = [],
+  consolidate: boolean
+): t.PlateConfig => {
   const barWeight = t.Weight.bar(weight.getUnit());
-  if (weight.lessThan(barWeight)) {
+  if (weight.lessThan(barWeight) || baseConfig === "not-possible") {
     return "not-possible";
   }
-  const plates: t.Plate[] = [];
+  const baseConfigWeight = baseConfig
+    .map((a) => a.weight.multiply(2))
+    .reduce((a, b) => a.add(b), t.Weight.zero().toUnit(weight.getUnit()));
+
+  const baseConfigWithBar = baseConfigWeight.add(barWeight);
+
+  const weightToSubtract =
+    consolidate || baseConfigWithBar.greaterThan(weight)
+      ? barWeight
+      : barWeight.add(baseConfigWeight);
+  const remainingWeight = weight.subtract(weightToSubtract);
+  const plates: t.Plate[] =
+    consolidate || baseConfigWithBar.greaterThan(weight) ? [] : baseConfig;
   const acc = {
     plates,
-    remainingWeight: weight.subtract(barWeight)
+    remainingWeight
   };
   const thing = platesForUnit(weight.getUnit()).reduce(
     ({ plates, remainingWeight }, currentPlate) => {
       while (remainingWeight.greaterThanEq(currentPlate.weight.multiply(2))) {
-        // plates.push()(plates as any)[plateType] += 2;
         plates.push(currentPlate);
         remainingWeight = remainingWeight.subtract(
           currentPlate.weight.multiply(2)

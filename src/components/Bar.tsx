@@ -68,7 +68,9 @@ interface BarProps {
   unit?: t.WeightUnit;
   showWeight?: true;
   setWeight?: React.Dispatch<React.SetStateAction<t.Weight>>;
+  plateConfig?: t.PlateConfig;
   updatePlateConfig?: (config: t.PlateConfig) => void;
+  consolidate?: true | undefined;
 }
 
 export const Bar: React.FC<BarProps> = ({
@@ -76,17 +78,50 @@ export const Bar: React.FC<BarProps> = ({
   showWeight,
   unit,
   setWeight,
-  updatePlateConfig
+  updatePlateConfig,
+  plateConfig,
+  consolidate
 }) => {
-  const plates = React.useMemo(() => {
-    return util.platesFor(weight || t.Weight.bar(unit));
-  }, [weight, unit]);
+  const [plates, setPlates] = React.useState(
+    util.platesFor(
+      weight || t.Weight.bar(unit),
+      plateConfig,
+      consolidate || false
+    )
+  );
+
+  React.useEffect(() => {
+    const nuPlates = util.platesFor(
+      weight || t.Weight.bar(unit),
+      plateConfig,
+      consolidate || false
+    );
+    if (nuPlates !== "not-possible") {
+      if (plates !== "not-possible") {
+        if (nuPlates.length === plates.length) {
+          // might be equal
+          const equal = nuPlates.reduce(
+            (acc, nu, idx) => acc && nu.weight.equals(plates[idx].weight),
+            true
+          );
+          if (equal) {
+            return;
+          }
+        }
+      }
+    }
+    if (nuPlates === plates) {
+      return;
+    }
+    setPlates(nuPlates);
+  }, [plates, weight, plateConfig, consolidate]);
 
   React.useEffect(() => {
     if (updatePlateConfig !== undefined) {
       updatePlateConfig(plates);
     }
   }, [plates, updatePlateConfig]);
+
   return (
     <div className="bar-wrapper">
       <div className="sleeve left metal">
