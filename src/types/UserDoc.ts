@@ -1,8 +1,8 @@
 import { ZERO_TIME } from "../constants";
 import { toUserDoc, userDocfromJSON } from "../types/db/UserDoc";
-import { ONE_REP_MAX } from "./common";
-import { HasFirestoreField, withBrand } from "./db/marker";
+import { LocalStorageKey, ONE_REP_MAX } from "./common";
 import { LiftType, UserDoc as DBUserDoc } from "./db";
+import { HasFirestoreField, withBrand } from "./db/marker";
 import { Equals, FirestoreTimestamp, OneRepMax, Weight } from "./index";
 import { Timestamp } from "./Timestamp";
 
@@ -16,6 +16,17 @@ interface PR {
 export class UserDoc implements HasFirestoreField<DBUserDoc>, Equals<UserDoc> {
   public static fromFirestoreData = toUserDoc;
   public static fromJSON = userDocfromJSON;
+
+  // TODO - This should add some logic that triggers a db request if the value is too out of date.
+  public static fromLocalStorage = (): UserDoc | undefined => {
+    const fromLocalStorage = window.localStorage.getItem(
+      LocalStorageKey.USER_DOC
+    );
+    if (fromLocalStorage !== null) {
+      return UserDoc.fromJSON(fromLocalStorage);
+    }
+    return undefined;
+  };
 
   public static empty = (): UserDoc => {
     const defaultTime = withBrand(ZERO_TIME());
@@ -73,6 +84,12 @@ export class UserDoc implements HasFirestoreField<DBUserDoc>, Equals<UserDoc> {
 
   constructor(dbUserDoc: DBUserDoc) {
     this.firestoreField = dbUserDoc;
+  }
+
+  // TODO - there should probably be an interface for this functionality.
+  public async saveToLocalStorage(): Promise<void> {
+    const asString = this.asJSON();
+    window.localStorage.setItem(LocalStorageKey.USER_DOC, asString);
   }
   public getVersion() {
     return this.version;

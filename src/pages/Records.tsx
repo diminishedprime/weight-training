@@ -6,7 +6,7 @@ import * as t from "../types";
 
 const Records = () => {
   hooks.useMeasurePage("Records");
-  const userDoc = t.useSelector((a) => a.localStorage.userDoc);
+  const userDoc = t.useSelector((a) => a.userDoc);
   const {
     settings: { unit }
   } = hooks.useSettings();

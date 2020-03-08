@@ -1,7 +1,7 @@
 import * as t from "../../../types";
 import * as util from "../../../util";
-import { withBrand } from "../marker";
 import { LiftType as LiftTypeV1 } from "../LiftType/v1";
+import { withBrand } from "../marker";
 import * as sut from "./index";
 import { LiftDoc as V1 } from "./v1";
 

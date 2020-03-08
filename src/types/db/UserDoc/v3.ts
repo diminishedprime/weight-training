@@ -1,5 +1,5 @@
-import { FirestoreField } from "../marker";
 import { LiftType } from "../LiftType/v2";
+import { FirestoreField } from "../marker";
 import { RecordField } from "../RecordField/v2";
 
 type UserDocContents = {

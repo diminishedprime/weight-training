@@ -96,9 +96,7 @@ export interface RootState {
   analytics: Analytics;
   auth: Auth;
   firestore: Firestore;
-  localStorage: {
-    userDoc?: UserDoc;
-  };
+  userDoc?: UserDoc;
   db: WeightTrainingDb;
   forceUpdateLift: number;
   program?: Program;
@@ -113,17 +111,6 @@ declare module "typesafe-actions" {
 export const useSelector: rr.TypedUseSelectorHook<RootState> = rr.useSelector;
 
 export const cacheDateKey = "@weight-training/cache-date-key";
-
-export enum LocalStorageKey {
-  ActivePrograms = "@weight-training/active-programs",
-  SETTINGS = "@weight-training/settings",
-  DAYS_WITH_LIFTS = "@weight-training/days-with-lifts",
-  DAYS_WITH_LIFTS_LOCAL = "@weight-training/days-with-lifts-local",
-  X_BY_X = "@weight-training/x-by-x",
-  FIREBASE_USER = "@weight-training/user",
-  USER_DOC = "@weight-training/user-doc",
-  LIFTS = "@weight-training/lifts"
-}
 
 export interface FirebaseUser {
   uid: string;

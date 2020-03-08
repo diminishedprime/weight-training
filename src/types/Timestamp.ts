@@ -1,8 +1,8 @@
 import moment from "moment";
 import * as util from "../util";
-import { FirestoreTimestamp } from "./index";
-import { HasFirestoreField, withBrand } from "./db/marker";
 import { TimeStampField } from "./db";
+import { HasFirestoreField, withBrand } from "./db/marker";
+import { FirestoreTimestamp } from "./index";
 
 export class Timestamp implements HasFirestoreField<TimeStampField> {
   public static from = (

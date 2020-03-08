@@ -1,7 +1,7 @@
 import { FirestoreTimestamp } from "../../common";
-import { FirestoreField, withBrand } from "../marker";
 import { LiftType as LiftTypeV1 } from "../LiftType/v1";
 import { LiftType, migrateV1 as liftTypeMigrateV1 } from "../LiftType/v2";
+import { FirestoreField, withBrand } from "../marker";
 import { WeightField } from "../WeightField";
 import { LiftDoc as V2 } from "./v2";
 

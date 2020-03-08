@@ -21,22 +21,15 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const getInitialState = (): t.RootState => {
-  let localStorage = {};
-  const fromStorage = window.localStorage.getItem("@mjh/weight-training");
-  if (fromStorage !== null) {
-    localStorage = JSON.parse(fromStorage);
-    const o = (localStorage as any).userDoc;
-    if (o !== undefined) {
-      (localStorage as any).userDoc = t.UserDoc.fromJSON(JSON.stringify(o));
-    }
-  }
+  // Initialize stuff from localstorage.
+  const userDoc = t.UserDoc.fromLocalStorage();
 
   const firestore = firebase.firestore();
   return {
     db: db.initializedWith(firestore),
     analytics: firebase.analytics && firebase.analytics(),
     auth: firebase.auth && firebase.auth(),
-    localStorage,
+    userDoc,
     forceUpdateLift: 0,
     firestore
   };
@@ -59,23 +52,17 @@ const rootReducer = ta
   .handleAction([a.nextForceUpdateLift], (state) =>
     Object.assign({}, state, { forceUpdateLift: state.forceUpdateLift + 1 })
   )
-  .handleAction([a.setUserDoc], (state, { payload: { userDoc } }) =>
-    Object.assign({}, state, { localStorage: { userDoc } })
-  );
+  .handleAction([a.setUserDoc], (state, { payload: { userDoc } }) => ({
+    ...state,
+    userDoc
+  }));
 
 const saveToLocalStorage: redux.Middleware<{}, t.RootState> = (store) => (
   next
 ) => (action: t.RootAction) => {
   const result = next(action);
   if (ta.isActionOf(a.setUserDoc, action)) {
-    // This seems like it's probably a bug in tslint, but this is a simple
-    // enough fix.
-    // tslint:disable-next-line:no-unused-expression
-    new Promise((resolve) => {
-      const localStorageString = JSON.stringify(store.getState().localStorage);
-      window.localStorage.setItem("@mjh/weight-training", localStorageString);
-      resolve();
-    });
+    action.payload.userDoc.saveToLocalStorage();
   }
   return result;
 };

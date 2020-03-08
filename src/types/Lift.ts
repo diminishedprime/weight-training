@@ -7,9 +7,9 @@ import {
   SnatchStyle,
   toLift
 } from "./db/LiftDoc";
+import { HasFirestoreField, withBrand } from "./db/marker";
 import { DisplayLift } from "./index";
 import { Equals, FirestoreTimestamp, LiftType, Weight } from "./index";
-import { HasFirestoreField, withBrand } from "./db/marker";
 
 export class Lift implements HasFirestoreField<LiftDoc>, Equals<Lift> {
   public static fromFirestoreData = toLift;

@@ -1,9 +1,9 @@
 import { ZERO_TIME } from "../../../constants";
 import store from "../../../store";
 import * as t from "../../../types";
-import { withBrand } from "../marker";
 import { LiftType } from "../LiftType";
 import { LiftType as LiftTypeV1 } from "../LiftType/v1";
+import { withBrand } from "../marker";
 import { RecordField as RecordFieldV1 } from "../RecordField/v1";
 import { RecordField as RecordFieldV2 } from "../RecordField/v2";
 import { UserDoc as V1Db } from "../UserDoc/v1";

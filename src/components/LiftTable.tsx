@@ -37,7 +37,7 @@ const LiftTable: React.FC<LiftTableProps> = ({
   } = hooks.useSettings();
   const [lifts, setLifts] = React.useState<t.DisplayLift[]>([]);
   const [editing, setEditing] = React.useState<string>();
-  const userDoc = t.useSelector((a) => a.localStorage.userDoc);
+  const userDoc = t.useSelector((a) => a.userDoc);
   const forceUpdate = t.useSelector((a) => a.forceUpdateLift);
   const firestore = hooks.useFirestore();
 

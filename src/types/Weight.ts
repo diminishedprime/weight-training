@@ -1,8 +1,8 @@
 import { WeightField } from "./db";
+import { HasFirestoreField, withBrand } from "./db/marker";
 import { toWeight } from "./db/WeightField";
 import { Equals } from "./index";
 import { WeightUnit } from "./WeightUnit";
-import { withBrand, HasFirestoreField } from "./db/marker";
 
 const lbsToKiloRatio = 0.453592;
 

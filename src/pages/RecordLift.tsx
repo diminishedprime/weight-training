@@ -87,9 +87,7 @@ interface RecordBarbellLiftProps {
 const RecordBarbellLift: React.FC<RecordBarbellLiftProps> = ({ liftType }) => {
   hooks.useMeasurePage("Record Lift");
   const user = hooks.useForceSignIn();
-  const userDoc = t.useSelector(
-    (s) => s.localStorage && s.localStorage.userDoc
-  );
+  const userDoc = t.useSelector((s) => s.userDoc);
   if (user === null) {
     return null;
   }

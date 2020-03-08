@@ -11,9 +11,7 @@ export default () => {
   hooks.useMeasurePage("Home");
   const user = hooks.useForceSignIn();
   const firestore = hooks.useFirestore();
-  const userDoc = t.useSelector(
-    (s) => s.localStorage && s.localStorage.userDoc
-  );
+  const userDoc = t.useSelector((s) => s.userDoc);
   const dispatch = redux.useDispatch();
 
   React.useEffect(() => {

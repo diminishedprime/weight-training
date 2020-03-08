@@ -1,7 +1,7 @@
 import * as t from "../../../types";
+import { withBrand } from "../marker";
 import * as sut from "./index";
 import { WeightField as V1 } from "./v1";
-import { withBrand } from "../marker";
 
 describe("for migrating lift from firestore", () => {
   beforeEach(() => {
