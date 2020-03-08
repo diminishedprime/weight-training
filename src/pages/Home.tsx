@@ -1,3 +1,4 @@
+import { makeStyles } from "@material-ui/core/styles";
 import * as React from "react";
 import * as redux from "react-redux";
 import { Link } from "react-router-dom";
@@ -7,12 +8,21 @@ import * as db from "../db";
 import * as hooks from "../hooks";
 import * as t from "../types";
 
+const useStyles = makeStyles((theme) => ({
+  cards: {
+    "display": "flex",
+    "flex-wrap": "wrap",
+    "justify-content": "space-between"
+  }
+}));
+
 export default () => {
   hooks.useMeasurePage("Home");
   const user = hooks.useForceSignIn();
   const firestore = hooks.useFirestore();
   const userDoc = t.useSelector((s) => s.userDoc);
   const dispatch = redux.useDispatch();
+  const classes = useStyles();
 
   React.useEffect(() => {
     if (user === null) {
@@ -47,7 +57,7 @@ export default () => {
           </ul>
         </>
       )}
-      <div className="flex flex-wrap">
+      <div className={classes.cards}>
         {Object.values(t.LiftType)
           // TODO - there should be smarter error detection around routing &
           // creating of these cards.
