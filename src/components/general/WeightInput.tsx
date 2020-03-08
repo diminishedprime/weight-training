@@ -20,7 +20,7 @@ export const WeightInput: React.FC<WeightInput> = ({ initial, update }) => {
     settings: { unit: defaultUnit }
   } = hooks.useSettings();
   const [unit, setUnit] = React.useState<t.WeightUnit>(
-    initial?.unit || defaultUnit
+    initial?.getUnit() || defaultUnit
   );
   const [localValue, setLocalValue] = React.useState<t.Weight | undefined>(
     initial
@@ -44,8 +44,8 @@ export const WeightInput: React.FC<WeightInput> = ({ initial, update }) => {
 
   // Keep the unit up-to-date with the weight unit.
   React.useEffect(() => {
-    if (localValue !== undefined && localValue.unit !== unit) {
-      setUnit(localValue.unit);
+    if (localValue !== undefined && localValue.getUnit() !== unit) {
+      setUnit(localValue.getUnit());
     }
   }, [localValue, unit]);
 
@@ -99,7 +99,7 @@ export const WeightInput: React.FC<WeightInput> = ({ initial, update }) => {
           "pattern": /[0-9]+/
         }}
         onChange={onChange}
-        value={localValue?.value || ""}
+        value={localValue?.getValue() || ""}
         labelWidth={0}
       />
     </div>

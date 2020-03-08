@@ -1,7 +1,6 @@
 import moment from "moment";
 import * as React from "react";
 import { Link } from "react-router-dom";
-import * as c from "../constants";
 import * as hooks from "../hooks";
 import * as t from "../types";
 
@@ -20,10 +19,10 @@ const LiftCard: React.FC<LiftCardProps> = ({ liftType, userDoc }) => {
       className="card lift-card flex-column flex-center"
     >
       <div className="lift-card-title">
-        {c.liftMetadata[liftType].displayText}
+        {t.Metadata.forLiftType(liftType).displayText}
       </div>
       <figure className="card-svg">
-        <img src={c.liftMetadata[liftType].image} width="50" alt="" />
+        <img src={t.Metadata.forLiftType(liftType).image} width="50" alt="" />
       </figure>
       {userDoc && userDoc.getORM(liftType).weight.greaterThan(t.Weight.zero()) && (
         <div>

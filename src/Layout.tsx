@@ -2,8 +2,7 @@ import * as React from "react";
 import { Link, useLocation } from "react-router-dom";
 import * as rrd from "react-router-dom";
 import CatchError from "./components/CatchError";
-import * as c from "./constants";
-import { useSelector } from "./types";
+import { Metadata, useSelector } from "./types";
 
 interface HideLink extends rrd.LinkProps {
   className?: string;
@@ -47,7 +46,7 @@ const Layout: React.FC<{}> = ({ children }) => {
           <div className="navbar-brand">
             <div className="flex flex-wrap flex-center main-heading">
               <HideLink to="/" className="title flex flex-wrap flex-center">
-                <img src={c.images.dumbbell} width="50" alt="" />
+                <img src={Metadata.images().dumbbell} width="50" alt="" />
                 Weight Training
               </HideLink>
             </div>

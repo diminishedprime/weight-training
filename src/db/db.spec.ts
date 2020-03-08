@@ -8,6 +8,7 @@ import {
   loadFirestoreRules
 } from "../test-utils";
 import * as t from "../types";
+import { withBrand } from "../types/db/marker";
 
 const DEADLIFT = t.LiftType.Deadlift;
 const SQUAT = t.LiftType.Squat;
@@ -213,14 +214,16 @@ describe("for the db", () => {
   describe("for the lift operations", () => {
     const userUid = "matt";
     const user = { uid: userUid };
-    const lift: t.Lift = t.Lift.fromDb({
-      weight: t.Weight.lbs(200),
-      reps: 3,
-      type: DEADLIFT,
-      date: firebase.firestore.Timestamp.now(),
-      warmup: false,
-      version: "3"
-    });
+    const lift: t.Lift = t.Lift.fromDb(
+      withBrand({
+        weight: t.Weight.lbs(200).asFirestore(),
+        reps: 3,
+        type: DEADLIFT,
+        date: firebase.firestore.Timestamp.now(),
+        warmup: false,
+        version: "3"
+      })
+    );
 
     test("adding a new lift puts it in the db.", async () => {
       const firestore = authedApp(user);

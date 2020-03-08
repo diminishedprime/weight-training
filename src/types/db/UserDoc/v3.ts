@@ -1,4 +1,4 @@
-import { FirestoreField } from "../index";
+import { FirestoreField } from "../marker";
 import { LiftType } from "../LiftType/v2";
 import { RecordField } from "../RecordField/v2";
 

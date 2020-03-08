@@ -32,16 +32,21 @@ interface ShowWeightProps {
 
 const ShowWeight: React.FC<ShowWeightProps> = ({ weight, setWeight }) => {
   const [asText, setAsText] = React.useState<string | undefined>(
-    weight.value.toString()
+    weight.getValue().toString()
   );
 
   React.useEffect(() => {
-    setAsText(weight.value.toFixed(1).replace(".0", ""));
+    setAsText(
+      weight
+        .getValue()
+        .toFixed(1)
+        .replace(".0", "")
+    );
   }, [weight]);
 
   const updateWeight = React.useCallback(() => {
     if (asText !== undefined && asText !== "" && setWeight !== undefined) {
-      setWeight((old) => t.Weight.forUnit(old.unit)(parseInt(asText, 10)));
+      setWeight((old) => t.Weight.forUnit(old.getUnit())(parseInt(asText, 10)));
     }
   }, [asText, setWeight]);
 
@@ -82,7 +87,7 @@ export default ({
         {plates !== "not-possible" && showWeight && (
           <div className="flex flex-center">
             <ShowWeight weight={weight} setWeight={setWeight} />
-            <span>{weight.unit}</span>
+            <span>{weight.getUnit()}</span>
           </div>
         )}
         {plates === "not-possible" && (

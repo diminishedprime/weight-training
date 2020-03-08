@@ -1,6 +1,7 @@
 import * as t from "../../../types";
 import * as sut from "./index";
 import { WeightField as V1 } from "./v1";
+import { withBrand } from "../marker";
 
 describe("for migrating lift from firestore", () => {
   beforeEach(() => {
@@ -26,11 +27,11 @@ describe("for migrating lift from firestore", () => {
   });
 
   test("Can parse V1 into Weight object", () => {
-    const jsonObject: V1 = {
+    const jsonObject: V1 = withBrand({
       version: "1",
       value: 22,
       unit: t.WeightUnit.KILOGRAM
-    };
+    });
     const actual = sut.toWeight(jsonObject);
     expect(actual).toEqual(t.Weight.kilo(22));
   });

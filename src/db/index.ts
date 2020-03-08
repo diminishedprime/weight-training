@@ -214,10 +214,6 @@ export const updateLift = async (
   liftUpdate: t.Optional<t.LiftDoc>
 ): Promise<void> => {
   const copy = { ...liftUpdate };
-  // This is a bit of a hack, but better than nothing.
-  if (copy.weight !== undefined) {
-    copy.weight = (copy.weight as t.Weight).asFirestore();
-  }
   const updatedLift = await docs.liftDoc(firestore, user, liftUid).update(copy);
   store.dispatch(actions.nextForceUpdateLift());
   return updatedLift;

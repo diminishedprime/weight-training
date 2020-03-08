@@ -1,14 +1,9 @@
 import { ZERO_TIME } from "../constants";
 import { toUserDoc, userDocfromJSON } from "../types/db/UserDoc";
 import { ONE_REP_MAX } from "./common";
-import { HasFirestoreField, LiftType, UserDoc as DBUserDoc } from "./db";
-import {
-  Equals,
-  FirestoreTimestamp,
-  OneRepMax,
-  Weight,
-  withBrand
-} from "./index";
+import { HasFirestoreField, withBrand } from "./db/marker";
+import { LiftType, UserDoc as DBUserDoc } from "./db";
+import { Equals, FirestoreTimestamp, OneRepMax, Weight } from "./index";
 import { Timestamp } from "./Timestamp";
 
 interface PR {
@@ -29,43 +24,43 @@ export class UserDoc implements HasFirestoreField<DBUserDoc>, Equals<UserDoc> {
         version: "3",
         [LiftType.Snatch]: {
           [ONE_REP_MAX]: {
-            weight: Weight.zero(),
+            weight: Weight.zero().asFirestore(),
             time: defaultTime
           }
         },
         [LiftType.CleanAndJerk]: {
           [ONE_REP_MAX]: {
-            weight: Weight.zero(),
+            weight: Weight.zero().asFirestore(),
             time: defaultTime
           }
         },
         [LiftType.BenchPress]: {
           [ONE_REP_MAX]: {
-            weight: Weight.zero(),
+            weight: Weight.zero().asFirestore(),
             time: defaultTime
           }
         },
         [LiftType.Deadlift]: {
           [ONE_REP_MAX]: {
-            weight: Weight.zero(),
+            weight: Weight.zero().asFirestore(),
             time: defaultTime
           }
         },
         [LiftType.FrontSquat]: {
           [ONE_REP_MAX]: {
-            weight: Weight.zero(),
+            weight: Weight.zero().asFirestore(),
             time: defaultTime
           }
         },
         [LiftType.OverheadPress]: {
           [ONE_REP_MAX]: {
-            weight: Weight.zero(),
+            weight: Weight.zero().asFirestore(),
             time: defaultTime
           }
         },
         [LiftType.Squat]: {
           [ONE_REP_MAX]: {
-            weight: Weight.zero(),
+            weight: Weight.zero().asFirestore(),
             time: defaultTime
           }
         }
@@ -85,7 +80,7 @@ export class UserDoc implements HasFirestoreField<DBUserDoc>, Equals<UserDoc> {
 
   public setORM(liftType: LiftType, weight: Weight, time: FirestoreTimestamp) {
     this.firestoreField[liftType][ONE_REP_MAX] = {
-      weight,
+      weight: weight.asFirestore(),
       time: withBrand(time)
     };
   }

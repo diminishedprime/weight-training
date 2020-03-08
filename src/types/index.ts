@@ -27,6 +27,7 @@ export * from "./db";
 export { Lift } from "./Lift";
 export * from "./Timestamp";
 export * from "../actions";
+export * from "./Metadata";
 
 export interface OneRepMax {
   weight: Weight;

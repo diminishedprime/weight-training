@@ -1,7 +1,7 @@
 import { mockAnalytics } from "../../../test-utils";
 import * as t from "../../../types";
 import { timestamp } from "../../../util";
-import { withBrand } from "../index";
+import { withBrand } from "../marker";
 import { LiftType as LiftTypeV1 } from "../LiftType/v1";
 import { LiftType as LiftTypeV2 } from "../LiftType/v2";
 import { RecordField } from "../RecordField/v2";
@@ -33,7 +33,11 @@ describe("for migrating UserDoc from firestore", () => {
   test("Can parse V2 into UserDoc object", () => {
     const pr1: RecordField = {
       [t.ONE_REP_MAX]: {
-        weight: { value: 10, unit: t.WeightUnit.POUND, version: "1" as "1" },
+        weight: withBrand({
+          value: 10,
+          unit: t.WeightUnit.POUND,
+          version: "1" as "1"
+        }),
         time: withBrand({ seconds: 0, nanoseconds: 10 })
       }
     };

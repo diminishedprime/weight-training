@@ -54,7 +54,7 @@ export default () => {
     }
     if (weight !== undefined && liftId !== undefined) {
       db.updateLift(firestore, user, liftId, {
-        weight,
+        weight: weight.asFirestore(),
         reps,
         warmup
       }).then(() => history.goBack());

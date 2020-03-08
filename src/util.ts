@@ -17,7 +17,7 @@ export const timestamp = (
 
 // Returns half the plates needed to make weight.
 export const platesFor = (weight: t.Weight): t.PlateConfig => {
-  const barWeight = t.Weight.bar(weight.unit);
+  const barWeight = t.Weight.bar(weight.getUnit());
   if (weight.lessThan(barWeight)) {
     return "not-possible";
   }
@@ -26,7 +26,7 @@ export const platesFor = (weight: t.Weight): t.PlateConfig => {
     plates,
     remainingWeight: weight.subtract(barWeight)
   };
-  const thing = platesForUnit(weight.unit).reduce(
+  const thing = platesForUnit(weight.getUnit()).reduce(
     ({ plates, remainingWeight }, currentPlate) => {
       while (remainingWeight.greaterThanEq(currentPlate.weight.multiply(2))) {
         // plates.push()(plates as any)[plateType] += 2;
@@ -52,7 +52,7 @@ export const range = (to: number): undefined[] => {
 
 export const platesForUnit = (unit: t.WeightUnit): t.Plate[] => {
   const plates = Object.values(c.plates).filter(
-    (plate) => plate.weight.unit === unit
+    (plate) => plate.weight.getUnit() === unit
   );
   return plates.sort((a, b) =>
     a.weight.lessThanEq(b.weight) ? 1 : a.weight.equals(b.weight) ? 0 : -1

@@ -2,7 +2,6 @@ import classNames from "classnames";
 import moment from "moment";
 import * as React from "react";
 import { Link } from "react-router-dom";
-import * as c from "../constants";
 import * as db from "../db";
 import * as hooks from "../hooks";
 import * as t from "../types";
@@ -96,7 +95,7 @@ const LiftTable: React.FC<LiftTableProps> = ({
                 className={editing === lift.uid ? "is-selected" : undefined}
               >
                 {showType && (
-                  <td>{c.liftMetadata[lift.getType()].displayText}</td>
+                  <td>{t.Metadata.forLiftType(lift.getType()).displayText}</td>
                 )}
 
                 {liftIdx === 0 ? (

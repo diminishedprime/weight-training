@@ -1,7 +1,6 @@
 import moment from "moment";
 import React from "react";
 import { Link } from "react-router-dom";
-import * as c from "../constants";
 import * as hooks from "../hooks";
 import * as t from "../types";
 
@@ -41,7 +40,7 @@ const Records = () => {
               <tr key={record.liftType}>
                 <td>
                   <span className="bold">
-                    {c.liftMetadata[record.liftType].displayText}
+                    {t.Metadata.forLiftType(record.liftType).displayText}
                   </span>
                 </td>
                 <td>{record.orm.weight.display(unit)}</td>
@@ -66,7 +65,7 @@ const Records = () => {
             {noRecords.map((pr) => (
               <li key={pr.liftType}>
                 <Link to={`/lift/${pr.liftType}`}>
-                  {c.liftMetadata[pr.liftType].displayText}
+                  {t.Metadata.forLiftType(pr.liftType).displayText}
                 </Link>
               </li>
             ))}

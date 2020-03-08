@@ -1,4 +1,4 @@
-import { FirestoreField } from "../index";
+import { FirestoreField } from "../marker";
 
 export interface TimeStampField extends FirestoreField {
   seconds: number;

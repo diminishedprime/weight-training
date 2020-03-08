@@ -1,7 +1,7 @@
 import { ZERO_TIME } from "../../../constants";
 import store from "../../../store";
 import * as t from "../../../types";
-import { withBrand } from "../index";
+import { withBrand } from "../marker";
 import { LiftType } from "../LiftType";
 import { LiftType as LiftTypeV1 } from "../LiftType/v1";
 import { RecordField as RecordFieldV1 } from "../RecordField/v1";
@@ -23,7 +23,11 @@ export const toUserDoc: t.FromFirestore<t.UserDoc> = (o: object): t.UserDoc => {
       const userDoc: V2Db = o as any;
       const defaultRecord: RecordFieldV2 = {
         [t.ONE_REP_MAX]: {
-          weight: { value: 0, unit: t.WeightUnit.POUND, version: "1" },
+          weight: withBrand({
+            value: 0,
+            unit: t.WeightUnit.POUND,
+            version: "1"
+          }),
           time: withBrand(ZERO_TIME())
         }
       };
@@ -44,7 +48,11 @@ export const toUserDoc: t.FromFirestore<t.UserDoc> = (o: object): t.UserDoc => {
       const userDoc: V1Db = o as any;
       const defaultRecord: RecordFieldV2 = {
         [t.ONE_REP_MAX]: {
-          weight: { value: 0, unit: t.WeightUnit.POUND, version: "1" },
+          weight: withBrand({
+            value: 0,
+            unit: t.WeightUnit.POUND,
+            version: "1"
+          }),
           time: withBrand(ZERO_TIME())
         }
       };
@@ -58,11 +66,13 @@ export const toUserDoc: t.FromFirestore<t.UserDoc> = (o: object): t.UserDoc => {
       };
       Object.values(LiftTypeV1).forEach((liftType) => {
         const liftMeta: RecordFieldV1 | undefined = (userDoc as any)[liftType];
-        const weight = liftMeta?.[t.ONE_REP_MAX] || {
-          value: 0,
-          unit: t.WeightUnit.POUND,
-          version: "1"
-        };
+        const weight =
+          liftMeta?.[t.ONE_REP_MAX] ||
+          withBrand({
+            value: 0,
+            unit: t.WeightUnit.POUND,
+            version: "1"
+          });
         newDoc[liftType] = {
           [t.ONE_REP_MAX]: {
             weight,

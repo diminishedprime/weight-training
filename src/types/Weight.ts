@@ -1,17 +1,12 @@
 import { WeightField } from "./db";
 import { toWeight } from "./db/WeightField";
-import { AsFirestore, AsJson, Equals, Versioned } from "./index";
+import { Equals } from "./index";
 import { WeightUnit } from "./WeightUnit";
+import { withBrand, HasFirestoreField } from "./db/marker";
 
 const lbsToKiloRatio = 0.453592;
 
-export class Weight
-  implements
-    WeightField,
-    AsFirestore<WeightField>,
-    Versioned,
-    Equals<Weight>,
-    AsJson {
+export class Weight implements HasFirestoreField<WeightField>, Equals<Weight> {
   public static VERSION: "1" = "1";
   public static fromFirestoreData = toWeight;
   public static fromJSON = (s: string): Weight => {
@@ -51,18 +46,20 @@ export class Weight
     }
   };
 
-  public value: number;
-  public unit: WeightUnit;
+  public firestoreField: WeightField;
   public version = Weight.VERSION;
 
   constructor(value: number, unit: WeightUnit) {
-    this.value = value;
-    this.unit = unit;
+    this.firestoreField = withBrand({
+      value,
+      unit,
+      version: "1"
+    });
   }
 
   public setValue(value: number): Weight {
     const nu = this.clone();
-    nu.value = value;
+    nu.firestoreField.value = value;
     return nu;
   }
 
@@ -71,49 +68,67 @@ export class Weight
   }
 
   public asFirestore(): WeightField {
-    return { value: this.value, unit: this.unit, version: this.version };
+    return this.firestoreField;
   }
 
   public clone(): Weight {
-    return new Weight(this.value, this.unit);
+    return new Weight(this.firestoreField.value, this.firestoreField.unit);
   }
 
   public withValue(value: number): Weight {
-    return new Weight(value, this.unit);
+    return new Weight(value, this.firestoreField.unit);
   }
 
   public toString(): string {
-    return `${this.value.toFixed(1).replace(/[.,]0$/, "")}${this.unit}`;
+    return `${this.firestoreField.value.toFixed(1).replace(/[.,]0$/, "")}${
+      this.firestoreField.unit
+    }`;
   }
 
-  public display(unit: WeightUnit = this.unit): string {
+  public display(unit: WeightUnit = this.firestoreField.unit): string {
     return this.toUnit(unit).toString();
+  }
+
+  public getUnit(): WeightUnit {
+    return this.firestoreField.unit;
+  }
+
+  public getValue(): number {
+    return this.firestoreField.value;
   }
 
   public add(...rest: Weight[]): Weight {
     return rest.reduce((acc, next) => {
-      if (acc.unit === next.unit) {
-        acc.value += next.value;
-      } else if (acc.unit === WeightUnit.KILOGRAM) {
-        acc.value += Weight.lbsToKilo(next.value);
-      } else if (acc.unit === WeightUnit.POUND) {
-        acc.value += Weight.kiloToLbs(next.value);
+      if (acc.getUnit() === next.getUnit()) {
+        return acc.withValue(acc.getValue() + next.getValue());
+      } else if (acc.getUnit() === WeightUnit.KILOGRAM) {
+        return acc.withValue(
+          acc.getValue() + Weight.lbsToKilo(next.getValue())
+        );
+      } else if (acc.getUnit() === WeightUnit.POUND) {
+        return acc.withValue(
+          acc.getValue() + Weight.kiloToLbs(next.getValue())
+        );
       }
       return acc;
-    }, new Weight(this.value, this.unit));
+    }, this.clone());
   }
 
   public subtract(...rest: Weight[]): Weight {
     return rest.reduce((acc, next) => {
-      if (acc.unit === next.unit) {
-        acc.value -= next.value;
-      } else if (acc.unit === WeightUnit.KILOGRAM) {
-        acc.value -= Weight.lbsToKilo(next.value);
-      } else if (acc.unit === WeightUnit.POUND) {
-        acc.value -= Weight.kiloToLbs(next.value);
+      if (acc.getUnit() === next.getUnit()) {
+        return acc.withValue(acc.getValue() - next.getValue());
+      } else if (acc.getUnit() === WeightUnit.KILOGRAM) {
+        return acc.withValue(
+          acc.getValue() - Weight.lbsToKilo(next.getValue())
+        );
+      } else if (acc.getUnit() === WeightUnit.POUND) {
+        return acc.withValue(
+          acc.getValue() - Weight.kiloToLbs(next.getValue())
+        );
       }
       return acc;
-    }, new Weight(this.value, this.unit));
+    }, this.clone());
   }
 
   public lessThanEq(b: Weight): boolean {
@@ -121,34 +136,34 @@ export class Weight
   }
 
   public equals(b: Weight): boolean {
-    if (this.unit === b.unit) {
-      return this.value === b.value;
-    } else if (this.unit === WeightUnit.KILOGRAM) {
-      return this.value === Weight.lbsToKilo(b.value);
+    if (this.getUnit() === b.getUnit()) {
+      return this.getValue() === b.getValue();
+    } else if (this.getUnit() === WeightUnit.KILOGRAM) {
+      return this.getValue() === Weight.lbsToKilo(b.getValue());
     } else {
-      return b.value === Weight.kiloToLbs(b.value);
+      return b.getValue() === Weight.kiloToLbs(b.getValue());
     }
   }
 
   public lessThan(b: Weight): boolean {
-    if (this.unit === b.unit) {
-      return this.value < b.value;
-    } else if (this.unit === WeightUnit.KILOGRAM) {
-      return this.value < Weight.lbsToKilo(b.value);
+    if (this.getUnit() === b.getUnit()) {
+      return this.getValue() < b.getValue();
+    } else if (this.getUnit() === WeightUnit.KILOGRAM) {
+      return this.getValue() < Weight.lbsToKilo(b.getValue());
     } else {
-      return b.value < Weight.kiloToLbs(b.value);
+      return b.getValue() < Weight.kiloToLbs(b.getValue());
     }
   }
   public greaterThanEq(b: Weight): boolean {
     return this.equals(b) || this.greaterThan(b);
   }
   public greaterThan(b: Weight): boolean {
-    if (this.unit === b.unit) {
-      return this.value > b.value;
-    } else if (this.unit === WeightUnit.KILOGRAM) {
-      return this.value > Weight.lbsToKilo(b.value);
+    if (this.getUnit() === b.getUnit()) {
+      return this.getValue() > b.getValue();
+    } else if (this.getUnit() === WeightUnit.KILOGRAM) {
+      return this.getValue() > Weight.lbsToKilo(b.getValue());
     } else {
-      return b.value > Weight.kiloToLbs(b.value);
+      return b.getValue() > Weight.kiloToLbs(b.getValue());
     }
   }
 
@@ -157,16 +172,16 @@ export class Weight
   }
 
   public toPound(): Weight {
-    let newValue = this.value;
-    if (this.unit === WeightUnit.KILOGRAM) {
-      newValue = Weight.kiloToLbs(this.value);
+    let newValue = this.getValue();
+    if (this.getUnit() === WeightUnit.KILOGRAM) {
+      newValue = Weight.kiloToLbs(this.getValue());
     }
     return new Weight(newValue, WeightUnit.POUND);
   }
   public toKilo(): Weight {
-    let newValue = this.value;
-    if (this.unit === WeightUnit.POUND) {
-      newValue = Weight.lbsToKilo(this.value);
+    let newValue = this.getValue();
+    if (this.getUnit() === WeightUnit.POUND) {
+      newValue = Weight.lbsToKilo(this.getValue());
     }
     return new Weight(newValue, WeightUnit.KILOGRAM);
   }
@@ -179,22 +194,22 @@ export class Weight
   }
 
   public divide = (b: number): Weight => {
-    return new Weight(this.value / b, this.unit);
+    return new Weight(this.getValue() / b, this.getUnit());
   };
 
   public fraction = (b: Weight): number => {
-    const withUnits = b.toUnit(this.unit);
-    return this.value / withUnits.value;
+    const withUnits = b.toUnit(this.getUnit());
+    return this.getValue() / withUnits.getValue();
   };
   public multiply = (b: number): Weight => {
-    return new Weight(this.value * b, this.unit);
+    return new Weight(this.getValue() * b, this.getUnit());
   };
 
   public nearestFive(): Weight {
-    return new Weight(5 * Math.round(this.value / 5), this.unit);
+    return new Weight(5 * Math.round(this.getValue() / 5), this.getUnit());
   }
 
   public asJSON(): string {
-    return JSON.stringify(this);
+    return JSON.stringify(this.asFirestore());
   }
 }

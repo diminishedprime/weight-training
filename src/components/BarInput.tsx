@@ -37,10 +37,10 @@ const BarInput: React.FC<BarInputProps> = ({
   onWeightChange
 }) => {
   const { weight, setWeight } = hooks.useDefaultBar(propWeight);
-  const [unit, setUnit] = React.useState(weight.unit);
+  const [unit, setUnit] = React.useState(weight.getUnit());
 
   const resetBar = React.useCallback(() => {
-    setWeight((old) => t.Weight.bar(old.unit));
+    setWeight((old) => t.Weight.bar(old.getUnit()));
   }, [setWeight]);
 
   const onPlateClick = React.useCallback(
@@ -56,7 +56,7 @@ const BarInput: React.FC<BarInputProps> = ({
 
   React.useEffect(() => {
     setWeight((weight) => {
-      if (t.Weight.bar(weight.unit).equals(weight)) {
+      if (t.Weight.bar(weight.getUnit()).equals(weight)) {
         return t.Weight.bar(unit);
       }
       return weight.toUnit(unit);

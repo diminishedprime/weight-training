@@ -8,15 +8,10 @@ import {
   toLift
 } from "./db/LiftDoc";
 import { DisplayLift } from "./index";
-import {
-  AsFirestore,
-  Equals,
-  FirestoreTimestamp,
-  LiftType,
-  Weight
-} from "./index";
+import { Equals, FirestoreTimestamp, LiftType, Weight } from "./index";
+import { HasFirestoreField, withBrand } from "./db/marker";
 
-export class Lift implements AsFirestore<LiftDoc>, Equals<Lift> {
+export class Lift implements HasFirestoreField<LiftDoc>, Equals<Lift> {
   public static fromFirestoreData = toLift;
 
   public static cleanAndJerk = (
@@ -27,16 +22,18 @@ export class Lift implements AsFirestore<LiftDoc>, Equals<Lift> {
     style: CleanAndJerkStyle,
     startPosition: CleanAndJerkPosition
   ): Lift => {
-    return new Lift({
-      type: LiftType.CleanAndJerk,
-      startPosition,
-      style,
-      date,
-      weight,
-      reps,
-      warmup,
-      version: "3"
-    });
+    return new Lift(
+      withBrand({
+        type: LiftType.CleanAndJerk,
+        startPosition,
+        style,
+        date,
+        weight: weight.asFirestore(),
+        reps,
+        warmup,
+        version: "3"
+      })
+    );
   };
 
   public static snatch = (
@@ -47,16 +44,18 @@ export class Lift implements AsFirestore<LiftDoc>, Equals<Lift> {
     style: SnatchStyle,
     startPosition: SnatchPosition
   ): Lift => {
-    return new Lift({
-      type: LiftType.Snatch,
-      startPosition,
-      style,
-      date,
-      weight,
-      reps,
-      warmup,
-      version: "3"
-    });
+    return new Lift(
+      withBrand({
+        type: LiftType.Snatch,
+        startPosition,
+        style,
+        date,
+        weight: weight.asFirestore(),
+        reps,
+        warmup,
+        version: "3"
+      })
+    );
   };
 
   public static forBarbellLift = (
@@ -68,60 +67,70 @@ export class Lift implements AsFirestore<LiftDoc>, Equals<Lift> {
   ) => {
     switch (liftType) {
       case LiftType.BenchPress:
-        return new Lift({
-          version: "3",
-          ...{
-            weight,
-            type: liftType,
-            reps,
-            warmup,
-            date
-          }
-        });
+        return new Lift(
+          withBrand({
+            version: "3",
+            ...{
+              weight: weight.asFirestore(),
+              type: liftType,
+              reps,
+              warmup,
+              date
+            }
+          })
+        );
       case LiftType.FrontSquat:
-        return new Lift({
-          version: "3",
-          ...{
-            weight,
-            type: liftType,
-            reps,
-            warmup,
-            date
-          }
-        });
+        return new Lift(
+          withBrand({
+            version: "3",
+            ...{
+              weight: weight.asFirestore(),
+              type: liftType,
+              reps,
+              warmup,
+              date
+            }
+          })
+        );
       case LiftType.Deadlift:
-        return new Lift({
-          version: "3",
-          ...{
-            weight,
-            type: liftType,
-            reps,
-            warmup,
-            date
-          }
-        });
+        return new Lift(
+          withBrand({
+            version: "3",
+            ...{
+              weight: weight.asFirestore(),
+              type: liftType,
+              reps,
+              warmup,
+              date
+            }
+          })
+        );
       case LiftType.OverheadPress:
-        return new Lift({
-          version: "3",
-          ...{
-            weight,
-            type: liftType,
-            reps,
-            warmup,
-            date
-          }
-        });
+        return new Lift(
+          withBrand({
+            version: "3",
+            ...{
+              weight: weight.asFirestore(),
+              type: liftType,
+              reps,
+              warmup,
+              date
+            }
+          })
+        );
       case LiftType.Squat:
-        return new Lift({
-          version: "3",
-          ...{
-            weight,
-            type: liftType,
-            reps,
-            warmup,
-            date
-          }
-        });
+        return new Lift(
+          withBrand({
+            version: "3",
+            ...{
+              weight: weight.asFirestore(),
+              type: liftType,
+              reps,
+              warmup,
+              date
+            }
+          })
+        );
     }
   };
 
@@ -129,57 +138,57 @@ export class Lift implements AsFirestore<LiftDoc>, Equals<Lift> {
     return new Lift(lift);
   };
 
-  private firestoreDoc: LiftDoc;
+  public firestoreField: LiftDoc;
 
   constructor(firestoreDoc: LiftDoc) {
-    this.firestoreDoc = firestoreDoc;
+    this.firestoreField = firestoreDoc;
   }
 
   public getWeight(): Weight {
-    return Weight.fromFirestoreData(this.firestoreDoc.weight);
+    return Weight.fromFirestoreData(this.firestoreField.weight);
   }
 
   public getDate(): FirestoreTimestamp {
-    return this.firestoreDoc.date;
+    return this.firestoreField.date;
   }
 
   public getType(): LiftType {
-    return this.firestoreDoc.type;
+    return this.firestoreField.type;
   }
 
   public getReps(): number {
-    return this.firestoreDoc.reps;
+    return this.firestoreField.reps;
   }
 
   public getWarmup(): boolean {
-    return this.firestoreDoc.warmup || false;
+    return this.firestoreField.warmup || false;
   }
 
   public clone(): Lift {
-    return new Lift({ ...this.firestoreDoc });
+    return new Lift({ ...this.firestoreField });
   }
   public equals(other: Lift): boolean {
     return this.asJSON() === other.asJSON();
   }
 
   public getVersion(): string {
-    return this.firestoreDoc.version;
+    return this.firestoreField.version;
   }
 
   public asJSON(): string {
-    return JSON.stringify(this.firestoreDoc);
+    return JSON.stringify(this.firestoreField);
   }
 
   public asFirestore(): LiftDoc {
-    return this.firestoreDoc;
+    return this.firestoreField;
   }
 
   public withUid(uid: string): DisplayLift {
-    return new DisplayLift({ ...this.firestoreDoc, uid });
+    return new DisplayLift({ ...this.firestoreField, uid });
   }
 
   public prettyName(): string {
-    const doc = this.firestoreDoc;
+    const doc = this.firestoreField;
     switch (doc.type) {
       case LiftType.Snatch:
         return prettyNameSnatch(doc);
@@ -203,6 +212,7 @@ const prettyNameSnatch = (snatch: SnatchDoc): string => {
       break;
     case SnatchPosition.AboveTheKnee:
       firstPart = "AK";
+
       break;
     case SnatchPosition.BelowTheKnee:
       firstPart = "BK";
