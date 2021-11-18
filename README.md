@@ -1,44 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/26466516/107675788-31f54e00-6c77-11eb-96c9-58fd8a4c69ac.png" alt="Gatsby and TypeScript">
+</p>
 
-## Available Scripts
+<p align="center">
+  <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&style=for-the-badge&color=24B36B&labelColor=000000" alt="PRs welcome!" />
 
-In the project directory, you can run:
+  <img alt="License" src="https://img.shields.io/github/license/jpedroschmitz/gatsby-starter-ts?style=for-the-badge&color=24B36B&labelColor=000000">
 
-### `yarn start`
+  <a href="https://twitter.com/intent/follow?screen_name=jpedroschmitz">
+    <img src="https://img.shields.io/twitter/follow/jpedroschmitz?style=for-the-badge&color=24B36B&labelColor=000000" alt="Follow @jpedroschmitz" />
+  </a>
+</p>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+A TypeScript starter for Gatsby. No plugins and styling. Exactly the necessary to start 🔥
 
-### `yarn test`
+No plugins installed, great for advanced users.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 📏 **ESLint** — Pluggable JavaScript linter
+- 💖 **Prettier** - Opinionated Code Formatter
+- 🐶 **Husky** — Use git hooks with ease
+- 📄 **Commitizen** - Conventional commit messages CLI
+- 🐐 **Tests** - Jest and Testing Library
+- 🚓 **Commitlint** - Lint commit messages
+- 🖌 **Renovate** - Dependency update tool
+- 🚫 **lint-staged** - Run linters against staged git files
+- 👷 **PR Workflow** - Run Type Check & Linters on pull requests
+- 🗂 **Root import** - Import folders and files using the `@` prefix.
 
-### `yarn build`
+## 🚀 Getting started
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The best way to start with this template is using the Gatsby CLI.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```
+npx gatsby new starter-ts https://github.com/jpedroschmitz/gatsby-starter-ts
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If you prefer you can clone this repository and run the following commands inside the project folder:
 
-### `yarn eject`
+> By default, this starter uses Yarn, but this choice is yours. If you'd like to switch to npm, delete the `yarn.lock` file, install the dependencies with `npm install`, and change the CI workflows, Husky Git hooks, and lint-staged steps to use npm commands.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. `yarn`;
+2. `yarn start`;
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To view the project you can open `http://localhost:8000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🤝 Contributing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Fork this repository;
+2. Create your branch: `git checkout -b my-new-feature`;
+3. Commit your changes: `git commit -m 'Add some feature'`;
+4. Push to the branch: `git push origin my-new-feature`.
 
-## Learn More
+**After your pull request is merged**, you can safely delete your branch.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📝 License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for more information.
+
+---
+
+Made with ♥ by João Pedro Schmitz
