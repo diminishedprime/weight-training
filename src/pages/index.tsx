@@ -1,6 +1,5 @@
 import React from 'react';
 import { PageProps } from 'gatsby';
-
 import { Typography } from '@mui/material';
 
 const Home: React.FC<PageProps> = () => (
