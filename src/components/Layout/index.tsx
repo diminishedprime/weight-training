@@ -23,6 +23,9 @@ import {
   User,
 } from 'firebase/auth';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Links } from '@/constants';
+import { exerciseUIString } from '@/util';
+import { Exercise } from '@/types';
 
 const provider = new GoogleAuthProvider();
 
@@ -66,7 +69,7 @@ const useAuth = () => {
     });
   }, [auth]);
 
-  return { login, logout, loginStatus };
+  return { login, logout, loginStatus, user: currentUser };
 };
 
 const useDrawer = () => {
@@ -87,8 +90,10 @@ const useDrawer = () => {
   return { toggle, close, isOpen, open };
 };
 
+export const UserCtx = React.createContext<User | null>(null);
+
 const Layout: React.FC<LayoutProps> = ({ children, title }) => {
-  const { loginStatus, login, logout } = useAuth();
+  const { loginStatus, login, logout, user } = useAuth();
   const { isOpen, close, open } = useDrawer();
   return (
     <div>
@@ -128,11 +133,44 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => {
             <Link href="/">Home</Link>
           </ListItemText>
           <ListItemText>
+            <Link href={Links.Deadlift}>
+              {exerciseUIString(Exercise.Deadlift)}
+            </Link>
+          </ListItemText>
+          <ListItemText>
+            <Link href={Links.Squat}>{exerciseUIString(Exercise.Squat)}</Link>
+          </ListItemText>
+          <ListItemText>
+            <Link href={Links.BenchPress}>
+              {exerciseUIString(Exercise.BenchPress)}
+            </Link>
+          </ListItemText>
+          <ListItemText>
+            <Link href={Links.FrontSquat}>
+              {exerciseUIString(Exercise.FrontSquat)}
+            </Link>
+          </ListItemText>
+          <ListItemText>
+            <Link href={Links.OverheadPress}>
+              {exerciseUIString(Exercise.OverheadPress)}
+            </Link>
+          </ListItemText>
+          <ListItemText>
+            <Link href={Links.Snatch}>{exerciseUIString(Exercise.Snatch)}</Link>
+          </ListItemText>
+          <ListItemText>
+            <Link href={Links.CleanAndJerk}>
+              {exerciseUIString(Exercise.CleanAndJerk)}
+            </Link>
+          </ListItemText>
+          <ListItemText>
             <Link href="/404">404</Link>
           </ListItemText>
         </List>
       </Drawer>
-      <Box sx={{ ml: 0.5, mr: 0.5 }}>{children}</Box>
+      <UserCtx.Provider value={user}>
+        <Box sx={{ ml: 0.5, mr: 0.5 }}>{children}</Box>
+      </UserCtx.Provider>
     </div>
   );
 };
