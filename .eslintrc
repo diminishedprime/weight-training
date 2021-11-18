@@ -68,6 +68,8 @@
         "prettier"
       ],
       "rules": {
+        "no-shadow": "off",
+        "no-nested-ternary": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-var-requires": "off",
@@ -83,14 +85,6 @@
               "**/*.test.tsx",
               "**/*.spec.tsx"
             ]
-          }
-        ],
-        "quotes": "off",
-        "@typescript-eslint/quotes": [
-          2,
-          "backtick",
-          {
-            "avoidEscape": true
           }
         ],
         "@typescript-eslint/no-unused-vars": [2, { "argsIgnorePattern": "^_" }]
