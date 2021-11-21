@@ -18,7 +18,7 @@ export const exerciseUIString = (v: Exercise): string => {
       return 'Clean and Jerk';
     default: {
       const exhaustiveCheck: never = v;
-      throw new Error(`Unhandled color case: ${exhaustiveCheck}`);
+      throw new Error(`Unhandled case: ${exhaustiveCheck}`);
     }
   }
 };
@@ -41,7 +41,7 @@ export const nameForExercise = (v: Exercise): string => {
       return 'clean-and-jerk';
     default: {
       const exhaustiveCheck: never = v;
-      throw new Error(`Unhandled color case: ${exhaustiveCheck}`);
+      throw new Error(`Unhandled case: ${exhaustiveCheck}`);
     }
   }
 };

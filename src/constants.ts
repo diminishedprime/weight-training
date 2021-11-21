@@ -1,6 +1,6 @@
 import { createEnumParam } from 'serialize-query-params';
 import { QueryParam } from './components/Exercise';
-import { Exercise } from './types';
+import { Exercise, PlateWeight } from './types';
 
 export const ExerciseQueryParam = createEnumParam(Object.values(Exercise));
 
@@ -13,3 +13,11 @@ export const Links = {
   CleanAndJerk: `/exercise?${QueryParam.LiftType}=${Exercise.CleanAndJerk}`,
   Snatch: `/exercise?${QueryParam.LiftType}=${Exercise.Snatch}`,
 };
+
+export const OneOfEachPlate: PlateWeight[] = [
+  { unit: 'lb', value: 45, version: 1 },
+  { unit: 'lb', value: 25, version: 1 },
+  { unit: 'lb', value: 10, version: 1 },
+  { unit: 'lb', value: 5, version: 1 },
+  { unit: 'lb', value: 2.5, version: 1 },
+];

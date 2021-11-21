@@ -2,9 +2,13 @@ import { initializeApp } from 'firebase/app';
 
 import { User } from 'firebase/auth';
 import {
+  addDoc,
   collection,
+  DocumentData,
+  DocumentReference,
   getDocs,
   getFirestore,
+  onSnapshot,
   orderBy,
   query,
   where,
@@ -40,4 +44,33 @@ export const getLiftsByType = async (
   );
   const snapshot = await getDocs(query(q));
   return snapshot.docs.map((d) => d.data() as ExerciseData);
+};
+
+export const subscribeToLiftsByType = (
+  user: User,
+  exercise: Exercise,
+  observer: (e: ExerciseData[]) => void,
+) => {
+  const q = query(
+    liftsRef(user),
+    exerciseWhere(exercise),
+    orderBy('date', 'desc'),
+  );
+  const unSub = onSnapshot(q, (snapshot) => {
+    observer(snapshot.docs.map((d) => d.data() as ExerciseData));
+  });
+
+  return unSub;
+};
+
+export const addExercise = async (
+  user: User,
+  exerciseData: ExerciseData,
+): Promise<DocumentReference<DocumentData>> => {
+  try {
+    return await addDoc(liftsRef(user), exerciseData);
+  } catch (e) {
+    console.error('An error occured trying to add the exercise');
+    console.error(e);
+  }
 };

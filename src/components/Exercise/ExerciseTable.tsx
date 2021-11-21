@@ -10,14 +10,17 @@ import {
 } from '@mui/material';
 import React from 'react';
 import { ExerciseData } from '@/types';
+import TimeSince from '../TimeSince';
 
 interface ExerciseTableProps {
   lifts: ExerciseData[];
+  showEllapsedTime: boolean;
   heading?: string;
 }
 
 const ExerciseTable: React.FC<ExerciseTableProps> = ({
   lifts,
+  showEllapsedTime,
   heading = undefined,
 }) => (
   <>
@@ -33,9 +36,15 @@ const ExerciseTable: React.FC<ExerciseTableProps> = ({
           </TableRow>
         </TableHead>
         <TableBody>
-          {lifts.map((lift) => (
+          {lifts.map((lift, idx) => (
             <TableRow key={lift.date.toDate().toLocaleTimeString()}>
-              <TableCell>{lift.date.toDate().toLocaleTimeString()}</TableCell>
+              <TableCell>
+                {showEllapsedTime && idx === 0 ? (
+                  <TimeSince date={lift.date} />
+                ) : (
+                  lift.date.toDate().toLocaleTimeString()
+                )}
+              </TableCell>
               <TableCell align="right">
                 {lift.weight.value}
                 {lift.weight.unit}

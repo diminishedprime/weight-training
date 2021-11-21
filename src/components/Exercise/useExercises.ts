@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo, useState } from 'react';
-import { getLiftsByType } from '@/firebase';
+import { subscribeToLiftsByType } from '@/firebase';
 import { Exercise, ExerciseData } from '@/types';
 import { UserCtx } from '../Layout';
 
@@ -33,9 +33,9 @@ const useExercises = (exercise: Exercise): LiftsRequest => {
       return;
     }
     setType('in-progress');
-    getLiftsByType(user, exercise).then((exercises) => {
-      setExercises(exercises);
+    return subscribeToLiftsByType(user, exercise, (exercises) => {
       setType('resolved');
+      setExercises(exercises);
     });
   }, [user, exercise]);
 

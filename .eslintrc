@@ -68,6 +68,11 @@
         "prettier"
       ],
       "rules": {
+        "consistent-return": "off",
+        "no-console": "off",
+        "react/no-array-index-key": "off",
+        "camelcase": "off",
+        "no-underscore-dangle": "off",
         "react/require-default-props": "off",
         "no-shadow": "off",
         "no-nested-ternary": "off",
