@@ -2,13 +2,14 @@ import { Check } from '@mui/icons-material';
 import {
   Button,
   css,
+  styled,
   Table,
   TableBody,
   TableCell,
+  tableCellClasses,
   TableContainer,
   TableHead,
   TableRow,
-  Typography,
 } from '@mui/material';
 import React, { useState } from 'react';
 import { ExerciseData, WithID } from '@/types';
@@ -18,6 +19,16 @@ import { editExerciseUrlFor } from '../EditExercise';
 const editingCss = css`
   border-bottom: none;
 `;
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
 
 interface ExerciseTableProps {
   exercises: WithID<ExerciseData>[];
@@ -33,15 +44,19 @@ const ExerciseTable: React.FC<ExerciseTableProps> = ({
   const [editing, setEditing] = useState(-1);
   return (
     <>
-      {heading && <Typography variant="h6">{heading}</Typography>}
-      <TableContainer sx={{ mb: 2 }}>
+      <TableContainer sx={{ mb: 2, mt: 1 }}>
         <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell>Time</TableCell>
-              <TableCell align="right">Weight</TableCell>
-              <TableCell align="right">Reps</TableCell>
-              <TableCell>Warmup</TableCell>
+              <StyledTableCell colSpan={4} align="center" css={editingCss}>
+                {heading}
+              </StyledTableCell>
+            </TableRow>
+            <TableRow>
+              <StyledTableCell>Time</StyledTableCell>
+              <StyledTableCell align="right">Weight</StyledTableCell>
+              <StyledTableCell align="right">Reps</StyledTableCell>
+              <StyledTableCell>Warmup</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
