@@ -4,16 +4,26 @@ import { User } from 'firebase/auth';
 import {
   addDoc,
   collection,
+  deleteDoc,
+  doc,
   DocumentData,
   DocumentReference,
+  getDoc,
   getDocs,
   getFirestore,
   onSnapshot,
   orderBy,
   query,
+  updateDoc,
   where,
 } from 'firebase/firestore';
-import { Exercise, ExerciseData } from './types';
+import {
+  BarExerciseData,
+  Exercise,
+  ExerciseData,
+  Update,
+  WithID,
+} from './types';
 import { nameForExercise } from './util';
 
 initializeApp({
@@ -29,6 +39,9 @@ initializeApp({
 
 const liftsRef = (user: User) =>
   collection(getFirestore(), 'users', user.uid, 'lifts');
+
+const liftRef = (user: User, id: string) =>
+  doc(getFirestore(), 'users', user.uid, 'lifts', id);
 
 const exerciseWhere = (exercise: Exercise) =>
   where('type', '==', nameForExercise(exercise));
@@ -49,7 +62,7 @@ export const getLiftsByType = async (
 export const subscribeToLiftsByType = (
   user: User,
   exercise: Exercise,
-  observer: (e: ExerciseData[]) => void,
+  observer: (e: WithID<ExerciseData>[]) => void,
 ) => {
   const q = query(
     liftsRef(user),
@@ -57,7 +70,11 @@ export const subscribeToLiftsByType = (
     orderBy('date', 'desc'),
   );
   const unSub = onSnapshot(q, (snapshot) => {
-    observer(snapshot.docs.map((d) => d.data() as ExerciseData));
+    observer(
+      snapshot.docs.map(
+        (d) => ({ ...d.data(), id: d.id } as WithID<ExerciseData>),
+      ),
+    );
   });
 
   return unSub;
@@ -73,4 +90,25 @@ export const addExercise = async (
     console.error('An error occured trying to add the exercise');
     console.error(e);
   }
+};
+
+export const getLift = async (
+  user: User,
+  id: string,
+): Promise<WithID<ExerciseData>> => {
+  const snapshot = await getDoc(liftRef(user, id));
+  return { ...snapshot.data(), id: snapshot.id } as WithID<ExerciseData>;
+};
+
+export const deleteExercise = async (user: User, id: string): Promise<void> => {
+  await deleteDoc(liftRef(user, id));
+};
+
+export const updateBarExercise = async (
+  user: User,
+  id: string,
+  update: Update<BarExerciseData>,
+): Promise<WithID<BarExerciseData>> => {
+  await updateDoc(liftRef(user, id), update);
+  return (await getLift(user, id)) as WithID<BarExerciseData>;
 };

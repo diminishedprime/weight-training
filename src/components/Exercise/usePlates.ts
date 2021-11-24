@@ -1,21 +1,41 @@
 import { useCallback, useMemo, useState } from 'react';
 import { OneOfEachPlate } from '@/constants';
-import usePersistentArray, { ArrayKey } from '@/hooks/usePersistentArray';
-import { PlateWeight } from '@/types';
+import { PlateCount, PlateWeight } from '@/types';
 
-const usePlates = (qualifier: string) => {
+export const platesForWeight = (weight: number): PlateWeight[] => {
+  let remainingWeight = weight;
+  // Note it's important that OneOfEachPlate is sorted largest to
+  // smallest for this to work properly.
+  const plates = OneOfEachPlate.reduce((acc, plate) => {
+    const additionalPlates = [];
+    while (remainingWeight >= plate.value) {
+      remainingWeight -= plate.value;
+      additionalPlates.push(plate);
+    }
+    return acc.concat(additionalPlates);
+  }, []);
+
+  if (remainingWeight !== 0) {
+    console.warn(
+      'You called plates for weight with a weight that cannot be perfectly reperesnted by the available plates.',
+      { weight, remainingWeight },
+    );
+  }
+
+  return plates;
+};
+
+const usePlates = (
+  plates: PlateWeight[],
+  setPlates: React.Dispatch<React.SetStateAction<PlateWeight[]>>,
+) => {
   const [consolidate] = useState(true);
-  const [plates, setPlates] = usePersistentArray<PlateWeight>(
-    ArrayKey.Plates,
-    [],
-    qualifier,
-  );
 
   const clearPlates = useCallback(() => {
     setPlates([]);
   }, []);
 
-  const plateCounts: [PlateWeight, number][] = useMemo(
+  const plateCounts: PlateCount[] = useMemo(
     () =>
       OneOfEachPlate.reduce((acc, plate) => {
         const count = plates.filter(
@@ -33,17 +53,9 @@ const usePlates = (qualifier: string) => {
     setPlates((old) => {
       const withNewPlate = old.concat([plate]);
       if (consolidate) {
-        let remainingWeight = withNewPlate.reduce((acc, p) => acc + p.value, 0);
-        // Note it's important that OneOfEachPlate is sorted largest to
-        // smallest for this to work properly.
-        return OneOfEachPlate.reduce((acc, plate) => {
-          const additionalPlates = [];
-          while (remainingWeight >= plate.value) {
-            remainingWeight -= plate.value;
-            additionalPlates.push(plate);
-          }
-          return acc.concat(additionalPlates);
-        }, []);
+        return platesForWeight(
+          withNewPlate.reduce((acc, p) => acc + p.value, 0),
+        );
       }
       return withNewPlate;
     });

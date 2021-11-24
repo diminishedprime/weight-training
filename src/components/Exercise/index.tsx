@@ -66,7 +66,7 @@ const Exercise: React.FC = () => {
       {Object.entries(grouped).map(([k, v], idx) => (
         <ExerciseTable
           key={k}
-          lifts={v}
+          exercises={v}
           heading={k}
           showEllapsedTime={idx === 0}
         />

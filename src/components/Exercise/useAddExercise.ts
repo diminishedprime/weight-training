@@ -10,8 +10,7 @@ const useAddExercise = (): AddExercise => {
 
   const addExercise = useCallback(
     async (exerciseData: ExerciseData) => {
-      const response = await addExerciseDB(user, exerciseData);
-      console.log({ response });
+      await addExerciseDB(user, exerciseData);
     },
     [user],
   );

@@ -10,7 +10,7 @@ import {
 import * as React from 'react';
 import { Timestamp } from 'firebase/firestore';
 import usePersistentNumber, { NumberKey } from '@/hooks/usePersistentNumber';
-import { Exercise, ExerciseData } from '@/types';
+import { Exercise, ExerciseData, PlateWeight } from '@/types';
 import { nameForExercise } from '@/util';
 import Bar from '../Bar';
 import AddPlates from './AddPlates';
@@ -18,6 +18,7 @@ import SetReps from './SetReps';
 import usePlates from './usePlates';
 import usePersistentBoolean, { BooleanKey } from '@/hooks/usePersistentBoolean';
 import useAddExercise from './useAddExercise';
+import usePersistentArray, { ArrayKey } from '@/hooks/usePersistentArray';
 
 const exerciseCss = css`
   display: flex;
@@ -55,7 +56,12 @@ const AddExercise: React.FC<AddExerciseProps> = ({ exercise, onCancel }) => {
     `add-lift/${nameForExercise(exercise)}`,
   );
 
-  const platesAPI = usePlates(nameForExercise(exercise));
+  const [plates, setPlates] = usePersistentArray<PlateWeight>(
+    ArrayKey.Plates,
+    [],
+    nameForExercise(exercise),
+  );
+  const platesAPI = usePlates(plates, setPlates);
 
   const addExercise = useAddExercise();
 

@@ -10,7 +10,7 @@ export enum Exercise {
   CleanAndJerk = 'g',
 }
 
-interface Weight_V1 {
+export interface Weight_V1 {
   unit: 'lb' | 'kg';
   value: number;
   version: 1;
@@ -36,6 +36,10 @@ interface Snatch_V1 {
 
 export type ExerciseData = Deadlift_V1 | Snatch_V1;
 
+export type BarExerciseData = Deadlift_V1 | Snatch_V1;
+
+export type WithID<T> = T & { id: string };
+
 export type AddExerciseData = Omit<ExerciseData, 'date'>;
 
 type _45 = { unit: 'lb'; value: 45; version: 1 };
@@ -45,3 +49,7 @@ type _5 = { unit: 'lb'; value: 5; version: 1 };
 type _2_5 = { unit: 'lb'; value: 2.5; version: 1 };
 
 export type PlateWeight = _45 | _25 | _10 | _5 | _2_5;
+
+export type PlateCount = [PlateWeight, number];
+
+export type Update<T> = { [K in keyof T]?: T[K] };
