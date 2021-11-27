@@ -4,6 +4,7 @@ export enum BooleanKey {
   Warmup = '/boolean/warmup/',
   ShowAddCustom = '/boolean/add-custom/',
   ShowAdd5x5 = '/boolean/add-5-x-5/',
+  ShowAdd3x3 = '/boolean/add-3-x-3/',
 }
 
 interface StoredBoolean {

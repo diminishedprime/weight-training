@@ -14,6 +14,7 @@ import AddExercise from './AddExercise';
 import usePersistentBoolean, { BooleanKey } from '@/hooks/usePersistentBoolean';
 import Add5x5 from './Add5x5';
 import { isBarExercise } from '@/types';
+import Add3x3 from './Add3x3';
 
 export enum QueryParam {
   LiftType = 'a',
@@ -40,6 +41,12 @@ const Exercise: React.FC = () => {
     nameForExercise(exercise),
   );
 
+  const [show3x3, setShow3x3] = usePersistentBoolean(
+    BooleanKey.ShowAdd3x3,
+    false,
+    nameForExercise(exercise),
+  );
+
   const grouped = useMemo(
     () =>
       request.type === 'resolved'
@@ -55,7 +62,7 @@ const Exercise: React.FC = () => {
       <Typography variant="h6" sx={{ ml: 1 }}>
         {exerciseUIString(exercise)}
       </Typography>
-      {!show5x5 && !showAdd && isBarExercise(exercise) && (
+      {!show3x3 && !show5x5 && !showAdd && isBarExercise(exercise) && (
         <Button
           variant="outlined"
           size="small"
@@ -68,7 +75,20 @@ const Exercise: React.FC = () => {
       {show5x5 && isBarExercise(exercise) && (
         <Add5x5 exercise={exercise} onCancel={() => setShow5x5(false)} />
       )}
-      {!showAdd && !show5x5 && (
+      {!show3x3 && !show5x5 && !showAdd && isBarExercise(exercise) && (
+        <Button
+          variant="outlined"
+          size="small"
+          sx={{ mr: 1 }}
+          onClick={() => setShow3x3(true)}
+        >
+          3x3
+        </Button>
+      )}
+      {show3x3 && isBarExercise(exercise) && (
+        <Add3x3 exercise={exercise} onCancel={() => setShow3x3(false)} />
+      )}
+      {!show3x3 && !showAdd && !show5x5 && (
         <Button
           size="small"
           variant="outlined"
