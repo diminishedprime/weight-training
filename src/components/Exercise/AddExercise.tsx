@@ -1,5 +1,6 @@
 import { Add } from '@mui/icons-material';
 import {
+  Box,
   Button,
   Checkbox,
   css,
@@ -87,7 +88,9 @@ const AddExercise: React.FC<AddExerciseProps> = ({ exercise, onCancel }) => {
 
   return (
     <section css={exerciseCss}>
-      <Bar plates={platesAPI.plates} />
+      <Box sx={{ mb: 2 }}>
+        <Bar plates={platesAPI.plates} />
+      </Box>
       <AddPlates api={platesAPI} />
       <span
         css={css`

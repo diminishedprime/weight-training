@@ -1,21 +1,21 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
-export enum ArrayKey {
-  Plates = '/array/plates/',
+export enum ObjectKey {
+  _5x5Data = '/5x5/data/',
 }
 
-interface StoredArray<T> {
-  value: T[];
+interface StoredObject<T> {
+  value: T;
   key?: string;
   unset: boolean;
 }
 
-const usePersistentArray = <T>(
-  key: ArrayKey,
-  initialValue: T[],
+const usePersistentObject = <T>(
+  key: ObjectKey,
+  initialValue: T,
   qualifier: string,
   xform?: (o: Record<string, any>) => T,
-): [T[], React.Dispatch<React.SetStateAction<T[]>>] => {
+): [T, React.Dispatch<React.SetStateAction<T>>] => {
   const storageKey = useMemo(() => `${key}${qualifier}`, [key, qualifier]);
 
   const transform = useMemo(() => {
@@ -25,25 +25,25 @@ const usePersistentArray = <T>(
     return xform;
   }, [xform]);
 
-  const fromLocalStorage = useCallback((): StoredArray<T> => {
+  const fromLocalStorage = useCallback((): StoredObject<T> => {
     const stringValue = window.localStorage.getItem(storageKey);
     if (stringValue === null) {
       return {
-        value: initialValue.map(transform),
+        value: transform(initialValue),
         unset: true,
       };
     }
     try {
-      const parsed: StoredArray<T> = JSON.parse(stringValue);
-      return { ...parsed, value: parsed.value.map(transform) };
+      const parsed: StoredObject<T> = JSON.parse(stringValue);
+      return { ...parsed, value: transform(parsed.value) };
     } catch (e) {
       console.error(`The value stored for: ${storageKey} could not be parsed.`);
-      return { value: initialValue.map(transform), unset: true };
+      return { value: transform(initialValue), unset: true };
     }
   }, [transform, storageKey, initialValue]);
 
-  const [storedArray, setStoredArray] =
-    useState<StoredArray<T>>(fromLocalStorage);
+  const [storedObject, setStoredObject] =
+    useState<StoredObject<T>>(fromLocalStorage);
 
   // Always try to initialize into localstorage
   useEffect(() => {
@@ -60,30 +60,33 @@ const usePersistentArray = <T>(
     }
   }, [storageKey, initialValue]);
 
-  const setArray: React.Dispatch<React.SetStateAction<T[]>> = useCallback(
+  const setObject: React.Dispatch<React.SetStateAction<T>> = useCallback(
     (v) => {
-      setStoredArray((old) => {
-        let updatedArray = old.value;
+      setStoredObject((old) => {
+        let updatedObject = old.value;
         if (typeof v === 'function') {
-          updatedArray = v(updatedArray);
+          updatedObject = (v as any)(updatedObject);
         } else {
-          updatedArray = v;
+          updatedObject = v;
         }
         window.localStorage.setItem(
           storageKey,
           JSON.stringify({
-            value: updatedArray,
+            value: updatedObject,
             unset: false,
             key: storageKey,
           }),
         );
-        return { ...old, value: updatedArray };
+        return { ...old, value: updatedObject };
       });
     },
     [storageKey],
   );
 
-  return useMemo(() => [storedArray.value, setArray], [storedArray, setArray]);
+  return useMemo(
+    () => [storedObject.value, setObject],
+    [storedObject, setObject],
+  );
 };
 
-export default usePersistentArray;
+export default usePersistentObject;

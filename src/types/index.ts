@@ -7,8 +7,22 @@ export enum Exercise {
   BenchPress = 'd',
   OverheadPress = 'e',
   Snatch = 'f',
-  CleanAndJerk = 'g',
 }
+
+export type BarExercise =
+  | Exercise.Deadlift
+  | Exercise.Squat
+  | Exercise.FrontSquat
+  | Exercise.BenchPress
+  | Exercise.OverheadPress;
+
+export const isBarExercise = (exercise: Exercise): exercise is BarExercise =>
+  // Does typescript not check
+  exercise === Exercise.Deadlift ||
+  exercise === Exercise.Squat ||
+  exercise === Exercise.FrontSquat ||
+  exercise === Exercise.BenchPress ||
+  exercise === Exercise.OverheadPress;
 
 export interface Weight_V1 {
   unit: 'lb' | 'kg';
@@ -16,15 +30,58 @@ export interface Weight_V1 {
   version: 1;
 }
 
-interface Deadlift_V1 {
+interface Deadlift_V3 {
   date: Timestamp;
-  reps: number;
-  type: 'deadlift';
-  version: 1;
-  warmup?: boolean;
   weight: Weight_V1;
+  type: 'deadlift';
+  reps: number;
+  warmup: boolean;
+  version: 3;
 }
 
+interface Squat_V3 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'squat';
+  reps: number;
+  warmup: boolean;
+  version: 3;
+}
+
+interface FrontSquat_V3 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'front-squat';
+  reps: number;
+  warmup: boolean;
+}
+
+interface BenchPress_V3 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'bench-press';
+  reps: number;
+  warmup: boolean;
+}
+
+interface OverheadPress_V3 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'overhead-press';
+  reps: number;
+  warmup: boolean;
+}
+
+interface OverheadPress_V3 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'overhead-press';
+  reps: number;
+  warmup: boolean;
+}
+
+// TODO - this doesn't actually match the old format, but I'm not sure any are
+// recorded so it might not matter.
 interface Snatch_V1 {
   date: Timestamp;
   reps: number;
@@ -34,9 +91,25 @@ interface Snatch_V1 {
   weight: Weight_V1;
 }
 
-export type ExerciseData = Deadlift_V1 | Snatch_V1;
+export interface BarSet {
+  reps: number;
+  weight: Weight_V1;
+  warmup: boolean;
+  version: 1;
+  time?: Timestamp;
+  status: 'finished' | 'skipped' | 'not-started';
+}
 
-export type BarExerciseData = Deadlift_V1 | Snatch_V1;
+// TODO - eventually other exercises will be here too.
+export type ExerciseData = BarExerciseData;
+
+export type BarExerciseData =
+  | Deadlift_V3
+  | Squat_V3
+  | FrontSquat_V3
+  | BenchPress_V3
+  | OverheadPress_V3
+  | Snatch_V1;
 
 export type WithID<T> = T & { id: string };
 
@@ -53,3 +126,16 @@ export type PlateWeight = _45 | _25 | _10 | _5 | _2_5;
 export type PlateCount = [PlateWeight, number];
 
 export type Update<T> = { [K in keyof T]?: T[K] };
+
+export interface OneRepMax {
+  time: Timestamp;
+  weight: Weight_V1;
+}
+
+export interface UserExercise {
+  'one-rep-max': OneRepMax;
+}
+
+export type UserData = {
+  [K in BarExerciseData['type']]?: UserExercise | undefined;
+};

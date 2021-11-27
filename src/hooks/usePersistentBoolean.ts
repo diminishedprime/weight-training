@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 export enum BooleanKey {
   Warmup = '/boolean/warmup/',
   ShowAddCustom = '/boolean/add-custom/',
+  ShowAdd5x5 = '/boolean/add-5-x-5/',
 }
 
 interface StoredBoolean {

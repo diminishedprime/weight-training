@@ -68,6 +68,9 @@
         "prettier"
       ],
       "rules": {
+        "react-hooks/exhaustive-deps": "error",
+        "no-param-reassign": "off",
+        "no-plusplus": "off",
         "consistent-return": "off",
         "no-console": "off",
         "react/no-array-index-key": "off",

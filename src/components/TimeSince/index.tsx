@@ -25,7 +25,7 @@ interface TimeSinceProps {
 }
 
 const TimeSince: React.FC<TimeSinceProps> = ({ date }) => {
-  const [since, setSince] = useState(timeSince(date));
+  const [[minutes, seconds], setSince] = useState(timeSince(date));
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,20 +35,20 @@ const TimeSince: React.FC<TimeSinceProps> = ({ date }) => {
   }, [date]);
 
   const sinceCss = useMemo(() => {
-    if (since[0] < 2) {
+    if (minutes < 2) {
       return waitToLiftCss;
     }
     return wheneverCss;
-  }, [since[0]]);
+  }, [minutes]);
 
-  if (since[0] > 20) {
+  if (minutes > 20) {
     return <>{date.toDate().toLocaleTimeString()}</>;
   }
 
   return (
     <span css={sinceCss}>
-      {since[0].toString().padStart(2, '0')}:
-      {since[1].toString().padStart(2, '0')}
+      {minutes.toString().padStart(2, '0')}:
+      {seconds.toString().padStart(2, '0')}
     </span>
   );
 };

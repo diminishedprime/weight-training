@@ -2,9 +2,10 @@ import { css, Link, Typography, useTheme } from '@mui/material';
 import * as React from 'react';
 import { BounceLoader } from 'react-spinners';
 import { StringParam, useQueryParam } from 'use-query-params';
-import { ExerciseData, WithID } from '@/types';
+import { ExerciseData, isBarExercise, WithID } from '@/types';
 import UpdateBarExercise from './UpdateBarExercise';
 import useExercise from './useExercise';
+import { fromDBExercise } from '@/util';
 
 export enum QueryParam {
   ExerciseID = 'a',
@@ -39,7 +40,7 @@ const EditExercise: React.FC = () => {
 
   if (
     request.type === 'resolved' &&
-    (request.exercise.type === 'deadlift' || request.exercise.type === 'snatch')
+    isBarExercise(fromDBExercise(request.exercise.type))
   ) {
     return (
       <>

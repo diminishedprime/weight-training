@@ -33,7 +33,7 @@ const usePlates = (
 
   const clearPlates = useCallback(() => {
     setPlates([]);
-  }, []);
+  }, [setPlates]);
 
   const plateCounts: PlateCount[] = useMemo(
     () =>
@@ -49,17 +49,20 @@ const usePlates = (
     [plates],
   );
 
-  const addPlate = useCallback((plate: PlateWeight) => {
-    setPlates((old) => {
-      const withNewPlate = old.concat([plate]);
-      if (consolidate) {
-        return platesForWeight(
-          withNewPlate.reduce((acc, p) => acc + p.value, 0),
-        );
-      }
-      return withNewPlate;
-    });
-  }, []);
+  const addPlate = useCallback(
+    (plate: PlateWeight) => {
+      setPlates((old) => {
+        const withNewPlate = old.concat([plate]);
+        if (consolidate) {
+          return platesForWeight(
+            withNewPlate.reduce((acc, p) => acc + p.value, 0),
+          );
+        }
+        return withNewPlate;
+      });
+    },
+    [consolidate, setPlates],
+  );
 
   const add45 = useCallback(() => {
     addPlate({ value: 45, unit: 'lb', version: 1 });

@@ -44,7 +44,6 @@ const barWrapperCss = css`
   display: flex;
   align-items: center;
   margin: auto;
-  margin-bottom: 2em;
 `;
 
 const sleeveCss = css`
@@ -165,9 +164,10 @@ const Plates: React.FC<PlatesProps> = ({ plates, side }) => (
 interface BarProps {
   // Holf of the plates on the bar.
   plates: PlateWeight[];
+  noText?: true;
 }
 
-const Bar: React.FC<BarProps> = ({ plates }) => (
+const Bar: React.FC<BarProps> = ({ plates, noText }) => (
   <div css={barWrapperCss}>
     <div
       css={css`
@@ -190,10 +190,12 @@ const Bar: React.FC<BarProps> = ({ plates }) => (
         ${shaftCss};
       `}
     >
-      <Typography variant="h4">
-        {plates.reduce((acc, a) => acc + a.value, 0) * 2 + 45}
-        {plates.length > 0 ? plates[0].unit : 'lbs'}
-      </Typography>
+      {!noText && (
+        <Typography variant="h4">
+          {plates.reduce((acc, a) => acc + a.value, 0) * 2 + 45}
+          {plates.length > 0 ? plates[0].unit : 'lbs'}
+        </Typography>
+      )}
     </div>
     <div
       css={css`

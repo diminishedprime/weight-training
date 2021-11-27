@@ -25,9 +25,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.common.white,
   },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
 }));
 
 interface ExerciseTableProps {

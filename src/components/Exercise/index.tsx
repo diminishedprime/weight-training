@@ -12,6 +12,8 @@ import ExerciseTable from './ExerciseTable';
 import useExercises from './useExercises';
 import AddExercise from './AddExercise';
 import usePersistentBoolean, { BooleanKey } from '@/hooks/usePersistentBoolean';
+import Add5x5 from './Add5x5';
+import { isBarExercise } from '@/types';
 
 export enum QueryParam {
   LiftType = 'a',
@@ -32,6 +34,12 @@ const Exercise: React.FC = () => {
     nameForExercise(exercise),
   );
 
+  const [show5x5, setShow5x5] = usePersistentBoolean(
+    BooleanKey.ShowAdd5x5,
+    false,
+    nameForExercise(exercise),
+  );
+
   const grouped = useMemo(
     () =>
       request.type === 'resolved'
@@ -47,7 +55,20 @@ const Exercise: React.FC = () => {
       <Typography variant="h6" sx={{ ml: 1 }}>
         {exerciseUIString(exercise)}
       </Typography>
-      {!showAdd && (
+      {!show5x5 && !showAdd && isBarExercise(exercise) && (
+        <Button
+          variant="outlined"
+          size="small"
+          sx={{ mr: 1 }}
+          onClick={() => setShow5x5(true)}
+        >
+          5x5
+        </Button>
+      )}
+      {show5x5 && isBarExercise(exercise) && (
+        <Add5x5 exercise={exercise} onCancel={() => setShow5x5(false)} />
+      )}
+      {!showAdd && !show5x5 && (
         <Button
           size="small"
           variant="outlined"

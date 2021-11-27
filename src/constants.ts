@@ -10,7 +10,6 @@ export const Links = {
   FrontSquat: `/exercise?${QueryParam.LiftType}=${Exercise.FrontSquat}`,
   BenchPress: `/exercise?${QueryParam.LiftType}=${Exercise.BenchPress}`,
   OverheadPress: `/exercise?${QueryParam.LiftType}=${Exercise.OverheadPress}`,
-  CleanAndJerk: `/exercise?${QueryParam.LiftType}=${Exercise.CleanAndJerk}`,
   Snatch: `/exercise?${QueryParam.LiftType}=${Exercise.Snatch}`,
 };
 

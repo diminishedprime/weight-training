@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import {
+  Box,
   Button,
   Checkbox,
   Dialog,
@@ -57,7 +58,9 @@ const UpdateBarExercise: React.FC<UpdateBarExerciseProps> = ({
       <Typography>
         Editing {exerciseUIString(fromDBExercise(barExerciseData.type))}
       </Typography>
-      <Bar plates={plates} />
+      <Box sx={{ mb: 2 }}>
+        <Bar plates={plates} />
+      </Box>
       <AddPlates api={api} />
       <span
         css={css`

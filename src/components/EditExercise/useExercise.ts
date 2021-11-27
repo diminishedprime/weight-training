@@ -40,7 +40,7 @@ const useExercise = (id: string | undefined): ExerciseRequest => {
       setExercise(exercise);
       setType('resolved');
     });
-  }, [user]);
+  }, [user, id]);
 
   return useMemo(() => {
     switch (type) {

@@ -18,10 +18,13 @@ import {
   where,
 } from 'firebase/firestore';
 import {
+  BarExercise,
   BarExerciseData,
   Exercise,
   ExerciseData,
+  OneRepMax,
   Update,
+  UserData,
   WithID,
 } from './types';
 import { nameForExercise } from './util';
@@ -39,6 +42,8 @@ initializeApp({
 
 const liftsRef = (user: User) =>
   collection(getFirestore(), 'users', user.uid, 'lifts');
+
+const userRef = (user: User) => doc(getFirestore(), 'users', user.uid);
 
 const liftRef = (user: User, id: string) =>
   doc(getFirestore(), 'users', user.uid, 'lifts', id);
@@ -111,4 +116,19 @@ export const updateBarExercise = async (
 ): Promise<WithID<BarExerciseData>> => {
   await updateDoc(liftRef(user, id), update);
   return (await getLift(user, id)) as WithID<BarExerciseData>;
+};
+
+const getUserData = async (user: User): Promise<UserData> => {
+  const snapshot = await getDoc(userRef(user));
+  return snapshot.data() as UserData;
+};
+
+export const getOneRepMax = async (
+  user: User,
+  barExercise: BarExercise,
+): Promise<OneRepMax | undefined> => {
+  const userData = await getUserData(user);
+  // TODO - Why doesn't typescript get this right? This value could be undefined???
+  const userExercise = userData[nameForExercise(barExercise)];
+  return userExercise?.['one-rep-max'];
 };

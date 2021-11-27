@@ -159,11 +159,6 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => {
             <Link href={Links.Snatch}>{exerciseUIString(Exercise.Snatch)}</Link>
           </ListItemText>
           <ListItemText>
-            <Link href={Links.CleanAndJerk}>
-              {exerciseUIString(Exercise.CleanAndJerk)}
-            </Link>
-          </ListItemText>
-          <ListItemText>
             <Link href="/404">404</Link>
           </ListItemText>
         </List>
