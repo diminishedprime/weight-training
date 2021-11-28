@@ -11,7 +11,7 @@ import {
 import * as React from 'react';
 import { Timestamp } from 'firebase/firestore';
 import usePersistentNumber, { NumberKey } from '@/hooks/usePersistentNumber';
-import { Exercise, ExerciseData, PlateWeight } from '@/types';
+import { BarExerciseData, Exercise, ExerciseData, PlateWeight } from '@/types';
 import { nameForExercise } from '@/util';
 import Bar from '../Bar';
 import AddPlates from './AddPlates';
@@ -42,9 +42,20 @@ const addCss = css`
 interface AddExerciseProps {
   exercise: Exercise;
   onCancel: () => void;
+  onStart: () => void;
+  noneStarted: boolean;
+  active: boolean;
 }
 
-const AddExercise: React.FC<AddExerciseProps> = ({ exercise, onCancel }) => {
+// TODO - Add better support for all exercises here. Right now this is bespoke
+// to bar exercises practically.
+const AddExercise: React.FC<AddExerciseProps> = ({
+  exercise,
+  onCancel,
+  onStart,
+  noneStarted,
+  active,
+}) => {
   const theme = useTheme();
   const [warmup, setWarmup] = usePersistentBoolean(
     BooleanKey.Warmup,
@@ -67,72 +78,94 @@ const AddExercise: React.FC<AddExerciseProps> = ({ exercise, onCancel }) => {
   const addExercise = useAddExercise();
 
   const getExerciseData = React.useCallback((): ExerciseData => {
+    const basePlate: Omit<BarExerciseData, 'type' | 'version'> = {
+      date: Timestamp.now(),
+      reps,
+      warmup,
+      weight: {
+        unit: 'lb',
+        value: platesAPI.plates.reduce((acc, p) => acc + p.value, 0) * 2 + 45,
+        version: 1,
+      },
+    };
     switch (exercise) {
       case Exercise.Snatch:
-        return {
-          type: 'snatch',
-          date: Timestamp.now(),
-          reps,
-          version: 1,
-          weight: {
-            unit: 'lb',
-            value:
-              platesAPI.plates.reduce((acc, p) => acc + p.value, 0) * 2 + 45,
-            version: 1,
-          },
-        };
-      default:
-        throw new Error('Exercise type not supported');
+        return { ...basePlate, type: 'snatch', version: 1 };
+      case Exercise.Deadlift:
+        return { ...basePlate, type: 'deadlift', version: 3 };
+      case Exercise.Squat:
+        return { ...basePlate, type: 'squat', version: 3 };
+      case Exercise.FrontSquat:
+        return { ...basePlate, type: 'front-squat', version: 3 };
+      case Exercise.BenchPress:
+        return { ...basePlate, type: 'bench-press', version: 3 };
+      case Exercise.OverheadPress:
+        return { ...basePlate, type: 'overhead-press', version: 3 };
+      default: {
+        const exhaustiveCheck: never = exercise;
+        throw new Error(`Unhandled case: ${exhaustiveCheck}`);
+      }
     }
-  }, [platesAPI, exercise, reps]);
+  }, [platesAPI, exercise, reps, warmup]);
 
-  return (
-    <section css={exerciseCss}>
-      <Box sx={{ mb: 2 }}>
-        <Bar plates={platesAPI.plates} />
-      </Box>
-      <AddPlates api={platesAPI} />
-      <span
-        css={css`
-          ${repsAndWarmupRowCss};
-          margin-top: ${theme.spacing(1)};
-          margin-bottom: ${theme.spacing(1)};
-        `}
-      >
-        <FormGroup>
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={warmup}
-                onChange={(e) => setWarmup(e.target.checked)}
-              />
-            }
-            label="Warmup"
-          />
-        </FormGroup>
-        <SetReps reps={reps} setReps={setReps} />
-      </span>
-      <span css={addCss}>
-        <Button
-          variant="outlined"
-          color="error"
-          sx={{ mr: 1, mt: 1 }}
-          onClick={onCancel}
+  if (noneStarted) {
+    return (
+      <Button variant="outlined" size="small" sx={{ mr: 1 }} onClick={onStart}>
+        Custom
+      </Button>
+    );
+  }
+
+  if (active) {
+    return (
+      <section css={exerciseCss}>
+        <Box sx={{ mb: 2 }}>
+          <Bar plates={platesAPI.plates} />
+        </Box>
+        <AddPlates api={platesAPI} />
+        <span
+          css={css`
+            ${repsAndWarmupRowCss};
+            margin-top: ${theme.spacing(1)};
+            margin-bottom: ${theme.spacing(1)};
+          `}
         >
-          Cancel
-        </Button>
-        <span />
-        <Button
-          variant="contained"
-          startIcon={<Add />}
-          sx={{ mr: 1, mt: 1 }}
-          onClick={() => addExercise(getExerciseData())}
-        >
-          Add
-        </Button>
-      </span>
-    </section>
-  );
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={warmup}
+                  onChange={(e) => setWarmup(e.target.checked)}
+                />
+              }
+              label="Warmup"
+            />
+          </FormGroup>
+          <SetReps reps={reps} setReps={setReps} />
+        </span>
+        <span css={addCss}>
+          <Button
+            variant="outlined"
+            color="error"
+            sx={{ mr: 1, mt: 1 }}
+            onClick={onCancel}
+          >
+            Cancel
+          </Button>
+          <span />
+          <Button
+            variant="contained"
+            startIcon={<Add />}
+            sx={{ mr: 1, mt: 1 }}
+            onClick={() => addExercise(getExerciseData())}
+          >
+            Add
+          </Button>
+        </span>
+      </section>
+    );
+  }
+  return null;
 };
 
 export default AddExercise;

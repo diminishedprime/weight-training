@@ -14,6 +14,7 @@ export type BarExercise =
   | Exercise.Squat
   | Exercise.FrontSquat
   | Exercise.BenchPress
+  | Exercise.Snatch
   | Exercise.OverheadPress;
 
 export const isBarExercise = (exercise: Exercise): exercise is BarExercise =>
@@ -54,6 +55,7 @@ interface FrontSquat_V3 {
   type: 'front-squat';
   reps: number;
   warmup: boolean;
+  version: 3;
 }
 
 interface BenchPress_V3 {
@@ -62,6 +64,7 @@ interface BenchPress_V3 {
   type: 'bench-press';
   reps: number;
   warmup: boolean;
+  version: 3;
 }
 
 interface OverheadPress_V3 {
@@ -70,6 +73,7 @@ interface OverheadPress_V3 {
   type: 'overhead-press';
   reps: number;
   warmup: boolean;
+  version: 3;
 }
 
 interface OverheadPress_V3 {
@@ -78,6 +82,7 @@ interface OverheadPress_V3 {
   type: 'overhead-press';
   reps: number;
   warmup: boolean;
+  version: 3;
 }
 
 // TODO - this doesn't actually match the old format, but I'm not sure any are
@@ -87,7 +92,7 @@ interface Snatch_V1 {
   reps: number;
   type: 'snatch';
   version: 1;
-  warmup?: boolean;
+  warmup: boolean;
   weight: Weight_V1;
 }
 
@@ -139,3 +144,11 @@ export interface UserExercise {
 export type UserData = {
   [K in BarExerciseData['type']]?: UserExercise | undefined;
 };
+
+export type Sets = number;
+export type Reps = number;
+
+export type WarmupSet = (
+  | { type: 'even'; warmupSets: number }
+  | { type: 'percentage' }
+) & { includeEmptyBar: boolean };

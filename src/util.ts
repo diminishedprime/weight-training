@@ -1,4 +1,13 @@
-import { Exercise, ExerciseData, PlateCount, Weight_V1 } from './types';
+import {
+  BarSet,
+  Exercise,
+  ExerciseData,
+  PlateCount,
+  Reps,
+  Sets,
+  WarmupSet,
+  Weight_V1,
+} from './types';
 
 export const exerciseUIString = (v: Exercise): string => {
   switch (v) {
@@ -73,4 +82,88 @@ export const nearest5 = (n: number): number => {
   const nearest =
     remainder >= 2.5 ? Math.floor(n / 5) * 5 + 5 : Math.floor(n / 5) * 5;
   return nearest;
+};
+
+export const keyForSetsByReps = (sets: Sets, reps: Reps) =>
+  `${sets}SetsBy${reps}Reps`;
+
+const repsForSetNumber = (i: number): number => {
+  switch (i) {
+    case 1:
+      return 5;
+    case 2:
+      return 3;
+    case 3:
+      return 2;
+    case 4:
+      return 2;
+    default:
+      return 2;
+  }
+};
+
+export const calcSetsByReps = (
+  targetWeight: Weight_V1,
+  warmupSet: WarmupSet,
+  sets: Sets,
+  reps: Reps,
+): BarSet[] => {
+  const barSets: BarSet[] = [];
+  if (warmupSet.includeEmptyBar) {
+    if (warmupSet.type !== 'even' || warmupSet.warmupSets !== 0) {
+      barSets.push({
+        warmup: true,
+        weight: { value: 45, unit: 'lb', version: 1 },
+        reps: 5,
+        status: 'not-started',
+        version: 1,
+      });
+    }
+  }
+  if (warmupSet.type === 'even' && warmupSet.warmupSets !== 0) {
+    const jumpAmount = (targetWeight.value - 45) / (warmupSet.warmupSets + 1);
+    for (let i = 1; i < warmupSet.warmupSets + 1; i++) {
+      barSets.push({
+        warmup: true,
+        weight: {
+          value: nearest5(jumpAmount * i + 45),
+          unit: 'lb',
+          version: 1,
+        },
+        reps: repsForSetNumber(i),
+        status: 'not-started',
+        version: 1,
+      });
+    }
+  }
+  if (warmupSet.type === 'percentage') {
+    const percentages = [0.45, 0.65, 0.85];
+    percentages.forEach((percentage, i) =>
+      barSets.push({
+        warmup: true,
+        weight: {
+          value: nearest5(percentage * targetWeight.value),
+          unit: 'lb',
+          version: 1,
+        },
+        reps: repsForSetNumber(i + 1),
+        status: 'not-started',
+        version: 1,
+      }),
+    );
+  }
+  for (let setNumber = 0; setNumber < sets; setNumber++) {
+    barSets.push({
+      warmup: false,
+      weight: {
+        value: nearest5(targetWeight.value),
+        unit: 'lb',
+        version: 1,
+      },
+      reps,
+      status: 'not-started',
+      version: 1,
+    });
+  }
+  return barSets;
 };

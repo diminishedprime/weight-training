@@ -6,90 +6,21 @@ import {
   BarExercise,
   BarExerciseData,
   BarSet,
+  Exercise,
   OneRepMax,
+  Reps,
+  Sets,
+  WarmupSet,
   Weight_V1,
 } from '@/types';
-import { nameForExercise, nearest5 } from '@/util';
+import {
+  calcSetsByReps,
+  keyForSetsByReps,
+  nameForExercise,
+  nearest5,
+} from '@/util';
 import usePersistentObject, { ObjectKey } from '@/hooks/usePersistentObject';
 import useAddExercise from '../useAddExercise';
-
-type WarmupSet = (
-  | { type: 'even'; warmupSets: number }
-  | { type: 'percentage' }
-) & { includeEmptyBar: boolean };
-
-const repsForSetNumber = (i: number): number => {
-  switch (i) {
-    case 1:
-      return 5;
-    case 2:
-      return 3;
-    case 3:
-      return 2;
-    case 4:
-      return 2;
-    default:
-      return 2;
-  }
-};
-
-const calc5x5Sets = (weight: Weight_V1, warmupSet: WarmupSet): BarSet[] => {
-  const sets: BarSet[] = [];
-  if (warmupSet.includeEmptyBar) {
-    sets.push({
-      warmup: true,
-      weight: { value: 45, unit: 'lb', version: 1 },
-      reps: 5,
-      status: 'not-started',
-      version: 1,
-    });
-  }
-  if (warmupSet.type === 'even') {
-    const jumpAmount = (weight.value - 45) / (warmupSet.warmupSets + 1);
-    for (let i = 1; i < warmupSet.warmupSets + 1; i++) {
-      sets.push({
-        warmup: true,
-        weight: {
-          value: nearest5(jumpAmount * i + 45),
-          unit: 'lb',
-          version: 1,
-        },
-        reps: repsForSetNumber(i),
-        status: 'not-started',
-        version: 1,
-      });
-    }
-  } else {
-    const percentages = [0.45, 0.65, 0.85];
-    percentages.forEach((percentage, i) =>
-      sets.push({
-        warmup: true,
-        weight: {
-          value: nearest5(percentage * weight.value),
-          unit: 'lb',
-          version: 1,
-        },
-        reps: repsForSetNumber(i + 1),
-        status: 'not-started',
-        version: 1,
-      }),
-    );
-  }
-  for (let i = 0; i < 5; i++) {
-    sets.push({
-      warmup: false,
-      weight: {
-        value: nearest5(weight.value),
-        unit: 'lb',
-        version: 1,
-      },
-      reps: 5,
-      status: 'not-started',
-      version: 1,
-    });
-  }
-  return sets;
-};
 
 const useORM = (exercise: BarExercise): OneRepMax | undefined => {
   const user = useContext(UserCtx);
@@ -105,8 +36,6 @@ const useORM = (exercise: BarExercise): OneRepMax | undefined => {
   return orm;
 };
 
-const _5x5ORMRatio = 0.8;
-
 interface NotStarted {
   status: 'not-started';
   orm: string;
@@ -120,19 +49,31 @@ interface InProgress {
   currentSet: number;
 }
 
-type _5x5Data = NotStarted | InProgress;
+type SetsByRepsData = NotStarted | InProgress;
 
-const notStarted = (): NotStarted => ({
+const notStarted = (
+  actualORM: OneRepMax | undefined,
+  ormRatio: number,
+): NotStarted => ({
   status: 'not-started',
-  orm: '',
-  targetWeight: '',
+  orm: actualORM === undefined ? '' : actualORM.weight.value.toString(),
+  targetWeight:
+    actualORM === undefined
+      ? ''
+      : nearest5(actualORM.weight.value * ormRatio).toString(),
   warmupSet: { type: 'percentage', includeEmptyBar: true },
 });
 
-const use5x5 = (exercise: BarExercise) => {
+const useSetsByReps = (
+  exercise: BarExercise,
+  sets: Sets,
+  reps: Reps,
+  ormRatio: number,
+) => {
   const addExercise = useAddExercise();
+  const actualORM = useORM(exercise);
 
-  const xform = useCallback((a: _5x5Data) => {
+  const xform = useCallback((a: SetsByRepsData) => {
     if (a.status === 'in-progress') {
       a.sets.forEach((s) => {
         if (s.time) {
@@ -143,14 +84,12 @@ const use5x5 = (exercise: BarExercise) => {
     return a;
   }, []);
 
-  const [data, setData] = usePersistentObject<_5x5Data>(
-    ObjectKey._5x5Data,
-    notStarted(),
-    nameForExercise(exercise),
+  const [data, setData] = usePersistentObject<SetsByRepsData>(
+    ObjectKey.SetsByRepsData,
+    notStarted(actualORM, ormRatio),
+    `${nameForExercise(exercise)}/${keyForSetsByReps(sets, reps)}`,
     xform,
   );
-
-  const actualORM = useORM(exercise);
 
   const setORM = useCallback(
     (s: string | undefined) => {
@@ -163,13 +102,13 @@ const use5x5 = (exercise: BarExercise) => {
         setData((old) => ({
           ...old,
           orm: s,
-          targetWeight: Math.floor(n * _5x5ORMRatio).toString(),
+          targetWeight: Math.floor(n * ormRatio).toString(),
         }));
       } catch (e) {
         console.error(`Could not parse "${s}" as a number`);
       }
     },
-    [setData],
+    [setData, ormRatio],
   );
 
   const setTargetWeight = useCallback(
@@ -184,13 +123,13 @@ const use5x5 = (exercise: BarExercise) => {
         setData((old) => ({
           ...old,
           targetWeight: s,
-          orm: Math.floor(n / _5x5ORMRatio).toString(),
+          orm: Math.floor(n / ormRatio).toString(),
         }));
       } catch (e) {
         console.error(`Could not parse "${s}" as a number`);
       }
     },
-    [setData],
+    [setData, ormRatio],
   );
 
   useEffect(() => {
@@ -200,11 +139,9 @@ const use5x5 = (exercise: BarExercise) => {
     setData((old) => ({
       ...old,
       orm: actualORM.weight.value.toString(),
-      targetWeight: Math.floor(
-        actualORM.weight.value * _5x5ORMRatio,
-      ).toString(),
+      targetWeight: Math.floor(actualORM.weight.value * ormRatio).toString(),
     }));
-  }, [actualORM, setData]);
+  }, [actualORM, setData, ormRatio]);
 
   const skipLift = useCallback(() => {
     setData((old) => {
@@ -240,24 +177,41 @@ const use5x5 = (exercise: BarExercise) => {
             status: 'finished',
             time: Timestamp.now(),
           };
-          const dbType = nameForExercise(exercise);
-          if (dbType !== 'snatch') {
-            addExercise({
-              type: dbType,
-              date: nu.time,
-              reps: nu.reps,
-              version: 1,
-              weight: s.weight,
-              warmup: s.warmup,
-            } as BarExerciseData);
-          }
+          addExercise(
+            (() => {
+              const basePlate: Omit<BarExerciseData, 'type' | 'version'> = {
+                date: Timestamp.now(),
+                reps: s.reps,
+                warmup: s.warmup,
+                weight: s.weight,
+              };
+              switch (exercise) {
+                case Exercise.Snatch:
+                  return { ...basePlate, type: 'snatch', version: 1 };
+                case Exercise.Deadlift:
+                  return { ...basePlate, type: 'deadlift', version: 3 };
+                case Exercise.Squat:
+                  return { ...basePlate, type: 'squat', version: 3 };
+                case Exercise.FrontSquat:
+                  return { ...basePlate, type: 'front-squat', version: 3 };
+                case Exercise.BenchPress:
+                  return { ...basePlate, type: 'bench-press', version: 3 };
+                case Exercise.OverheadPress:
+                  return { ...basePlate, type: 'overhead-press', version: 3 };
+                default: {
+                  const exhaustiveCheck: never = exercise;
+                  throw new Error(`Unhandled case: ${exhaustiveCheck}`);
+                }
+              }
+            })() as BarExerciseData,
+          );
           return nu;
         }),
       };
     });
   }, [setData, addExercise, exercise]);
 
-  const start5x5 = useCallback(() => {
+  const startSetsByReps = useCallback(() => {
     if (data.status !== 'not-started') {
       return;
     }
@@ -268,12 +222,30 @@ const use5x5 = (exercise: BarExercise) => {
         unit: 'lb',
         version: 1,
       };
-      const sets = calc5x5Sets(actualWeight, data.warmupSet);
-      setData({ status: 'in-progress', sets, currentSet: 0 });
+      const barSets = calcSetsByReps(actualWeight, data.warmupSet, sets, reps);
+      setData({ status: 'in-progress', sets: barSets, currentSet: 0 });
     } catch (e) {
       console.error(`Couldn't parse "${data.targetWeight}" as a number.`);
     }
-  }, [data, setData]);
+  }, [data, setData, reps, sets]);
+
+  const setWarmupSets = useCallback(
+    (s: Sets) => {
+      setData((old) => {
+        if (old.status !== 'not-started') {
+          return old;
+        }
+        if (old.warmupSet.type !== 'even') {
+          return old;
+        }
+        return {
+          ...old,
+          warmupSet: { ...old.warmupSet, warmupSets: Math.max(0, s) },
+        };
+      });
+    },
+    [setData],
+  );
 
   const setWarmupType = useCallback(
     (warmupType: WarmupSet['type']) => {
@@ -309,17 +281,18 @@ const use5x5 = (exercise: BarExercise) => {
   );
 
   const cancel = useCallback(() => {
-    setData(notStarted());
-  }, [setData]);
+    setData(notStarted(actualORM, ormRatio));
+  }, [setData, actualORM, ormRatio]);
 
   if (data.status === 'not-started') {
     return {
       ...data,
-      start5x5,
+      startSetsByReps,
       setORM,
       setTargetWeight,
       setWarmupType,
       cancel,
+      setWarmupSets,
     };
   }
   if (data.status === 'in-progress') {
@@ -332,4 +305,4 @@ const use5x5 = (exercise: BarExercise) => {
   }
 };
 
-export default use5x5;
+export default useSetsByReps;

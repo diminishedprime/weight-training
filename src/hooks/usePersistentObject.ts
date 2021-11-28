@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 export enum ObjectKey {
-  _5x5Data = '/5x5/data/',
-  _3x3Data = '/3x3/data/',
+  SetsByRepsData = '/sets-by-reps/data/',
+  ActiveBarExercise = '/exercise/active-bar-exercise/',
 }
 
 interface StoredObject<T> {
