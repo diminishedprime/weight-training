@@ -12,8 +12,14 @@ const useUpdateBarExercise = (): UpdateExercise => {
   const user = useContext(UserCtx);
 
   return useCallback<UpdateExercise>(
-    async (exerciseData, update) =>
-      updateBarExercise(user, exerciseData.id, update),
+    async (exerciseData, update) => {
+      if (user === null) {
+        throw new Error(
+          'Invalid invariant. user should always be defined here.',
+        );
+      }
+      return updateBarExercise(user, exerciseData.id, update);
+    },
     [user],
   );
 };

@@ -7,13 +7,13 @@ export const platesForWeight = (weight: number): PlateWeight[] => {
   // Note it's important that OneOfEachPlate is sorted largest to
   // smallest for this to work properly.
   const plates = OneOfEachPlate.reduce((acc, plate) => {
-    const additionalPlates = [];
+    const additionalPlates: PlateWeight[] = [];
     while (remainingWeight >= plate.value) {
       remainingWeight -= plate.value;
       additionalPlates.push(plate);
     }
     return acc.concat(additionalPlates);
-  }, []);
+  }, [] as PlateWeight[]);
 
   if (remainingWeight !== 0) {
     console.warn(
@@ -45,7 +45,7 @@ const usePlates = (
             p.version === plate.version,
         ).length;
         return acc.concat([[plate, count]]);
-      }, []),
+      }, [] as PlateCount[]),
     [plates],
   );
 

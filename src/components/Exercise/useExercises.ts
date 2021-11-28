@@ -22,13 +22,13 @@ interface Failed {
 
 type LiftsRequest = NotStarted | InProgress | Resolved | Failed;
 
-const useExercises = (exercise: Exercise): LiftsRequest => {
+const useExercises = (exercise: Exercise | undefined | null): LiftsRequest => {
   const user = useContext(UserCtx);
   const [exercises, setExercises] = useState<WithID<ExerciseData>[]>([]);
   const [type, setType] = useState<LiftsRequest['type']>('not-started');
 
   useEffect(() => {
-    if (user === null || exercise === undefined) {
+    if (user === null || exercise === undefined || exercise === null) {
       setType('not-started');
       return;
     }

@@ -30,7 +30,9 @@ export const exerciseUIString = (v: Exercise): string => {
   }
 };
 
-export const nameForExercise = (v: Exercise): ExerciseData['type'] => {
+export const nameForExercise = (
+  v: Exercise | undefined | null,
+): ExerciseData['type'] | undefined => {
   switch (v) {
     case Exercise.Deadlift:
       return 'deadlift';
@@ -44,6 +46,9 @@ export const nameForExercise = (v: Exercise): ExerciseData['type'] => {
       return 'overhead-press';
     case Exercise.Snatch:
       return 'snatch';
+    case undefined:
+    case null:
+      return undefined;
     default: {
       const exhaustiveCheck: never = v;
       throw new Error(`Unhandled case: ${exhaustiveCheck}`);

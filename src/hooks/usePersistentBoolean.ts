@@ -18,6 +18,9 @@ const usePersistentBoolean = (
   initialValue: boolean,
   qualifier: string,
 ): [boolean, React.Dispatch<React.SetStateAction<boolean>>] => {
+  if (typeof window === 'undefined') {
+    return useState(initialValue);
+  }
   const storageKey = useMemo(() => `${key}${qualifier}`, [key, qualifier]);
 
   const [storedBoolean, setStoredBoolean] = useState<StoredBoolean>(() => {

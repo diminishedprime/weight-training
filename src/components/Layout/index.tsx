@@ -47,7 +47,7 @@ const useAuth = () => {
 
   const loginStatus = useMemo(
     () =>
-      window === undefined
+      typeof window === undefined
         ? LoginStatus.Unknown
         : currentUser === null
         ? LoginStatus.LoggedOut

@@ -22,13 +22,13 @@ interface Failed {
 
 type ExerciseRequest = NotStarted | InProgress | Resolved | Failed;
 
-const useExercise = (id: string | undefined): ExerciseRequest => {
+const useExercise = (id: string | undefined | null): ExerciseRequest => {
   const user = useContext(UserCtx);
   const [exercise, setExercise] = useState<WithID<ExerciseData>>();
   const [type, setType] = useState<ExerciseRequest['type']>('not-started');
 
   useEffect(() => {
-    if (id === undefined) {
+    if (id === undefined || id === null) {
       return;
     }
     if (user === null) {
@@ -45,6 +45,11 @@ const useExercise = (id: string | undefined): ExerciseRequest => {
   return useMemo(() => {
     switch (type) {
       case 'resolved': {
+        if (exercise === undefined) {
+          throw new Error(
+            'Invalid invariant. Exercise should be defined here.',
+          );
+        }
         return { type, exercise };
       }
       default: {

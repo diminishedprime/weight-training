@@ -50,7 +50,6 @@ const AddSetsByReps: React.FC<AddSetsxRepsProps> = ({
   active,
 }) => {
   const api = useSetsByReps(exercise, sets, reps, ormRatio);
-  const { cancel: apiCancel } = api;
 
   const cancel = React.useMemo(
     () => (
@@ -59,14 +58,14 @@ const AddSetsByReps: React.FC<AddSetsxRepsProps> = ({
         variant="outlined"
         color="error"
         onClick={() => {
-          apiCancel();
+          api.cancel();
           onCancel();
         }}
       >
         cancel
       </Button>
     ),
-    [apiCancel, onCancel],
+    [api, onCancel],
   );
 
   if (noneStarted) {
@@ -247,7 +246,7 @@ const AddSetsByReps: React.FC<AddSetsxRepsProps> = ({
                           </CurrentCell>
                         </TableRow>
                       )}
-                      {api.currentSet === idx && (
+                      {api.status === 'in-progress' && api.currentSet === idx && (
                         <TableRow>
                           <TableCell colSpan={4}>
                             <Box sx={{ display: 'flex' }}>

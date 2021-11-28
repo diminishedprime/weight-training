@@ -9,7 +9,14 @@ const useDeleteExercise = (): DeleteExercise => {
   const user = useContext(UserCtx);
 
   const deleteExercise: DeleteExercise = useCallback(
-    (exerciseData) => deleteExerciseDB(user, exerciseData.id),
+    (exerciseData) => {
+      if (user === null) {
+        throw new Error(
+          'Invalid invariant. User should always be defined here.',
+        );
+      }
+      return deleteExerciseDB(user, exerciseData.id);
+    },
     [user],
   );
 

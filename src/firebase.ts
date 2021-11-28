@@ -92,8 +92,7 @@ export const addExercise = async (
   try {
     return await addDoc(liftsRef(user), exerciseData);
   } catch (e) {
-    console.error('An error occured trying to add the exercise');
-    console.error(e);
+    throw new Error(`An error occured trying to add the exercise: ${{ e }}`);
   }
 };
 
@@ -128,7 +127,10 @@ export const getOneRepMax = async (
   barExercise: BarExercise,
 ): Promise<OneRepMax | undefined> => {
   const userData = await getUserData(user);
-  // TODO - Why doesn't typescript get this right? This value could be undefined???
-  const userExercise = userData[nameForExercise(barExercise)];
+  const exercise = nameForExercise(barExercise);
+  if (exercise === undefined) {
+    return undefined;
+  }
+  const userExercise = userData[exercise];
   return userExercise?.['one-rep-max'];
 };

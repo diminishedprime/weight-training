@@ -15,6 +15,9 @@ const usePersistentNumber = (
   initialValue: number,
   qualifier: string,
 ): [number, React.Dispatch<React.SetStateAction<number>>] => {
+  if (typeof window === 'undefined') {
+    return useState(initialValue);
+  }
   const storageKey = useMemo(() => `${key}${qualifier}`, [key, qualifier]);
 
   const [storedNumber, setStoredNumber] = useState<StoredNumber>(() => {

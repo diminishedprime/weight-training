@@ -16,6 +16,10 @@ const usePersistentArray = <T>(
   qualifier: string,
   xform?: (o: Record<string, any>) => T,
 ): [T[], React.Dispatch<React.SetStateAction<T[]>>] => {
+  if (typeof window === 'undefined') {
+    return useState<T[]>(initialValue);
+  }
+
   const storageKey = useMemo(() => `${key}${qualifier}`, [key, qualifier]);
 
   const transform = useMemo(() => {

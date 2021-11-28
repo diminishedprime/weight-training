@@ -10,6 +10,9 @@ const useAddExercise = (): AddExercise => {
 
   const addExercise = useCallback(
     async (exerciseData: ExerciseData) => {
+      if (user === null) {
+        return;
+      }
       await addExerciseDB(user, exerciseData);
     },
     [user],

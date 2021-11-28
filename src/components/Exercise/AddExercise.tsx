@@ -71,7 +71,7 @@ const AddExercise: React.FC<AddExerciseProps> = ({
   const [plates, setPlates] = usePersistentArray<PlateWeight>(
     ArrayKey.Plates,
     [],
-    nameForExercise(exercise),
+    nameForExercise(exercise) || '',
   );
   const platesAPI = usePlates(plates, setPlates);
 

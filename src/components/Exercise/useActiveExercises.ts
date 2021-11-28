@@ -5,11 +5,11 @@ import { keyForSetsByReps, nameForExercise } from '@/util';
 
 const AddVisibleKey = `AddExerciseVisible`;
 
-const useActiveExercises = (exercise: Exercise) => {
+const useActiveExercises = (exercise: Exercise | undefined | null) => {
   const [data, setData] = usePersistentObject<Record<string, boolean>>(
     ObjectKey.ActiveBarExercise,
     {},
-    nameForExercise(exercise),
+    nameForExercise(exercise) || '',
   );
 
   const noneStarted = useMemo(

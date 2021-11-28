@@ -73,15 +73,16 @@ const useSetsByReps = (
   const addExercise = useAddExercise();
   const actualORM = useORM(exercise);
 
-  const xform = useCallback((a: SetsByRepsData) => {
-    if (a.status === 'in-progress') {
-      a.sets.forEach((s) => {
+  const xform = useCallback((a: Record<string, any>) => {
+    const iPromise: SetsByRepsData = a as SetsByRepsData;
+    if (iPromise.status === 'in-progress') {
+      iPromise.sets.forEach((s) => {
         if (s.time) {
           s.time = new Timestamp(s.time.seconds, s.time.nanoseconds);
         }
       });
     }
-    return a;
+    return iPromise;
   }, []);
 
   const [data, setData] = usePersistentObject<SetsByRepsData>(
@@ -94,14 +95,14 @@ const useSetsByReps = (
   const setORM = useCallback(
     (s: string | undefined) => {
       try {
-        const n = parseInt(s, 10);
+        const n = parseInt(s || '', 10);
         if (Number.isNaN(n)) {
           setData((old) => ({ ...old, orm: '', targetWeight: '' }));
           return;
         }
         setData((old) => ({
           ...old,
-          orm: s,
+          orm: s || '',
           targetWeight: Math.floor(n * ormRatio).toString(),
         }));
       } catch (e) {
@@ -114,7 +115,7 @@ const useSetsByReps = (
   const setTargetWeight = useCallback(
     (s: string | undefined) => {
       try {
-        const n = parseInt(s, 10);
+        const n = parseInt(s || '', 10);
         if (Number.isNaN(n)) {
           setData((old) => ({ ...old, orm: '', targetWeight: '' }));
           return;
@@ -122,7 +123,7 @@ const useSetsByReps = (
 
         setData((old) => ({
           ...old,
-          targetWeight: s,
+          targetWeight: s || '',
           orm: Math.floor(n / ormRatio).toString(),
         }));
       } catch (e) {
@@ -303,6 +304,7 @@ const useSetsByReps = (
       finishLift,
     };
   }
+  throw new Error('Invalid invariant. All status options should be covered.');
 };
 
 export default useSetsByReps;

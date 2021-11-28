@@ -46,6 +46,10 @@ const Exercise: React.FC = () => {
 
   const activeExercises = useActiveExercises(exercise);
 
+  if (exercise === null || exercise === undefined) {
+    return null;
+  }
+
   return (
     <section>
       <Typography variant="h6" sx={{ ml: 1 }}>
