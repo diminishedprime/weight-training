@@ -68,8 +68,8 @@ const usePersistentObject = <T>(
     (v) => {
       setStoredObject((old) => {
         let updatedObject = old.value;
-        if (typeof v === 'function') {
-          updatedObject = (v as any)(updatedObject);
+        if (v instanceof Function) {
+          updatedObject = v(updatedObject);
         } else {
           updatedObject = v;
         }
