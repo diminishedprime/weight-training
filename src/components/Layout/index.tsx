@@ -4,9 +4,9 @@ import {
   Box,
   Button,
   CssBaseline,
+  Divider,
   Drawer,
   IconButton,
-  Link,
   List,
   ListItemText,
   Toolbar,
@@ -128,38 +128,38 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => {
         </AppBar>
       </Box>
       <Drawer anchor="left" open={isOpen} onClose={close}>
-        <List>
+        <List sx={{ pr: 2 }}>
           <ListItemText>
-            <Link href="/">Home</Link>
+            <Button href="/">Home</Button>
+          </ListItemText>
+          <Divider />
+          <ListItemText sx={{ ml: 1 }}>Powerlifting</ListItemText>
+          <ListItemText>
+            <Button href={Links.Squat}>
+              {exerciseUIString(Exercise.Squat)}
+            </Button>
           </ListItemText>
           <ListItemText>
-            <Link href={Links.Deadlift}>
-              {exerciseUIString(Exercise.Deadlift)}
-            </Link>
-          </ListItemText>
-          <ListItemText>
-            <Link href={Links.Squat}>{exerciseUIString(Exercise.Squat)}</Link>
-          </ListItemText>
-          <ListItemText>
-            <Link href={Links.BenchPress}>
+            <Button href={Links.BenchPress}>
               {exerciseUIString(Exercise.BenchPress)}
-            </Link>
+            </Button>
           </ListItemText>
           <ListItemText>
-            <Link href={Links.FrontSquat}>
+            <Button href={Links.Deadlift}>
+              {exerciseUIString(Exercise.Deadlift)}
+            </Button>
+          </ListItemText>
+          <Divider />
+          <ListItemText sx={{ ml: 1 }}>Bar Accessory</ListItemText>
+          <ListItemText>
+            <Button href={Links.FrontSquat}>
               {exerciseUIString(Exercise.FrontSquat)}
-            </Link>
+            </Button>
           </ListItemText>
           <ListItemText>
-            <Link href={Links.OverheadPress}>
+            <Button href={Links.OverheadPress}>
               {exerciseUIString(Exercise.OverheadPress)}
-            </Link>
-          </ListItemText>
-          <ListItemText>
-            <Link href={Links.Snatch}>{exerciseUIString(Exercise.Snatch)}</Link>
-          </ListItemText>
-          <ListItemText>
-            <Link href="/404">404</Link>
+            </Button>
           </ListItemText>
         </List>
       </Drawer>
