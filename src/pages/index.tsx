@@ -4,7 +4,7 @@ import Layout from '@/components/Layout';
 import HomeComponent from '@/components/Home';
 
 const Home: React.FC<PageProps> = () => (
-  <Layout title="Home">
+  <Layout title="weight-training">
     <HomeComponent />
   </Layout>
 );
