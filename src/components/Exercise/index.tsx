@@ -5,6 +5,7 @@ import { groupBy } from 'lodash';
 import { useMemo } from 'react';
 import { BounceLoader } from 'react-spinners';
 import { css } from '@emotion/react';
+import moment from 'moment';
 import { ExerciseQueryParam } from '@/constants';
 import { exerciseUIString } from '@/util';
 import ExerciseTable from './ExerciseTable';
@@ -32,7 +33,12 @@ const Exercise: React.FC = () => {
     () =>
       request.type === 'resolved'
         ? groupBy(request.exercises, (lift) =>
-            lift.date.toDate().toLocaleDateString().substring(0, 10),
+            moment(lift.date.toDate()).calendar(null, {
+              sameDay: '[Today]',
+              lastDay: '[Yesterday]',
+              lastWeek: '[Last] dddd',
+              sameElse: 'dddd, Do MMMM YYYY',
+            }),
           )
         : {},
     [request],
