@@ -176,6 +176,11 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => {
             </LinkButton>
           </ListItemText>
           <ListItemText>
+            <LinkButton href={Links.DumbbellHammerCurl}>
+              {exerciseUIString(Exercise.DumbbellHammerCurl)}
+            </LinkButton>
+          </ListItemText>
+          <ListItemText>
             <LinkButton href={Links.DumbbellFly}>
               {exerciseUIString(Exercise.DumbbellFly)}
             </LinkButton>

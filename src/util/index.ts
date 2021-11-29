@@ -31,6 +31,8 @@ export const exerciseUIString = (v: Exercise): string => {
       return 'Fly';
     case Exercise.DumbbellBicepCurl:
       return 'Bicep Curl';
+    case Exercise.DumbbellHammerCurl:
+      return 'Hammer Curl';
     default: {
       const exhaustiveCheck: never = v;
       throw new Error(`Unhandled case: ${exhaustiveCheck}`);
@@ -60,6 +62,8 @@ export const nameForExercise = (
       return 'dumbbell-fly';
     case Exercise.DumbbellBicepCurl:
       return 'dumbbell-bicep-curl';
+    case Exercise.DumbbellHammerCurl:
+      return 'dumbbell-hammer-curl';
     case undefined:
     case null:
       return undefined;
@@ -90,6 +94,8 @@ export const fromDBExercise = (v: ExerciseData['type']): Exercise => {
       return Exercise.DumbbellFly;
     case 'dumbbell-bicep-curl':
       return Exercise.DumbbellBicepCurl;
+    case 'dumbbell-hammer-curl':
+      return Exercise.DumbbellHammerCurl;
     default: {
       const exhaustiveCheck: never = v;
       throw new Error(`Unhandled case: ${exhaustiveCheck}`);

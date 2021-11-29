@@ -14,6 +14,7 @@ export const Links = {
   DumbbellFly: `/exercise?${QueryParam.LiftType}=${Exercise.DumbbellFly}`,
   DumbbellRow: `/exercise?${QueryParam.LiftType}=${Exercise.DumbbellRow}`,
   DumbbellBicepCurl: `/exercise?${QueryParam.LiftType}=${Exercise.DumbbellBicepCurl}`,
+  DumbbellHammerCurl: `/exercise?${QueryParam.LiftType}=${Exercise.DumbbellHammerCurl}`,
 };
 
 export const OneOfEachPlate: PlateWeight[] = [

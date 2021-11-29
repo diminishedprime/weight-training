@@ -52,6 +52,8 @@ const AddDumbbellExercise: React.FC<AddDumbbellExerciseProps> = ({
           return { ...baseExercise, type: 'dumbbell-row', version: 1 };
         case Exercise.DumbbellBicepCurl:
           return { ...baseExercise, type: 'dumbbell-bicep-curl', version: 1 };
+        case Exercise.DumbbellHammerCurl:
+          return { ...baseExercise, type: 'dumbbell-hammer-curl', version: 1 };
         default: {
           const exhaustiveCheck: never = dumbbellExercise;
           throw new Error(`Unhandled case: ${exhaustiveCheck}`);

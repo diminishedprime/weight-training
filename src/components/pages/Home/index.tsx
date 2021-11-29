@@ -19,6 +19,7 @@ const commonDumbbell = [
   [Links.DumbbellFly, exerciseUIString(Exercise.DumbbellFly)],
   [Links.DumbbellRow, exerciseUIString(Exercise.DumbbellRow)],
   [Links.DumbbellBicepCurl, exerciseUIString(Exercise.DumbbellBicepCurl)],
+  [Links.DumbbellHammerCurl, exerciseUIString(Exercise.DumbbellHammerCurl)],
 ];
 
 const Home: React.FC = () => (

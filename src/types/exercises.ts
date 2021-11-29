@@ -15,23 +15,27 @@ export enum Exercise {
   DumbbellRow = 'g',
   DumbbellFly = 'h',
   DumbbellBicepCurl = 'i',
+  DumbbellHammerCurl = 'j',
 }
 
 export type DumbbellExercise =
   | Exercise.DumbbellRow
   | Exercise.DumbbellFly
-  | Exercise.DumbbellBicepCurl;
+  | Exercise.DumbbellBicepCurl
+  | Exercise.DumbbellHammerCurl;
 
 export const narrowDumbbellExercise = (
   exercise: Exercise,
 ): exercise is DumbbellExercise =>
   exercise === Exercise.DumbbellRow ||
   exercise === Exercise.DumbbellFly ||
+  exercise === Exercise.DumbbellHammerCurl ||
   exercise === Exercise.DumbbellBicepCurl;
 
 export type DumbbellExerciseData =
   | DumbbellRow_V1
   | DumbbellFly_V1
+  | DumbbellHammerCurl_V1
   | DumbbellBicepCurl_V1;
 
 interface DumbbellRow_V1 {
@@ -46,6 +50,14 @@ interface DumbbellFly_V1 {
   date: Timestamp;
   weight: Weight_V1;
   type: 'dumbbell-fly';
+  reps: number;
+  version: 1;
+}
+
+interface DumbbellHammerCurl_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'dumbbell-hammer-curl';
   reps: number;
   version: 1;
 }
