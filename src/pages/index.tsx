@@ -1,12 +1,12 @@
 import React from 'react';
 import { PageProps } from 'gatsby';
 import Layout from '@/components/Layout';
-import HomeComponent from '@/components/Home';
+import Home from '@/components/pages/Home';
 
-const Home: React.FC<PageProps> = () => (
+const Page: React.FC<PageProps> = () => (
   <Layout title="weight-training">
-    <HomeComponent />
+    <Home />
   </Layout>
 );
 
-export default Home;
+export default Page;

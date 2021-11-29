@@ -17,11 +17,11 @@ import {
   Typography,
 } from '@mui/material';
 import * as React from 'react';
-import Bar from '@/components/Bar';
-import TimeSince from '@/components/TimeSince';
+import Bar from '@/components/common/Bar';
+import TimeSince from '@/components/common/TimeSince';
 import { BarExercise, Reps, Sets } from '@/types';
-import { platesForWeight } from '../usePlates';
-import useSetsByReps from './useSetsByReps';
+import useSetsByReps from '@/components/pages/Exercise/AddNxM/useSetsByReps';
+import { platesForWeight } from '@/util';
 
 interface AddSetsxRepsProps {
   exercise: BarExercise;

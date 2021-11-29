@@ -1,7 +1,7 @@
 import { useCallback, useContext } from 'react';
 import { addExercise as addExerciseDB } from '@/firebase';
 import { ExerciseData } from '@/types';
-import { UserCtx } from '../Layout';
+import { UserCtx } from '@/components/Layout';
 
 type AddExercise = (exerciseData: ExerciseData) => Promise<void>;
 

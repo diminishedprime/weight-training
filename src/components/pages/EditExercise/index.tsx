@@ -2,10 +2,18 @@ import { css, Link, Typography, useTheme } from '@mui/material';
 import * as React from 'react';
 import { BounceLoader } from 'react-spinners';
 import { StringParam, useQueryParam } from 'use-query-params';
-import { ExerciseData, isBarExercise, WithID } from '@/types';
-import UpdateBarExercise from './UpdateBarExercise';
-import useExercise from './useExercise';
+import UpdateBarExercise from '@/components/pages/EditExercise/UpdateBarExercise';
+import useExercise from '@/components/pages/EditExercise/useExercise';
+import {
+  BarExerciseData,
+  DumbbellExerciseData,
+  ExerciseData,
+  narrowBarExercise,
+  narrowDumbbellExercise,
+  WithID,
+} from '@/types';
 import { fromDBExercise } from '@/util';
+import UpdateDumbbellExercise from '@/components/pages/EditExercise/UpdateDumbbellExercise';
 
 export enum QueryParam {
   ExerciseID = 'a',
@@ -38,15 +46,23 @@ const EditExercise: React.FC = () => {
     return <BounceLoader color={theme.palette.primary.main} css={spinnerCss} />;
   }
 
-  if (
-    request.type === 'resolved' &&
-    isBarExercise(fromDBExercise(request.exercise.type))
-  ) {
-    return (
-      <>
-        <UpdateBarExercise barExerciseData={request.exercise} />
-      </>
-    );
+  if (request.type === 'resolved') {
+    if (narrowBarExercise(fromDBExercise(request.exercise.type))) {
+      return (
+        <UpdateBarExercise
+          barExerciseData={request.exercise as WithID<BarExerciseData>}
+        />
+      );
+    }
+    if (narrowDumbbellExercise(fromDBExercise(request.exercise.type))) {
+      return (
+        <UpdateDumbbellExercise
+          dumbbellExerciseData={
+            request.exercise as WithID<DumbbellExerciseData>
+          }
+        />
+      );
+    }
   }
 
   return null;

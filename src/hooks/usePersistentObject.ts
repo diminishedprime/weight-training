@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 export enum ObjectKey {
   SetsByRepsData = '/sets-by-reps/data/',
   ActiveBarExercise = '/exercise/active-bar-exercise/',
+  DumbbellExerciseWeight = '/exercise/add-dumbbell-exercise/weight/',
 }
 
 interface StoredObject<T> {

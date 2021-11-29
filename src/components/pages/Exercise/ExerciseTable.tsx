@@ -11,10 +11,11 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
-import React, { useState } from 'react';
-import { ExerciseData, WithID } from '@/types';
-import TimeSince from '../TimeSince';
-import { editExerciseUrlFor } from '../EditExercise';
+import React, { useMemo, useState } from 'react';
+import { BarExerciseData, ExerciseData, isBarExercise, WithID } from '@/types';
+import TimeSince from '@/components/common/TimeSince';
+import { editExerciseUrlFor } from '@/components/pages/EditExercise';
+import { fromDBExercise } from '@/util';
 
 const editingCss = css`
   border-bottom: none;
@@ -34,11 +35,15 @@ interface ExerciseTableProps {
 }
 
 const ExerciseTable: React.FC<ExerciseTableProps> = ({
-  exercises: lifts,
+  exercises,
   showEllapsedTime,
   heading = undefined,
 }) => {
   const [editing, setEditing] = useState(-1);
+  const showWarmup = useMemo(
+    () => exercises.find((e) => isBarExercise(fromDBExercise(e.type))),
+    [exercises],
+  );
   return (
     <>
       <TableContainer sx={{ mb: 2, mt: 1 }}>
@@ -53,11 +58,11 @@ const ExerciseTable: React.FC<ExerciseTableProps> = ({
               <StyledTableCell>Time</StyledTableCell>
               <StyledTableCell align="right">Weight</StyledTableCell>
               <StyledTableCell align="right">Reps</StyledTableCell>
-              <StyledTableCell>Warmup</StyledTableCell>
+              {showWarmup && <StyledTableCell>Warmup</StyledTableCell>}
             </TableRow>
           </TableHead>
           <TableBody>
-            {lifts.map((lift, idx) => (
+            {exercises.map((lift, idx) => (
               <React.Fragment key={lift.date.toDate().toLocaleTimeString()}>
                 <TableRow
                   onClick={() =>
@@ -84,9 +89,14 @@ const ExerciseTable: React.FC<ExerciseTableProps> = ({
                   >
                     {lift.reps}
                   </TableCell>
-                  <TableCell css={editing === idx ? editingCss : undefined}>
-                    {lift.warmup && <Check sx={{ fontSize: '1rem' }} />}
-                  </TableCell>
+                  {showWarmup && (
+                    <TableCell css={editing === idx ? editingCss : undefined}>
+                      {isBarExercise(fromDBExercise(lift.type)) &&
+                        (lift as BarExerciseData).warmup && (
+                          <Check sx={{ fontSize: '1rem' }} />
+                        )}
+                    </TableCell>
+                  )}
                 </TableRow>
                 {editing === idx && (
                   <TableRow>

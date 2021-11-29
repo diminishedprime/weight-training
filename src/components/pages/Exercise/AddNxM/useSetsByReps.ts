@@ -20,7 +20,7 @@ import {
   nearest5,
 } from '@/util';
 import usePersistentObject, { ObjectKey } from '@/hooks/usePersistentObject';
-import useAddExercise from '../useAddExercise';
+import useAddExercise from '@/components/pages/Exercise/AddExercise/useAddExercise';
 
 const useORM = (exercise: BarExercise): OneRepMax | undefined => {
   const user = useContext(UserCtx);

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useMemo, useState } from 'react';
 import { getLift as getExercise } from '@/firebase';
 import { ExerciseData, WithID } from '@/types';
-import { UserCtx } from '../Layout';
+import { UserCtx } from '@/components/Layout';
 
 interface Resolved {
   type: 'resolved';

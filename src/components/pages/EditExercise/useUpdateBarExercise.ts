@@ -1,7 +1,7 @@
 import { useCallback, useContext } from 'react';
 import { updateBarExercise } from '@/firebase';
 import { BarExerciseData, Update, WithID } from '@/types';
-import { UserCtx } from '../Layout';
+import { UserCtx } from '@/components/Layout';
 
 type UpdateExercise = (
   exerciseData: WithID<BarExerciseData>,

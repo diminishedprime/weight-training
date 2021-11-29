@@ -1,13 +1,15 @@
+import { OneOfEachPlate } from '@/constants';
 import {
   BarSet,
   Exercise,
   ExerciseData,
   PlateCount,
+  PlateWeight,
   Reps,
   Sets,
   WarmupSet,
   Weight_V1,
-} from './types';
+} from '@/types';
 
 export const exerciseUIString = (v: Exercise): string => {
   switch (v) {
@@ -23,6 +25,12 @@ export const exerciseUIString = (v: Exercise): string => {
       return 'Overhead Press';
     case Exercise.Snatch:
       return 'Snatch';
+    case Exercise.DumbbellRow:
+      return 'Row';
+    case Exercise.DumbbellFly:
+      return 'Fly';
+    case Exercise.DumbbellBicepCurl:
+      return 'Bicep Curl';
     default: {
       const exhaustiveCheck: never = v;
       throw new Error(`Unhandled case: ${exhaustiveCheck}`);
@@ -46,6 +54,12 @@ export const nameForExercise = (
       return 'overhead-press';
     case Exercise.Snatch:
       return 'snatch';
+    case Exercise.DumbbellRow:
+      return 'dumbbell-row';
+    case Exercise.DumbbellFly:
+      return 'dumbbell-fly';
+    case Exercise.DumbbellBicepCurl:
+      return 'dumbbell-bicep-curl';
     case undefined:
     case null:
       return undefined;
@@ -70,6 +84,12 @@ export const fromDBExercise = (v: ExerciseData['type']): Exercise => {
       return Exercise.OverheadPress;
     case 'snatch':
       return Exercise.Snatch;
+    case 'dumbbell-row':
+      return Exercise.DumbbellRow;
+    case 'dumbbell-fly':
+      return Exercise.DumbbellFly;
+    case 'dumbbell-bicep-curl':
+      return Exercise.DumbbellBicepCurl;
     default: {
       const exhaustiveCheck: never = v;
       throw new Error(`Unhandled case: ${exhaustiveCheck}`);
@@ -171,4 +191,27 @@ export const calcSetsByReps = (
     });
   }
   return barSets;
+};
+
+export const platesForWeight = (weight: number): PlateWeight[] => {
+  let remainingWeight = weight;
+  // Note it's important that OneOfEachPlate is sorted largest to
+  // smallest for this to work properly.
+  const plates = OneOfEachPlate.reduce((acc, plate) => {
+    const additionalPlates: PlateWeight[] = [];
+    while (remainingWeight >= plate.value) {
+      remainingWeight -= plate.value;
+      additionalPlates.push(plate);
+    }
+    return acc.concat(additionalPlates);
+  }, [] as PlateWeight[]);
+
+  if (remainingWeight !== 0) {
+    console.warn(
+      'You called plates for weight with a weight that cannot be perfectly reperesnted by the available plates.',
+      { weight, remainingWeight },
+    );
+  }
+
+  return plates;
 };

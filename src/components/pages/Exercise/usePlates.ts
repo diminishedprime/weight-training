@@ -1,29 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { OneOfEachPlate } from '@/constants';
 import { PlateCount, PlateWeight } from '@/types';
-
-export const platesForWeight = (weight: number): PlateWeight[] => {
-  let remainingWeight = weight;
-  // Note it's important that OneOfEachPlate is sorted largest to
-  // smallest for this to work properly.
-  const plates = OneOfEachPlate.reduce((acc, plate) => {
-    const additionalPlates: PlateWeight[] = [];
-    while (remainingWeight >= plate.value) {
-      remainingWeight -= plate.value;
-      additionalPlates.push(plate);
-    }
-    return acc.concat(additionalPlates);
-  }, [] as PlateWeight[]);
-
-  if (remainingWeight !== 0) {
-    console.warn(
-      'You called plates for weight with a weight that cannot be perfectly reperesnted by the available plates.',
-      { weight, remainingWeight },
-    );
-  }
-
-  return plates;
-};
+import { platesForWeight } from '@/util';
 
 const usePlates = (
   plates: PlateWeight[],

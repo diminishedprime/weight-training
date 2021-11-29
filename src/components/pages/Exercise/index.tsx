@@ -8,12 +8,12 @@ import { css } from '@emotion/react';
 import moment from 'moment';
 import { ExerciseQueryParam } from '@/constants';
 import { exerciseUIString } from '@/util';
-import ExerciseTable from './ExerciseTable';
-import useExercises from './useExercises';
-import AddExercise from './AddExercise';
-import { isBarExercise } from '@/types';
-import AddSetsByReps from './AddNxM';
-import useActiveExercises from './useActiveExercises';
+import ExerciseTable from '@/components/pages/Exercise/ExerciseTable';
+import useExercises from '@/components/pages/Exercise/useExercises';
+import AddExercise from '@/components/pages/Exercise/AddExercise';
+import { narrowBarExercise } from '@/types';
+import AddSetsByReps from '@/components/pages/Exercise/AddNxM';
+import useActiveExercises from '@/components/pages/Exercise/useActiveExercises';
 
 export enum QueryParam {
   LiftType = 'a',
@@ -55,7 +55,7 @@ const Exercise: React.FC = () => {
       <Typography variant="h6" sx={{ ml: 1 }}>
         {exerciseUIString(exercise)}
       </Typography>
-      {isBarExercise(exercise) && (
+      {narrowBarExercise(exercise) && (
         <AddSetsByReps
           exercise={exercise}
           sets={3}
@@ -67,7 +67,7 @@ const Exercise: React.FC = () => {
           onStart={() => activeExercises.setActive(3, 3)}
         />
       )}
-      {isBarExercise(exercise) && (
+      {narrowBarExercise(exercise) && (
         <AddSetsByReps
           exercise={exercise}
           sets={5}

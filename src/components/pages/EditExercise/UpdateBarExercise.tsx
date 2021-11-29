@@ -14,14 +14,19 @@ import {
 } from '@mui/material';
 import { navigate } from 'gatsby';
 import * as React from 'react';
-import { barExerciseWeight, exerciseUIString, fromDBExercise } from '@/util';
+import Bar from '@/components/common/Bar';
+import useDeleteExercise from '@/components/pages/EditExercise/useDeleteExercise';
+import useUpdateBarExercise from '@/components/pages/EditExercise/useUpdateBarExercise';
+import AddPlates from '@/components/pages/Exercise/AddPlates';
+import SetReps from '@/components/pages/Exercise/SetReps';
+import usePlates from '@/components/pages/Exercise/usePlates';
 import { BarExerciseData, WithID } from '@/types';
-import Bar from '../Bar';
-import AddPlates from '../Exercise/AddPlates';
-import SetReps from '../Exercise/SetReps';
-import usePlates, { platesForWeight } from '../Exercise/usePlates';
-import useDeleteExercise from './useDeleteExercise';
-import useUpdateBarExercise from './useUpdateBarExercise';
+import {
+  barExerciseWeight,
+  exerciseUIString,
+  fromDBExercise,
+  platesForWeight,
+} from '@/util';
 
 const repsAndWarmupRowCss = css`
   display: flex;

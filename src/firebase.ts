@@ -20,14 +20,15 @@ import {
 import {
   BarExercise,
   BarExerciseData,
+  DumbbellExerciseData,
   Exercise,
   ExerciseData,
   OneRepMax,
   Update,
   UserData,
   WithID,
-} from './types';
-import { nameForExercise } from './util';
+} from '@/types';
+import { nameForExercise } from '@/util';
 
 initializeApp({
   apiKey: 'AIzaSyBBu2D-owaz14CfZvmOqjSoN0oMde5D5NE',
@@ -115,6 +116,15 @@ export const updateBarExercise = async (
 ): Promise<WithID<BarExerciseData>> => {
   await updateDoc(liftRef(user, id), update);
   return (await getLift(user, id)) as WithID<BarExerciseData>;
+};
+
+export const updateDumbbellExercise = async (
+  user: User,
+  id: string,
+  update: Update<DumbbellExerciseData>,
+): Promise<WithID<DumbbellExerciseData>> => {
+  await updateDoc(liftRef(user, id), update);
+  return (await getLift(user, id)) as WithID<DumbbellExerciseData>;
 };
 
 const getUserData = async (user: User): Promise<UserData> => {

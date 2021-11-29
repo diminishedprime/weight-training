@@ -75,7 +75,7 @@ const plateCss = css`
   border-radius: 3px;
 `;
 
-const metalCss = css`
+export const metalCss = css`
   background-image: linear-gradient(
     180deg,
     hsl(0, 0%, 78%) 0%,

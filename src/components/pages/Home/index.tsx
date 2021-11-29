@@ -15,6 +15,12 @@ const barAccessory = [
   [Links.OverheadPress, exerciseUIString(Exercise.OverheadPress)],
 ];
 
+const commonDumbbell = [
+  [Links.DumbbellFly, exerciseUIString(Exercise.DumbbellFly)],
+  [Links.DumbbellRow, exerciseUIString(Exercise.DumbbellRow)],
+  [Links.DumbbellBicepCurl, exerciseUIString(Exercise.DumbbellBicepCurl)],
+];
+
 const Home: React.FC = () => (
   <Box sx={{ mx: 1 }}>
     <Typography variant="h6">Powerlifting</Typography>
@@ -26,6 +32,13 @@ const Home: React.FC = () => (
     <Divider sx={{ my: 1, mx: -1 }} />
     <Typography variant="h6">Bar Accessory</Typography>
     {barAccessory.map(([href, uiText]) => (
+      <Button sx={{ m: 1 }} variant="contained" key={href} href={href}>
+        {uiText}
+      </Button>
+    ))}
+    <Divider sx={{ my: 1, mx: -1 }} />
+    <Typography variant="h6">Dumbbell</Typography>
+    {commonDumbbell.map(([href, uiText]) => (
       <Button sx={{ m: 1 }} variant="contained" key={href} href={href}>
         {uiText}
       </Button>

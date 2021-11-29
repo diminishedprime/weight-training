@@ -9,6 +9,7 @@ import {
   IconButton,
   List,
   ListItemText,
+  styled,
   Toolbar,
   Typography,
 } from '@mui/material';
@@ -92,6 +93,12 @@ const useDrawer = () => {
 
 export const UserCtx = React.createContext<User | null>(null);
 
+const LinkButton = styled(Button)(({ theme }) => ({
+  width: '100%',
+  marginLeft: theme.spacing(1),
+  justifyContent: 'flex-start',
+}));
+
 const Layout: React.FC<LayoutProps> = ({ children, title }) => {
   const { loginStatus, login, logout, user } = useAuth();
   const { isOpen, close, open } = useDrawer();
@@ -130,36 +137,53 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => {
       <Drawer anchor="left" open={isOpen} onClose={close}>
         <List sx={{ pr: 2 }}>
           <ListItemText>
-            <Button href="/">Home</Button>
+            <LinkButton href="/">Home</LinkButton>
           </ListItemText>
           <Divider />
           <ListItemText sx={{ ml: 1 }}>Powerlifting</ListItemText>
           <ListItemText>
-            <Button href={Links.Squat}>
+            <LinkButton href={Links.Squat}>
               {exerciseUIString(Exercise.Squat)}
-            </Button>
+            </LinkButton>
           </ListItemText>
           <ListItemText>
-            <Button href={Links.BenchPress}>
+            <LinkButton href={Links.BenchPress}>
               {exerciseUIString(Exercise.BenchPress)}
-            </Button>
+            </LinkButton>
           </ListItemText>
           <ListItemText>
-            <Button href={Links.Deadlift}>
+            <LinkButton href={Links.Deadlift}>
               {exerciseUIString(Exercise.Deadlift)}
-            </Button>
+            </LinkButton>
           </ListItemText>
           <Divider />
           <ListItemText sx={{ ml: 1 }}>Bar Accessory</ListItemText>
           <ListItemText>
-            <Button href={Links.FrontSquat}>
+            <LinkButton href={Links.FrontSquat}>
               {exerciseUIString(Exercise.FrontSquat)}
-            </Button>
+            </LinkButton>
           </ListItemText>
           <ListItemText>
-            <Button href={Links.OverheadPress}>
+            <LinkButton href={Links.OverheadPress}>
               {exerciseUIString(Exercise.OverheadPress)}
-            </Button>
+            </LinkButton>
+          </ListItemText>
+          <Divider />
+          <ListItemText sx={{ ml: 1 }}>Dumbbell</ListItemText>
+          <ListItemText>
+            <LinkButton href={Links.DumbbellBicepCurl}>
+              {exerciseUIString(Exercise.DumbbellBicepCurl)}
+            </LinkButton>
+          </ListItemText>
+          <ListItemText>
+            <LinkButton href={Links.DumbbellFly}>
+              {exerciseUIString(Exercise.DumbbellFly)}
+            </LinkButton>
+          </ListItemText>
+          <ListItemText>
+            <LinkButton href={Links.DumbbellRow}>
+              {exerciseUIString(Exercise.DumbbellRow)}
+            </LinkButton>
           </ListItemText>
         </List>
       </Drawer>

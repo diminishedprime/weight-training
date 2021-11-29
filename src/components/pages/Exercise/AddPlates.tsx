@@ -1,7 +1,7 @@
 import { Badge, Button } from '@mui/material';
 import { css } from '@emotion/react';
 import * as React from 'react';
-import usePlates from './usePlates';
+import usePlates from '@/components/pages/Exercise/usePlates';
 
 interface AddPlatesProps {
   api: ReturnType<typeof usePlates>;
