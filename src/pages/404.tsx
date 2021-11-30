@@ -9,5 +9,4 @@ const Page: React.FC<PageProps> = () => (
     <Link href="/">Go Home</Link>
   </Layout>
 );
-
 export default Page;

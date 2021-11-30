@@ -20,13 +20,8 @@ import useUpdateBarExercise from '@/components/pages/EditExercise/useUpdateBarEx
 import AddPlates from '@/components/pages/Exercise/AddPlates';
 import SetReps from '@/components/pages/Exercise/SetReps';
 import usePlates from '@/components/pages/Exercise/usePlates';
-import { BarExerciseData, WithID } from '@/types';
-import {
-  barExerciseWeight,
-  exerciseUIString,
-  fromDBExercise,
-  platesForWeight,
-} from '@/util';
+import { BarExerciseData, exerciseUIString, WithID } from '@/types';
+import { barExerciseWeight, fromDBExercise, platesForWeight } from '@/util';
 
 const repsAndWarmupRowCss = css`
   display: flex;

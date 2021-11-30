@@ -1,5 +1,5 @@
-import { Exercise } from '@/types';
-import { exerciseUIString, fromDBExercise, nameForExercise } from '@/util';
+import { Exercise, exerciseUIString } from '@/types';
+import { fromDBExercise, nameForExercise } from '@/util';
 
 describe('switch-based helpers', () => {
   test('exerciseUIString has values for every enum entry.', () => {

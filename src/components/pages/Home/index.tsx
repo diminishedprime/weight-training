@@ -1,8 +1,7 @@
 import { Box, Button, Divider, Typography } from '@mui/material';
 import * as React from 'react';
 import { Links } from '@/constants';
-import { Exercise } from '@/types';
-import { exerciseUIString } from '@/util';
+import { Exercise, exerciseUIString } from '@/types';
 
 const powerlifting = [
   [Links.Squat, exerciseUIString(Exercise.Squat)],

@@ -12,7 +12,12 @@ import {
   TableRow,
 } from '@mui/material';
 import React, { useMemo, useState } from 'react';
-import { BarExerciseData, ExerciseData, isBarExercise, WithID } from '@/types';
+import {
+  BarExerciseData,
+  ExerciseData,
+  narrowBarExercise,
+  WithID,
+} from '@/types';
 import TimeSince from '@/components/common/TimeSince';
 import { editExerciseUrlFor } from '@/components/pages/EditExercise';
 import { fromDBExercise } from '@/util';
@@ -41,7 +46,7 @@ const ExerciseTable: React.FC<ExerciseTableProps> = ({
 }) => {
   const [editing, setEditing] = useState(-1);
   const showWarmup = useMemo(
-    () => exercises.find((e) => isBarExercise(fromDBExercise(e.type))),
+    () => exercises.find((e) => narrowBarExercise(fromDBExercise(e.type))),
     [exercises],
   );
   return (
@@ -91,7 +96,7 @@ const ExerciseTable: React.FC<ExerciseTableProps> = ({
                   </TableCell>
                   {showWarmup && (
                     <TableCell css={editing === idx ? editingCss : undefined}>
-                      {isBarExercise(fromDBExercise(lift.type)) &&
+                      {narrowBarExercise(fromDBExercise(lift.type)) &&
                         (lift as BarExerciseData).warmup && (
                           <Check sx={{ fontSize: '1rem' }} />
                         )}

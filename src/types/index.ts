@@ -1,13 +1,7 @@
 import { Timestamp } from 'firebase/firestore';
-import { ExerciseData } from '@/types/exercises';
+import { ExerciseData, Weight_V1 } from '@/types/generated-types';
 
-export * from './exercises';
-
-export interface Weight_V1 {
-  unit: 'lb' | 'kg';
-  value: number;
-  version: 1;
-}
+export * from './generated-types';
 
 export interface BarSet {
   reps: number;

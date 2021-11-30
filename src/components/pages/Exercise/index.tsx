@@ -7,11 +7,10 @@ import { BounceLoader } from 'react-spinners';
 import { css } from '@emotion/react';
 import moment from 'moment';
 import { ExerciseQueryParam } from '@/constants';
-import { exerciseUIString } from '@/util';
 import ExerciseTable from '@/components/pages/Exercise/ExerciseTable';
 import useExercises from '@/components/pages/Exercise/useExercises';
 import AddExercise from '@/components/pages/Exercise/AddExercise';
-import { narrowBarExercise } from '@/types';
+import { exerciseUIString, narrowBarExercise } from '@/types';
 import AddSetsByReps from '@/components/pages/Exercise/AddNxM';
 import useActiveExercises from '@/components/pages/Exercise/useActiveExercises';
 

@@ -25,13 +25,17 @@ import {
 } from 'firebase/auth';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Links } from '@/constants';
-import { exerciseUIString } from '@/util';
-import { Exercise } from '@/types';
+import { Exercise, exerciseUIString } from '@/types';
 
 const provider = new GoogleAuthProvider();
 
+export interface LoggedOutProps {
+  LogIn: JSX.Element;
+}
+
 interface LayoutProps {
   title: string;
+  LoggedOut?: React.FC<LoggedOutProps>;
 }
 
 enum LoginStatus {
@@ -99,9 +103,19 @@ const LinkButton = styled(Button)(({ theme }) => ({
   justifyContent: 'flex-start',
 }));
 
-const Layout: React.FC<LayoutProps> = ({ children, title }) => {
+const Layout: React.FC<LayoutProps> = ({ children, title, LoggedOut }) => {
   const { loginStatus, login, logout, user } = useAuth();
   const { isOpen, close, open } = useDrawer();
+
+  const LogIn = React.useMemo(
+    () => (
+      <Button onClick={login} size="small" variant="contained" color="primary">
+        Login
+      </Button>
+    ),
+    [login],
+  );
+
   return (
     <div>
       <CssBaseline />
@@ -193,7 +207,18 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => {
         </List>
       </Drawer>
       <UserCtx.Provider value={user}>
-        <Box sx={{ ml: 0.5, mr: 0.5 }}>{children}</Box>
+        <Box sx={{ ml: 0.5, mr: 0.5 }}>
+          {loginStatus === LoginStatus.LoggedIn ? (
+            children
+          ) : loginStatus === LoginStatus.LoggedOut &&
+            LoggedOut !== undefined ? (
+            <LoggedOut LogIn={LogIn} />
+          ) : loginStatus === LoginStatus.LoggedOut ? (
+            children
+          ) : (
+            <Typography>Determining login status...</Typography>
+          )}
+        </Box>
       </UserCtx.Provider>
     </div>
   );

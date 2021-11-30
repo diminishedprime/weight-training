@@ -11,35 +11,6 @@ import {
   Weight_V1,
 } from '@/types';
 
-export const exerciseUIString = (v: Exercise): string => {
-  switch (v) {
-    case Exercise.Deadlift:
-      return 'Deadlift';
-    case Exercise.Squat:
-      return 'Squat';
-    case Exercise.FrontSquat:
-      return 'Front Squat';
-    case Exercise.BenchPress:
-      return 'Bench Press';
-    case Exercise.OverheadPress:
-      return 'Overhead Press';
-    case Exercise.Snatch:
-      return 'Snatch';
-    case Exercise.DumbbellRow:
-      return 'Row';
-    case Exercise.DumbbellFly:
-      return 'Fly';
-    case Exercise.DumbbellBicepCurl:
-      return 'Bicep Curl';
-    case Exercise.DumbbellHammerCurl:
-      return 'Hammer Curl';
-    default: {
-      const exhaustiveCheck: never = v;
-      throw new Error(`Unhandled case: ${exhaustiveCheck}`);
-    }
-  }
-};
-
 export const nameForExercise = (
   v: Exercise | undefined | null,
 ): ExerciseData['type'] | undefined => {
