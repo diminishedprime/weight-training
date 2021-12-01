@@ -28,7 +28,12 @@ const useExercises = (exercise: Exercise | undefined | null): LiftsRequest => {
   const [type, setType] = useState<LiftsRequest['type']>('not-started');
 
   useEffect(() => {
-    if (user === null || exercise === undefined || exercise === null) {
+    if (
+      user === null ||
+      user === 'unknown' ||
+      exercise === undefined ||
+      exercise === null
+    ) {
       setType('not-started');
       return;
     }

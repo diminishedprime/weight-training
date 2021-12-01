@@ -20,15 +20,17 @@ import {
 import {
   BarExercise,
   BarExerciseData,
+  DBUserDoc,
   DumbbellExerciseData,
   Exercise,
   ExerciseData,
   OneRepMax,
   Update,
-  UserData,
+  UserDoc_V4,
   WithID,
 } from '@/types';
 import { nameForExercise } from '@/util';
+import { migrateUserDoc } from '@/firebase/migrate';
 
 initializeApp({
   apiKey: 'AIzaSyBBu2D-owaz14CfZvmOqjSoN0oMde5D5NE',
@@ -127,16 +129,47 @@ export const updateDumbbellExercise = async (
   return (await getLift(user, id)) as WithID<DumbbellExerciseData>;
 };
 
-const getUserData = async (user: User): Promise<UserData> => {
+export const updateUserDoc = async (
+  user: User,
+  update: Update<UserDoc_V4>,
+): Promise<void> => {
+  await updateDoc(userRef(user), update);
+};
+
+export const subscribeToUserDoc = (
+  user: User,
+  observer: (userDoc: UserDoc_V4) => void,
+): (() => void) => {
+  const unSub = onSnapshot(userRef(user), (snapshot) => {
+    const dbUserDoc = snapshot.data() as DBUserDoc;
+    const { userDoc, updated } = migrateUserDoc(dbUserDoc);
+    if (updated) {
+      updateUserDoc(user, userDoc).then(() => {
+        observer(userDoc);
+      });
+    } else {
+      observer(userDoc);
+    }
+  });
+
+  return unSub;
+};
+
+export const getUserDoc = async (user: User): Promise<UserDoc_V4> => {
   const snapshot = await getDoc(userRef(user));
-  return snapshot.data() as UserData;
+  const dbUserDoc = snapshot.data() as DBUserDoc;
+  const { userDoc, updated } = migrateUserDoc(dbUserDoc);
+  if (updated) {
+    await updateUserDoc(user, userDoc);
+  }
+  return userDoc;
 };
 
 export const getOneRepMax = async (
   user: User,
   barExercise: BarExercise,
 ): Promise<OneRepMax | undefined> => {
-  const userData = await getUserData(user);
+  const userData = await getUserDoc(user);
   const exercise = nameForExercise(barExercise);
   if (exercise === undefined) {
     return undefined;

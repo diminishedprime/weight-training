@@ -1,5 +1,5 @@
 import { Timestamp } from 'firebase/firestore';
-import { ExerciseData, Weight_V1 } from '@/types/generated-types';
+import { Exercise, ExerciseData, Weight_V1 } from '@/types/generated-types';
 
 export * from './generated-types';
 
@@ -37,9 +37,19 @@ export interface UserExercise {
   'one-rep-max': OneRepMax;
 }
 
-export type UserData = {
+export type UserDoc_V3 = {
   [K in ExerciseData['type']]?: UserExercise | undefined;
-};
+} & { version: '3' };
+
+interface HomePageData_V1 {
+  pinnedExercises: { type: 'set'; exercises: Exercise[] } | { type: 'unset' };
+}
+
+export type UserDoc_V4 = {
+  [K in ExerciseData['type']]?: UserExercise | undefined;
+} & { version: 4 } & HomePageData_V1;
+
+export type DBUserDoc = UserDoc_V3 | UserDoc_V4;
 
 export type Sets = number;
 export type Reps = number;

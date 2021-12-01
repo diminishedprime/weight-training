@@ -24,8 +24,10 @@ import {
   User,
 } from 'firebase/auth';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Links } from '@/constants';
+import { PushPin } from '@mui/icons-material';
+import { linkForExercise, Links } from '@/constants';
 import { Exercise, exerciseUIString } from '@/types';
+import { useUserDocNoCtx } from '@/firebase/hooks/useUserDoc';
 
 const provider = new GoogleAuthProvider();
 
@@ -44,15 +46,25 @@ enum LoginStatus {
   LoggedOut,
 }
 
+const firstLoad = true;
 const useAuth = () => {
   const auth = useMemo(() => getAuth(), []);
-  const [currentUser, setCurrentUser] = React.useState<User | null>(
-    auth.currentUser,
+  const [currentUser, setCurrentUser] = React.useState<User | null | 'unknown'>(
+    () => {
+      const c = auth.currentUser;
+      if (c !== null) {
+        return c;
+      }
+      if (firstLoad) {
+        return 'unknown';
+      }
+      return c;
+    },
   );
 
   const loginStatus = useMemo(
     () =>
-      typeof window === undefined
+      typeof window === undefined || currentUser === 'unknown'
         ? LoginStatus.Unknown
         : currentUser === null
         ? LoginStatus.LoggedOut
@@ -95,7 +107,7 @@ const useDrawer = () => {
   return { toggle, close, isOpen, open };
 };
 
-export const UserCtx = React.createContext<User | null>(null);
+export const UserCtx = React.createContext<User | null | 'unknown'>(null);
 
 const LinkButton = styled(Button)(({ theme }) => ({
   width: '100%',
@@ -106,6 +118,7 @@ const LinkButton = styled(Button)(({ theme }) => ({
 const Layout: React.FC<LayoutProps> = ({ children, title, LoggedOut }) => {
   const { loginStatus, login, logout, user } = useAuth();
   const { isOpen, close, open } = useDrawer();
+  const userDocRequest = useUserDocNoCtx(user);
 
   const LogIn = React.useMemo(
     () => (
@@ -115,6 +128,38 @@ const Layout: React.FC<LayoutProps> = ({ children, title, LoggedOut }) => {
     ),
     [login],
   );
+
+  const pinned = React.useMemo(() => {
+    if (
+      userDocRequest.type === 'resolved' &&
+      userDocRequest.userDoc.pinnedExercises.type === 'set'
+    ) {
+      return (
+        <>
+          <Divider />
+          <ListItemText sx={{ ml: 1 }}>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <PushPin />
+              Pinned
+            </Box>
+          </ListItemText>
+          {userDocRequest.userDoc.pinnedExercises.exercises.map((e) => (
+            <ListItemText key={e}>
+              <LinkButton href={linkForExercise(e)}>
+                {exerciseUIString(e)}
+              </LinkButton>
+            </ListItemText>
+          ))}
+        </>
+      );
+    }
+    return null;
+  }, [userDocRequest]);
 
   return (
     <div>
@@ -153,6 +198,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, LoggedOut }) => {
           <ListItemText>
             <LinkButton href="/">Home</LinkButton>
           </ListItemText>
+          {pinned}
           <Divider />
           <ListItemText sx={{ ml: 1 }}>Powerlifting</ListItemText>
           <ListItemText>

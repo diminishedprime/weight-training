@@ -13,7 +13,7 @@ const useUpdateBarExercise = (): UpdateExercise => {
 
   return useCallback<UpdateExercise>(
     async (exerciseData, update) => {
-      if (user === null) {
+      if (user === null || user === 'unknown') {
         throw new Error(
           'Invalid invariant. user should always be defined here.',
         );

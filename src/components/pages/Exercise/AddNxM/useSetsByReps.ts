@@ -27,7 +27,7 @@ const useORM = (exercise: BarExercise): OneRepMax | undefined => {
   const [orm, setORM] = useState<OneRepMax>();
 
   useEffect(() => {
-    if (user === null) {
+    if (user === null || user === 'unknown') {
       return;
     }
     getOneRepMax(user, exercise).then(setORM);

@@ -180,13 +180,13 @@ export const exerciseUIString = (e: Exercise) => {
     case Exercise.Snatch:
       return 'Snatch';
     case Exercise.DumbbellRow:
-      return 'Dumbbell Row';
+      return 'Bent-Over Row';
     case Exercise.DumbbellFly:
-      return 'Dumbbell Bent-Over Row';
+      return 'Fly';
     case Exercise.DumbbellBicepCurl:
-      return 'Dumbbell Bicep Curl';
+      return 'Bicep Curl';
     case Exercise.DumbbellHammerCurl:
-      return 'Dumbbell Hammer Curl';
+      return 'Hammer Curl';
     default: {
       const exhaustiveCheck: never = e;
       console.log({ exhaustiveCheck });
