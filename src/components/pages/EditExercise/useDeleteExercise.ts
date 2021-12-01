@@ -10,7 +10,7 @@ const useDeleteExercise = (): DeleteExercise => {
 
   const deleteExercise: DeleteExercise = useCallback(
     (exerciseData) => {
-      if (user === null) {
+      if (user === null || user === 'unknown') {
         throw new Error(
           'Invalid invariant. User should always be defined here.',
         );

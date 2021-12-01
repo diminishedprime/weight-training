@@ -1,20 +1,23 @@
 import { createEnumParam } from 'serialize-query-params';
-import { QueryParam } from '@/components/pages/Exercise';
 import { Exercise, PlateWeight } from '@/types';
+import { QueryParam } from '@/components/pages/Exercise';
 
 export const ExerciseQueryParam = createEnumParam(Object.values(Exercise));
 
+export const linkForExercise = (exercise: Exercise) =>
+  `/exercise?${QueryParam.LiftType}=${exercise}`;
+
 export const Links = {
-  Deadlift: `/exercise?${QueryParam.LiftType}=${Exercise.Deadlift}`,
-  Squat: `/exercise?${QueryParam.LiftType}=${Exercise.Squat}`,
-  FrontSquat: `/exercise?${QueryParam.LiftType}=${Exercise.FrontSquat}`,
-  BenchPress: `/exercise?${QueryParam.LiftType}=${Exercise.BenchPress}`,
-  OverheadPress: `/exercise?${QueryParam.LiftType}=${Exercise.OverheadPress}`,
-  Snatch: `/exercise?${QueryParam.LiftType}=${Exercise.Snatch}`,
-  DumbbellFly: `/exercise?${QueryParam.LiftType}=${Exercise.DumbbellFly}`,
-  DumbbellRow: `/exercise?${QueryParam.LiftType}=${Exercise.DumbbellRow}`,
-  DumbbellBicepCurl: `/exercise?${QueryParam.LiftType}=${Exercise.DumbbellBicepCurl}`,
-  DumbbellHammerCurl: `/exercise?${QueryParam.LiftType}=${Exercise.DumbbellHammerCurl}`,
+  Deadlift: linkForExercise(Exercise.Deadlift),
+  Squat: linkForExercise(Exercise.Squat),
+  FrontSquat: linkForExercise(Exercise.FrontSquat),
+  BenchPress: linkForExercise(Exercise.BenchPress),
+  OverheadPress: linkForExercise(Exercise.OverheadPress),
+  Snatch: linkForExercise(Exercise.Snatch),
+  DumbbellFly: linkForExercise(Exercise.DumbbellFly),
+  DumbbellRow: linkForExercise(Exercise.DumbbellRow),
+  DumbbellBicepCurl: linkForExercise(Exercise.DumbbellBicepCurl),
+  DumbbellHammerCurl: linkForExercise(Exercise.DumbbellHammerCurl),
 };
 
 export const OneOfEachPlate: PlateWeight[] = [

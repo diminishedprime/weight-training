@@ -31,7 +31,7 @@ const useExercise = (id: string | undefined | null): ExerciseRequest => {
     if (id === undefined || id === null) {
       return;
     }
-    if (user === null) {
+    if (user === null || user === 'unknown') {
       setType('not-started');
       return;
     }

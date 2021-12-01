@@ -321,19 +321,19 @@ const barExerciseTypes: CustomType[] = [
 const dumbbellExerciseTypes: CustomType[] = [
   customType('DumbbellRow', 1, commonDumbbell('dumbbell-row'), {
     enumValue: 'g',
-    uiString: 'Dumbbell Row',
+    uiString: 'Bent-Over Row',
   }),
   customType('DumbbellFly', 1, commonDumbbell('dumbbell-fly'), {
     enumValue: 'h',
-    uiString: 'Dumbbell Bent-Over Row',
+    uiString: 'Fly',
   }),
   customType('DumbbellBicepCurl', 1, commonDumbbell('dumbbell-bicep-curl'), {
     enumValue: 'i',
-    uiString: 'Dumbbell Bicep Curl',
+    uiString: 'Bicep Curl',
   }),
   customType('DumbbellHammerCurl', 1, commonDumbbell('dumbbell-hammer-curl'), {
     enumValue: 'j',
-    uiString: 'Dumbbell Hammer Curl',
+    uiString: 'Hammer Curl',
   }),
 ].map((ct) => ({
   ...ct,
