@@ -1,6 +1,5 @@
 import { Timestamp } from 'firebase/firestore';
-import { useCallback, useContext, useEffect, useState } from 'react';
-import { UserCtx } from '@/components/Layout';
+import { useCallback, useEffect, useState } from 'react';
 import { getOneRepMax } from '@/firebase';
 import {
   BarExercise,
@@ -21,9 +20,10 @@ import {
 } from '@/util';
 import usePersistentObject, { ObjectKey } from '@/hooks/usePersistentObject';
 import useAddExercise from '@/components/pages/Exercise/AddExercise/useAddExercise';
+import useUser from '@/hooks/useUser';
 
 const useORM = (exercise: BarExercise): OneRepMax | undefined => {
-  const user = useContext(UserCtx);
+  const user = useUser();
   const [orm, setORM] = useState<OneRepMax>();
 
   useEffect(() => {

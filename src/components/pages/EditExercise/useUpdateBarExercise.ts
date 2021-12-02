@@ -1,7 +1,7 @@
-import { useCallback, useContext } from 'react';
+import { useCallback } from 'react';
 import { updateBarExercise } from '@/firebase';
 import { BarExerciseData, Update, WithID } from '@/types';
-import { UserCtx } from '@/components/Layout';
+import useUser from '@/hooks/useUser';
 
 type UpdateExercise = (
   exerciseData: WithID<BarExerciseData>,
@@ -9,7 +9,7 @@ type UpdateExercise = (
 ) => Promise<WithID<BarExerciseData>>;
 
 const useUpdateBarExercise = (): UpdateExercise => {
-  const user = useContext(UserCtx);
+  const user = useUser();
 
   return useCallback<UpdateExercise>(
     async (exerciseData, update) => {

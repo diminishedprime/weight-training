@@ -1,12 +1,12 @@
-import { useCallback, useContext } from 'react';
+import { useCallback } from 'react';
 import { addExercise as addExerciseDB } from '@/firebase';
 import { ExerciseData } from '@/types';
-import { UserCtx } from '@/components/Layout';
+import useUser from '@/hooks/useUser';
 
 type AddExercise = (exerciseData: ExerciseData) => Promise<void>;
 
 const useAddExercise = (): AddExercise => {
-  const user = useContext(UserCtx);
+  const user = useUser();
 
   const addExercise = useCallback(
     async (exerciseData: ExerciseData) => {

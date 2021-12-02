@@ -1,8 +1,8 @@
 import { User } from 'firebase/auth';
-import { useContext, useEffect, useState } from 'react';
-import { UserCtx } from '@/components/Layout';
+import { useEffect, useState } from 'react';
 import { subscribeToUserDoc } from '@/firebase';
 import { UserDoc_V4 } from '@/types';
+import useUser from '@/hooks/useUser';
 
 interface Resolved {
   type: 'resolved';
@@ -56,7 +56,7 @@ export const useUserDocNoCtx = (user: User | null | 'unknown') => {
 };
 
 const useUserDoc = (): UserDocRequest => {
-  const user = useContext(UserCtx);
+  const user = useUser();
   return useUserDocNoCtx(user);
 };
 

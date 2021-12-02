@@ -25,6 +25,7 @@
     "plugin:jest/style"
   ],
   "rules": {
+    "no-nested-ternary": "off",
     "jest/prefer-strict-equal": "error",
     "jest/prefer-to-have-length": "warn",
     "prettier/prettier": "error",
