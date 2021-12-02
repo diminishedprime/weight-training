@@ -17,15 +17,15 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import * as React from 'react';
-import { useCallback, useState } from 'react';
 import { PushPin } from '@mui/icons-material';
-import { User } from 'firebase/auth';
 import { GatsbyLinkProps, Link } from 'gatsby';
 import { linkForExercise } from '@/constants';
-import { exerciseUIString } from '@/types';
+import { AuthCtxType, exerciseUIString } from '@/types';
 import { useUserDocNoCtx } from '@/firebase/hooks/useUserDoc';
 import { AuthCtx } from './AuthProvider';
 import { LoginStatus } from './useAuth';
+import useDrawer from '@/hooks/useDrawer';
+import UserMenu from '@/components/Layout/UserMenu';
 
 export interface LoggedOutProps {
   LogIn: JSX.Element;
@@ -63,24 +63,6 @@ const theme = createTheme({
   },
 } as any);
 
-const useDrawer = () => {
-  const [isOpen, setOpen] = useState(false);
-
-  const toggle = useCallback(() => {
-    setOpen((old) => !old);
-  }, []);
-
-  const close = useCallback(() => {
-    setOpen(false);
-  }, []);
-
-  const open = useCallback(() => {
-    setOpen(true);
-  }, []);
-
-  return { toggle, close, isOpen, open };
-};
-
 const LinkButton = styled(Button)(({ theme }) => ({
   width: '100%',
   marginLeft: theme.spacing(1),
@@ -88,14 +70,7 @@ const LinkButton = styled(Button)(({ theme }) => ({
 }));
 
 const Layout: React.FC<LayoutProps> = ({ children, title, LoggedOut }) => {
-  const { loginStatus, login, logout, user } = React.useContext(
-    AuthCtx as React.Context<{
-      login: () => void;
-      logout: () => void;
-      loginStatus: 0 | 1 | 2;
-      user: 'unknown' | User | null;
-    }>,
-  );
+  const { loginStatus, login, user } = React.useContext(AuthCtx as AuthCtxType);
   const { isOpen, close, open } = useDrawer();
   const userDocRequest = useUserDocNoCtx(user);
 
@@ -160,11 +135,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, LoggedOut }) => {
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 {title}
               </Typography>
-              {loginStatus === LoginStatus.LoggedIn && (
-                <Button onClick={logout} color="inherit">
-                  Logout
-                </Button>
-              )}
+              {loginStatus === LoginStatus.LoggedIn && <UserMenu />}
               {loginStatus === LoginStatus.LoggedOut && (
                 <Button onClick={login} color="inherit">
                   Login

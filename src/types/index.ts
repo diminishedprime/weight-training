@@ -1,4 +1,5 @@
 import { Timestamp } from 'firebase/firestore';
+import { User } from 'firebase/auth';
 import { Exercise, ExerciseData, Weight_V1 } from '@/types/generated-types';
 
 export * from './generated-types';
@@ -58,3 +59,10 @@ export type WarmupSet = (
   | { type: 'even'; warmupSets: number }
   | { type: 'percentage' }
 ) & { includeEmptyBar: boolean };
+
+export type AuthCtxType = React.Context<{
+  login: () => void;
+  logout: () => void;
+  loginStatus: 0 | 1 | 2;
+  user: 'unknown' | User | null;
+}>;
