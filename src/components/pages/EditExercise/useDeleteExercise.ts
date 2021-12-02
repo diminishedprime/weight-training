@@ -1,12 +1,12 @@
-import { useCallback, useContext } from 'react';
+import { useCallback } from 'react';
 import { deleteExercise as deleteExerciseDB } from '@/firebase';
 import { ExerciseData, WithID } from '@/types';
-import { UserCtx } from '@/components/Layout';
+import useUser from '@/hooks/useUser';
 
 type DeleteExercise = (exerciseData: WithID<ExerciseData>) => Promise<void>;
 
 const useDeleteExercise = (): DeleteExercise => {
-  const user = useContext(UserCtx);
+  const user = useUser();
 
   const deleteExercise: DeleteExercise = useCallback(
     (exerciseData) => {

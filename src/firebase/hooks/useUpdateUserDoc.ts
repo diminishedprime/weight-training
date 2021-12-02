@@ -1,10 +1,10 @@
-import { useCallback, useContext } from 'react';
-import { UserCtx } from '@/components/Layout';
+import { useCallback } from 'react';
 import { updateUserDoc } from '@/firebase';
 import { Update, UserDoc_V4 } from '@/types';
+import useUser from '@/hooks/useUser';
 
 const useUpdateUserDoc = () => {
-  const user = useContext(UserCtx);
+  const user = useUser();
   return useCallback(
     async (update: Update<UserDoc_V4>): Promise<void> => {
       if (user === null || user === 'unknown') {

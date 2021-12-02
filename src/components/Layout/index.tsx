@@ -12,24 +12,20 @@ import {
   styled,
   Toolbar,
   Typography,
+  ThemeProvider,
+  createTheme,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import * as React from 'react';
-import {
-  getAuth,
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  signInWithPopup,
-  signOut,
-  User,
-} from 'firebase/auth';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { PushPin } from '@mui/icons-material';
-import { linkForExercise, Links } from '@/constants';
-import { Exercise, exerciseUIString } from '@/types';
+import { User } from 'firebase/auth';
+import { GatsbyLinkProps, Link } from 'gatsby';
+import { linkForExercise } from '@/constants';
+import { exerciseUIString } from '@/types';
 import { useUserDocNoCtx } from '@/firebase/hooks/useUserDoc';
-
-const provider = new GoogleAuthProvider();
+import { AuthCtx } from './AuthProvider';
+import { LoginStatus } from './useAuth';
 
 export interface LoggedOutProps {
   LogIn: JSX.Element;
@@ -40,54 +36,32 @@ interface LayoutProps {
   LoggedOut?: React.FC<LoggedOutProps>;
 }
 
-enum LoginStatus {
-  Unknown,
-  LoggedIn,
-  LoggedOut,
-}
+// This is pretty terrible, but It works and I don't feel like fighting the
+// type checking.
+const LinkBehavior = React.forwardRef<
+  any,
+  Omit<GatsbyLinkProps<any>, 'to'> & { href: GatsbyLinkProps<any>['to'] }
+>((props, ref) => {
+  const { href, ...other } = props;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  return <Link ref={ref} to={href} {...other} />;
+});
 
-const firstLoad = true;
-const useAuth = () => {
-  const auth = useMemo(() => getAuth(), []);
-  const [currentUser, setCurrentUser] = React.useState<User | null | 'unknown'>(
-    () => {
-      const c = auth.currentUser;
-      if (c !== null) {
-        return c;
-      }
-      if (firstLoad) {
-        return 'unknown';
-      }
-      return c;
+const theme = createTheme({
+  components: {
+    MuiLink: {
+      defaultProps: {
+        component: LinkBehavior,
+      },
     },
-  );
-
-  const loginStatus = useMemo(
-    () =>
-      typeof window === undefined || currentUser === 'unknown'
-        ? LoginStatus.Unknown
-        : currentUser === null
-        ? LoginStatus.LoggedOut
-        : LoginStatus.LoggedIn,
-    [currentUser],
-  );
-
-  useEffect(() => onAuthStateChanged(auth, setCurrentUser), [auth]);
-
-  const login = useCallback(() => {
-    signInWithPopup(auth, provider).then((result) => {
-      setCurrentUser(result.user);
-    });
-  }, [auth]);
-
-  const logout = useCallback(() => {
-    signOut(auth).then(() => {
-      setCurrentUser(null);
-    });
-  }, [auth]);
-
-  return { login, logout, loginStatus, user: currentUser };
-};
+    MuiButtonBase: {
+      defaultProps: {
+        LinkComponent: LinkBehavior,
+      },
+    },
+  },
+} as any);
 
 const useDrawer = () => {
   const [isOpen, setOpen] = useState(false);
@@ -107,8 +81,6 @@ const useDrawer = () => {
   return { toggle, close, isOpen, open };
 };
 
-export const UserCtx = React.createContext<User | null | 'unknown'>(null);
-
 const LinkButton = styled(Button)(({ theme }) => ({
   width: '100%',
   marginLeft: theme.spacing(1),
@@ -116,7 +88,14 @@ const LinkButton = styled(Button)(({ theme }) => ({
 }));
 
 const Layout: React.FC<LayoutProps> = ({ children, title, LoggedOut }) => {
-  const { loginStatus, login, logout, user } = useAuth();
+  const { loginStatus, login, logout, user } = React.useContext(
+    AuthCtx as React.Context<{
+      login: () => void;
+      logout: () => void;
+      loginStatus: 0 | 1 | 2;
+      user: 'unknown' | User | null;
+    }>,
+  );
   const { isOpen, close, open } = useDrawer();
   const userDocRequest = useUserDocNoCtx(user);
 
@@ -150,7 +129,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, LoggedOut }) => {
           </ListItemText>
           {userDocRequest.userDoc.pinnedExercises.exercises.map((e) => (
             <ListItemText key={e}>
-              <LinkButton href={linkForExercise(e)}>
+              <LinkButton href={linkForExercise(e)} onClick={close}>
                 {exerciseUIString(e)}
               </LinkButton>
             </ListItemText>
@@ -159,100 +138,49 @@ const Layout: React.FC<LayoutProps> = ({ children, title, LoggedOut }) => {
       );
     }
     return null;
-  }, [userDocRequest]);
+  }, [userDocRequest, close]);
 
   return (
-    <div>
-      <CssBaseline />
-      <Box sx={{ flexGrow: 1, mb: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={open}
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              {title}
-            </Typography>
-            {loginStatus === LoginStatus.LoggedIn && (
-              <Button onClick={logout} color="inherit">
-                Logout
-              </Button>
-            )}
-            {loginStatus === LoginStatus.LoggedOut && (
-              <Button onClick={login} color="inherit">
-                Login
-              </Button>
-            )}
-          </Toolbar>
-        </AppBar>
-      </Box>
-      <Drawer anchor="left" open={isOpen} onClose={close}>
-        <List sx={{ pr: 2 }}>
-          <ListItemText>
-            <LinkButton href="/">Home</LinkButton>
-          </ListItemText>
-          {pinned}
-          <Divider />
-          <ListItemText sx={{ ml: 1 }}>Powerlifting</ListItemText>
-          <ListItemText>
-            <LinkButton href={Links.Squat}>
-              {exerciseUIString(Exercise.Squat)}
-            </LinkButton>
-          </ListItemText>
-          <ListItemText>
-            <LinkButton href={Links.BenchPress}>
-              {exerciseUIString(Exercise.BenchPress)}
-            </LinkButton>
-          </ListItemText>
-          <ListItemText>
-            <LinkButton href={Links.Deadlift}>
-              {exerciseUIString(Exercise.Deadlift)}
-            </LinkButton>
-          </ListItemText>
-          <Divider />
-          <ListItemText sx={{ ml: 1 }}>Bar Accessory</ListItemText>
-          <ListItemText>
-            <LinkButton href={Links.FrontSquat}>
-              {exerciseUIString(Exercise.FrontSquat)}
-            </LinkButton>
-          </ListItemText>
-          <ListItemText>
-            <LinkButton href={Links.OverheadPress}>
-              {exerciseUIString(Exercise.OverheadPress)}
-            </LinkButton>
-          </ListItemText>
-          <Divider />
-          <ListItemText sx={{ ml: 1 }}>Dumbbell</ListItemText>
-          <ListItemText>
-            <LinkButton href={Links.DumbbellBicepCurl}>
-              {exerciseUIString(Exercise.DumbbellBicepCurl)}
-            </LinkButton>
-          </ListItemText>
-          <ListItemText>
-            <LinkButton href={Links.DumbbellHammerCurl}>
-              {exerciseUIString(Exercise.DumbbellHammerCurl)}
-            </LinkButton>
-          </ListItemText>
-          <ListItemText>
-            <LinkButton href={Links.DumbbellFly}>
-              {exerciseUIString(Exercise.DumbbellFly)}
-            </LinkButton>
-          </ListItemText>
-          <ListItemText>
-            <LinkButton href={Links.DumbbellRow}>
-              {exerciseUIString(Exercise.DumbbellRow)}
-            </LinkButton>
-          </ListItemText>
-        </List>
-      </Drawer>
-      <UserCtx.Provider value={user}>
+    <ThemeProvider theme={theme}>
+      <div>
+        <CssBaseline />
+        <Box sx={{ flexGrow: 1, mb: 1 }}>
+          <AppBar position="static">
+            <Toolbar>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                onClick={open}
+                sx={{ mr: 2 }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                {title}
+              </Typography>
+              {loginStatus === LoginStatus.LoggedIn && (
+                <Button onClick={logout} color="inherit">
+                  Logout
+                </Button>
+              )}
+              {loginStatus === LoginStatus.LoggedOut && (
+                <Button onClick={login} color="inherit">
+                  Login
+                </Button>
+              )}
+            </Toolbar>
+          </AppBar>
+        </Box>
+        <Drawer anchor="left" open={isOpen} onClose={close}>
+          <List sx={{ pr: 2 }}>
+            <ListItemText>
+              <LinkButton href="/">Home</LinkButton>
+            </ListItemText>
+            {pinned}
+          </List>
+        </Drawer>
         <Box sx={{ ml: 0.5, mr: 0.5 }}>
           {loginStatus === LoginStatus.LoggedIn ? (
             children
@@ -265,8 +193,8 @@ const Layout: React.FC<LayoutProps> = ({ children, title, LoggedOut }) => {
             <Typography>Determining login status...</Typography>
           )}
         </Box>
-      </UserCtx.Provider>
-    </div>
+      </div>
+    </ThemeProvider>
   );
 };
 

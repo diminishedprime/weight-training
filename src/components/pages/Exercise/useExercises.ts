@@ -1,7 +1,7 @@
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { subscribeToLiftsByType } from '@/firebase';
 import { Exercise, ExerciseData, WithID } from '@/types';
-import { UserCtx } from '@/components/Layout';
+import useUser from '@/hooks/useUser';
 
 interface Resolved {
   type: 'resolved';
@@ -23,7 +23,7 @@ interface Failed {
 type LiftsRequest = NotStarted | InProgress | Resolved | Failed;
 
 const useExercises = (exercise: Exercise | undefined | null): LiftsRequest => {
-  const user = useContext(UserCtx);
+  const user = useUser();
   const [exercises, setExercises] = useState<WithID<ExerciseData>[]>([]);
   const [type, setType] = useState<LiftsRequest['type']>('not-started');
 
