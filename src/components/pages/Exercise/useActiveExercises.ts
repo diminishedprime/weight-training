@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react';
-import usePersistentObject, { ObjectKey } from '@/hooks/usePersistentObject';
+import usePersistentObject, { StorageKey } from '@/hooks/usePersistentObject';
 import { Exercise, Reps, Sets } from '@/types';
 import { keyForSetsByReps, nameForExercise } from '@/util';
 
@@ -7,7 +7,7 @@ const AddVisibleKey = `AddExerciseVisible`;
 
 const useActiveExercises = (exercise: Exercise | undefined | null) => {
   const [data, setData] = usePersistentObject<Record<string, boolean>>(
-    ObjectKey.ActiveBarExercise,
+    StorageKey.ActiveBarExercise,
     {},
     nameForExercise(exercise) || '',
   );

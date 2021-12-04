@@ -15,17 +15,21 @@ interface LiteralType {
   value: string;
 }
 
-type TypeField = [
-  fieldName: string,
-  fieldType:
-    | 'string'
-    | 'number'
-    | 'boolean'
-    | 'Timestamp'
-    | LiteralType
-    | CustomType,
-  required: boolean,
-];
+type FieldType =
+  | CustomType
+  | 'string'
+  | 'number'
+  | 'boolean'
+  | 'Timestamp'
+  | LiteralType
+  | ArrayType;
+
+interface ArrayType {
+  type: 'array-type';
+  inner: FieldType;
+}
+
+type TypeField = [fieldName: string, fieldType: FieldType, required: boolean];
 
 interface Metadata {
   exerciseType?: 'dumbbell' | 'barbbell';
@@ -33,6 +37,8 @@ interface Metadata {
   enumValue?: string;
   uiString?: string;
   uiStringFunctionName?: string;
+  targetAreas?: string[];
+  equipment?: string[];
 }
 
 type CustomType = {
@@ -125,6 +131,11 @@ const stringLiteral = (...s: string[]): LiteralType => ({
   value: s.map((s) => `'${s}'`).join(' | '),
 });
 
+const arrayOf = (inner: FieldType): ArrayType => ({
+  type: 'array-type',
+  inner,
+});
+
 const customType = (
   typeName: string,
   version: number,
@@ -154,15 +165,32 @@ export enum ${e.enumName} {
 const generateEnums = (s: EnumType[]): string =>
   s.map(generateEnum).join('\n\n').trimEnd();
 
+const generateTypeName = (fieldType: FieldType): string => {
+  if (typeof fieldType === 'string') {
+    return `${fieldType}`;
+  } else if (fieldType.type === 'literal-type') {
+    return `${fieldType.value}`;
+  } else if (fieldType.type === 'custom-type') {
+    return `${fieldType.typeName}_V${fieldType.version}`;
+  } else if (fieldType.type === 'array-type') {
+    return `Array<${generateTypeName(fieldType.inner)}>`;
+  } else return '';
+};
+
 const generateField = ([fieldName, fieldType, required]: TypeField): string => {
   const ifRequired = required ? '' : '?';
+  let typePart = '';
   if (typeof fieldType === 'string') {
-    return `${fieldName}${ifRequired}: ${fieldType};`;
+    typePart = generateTypeName(fieldType);
   } else if (fieldType.type === 'literal-type') {
-    return `${fieldName}${ifRequired}: ${fieldType.value};`;
+    typePart = generateTypeName(fieldType);
   } else if (fieldType.type === 'custom-type') {
-    return `${fieldName}${ifRequired}: ${fieldType.typeName}_V${fieldType.version};`;
-  } else return '';
+    typePart = generateTypeName(fieldType);
+  } else if (fieldType.type === 'array-type') {
+    typePart = generateTypeName(fieldType);
+  }
+  // What is the absolute fuck is going on here???
+  return `${fieldName}${ifRequired}: ${typePart};`;
 };
 
 const generateEnumUnion = ({
@@ -264,11 +292,94 @@ ${entries};
 const generateTypesUnions = (s: CustomTypeUnion[]): string =>
   s.map(generateTypesUnion).join('\n\n').trimEnd();
 
+const generateExerciseMetadata = (
+  exerciseEnum: EnumType,
+  metadataType: CustomType,
+): string => {
+  const cases = exerciseEnum.enumValues
+    .map((e) =>
+      `    case ${exerciseEnum.enumName}.${e.enumKey}: {
+      return {
+        version: ${metadataType.version},
+        targetAreas: [${(e?.metadata?.targetAreas || [])
+          .map((a) => `'${a}'`)
+          .join(', ')}],
+        equipment: [${(e?.metadata?.equipment || [])
+          .map((a) => `'${a}'`)
+          .join(', ')}],
+      }
+    }
+`.trimEnd(),
+    )
+    .join('\n');
+
+  return `
+export const metadataForExercise = (e: ${exerciseEnum.enumName}): ${metadataType.typeName}_V${metadataType.version} => {
+  switch (e) {
+${cases}
+    default: {
+      const exhaustiveCheck: never = e;
+      console.log({ exhaustiveCheck });
+      throw new Error('Unhandled case');
+    }
+  }
+}
+`.trim();
+};
+
 // Type data below
 
 const Weight_V1 = customType('Weight', 1, [
   ['unit', stringLiteral('lb', 'kg'), true],
   ['value', 'number', true],
+]);
+
+const ExerciseMetadata_V1 = customType('ExerciseMetadata', 1, [
+  [
+    'targetAreas',
+    arrayOf(
+      stringLiteral(
+        'chest',
+        'back',
+        'shoulders',
+        'pectoralis',
+        'glutes',
+        'arms',
+        'thighs',
+        'calves',
+        'quadriceps',
+        'tensor fascia latae',
+        'hip abductors',
+        'trapezies',
+        'abs',
+        'abdominuls',
+        'rectus abdominus',
+        'internal obliques',
+        'external obliques',
+        'legs',
+        'hamstrings',
+        'biceps',
+        'triceps',
+        'deltoids',
+        // Meme but might be worth keeping
+        'yes',
+      ),
+    ),
+    true,
+  ],
+  [
+    'equipment',
+    arrayOf(
+      stringLiteral(
+        'barbbell',
+        'dumbbell',
+        'bodyweight',
+        'kettlebell',
+        'resistance band',
+      ),
+    ),
+    true,
+  ],
 ]);
 
 const commonBar = (typeValue: string): TypeField[] => [
@@ -290,26 +401,38 @@ const barExerciseTypes: CustomType[] = [
   customType('Deadlift', 3, commonBar('deadlift'), {
     enumValue: 'a',
     uiString: 'Deadlift',
+    equipment: ['barbbell'],
+    targetAreas: ['back', 'hamstrings', 'trapezies'],
   }),
   customType('Squat', 3, commonBar('squat'), {
     enumValue: 'b',
     uiString: 'Squat',
+    equipment: ['barbbell'],
+    targetAreas: ['abdominuls', 'quadriceps', 'glutes', 'hamstrings', 'back'],
   }),
   customType('FrontSquat', 3, commonBar('front-squat'), {
     enumValue: 'c',
     uiString: 'Front Squat',
+    equipment: ['barbbell'],
+    targetAreas: ['quadriceps', 'back'],
   }),
   customType('BenchPress', 3, commonBar('bench-press'), {
     enumValue: 'd',
     uiString: 'Bench Press',
+    equipment: ['barbbell'],
+    targetAreas: ['pectoralis', 'deltoids'],
   }),
   customType('OverheadPress', 3, commonBar('overhead-press'), {
     enumValue: 'e',
     uiString: 'Overhead Press',
+    equipment: ['barbbell'],
+    targetAreas: ['shoulders', 'triceps', 'deltoids'],
   }),
   customType('Snatch', 1, commonBar('snatch'), {
     enumValue: 'f',
     uiString: 'Snatch',
+    equipment: ['barbbell'],
+    targetAreas: ['yes'],
   }),
 ].map((ct) => ({
   ...ct,
@@ -322,18 +445,26 @@ const dumbbellExerciseTypes: CustomType[] = [
   customType('DumbbellRow', 1, commonDumbbell('dumbbell-row'), {
     enumValue: 'g',
     uiString: 'Bent-Over Row',
+    equipment: ['dumbbell'],
+    targetAreas: ['back', 'deltoids'],
   }),
   customType('DumbbellFly', 1, commonDumbbell('dumbbell-fly'), {
     enumValue: 'h',
     uiString: 'Fly',
+    equipment: ['dumbbell'],
+    targetAreas: ['pectoralis', 'deltoids'],
   }),
   customType('DumbbellBicepCurl', 1, commonDumbbell('dumbbell-bicep-curl'), {
     enumValue: 'i',
     uiString: 'Bicep Curl',
+    equipment: ['dumbbell'],
+    targetAreas: ['biceps'],
   }),
   customType('DumbbellHammerCurl', 1, commonDumbbell('dumbbell-hammer-curl'), {
     enumValue: 'j',
     uiString: 'Hammer Curl',
+    equipment: ['dumbbell'],
+    targetAreas: ['biceps'],
   }),
 ].map((ct) => ({
   ...ct,
@@ -379,7 +510,11 @@ const enumUnionTypesToGenerate: EnumUnionType[] = [
     { narrowFunctionName: 'narrowBarExercise' },
   ),
 ];
-const typesToGenerate: CustomType[] = [Weight_V1, ...exerciseTypes];
+const typesToGenerate: CustomType[] = [
+  Weight_V1,
+  ExerciseMetadata_V1,
+  ...exerciseTypes,
+];
 const typeUnions: CustomTypeUnion[] = [
   customTypeUnion('ExerciseData', [...exerciseTypes]),
   customTypeUnion('BarExerciseData', [...barExerciseTypes]),
@@ -400,3 +535,4 @@ console.log(generateNarrowFunctions(enumUnionTypesToGenerate));
 console.log(`// THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY`);
 console.log(generateUIStringFunctions(enumsToGenerate));
 console.log(`// THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY`);
+console.log(generateExerciseMetadata(ExerciseEnum, ExerciseMetadata_V1));

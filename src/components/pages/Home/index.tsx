@@ -1,28 +1,11 @@
 import { Box, Button, Typography } from '@mui/material';
 import * as React from 'react';
-import { linkForExercise, Links } from '@/constants';
-import { Exercise, exerciseUIString } from '@/types';
+import { linkForExercise } from '@/constants';
+import { exerciseUIString } from '@/types';
 import useUserDoc from '@/firebase/hooks/useUserDoc';
 import CenteredSpinny from '@/components/common/CenteredSpinny';
 import Settings from '@/components/pages/Home/Settings';
-
-const powerlifting = [
-  [Links.Squat, exerciseUIString(Exercise.Squat)],
-  [Links.BenchPress, exerciseUIString(Exercise.BenchPress)],
-  [Links.Deadlift, exerciseUIString(Exercise.Deadlift)],
-];
-
-const barAccessory = [
-  [Links.FrontSquat, exerciseUIString(Exercise.FrontSquat)],
-  [Links.OverheadPress, exerciseUIString(Exercise.OverheadPress)],
-];
-
-const commonDumbbell = [
-  [Links.DumbbellFly, exerciseUIString(Exercise.DumbbellFly)],
-  [Links.DumbbellRow, exerciseUIString(Exercise.DumbbellRow)],
-  [Links.DumbbellBicepCurl, exerciseUIString(Exercise.DumbbellBicepCurl)],
-  [Links.DumbbellHammerCurl, exerciseUIString(Exercise.DumbbellHammerCurl)],
-];
+import ExerciseSearch from '@/components/common/ExerciseSearch';
 
 const Home: React.FC = () => {
   const userDocRequest = useUserDoc();
@@ -65,44 +48,7 @@ const Home: React.FC = () => {
   return (
     <Box sx={{ mx: 1 }}>
       {pinned}
-      <Typography variant="h6">Powerlifting</Typography>
-      {powerlifting.map(([href, uiText]) => (
-        <Button
-          sx={{ mr: 1 }}
-          variant="contained"
-          key={href}
-          href={href}
-          size="small"
-        >
-          {uiText}
-        </Button>
-      ))}
-      <Box sx={{ mb: 1 }} />
-      <Typography variant="h6">Bar Accessory</Typography>
-      {barAccessory.map(([href, uiText]) => (
-        <Button
-          sx={{ mr: 1 }}
-          variant="contained"
-          key={href}
-          href={href}
-          size="small"
-        >
-          {uiText}
-        </Button>
-      ))}
-      <Box sx={{ mb: 1 }} />
-      <Typography variant="h6">Dumbbell</Typography>
-      {commonDumbbell.map(([href, uiText]) => (
-        <Button
-          sx={{ mr: 1, mb: 1 }}
-          variant="contained"
-          key={href}
-          href={href}
-          size="small"
-        >
-          {uiText}
-        </Button>
-      ))}
+      <ExerciseSearch />
     </Box>
   );
 };

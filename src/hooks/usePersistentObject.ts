@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
-export enum ObjectKey {
+export enum StorageKey {
   SetsByRepsData = '/sets-by-reps/data/',
   ActiveBarExercise = '/exercise/active-bar-exercise/',
   DumbbellExerciseWeight = '/exercise/add-dumbbell-exercise/weight/',
+  ExerciseSearch = '/exercise-search/',
 }
 
 interface StoredObject<T> {
@@ -13,7 +14,7 @@ interface StoredObject<T> {
 }
 
 const usePersistentObject = <T>(
-  key: ObjectKey,
+  key: StorageKey,
   initialValue: T,
   qualifier: string,
   xform?: (o: Record<string, any>) => T,

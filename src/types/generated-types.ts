@@ -34,6 +34,38 @@ export interface Weight_V1 {
   version: 1;
 }
 
+export interface ExerciseMetadata_V1 {
+  targetAreas: Array<
+    | 'chest'
+    | 'back'
+    | 'shoulders'
+    | 'pectoralis'
+    | 'glutes'
+    | 'arms'
+    | 'thighs'
+    | 'calves'
+    | 'quadriceps'
+    | 'tensor fascia latae'
+    | 'hip abductors'
+    | 'trapezies'
+    | 'abs'
+    | 'abdominuls'
+    | 'rectus abdominus'
+    | 'internal obliques'
+    | 'external obliques'
+    | 'legs'
+    | 'hamstrings'
+    | 'biceps'
+    | 'triceps'
+    | 'deltoids'
+    | 'yes'
+  >;
+  equipment: Array<
+    'barbbell' | 'dumbbell' | 'bodyweight' | 'kettlebell' | 'resistance band'
+  >;
+  version: 1;
+}
+
 export interface Deadlift_V3 {
   date: Timestamp;
   weight: Weight_V1;
@@ -195,3 +227,88 @@ export const exerciseUIString = (e: Exercise) => {
   }
 };
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
+export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
+  switch (e) {
+    case Exercise.Deadlift: {
+      return {
+        version: 1,
+        targetAreas: ['back', 'hamstrings', 'trapezies'],
+        equipment: ['barbbell'],
+      };
+    }
+    case Exercise.Squat: {
+      return {
+        version: 1,
+        targetAreas: [
+          'abdominuls',
+          'quadriceps',
+          'glutes',
+          'hamstrings',
+          'back',
+        ],
+        equipment: ['barbbell'],
+      };
+    }
+    case Exercise.FrontSquat: {
+      return {
+        version: 1,
+        targetAreas: ['quadriceps', 'back'],
+        equipment: ['barbbell'],
+      };
+    }
+    case Exercise.BenchPress: {
+      return {
+        version: 1,
+        targetAreas: ['pectoralis', 'deltoids'],
+        equipment: ['barbbell'],
+      };
+    }
+    case Exercise.OverheadPress: {
+      return {
+        version: 1,
+        targetAreas: ['shoulders', 'triceps', 'deltoids'],
+        equipment: ['barbbell'],
+      };
+    }
+    case Exercise.Snatch: {
+      return {
+        version: 1,
+        targetAreas: ['yes'],
+        equipment: ['barbbell'],
+      };
+    }
+    case Exercise.DumbbellRow: {
+      return {
+        version: 1,
+        targetAreas: ['back', 'deltoids'],
+        equipment: ['dumbbell'],
+      };
+    }
+    case Exercise.DumbbellFly: {
+      return {
+        version: 1,
+        targetAreas: ['pectoralis', 'deltoids'],
+        equipment: ['dumbbell'],
+      };
+    }
+    case Exercise.DumbbellBicepCurl: {
+      return {
+        version: 1,
+        targetAreas: ['biceps'],
+        equipment: ['dumbbell'],
+      };
+    }
+    case Exercise.DumbbellHammerCurl: {
+      return {
+        version: 1,
+        targetAreas: ['biceps'],
+        equipment: ['dumbbell'],
+      };
+    }
+    default: {
+      const exhaustiveCheck: never = e;
+      console.log({ exhaustiveCheck });
+      throw new Error('Unhandled case');
+    }
+  }
+};

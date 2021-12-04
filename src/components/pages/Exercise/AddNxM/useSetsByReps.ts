@@ -18,7 +18,7 @@ import {
   nameForExercise,
   nearest5,
 } from '@/util';
-import usePersistentObject, { ObjectKey } from '@/hooks/usePersistentObject';
+import usePersistentObject, { StorageKey } from '@/hooks/usePersistentObject';
 import useAddExercise from '@/components/pages/Exercise/AddExercise/useAddExercise';
 import useUser from '@/hooks/useUser';
 
@@ -86,7 +86,7 @@ const useSetsByReps = (
   }, []);
 
   const [data, setData] = usePersistentObject<SetsByRepsData>(
-    ObjectKey.SetsByRepsData,
+    StorageKey.SetsByRepsData,
     notStarted(actualORM, ormRatio),
     `${nameForExercise(exercise)}/${keyForSetsByReps(sets, reps)}`,
     xform,

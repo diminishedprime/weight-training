@@ -12,7 +12,7 @@ import {
 import { nameForExercise } from '@/util';
 import useAddExercise from '@/components/pages/Exercise/AddExercise/useAddExercise';
 import SetReps from '@/components/pages/Exercise/SetReps';
-import usePersistentObject, { ObjectKey } from '@/hooks/usePersistentObject';
+import usePersistentObject, { StorageKey } from '@/hooks/usePersistentObject';
 import Dumbbell from '@/components/common/Dumbbell';
 import useDumbbellWeight from '@/components/pages/Exercise/AddExercise/useDumbbellWeight';
 
@@ -32,7 +32,7 @@ const AddDumbbellExercise: React.FC<AddDumbbellExerciseProps> = ({
     `add-dumbbell-exercise/${nameForExercise(dumbbellExercise)}`,
   );
   const [weight, setWeight] = usePersistentObject<Weight_V1>(
-    ObjectKey.DumbbellExerciseWeight,
+    StorageKey.DumbbellExerciseWeight,
     { unit: 'lb', value: 10, version: 1 },
     `dumbbell/${nameForExercise(dumbbellExercise)}`,
   );
