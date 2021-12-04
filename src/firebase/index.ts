@@ -17,7 +17,6 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
-import { getAnalytics, isSupported } from 'firebase/analytics';
 import {
   BarExercise,
   BarExerciseData,
@@ -43,8 +42,6 @@ initializeApp({
   appId: '1:21223491336:web:7378ae65a038e84eda8ebd',
   measurementId: 'G-4F9TH5XYE6',
 });
-
-isSupported().then((a) => (a ? getAnalytics() : undefined));
 
 const liftsRef = (user: User) =>
   collection(getFirestore(), 'users', user.uid, 'lifts');

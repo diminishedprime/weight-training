@@ -38,6 +38,7 @@
     "firebase": "9.5.0",
     "gatsby": "4.1.4",
     "gatsby-plugin-emotion": "7.2.0",
+    "gatsby-plugin-google-gtag": "4.3.0",
     "gatsby-plugin-material-ui": "4.0.2",
     "gatsby-plugin-use-query-params": "1.0.1",
     "lodash": "4.17.21",

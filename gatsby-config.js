@@ -5,5 +5,11 @@ module.exports = {
     `gatsby-plugin-material-ui`,
     `gatsby-plugin-use-query-params`,
     `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ['G-4F9TH5XYE6'],
+      },
+    },
   ],
 };
