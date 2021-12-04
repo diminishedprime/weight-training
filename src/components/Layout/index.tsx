@@ -152,7 +152,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, LoggedOut }) => {
             {pinned}
           </List>
         </Drawer>
-        <Box sx={{ ml: 0.5, mr: 0.5 }}>
+        <Box sx={{ maxWidth: '100ch', margin: 'auto' }}>
           {loginStatus === LoginStatus.LoggedIn ? (
             children
           ) : loginStatus === LoginStatus.LoggedOut &&
