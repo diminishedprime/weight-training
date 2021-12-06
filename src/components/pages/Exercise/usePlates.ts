@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { OneOfEachPlate } from '@/constants';
-import { PlateCount, PlateWeight } from '@/types';
+import { PlateCount, PlateWeight, Weight_V1 } from '@/types';
 import { platesForWeight } from '@/util';
 
 const usePlates = (
@@ -25,6 +25,14 @@ const usePlates = (
         return acc.concat([[plate, count]]);
       }, [] as PlateCount[]),
     [plates],
+  );
+
+  const loadToWeight = useCallback(
+    (totalWeight: Weight_V1) => {
+      const minusBar = { ...totalWeight, value: totalWeight.value - 45 };
+      setPlates(platesForWeight(minusBar.value / 2));
+    },
+    [setPlates],
   );
 
   const addPlate = useCallback(
@@ -72,7 +80,10 @@ const usePlates = (
     clearPlates,
     consolidate,
     plateCounts,
+    loadToWeight,
   };
 };
+
+export type PlatesAPI = ReturnType<typeof usePlates>;
 
 export default usePlates;

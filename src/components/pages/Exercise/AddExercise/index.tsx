@@ -3,12 +3,16 @@ import { Button } from '@mui/material';
 import { Exercise, narrowBarExercise, narrowDumbbellExercise } from '@/types';
 import AddBarExercise from '@/components/pages/Exercise/AddExercise/AddBarExercise';
 import AddDumbbellExercise from '@/components/pages/Exercise/AddExercise/AddDumbbellExercise';
+import { DumbbellAPI } from '@/components/pages/Exercise/AddExercise/useDumbbellWeight';
+import { PlatesAPI } from '@/components/pages/Exercise/usePlates';
 
 interface AddExerciseProps {
   exercise: Exercise;
   onCancel: () => void;
   onStart: () => void;
   noneStarted: boolean;
+  platesAPI: PlatesAPI;
+  dumbbellAPI: DumbbellAPI;
   active: boolean;
 }
 
@@ -18,6 +22,8 @@ const AddExercise: React.FC<AddExerciseProps> = ({
   onStart,
   noneStarted,
   active,
+  platesAPI,
+  dumbbellAPI,
 }) => {
   if (noneStarted) {
     return (
@@ -29,11 +35,21 @@ const AddExercise: React.FC<AddExerciseProps> = ({
 
   if (active) {
     if (narrowBarExercise(exercise)) {
-      return <AddBarExercise barExercise={exercise} onCancel={onCancel} />;
+      return (
+        <AddBarExercise
+          barExercise={exercise}
+          onCancel={onCancel}
+          platesAPI={platesAPI}
+        />
+      );
     }
     if (narrowDumbbellExercise(exercise)) {
       return (
-        <AddDumbbellExercise dumbbellExercise={exercise} onCancel={onCancel} />
+        <AddDumbbellExercise
+          dumbbellAPI={dumbbellAPI}
+          dumbbellExercise={exercise}
+          onCancel={onCancel}
+        />
       );
     }
   }

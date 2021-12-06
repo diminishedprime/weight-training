@@ -5,6 +5,7 @@ const Weights: Weight_V1[] = [
   { value: 5, unit: 'lb', version: 1 },
   { value: 8, unit: 'lb', version: 1 },
   { value: 10, unit: 'lb', version: 1 },
+  { value: 12, unit: 'lb', version: 1 },
   { value: 15, unit: 'lb', version: 1 },
   { value: 20, unit: 'lb', version: 1 },
   { value: 25, unit: 'lb', version: 1 },
@@ -26,6 +27,7 @@ const Weights: Weight_V1[] = [
 ];
 
 const useDumbbellWeight = (
+  weight: Weight_V1,
   setWeight: React.Dispatch<React.SetStateAction<Weight_V1>>,
 ) => {
   const bumpUp = useCallback(() => {
@@ -51,7 +53,9 @@ const useDumbbellWeight = (
     });
   }, [setWeight]);
 
-  return { bumpUp, bumpDown };
+  return { bumpUp, bumpDown, weight, setWeight };
 };
+
+export type DumbbellAPI = ReturnType<typeof useDumbbellWeight>;
 
 export default useDumbbellWeight;

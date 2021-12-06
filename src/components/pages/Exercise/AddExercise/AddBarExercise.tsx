@@ -11,15 +11,14 @@ import {
 import * as React from 'react';
 import { Timestamp } from 'firebase/firestore';
 import usePersistentNumber, { NumberKey } from '@/hooks/usePersistentNumber';
-import { BarExerciseData, BarExercise, PlateWeight, Exercise } from '@/types';
+import { BarExerciseData, BarExercise, Exercise } from '@/types';
 import { nameForExercise } from '@/util';
 import usePersistentBoolean, { BooleanKey } from '@/hooks/usePersistentBoolean';
-import usePersistentArray, { ArrayKey } from '@/hooks/usePersistentArray';
 import Bar from '@/components/common/Bar';
 import AddPlates from '@/components/pages/Exercise/AddPlates';
 import useAddExercise from '@/components/pages/Exercise/AddExercise/useAddExercise';
 import SetReps from '@/components/pages/Exercise/SetReps';
-import usePlates from '@/components/pages/Exercise/usePlates';
+import { PlatesAPI } from '@/components/pages/Exercise/usePlates';
 
 const exerciseCss = css`
   display: flex;
@@ -42,11 +41,13 @@ const addCss = css`
 interface AddBarExerciseProps {
   barExercise: BarExercise;
   onCancel: () => void;
+  platesAPI: PlatesAPI;
 }
 
 const AddBarExercise: React.FC<AddBarExerciseProps> = ({
   barExercise,
   onCancel,
+  platesAPI,
 }) => {
   const theme = useTheme();
   const [warmup, setWarmup] = usePersistentBoolean(
@@ -59,13 +60,6 @@ const AddBarExercise: React.FC<AddBarExerciseProps> = ({
     1,
     `add-lift/${nameForExercise(barExercise)}`,
   );
-
-  const [plates, setPlates] = usePersistentArray<PlateWeight>(
-    ArrayKey.Plates,
-    [],
-    nameForExercise(barExercise) || '',
-  );
-  const platesAPI = usePlates(plates, setPlates);
 
   const addExercise = useAddExercise();
 

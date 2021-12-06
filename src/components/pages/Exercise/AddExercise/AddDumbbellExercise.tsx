@@ -3,26 +3,22 @@ import { Box, Button } from '@mui/material';
 import * as React from 'react';
 import { Timestamp } from 'firebase/firestore';
 import usePersistentNumber, { NumberKey } from '@/hooks/usePersistentNumber';
-import {
-  Exercise,
-  DumbbellExerciseData,
-  Weight_V1,
-  DumbbellExercise,
-} from '@/types';
+import { Exercise, DumbbellExerciseData, DumbbellExercise } from '@/types';
 import { nameForExercise } from '@/util';
 import useAddExercise from '@/components/pages/Exercise/AddExercise/useAddExercise';
 import SetReps from '@/components/pages/Exercise/SetReps';
-import usePersistentObject, { StorageKey } from '@/hooks/usePersistentObject';
 import Dumbbell from '@/components/common/Dumbbell';
-import useDumbbellWeight from '@/components/pages/Exercise/AddExercise/useDumbbellWeight';
+import { DumbbellAPI } from '@/components/pages/Exercise/AddExercise/useDumbbellWeight';
 
 interface AddDumbbellExerciseProps {
   dumbbellExercise: DumbbellExercise;
+  dumbbellAPI: DumbbellAPI;
   onCancel: () => void;
 }
 
 const AddDumbbellExercise: React.FC<AddDumbbellExerciseProps> = ({
   dumbbellExercise,
+  dumbbellAPI,
   onCancel,
 }) => {
   const addExercise = useAddExercise();
@@ -31,12 +27,7 @@ const AddDumbbellExercise: React.FC<AddDumbbellExerciseProps> = ({
     1,
     `add-dumbbell-exercise/${nameForExercise(dumbbellExercise)}`,
   );
-  const [weight, setWeight] = usePersistentObject<Weight_V1>(
-    StorageKey.DumbbellExerciseWeight,
-    { unit: 'lb', value: 10, version: 1 },
-    `dumbbell/${nameForExercise(dumbbellExercise)}`,
-  );
-  const weightAPI = useDumbbellWeight(setWeight);
+  const { weight } = dumbbellAPI;
 
   const getDumbbellExerciseData =
     React.useCallback((): DumbbellExerciseData => {
@@ -70,11 +61,11 @@ const AddDumbbellExercise: React.FC<AddDumbbellExerciseProps> = ({
           alignItems: 'center',
         }}
       >
-        <Button variant="outlined" onClick={weightAPI.bumpDown}>
+        <Button variant="outlined" onClick={dumbbellAPI.bumpDown}>
           Weight Down
         </Button>
         <Dumbbell weight={weight} viewportWidth={30} />
-        <Button variant="outlined" onClick={weightAPI.bumpUp}>
+        <Button variant="outlined" onClick={dumbbellAPI.bumpUp}>
           Weight Up
         </Button>
       </Box>

@@ -31,7 +31,7 @@ const UpdateBarExercise: React.FC<UpdateBarExerciseProps> = ({
   const updateExercise = useUpdateDumbbellExercise();
 
   const [weight, setWeight] = React.useState(dumbbellExerciseData.weight);
-  const weightAPI = useDumbbellWeight(setWeight);
+  const weightAPI = useDumbbellWeight(weight, setWeight);
 
   return (
     <>
