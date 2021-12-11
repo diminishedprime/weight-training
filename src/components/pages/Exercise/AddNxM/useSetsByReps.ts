@@ -2,13 +2,22 @@ import { Timestamp } from 'firebase/firestore';
 import { useCallback, useEffect, useState } from 'react';
 import { getOneRepMax } from '@/firebase';
 import {
+  BarbbellRow_V1,
   BarExercise,
   BarExerciseData,
   BarSet,
+  BenchPress_V3,
+  Deadlift_V3,
   Exercise,
+  FrontSquat_V3,
+  InclineBenchPress_V1,
   OneRepMax,
+  OverheadPress_V3,
   Reps,
+  RomainianDeadlift_V1,
   Sets,
+  Snatch_V1,
+  Squat_V3,
   WarmupSet,
   Weight_V1,
 } from '@/types';
@@ -178,34 +187,71 @@ const useSetsByReps = (
             status: 'finished',
             time: Timestamp.now(),
           };
-          addExercise(
-            (() => {
-              const basePlate: Omit<BarExerciseData, 'type' | 'version'> = {
-                date: Timestamp.now(),
-                reps: s.reps,
-                warmup: s.warmup,
-                weight: s.weight,
-              };
-              switch (exercise) {
-                case Exercise.Snatch:
-                  return { ...basePlate, type: 'snatch', version: 1 };
-                case Exercise.Deadlift:
-                  return { ...basePlate, type: 'deadlift', version: 3 };
-                case Exercise.Squat:
-                  return { ...basePlate, type: 'squat', version: 3 };
-                case Exercise.FrontSquat:
-                  return { ...basePlate, type: 'front-squat', version: 3 };
-                case Exercise.BenchPress:
-                  return { ...basePlate, type: 'bench-press', version: 3 };
-                case Exercise.OverheadPress:
-                  return { ...basePlate, type: 'overhead-press', version: 3 };
-                default: {
-                  const exhaustiveCheck: never = exercise;
-                  throw new Error(`Unhandled case: ${exhaustiveCheck}`);
-                }
+          const exerciseData: BarExerciseData = (() => {
+            const basePlate: Omit<BarExerciseData, 'type' | 'version'> = {
+              date: Timestamp.now(),
+              reps: s.reps,
+              warmup: s.warmup,
+              weight: s.weight,
+            };
+            switch (exercise) {
+              case Exercise.Snatch:
+                return {
+                  ...basePlate,
+                  type: 'snatch',
+                  version: 1,
+                } as Snatch_V1;
+              case Exercise.Deadlift:
+                return {
+                  ...basePlate,
+                  type: 'deadlift',
+                  version: 3,
+                } as Deadlift_V3;
+              case Exercise.Squat:
+                return { ...basePlate, type: 'squat', version: 3 } as Squat_V3;
+              case Exercise.FrontSquat:
+                return {
+                  ...basePlate,
+                  type: 'front-squat',
+                  version: 3,
+                } as FrontSquat_V3;
+              case Exercise.BenchPress:
+                return {
+                  ...basePlate,
+                  type: 'bench-press',
+                  version: 3,
+                } as BenchPress_V3;
+              case Exercise.OverheadPress:
+                return {
+                  ...basePlate,
+                  type: 'overhead-press',
+                  version: 3,
+                } as OverheadPress_V3;
+              case Exercise.RomainianDeadlift:
+                return {
+                  ...basePlate,
+                  type: 'romanian-deadlift',
+                  version: 1,
+                } as RomainianDeadlift_V1;
+              case Exercise.BarbbellRow:
+                return {
+                  ...basePlate,
+                  type: 'barbbell-row',
+                  version: 1,
+                } as BarbbellRow_V1;
+              case Exercise.InclineBenchPress:
+                return {
+                  ...basePlate,
+                  type: 'incline-bench-press',
+                  version: 1,
+                } as InclineBenchPress_V1;
+              default: {
+                const exhaustiveCheck: never = exercise;
+                throw new Error(`Unhandled case: ${exhaustiveCheck}`);
               }
-            })() as BarExerciseData,
-          );
+            }
+          })();
+          addExercise(exerciseData);
           return nu;
         }),
       };

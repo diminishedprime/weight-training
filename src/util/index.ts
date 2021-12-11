@@ -35,6 +35,18 @@ export const nameForExercise = (
       return 'dumbbell-bicep-curl';
     case Exercise.DumbbellHammerCurl:
       return 'dumbbell-hammer-curl';
+    case Exercise.RomainianDeadlift:
+      return 'romanian-deadlift';
+    case Exercise.BarbbellRow:
+      return 'barbbell-row';
+    case Exercise.InclineBenchPress:
+      return 'incline-bench-press';
+    case Exercise.DumbbellPreacherCurl:
+      return 'dumbbell-preacher-curl';
+    case Exercise.LateralRaise:
+      return 'lateral-raise';
+    case Exercise.DumbbellSkullCrusher:
+      return 'dumbbell-skull-crusher';
     case undefined:
     case null:
       return undefined;
@@ -67,6 +79,18 @@ export const fromDBExercise = (v: ExerciseData['type']): Exercise => {
       return Exercise.DumbbellBicepCurl;
     case 'dumbbell-hammer-curl':
       return Exercise.DumbbellHammerCurl;
+    case 'romanian-deadlift':
+      return Exercise.RomainianDeadlift;
+    case 'barbbell-row':
+      return Exercise.BarbbellRow;
+    case 'incline-bench-press':
+      return Exercise.InclineBenchPress;
+    case 'dumbbell-preacher-curl':
+      return Exercise.DumbbellPreacherCurl;
+    case 'lateral-raise':
+      return Exercise.LateralRaise;
+    case 'dumbbell-skull-crusher':
+      return Exercise.DumbbellSkullCrusher;
     default: {
       const exhaustiveCheck: never = v;
       throw new Error(`Unhandled case: ${exhaustiveCheck}`);

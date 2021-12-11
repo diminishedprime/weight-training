@@ -3,7 +3,18 @@ import { Box, Button } from '@mui/material';
 import * as React from 'react';
 import { Timestamp } from 'firebase/firestore';
 import usePersistentNumber, { NumberKey } from '@/hooks/usePersistentNumber';
-import { Exercise, DumbbellExerciseData, DumbbellExercise } from '@/types';
+import {
+  Exercise,
+  DumbbellExerciseData,
+  DumbbellExercise,
+  DumbbellBicepCurl_V1,
+  DumbbellFly_V1,
+  DumbbellRow_V1,
+  DumbbellHammerCurl_V1,
+  LateralRaise_V1,
+  DumbbellSkullCrusher_V1,
+  DumbbellPreacherCurl_V1,
+} from '@/types';
 import { nameForExercise } from '@/util';
 import useAddExercise from '@/components/pages/Exercise/AddExercise/useAddExercise';
 import SetReps from '@/components/pages/Exercise/SetReps';
@@ -38,13 +49,47 @@ const AddDumbbellExercise: React.FC<AddDumbbellExerciseProps> = ({
       };
       switch (dumbbellExercise) {
         case Exercise.DumbbellFly:
-          return { ...baseExercise, type: 'dumbbell-fly', version: 1 };
+          return {
+            ...baseExercise,
+            type: 'dumbbell-fly',
+            version: 1,
+          } as DumbbellFly_V1;
         case Exercise.DumbbellRow:
-          return { ...baseExercise, type: 'dumbbell-row', version: 1 };
+          return {
+            ...baseExercise,
+            type: 'dumbbell-row',
+            version: 1,
+          } as DumbbellRow_V1;
         case Exercise.DumbbellBicepCurl:
-          return { ...baseExercise, type: 'dumbbell-bicep-curl', version: 1 };
+          return {
+            ...baseExercise,
+            type: 'dumbbell-bicep-curl',
+            version: 1,
+          } as DumbbellBicepCurl_V1;
         case Exercise.DumbbellHammerCurl:
-          return { ...baseExercise, type: 'dumbbell-hammer-curl', version: 1 };
+          return {
+            ...baseExercise,
+            type: 'dumbbell-hammer-curl',
+            version: 1,
+          } as DumbbellHammerCurl_V1;
+        case Exercise.LateralRaise:
+          return {
+            ...baseExercise,
+            type: 'lateral-raise',
+            version: 1,
+          } as LateralRaise_V1;
+        case Exercise.DumbbellSkullCrusher:
+          return {
+            ...baseExercise,
+            type: 'dumbbell-skull-crusher',
+            version: 1,
+          } as DumbbellSkullCrusher_V1;
+        case Exercise.DumbbellPreacherCurl:
+          return {
+            ...baseExercise,
+            type: 'dumbbell-preacher-curl',
+            version: 1,
+          } as DumbbellPreacherCurl_V1;
         default: {
           const exhaustiveCheck: never = dumbbellExercise;
           throw new Error(`Unhandled case: ${exhaustiveCheck}`);

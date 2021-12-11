@@ -1,15 +1,3 @@
-const alphabet = (): string[] => {
-  const a = [];
-  const start = 'a'.charCodeAt(0);
-  const end = 'z'.charCodeAt(0);
-  for (var i = start; i <= end; ++i) {
-    a.push(String.fromCharCode(i));
-  }
-  return a;
-};
-
-const Alphabet = alphabet();
-
 interface LiteralType {
   type: 'literal-type';
   value: string;
@@ -36,6 +24,7 @@ interface Metadata {
   narrowFunctionName?: string;
   enumValue?: string;
   uiString?: string;
+  aka?: string[];
   uiStringFunctionName?: string;
   targetAreas?: string[];
   equipment?: string[];
@@ -397,76 +386,145 @@ const commonDumbbell = (typeValue: string): TypeField[] => [
   ['reps', 'number', true],
 ];
 
-const barExerciseTypes: CustomType[] = [
-  customType('Deadlift', 3, commonBar('deadlift'), {
-    enumValue: 'a',
-    uiString: 'Deadlift',
-    equipment: ['barbbell'],
-    targetAreas: ['back', 'hamstrings', 'trapezies'],
-  }),
-  customType('Squat', 3, commonBar('squat'), {
-    enumValue: 'b',
-    uiString: 'Squat',
-    equipment: ['barbbell'],
-    targetAreas: ['abdominuls', 'quadriceps', 'glutes', 'hamstrings', 'back'],
-  }),
-  customType('FrontSquat', 3, commonBar('front-squat'), {
-    enumValue: 'c',
-    uiString: 'Front Squat',
-    equipment: ['barbbell'],
-    targetAreas: ['quadriceps', 'back'],
-  }),
-  customType('BenchPress', 3, commonBar('bench-press'), {
-    enumValue: 'd',
-    uiString: 'Bench Press',
-    equipment: ['barbbell'],
-    targetAreas: ['pectoralis', 'deltoids'],
-  }),
-  customType('OverheadPress', 3, commonBar('overhead-press'), {
-    enumValue: 'e',
-    uiString: 'Overhead Press',
-    equipment: ['barbbell'],
-    targetAreas: ['shoulders', 'triceps', 'deltoids'],
-  }),
-  customType('Snatch', 1, commonBar('snatch'), {
-    enumValue: 'f',
-    uiString: 'Snatch',
-    equipment: ['barbbell'],
-    targetAreas: ['yes'],
-  }),
-].map((ct) => ({
-  ...ct,
-  metadata: { ...ct.metadata, exerciseType: 'barbbell' },
-}));
+const A = customType('Deadlift', 3, commonBar('deadlift'), {
+  enumValue: 'a',
+  uiString: 'Deadlift',
+  equipment: ['barbbell'],
+  targetAreas: ['back', 'hamstrings', 'trapezies'],
+});
 
-// TODO - Since the order here matters, we can never add another
-// barExerciseType or the enum will break. Figure out a way around this.
-const dumbbellExerciseTypes: CustomType[] = [
-  customType('DumbbellRow', 1, commonDumbbell('dumbbell-row'), {
-    enumValue: 'g',
-    uiString: 'Bent-Over Row',
-    equipment: ['dumbbell'],
-    targetAreas: ['back', 'deltoids'],
-  }),
-  customType('DumbbellFly', 1, commonDumbbell('dumbbell-fly'), {
-    enumValue: 'h',
-    uiString: 'Fly',
-    equipment: ['dumbbell'],
-    targetAreas: ['pectoralis', 'deltoids'],
-  }),
-  customType('DumbbellBicepCurl', 1, commonDumbbell('dumbbell-bicep-curl'), {
+const B = customType('Squat', 3, commonBar('squat'), {
+  enumValue: 'b',
+  uiString: 'Squat',
+  equipment: ['barbbell'],
+  targetAreas: ['abdominuls', 'quadriceps', 'glutes', 'hamstrings', 'back'],
+});
+
+const C = customType('FrontSquat', 3, commonBar('front-squat'), {
+  enumValue: 'c',
+  uiString: 'Front Squat',
+  equipment: ['barbbell'],
+  targetAreas: ['quadriceps', 'back'],
+});
+
+const D = customType('BenchPress', 3, commonBar('bench-press'), {
+  enumValue: 'd',
+  uiString: 'Bench Press',
+  equipment: ['barbbell'],
+  targetAreas: ['pectoralis', 'deltoids'],
+});
+
+const E = customType('OverheadPress', 3, commonBar('overhead-press'), {
+  enumValue: 'e',
+  uiString: 'Overhead Press',
+  equipment: ['barbbell'],
+  targetAreas: ['shoulders', 'triceps', 'deltoids'],
+});
+
+const F = customType('Snatch', 1, commonBar('snatch'), {
+  enumValue: 'f',
+  uiString: 'Snatch',
+  equipment: ['barbbell'],
+  targetAreas: ['yes'],
+});
+
+const G = customType('DumbbellRow', 1, commonDumbbell('dumbbell-row'), {
+  enumValue: 'g',
+  uiString: 'Dumbbell Row',
+  equipment: ['dumbbell'],
+  targetAreas: ['back', 'deltoids'],
+});
+
+const H = customType('DumbbellFly', 1, commonDumbbell('dumbbell-fly'), {
+  enumValue: 'h',
+  uiString: 'Fly',
+  equipment: ['dumbbell'],
+  targetAreas: ['pectoralis', 'deltoids'],
+});
+
+const I = customType(
+  'DumbbellBicepCurl',
+  1,
+  commonDumbbell('dumbbell-bicep-curl'),
+  {
     enumValue: 'i',
     uiString: 'Bicep Curl',
     equipment: ['dumbbell'],
     targetAreas: ['biceps'],
-  }),
-  customType('DumbbellHammerCurl', 1, commonDumbbell('dumbbell-hammer-curl'), {
+  },
+);
+const J = customType(
+  'DumbbellHammerCurl',
+  1,
+  commonDumbbell('dumbbell-hammer-curl'),
+  {
     enumValue: 'j',
     uiString: 'Hammer Curl',
     equipment: ['dumbbell'],
     targetAreas: ['biceps'],
+  },
+);
+const K = customType('RomainianDeadlift', 1, commonBar('romanian-deadlift'), {
+  enumValue: 'k',
+  uiString: 'Romainian Deadlift',
+  equipment: ['barbbell'],
+  targetAreas: [],
+});
+
+const L = customType('BarbbellRow', 1, commonBar('barbbell-row'), {
+  enumValue: 'l',
+  uiString: 'Barbbell Row',
+  equipment: ['barbbell'],
+  targetAreas: ['back', 'deltoids'],
+});
+
+const M = customType(
+  'DumbbellPreacherCurl',
+  1,
+  commonDumbbell('dumbbell-preacher-curl'),
+  {
+    enumValue: 'm',
+    uiString: 'Dumbbell Preacher Curl',
+    equipment: ['dumbbell'],
+    targetAreas: [],
+  },
+);
+
+const N = customType('InclineBenchPress', 1, commonBar('incline-bench-press'), {
+  enumValue: 'n',
+  uiString: 'Incline Bench Press',
+  equipment: ['barbbell'],
+  targetAreas: [],
+});
+
+const O = customType('LateralRaise', 1, commonDumbbell('lateral-raise'), {
+  enumValue: 'o',
+  uiString: 'Lateral Raise',
+  equipment: ['dumbbell'],
+  targetAreas: [],
+});
+
+const P = customType(
+  'DumbbellSkullCrusher',
+  1,
+  commonDumbbell('dumbbell-skull-crusher'),
+  {
+    enumValue: 'p',
+    uiString: 'Dumbbell Skull Crusher',
+    aka: ['Dumbbell BRAIN BASHER'],
+    equipment: ['dumbbell'],
+    targetAreas: ['triceps'],
+  },
+);
+
+const barExerciseTypes: CustomType[] = [A, B, C, D, E, F, K, L, N].map(
+  (ct) => ({
+    ...ct,
+    metadata: { ...ct.metadata, exerciseType: 'barbbell' },
   }),
-].map((ct) => ({
+);
+
+const dumbbellExerciseTypes: CustomType[] = [G, H, I, J, M, O, P].map((ct) => ({
   ...ct,
   metadata: { ...ct.metadata, exerciseType: 'dumbbell' },
 }));
@@ -475,6 +533,19 @@ const exerciseTypes: CustomType[] = [
   ...barExerciseTypes,
   ...dumbbellExerciseTypes,
 ];
+
+const exerciseEnumValues = exerciseTypes.map((e) => e.metadata?.enumValue);
+
+if (!exerciseEnumValues.every((a) => a !== undefined)) {
+  throw new Error(
+    "One or more enum values are undefined for the exerciseTypes. Make sure they're present in the metadat.",
+  );
+}
+
+const enumValuesSet = new Set(exerciseEnumValues);
+if (exerciseEnumValues.length !== enumValuesSet.size) {
+  throw new Error('You reused an enum value for the exercises.');
+}
 
 const ExerciseEnum = enumType(
   'Exercise',
@@ -510,11 +581,13 @@ const enumUnionTypesToGenerate: EnumUnionType[] = [
     { narrowFunctionName: 'narrowBarExercise' },
   ),
 ];
+
 const typesToGenerate: CustomType[] = [
   Weight_V1,
   ExerciseMetadata_V1,
   ...exerciseTypes,
 ];
+
 const typeUnions: CustomTypeUnion[] = [
   customTypeUnion('ExerciseData', [...exerciseTypes]),
   customTypeUnion('BarExerciseData', [...barExerciseTypes]),

@@ -11,7 +11,20 @@ import {
 import * as React from 'react';
 import { Timestamp } from 'firebase/firestore';
 import usePersistentNumber, { NumberKey } from '@/hooks/usePersistentNumber';
-import { BarExerciseData, BarExercise, Exercise } from '@/types';
+import {
+  BarExerciseData,
+  BarExercise,
+  Exercise,
+  Snatch_V1,
+  Deadlift_V3,
+  Squat_V3,
+  FrontSquat_V3,
+  BenchPress_V3,
+  OverheadPress_V3,
+  RomainianDeadlift_V1,
+  BarbbellRow_V1,
+  InclineBenchPress_V1,
+} from '@/types';
 import { nameForExercise } from '@/util';
 import usePersistentBoolean, { BooleanKey } from '@/hooks/usePersistentBoolean';
 import Bar from '@/components/common/Bar';
@@ -76,17 +89,47 @@ const AddBarExercise: React.FC<AddBarExerciseProps> = ({
     };
     switch (barExercise) {
       case Exercise.Snatch:
-        return { ...basePlate, type: 'snatch', version: 1 };
+        return { ...basePlate, type: 'snatch', version: 1 } as Snatch_V1;
       case Exercise.Deadlift:
-        return { ...basePlate, type: 'deadlift', version: 3 };
+        return { ...basePlate, type: 'deadlift', version: 3 } as Deadlift_V3;
       case Exercise.Squat:
-        return { ...basePlate, type: 'squat', version: 3 };
+        return { ...basePlate, type: 'squat', version: 3 } as Squat_V3;
       case Exercise.FrontSquat:
-        return { ...basePlate, type: 'front-squat', version: 3 };
+        return {
+          ...basePlate,
+          type: 'front-squat',
+          version: 3,
+        } as FrontSquat_V3;
       case Exercise.BenchPress:
-        return { ...basePlate, type: 'bench-press', version: 3 };
+        return {
+          ...basePlate,
+          type: 'bench-press',
+          version: 3,
+        } as BenchPress_V3;
       case Exercise.OverheadPress:
-        return { ...basePlate, type: 'overhead-press', version: 3 };
+        return {
+          ...basePlate,
+          type: 'overhead-press',
+          version: 3,
+        } as OverheadPress_V3;
+      case Exercise.RomainianDeadlift:
+        return {
+          ...basePlate,
+          type: 'romanian-deadlift',
+          version: 1,
+        } as RomainianDeadlift_V1;
+      case Exercise.BarbbellRow:
+        return {
+          ...basePlate,
+          type: 'barbbell-row',
+          version: 1,
+        } as BarbbellRow_V1;
+      case Exercise.InclineBenchPress:
+        return {
+          ...basePlate,
+          type: 'incline-bench-press',
+          version: 1,
+        } as InclineBenchPress_V1;
       default: {
         const exhaustiveCheck: never = barExercise;
         throw new Error(`Unhandled case: ${exhaustiveCheck}`);

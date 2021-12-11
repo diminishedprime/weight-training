@@ -8,17 +8,26 @@ export enum Exercise {
   BenchPress = 'd',
   OverheadPress = 'e',
   Snatch = 'f',
+  RomainianDeadlift = 'k',
+  BarbbellRow = 'l',
+  InclineBenchPress = 'n',
   DumbbellRow = 'g',
   DumbbellFly = 'h',
   DumbbellBicepCurl = 'i',
   DumbbellHammerCurl = 'j',
+  DumbbellPreacherCurl = 'm',
+  LateralRaise = 'o',
+  DumbbellSkullCrusher = 'p',
 }
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export type DumbbellExercise =
   | Exercise.DumbbellRow
   | Exercise.DumbbellFly
   | Exercise.DumbbellBicepCurl
-  | Exercise.DumbbellHammerCurl;
+  | Exercise.DumbbellHammerCurl
+  | Exercise.DumbbellPreacherCurl
+  | Exercise.LateralRaise
+  | Exercise.DumbbellSkullCrusher;
 
 export type BarExercise =
   | Exercise.Deadlift
@@ -26,7 +35,10 @@ export type BarExercise =
   | Exercise.FrontSquat
   | Exercise.BenchPress
   | Exercise.OverheadPress
-  | Exercise.Snatch;
+  | Exercise.Snatch
+  | Exercise.RomainianDeadlift
+  | Exercise.BarbbellRow
+  | Exercise.InclineBenchPress;
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export interface Weight_V1 {
   unit: 'lb' | 'kg';
@@ -120,6 +132,33 @@ export interface Snatch_V1 {
   version: 1;
 }
 
+export interface RomainianDeadlift_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'romanian-deadlift';
+  reps: number;
+  warmup: boolean;
+  version: 1;
+}
+
+export interface BarbbellRow_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'barbbell-row';
+  reps: number;
+  warmup: boolean;
+  version: 1;
+}
+
+export interface InclineBenchPress_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'incline-bench-press';
+  reps: number;
+  warmup: boolean;
+  version: 1;
+}
+
 export interface DumbbellRow_V1 {
   date: Timestamp;
   weight: Weight_V1;
@@ -151,6 +190,30 @@ export interface DumbbellHammerCurl_V1 {
   reps: number;
   version: 1;
 }
+
+export interface DumbbellPreacherCurl_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'dumbbell-preacher-curl';
+  reps: number;
+  version: 1;
+}
+
+export interface LateralRaise_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'lateral-raise';
+  reps: number;
+  version: 1;
+}
+
+export interface DumbbellSkullCrusher_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'dumbbell-skull-crusher';
+  reps: number;
+  version: 1;
+}
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export type ExerciseData =
   | Deadlift_V3
@@ -159,10 +222,16 @@ export type ExerciseData =
   | BenchPress_V3
   | OverheadPress_V3
   | Snatch_V1
+  | RomainianDeadlift_V1
+  | BarbbellRow_V1
+  | InclineBenchPress_V1
   | DumbbellRow_V1
   | DumbbellFly_V1
   | DumbbellBicepCurl_V1
-  | DumbbellHammerCurl_V1;
+  | DumbbellHammerCurl_V1
+  | DumbbellPreacherCurl_V1
+  | LateralRaise_V1
+  | DumbbellSkullCrusher_V1;
 
 export type BarExerciseData =
   | Deadlift_V3
@@ -170,13 +239,19 @@ export type BarExerciseData =
   | FrontSquat_V3
   | BenchPress_V3
   | OverheadPress_V3
-  | Snatch_V1;
+  | Snatch_V1
+  | RomainianDeadlift_V1
+  | BarbbellRow_V1
+  | InclineBenchPress_V1;
 
 export type DumbbellExerciseData =
   | DumbbellRow_V1
   | DumbbellFly_V1
   | DumbbellBicepCurl_V1
-  | DumbbellHammerCurl_V1;
+  | DumbbellHammerCurl_V1
+  | DumbbellPreacherCurl_V1
+  | LateralRaise_V1
+  | DumbbellSkullCrusher_V1;
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export const narrowDumbbellExercise = (
   toNarrow: Exercise,
@@ -184,7 +259,10 @@ export const narrowDumbbellExercise = (
   toNarrow === Exercise.DumbbellRow ||
   toNarrow === Exercise.DumbbellFly ||
   toNarrow === Exercise.DumbbellBicepCurl ||
-  toNarrow === Exercise.DumbbellHammerCurl;
+  toNarrow === Exercise.DumbbellHammerCurl ||
+  toNarrow === Exercise.DumbbellPreacherCurl ||
+  toNarrow === Exercise.LateralRaise ||
+  toNarrow === Exercise.DumbbellSkullCrusher;
 
 export const narrowBarExercise = (
   toNarrow: Exercise,
@@ -194,7 +272,10 @@ export const narrowBarExercise = (
   toNarrow === Exercise.FrontSquat ||
   toNarrow === Exercise.BenchPress ||
   toNarrow === Exercise.OverheadPress ||
-  toNarrow === Exercise.Snatch;
+  toNarrow === Exercise.Snatch ||
+  toNarrow === Exercise.RomainianDeadlift ||
+  toNarrow === Exercise.BarbbellRow ||
+  toNarrow === Exercise.InclineBenchPress;
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 
 export const exerciseUIString = (e: Exercise) => {
@@ -211,14 +292,26 @@ export const exerciseUIString = (e: Exercise) => {
       return 'Overhead Press';
     case Exercise.Snatch:
       return 'Snatch';
+    case Exercise.RomainianDeadlift:
+      return 'Romainian Deadlift';
+    case Exercise.BarbbellRow:
+      return 'Barbbell Row';
+    case Exercise.InclineBenchPress:
+      return 'Incline Bench Press';
     case Exercise.DumbbellRow:
-      return 'Bent-Over Row';
+      return 'Dumbbell Row';
     case Exercise.DumbbellFly:
       return 'Fly';
     case Exercise.DumbbellBicepCurl:
       return 'Bicep Curl';
     case Exercise.DumbbellHammerCurl:
       return 'Hammer Curl';
+    case Exercise.DumbbellPreacherCurl:
+      return 'Dumbbell Preacher Curl';
+    case Exercise.LateralRaise:
+      return 'Lateral Raise';
+    case Exercise.DumbbellSkullCrusher:
+      return 'Dumbbell Skull Crusher';
     default: {
       const exhaustiveCheck: never = e;
       console.log({ exhaustiveCheck });
@@ -277,6 +370,27 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         equipment: ['barbbell'],
       };
     }
+    case Exercise.RomainianDeadlift: {
+      return {
+        version: 1,
+        targetAreas: [],
+        equipment: ['barbbell'],
+      };
+    }
+    case Exercise.BarbbellRow: {
+      return {
+        version: 1,
+        targetAreas: ['back', 'deltoids'],
+        equipment: ['barbbell'],
+      };
+    }
+    case Exercise.InclineBenchPress: {
+      return {
+        version: 1,
+        targetAreas: [],
+        equipment: ['barbbell'],
+      };
+    }
     case Exercise.DumbbellRow: {
       return {
         version: 1,
@@ -302,6 +416,27 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
       return {
         version: 1,
         targetAreas: ['biceps'],
+        equipment: ['dumbbell'],
+      };
+    }
+    case Exercise.DumbbellPreacherCurl: {
+      return {
+        version: 1,
+        targetAreas: [],
+        equipment: ['dumbbell'],
+      };
+    }
+    case Exercise.LateralRaise: {
+      return {
+        version: 1,
+        targetAreas: [],
+        equipment: ['dumbbell'],
+      };
+    }
+    case Exercise.DumbbellSkullCrusher: {
+      return {
+        version: 1,
+        targetAreas: ['triceps'],
         equipment: ['dumbbell'],
       };
     }
