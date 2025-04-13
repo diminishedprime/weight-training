@@ -55,8 +55,40 @@ export interface Weight_V1 {
 }
 
 export interface ExerciseMetadata_V1 {
-  targetAreas: Array<'chest' | 'back' | 'shoulders' | 'pectoralis' | 'glutes' | 'arms' | 'thighs' | 'calves' | 'quadriceps' | 'tensor fascia latae' | 'hip abductors' | 'hip flexors' | 'trapezies' | 'abs' | 'abdominuls' | 'rectus abdominus' | 'internal obliques' | 'external obliques' | 'legs' | 'hamstrings' | 'biceps' | 'triceps' | 'deltoids' | 'yes'>;
-  equipment: Array<'barbbell' | 'dumbbell' | 'bodyweight' | 'kettlebell' | 'resistance band' | 'machine'>;
+  targetAreas: Array<
+    | 'chest'
+    | 'back'
+    | 'shoulders'
+    | 'pectoralis'
+    | 'glutes'
+    | 'arms'
+    | 'thighs'
+    | 'calves'
+    | 'quadriceps'
+    | 'tensor fascia latae'
+    | 'hip abductors'
+    | 'hip flexors'
+    | 'trapezies'
+    | 'abs'
+    | 'abdominuls'
+    | 'rectus abdominus'
+    | 'internal obliques'
+    | 'external obliques'
+    | 'legs'
+    | 'hamstrings'
+    | 'biceps'
+    | 'triceps'
+    | 'deltoids'
+    | 'yes'
+  >;
+  equipment: Array<
+    | 'barbbell'
+    | 'dumbbell'
+    | 'bodyweight'
+    | 'kettlebell'
+    | 'resistance band'
+    | 'machine'
+  >;
   version: 1;
 }
 
@@ -472,21 +504,21 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['abdominuls'],
         equipment: ['machine'],
-      }
+      };
     }
     case Exercise.LegCurlMachine: {
       return {
         version: 1,
         targetAreas: ['hamstrings'],
         equipment: ['machine'],
-      }
+      };
     }
     case Exercise.AdductionInnerThighMachine: {
       return {
         version: 1,
         targetAreas: ['hip flexors', 'glutes'],
         equipment: ['machine'],
-      }
+      };
     }
     default: {
       const exhaustiveCheck: never = e;

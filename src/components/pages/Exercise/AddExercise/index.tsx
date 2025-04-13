@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { Button } from '@mui/material';
-import { Exercise, narrowBarExercise, narrowDumbbellExercise, narrowMachineExercise } from '@/types';
+import {
+  Exercise,
+  narrowBarExercise,
+  narrowDumbbellExercise,
+  narrowMachineExercise,
+} from '@/types';
 import AddBarExercise from '@/components/pages/Exercise/AddExercise/AddBarExercise';
 import AddDumbbellExercise from '@/components/pages/Exercise/AddExercise/AddDumbbellExercise';
 import AddMachineExercise from '@/components/pages/Exercise/AddExercise/AddMachineExercise';
@@ -59,11 +64,11 @@ const AddExercise: React.FC<AddExerciseProps> = ({
     if (narrowMachineExercise(exercise)) {
       return (
         <AddMachineExercise
-        machineAPI={machineAPI}
+          machineAPI={machineAPI}
           machineExercise={exercise}
           onCancel={onCancel}
         />
-      )
+      );
     }
   }
   return null;

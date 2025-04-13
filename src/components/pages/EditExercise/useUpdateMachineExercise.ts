@@ -1,4 +1,3 @@
-
 import { useCallback } from 'react';
 import { updateMachineExercise } from '@/firebase';
 import { MachineExerciseData, Update, WithID } from '@/types';

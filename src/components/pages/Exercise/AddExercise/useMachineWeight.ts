@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
 import { Weight_V1 } from '@/types';
 
-
 const Weights: Weight_V1[] = [
   { value: 5, unit: 'lb', version: 1 },
   { value: 10, unit: 'lb', version: 1 },

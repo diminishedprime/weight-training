@@ -69,9 +69,7 @@ const EditExercise: React.FC = () => {
     if (narrowMachineExercise(fromDBExercise(request.exercise.type))) {
       return (
         <UpdateMachineExercise
-          machineExerciseData={
-            request.exercise as WithID<MachineExerciseData>
-          }
+          machineExerciseData={request.exercise as WithID<MachineExerciseData>}
         />
       );
     }

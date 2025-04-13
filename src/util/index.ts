@@ -52,7 +52,7 @@ export const nameForExercise = (
     case Exercise.AdductionInnerThighMachine:
       return 'adduction-inner-thigh-machine';
     case Exercise.LegCurlMachine:
-      return 'leg-curl-machine'
+      return 'leg-curl-machine';
     case undefined:
     case null:
       return undefined;

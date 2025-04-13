@@ -14,7 +14,7 @@ import {
 import { nameForExercise } from '@/util';
 import useAddExercise from '@/components/pages/Exercise/AddExercise/useAddExercise';
 import SetReps from '@/components/pages/Exercise/SetReps';
-import MachineStack from '@/components/common/MachineStack'
+import MachineStack from '@/components/common/MachineStack';
 import { MachineAPI } from '@/components/pages/Exercise/AddExercise/useMachineWeight';
 
 interface AddMachineExerciseProps {
@@ -36,38 +36,37 @@ const AddMachineExercise: React.FC<AddMachineExerciseProps> = ({
   );
   const { weight } = machineAPI;
 
-  const getMachineExerciseData =
-    React.useCallback((): MachineExerciseData => {
-      const baseExercise: Omit<MachineExerciseData, 'type' | 'version'> = {
-        date: Timestamp.now(),
-        reps,
-        weight,
-      };
-      switch (machineExercise) {
-        case Exercise.AbdominalMachine:
-            return {
-                ...baseExercise,
-                type: 'abdominal-machine',
-                version: 1,
-            } as AbdominalMachine_V1;
-        case Exercise.LegCurlMachine:
-            return {
-                ...baseExercise,
-                type: 'leg-curl-machine',
-                version: 1,
-            } as LegCurlMachine_V1;
-        case Exercise.AdductionInnerThighMachine:
-            return {
-                ...baseExercise,
-                type: 'adduction-inner-thigh-machine',
-                version: 1,
-            } as AdductionInnerThighMachine_V1
-        default: {
-          const exhaustiveCheck: never = machineExercise;
-          throw new Error(`Unhandled case: ${exhaustiveCheck}`);
-        }
+  const getMachineExerciseData = React.useCallback((): MachineExerciseData => {
+    const baseExercise: Omit<MachineExerciseData, 'type' | 'version'> = {
+      date: Timestamp.now(),
+      reps,
+      weight,
+    };
+    switch (machineExercise) {
+      case Exercise.AbdominalMachine:
+        return {
+          ...baseExercise,
+          type: 'abdominal-machine',
+          version: 1,
+        } as AbdominalMachine_V1;
+      case Exercise.LegCurlMachine:
+        return {
+          ...baseExercise,
+          type: 'leg-curl-machine',
+          version: 1,
+        } as LegCurlMachine_V1;
+      case Exercise.AdductionInnerThighMachine:
+        return {
+          ...baseExercise,
+          type: 'adduction-inner-thigh-machine',
+          version: 1,
+        } as AdductionInnerThighMachine_V1;
+      default: {
+        const exhaustiveCheck: never = machineExercise;
+        throw new Error(`Unhandled case: ${exhaustiveCheck}`);
       }
-    }, [machineExercise, reps, weight]);
+    }
+  }, [machineExercise, reps, weight]);
 
   return (
     <>

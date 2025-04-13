@@ -137,7 +137,7 @@ export const updateMachineExercise = async (
 ): Promise<WithID<MachineExerciseData>> => {
   await updateDoc(liftRef(user, id), update);
   return (await getLift(user, id)) as WithID<MachineExerciseData>;
-}
+};
 
 export const updateUserDoc = async (
   user: User,
