@@ -8,12 +8,15 @@ import {
   BarExerciseData,
   DumbbellExerciseData,
   ExerciseData,
+  MachineExerciseData,
   narrowBarExercise,
   narrowDumbbellExercise,
+  narrowMachineExercise,
   WithID,
 } from '@/types';
 import { fromDBExercise } from '@/util';
 import UpdateDumbbellExercise from '@/components/pages/EditExercise/UpdateDumbbellExercise';
+import UpdateMachineExercise from '@/components/pages/EditExercise/UpdateMachineExercise';
 
 export enum QueryParam {
   ExerciseID = 'a',
@@ -59,6 +62,15 @@ const EditExercise: React.FC = () => {
         <UpdateDumbbellExercise
           dumbbellExerciseData={
             request.exercise as WithID<DumbbellExerciseData>
+          }
+        />
+      );
+    }
+    if (narrowMachineExercise(fromDBExercise(request.exercise.type))) {
+      return (
+        <UpdateMachineExercise
+          machineExerciseData={
+            request.exercise as WithID<MachineExerciseData>
           }
         />
       );

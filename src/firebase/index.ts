@@ -24,6 +24,7 @@ import {
   DumbbellExerciseData,
   Exercise,
   ExerciseData,
+  MachineExerciseData,
   OneRepMax,
   Update,
   UserDoc_V4,
@@ -128,6 +129,15 @@ export const updateDumbbellExercise = async (
   await updateDoc(liftRef(user, id), update);
   return (await getLift(user, id)) as WithID<DumbbellExerciseData>;
 };
+
+export const updateMachineExercise = async (
+  user: User,
+  id: string,
+  update: Update<MachineExerciseData>,
+): Promise<WithID<MachineExerciseData>> => {
+  await updateDoc(liftRef(user, id), update);
+  return (await getLift(user, id)) as WithID<MachineExerciseData>;
+}
 
 export const updateUserDoc = async (
   user: User,

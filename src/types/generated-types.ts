@@ -18,6 +18,9 @@ export enum Exercise {
   DumbbellPreacherCurl = 'm',
   LateralRaise = 'o',
   DumbbellSkullCrusher = 'p',
+  AbdominalMachine = 'q',
+  LegCurlMachine = 'r',
+  AdductionInnerThighMachine = 's',
 }
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export type DumbbellExercise =
@@ -39,6 +42,11 @@ export type BarExercise =
   | Exercise.RomainianDeadlift
   | Exercise.BarbbellRow
   | Exercise.InclineBenchPress;
+
+export type MachineExercise =
+  | Exercise.AbdominalMachine
+  | Exercise.LegCurlMachine
+  | Exercise.AdductionInnerThighMachine;
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export interface Weight_V1 {
   unit: 'lb' | 'kg';
@@ -47,34 +55,8 @@ export interface Weight_V1 {
 }
 
 export interface ExerciseMetadata_V1 {
-  targetAreas: Array<
-    | 'chest'
-    | 'back'
-    | 'shoulders'
-    | 'pectoralis'
-    | 'glutes'
-    | 'arms'
-    | 'thighs'
-    | 'calves'
-    | 'quadriceps'
-    | 'tensor fascia latae'
-    | 'hip abductors'
-    | 'trapezies'
-    | 'abs'
-    | 'abdominuls'
-    | 'rectus abdominus'
-    | 'internal obliques'
-    | 'external obliques'
-    | 'legs'
-    | 'hamstrings'
-    | 'biceps'
-    | 'triceps'
-    | 'deltoids'
-    | 'yes'
-  >;
-  equipment: Array<
-    'barbbell' | 'dumbbell' | 'bodyweight' | 'kettlebell' | 'resistance band'
-  >;
+  targetAreas: Array<'chest' | 'back' | 'shoulders' | 'pectoralis' | 'glutes' | 'arms' | 'thighs' | 'calves' | 'quadriceps' | 'tensor fascia latae' | 'hip abductors' | 'hip flexors' | 'trapezies' | 'abs' | 'abdominuls' | 'rectus abdominus' | 'internal obliques' | 'external obliques' | 'legs' | 'hamstrings' | 'biceps' | 'triceps' | 'deltoids' | 'yes'>;
+  equipment: Array<'barbbell' | 'dumbbell' | 'bodyweight' | 'kettlebell' | 'resistance band' | 'machine'>;
   version: 1;
 }
 
@@ -214,6 +196,30 @@ export interface DumbbellSkullCrusher_V1 {
   reps: number;
   version: 1;
 }
+
+export interface AbdominalMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'abdominal-machine';
+  reps: number;
+  version: 1;
+}
+
+export interface LegCurlMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'leg-curl-machine';
+  reps: number;
+  version: 1;
+}
+
+export interface AdductionInnerThighMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'adduction-inner-thigh-machine';
+  reps: number;
+  version: 1;
+}
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export type ExerciseData =
   | Deadlift_V3
@@ -231,7 +237,10 @@ export type ExerciseData =
   | DumbbellHammerCurl_V1
   | DumbbellPreacherCurl_V1
   | LateralRaise_V1
-  | DumbbellSkullCrusher_V1;
+  | DumbbellSkullCrusher_V1
+  | AbdominalMachine_V1
+  | LegCurlMachine_V1
+  | AdductionInnerThighMachine_V1;
 
 export type BarExerciseData =
   | Deadlift_V3
@@ -252,6 +261,11 @@ export type DumbbellExerciseData =
   | DumbbellPreacherCurl_V1
   | LateralRaise_V1
   | DumbbellSkullCrusher_V1;
+
+export type MachineExerciseData =
+  | AbdominalMachine_V1
+  | LegCurlMachine_V1
+  | AdductionInnerThighMachine_V1;
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export const narrowDumbbellExercise = (
   toNarrow: Exercise,
@@ -276,6 +290,13 @@ export const narrowBarExercise = (
   toNarrow === Exercise.RomainianDeadlift ||
   toNarrow === Exercise.BarbbellRow ||
   toNarrow === Exercise.InclineBenchPress;
+
+export const narrowMachineExercise = (
+  toNarrow: Exercise,
+): toNarrow is MachineExercise =>
+  toNarrow === Exercise.AbdominalMachine ||
+  toNarrow === Exercise.LegCurlMachine ||
+  toNarrow === Exercise.AdductionInnerThighMachine;
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 
 export const exerciseUIString = (e: Exercise) => {
@@ -312,6 +333,12 @@ export const exerciseUIString = (e: Exercise) => {
       return 'Lateral Raise';
     case Exercise.DumbbellSkullCrusher:
       return 'Dumbbell Skull Crusher';
+    case Exercise.AbdominalMachine:
+      return 'Abdominal Machine';
+    case Exercise.LegCurlMachine:
+      return 'Leg Curl Machine';
+    case Exercise.AdductionInnerThighMachine:
+      return 'Adduction Inner Thigh Machine';
     default: {
       const exhaustiveCheck: never = e;
       console.log({ exhaustiveCheck });
@@ -439,6 +466,27 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         targetAreas: ['triceps'],
         equipment: ['dumbbell'],
       };
+    }
+    case Exercise.AbdominalMachine: {
+      return {
+        version: 1,
+        targetAreas: ['abdominuls'],
+        equipment: ['machine'],
+      }
+    }
+    case Exercise.LegCurlMachine: {
+      return {
+        version: 1,
+        targetAreas: ['hamstrings'],
+        equipment: ['machine'],
+      }
+    }
+    case Exercise.AdductionInnerThighMachine: {
+      return {
+        version: 1,
+        targetAreas: ['hip flexors', 'glutes'],
+        equipment: ['machine'],
+      }
     }
     default: {
       const exhaustiveCheck: never = e;
