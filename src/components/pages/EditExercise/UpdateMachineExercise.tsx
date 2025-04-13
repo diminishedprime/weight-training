@@ -48,7 +48,7 @@ const UpdateMachineExercise: React.FC<UpdateMachineExerciseProps> = ({
         <Button variant="outlined" onClick={weightAPI.bumpDown}>
           Weight Down
         </Button>
-        <MachineStack weight={weight} viewportWidth={30} />
+        <MachineStack weight={weight} />
         <Button variant="outlined" onClick={weightAPI.bumpUp}>
           Weight Up
         </Button>
