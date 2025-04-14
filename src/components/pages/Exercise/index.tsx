@@ -23,6 +23,7 @@ import usePlates from '@/components/pages/Exercise/usePlates';
 import { nameForExercise } from '@/util';
 import usePersistentObject, { StorageKey } from '@/hooks/usePersistentObject';
 import useDumbbellWeight from '@/components/pages/Exercise/AddExercise/useDumbbellWeight';
+import useMachineWeight from './AddExercise/useMachineWeight';
 
 export enum QueryParam {
   LiftType = 'a',
@@ -51,6 +52,7 @@ const Exercise: React.FC = () => {
     `dumbbell/${nameForExercise(exercise)}`,
   );
   const dumbbellAPI = useDumbbellWeight(weight, setWeight);
+  const machineAPI = useMachineWeight(weight, setWeight);
 
   const grouped = useMemo(
     () =>
@@ -111,6 +113,7 @@ const Exercise: React.FC = () => {
           active={activeExercises.isAddVisible()}
           platesAPI={platesAPI}
           dumbbellAPI={dumbbellAPI}
+          machineAPI={machineAPI}
         />
       </Box>
       {request.type === 'in-progress' && (

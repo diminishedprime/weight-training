@@ -1,10 +1,17 @@
 import * as React from 'react';
 import { Button } from '@mui/material';
-import { Exercise, narrowBarExercise, narrowDumbbellExercise } from '@/types';
+import {
+  Exercise,
+  narrowBarExercise,
+  narrowDumbbellExercise,
+  narrowMachineExercise,
+} from '@/types';
 import AddBarExercise from '@/components/pages/Exercise/AddExercise/AddBarExercise';
 import AddDumbbellExercise from '@/components/pages/Exercise/AddExercise/AddDumbbellExercise';
+import AddMachineExercise from '@/components/pages/Exercise/AddExercise/AddMachineExercise';
 import { DumbbellAPI } from '@/components/pages/Exercise/AddExercise/useDumbbellWeight';
 import { PlatesAPI } from '@/components/pages/Exercise/usePlates';
+import { MachineAPI } from './useMachineWeight';
 
 interface AddExerciseProps {
   exercise: Exercise;
@@ -13,6 +20,7 @@ interface AddExerciseProps {
   noneStarted: boolean;
   platesAPI: PlatesAPI;
   dumbbellAPI: DumbbellAPI;
+  machineAPI: MachineAPI;
   active: boolean;
 }
 
@@ -24,6 +32,7 @@ const AddExercise: React.FC<AddExerciseProps> = ({
   active,
   platesAPI,
   dumbbellAPI,
+  machineAPI,
 }) => {
   if (noneStarted) {
     return (
@@ -48,6 +57,15 @@ const AddExercise: React.FC<AddExerciseProps> = ({
         <AddDumbbellExercise
           dumbbellAPI={dumbbellAPI}
           dumbbellExercise={exercise}
+          onCancel={onCancel}
+        />
+      );
+    }
+    if (narrowMachineExercise(exercise)) {
+      return (
+        <AddMachineExercise
+          machineAPI={machineAPI}
+          machineExercise={exercise}
           onCancel={onCancel}
         />
       );

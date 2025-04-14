@@ -20,7 +20,7 @@ interface ArrayType {
 type TypeField = [fieldName: string, fieldType: FieldType, required: boolean];
 
 interface Metadata {
-  exerciseType?: 'dumbbell' | 'barbbell';
+  exerciseType?: 'dumbbell' | 'barbbell' | 'machine';
   narrowFunctionName?: string;
   enumValue?: string;
   uiString?: string;
@@ -339,6 +339,7 @@ const ExerciseMetadata_V1 = customType('ExerciseMetadata', 1, [
         'quadriceps',
         'tensor fascia latae',
         'hip abductors',
+        'hip flexors',
         'trapezies',
         'abs',
         'abdominuls',
@@ -365,6 +366,7 @@ const ExerciseMetadata_V1 = customType('ExerciseMetadata', 1, [
         'bodyweight',
         'kettlebell',
         'resistance band',
+        'machine',
       ),
     ),
     true,
@@ -385,6 +387,13 @@ const commonDumbbell = (typeValue: string): TypeField[] => [
   typeField(typeValue),
   ['reps', 'number', true],
 ];
+
+const commonMachine = (typeValue: string): TypeField[] => [
+  ['date', 'Timestamp', true],
+  ['weight', Weight_V1, true],
+  typeField(typeValue),
+  ['reps', 'number', true],
+]
 
 const A = customType('Deadlift', 3, commonBar('deadlift'), {
   enumValue: 'a',
@@ -517,6 +526,46 @@ const P = customType(
   },
 );
 
+const Q = customType(
+  'AbdominalMachine',
+  1,
+  commonMachine('abdominal-machine'),
+  {
+    enumValue: 'q',
+    uiString: 'Abdominal Machine',
+    aka: ['Abs Machine', 'Crunch Machine'],
+    equipment: ['machine'],
+    targetAreas: ['abdominuls']
+  }
+)
+
+const R = customType(
+  'LegCurlMachine',
+  1,
+  commonMachine('leg-curl-machine'),
+  {
+    enumValue: 'r',
+    uiString: 'Leg Curl Machine',
+    aka: [],
+    equipment: ['machine'],
+    targetAreas: ['hamstrings']
+  }
+)
+
+const S = customType(
+  'AdductionInnerThighMachine',
+  1,
+  commonMachine('adduction-inner-thigh-machine'),
+  {
+    enumValue: 's',
+    uiString: 'Adduction Inner Thigh Machine',
+    aka: ['Adductor Machine', 'Inner Thigh'],
+    equipment: ['machine'],
+    targetAreas: ['hip flexors', 'glutes']
+  }
+)
+
+
 const barExerciseTypes: CustomType[] = [A, B, C, D, E, F, K, L, N].map(
   (ct) => ({
     ...ct,
@@ -529,9 +578,15 @@ const dumbbellExerciseTypes: CustomType[] = [G, H, I, J, M, O, P].map((ct) => ({
   metadata: { ...ct.metadata, exerciseType: 'dumbbell' },
 }));
 
+const machineExerciseTypes: CustomType[] = [Q, R, S].map((ct) => ({
+  ...ct,
+  metadata: {...ct.metadata, exerciseType: 'machine'}
+}))
+
 const exerciseTypes: CustomType[] = [
   ...barExerciseTypes,
   ...dumbbellExerciseTypes,
+  ...machineExerciseTypes,
 ];
 
 const exerciseEnumValues = exerciseTypes.map((e) => e.metadata?.enumValue);
@@ -580,6 +635,12 @@ const enumUnionTypesToGenerate: EnumUnionType[] = [
     (a) => !!(a.metadata && a.metadata.exerciseType === 'barbbell'),
     { narrowFunctionName: 'narrowBarExercise' },
   ),
+  enumUnionType(
+    'MachineExercise',
+    ExerciseEnum,
+    (a) => !!(a.metadata && a.metadata?.exerciseType === 'machine'),
+    { narrowFunctionName: 'narrowMachineExercise'}
+  )
 ];
 
 const typesToGenerate: CustomType[] = [
@@ -592,6 +653,7 @@ const typeUnions: CustomTypeUnion[] = [
   customTypeUnion('ExerciseData', [...exerciseTypes]),
   customTypeUnion('BarExerciseData', [...barExerciseTypes]),
   customTypeUnion('DumbbellExerciseData', [...dumbbellExerciseTypes]),
+  customTypeUnion('MachineExerciseData', [...machineExerciseTypes]),
 ];
 
 console.log(`// THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY`);
