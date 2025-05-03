@@ -1,77 +1,132 @@
-import { useCallback } from 'react';
-import { Weight_V1 } from '@/types';
+import { useCallback, useMemo } from 'react';
+import {
+  Exercise,
+  ExerciseMetadata_V1,
+  metadataForExercise,
+  narrowMachineExercise,
+  Weight_V1,
+} from '@/types';
 
-const Weights: Weight_V1[] = [
-  { value: 5, unit: 'lb', version: 1 },
-  { value: 10, unit: 'lb', version: 1 },
-  { value: 15, unit: 'lb', version: 1 },
-  { value: 20, unit: 'lb', version: 1 },
-  { value: 25, unit: 'lb', version: 1 },
-  { value: 30, unit: 'lb', version: 1 },
-  { value: 35, unit: 'lb', version: 1 },
-  { value: 40, unit: 'lb', version: 1 },
-  { value: 45, unit: 'lb', version: 1 },
-  { value: 50, unit: 'lb', version: 1 },
-  { value: 55, unit: 'lb', version: 1 },
-  { value: 60, unit: 'lb', version: 1 },
-  { value: 65, unit: 'lb', version: 1 },
-  { value: 70, unit: 'lb', version: 1 },
-  { value: 75, unit: 'lb', version: 1 },
-  { value: 80, unit: 'lb', version: 1 },
-  { value: 85, unit: 'lb', version: 1 },
-  { value: 90, unit: 'lb', version: 1 },
-  { value: 95, unit: 'lb', version: 1 },
-  { value: 100, unit: 'lb', version: 1 },
-  { value: 105, unit: 'lb', version: 1 },
-  { value: 110, unit: 'lb', version: 1 },
-  { value: 115, unit: 'lb', version: 1 },
-  { value: 120, unit: 'lb', version: 1 },
-  { value: 125, unit: 'lb', version: 1 },
-  { value: 130, unit: 'lb', version: 1 },
-  { value: 135, unit: 'lb', version: 1 },
-  { value: 140, unit: 'lb', version: 1 },
-  { value: 145, unit: 'lb', version: 1 },
-  { value: 150, unit: 'lb', version: 1 },
-  { value: 155, unit: 'lb', version: 1 },
-  { value: 160, unit: 'lb', version: 1 },
-  { value: 165, unit: 'lb', version: 1 },
-  { value: 170, unit: 'lb', version: 1 },
-  { value: 175, unit: 'lb', version: 1 },
-  { value: 180, unit: 'lb', version: 1 },
-  { value: 185, unit: 'lb', version: 1 },
-  { value: 190, unit: 'lb', version: 1 },
-  { value: 195, unit: 'lb', version: 1 },
-  { value: 200, unit: 'lb', version: 1 },
-];
+const generateStack = (
+  minWeight: number,
+  maxWeight: number,
+  increments: number,
+  bump?: Weight_V1,
+): StackType => {
+  const stack: Weight_V1[] = [];
+  for (let i = minWeight; i <= maxWeight; i += increments) {
+    stack.push({ value: i, unit: 'lb', version: 1 });
+  }
+  return { weights: stack, bump };
+};
+
+const default_stack = generateStack(10, 200, 10, {
+  value: 5,
+  unit: 'lb',
+  version: 1,
+});
+
+const weightsForStackType = (
+  stackType: ExerciseMetadata_V1['stackType'],
+): StackType => {
+  switch (stackType) {
+    case '170_10_5':
+      return generateStack(10, 170, 10, { value: 5, unit: 'lb', version: 1 });
+    case '240_10_5':
+      return generateStack(10, 240, 10, { value: 5, unit: 'lb', version: 1 });
+    case '200_10_5':
+      return generateStack(10, 200, 10, { value: 5, unit: 'lb', version: 1 });
+    case '_Plates':
+    // TODO: figure out if there's a clean way to special case this?
+    // Probably this is just one of the things to handle better when I just
+    // create a custom page for every single exercise type instead of trying
+    // to do some in bulk.
+    case 'Unknown':
+    default:
+      return default_stack;
+  }
+};
+
+export type StackType = {
+  bump: Weight_V1 | undefined;
+  weights: Weight_V1[];
+};
 
 const useMachineWeight = (
   weight: Weight_V1,
   setWeight: React.Dispatch<React.SetStateAction<Weight_V1>>,
+  exercise: Exercise | null | undefined,
 ) => {
+  const stack: StackType = useMemo(() => {
+    if (exercise === null || exercise === undefined) {
+      return default_stack;
+    }
+    if (narrowMachineExercise(exercise)) {
+      const metadata = metadataForExercise(exercise);
+      const stackType = metadata.stackType;
+      return weightsForStackType(stackType);
+    }
+    return default_stack;
+  }, [exercise]);
+
   const bumpUp = useCallback(() => {
     setWeight((old) => {
-      for (let i = 0; i < Weights.length; i++) {
-        const current = Weights[i];
+      // Check if the bump weight should be applied
+      if (stack.bump && old.value < stack.bump.value) {
+        return stack.bump;
+      }
+
+      // Iterate through the stack weights to find the next valid weight
+      for (let i = 0; i < stack.weights.length; i++) {
+        const current = stack.weights[i];
+        const bumpedValue = current.value + (stack.bump?.value || 0);
+
         if (current.value > old.value) {
           return current;
         }
-      }
-      return Weights[Weights.length - 1];
-    });
-  }, [setWeight]);
-  const bumpDown = useCallback(() => {
-    setWeight((old) => {
-      for (let i = Weights.length - 1; i >= 0; i--) {
-        const current = Weights[i];
-        if (current.value < old.value) {
-          return current;
+
+        if (stack.bump && bumpedValue > old.value) {
+          return {
+            value: bumpedValue,
+            unit: current.unit,
+            version: current.version,
+          };
         }
       }
-      return Weights[0];
-    });
-  }, [setWeight]);
 
-  return { bumpUp, bumpDown, weight, setWeight };
+      // If no higher weight is found, return the last weight in the stack
+      return stack.weights[stack.weights.length - 1];
+    });
+  }, [setWeight, stack]);
+
+  const bumpDown = useCallback(() => {
+    setWeight((old) => {
+      if (stack.bump) {
+        // If there is a bump, decrement the current weight by the bump value
+        // If the old weight was 40, the newValue will be 35
+        const newValue = old.value - stack.bump.value;
+
+        if (newValue < stack.weights[0].value - stack.bump.value) {
+          return old;
+        }
+
+        // If a matching weight is found, return it; otherwise, fallback to the lowest weight
+        return { ...old, value: newValue };
+      } else {
+        // If there is no bump, move to the previous weight in the array
+        for (let i = stack.weights.length - 1; i >= 0; i--) {
+          if (stack.weights[i].value < old.value) {
+            return stack.weights[i];
+          }
+        }
+
+        // If no lower weight is found, return the first weight in the stack
+        return stack.weights[0];
+      }
+    });
+  }, [setWeight, stack]);
+
+  return { bumpUp, bumpDown, weight, setWeight, stack };
 };
 
 export type MachineAPI = ReturnType<typeof useMachineWeight>;

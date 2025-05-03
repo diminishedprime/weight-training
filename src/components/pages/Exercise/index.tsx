@@ -52,7 +52,7 @@ const Exercise: React.FC = () => {
     `dumbbell/${nameForExercise(exercise)}`,
   );
   const dumbbellAPI = useDumbbellWeight(weight, setWeight);
-  const machineAPI = useMachineWeight(weight, setWeight);
+  const machineAPI = useMachineWeight(weight, setWeight, exercise);
 
   const grouped = useMemo(
     () =>

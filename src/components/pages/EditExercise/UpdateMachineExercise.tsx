@@ -11,7 +11,12 @@ import { navigate } from 'gatsby';
 import * as React from 'react';
 import useDeleteExercise from '@/components/pages/EditExercise/useDeleteExercise';
 import SetReps from '@/components/pages/Exercise/SetReps';
-import { MachineExerciseData, exerciseUIString, WithID } from '@/types';
+import {
+  MachineExerciseData,
+  exerciseUIString,
+  WithID,
+  Exercise,
+} from '@/types';
 import { fromDBExercise } from '@/util';
 import MachineStack from '@/components/common/MachineStack';
 import useMachineWeight from '@/components/pages/Exercise/AddExercise/useMachineWeight';
@@ -31,7 +36,11 @@ const UpdateMachineExercise: React.FC<UpdateMachineExerciseProps> = ({
   const updateExercise = useUpdateMachineExercise();
 
   const [weight, setWeight] = React.useState(machineExerciseData.weight);
-  const weightAPI = useMachineWeight(weight, setWeight);
+  const machineAPI = useMachineWeight(
+    weight,
+    setWeight,
+    machineExerciseData.type as Exercise,
+  );
 
   return (
     <>
@@ -45,11 +54,11 @@ const UpdateMachineExercise: React.FC<UpdateMachineExerciseProps> = ({
           alignItems: 'center',
         }}
       >
-        <Button variant="outlined" onClick={weightAPI.bumpDown}>
+        <Button variant="outlined" onClick={machineAPI.bumpDown}>
           Weight Down
         </Button>
-        <MachineStack weight={weight} />
-        <Button variant="outlined" onClick={weightAPI.bumpUp}>
+        <MachineStack machineAPI={machineAPI} />
+        <Button variant="outlined" onClick={machineAPI.bumpUp}>
           Weight Up
         </Button>
       </Box>

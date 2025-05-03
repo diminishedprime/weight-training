@@ -118,6 +118,7 @@ const AddMachineExercise: React.FC<AddMachineExerciseProps> = ({
 
   return (
     <>
+      <MachineStack machineAPI={machineAPI} />
       <Box
         sx={{
           display: 'flex',
@@ -128,7 +129,6 @@ const AddMachineExercise: React.FC<AddMachineExerciseProps> = ({
         <Button variant="outlined" onClick={machineAPI.bumpDown}>
           Weight Down
         </Button>
-        <MachineStack weight={weight} />
         <Button variant="outlined" onClick={machineAPI.bumpUp}>
           Weight Up
         </Button>
