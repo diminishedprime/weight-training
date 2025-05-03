@@ -136,6 +136,13 @@ const MachineStack: React.FC<MachineProps> = ({
           />
         </Box>
       ))}
+      <Box
+        css={css`
+          margin-top: 4px;
+        `}
+      >
+        {weight.value} {weight.unit}
+      </Box>
     </Box>
   );
 };
