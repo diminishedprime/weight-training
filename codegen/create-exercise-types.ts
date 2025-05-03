@@ -1,3 +1,28 @@
+// For now, I'm just going to create an enum for each lift type since I don't
+// know which ones end up being similar.
+export enum StackType {
+  // 240 lbs, 10 pound increments, 5 pound bump to get to weights in between.
+  // Used for:
+  // - Diverging Lat Pulldown
+  // - Leg Extension
+  _240_10_5 = '240_10_5', 
+  // 200 lbs, 10 pound increments, 5 pound bump to get to weights in between.
+  // Used for:
+  // - Abdominal Machine (I think?)
+  _200_10_5 = '200_10_5', 
+  // 170 lbs, 10 pound increments, 5 pound bump to get to weights in between.
+  // Used for:
+  // - Inner Thigh
+  // - Outer Thigh
+  _170_10_5 = '170_10_5',
+  // Only here until I have the other stack types known for sure. Will only be
+  // used to use the fallback UI that isn't as cool.
+  _Unknown = 'Unknown',
+  // This is for the machines that you load with regular plates. Things like the
+  // seated calf raise, for example.
+  _Plates = "_Plates",
+}
+
 interface LiteralType {
   type: 'literal-type';
   value: string;
@@ -28,6 +53,7 @@ interface Metadata {
   uiStringFunctionName?: string;
   targetAreas?: string[];
   equipment?: string[];
+  stackType?: StackType;
 }
 
 type CustomType = {
@@ -296,6 +322,9 @@ const generateExerciseMetadata = (
         equipment: [${(e?.metadata?.equipment || [])
           .map((a) => `'${a}'`)
           .join(', ')}],
+        stackType: ${
+          e?.metadata?.stackType ? `'${e.metadata.stackType}'` : 'undefined'
+        }, 
       }
     }
 `.trimEnd(),
@@ -371,6 +400,7 @@ const ExerciseMetadata_V1 = customType('ExerciseMetadata', 1, [
     ),
     true,
   ],
+  ['stackType', stringLiteral(...Object.values(StackType)), false],
 ]);
 
 const commonBar = (typeValue: string): TypeField[] => [
@@ -526,6 +556,10 @@ const P = customType(
   },
 );
 
+///////////////////////
+// Machine Exercises //
+///////////////////////
+
 const Q = customType(
   'AbdominalMachine',
   1,
@@ -535,9 +569,10 @@ const Q = customType(
     uiString: 'Abdominal Machine',
     aka: ['Abs Machine', 'Crunch Machine'],
     equipment: ['machine'],
-    targetAreas: ['abdominuls']
+    targetAreas: ['abdominuls'],
+    stackType: StackType._200_10_5, 
   }
-)
+);
 
 const R = customType(
   'LegCurlMachine',
@@ -548,9 +583,10 @@ const R = customType(
     uiString: 'Leg Curl Machine',
     aka: [],
     equipment: ['machine'],
-    targetAreas: ['hamstrings']
+    targetAreas: ['hamstrings'],
+    stackType: StackType._240_10_5, 
   }
-)
+);
 
 const S = customType(
   'AdductionInnerThighMachine',
@@ -558,13 +594,131 @@ const S = customType(
   commonMachine('adduction-inner-thigh-machine'),
   {
     enumValue: 's',
-    uiString: 'Adduction Inner Thigh Machine',
-    aka: ['Adductor Machine', 'Inner Thigh'],
+    uiString: 'Inner Thigh Machine',
+    aka: ['Adductor Machine', 'Adduction Inner Thigh Machine'],
     equipment: ['machine'],
-    targetAreas: ['hip flexors', 'glutes']
+    targetAreas: ['hip flexors', 'glutes'],
+    stackType: StackType._200_10_5
   }
-)
+);
 
+
+const T = customType(
+  'LegExtensionMachine',
+  1,
+  commonMachine('leg-extension-machine'),
+  {
+    enumValue: 't',
+    uiString: 'Leg Extension Machine',
+    aka: [],
+    equipment: ['machine'],
+    targetAreas: ['quadriceps'],
+    stackType: StackType._Unknown, 
+  }
+);
+
+const U = customType(
+  'ArmExtensionMachine',
+  1,
+  commonMachine('arm-extension-machine'),
+  {
+    enumValue: 'u',
+    uiString: 'Arm Extension Machine',
+    aka: ['Cable Tricep Pushdown', 'Tricep Pushdown Machine'],
+    equipment: ['machine'],
+    targetAreas: ['triceps'],
+    stackType: StackType._Unknown, 
+  }
+);
+
+const V = customType(
+  'BicepCurlMachine',
+  1,
+  commonMachine('bicep-curl-machine'),
+  {
+    enumValue: 'v',
+    uiString: 'Bicep Curl Machine',
+    aka: ['Cable Bicep Curl'],
+    equipment: ['machine'],
+    targetAreas: ['biceps'],
+    stackType: StackType._Unknown, 
+  }
+);
+
+const W = customType(
+  'LegPressMachine',
+  1,
+  commonMachine('leg-press-machine'),
+  {
+    enumValue: 'w',
+    uiString: 'Leg Press Machine',
+    aka: ['Leg Press'],
+    equipment: ['machine'],
+    targetAreas: [],
+    stackType: StackType._Unknown, 
+  }
+);
+
+const X = customType(
+  'BackExtensionMachine',
+  1,
+  commonMachine('back-extension-machine'),
+  {
+    enumValue: 'x',
+    uiString: 'Back Extension Machine',
+    aka: ['Hyperextension Machine'],
+    equipment: ['machine'],
+    targetAreas: ['back'],
+    stackType: StackType._Unknown, 
+  }
+);
+
+const Y = customType(
+  'LatPullDownMachine',
+  1,
+  commonMachine('lat-pull-down-machine'),
+  {
+    enumValue: 'y',
+    uiString: 'Lat Pull Down Machine',
+    aka: ['Lat Pulldown', 'Pulldown Machine'],
+    equipment: ['machine'],
+    targetAreas: ['back', 'biceps'],
+    stackType: StackType._Unknown,
+  }
+);
+
+const Z = customType(
+  'OuterThighMachine',
+  1,
+  commonMachine('outer-thigh-machine'),
+  {
+    enumValue: 'z',
+    uiString: 'Outer Thigh Machine',
+    aka: ['Abductor Machine', 'Abduction Outer Thigh Machine'],
+    equipment: ['machine'],
+    targetAreas: ['hip abductors', 'glutes'],
+    stackType: StackType._200_10_5,
+  }
+);
+
+const AA = customType(
+  'SeatedCalfMachine',
+  1,
+  commonMachine('seated-calf-machine'),
+  {
+    enumValue: 'aa',
+    uiString: 'Seated Calf Machine',
+    aka: ['Calf Raise Machine', 'Seated Calf Raise'],
+    equipment: ['machine'],
+    targetAreas: ['calves'],
+    stackType: StackType._Plates,
+  }
+);
+
+
+///////////////////////////
+// End Machine Exercises //
+///////////////////////////
 
 const barExerciseTypes: CustomType[] = [A, B, C, D, E, F, K, L, N].map(
   (ct) => ({
@@ -578,10 +732,12 @@ const dumbbellExerciseTypes: CustomType[] = [G, H, I, J, M, O, P].map((ct) => ({
   metadata: { ...ct.metadata, exerciseType: 'dumbbell' },
 }));
 
-const machineExerciseTypes: CustomType[] = [Q, R, S].map((ct) => ({
+const machineExerciseTypes: CustomType[] = [
+  Q, R, S, T, U, V, W, X, Y, Z, AA // Include all staged machine types
+].map((ct) => ({
   ...ct,
-  metadata: {...ct.metadata, exerciseType: 'machine'}
-}))
+  metadata: { ...ct.metadata, exerciseType: 'machine' },
+}));
 
 const exerciseTypes: CustomType[] = [
   ...barExerciseTypes,

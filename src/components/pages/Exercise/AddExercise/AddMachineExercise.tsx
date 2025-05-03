@@ -61,6 +61,54 @@ const AddMachineExercise: React.FC<AddMachineExerciseProps> = ({
           type: 'adduction-inner-thigh-machine',
           version: 1,
         } as AdductionInnerThighMachine_V1;
+      case Exercise.LegExtensionMachine:
+        return {
+          ...baseExercise,
+          type: 'leg-extension-machine',
+          version: 1,
+        };
+      case Exercise.ArmExtensionMachine:
+        return {
+          ...baseExercise,
+          type: 'arm-extension-machine',
+          version: 1,
+        };
+      case Exercise.BicepCurlMachine:
+        return {
+          ...baseExercise,
+          type: 'bicep-curl-machine',
+          version: 1,
+        };
+      case Exercise.LegPressMachine:
+        return {
+          ...baseExercise,
+          type: 'leg-press-machine',
+          version: 1,
+        };
+      case Exercise.BackExtensionMachine:
+        return {
+          ...baseExercise,
+          type: 'back-extension-machine',
+          version: 1,
+        };
+      case Exercise.OuterThighMachine:
+        return {
+          ...baseExercise,
+          type: 'outer-thigh-machine',
+          version: 1,
+        };
+      case Exercise.SeatedCalfMachine:
+        return {
+          ...baseExercise,
+          type: 'seated-calf-machine',
+          version: 1,
+        };
+      case Exercise.LatPullDownMachine:
+        return {
+          ...baseExercise,
+          type: 'lat-pull-down-machine',
+          version: 1,
+        };
       default: {
         const exhaustiveCheck: never = machineExercise;
         throw new Error(`Unhandled case: ${exhaustiveCheck}`);

@@ -53,6 +53,22 @@ export const nameForExercise = (
       return 'adduction-inner-thigh-machine';
     case Exercise.LegCurlMachine:
       return 'leg-curl-machine';
+    case Exercise.LegExtensionMachine:
+      return 'leg-extension-machine';
+    case Exercise.ArmExtensionMachine:
+      return 'arm-extension-machine';
+    case Exercise.BicepCurlMachine:
+      return 'bicep-curl-machine';
+    case Exercise.LegPressMachine:
+      return 'leg-press-machine';
+    case Exercise.BackExtensionMachine:
+      return 'back-extension-machine';
+    case Exercise.LatPullDownMachine:
+      return 'lat-pull-down-machine';
+    case Exercise.OuterThighMachine:
+      return 'outer-thigh-machine';
+    case Exercise.SeatedCalfMachine:
+      return 'seated-calf-machine';
     case undefined:
     case null:
       return undefined;
@@ -103,6 +119,22 @@ export const fromDBExercise = (v: ExerciseData['type']): Exercise => {
       return Exercise.AdductionInnerThighMachine;
     case 'leg-curl-machine':
       return Exercise.LegCurlMachine;
+    case 'leg-extension-machine':
+      return Exercise.LegExtensionMachine;
+    case 'arm-extension-machine':
+      return Exercise.ArmExtensionMachine;
+    case 'bicep-curl-machine':
+      return Exercise.BicepCurlMachine;
+    case 'leg-press-machine':
+      return Exercise.LegPressMachine;
+    case 'back-extension-machine':
+      return Exercise.BackExtensionMachine;
+    case 'lat-pull-down-machine':
+      return Exercise.LatPullDownMachine;
+    case 'outer-thigh-machine':
+      return Exercise.OuterThighMachine;
+    case 'seated-calf-machine':
+      return Exercise.SeatedCalfMachine;
     default: {
       const exhaustiveCheck: never = v;
       throw new Error(`Unhandled case: ${exhaustiveCheck}`);

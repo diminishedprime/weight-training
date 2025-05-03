@@ -21,6 +21,14 @@ export enum Exercise {
   AbdominalMachine = 'q',
   LegCurlMachine = 'r',
   AdductionInnerThighMachine = 's',
+  LegExtensionMachine = 't',
+  ArmExtensionMachine = 'u',
+  BicepCurlMachine = 'v',
+  LegPressMachine = 'w',
+  BackExtensionMachine = 'x',
+  LatPullDownMachine = 'y',
+  OuterThighMachine = 'z',
+  SeatedCalfMachine = 'aa',
 }
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export type DumbbellExercise =
@@ -46,7 +54,15 @@ export type BarExercise =
 export type MachineExercise =
   | Exercise.AbdominalMachine
   | Exercise.LegCurlMachine
-  | Exercise.AdductionInnerThighMachine;
+  | Exercise.AdductionInnerThighMachine
+  | Exercise.LegExtensionMachine
+  | Exercise.ArmExtensionMachine
+  | Exercise.BicepCurlMachine
+  | Exercise.LegPressMachine
+  | Exercise.BackExtensionMachine
+  | Exercise.LatPullDownMachine
+  | Exercise.OuterThighMachine
+  | Exercise.SeatedCalfMachine;
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export interface Weight_V1 {
   unit: 'lb' | 'kg';
@@ -89,6 +105,7 @@ export interface ExerciseMetadata_V1 {
     | 'resistance band'
     | 'machine'
   >;
+  stackType?: '240_10_5' | '200_10_5' | '170_10_5' | 'Unknown' | '_Plates';
   version: 1;
 }
 
@@ -252,6 +269,70 @@ export interface AdductionInnerThighMachine_V1 {
   reps: number;
   version: 1;
 }
+
+export interface LegExtensionMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'leg-extension-machine';
+  reps: number;
+  version: 1;
+}
+
+export interface ArmExtensionMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'arm-extension-machine';
+  reps: number;
+  version: 1;
+}
+
+export interface BicepCurlMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'bicep-curl-machine';
+  reps: number;
+  version: 1;
+}
+
+export interface LegPressMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'leg-press-machine';
+  reps: number;
+  version: 1;
+}
+
+export interface BackExtensionMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'back-extension-machine';
+  reps: number;
+  version: 1;
+}
+
+export interface LatPullDownMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'lat-pull-down-machine';
+  reps: number;
+  version: 1;
+}
+
+export interface OuterThighMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'outer-thigh-machine';
+  reps: number;
+  version: 1;
+}
+
+export interface SeatedCalfMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'seated-calf-machine';
+  reps: number;
+  version: 1;
+}
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export type ExerciseData =
   | Deadlift_V3
@@ -272,7 +353,15 @@ export type ExerciseData =
   | DumbbellSkullCrusher_V1
   | AbdominalMachine_V1
   | LegCurlMachine_V1
-  | AdductionInnerThighMachine_V1;
+  | AdductionInnerThighMachine_V1
+  | LegExtensionMachine_V1
+  | ArmExtensionMachine_V1
+  | BicepCurlMachine_V1
+  | LegPressMachine_V1
+  | BackExtensionMachine_V1
+  | LatPullDownMachine_V1
+  | OuterThighMachine_V1
+  | SeatedCalfMachine_V1;
 
 export type BarExerciseData =
   | Deadlift_V3
@@ -297,7 +386,15 @@ export type DumbbellExerciseData =
 export type MachineExerciseData =
   | AbdominalMachine_V1
   | LegCurlMachine_V1
-  | AdductionInnerThighMachine_V1;
+  | AdductionInnerThighMachine_V1
+  | LegExtensionMachine_V1
+  | ArmExtensionMachine_V1
+  | BicepCurlMachine_V1
+  | LegPressMachine_V1
+  | BackExtensionMachine_V1
+  | LatPullDownMachine_V1
+  | OuterThighMachine_V1
+  | SeatedCalfMachine_V1;
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export const narrowDumbbellExercise = (
   toNarrow: Exercise,
@@ -328,7 +425,15 @@ export const narrowMachineExercise = (
 ): toNarrow is MachineExercise =>
   toNarrow === Exercise.AbdominalMachine ||
   toNarrow === Exercise.LegCurlMachine ||
-  toNarrow === Exercise.AdductionInnerThighMachine;
+  toNarrow === Exercise.AdductionInnerThighMachine ||
+  toNarrow === Exercise.LegExtensionMachine ||
+  toNarrow === Exercise.ArmExtensionMachine ||
+  toNarrow === Exercise.BicepCurlMachine ||
+  toNarrow === Exercise.LegPressMachine ||
+  toNarrow === Exercise.BackExtensionMachine ||
+  toNarrow === Exercise.LatPullDownMachine ||
+  toNarrow === Exercise.OuterThighMachine ||
+  toNarrow === Exercise.SeatedCalfMachine;
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 
 export const exerciseUIString = (e: Exercise) => {
@@ -370,7 +475,23 @@ export const exerciseUIString = (e: Exercise) => {
     case Exercise.LegCurlMachine:
       return 'Leg Curl Machine';
     case Exercise.AdductionInnerThighMachine:
-      return 'Adduction Inner Thigh Machine';
+      return 'Inner Thigh Machine';
+    case Exercise.LegExtensionMachine:
+      return 'Leg Extension Machine';
+    case Exercise.ArmExtensionMachine:
+      return 'Arm Extension Machine';
+    case Exercise.BicepCurlMachine:
+      return 'Bicep Curl Machine';
+    case Exercise.LegPressMachine:
+      return 'Leg Press Machine';
+    case Exercise.BackExtensionMachine:
+      return 'Back Extension Machine';
+    case Exercise.LatPullDownMachine:
+      return 'Lat Pull Down Machine';
+    case Exercise.OuterThighMachine:
+      return 'Outer Thigh Machine';
+    case Exercise.SeatedCalfMachine:
+      return 'Seated Calf Machine';
     default: {
       const exhaustiveCheck: never = e;
       console.log({ exhaustiveCheck });
@@ -386,6 +507,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['back', 'hamstrings', 'trapezies'],
         equipment: ['barbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.Squat: {
@@ -399,6 +521,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
           'back',
         ],
         equipment: ['barbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.FrontSquat: {
@@ -406,6 +529,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['quadriceps', 'back'],
         equipment: ['barbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.BenchPress: {
@@ -413,6 +537,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['pectoralis', 'deltoids'],
         equipment: ['barbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.OverheadPress: {
@@ -420,6 +545,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['shoulders', 'triceps', 'deltoids'],
         equipment: ['barbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.Snatch: {
@@ -427,6 +553,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['yes'],
         equipment: ['barbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.RomainianDeadlift: {
@@ -434,6 +561,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: [],
         equipment: ['barbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.BarbbellRow: {
@@ -441,6 +569,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['back', 'deltoids'],
         equipment: ['barbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.InclineBenchPress: {
@@ -448,6 +577,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: [],
         equipment: ['barbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.DumbbellRow: {
@@ -455,6 +585,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['back', 'deltoids'],
         equipment: ['dumbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.DumbbellFly: {
@@ -462,6 +593,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['pectoralis', 'deltoids'],
         equipment: ['dumbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.DumbbellBicepCurl: {
@@ -469,6 +601,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['biceps'],
         equipment: ['dumbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.DumbbellHammerCurl: {
@@ -476,6 +609,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['biceps'],
         equipment: ['dumbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.DumbbellPreacherCurl: {
@@ -483,6 +617,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: [],
         equipment: ['dumbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.LateralRaise: {
@@ -490,6 +625,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: [],
         equipment: ['dumbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.DumbbellSkullCrusher: {
@@ -497,6 +633,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['triceps'],
         equipment: ['dumbbell'],
+        stackType: undefined,
       };
     }
     case Exercise.AbdominalMachine: {
@@ -504,6 +641,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['abdominuls'],
         equipment: ['machine'],
+        stackType: '200_10_5',
       };
     }
     case Exercise.LegCurlMachine: {
@@ -511,6 +649,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['hamstrings'],
         equipment: ['machine'],
+        stackType: '240_10_5',
       };
     }
     case Exercise.AdductionInnerThighMachine: {
@@ -518,6 +657,71 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['hip flexors', 'glutes'],
         equipment: ['machine'],
+        stackType: '200_10_5',
+      };
+    }
+    case Exercise.LegExtensionMachine: {
+      return {
+        version: 1,
+        targetAreas: ['quadriceps'],
+        equipment: ['machine'],
+        stackType: 'Unknown',
+      };
+    }
+    case Exercise.ArmExtensionMachine: {
+      return {
+        version: 1,
+        targetAreas: ['triceps'],
+        equipment: ['machine'],
+        stackType: 'Unknown',
+      };
+    }
+    case Exercise.BicepCurlMachine: {
+      return {
+        version: 1,
+        targetAreas: ['biceps'],
+        equipment: ['machine'],
+        stackType: 'Unknown',
+      };
+    }
+    case Exercise.LegPressMachine: {
+      return {
+        version: 1,
+        targetAreas: [],
+        equipment: ['machine'],
+        stackType: 'Unknown',
+      };
+    }
+    case Exercise.BackExtensionMachine: {
+      return {
+        version: 1,
+        targetAreas: ['back'],
+        equipment: ['machine'],
+        stackType: 'Unknown',
+      };
+    }
+    case Exercise.LatPullDownMachine: {
+      return {
+        version: 1,
+        targetAreas: ['back', 'biceps'],
+        equipment: ['machine'],
+        stackType: 'Unknown',
+      };
+    }
+    case Exercise.OuterThighMachine: {
+      return {
+        version: 1,
+        targetAreas: ['hip abductors', 'glutes'],
+        equipment: ['machine'],
+        stackType: '200_10_5',
+      };
+    }
+    case Exercise.SeatedCalfMachine: {
+      return {
+        version: 1,
+        targetAreas: ['calves'],
+        equipment: ['machine'],
+        stackType: '_Plates',
       };
     }
     default: {
