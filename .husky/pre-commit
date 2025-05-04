@@ -1,7 +1,0 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-. "$(dirname "$0")/common.sh"
-
-# TODO - figure out how this worked with yarn
-# yarn lint-staged
-# yarn test

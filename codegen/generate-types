@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -eux
-
-deno run create-exercise-types.ts > generated-types.ts
-
-mv generated-types.ts ../src/types/
