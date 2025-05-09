@@ -85,6 +85,18 @@ const Exercise: React.FC = () => {
           <AddSetsByReps
             exercise={exercise}
             sets={3}
+            reps={5}
+            ormRatio={0.85}
+            noneStarted={activeExercises.noneStarted}
+            active={activeExercises.isActive(3, 5)}
+            onCancel={() => activeExercises.setInactive(3, 5)}
+            onStart={() => activeExercises.setActive(3, 5)}
+          />
+        )}
+        {narrowBarExercise(exercise) && (
+          <AddSetsByReps
+            exercise={exercise}
+            sets={3}
             reps={3}
             ormRatio={0.9}
             noneStarted={activeExercises.noneStarted}
@@ -96,13 +108,13 @@ const Exercise: React.FC = () => {
         {narrowBarExercise(exercise) && (
           <AddSetsByReps
             exercise={exercise}
-            sets={5}
-            reps={5}
-            ormRatio={0.8}
+            sets={3}
+            reps={1}
+            ormRatio={0.95}
             noneStarted={activeExercises.noneStarted}
-            active={activeExercises.isActive(5, 5)}
-            onCancel={() => activeExercises.setInactive(5, 5)}
-            onStart={() => activeExercises.setActive(5, 5)}
+            active={activeExercises.isActive(3, 1)}
+            onCancel={() => activeExercises.setInactive(3, 1)}
+            onStart={() => activeExercises.setActive(3, 1)}
           />
         )}
         <AddExercise

@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@/static/*": ["./static/*"]
+      "@/static/*": ["./static/*"],
+      "react": [ "./node_modules/@types/react" ]
     },
     "types": ["@emotion/react/types/css-prop", "jest"]
   },

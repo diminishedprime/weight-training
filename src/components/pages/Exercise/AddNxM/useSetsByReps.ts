@@ -22,7 +22,7 @@ import {
   Weight_V1,
 } from '@/types';
 import {
-  calcSetsByReps,
+  calcSetsByReps2,
   keyForSetsByReps,
   nameForExercise,
   nearest5,
@@ -269,7 +269,10 @@ const useSetsByReps = (
         unit: 'lb',
         version: 1,
       };
-      const barSets = calcSetsByReps(actualWeight, data.warmupSet, sets, reps);
+      const barSets = calcSetsByReps2(
+        { version: 1, unit: 'lb', value: parseInt(data.orm, 10) },
+        ormRatio,
+      );
       setData({ status: 'in-progress', sets: barSets, currentSet: 0 });
     } catch (e) {
       console.error(`Couldn't parse "${data.targetWeight}" as a number.`);
