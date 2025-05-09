@@ -18,8 +18,6 @@ import {
   Sets,
   Snatch_V1,
   Squat_V3,
-  WarmupSet,
-  Weight_V1,
 } from '@/types';
 import {
   calcSetsByReps2,
@@ -49,7 +47,6 @@ interface NotStarted {
   status: 'not-started';
   orm: string;
   targetWeight: string;
-  warmupSet: WarmupSet;
 }
 
 interface InProgress {
@@ -70,7 +67,6 @@ const notStarted = (
     actualORM === undefined
       ? ''
       : nearest5(actualORM.weight.value * ormRatio).toString(),
-  warmupSet: { type: 'percentage', includeEmptyBar: true },
 });
 
 const useSetsByReps = (
@@ -263,12 +259,6 @@ const useSetsByReps = (
       return;
     }
     try {
-      const value = parseInt(data.targetWeight, 10);
-      const actualWeight: Weight_V1 = {
-        value: nearest5(value),
-        unit: 'lb',
-        version: 1,
-      };
       const barSets = calcSetsByReps2(
         { version: 1, unit: 'lb', value: parseInt(data.orm, 10) },
         ormRatio,
@@ -277,58 +267,7 @@ const useSetsByReps = (
     } catch (e) {
       console.error(`Couldn't parse "${data.targetWeight}" as a number.`);
     }
-  }, [data, setData, reps, sets]);
-
-  const setWarmupSets = useCallback(
-    (s: Sets) => {
-      setData((old) => {
-        if (old.status !== 'not-started') {
-          return old;
-        }
-        if (old.warmupSet.type !== 'even') {
-          return old;
-        }
-        return {
-          ...old,
-          warmupSet: { ...old.warmupSet, warmupSets: Math.max(0, s) },
-        };
-      });
-    },
-    [setData],
-  );
-
-  const setWarmupType = useCallback(
-    (warmupType: WarmupSet['type']) => {
-      if (data.status !== 'not-started') {
-        return;
-      }
-      let warmupSet: WarmupSet;
-      switch (warmupType) {
-        case 'percentage':
-          warmupSet = { type: 'percentage', includeEmptyBar: true };
-          break;
-        case 'even': {
-          warmupSet = {
-            type: 'even',
-            warmupSets: 3,
-            includeEmptyBar: true,
-          };
-          break;
-        }
-        default: {
-          const exhaustiveCheck: never = warmupType;
-          throw new Error(`Unhandled case: ${exhaustiveCheck}`);
-        }
-      }
-      setData((old) => {
-        if (old.status !== 'not-started') {
-          return old;
-        }
-        return { ...old, warmupSet };
-      });
-    },
-    [data, setData],
-  );
+  }, [data, setData, ormRatio]);
 
   const cancel = useCallback(() => {
     setData(notStarted(actualORM, ormRatio));
@@ -340,9 +279,7 @@ const useSetsByReps = (
       startSetsByReps,
       setORM,
       setTargetWeight,
-      setWarmupType,
       cancel,
-      setWarmupSets,
     };
   }
   if (data.status === 'in-progress') {

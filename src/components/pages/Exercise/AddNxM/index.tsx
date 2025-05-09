@@ -2,11 +2,6 @@ import { Check } from '@mui/icons-material';
 import {
   Box,
   Button,
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  RadioGroup,
   styled,
   Table,
   TableBody,
@@ -109,68 +104,6 @@ const AddSetsByReps: React.FC<AddSetsxRepsProps> = ({
                     : undefined
                 }
               />
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'space-between',
-              }}
-            >
-              <FormControl sx={{ mr: 1, mt: 1 }}>
-                <FormLabel>Warmup Type</FormLabel>
-                <RadioGroup
-                  row
-                  value={api.warmupSet.type}
-                  onChange={(_, value) => {
-                    api.setWarmupType(value as typeof api['warmupSet']['type']);
-                  }}
-                >
-                  <FormControlLabel
-                    value="percentage"
-                    control={<Radio size="small" />}
-                    label="Percentage"
-                  />
-                  <FormControlLabel
-                    value="even"
-                    control={<Radio size="small" />}
-                    label="Even"
-                  />
-                </RadioGroup>
-              </FormControl>
-              {api.warmupSet.type === 'even' && (
-                <FormControl sx={{ mt: 1 }}>
-                  <FormLabel>Warmup Sets</FormLabel>
-                  <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
-                    <Button
-                      sx={{ px: 0, minWidth: 48 }}
-                      size="small"
-                      variant="outlined"
-                      disabled={api.warmupSet.warmupSets === 0}
-                      onClick={() =>
-                        api.warmupSet.type === 'even' &&
-                        api.setWarmupSets(api.warmupSet.warmupSets - 1)
-                      }
-                    >
-                      -
-                    </Button>
-                    <Typography sx={{ mx: 1 }}>
-                      {api.warmupSet.warmupSets}
-                    </Typography>
-                    <Button
-                      sx={{ px: 0, minWidth: 48 }}
-                      size="small"
-                      variant="outlined"
-                      onClick={() =>
-                        api.warmupSet.type === 'even' &&
-                        api.setWarmupSets(api.warmupSet.warmupSets + 1)
-                      }
-                    >
-                      +
-                    </Button>
-                  </Box>
-                </FormControl>
-              )}
             </Box>
             <Box sx={{ display: 'flex', mt: 1 }}>
               {cancel}
