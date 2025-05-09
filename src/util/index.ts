@@ -243,28 +243,43 @@ const atLeast45 = (weight: Weight_V1): Weight_V1 => {
     return { ...weight, value: 45 };
   }
   return weight;
-}
+};
 
 export const calcSetsByReps2 = (orm: Weight_V1, ratio: number): BarSet[] => {
+  // Everything for 5 3 1 is actually supposed to be based off of a training max
+  // (90%), instead of real orm, so need to update it accordingly.
+  const trainingMax = { ...orm, orm: orm.value * 0.9 };
   // warmups are always the same
   const barSets: BarSet[] = [
     {
       warmup: true,
-      weight: atLeast45({ version: 1, unit: 'lb', value: nearest5(0.3 * orm.value) }),
+      weight: atLeast45({
+        version: 1,
+        unit: 'lb',
+        value: nearest5(0.3 * trainingMax.value),
+      }),
       reps: 8,
       status: 'not-started',
       version: 1,
     },
     {
       warmup: true,
-      weight: atLeast45({ version: 1, unit: 'lb', value: nearest5(0.45 * orm.value) }),
+      weight: atLeast45({
+        version: 1,
+        unit: 'lb',
+        value: nearest5(0.45 * trainingMax.value),
+      }),
       reps: 5,
       status: 'not-started',
       version: 1,
     },
     {
       warmup: true,
-      weight: atLeast45({ version: 1, unit: 'lb', value: nearest5(0.55 * orm.value) }),
+      weight: atLeast45({
+        version: 1,
+        unit: 'lb',
+        value: nearest5(0.55 * trainingMax.value),
+      }),
       reps: 3,
       status: 'not-started',
       version: 1,
@@ -276,21 +291,33 @@ export const calcSetsByReps2 = (orm: Weight_V1, ratio: number): BarSet[] => {
     barSets.push(
       {
         warmup: false,
-        weight: atLeast45({ version: 1, unit: 'lb', value: nearest5(0.65 * orm.value) }),
+        weight: atLeast45({
+          version: 1,
+          unit: 'lb',
+          value: nearest5(0.65 * trainingMax.value),
+        }),
         reps: 5,
         status: 'not-started',
         version: 1,
       },
       {
         warmup: false,
-        weight: atLeast45({ version: 1, unit: 'lb', value: nearest5(0.75 * orm.value) }),
+        weight: atLeast45({
+          version: 1,
+          unit: 'lb',
+          value: nearest5(0.75 * trainingMax.value),
+        }),
         reps: 5,
         status: 'not-started',
         version: 1,
       },
       {
         warmup: false,
-        weight: atLeast45({ version: 1, unit: 'lb', value: nearest5(0.85 * orm.value) }),
+        weight: atLeast45({
+          version: 1,
+          unit: 'lb',
+          value: nearest5(0.85 * trainingMax.value),
+        }),
         reps: 5,
         status: 'not-started',
         version: 1,
@@ -302,21 +329,33 @@ export const calcSetsByReps2 = (orm: Weight_V1, ratio: number): BarSet[] => {
     barSets.push(
       {
         warmup: false,
-        weight: atLeast45({ version: 1, unit: 'lb', value: nearest5(0.7 * orm.value) }),
+        weight: atLeast45({
+          version: 1,
+          unit: 'lb',
+          value: nearest5(0.7 * trainingMax.value),
+        }),
         reps: 3,
         status: 'not-started',
         version: 1,
       },
       {
         warmup: false,
-        weight: atLeast45({ version: 1, unit: 'lb', value: nearest5(0.8 * orm.value) }),
+        weight: atLeast45({
+          version: 1,
+          unit: 'lb',
+          value: nearest5(0.8 * trainingMax.value),
+        }),
         reps: 3,
         status: 'not-started',
         version: 1,
       },
       {
         warmup: false,
-        weight: atLeast45({ version: 1, unit: 'lb', value: nearest5(0.9 * orm.value) }),
+        weight: atLeast45({
+          version: 1,
+          unit: 'lb',
+          value: nearest5(0.9 * trainingMax.value),
+        }),
         reps: 3,
         status: 'not-started',
         version: 1,
@@ -328,21 +367,33 @@ export const calcSetsByReps2 = (orm: Weight_V1, ratio: number): BarSet[] => {
     barSets.push(
       {
         warmup: false,
-        weight: atLeast45({ version: 1, unit: 'lb', value: nearest5(0.75 * orm.value) }),
+        weight: atLeast45({
+          version: 1,
+          unit: 'lb',
+          value: nearest5(0.75 * trainingMax.value),
+        }),
         reps: 5,
         status: 'not-started',
         version: 1,
       },
       {
         warmup: false,
-        weight: atLeast45({ version: 1, unit: 'lb', value: nearest5(0.85 * orm.value) }),
+        weight: atLeast45({
+          version: 1,
+          unit: 'lb',
+          value: nearest5(0.85 * trainingMax.value),
+        }),
         reps: 3,
         status: 'not-started',
         version: 1,
       },
       {
         warmup: false,
-        weight: atLeast45({ version: 1, unit: 'lb', value: nearest5(0.95 * orm.value) }),
+        weight: atLeast45({
+          version: 1,
+          unit: 'lb',
+          value: nearest5(0.95 * trainingMax.value),
+        }),
         reps: 1,
         status: 'not-started',
         version: 1,

@@ -19,12 +19,7 @@ import {
   Snatch_V1,
   Squat_V3,
 } from '@/types';
-import {
-  calcSetsByReps2,
-  keyForSetsByReps,
-  nameForExercise,
-  nearest5,
-} from '@/util';
+import { calcSetsByReps2, keyForSetsByReps, nameForExercise } from '@/util';
 import usePersistentObject, { StorageKey } from '@/hooks/usePersistentObject';
 import useAddExercise from '@/components/pages/Exercise/AddExercise/useAddExercise';
 import useUser from '@/hooks/useUser';
@@ -46,7 +41,6 @@ const useORM = (exercise: BarExercise): OneRepMax | undefined => {
 interface NotStarted {
   status: 'not-started';
   orm: string;
-  targetWeight: string;
 }
 
 interface InProgress {
@@ -57,16 +51,9 @@ interface InProgress {
 
 type SetsByRepsData = NotStarted | InProgress;
 
-const notStarted = (
-  actualORM: OneRepMax | undefined,
-  ormRatio: number,
-): NotStarted => ({
+const notStarted = (actualORM: OneRepMax | undefined): NotStarted => ({
   status: 'not-started',
   orm: actualORM === undefined ? '' : actualORM.weight.value.toString(),
-  targetWeight:
-    actualORM === undefined
-      ? ''
-      : nearest5(actualORM.weight.value * ormRatio).toString(),
 });
 
 const useSetsByReps = (
@@ -92,7 +79,7 @@ const useSetsByReps = (
 
   const [data, setData] = usePersistentObject<SetsByRepsData>(
     StorageKey.SetsByRepsData,
-    notStarted(actualORM, ormRatio),
+    notStarted(actualORM),
     `${nameForExercise(exercise)}/${keyForSetsByReps(sets, reps)}`,
     xform,
   );
@@ -102,52 +89,19 @@ const useSetsByReps = (
       try {
         const n = parseInt(s || '', 10);
         if (Number.isNaN(n)) {
-          setData((old) => ({ ...old, orm: '', targetWeight: '' }));
+          setData((old) => ({ ...old, orm: '' }));
           return;
         }
         setData((old) => ({
           ...old,
           orm: s || '',
-          targetWeight: Math.floor(n * ormRatio).toString(),
         }));
       } catch (e) {
         console.error(`Could not parse "${s}" as a number`);
       }
     },
-    [setData, ormRatio],
+    [setData],
   );
-
-  const setTargetWeight = useCallback(
-    (s: string | undefined) => {
-      try {
-        const n = parseInt(s || '', 10);
-        if (Number.isNaN(n)) {
-          setData((old) => ({ ...old, orm: '', targetWeight: '' }));
-          return;
-        }
-
-        setData((old) => ({
-          ...old,
-          targetWeight: s || '',
-          orm: Math.floor(n / ormRatio).toString(),
-        }));
-      } catch (e) {
-        console.error(`Could not parse "${s}" as a number`);
-      }
-    },
-    [setData, ormRatio],
-  );
-
-  useEffect(() => {
-    if (actualORM === undefined) {
-      return;
-    }
-    setData((old) => ({
-      ...old,
-      orm: actualORM.weight.value.toString(),
-      targetWeight: Math.floor(actualORM.weight.value * ormRatio).toString(),
-    }));
-  }, [actualORM, setData, ormRatio]);
 
   const skipLift = useCallback(() => {
     setData((old) => {
@@ -258,27 +212,22 @@ const useSetsByReps = (
     if (data.status !== 'not-started') {
       return;
     }
-    try {
-      const barSets = calcSetsByReps2(
-        { version: 1, unit: 'lb', value: parseInt(data.orm, 10) },
-        ormRatio,
-      );
-      setData({ status: 'in-progress', sets: barSets, currentSet: 0 });
-    } catch (e) {
-      console.error(`Couldn't parse "${data.targetWeight}" as a number.`);
-    }
+    const barSets = calcSetsByReps2(
+      { version: 1, unit: 'lb', value: parseInt(data.orm, 10) },
+      ormRatio,
+    );
+    setData({ status: 'in-progress', sets: barSets, currentSet: 0 });
   }, [data, setData, ormRatio]);
 
   const cancel = useCallback(() => {
-    setData(notStarted(actualORM, ormRatio));
-  }, [setData, actualORM, ormRatio]);
+    setData(notStarted(actualORM));
+  }, [setData, actualORM]);
 
   if (data.status === 'not-started') {
     return {
       ...data,
       startSetsByReps,
       setORM,
-      setTargetWeight,
       cancel,
     };
   }

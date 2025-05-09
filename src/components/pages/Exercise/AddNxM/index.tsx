@@ -92,18 +92,12 @@ const AddSetsByReps: React.FC<AddSetsxRepsProps> = ({
                     : undefined
                 }
               />
-              <TextField
-                size="small"
-                label="Working Weight"
-                value={api.targetWeight || ''}
-                onChange={(e) => api.setTargetWeight(e.target.value)}
-                helperText={
-                  parseInt(api.targetWeight, 10) &&
-                  parseInt(api.targetWeight, 10) % 5 !== 0
-                    ? 'Rounds to nearest 5lbs.'
-                    : undefined
-                }
-              />
+            </Box>
+            <Box>
+              <Typography>
+                For Target ORM, put in your true 1-rep max (or estimated). This
+                app takes care of accounting for training max, etc.
+              </Typography>
             </Box>
             <Box sx={{ display: 'flex', mt: 1 }}>
               {cancel}
@@ -112,7 +106,7 @@ const AddSetsByReps: React.FC<AddSetsxRepsProps> = ({
                 variant="contained"
                 color="primary"
                 size="small"
-                disabled={api.targetWeight === ''}
+                disabled={api.orm === ''}
                 onClick={api.startSetsByReps}
               >
                 Start
