@@ -36,12 +36,18 @@ const weightsForStackType = (
       return generateStack(10, 240, 10, { value: 5, unit: 'lb', version: 1 });
     case '200_10_5':
       return generateStack(10, 200, 10, { value: 5, unit: 'lb', version: 1 });
+    case '160_10_5':
+      return generateStack(10, 160, 10, { value: 5, unit: 'lb', version: 1 });
+    case '400_20_10':
+      return generateStack(20, 400, 20, { value: 10, unit: 'lb', version: 1 });
     case '_Plates':
+      return default_stack;
     // TODO: figure out if there's a clean way to special case this?
     // Probably this is just one of the things to handle better when I just
     // create a custom page for every single exercise type instead of trying
     // to do some in bulk.
     case 'Unknown':
+      return default_stack;
     default:
       return default_stack;
   }
@@ -63,7 +69,7 @@ const useMachineWeight = (
     }
     if (narrowMachineExercise(exercise)) {
       const metadata = metadataForExercise(exercise);
-      const stackType = metadata.stackType;
+      const { stackType } = metadata;
       return weightsForStackType(stackType);
     }
     return default_stack;
@@ -112,17 +118,16 @@ const useMachineWeight = (
 
         // If a matching weight is found, return it; otherwise, fallback to the lowest weight
         return { ...old, value: newValue };
-      } else {
-        // If there is no bump, move to the previous weight in the array
-        for (let i = stack.weights.length - 1; i >= 0; i--) {
-          if (stack.weights[i].value < old.value) {
-            return stack.weights[i];
-          }
-        }
-
-        // If no lower weight is found, return the first weight in the stack
-        return stack.weights[0];
       }
+      // If there is no bump, move to the previous weight in the array
+      for (let i = stack.weights.length - 1; i >= 0; i--) {
+        if (stack.weights[i].value < old.value) {
+          return stack.weights[i];
+        }
+      }
+
+      // If no lower weight is found, return the first weight in the stack
+      return stack.weights[0];
     });
   }, [setWeight, stack]);
 

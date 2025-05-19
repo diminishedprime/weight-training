@@ -69,6 +69,16 @@ export const nameForExercise = (
       return 'outer-thigh-machine';
     case Exercise.SeatedCalfMachine:
       return 'seated-calf-machine';
+    case Exercise.BicepsCurlMachine:
+      return 'bicep-curl-machine';
+    case Exercise.ConvergingChestPressMachine:
+      return 'converging-chest-press-machine';
+    case Exercise.ConvergingShoulderPressMachine:
+      return 'converging-shoulder-press-machine';
+    case Exercise.DivergingLowRowMachine:
+      return 'diverging-low-row-machine';
+    case Exercise.LateralRaiseMachine:
+      return 'lateral-raise-machine';
     case undefined:
     case null:
       return undefined;
@@ -135,6 +145,16 @@ export const fromDBExercise = (v: ExerciseData['type']): Exercise => {
       return Exercise.OuterThighMachine;
     case 'seated-calf-machine':
       return Exercise.SeatedCalfMachine;
+    case 'biceps-curl-machine':
+      return Exercise.BicepCurlMachine;
+    case 'converging-chest-press-machine':
+      return Exercise.ConvergingChestPressMachine;
+    case 'converging-shoulder-press-machine':
+      return Exercise.ConvergingShoulderPressMachine;
+    case 'diverging-low-row-machine':
+      return Exercise.DivergingLowRowMachine;
+    case 'lateral-raise-machine':
+      return Exercise.LateralRaiseMachine;
     default: {
       const exhaustiveCheck: never = v;
       throw new Error(`Unhandled case: ${exhaustiveCheck}`);

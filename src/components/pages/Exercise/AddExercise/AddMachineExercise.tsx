@@ -109,6 +109,36 @@ const AddMachineExercise: React.FC<AddMachineExerciseProps> = ({
           type: 'lat-pull-down-machine',
           version: 1,
         };
+      case Exercise.ConvergingChestPressMachine:
+        return {
+          ...baseExercise,
+          type: 'converging-chest-press-machine',
+          version: 1,
+        };
+      case Exercise.DivergingLowRowMachine:
+        return {
+          ...baseExercise,
+          type: 'diverging-low-row-machine',
+          version: 1,
+        };
+      case Exercise.ConvergingShoulderPressMachine:
+        return {
+          ...baseExercise,
+          type: 'converging-shoulder-press-machine',
+          version: 1,
+        };
+      case Exercise.LateralRaiseMachine:
+        return {
+          ...baseExercise,
+          type: 'lateral-raise-machine',
+          version: 1,
+        };
+      case Exercise.BicepsCurlMachine:
+        return {
+          ...baseExercise,
+          type: 'biceps-curl-machine',
+          version: 1,
+        };
       default: {
         const exhaustiveCheck: never = machineExercise;
         throw new Error(`Unhandled case: ${exhaustiveCheck}`);

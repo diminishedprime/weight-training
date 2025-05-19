@@ -29,6 +29,11 @@ export enum Exercise {
   LatPullDownMachine = 'y',
   OuterThighMachine = 'z',
   SeatedCalfMachine = 'aa',
+  ConvergingChestPressMachine = 'ab',
+  DivergingLowRowMachine = 'ac',
+  ConvergingShoulderPressMachine = 'ad',
+  LateralRaiseMachine = 'ae',
+  BicepsCurlMachine = 'af',
 }
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export type DumbbellExercise =
@@ -62,7 +67,12 @@ export type MachineExercise =
   | Exercise.BackExtensionMachine
   | Exercise.LatPullDownMachine
   | Exercise.OuterThighMachine
-  | Exercise.SeatedCalfMachine;
+  | Exercise.SeatedCalfMachine
+  | Exercise.ConvergingChestPressMachine
+  | Exercise.DivergingLowRowMachine
+  | Exercise.ConvergingShoulderPressMachine
+  | Exercise.LateralRaiseMachine
+  | Exercise.BicepsCurlMachine;
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export interface Weight_V1 {
   unit: 'lb' | 'kg';
@@ -95,6 +105,7 @@ export interface ExerciseMetadata_V1 {
     | 'biceps'
     | 'triceps'
     | 'deltoids'
+    | 'latissimus dorsi'
     | 'yes'
   >;
   equipment: Array<
@@ -105,7 +116,14 @@ export interface ExerciseMetadata_V1 {
     | 'resistance band'
     | 'machine'
   >;
-  stackType?: '240_10_5' | '200_10_5' | '170_10_5' | 'Unknown' | '_Plates';
+  stackType?:
+    | '240_10_5'
+    | '200_10_5'
+    | '160_10_5'
+    | '170_10_5'
+    | '400_20_10'
+    | 'Unknown'
+    | '_Plates';
   version: 1;
 }
 
@@ -333,6 +351,46 @@ export interface SeatedCalfMachine_V1 {
   reps: number;
   version: 1;
 }
+
+export interface ConvergingChestPressMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'converging-chest-press-machine';
+  reps: number;
+  version: 1;
+}
+
+export interface DivergingLowRowMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'diverging-low-row-machine';
+  reps: number;
+  version: 1;
+}
+
+export interface ConvergingShoulderPressMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'converging-shoulder-press-machine';
+  reps: number;
+  version: 1;
+}
+
+export interface LateralRaiseMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'lateral-raise-machine';
+  reps: number;
+  version: 1;
+}
+
+export interface BicepsCurlMachine_V1 {
+  date: Timestamp;
+  weight: Weight_V1;
+  type: 'biceps-curl-machine';
+  reps: number;
+  version: 1;
+}
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export type ExerciseData =
   | Deadlift_V3
@@ -361,7 +419,12 @@ export type ExerciseData =
   | BackExtensionMachine_V1
   | LatPullDownMachine_V1
   | OuterThighMachine_V1
-  | SeatedCalfMachine_V1;
+  | SeatedCalfMachine_V1
+  | ConvergingChestPressMachine_V1
+  | DivergingLowRowMachine_V1
+  | ConvergingShoulderPressMachine_V1
+  | LateralRaiseMachine_V1
+  | BicepsCurlMachine_V1;
 
 export type BarExerciseData =
   | Deadlift_V3
@@ -394,7 +457,12 @@ export type MachineExerciseData =
   | BackExtensionMachine_V1
   | LatPullDownMachine_V1
   | OuterThighMachine_V1
-  | SeatedCalfMachine_V1;
+  | SeatedCalfMachine_V1
+  | ConvergingChestPressMachine_V1
+  | DivergingLowRowMachine_V1
+  | ConvergingShoulderPressMachine_V1
+  | LateralRaiseMachine_V1
+  | BicepsCurlMachine_V1;
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 export const narrowDumbbellExercise = (
   toNarrow: Exercise,
@@ -433,7 +501,12 @@ export const narrowMachineExercise = (
   toNarrow === Exercise.BackExtensionMachine ||
   toNarrow === Exercise.LatPullDownMachine ||
   toNarrow === Exercise.OuterThighMachine ||
-  toNarrow === Exercise.SeatedCalfMachine;
+  toNarrow === Exercise.SeatedCalfMachine ||
+  toNarrow === Exercise.ConvergingChestPressMachine ||
+  toNarrow === Exercise.DivergingLowRowMachine ||
+  toNarrow === Exercise.ConvergingShoulderPressMachine ||
+  toNarrow === Exercise.LateralRaiseMachine ||
+  toNarrow === Exercise.BicepsCurlMachine;
 // THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY
 
 export const exerciseUIString = (e: Exercise) => {
@@ -473,15 +546,15 @@ export const exerciseUIString = (e: Exercise) => {
     case Exercise.AbdominalMachine:
       return 'Abdominal Machine';
     case Exercise.LegCurlMachine:
-      return 'Leg Curl Machine';
+      return 'Seated Leg Curl Machine';
     case Exercise.AdductionInnerThighMachine:
       return 'Inner Thigh Machine';
     case Exercise.LegExtensionMachine:
       return 'Leg Extension Machine';
     case Exercise.ArmExtensionMachine:
-      return 'Arm Extension Machine';
+      return 'Triceps Extension Machine';
     case Exercise.BicepCurlMachine:
-      return 'Bicep Curl Machine';
+      return 'Biceps Curl Machine';
     case Exercise.LegPressMachine:
       return 'Leg Press Machine';
     case Exercise.BackExtensionMachine:
@@ -492,6 +565,16 @@ export const exerciseUIString = (e: Exercise) => {
       return 'Outer Thigh Machine';
     case Exercise.SeatedCalfMachine:
       return 'Seated Calf Machine';
+    case Exercise.ConvergingChestPressMachine:
+      return 'Converging Chest Press Machine';
+    case Exercise.DivergingLowRowMachine:
+      return 'Diverging Low Row';
+    case Exercise.ConvergingShoulderPressMachine:
+      return 'Converging Shoulder Press Machine';
+    case Exercise.LateralRaiseMachine:
+      return 'Lateral Raise Machine';
+    case Exercise.BicepsCurlMachine:
+      return 'Biceps Curl Machine';
     default: {
       const exhaustiveCheck: never = e;
       console.log({ exhaustiveCheck });
@@ -657,7 +740,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['hip flexors', 'glutes'],
         equipment: ['machine'],
-        stackType: '200_10_5',
+        stackType: '170_10_5',
       };
     }
     case Exercise.LegExtensionMachine: {
@@ -665,7 +748,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['quadriceps'],
         equipment: ['machine'],
-        stackType: 'Unknown',
+        stackType: '240_10_5',
       };
     }
     case Exercise.ArmExtensionMachine: {
@@ -673,7 +756,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['triceps'],
         equipment: ['machine'],
-        stackType: 'Unknown',
+        stackType: '160_10_5',
       };
     }
     case Exercise.BicepCurlMachine: {
@@ -681,7 +764,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['biceps'],
         equipment: ['machine'],
-        stackType: 'Unknown',
+        stackType: '160_10_5',
       };
     }
     case Exercise.LegPressMachine: {
@@ -689,7 +772,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: [],
         equipment: ['machine'],
-        stackType: 'Unknown',
+        stackType: '400_20_10',
       };
     }
     case Exercise.BackExtensionMachine: {
@@ -697,7 +780,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['back'],
         equipment: ['machine'],
-        stackType: 'Unknown',
+        stackType: '200_10_5',
       };
     }
     case Exercise.LatPullDownMachine: {
@@ -705,7 +788,7 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         version: 1,
         targetAreas: ['back', 'biceps'],
         equipment: ['machine'],
-        stackType: 'Unknown',
+        stackType: '240_10_5',
       };
     }
     case Exercise.OuterThighMachine: {
@@ -722,6 +805,46 @@ export const metadataForExercise = (e: Exercise): ExerciseMetadata_V1 => {
         targetAreas: ['calves'],
         equipment: ['machine'],
         stackType: '_Plates',
+      };
+    }
+    case Exercise.ConvergingChestPressMachine: {
+      return {
+        version: 1,
+        targetAreas: ['chest'],
+        equipment: ['machine'],
+        stackType: '240_10_5',
+      };
+    }
+    case Exercise.DivergingLowRowMachine: {
+      return {
+        version: 1,
+        targetAreas: ['back', 'latissimus dorsi'],
+        equipment: ['machine'],
+        stackType: '240_10_5',
+      };
+    }
+    case Exercise.ConvergingShoulderPressMachine: {
+      return {
+        version: 1,
+        targetAreas: ['shoulders', 'triceps'],
+        equipment: ['machine'],
+        stackType: '200_10_5',
+      };
+    }
+    case Exercise.LateralRaiseMachine: {
+      return {
+        version: 1,
+        targetAreas: ['deltoids'],
+        equipment: ['machine'],
+        stackType: '160_10_5',
+      };
+    }
+    case Exercise.BicepsCurlMachine: {
+      return {
+        version: 1,
+        targetAreas: ['biceps'],
+        equipment: ['machine'],
+        stackType: '160_10_5',
       };
     }
     default: {

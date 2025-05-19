@@ -10,11 +10,19 @@ export enum StackType {
   // Used for:
   // - Abdominal Machine (I think?)
   _200_10_5 = '200_10_5', 
+  // 160 lbs, 10 pound increments, 5 pound bump to get to weights in between.
+  // Used for:
+  // - Lateral Raise
+  _160_10_5 = '160_10_5', 
   // 170 lbs, 10 pound increments, 5 pound bump to get to weights in between.
   // Used for:
   // - Inner Thigh
   // - Outer Thigh
   _170_10_5 = '170_10_5',
+  // 400 lbs, 20 pound increments, 10 pound bump to get to weights in between.
+  // Used for:
+  // - Leg Press
+  _400_20_10= '400_20_10',
   // Only here until I have the other stack types known for sure. Will only be
   // used to use the fallback UI that isn't as cool.
   _Unknown = 'Unknown',
@@ -380,6 +388,7 @@ const ExerciseMetadata_V1 = customType('ExerciseMetadata', 1, [
         'biceps',
         'triceps',
         'deltoids',
+        'latissimus dorsi',
         // Meme but might be worth keeping
         'yes',
       ),
@@ -580,7 +589,7 @@ const R = customType(
   commonMachine('leg-curl-machine'),
   {
     enumValue: 'r',
-    uiString: 'Leg Curl Machine',
+    uiString: 'Seated Leg Curl Machine',
     aka: [],
     equipment: ['machine'],
     targetAreas: ['hamstrings'],
@@ -598,7 +607,7 @@ const S = customType(
     aka: ['Adductor Machine', 'Adduction Inner Thigh Machine'],
     equipment: ['machine'],
     targetAreas: ['hip flexors', 'glutes'],
-    stackType: StackType._200_10_5
+    stackType: StackType._170_10_5
   }
 );
 
@@ -613,7 +622,7 @@ const T = customType(
     aka: [],
     equipment: ['machine'],
     targetAreas: ['quadriceps'],
-    stackType: StackType._Unknown, 
+    stackType: StackType._240_10_5, 
   }
 );
 
@@ -623,11 +632,11 @@ const U = customType(
   commonMachine('arm-extension-machine'),
   {
     enumValue: 'u',
-    uiString: 'Arm Extension Machine',
-    aka: ['Cable Tricep Pushdown', 'Tricep Pushdown Machine'],
+    uiString: 'Triceps Extension Machine',
+    aka: ['Arm Extension Machine'],
     equipment: ['machine'],
     targetAreas: ['triceps'],
-    stackType: StackType._Unknown, 
+    stackType: StackType._160_10_5,
   }
 );
 
@@ -637,11 +646,11 @@ const V = customType(
   commonMachine('bicep-curl-machine'),
   {
     enumValue: 'v',
-    uiString: 'Bicep Curl Machine',
-    aka: ['Cable Bicep Curl'],
+    uiString: 'Biceps Curl Machine',
+    aka: [],
     equipment: ['machine'],
     targetAreas: ['biceps'],
-    stackType: StackType._Unknown, 
+    stackType: StackType._160_10_5,
   }
 );
 
@@ -655,7 +664,7 @@ const W = customType(
     aka: ['Leg Press'],
     equipment: ['machine'],
     targetAreas: [],
-    stackType: StackType._Unknown, 
+    stackType: StackType._400_20_10, 
   }
 );
 
@@ -669,7 +678,8 @@ const X = customType(
     aka: ['Hyperextension Machine'],
     equipment: ['machine'],
     targetAreas: ['back'],
-    stackType: StackType._Unknown, 
+    // I think??
+    stackType: StackType._200_10_5, 
   }
 );
 
@@ -683,7 +693,7 @@ const Y = customType(
     aka: ['Lat Pulldown', 'Pulldown Machine'],
     equipment: ['machine'],
     targetAreas: ['back', 'biceps'],
-    stackType: StackType._Unknown,
+    stackType: StackType._240_10_5,
   }
 );
 
@@ -715,6 +725,75 @@ const AA = customType(
   }
 );
 
+const AB = customType(
+  'ConvergingChestPressMachine',
+  1,
+  commonMachine('converging-chest-press-machine'),
+  {
+    enumValue: 'ab',
+    uiString: 'Converging Chest Press Machine',
+    aka: ['Chest Press Machine'],
+    equipment: ['machine'],
+    targetAreas: ['chest'],
+    stackType: StackType._240_10_5,
+  }
+);
+
+const AC = customType(
+  'DivergingLowRowMachine',
+  1,
+  commonMachine('diverging-low-row-machine'),
+  {
+    enumValue: 'ac',
+    uiString: 'Diverging Low Row',
+    aka: ['Stack Row Machine'],
+    equipment: ['machine'],
+    targetAreas: ['back', 'latissimus dorsi'],
+    stackType: StackType._240_10_5,
+  }
+);
+
+const AD = customType(
+  'ConvergingShoulderPressMachine',
+  1,
+  commonMachine('converging-shoulder-press-machine'),
+  {
+    enumValue: 'ad',
+    uiString: 'Converging Shoulder Press Machine',
+    aka: ['Shoulder Press Machine'],
+    equipment: ['machine'],
+    targetAreas: ['shoulders', 'triceps'],
+    stackType: StackType._200_10_5,
+  }
+);
+
+const AE = customType(
+  'LateralRaiseMachine',
+  1,
+  commonMachine('lateral-raise-machine'),
+  {
+    enumValue: 'ae',
+    uiString: 'Lateral Raise Machine',
+    aka: ['Lateral Raise'],
+    equipment: ['machine'],
+    targetAreas: ['deltoids'],
+    stackType: StackType._160_10_5,
+  }
+);
+
+const AF = customType(
+  'BicepsCurlMachine',
+  1,
+  commonMachine('biceps-curl-machine'),
+  {
+    enumValue: 'af',
+    uiString: 'Biceps Curl Machine',
+    aka: [],
+    equipment: ['machine'],
+    targetAreas: ['biceps'],
+    stackType: StackType._160_10_5,
+  }
+);
 
 ///////////////////////////
 // End Machine Exercises //
@@ -733,7 +812,7 @@ const dumbbellExerciseTypes: CustomType[] = [G, H, I, J, M, O, P].map((ct) => ({
 }));
 
 const machineExerciseTypes: CustomType[] = [
-  Q, R, S, T, U, V, W, X, Y, Z, AA // Include all staged machine types
+  Q, R, S, T, U, V, W, X, Y, Z, AA, AB, AC, AD, AE, AF,
 ].map((ct) => ({
   ...ct,
   metadata: { ...ct.metadata, exerciseType: 'machine' },
