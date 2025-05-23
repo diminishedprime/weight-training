@@ -16,7 +16,7 @@ import Bar from '@/components/common/Bar';
 import TimeSince from '@/components/common/TimeSince';
 import { BarExercise, Reps, Sets } from '@/types';
 import useSetsByReps from '@/components/pages/Exercise/AddNxM/useSetsByReps';
-import { platesForWeight } from '@/util';
+import { nearest5, platesForWeight } from '@/util';
 
 interface AddSetsxRepsProps {
   exercise: BarExercise;
@@ -71,6 +71,9 @@ const AddSetsByReps: React.FC<AddSetsxRepsProps> = ({
     );
   }
 
+  const ormNum =
+    api.status === 'not-started' && api.orm ? parseInt(api.orm, 10) : 0;
+
   if (active) {
     return (
       <>
@@ -92,6 +95,13 @@ const AddSetsByReps: React.FC<AddSetsxRepsProps> = ({
                     : undefined
                 }
               />
+              <TextField
+                size="small"
+                label="Working Max"
+                sx={{ mr: 1 }}
+                value={nearest5(ormNum * 0.9)}
+                disabled
+              />
             </Box>
             <Box>
               <Typography>
@@ -99,6 +109,38 @@ const AddSetsByReps: React.FC<AddSetsxRepsProps> = ({
                 app takes care of accounting for training max, etc.
               </Typography>
             </Box>
+            <table>
+              <thead>
+                <tr>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ormRatio === 0.85 && (
+                  <tr>
+                    <td>{nearest5(ormNum * 0.9 * 0.65)}</td>
+                    <td>{nearest5(ormNum * 0.9 * 0.75)}</td>
+                    <td>{nearest5(ormNum * 0.9 * 0.85)}</td>
+                  </tr>
+                )}
+                {ormRatio === 0.9 && (
+                  <tr>
+                    <td>{nearest5(ormNum * 0.9 * 0.7)}</td>
+                    <td>{nearest5(ormNum * 0.9 * 0.8)}</td>
+                    <td>{nearest5(ormNum * 0.9 * 0.9)}</td>
+                  </tr>
+                )}
+                {ormRatio === 0.95 && (
+                  <tr>
+                    <td>{nearest5(ormNum * 0.9 * 0.75)}</td>
+                    <td>{nearest5(ormNum * 0.9 * 0.85)}</td>
+                    <td>{nearest5(ormNum * 0.9 * 0.95)}</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
             <Box sx={{ display: 'flex', mt: 1 }}>
               {cancel}
               <Box sx={{ flexGrow: 1 }} />

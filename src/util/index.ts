@@ -268,7 +268,7 @@ const atLeast45 = (weight: Weight_V1): Weight_V1 => {
 export const calcSetsByReps2 = (orm: Weight_V1, ratio: number): BarSet[] => {
   // Everything for 5 3 1 is actually supposed to be based off of a training max
   // (90%), instead of real orm, so need to update it accordingly.
-  const trainingMax = { ...orm, orm: orm.value * 0.9 };
+  const trainingMax = { ...orm, value: orm.value * 0.9 };
   // warmups are always the same
   const barSets: BarSet[] = [
     {
