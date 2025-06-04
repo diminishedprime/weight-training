@@ -7,98 +7,286 @@ export type Json =
   | Json[]
 
 export type Database = {
+  graphql_public: {
+    Tables: {
+      [_ in never]: never
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      graphql: {
+        Args: {
+          operationName?: string
+          query?: string
+          variables?: Json
+          extensions?: Json
+        }
+        Returns: Json
+      }
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
+  }
+  next_auth: {
+    Tables: {
+      accounts: {
+        Row: {
+          access_token: string | null
+          expires_at: number | null
+          id: string
+          id_token: string | null
+          oauth_token: string | null
+          oauth_token_secret: string | null
+          provider: string
+          providerAccountId: string
+          refresh_token: string | null
+          scope: string | null
+          session_state: string | null
+          token_type: string | null
+          type: string
+          userId: string | null
+        }
+        Insert: {
+          access_token?: string | null
+          expires_at?: number | null
+          id?: string
+          id_token?: string | null
+          oauth_token?: string | null
+          oauth_token_secret?: string | null
+          provider: string
+          providerAccountId: string
+          refresh_token?: string | null
+          scope?: string | null
+          session_state?: string | null
+          token_type?: string | null
+          type: string
+          userId?: string | null
+        }
+        Update: {
+          access_token?: string | null
+          expires_at?: number | null
+          id?: string
+          id_token?: string | null
+          oauth_token?: string | null
+          oauth_token_secret?: string | null
+          provider?: string
+          providerAccountId?: string
+          refresh_token?: string | null
+          scope?: string | null
+          session_state?: string | null
+          token_type?: string | null
+          type?: string
+          userId?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "accounts_userId_fkey"
+            columns: ["userId"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      sessions: {
+        Row: {
+          expires: string
+          id: string
+          sessionToken: string
+          userId: string | null
+        }
+        Insert: {
+          expires: string
+          id?: string
+          sessionToken: string
+          userId?: string | null
+        }
+        Update: {
+          expires?: string
+          id?: string
+          sessionToken?: string
+          userId?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sessions_userId_fkey"
+            columns: ["userId"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      users: {
+        Row: {
+          email: string | null
+          emailVerified: string | null
+          id: string
+          image: string | null
+          name: string | null
+        }
+        Insert: {
+          email?: string | null
+          emailVerified?: string | null
+          id?: string
+          image?: string | null
+          name?: string | null
+        }
+        Update: {
+          email?: string | null
+          emailVerified?: string | null
+          id?: string
+          image?: string | null
+          name?: string | null
+        }
+        Relationships: []
+      }
+      verification_tokens: {
+        Row: {
+          expires: string
+          identifier: string | null
+          token: string
+        }
+        Insert: {
+          expires: string
+          identifier?: string | null
+          token: string
+        }
+        Update: {
+          expires?: string
+          identifier?: string | null
+          token?: string
+        }
+        Relationships: []
+      }
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      uid: {
+        Args: Record<PropertyKey, never>
+        Returns: string
+      }
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
+  }
   public: {
     Tables: {
-      deadlift_group: {
+      exercise_block: {
         Row: {
+          block_order: number | null
           id: string
-          training_max_id: string
+          lift_group_id: string
+          lift_id: string
+          user_id: string
+          workout_session_id: string | null
         }
         Insert: {
+          block_order?: number | null
           id?: string
-          training_max_id: string
+          lift_group_id: string
+          lift_id: string
+          user_id: string
+          workout_session_id?: string | null
         }
         Update: {
+          block_order?: number | null
           id?: string
-          training_max_id?: string
+          lift_group_id?: string
+          lift_id?: string
+          user_id?: string
+          workout_session_id?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "deadlift_group_training_max_id_fkey"
-            columns: ["training_max_id"]
+            foreignKeyName: "exercise_block_workout_session_id_fkey"
+            columns: ["workout_session_id"]
             isOneToOne: false
-            referencedRelation: "weights"
+            referencedRelation: "workout_session"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fk_lift"
+            columns: ["lift_id"]
+            isOneToOne: false
+            referencedRelation: "lifts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fk_lift_group"
+            columns: ["lift_group_id"]
+            isOneToOne: false
+            referencedRelation: "lift_group"
             referencedColumns: ["id"]
           },
         ]
       }
-      deadlift_groups: {
+      lift_group: {
         Row: {
-          deadlift_group_id: string
-          deadlift_id: string
           id: string
-          position: number | null
+          user_id: string
+          wendler_id: string | null
         }
         Insert: {
-          deadlift_group_id: string
-          deadlift_id: string
           id?: string
-          position?: number | null
+          user_id: string
+          wendler_id?: string | null
         }
         Update: {
-          deadlift_group_id?: string
-          deadlift_id?: string
           id?: string
-          position?: number | null
+          user_id?: string
+          wendler_id?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "fk_deadlift"
-            columns: ["deadlift_id"]
-            isOneToOne: false
-            referencedRelation: "deadlifts"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "fk_deadlift_group"
-            columns: ["deadlift_group_id"]
-            isOneToOne: false
-            referencedRelation: "deadlift_group"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
-      deadlifts: {
+      lifts: {
         Row: {
-          actually_completed: boolean
-          completion_status: string
+          completion_status: Database["public"]["Enums"]["completion_status_enum"]
           id: string
+          lift_type: Database["public"]["Enums"]["lift_type_enum"]
+          notes: string | null
+          performed_at: string | null
           reps: number
-          time: string | null
+          user_id: string
           warmup: boolean
           weight_id: string
         }
         Insert: {
-          actually_completed?: boolean
-          completion_status?: string
+          completion_status?: Database["public"]["Enums"]["completion_status_enum"]
           id?: string
+          lift_type: Database["public"]["Enums"]["lift_type_enum"]
+          notes?: string | null
+          performed_at?: string | null
           reps: number
-          time?: string | null
+          user_id: string
           warmup?: boolean
           weight_id: string
         }
         Update: {
-          actually_completed?: boolean
-          completion_status?: string
+          completion_status?: Database["public"]["Enums"]["completion_status_enum"]
           id?: string
+          lift_type?: Database["public"]["Enums"]["lift_type_enum"]
+          notes?: string | null
+          performed_at?: string | null
           reps?: number
-          time?: string | null
+          user_id?: string
           warmup?: boolean
           weight_id?: string
         }
         Relationships: [
           {
-            foreignKeyName: "deadlift_weight_id_fkey"
+            foreignKeyName: "lifts_weight_id_fkey"
             columns: ["weight_id"]
             isOneToOne: false
             referencedRelation: "weights"
@@ -109,18 +297,81 @@ export type Database = {
       weights: {
         Row: {
           id: string
-          weight_unit: string
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"]
           weight_value: number
         }
         Insert: {
           id?: string
-          weight_unit?: string
+          weight_unit?: Database["public"]["Enums"]["weight_unit_enum"]
           weight_value: number
         }
         Update: {
           id?: string
-          weight_unit?: string
+          weight_unit?: Database["public"]["Enums"]["weight_unit_enum"]
           weight_value?: number
+        }
+        Relationships: []
+      }
+      wendler_metadata: {
+        Row: {
+          cycle_type: Database["public"]["Enums"]["cycle_type_enum"]
+          id: string
+          increase_amount_id: string
+          lift_type: Database["public"]["Enums"]["lift_type_enum"]
+          training_max_id: string
+          user_id: string
+        }
+        Insert: {
+          cycle_type: Database["public"]["Enums"]["cycle_type_enum"]
+          id?: string
+          increase_amount_id: string
+          lift_type: Database["public"]["Enums"]["lift_type_enum"]
+          training_max_id: string
+          user_id: string
+        }
+        Update: {
+          cycle_type?: Database["public"]["Enums"]["cycle_type_enum"]
+          id?: string
+          increase_amount_id?: string
+          lift_type?: Database["public"]["Enums"]["lift_type_enum"]
+          training_max_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "wendler_metadata_increase_amount_id_fkey"
+            columns: ["increase_amount_id"]
+            isOneToOne: false
+            referencedRelation: "weights"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "wendler_metadata_training_max_id_fkey"
+            columns: ["training_max_id"]
+            isOneToOne: false
+            referencedRelation: "weights"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      workout_session: {
+        Row: {
+          id: string
+          name: string | null
+          notes: string | null
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          name?: string | null
+          notes?: string | null
+          user_id: string
+        }
+        Update: {
+          id?: string
+          name?: string | null
+          notes?: string | null
+          user_id?: string
         }
         Relationships: []
       }
@@ -129,13 +380,122 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      create_lift: {
+        Args: {
+          p_user_id: string
+          p_lift_type: Database["public"]["Enums"]["lift_type_enum"]
+          p_weight_value: number
+          p_reps: number
+          p_performed_at?: string
+          p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"]
+          p_warmup?: boolean
+          p_completion_status?: Database["public"]["Enums"]["completion_status_enum"]
+        }
+        Returns: string
+      }
+      create_wendler_lift_session_5s: {
+        Args: {
+          p_user_id: string
+          p_training_max_lbs: number
+          p_increase_amount_lbs: number
+          p_lift_type: Database["public"]["Enums"]["lift_type_enum"]
+        }
+        Returns: string
+      }
+      get_lift_for_user: {
+        Args: { p_user_id: string; p_lift_id: string }
+        Returns: Database["public"]["CompositeTypes"]["lift_row_type"]
+      }
+      get_lifts_by_type_for_user: {
+        Args: {
+          p_user_id: string
+          p_lift_type: Database["public"]["Enums"]["lift_type_enum"]
+        }
+        Returns: {
+          lift_id: string
+          user_id: string
+          lift_type: Database["public"]["Enums"]["lift_type_enum"]
+          performed_at: string
+          weight_value: number
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"]
+          reps: number
+          warmup: boolean
+          completion_status: Database["public"]["Enums"]["completion_status_enum"]
+        }[]
+      }
+      get_wendler_lift_group_details: {
+        Args: { p_lift_group_id: string }
+        Returns: {
+          lift_group_id: string
+          user_id: string
+          cycle_type: string
+          lift_type: string
+          training_max: number
+          training_max_unit: string
+          increase_amount: number
+          increase_amount_unit: string
+          lift_id: string
+          performed_at: string
+          reps: number
+          warmup: boolean
+          completion_status: string
+          weight_value: number
+          weight_unit: string
+          block_order: number
+        }[]
+      }
+      normalize_bar_weight: {
+        Args: { p_weight: number }
+        Returns: number
+      }
+      round_to_nearest_5: {
+        Args: { p_weight: number }
+        Returns: number
+      }
+      update_lift_for_user: {
+        Args: {
+          p_lift_id: string
+          p_user_id: string
+          p_lift_type: Database["public"]["Enums"]["lift_type_enum"]
+          p_weight_value: number
+          p_reps: number
+          p_performed_at?: string
+          p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"]
+          p_warmup?: boolean
+          p_completion_status?: Database["public"]["Enums"]["completion_status_enum"]
+        }
+        Returns: undefined
+      }
     }
     Enums: {
-      [_ in never]: never
+      completion_status_enum:
+        | "Completed"
+        | "Not Completed"
+        | "Failed"
+        | "Skipped"
+      cycle_type_enum: "5" | "3" | "1" | "deload"
+      lift_type_enum:
+        | "deadlift"
+        | "squat"
+        | "bench_press"
+        | "overhead_press"
+        | "row"
+      weight_unit_enum: "pounds" | "kilograms"
     }
     CompositeTypes: {
-      [_ in never]: never
+      lift_row_type: {
+        lift_id: string | null
+        user_id: string | null
+        lift_type: Database["public"]["Enums"]["lift_type_enum"] | null
+        performed_at: string | null
+        weight_value: number | null
+        weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null
+        reps: number | null
+        warmup: boolean | null
+        completion_status:
+          | Database["public"]["Enums"]["completion_status_enum"]
+          | null
+      }
     }
   }
 }
@@ -246,7 +606,30 @@ export type CompositeTypes<
     : never
 
 export const Constants = {
-  public: {
+  graphql_public: {
     Enums: {},
   },
+  next_auth: {
+    Enums: {},
+  },
+  public: {
+    Enums: {
+      completion_status_enum: [
+        "Completed",
+        "Not Completed",
+        "Failed",
+        "Skipped",
+      ],
+      cycle_type_enum: ["5", "3", "1", "deload"],
+      lift_type_enum: [
+        "deadlift",
+        "squat",
+        "bench_press",
+        "overhead_press",
+        "row",
+      ],
+      weight_unit_enum: ["pounds", "kilograms"],
+    },
+  },
 } as const
+
