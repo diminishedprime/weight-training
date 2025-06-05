@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { auth, signIn, signOut } from "@/auth";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,9 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="bg-gray-800 text-white p-4 flex justify-between items-center">
-          <h1 className="text-lg font-bold">Weight Training</h1>
+          <Link className="text-lg font-bold" href="/">
+            Weight Training 2
+          </Link>
           <div>
             {user ? (
               <div className="flex items-center">

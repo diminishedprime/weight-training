@@ -1,4 +1,5 @@
 import { auth, signIn, signOut } from "@/auth";
+import Link from "next/link";
 
 export default async function Banner() {
   const session = await auth();
@@ -6,7 +7,12 @@ export default async function Banner() {
 
   return (
     <div className="bg-gray-800 text-white p-4 flex justify-between items-center">
-      <h1 className="text-lg font-bold">Weight Training</h1>
+      <Link
+        href="/"
+        className="text-lg font-bold hover:underline focus:outline-none"
+      >
+        Weight Training
+      </Link>
       <div>
         {user ? (
           <div className="flex items-center">
