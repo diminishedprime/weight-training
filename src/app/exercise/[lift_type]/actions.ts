@@ -1,12 +1,9 @@
 "use server";
-import { createClient } from "@supabase/supabase-js";
 import { Database } from "@/database.types";
-import { revalidatePath } from "next/cache";
-import { auth } from "@/auth";
 
 export async function addRandomLiftAction(
   liftType: Database["public"]["Enums"]["lift_type_enum"],
-  formData: FormData
+  _: FormData
 ) {
   "use server";
   const { createClient } = await import("@supabase/supabase-js");

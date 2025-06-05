@@ -1,74 +1,74 @@
 "use client";
 import React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { weightUnitUIString } from "@/util";
+import { Database } from "@/database.types";
 
-export default function LiftsTable({ lifts, lift_type }: { lifts: any[]; lift_type: string }) {
+export default function LiftsTable({
+  lifts,
+  lift_type,
+}: {
+  lifts: Database["public"]["Functions"]["get_lifts_by_type_for_user"]["Returns"];
+  lift_type: Database["public"]["Enums"]["lift_type_enum"];
+}) {
   const searchParams = useSearchParams();
   const flashId = searchParams.get("flash");
 
   return (
-    <>
-      <style>{`
-        .flash-row {
-          animation: flash-bg 1.5s ease-in-out;
-        }
-        @keyframes flash-bg {
-          0% { background-color: #fef08a; }
-          50% { background-color: #fef08a; }
-          100% { background-color: inherit; }
-        }
-      `}</style>
-      <div className="overflow-x-auto mt-8">
-        <table className="w-full table-auto border-separate border-spacing-x-8 border-spacing-y-2 bg-white shadow rounded-lg">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-8 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-              <th className="px-8 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Weight</th>
-              <th className="px-8 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Unit</th>
-              <th className="px-8 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Reps</th>
-              <th className="px-8 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edit</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
-            {lifts.map((lift: any, idx: number) => (
-              <tr
-                key={lift.id || idx}
-                className={
-                  (idx % 2 === 0 ? "bg-white" : "bg-gray-50") +
-                  (flashId && (lift.lift_id === flashId || lift.id === flashId)
-                    ? " flash-row"
-                    : "")
-                }
-              >
-                <td className="px-8 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {lift.performed_at
-                    ? new Date(lift.performed_at).toLocaleString()
-                    : "N/A"}
-                </td>
-                <td className="px-8 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {lift.weight_value}
-                </td>
-                <td className="px-8 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {lift.weight_unit}
-                </td>
-                <td className="px-8 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {lift.reps}
-                </td>
-                <td className="px-8 py-4 whitespace-nowrap text-sm">
-                  <a
-                    href={`/exercise/${lift_type}/edit/${
-                      lift.lift_id || lift.id
-                    }`}
-                    className="inline-block px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors text-xs font-semibold"
-                  >
-                    Edit
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </>
+    <TableContainer component={Paper} sx={{ mt: 4 }}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Date</TableCell>
+            <TableCell>Weight</TableCell>
+            <TableCell>Reps</TableCell>
+            <TableCell>Edit</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {lifts.map((lift, idx: number) => (
+            <TableRow
+              key={lift.lift_id || idx}
+              sx={
+                flashId &&
+                (lift.lift_id === flashId || lift.lift_id === flashId)
+                  ? { animation: "flash-bg 1.5s ease-in-out" }
+                  : {}
+              }
+            >
+              <TableCell>
+                {lift.performed_at
+                  ? new Date(lift.performed_at).toLocaleString()
+                  : "N/A"}
+              </TableCell>
+              <TableCell>
+                {lift.weight_value} {weightUnitUIString(lift.weight_unit)}
+              </TableCell>
+              <TableCell>{lift.reps}</TableCell>
+              <TableCell>
+                <Button
+                  component={Link}
+                  href={`/exercise/${lift_type}/edit/${
+                    lift.lift_id || lift.lift_id
+                  }`}
+                  size="small"
+                >
+                  Edit
+                </Button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }

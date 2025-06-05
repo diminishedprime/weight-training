@@ -1,17 +1,20 @@
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 import { Constants, Database } from "@/database.types";
 import { auth } from "@/auth";
-import { notFound, redirect } from "next/navigation";
+import { requireId } from "@/util";
+import { notFound } from "next/navigation";
 import { addRandomLiftAction } from "./actions";
 import AddRandomLiftButton from "./AddRandomLiftButton";
 import LiftsTableWrapper from "./LiftsTableWrapper";
 import { Suspense } from "react";
+import { liftTypeUIString } from "@/util";
 
 export default async function Home({
   params,
 }: {
   params: Promise<{ lift_type: string }>;
 }) {
-  const session = auth();
   const { lift_type: unnarrowed_lift_type } = await params;
 
   if (
@@ -19,27 +22,26 @@ export default async function Home({
       (a) => a === unnarrowed_lift_type
     ) === undefined
   ) {
-    // redirect to 404 page
     return notFound();
   }
 
   const lift_type =
     unnarrowed_lift_type as Database["public"]["Enums"]["lift_type_enum"];
 
-  const id = (await session)?.user?.id;
-  if (!id) {
-    // TODO - actually make a signin page.
-    redirect("/login");
-  }
+  const session = await auth();
+  const id = requireId(session, `/exercise/${lift_type}`);
 
   return (
-    <div>
+    <Stack spacing={2} sx={{ p: 4 }}>
+      <Typography variant="h4" sx={{ mb: 2 }}>
+        {liftTypeUIString(lift_type)} Lifts
+      </Typography>
       <AddRandomLiftButton
         addRandomLift={addRandomLiftAction.bind(null, lift_type)}
       />
       <Suspense fallback={<div>Loading lifts...</div>}>
         <LiftsTableWrapper userId={id} lift_type={lift_type} />
       </Suspense>
-    </div>
+    </Stack>
   );
 }

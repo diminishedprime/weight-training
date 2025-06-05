@@ -2,141 +2,153 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { updateLiftForUserAction } from "./actions";
+import TextField from "@mui/material/TextField";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
+import { Database } from "@/database.types";
 
 export default function EditLiftForm({
   lift,
   user_id,
 }: {
-  lift: any;
+  lift: Database["public"]["Functions"]["get_lift_for_user"]["Returns"];
   user_id: string;
 }) {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
-  const [form, setForm] = useState({
-    weight_value: lift.weight_value,
-    weight_unit: lift.weight_unit,
-    reps: lift.reps,
-    performed_at: lift.performed_at
+  const [weightValue, setWeightValue] = useState(lift.weight_value!);
+  const [weightUnit, setWeightUnit] = useState(lift.weight_unit!);
+  const [reps, setReps] = useState(lift.reps!);
+  const [performedAt, setPerformedAt] = useState(
+    lift.performed_at
       ? new Date(lift.performed_at).toISOString().slice(0, 16)
-      : "",
-    warmup: lift.warmup,
-    completion_status: lift.completion_status,
-    lift_type: lift.lift_type,
-  });
-
-  const handleChange = (e: any) => {
-    const { name, value, type, checked } = e.target;
-    setForm((prev: any) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
+      : ""
+  );
+  const [warmup, setWarmup] = useState(lift.warmup!);
+  const [completionStatus, setCompletionStatus] = useState(
+    lift.completion_status!
+  );
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
     const result = await updateLiftForUserAction({
-      lift_id: lift.lift_id,
+      lift_id: lift.lift_id!,
       user_id,
-      lift_type: form.lift_type,
-      weight_value: Number(form.weight_value),
-      reps: Number(form.reps),
-      performed_at: form.performed_at
-        ? new Date(form.performed_at).toISOString()
-        : null,
-      weight_unit: form.weight_unit,
-      warmup: form.warmup,
-      completion_status: form.completion_status,
+      lift_type: lift.lift_type!,
+      weight_value: Number(weightValue),
+      reps: Number(reps),
+      performed_at: performedAt ? new Date(performedAt).toISOString() : null,
+      weight_unit: weightUnit,
+      warmup,
+      completion_status: completionStatus,
     });
     if (result?.error) {
       setError(result.error);
       return;
     }
-    router.push(`/exercise/${form.lift_type}?flash=${lift.lift_id}`);
+    router.push(`/exercise/${lift.lift_type!}?flash=${lift.lift_id}`);
   }
 
-  if (error) return <div className="p-8 text-red-600">{error}</div>;
+  if (error)
+    return (
+      <Alert severity="error" sx={{ mb: 2 }}>
+        {error}
+      </Alert>
+    );
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label className="block mb-1 font-medium">Weight</label>
-        <input
+    <form onSubmit={handleSubmit}>
+      <Stack spacing={3}>
+        <TextField
+          label="Weight"
           type="number"
           name="weight_value"
-          value={form.weight_value}
-          onChange={handleChange}
-          className="w-full border rounded px-3 py-2"
+          value={weightValue}
+          onChange={(e) => setWeightValue(Number(e.target.value))}
           required
-          min="0"
-          step="0.01"
+          fullWidth
         />
-      </div>
-      <div>
-        <label className="block mb-1 font-medium">Unit</label>
-        <select
-          name="weight_unit"
-          value={form.weight_unit}
-          onChange={handleChange}
-          className="w-full border rounded px-3 py-2"
-        >
-          <option value="pounds">Pounds</option>
-          <option value="kilograms">Kilograms</option>
-        </select>
-      </div>
-      <div>
-        <label className="block mb-1 font-medium">Reps</label>
-        <input
+        <FormControl fullWidth>
+          <InputLabel id="unit-label">Unit</InputLabel>
+          <Select
+            labelId="unit-label"
+            name="weight_unit"
+            value={weightUnit}
+            label="Unit"
+            onChange={(e) =>
+              setWeightUnit(
+                e.target
+                  .value as Database["public"]["Enums"]["weight_unit_enum"]
+              )
+            }
+          >
+            <MenuItem value="pounds">Pounds</MenuItem>
+            <MenuItem value="kilograms">Kilograms</MenuItem>
+          </Select>
+        </FormControl>
+        <TextField
+          label="Reps"
           type="number"
           name="reps"
-          value={form.reps}
-          onChange={handleChange}
-          className="w-full border rounded px-3 py-2"
+          value={reps}
+          onChange={(e) => setReps(Number(e.target.value))}
           required
-          min="1"
-          step="1"
+          inputProps={{ min: 1, step: 1 }}
+          fullWidth
         />
-      </div>
-      <div>
-        <label className="block mb-1 font-medium">Date/Time</label>
-        <input
+        <TextField
+          label="Date/Time"
           type="datetime-local"
           name="performed_at"
-          value={form.performed_at}
-          onChange={handleChange}
-          className="w-full border rounded px-3 py-2"
+          value={performedAt}
+          onChange={(e) => setPerformedAt(e.target.value)}
+          fullWidth
+          InputLabelProps={{ shrink: true }}
         />
-      </div>
-      <div className="flex items-center">
-        <input
-          type="checkbox"
-          name="warmup"
-          checked={form.warmup}
-          onChange={handleChange}
-          className="mr-2"
+        <FormControlLabel
+          control={
+            <Checkbox
+              name="warmup"
+              checked={warmup}
+              onChange={(e) => setWarmup(e.target.checked)}
+            />
+          }
+          label="Warmup"
         />
-        <label className="font-medium">Warmup</label>
-      </div>
-      <div>
-        <label className="block mb-1 font-medium">Completion Status</label>
-        <select
-          name="completion_status"
-          value={form.completion_status}
-          onChange={handleChange}
-          className="w-full border rounded px-3 py-2"
-        >
-          <option value="Completed">Completed</option>
-          <option value="Not Completed">Not Completed</option>
-          <option value="Failed">Failed</option>
-          <option value="Skipped">Skipped</option>
-        </select>
-      </div>
-      <button
-        type="submit"
-        className="w-full py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-      >
-        Save Changes
-      </button>
+        <FormControl fullWidth>
+          <InputLabel id="completion-status-label">
+            Completion Status
+          </InputLabel>
+          <Select
+            labelId="completion-status-label"
+            name="completion_status"
+            value={completionStatus}
+            label="Completion Status"
+            onChange={(e) =>
+              setCompletionStatus(
+                e.target
+                  .value as Database["public"]["Enums"]["completion_status_enum"]
+              )
+            }
+          >
+            <MenuItem value="Completed">Completed</MenuItem>
+            <MenuItem value="Not Completed">Not Completed</MenuItem>
+            <MenuItem value="Failed">Failed</MenuItem>
+            <MenuItem value="Skipped">Skipped</MenuItem>
+          </Select>
+        </FormControl>
+        <Button type="submit" variant="contained" color="primary" fullWidth>
+          Save Changes
+        </Button>
+      </Stack>
     </form>
   );
 }
