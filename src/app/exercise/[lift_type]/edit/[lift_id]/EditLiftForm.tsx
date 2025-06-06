@@ -14,6 +14,7 @@ import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import { Database } from "@/database.types";
 import BarbellEditor from "@/components/BarbellEditor";
+import RepsSelector from "@/components/RepsSelector";
 
 export default function EditLiftForm({
   lift,
@@ -103,6 +104,13 @@ export default function EditLiftForm({
             <MenuItem value="kilograms">Kilograms</MenuItem>
           </Select>
         </FormControl>
+        {/* RepsSelector for reps editing */}
+        <RepsSelector
+          reps={reps}
+          onChange={setReps}
+          repChoices={[1, 3, 5, 8, 10, 12, 15]}
+        />
+        {/* Hide the numeric reps input, but keep it for accessibility/fallback */}
         <TextField
           label="Reps"
           type="number"
@@ -112,6 +120,7 @@ export default function EditLiftForm({
           required
           inputProps={{ min: 1, step: 1 }}
           fullWidth
+          sx={{ display: "none" }}
         />
         <TextField
           label="Date/Time"
