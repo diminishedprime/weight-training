@@ -74,37 +74,13 @@ export default function EditLiftForm({
           totalWeight={weightValue}
           barWeight={45}
           onChange={setWeightValue}
+          weightUnit={weightUnit}
+          onUnitChange={(unit) =>
+            setWeightUnit(
+              unit as Database["public"]["Enums"]["weight_unit_enum"]
+            )
+          }
         />
-        {/* Hide the numeric weight input, but keep it for accessibility/fallback */}
-        <TextField
-          label="Weight"
-          type="number"
-          name="weight_value"
-          value={weightValue}
-          onChange={(e) => setWeightValue(Number(e.target.value))}
-          required
-          fullWidth
-          sx={{ display: "none" }}
-        />
-        <FormControl fullWidth>
-          <InputLabel id="unit-label">Unit</InputLabel>
-          <Select
-            labelId="unit-label"
-            name="weight_unit"
-            value={weightUnit}
-            label="Unit"
-            onChange={(e) =>
-              setWeightUnit(
-                e.target
-                  .value as Database["public"]["Enums"]["weight_unit_enum"]
-              )
-            }
-          >
-            <MenuItem value="pounds">Pounds</MenuItem>
-            <MenuItem value="kilograms">Kilograms</MenuItem>
-          </Select>
-        </FormControl>
-        {/* RepsSelector for reps editing */}
         <RepsSelector
           reps={reps}
           onChange={setReps}

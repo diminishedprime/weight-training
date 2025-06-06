@@ -5,6 +5,12 @@ import Box from "@mui/material/Box";
 import Badge from "@mui/material/Badge";
 import Barbell from "@/components/Barbell";
 import TextField from "@mui/material/TextField";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import { Database, Constants } from "@/database.types";
+import { weightUnitUIString } from "@/util";
 
 // TODO: consider making this configurable by the user in case they have a
 // different plate setup available. (i.e. 35s)
@@ -29,12 +35,16 @@ export interface BarbellEditorProps {
   totalWeight: number; // total weight on bar (including bar)
   barWeight?: number; // default 45
   onChange?: (newTotal: number) => void;
+  weightUnit?: string;
+  onUnitChange?: (unit: string) => void;
 }
 
 export default function BarbellEditor({
   totalWeight,
   barWeight = 45,
   onChange,
+  weightUnit = "pounds",
+  onUnitChange,
 }: BarbellEditorProps) {
   // Plates per side
   const platesPerSide = (totalWeight - barWeight) / 2;
@@ -56,9 +66,9 @@ export default function BarbellEditor({
       }}
     >
       <Box>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <TextField
-            type="number"
+            label="Value"
             value={totalWeight}
             onChange={(e) => {
               const val = Number(e.target.value);
@@ -66,7 +76,23 @@ export default function BarbellEditor({
             }}
             variant="outlined"
             size="small"
+            sx={{ width: "7ch" }}
           />
+          <FormControl size="small">
+            <InputLabel id="barbell-unit-label">Unit</InputLabel>
+            <Select
+              labelId="barbell-unit-label"
+              value={weightUnit}
+              label="Unit"
+              onChange={(e) => onUnitChange && onUnitChange(e.target.value)}
+            >
+              {Constants.public.Enums.weight_unit_enum.map((unit) => (
+                <MenuItem key={unit} value={unit}>
+                  {weightUnitUIString(unit)}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Box>
       </Box>
       <Barbell plateList={plateList} />
