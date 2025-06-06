@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 
 const barWidthMM = 2200;
-const sleeveWidthMM = 415;
+const sleeveWidthMM = 445;
 const bushingWidthMM = 30;
 const shaftWidthMM = 1310;
 const plateWidthMM = 56;
