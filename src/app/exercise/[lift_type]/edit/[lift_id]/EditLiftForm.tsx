@@ -13,6 +13,7 @@ import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import { Database } from "@/database.types";
+import BarbellEditor from "@/components/BarbellEditor";
 
 export default function EditLiftForm({
   lift,
@@ -67,6 +68,13 @@ export default function EditLiftForm({
   return (
     <form onSubmit={handleSubmit}>
       <Stack spacing={3}>
+        {/* BarbellEditor for weight editing */}
+        <BarbellEditor
+          totalWeight={weightValue}
+          barWeight={45}
+          onChange={setWeightValue}
+        />
+        {/* Hide the numeric weight input, but keep it for accessibility/fallback */}
         <TextField
           label="Weight"
           type="number"
@@ -75,6 +83,7 @@ export default function EditLiftForm({
           onChange={(e) => setWeightValue(Number(e.target.value))}
           required
           fullWidth
+          sx={{ display: "none" }}
         />
         <FormControl fullWidth>
           <InputLabel id="unit-label">Unit</InputLabel>
