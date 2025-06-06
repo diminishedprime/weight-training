@@ -9,16 +9,27 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import { Database, Constants } from "@/database.types";
+import { Constants } from "@/database.types";
 import { weightUnitUIString } from "@/util";
+import IconButton from "@mui/material/IconButton";
+import SettingsIcon from "@mui/icons-material/Settings";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
+import { Typography } from "@mui/material";
 
-// TODO: consider making this configurable by the user in case they have a
-// different plate setup available. (i.e. 35s)
-const PLATE_SIZES = [45, 25, 10, 5, 2.5];
+// TODO: consider letting the user input exactly what weights they have available
+// so if they need to like double up on 35s because they're otherwise out of
+// weights to hit a target.
+const ALL_PLATES = [2.5, 5, 10, 25, 35, 45, 55];
+const DEFAULT_PLATE_SIZES = [45, 25, 10, 5, 2.5];
 
 function minimalPlates(
   targetWeight: number,
-  availablePlates = PLATE_SIZES
+  availablePlates = DEFAULT_PLATE_SIZES
 ): number[] {
   let remaining = targetWeight;
   const result: number[] = [];
@@ -46,15 +57,30 @@ export default function BarbellEditor({
   weightUnit = "pounds",
   onUnitChange,
 }: BarbellEditorProps) {
-  // Plates per side
-  const platesPerSide = (totalWeight - barWeight) / 2;
-  const plateList = minimalPlates(platesPerSide);
+  const [plateSizes, setPlateSizes] = React.useState(DEFAULT_PLATE_SIZES);
+  const weightPerSide = (totalWeight - barWeight) / 2;
+  const plateList = minimalPlates(weightPerSide, plateSizes);
 
   const handleAdd = (inc: number) => {
     if (onChange) {
       onChange(totalWeight + inc * 2);
     }
   };
+
+  const [settingsOpen, setSettingsOpen] = React.useState(false);
+  const [editPlates, setEditPlates] = React.useState(plateSizes);
+
+  function handleAddPlate(size: number) {
+    if (!editPlates.includes(size))
+      setEditPlates([...editPlates, size].sort((a, b) => b - a));
+  }
+  function handleRemovePlate(size: number) {
+    setEditPlates(editPlates.filter((p) => p !== size));
+  }
+  function handleSaveSettings() {
+    setPlateSizes(editPlates);
+    setSettingsOpen(false);
+  }
 
   return (
     <Box
@@ -65,6 +91,54 @@ export default function BarbellEditor({
         my: 2,
       }}
     >
+      <Box
+        sx={{ width: "100%", display: "flex", justifyContent: "flex-end" }}
+      ></Box>
+      <Dialog open={settingsOpen} onClose={() => setSettingsOpen(false)}>
+        <DialogTitle>Barbell Settings</DialogTitle>
+        <DialogContent>
+          <Stack spacing={2}>
+            <Box>
+              <Typography>Available Plates:</Typography>
+              <Stack
+                direction="row"
+                spacing={1}
+                sx={{ mt: 1, flexWrap: "wrap" }}
+              >
+                {ALL_PLATES.map((size) =>
+                  editPlates.includes(size) ? (
+                    <Chip
+                      key={size}
+                      label={size}
+                      onDelete={() => handleRemovePlate(size)}
+                      color="primary"
+                    />
+                  ) : (
+                    <Chip
+                      key={size}
+                      label={size}
+                      variant="outlined"
+                      onClick={() => handleAddPlate(size)}
+                    />
+                  )
+                )}
+              </Stack>
+            </Box>
+          </Stack>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            variant="outlined"
+            color="error"
+            onClick={() => setSettingsOpen(false)}
+          >
+            Cancel
+          </Button>
+          <Button onClick={handleSaveSettings} variant="contained">
+            Save
+          </Button>
+        </DialogActions>
+      </Dialog>
       <Box>
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <TextField
@@ -93,11 +167,15 @@ export default function BarbellEditor({
               ))}
             </Select>
           </FormControl>
+
+          <IconButton size="small" onClick={() => setSettingsOpen(true)}>
+            <SettingsIcon />
+          </IconButton>
         </Box>
       </Box>
       <Barbell plateList={plateList} />
       <ButtonGroup variant="outlined" sx={{ mt: 2, position: "relative" }}>
-        {PLATE_SIZES.map((inc) => {
+        {plateSizes.map((inc) => {
           // Only count plates on one side (per side)
           const count = plateList.filter((p) => p === inc).length;
           return (

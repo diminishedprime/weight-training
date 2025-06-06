@@ -32,6 +32,7 @@ const metalGradient =
 
 const PLATE_COLORS: Record<number, { bg: string; fg: string }> = {
   45: { bg: "red", fg: "white" },
+  35: { bg: "blue", fg: "white" },
   25: { bg: "yellow", fg: "black" },
   10: { bg: "green", fg: "white" },
   5: { bg: "black", fg: "white" },
