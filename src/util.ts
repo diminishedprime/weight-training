@@ -54,6 +54,11 @@ export function correspondingEquipment(
       return "barbell";
     case "dumbbell_row":
       return "dumbbell";
+    case "chinup":
+    case "pullup":
+    case "pushup":
+    case "situp":
+      return "bodyweight";
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = lift_type;

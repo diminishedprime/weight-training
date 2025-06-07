@@ -1,7 +1,7 @@
 import { Database } from "@/database.types";
 
-type LiftType = Database["public"]["Enums"]["exercise_type_enum"];
-export const exerciseTypeUIString = (type: LiftType): string => {
+type ExerciseType = Database["public"]["Enums"]["exercise_type_enum"];
+export const exerciseTypeUIString = (type: ExerciseType): string => {
   switch (type) {
     case "barbell_deadlift":
       return "Deadlift";
@@ -15,6 +15,14 @@ export const exerciseTypeUIString = (type: LiftType): string => {
       return "Barbell Row";
     case "dumbbell_row":
       return "Dumbbell Row";
+    case "pushup":
+      return "Push Up";
+    case "situp":
+      return "Sit Up";
+    case "pullup":
+      return "Pull Up";
+    case "chinup":
+      return "Chin Up";
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = type;

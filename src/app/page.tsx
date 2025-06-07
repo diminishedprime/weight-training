@@ -1,28 +1,16 @@
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import { Constants } from "@/database.types";
 import Link from "next/link";
-import { exerciseTypeUIString } from "@/uiStrings";
+import { Typography, Stack, Button } from "@mui/material";
 
-export default async function Home() {
+export default function Home() {
   return (
-    <Stack
-      spacing={2}
-      direction="column"
-      sx={{ p: 4, alignItems: "flex-start" }}
+    <Button
+      component={Link}
+      href="/exercise"
+      variant="contained"
+      color="primary"
+      sx={{ m: 1 }}
     >
-      {Constants.public.Enums.exercise_type_enum.map((type) => (
-        <Button
-          key={type}
-          component={Link}
-          href={`/exercise/${type}`}
-          variant="contained"
-          color="primary"
-          sx={{ minWidth: 140, maxWidth: 220 }}
-        >
-          {exerciseTypeUIString(type)}
-        </Button>
-      ))}
-    </Stack>
+      Exercises
+    </Button>
   );
 }

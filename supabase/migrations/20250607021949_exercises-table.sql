@@ -7,7 +7,11 @@ BEGIN
       'barbell_bench_press',
       'barbell_overhead_press',
       'barbell_row',
-      'dumbbell_row'
+      'dumbbell_row',
+      'pushup',
+      'situp',
+      'pullup',
+      'chinup'
     );
   END IF;
   IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'completion_status_enum') THEN

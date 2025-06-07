@@ -494,6 +494,10 @@ export type Database = {
         | "barbell_overhead_press"
         | "barbell_row"
         | "dumbbell_row"
+        | "pushup"
+        | "situp"
+        | "pullup"
+        | "chinup"
       weight_unit_enum: "pounds" | "kilograms"
     }
     CompositeTypes: {
@@ -653,6 +657,10 @@ export const Constants = {
         "barbell_overhead_press",
         "barbell_row",
         "dumbbell_row",
+        "pushup",
+        "situp",
+        "pullup",
+        "chinup",
       ],
       weight_unit_enum: ["pounds", "kilograms"],
     },
