@@ -8,7 +8,11 @@ import { addRandomLiftAction } from "./actions";
 import AddRandomLiftButton from "./AddRandomLiftButton";
 import ExercisesTableWrapper from "./ExercisesTableWrapper";
 import { Suspense } from "react";
-import { exerciseTypeUIStringLong } from "@/uiStrings";
+import {
+  exerciseTypeUIStringBrief,
+  exerciseTypeUIStringLong,
+} from "@/uiStrings";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default async function Home({
   params,
@@ -32,16 +36,25 @@ export default async function Home({
   const id = requireId(session, `/exercise/${exercise_type}`);
 
   return (
-    <Stack spacing={2} sx={{ p: 4 }}>
-      <Typography variant="h4" sx={{ mb: 2 }}>
-        {exerciseTypeUIStringLong(exercise_type)} Lifts
-      </Typography>
-      <AddRandomLiftButton
-        addRandomLift={addRandomLiftAction.bind(null, exercise_type)}
+    <>
+      <Breadcrumbs
+        pathname={`/exercise/${exercise_type}`}
+        labels={{
+          [exercise_type]: exerciseTypeUIStringBrief(exercise_type),
+        }}
+        nonLinkable={["edit"]}
       />
-      <Suspense fallback={<div>Loading lifts...</div>}>
-        <ExercisesTableWrapper userId={id} lift_type={exercise_type} />
-      </Suspense>
-    </Stack>
+      <Stack spacing={2}>
+        <Typography variant="h4" sx={{ mb: 2 }}>
+          {exerciseTypeUIStringLong(exercise_type)}
+        </Typography>
+        <AddRandomLiftButton
+          addRandomLift={addRandomLiftAction.bind(null, exercise_type)}
+        />
+        <Suspense fallback={<div>Loading lifts...</div>}>
+          <ExercisesTableWrapper userId={id} lift_type={exercise_type} />
+        </Suspense>
+      </Stack>
+    </>
   );
 }

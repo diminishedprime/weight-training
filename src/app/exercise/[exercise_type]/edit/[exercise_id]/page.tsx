@@ -6,7 +6,11 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Database } from "@/database.types";
 import { getSupabaseClient, requireId } from "@/util";
-import { exerciseTypeUIStringLong } from "@/uiStrings";
+import {
+  exerciseTypeUIStringBrief,
+  exerciseTypeUIStringLong,
+} from "@/uiStrings";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default async function EditExercisePage({
   params,
@@ -39,6 +43,15 @@ export default async function EditExercisePage({
 
   return (
     <Stack>
+      <Breadcrumbs
+        pathname={`/exercise/${exercise_type}/edit/${exercise_id}`}
+        labels={{
+          [exercise_id]: `(${exercise_id.slice(0, 8)})`,
+          edit: "Edit",
+          [exercise_type]: exerciseTypeUIStringBrief(exercise_type),
+        }}
+        nonLinkable={["edit"]}
+      />
       <Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
         Edit {exerciseTypeUIStringLong(exercise_type)}
       </Typography>
