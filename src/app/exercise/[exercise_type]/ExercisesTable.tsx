@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -15,6 +15,46 @@ import CheckIcon from "@mui/icons-material/Check";
 import { Database } from "@/database.types";
 import { Stack, Typography } from "@mui/material";
 import Barbell from "@/components/Barbell";
+import Dumbbell from "@/components/Dumbell";
+import TimeDisplay from "@/components/TimeDisplay";
+import { format } from "date-fns";
+
+function WeightVisual({ exercise }: { exercise: any }) {
+  // Determine equipment type from exercise_type
+  let equipment: string | undefined;
+  if (exercise.exercise_type && exercise.exercise_type.startsWith("barbell_")) {
+    equipment = "barbell";
+  } else if (
+    exercise.exercise_type &&
+    exercise.exercise_type.startsWith("dumbbell_")
+  ) {
+    equipment = "dumbbell";
+  }
+  if (equipment === "barbell") {
+    return (
+      <span
+        style={{
+          display: "inline-block",
+          verticalAlign: "middle",
+          width: 80,
+        }}
+      >
+        <Barbell weight={exercise.weight_value ?? 0} hidePlateNumbers />
+      </span>
+    );
+  } else if (equipment === "dumbbell") {
+    return (
+      <Dumbbell
+        weight={exercise.weight_value ?? 0}
+        weightUnit={exercise.weight_unit}
+        width={"100%"}
+        hideText={true}
+      />
+    );
+  } else {
+    return null;
+  }
+}
 
 export default function ExercisesTable({
   exercises,
@@ -32,6 +72,7 @@ export default function ExercisesTable({
         <TableHead>
           <TableRow>
             <TableCell>Date</TableCell>
+            <TableCell>Time</TableCell>
             <TableCell>Weight</TableCell>
             <TableCell>Reps</TableCell>
             <TableCell>Warmup</TableCell>
@@ -51,26 +92,21 @@ export default function ExercisesTable({
                     : {}
                 }
               >
+                {/* Date column */}
                 <TableCell>
-                  {exercise.performed_at
-                    ? new Date(exercise.performed_at).toLocaleString()
-                    : "N/A"}
+                  {exercise.performed_at &&
+                    format(new Date(exercise.performed_at), "MMMM do, yy")}
                 </TableCell>
+                {/* Time column */}
                 <TableCell>
+                  {exercise.performed_at && (
+                    <TimeDisplay performedAt={exercise.performed_at} />
+                  )}
+                </TableCell>
+                <TableCell align="center">
                   <Stack alignItems="center">
-                    <span
-                      style={{
-                        display: "inline-block",
-                        verticalAlign: "middle",
-                        width: 80,
-                      }}
-                    >
-                      <Barbell
-                        weight={exercise.weight_value ?? 0}
-                        hidePlateNumbers
-                      />
-                    </span>
-                    <Typography>
+                    <WeightVisual exercise={exercise} />
+                    <Typography sx={{ mt: 1 }}>
                       {exercise.weight_value}{" "}
                       {weightUnitUIString(exercise.weight_unit)}
                     </Typography>

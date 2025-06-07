@@ -28,7 +28,7 @@ const _5HeightVW = ((_5HeightMM / barWidthMM) * barHeightVW) / aspectRatio;
 const _2_5HeightMM = plateHeightMM / 2.0;
 const _2_5HeightVW = ((_2_5HeightMM / barWidthMM) * barHeightVW) / aspectRatio;
 
-const metalGradient =
+export const metalGradient =
   "linear-gradient(180deg, hsl(0,0%,78%) 0%, hsl(0,0%,90%) 47%, hsl(0,0%,78%) 53%, hsl(0,0%,70%) 100%)";
 
 export const PLATE_COLORS: Record<number, { bg: string; fg: string }> = {

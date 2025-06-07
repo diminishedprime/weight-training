@@ -13,6 +13,7 @@ export interface RepsSelectorProps {
 }
 
 export const STANDARD_BARBELL_REPS = [1, 3, 5];
+export const STANDARD_DUMBBELL_REPS = [5, 8, 10, 12, 15];
 export const STANDARD_MACHINE_REPS = [5, 8, 10, 12, 15];
 
 const RepsSelector: React.FC<RepsSelectorProps> = ({
@@ -29,7 +30,7 @@ const RepsSelector: React.FC<RepsSelectorProps> = ({
   };
   return (
     <FormControl>
-      <FormLabel>Reps</FormLabel>
+      <FormLabel>Reps: {reps}</FormLabel>
       <ButtonGroup variant="outlined" size="small">
         <Button onClick={handleDecrement} disabled={reps <= MIN_REPS}>
           -

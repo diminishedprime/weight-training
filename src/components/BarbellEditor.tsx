@@ -9,7 +9,7 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import { Constants } from "@/database.types";
+import { Constants, Database } from "@/database.types";
 import { weightUnitUIString } from "@/uiStrings";
 import IconButton from "@mui/material/IconButton";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -19,7 +19,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
-import { FormLabel, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { minimalPlates, ALL_PLATES, DEFAULT_PLATE_SIZES } from "@/util";
 import { PLATE_COLORS } from "@/components/Barbell";
 
@@ -27,8 +27,10 @@ export interface BarbellEditorProps {
   totalWeight: number; // total weight on bar (including bar)
   barWeight?: number; // default 45
   onChange?: (newTotal: number) => void;
-  weightUnit?: string;
-  onUnitChange?: (unit: string) => void;
+  weightUnit?: Database["public"]["Enums"]["weight_unit_enum"];
+  onUnitChange?: (
+    unit: Database["public"]["Enums"]["weight_unit_enum"]
+  ) => void;
 }
 
 export default function BarbellEditor({
@@ -127,6 +129,9 @@ export default function BarbellEditor({
       />
 
       <Box sx={{ display: "flex", mt: 3 }}>
+        <IconButton size="small" onClick={() => setSettingsOpen(true)}>
+          <SettingsIcon />
+        </IconButton>
         <Box>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <TextField
@@ -193,9 +198,6 @@ export default function BarbellEditor({
             Clear
           </Button>
         </ButtonGroup>
-        <IconButton size="small" onClick={() => setSettingsOpen(true)}>
-          <SettingsIcon />
-        </IconButton>
       </Box>
     </Box>
   );
