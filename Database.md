@@ -1,8 +1,6 @@
 # Database Schema Diagram
 
-> This was AI generated so it may be complete garbage.
-
-Below is a Mermaid ER diagram representing the main tables and relationships in the database, based on the migration files:
+Below is a Mermaid ER diagram representing the main tables and relationships in the database, based on the latest migration files:
 
 ```mermaid
 erDiagram
@@ -31,46 +29,54 @@ erDiagram
         text notes
         enum(relative_effort_enum) relative_effort
     }
-    EXERCISE_GROUP {
+    WENDLER_METADATA {
         uuid id PK
         uuid user_id FK
-        uuid wendler_id FK
+        numeric training_max
+        numeric increase_amount
+        enum(wendler_cycle_type_enum) cycle_type
+        enum(exercise_type_enum) exercise_type
+        timestamp created_at
+        timestamp updated_at
     }
     EXERCISE_BLOCK {
         uuid id PK
         uuid user_id FK
-        uuid exercise_group_id FK
-        uuid exercise_id FK
+        uuid wendler_metadata_id FK
         int block_order
-        uuid workout_session_id FK
+        text notes
+        timestamp created_at
+        timestamp updated_at
     }
-    WORKOUT_SESSION {
+    EXERCISE_BLOCK_EXERCISES {
+        uuid block_id FK
+        uuid exercise_id FK
+        int exercise_order
+    }
+    EXERCISE_SUPERBLOCK {
         uuid id PK
         uuid user_id FK
         text name
         text notes
+        timestamp created_at
+        timestamp updated_at
     }
-    WENDLER_METADATA {
-        uuid id PK
-        uuid user_id FK
-        uuid training_max_id FK
-        uuid increase_amount_id FK
-        enum(cycle_type_enum) cycle_type
-        enum(exercise_type_enum) exercise_type
+    EXERCISE_SUPERBLOCK_BLOCKS {
+        uuid superblock_id FK
+        uuid block_id FK
+        int superblock_order
     }
 
     USERS ||--o{ EXERCISES : "user_id"
-    USERS ||--o{ EXERCISE_GROUP : "user_id"
-    USERS ||--o{ EXERCISE_BLOCK : "user_id"
-    USERS ||--o{ WORKOUT_SESSION : "user_id"
     USERS ||--o{ WENDLER_METADATA : "user_id"
+    USERS ||--o{ EXERCISE_BLOCK : "user_id"
+    USERS ||--o{ EXERCISE_SUPERBLOCK : "user_id"
     WEIGHTS ||--o{ EXERCISES : "weight_id"
-    WEIGHTS ||--o{ WENDLER_METADATA : "training_max_id"
-    WEIGHTS ||--o{ WENDLER_METADATA : "increase_amount_id"
-    EXERCISE_GROUP ||--o{ EXERCISE_BLOCK : "exercise_group_id"
-    EXERCISES ||--o{ EXERCISE_BLOCK : "exercise_id"
-    EXERCISE_GROUP ||--o| WENDLER_METADATA : "wendler_id"
-    WORKOUT_SESSION ||--o{ EXERCISE_BLOCK : "workout_session_id"
+    WENDLER_METADATA ||--o{ EXERCISE_BLOCK : "wendler_metadata_id"
+    EXERCISE_BLOCK ||--o{ EXERCISE_BLOCK_EXERCISES : "id"
+    EXERCISES ||--o{ EXERCISE_BLOCK_EXERCISES : "id"
+    EXERCISE_SUPERBLOCK ||--o{ EXERCISE_SUPERBLOCK_BLOCKS : "id"
+    EXERCISE_BLOCK ||--o{ EXERCISE_SUPERBLOCK_BLOCKS : "id"
 ```
 
 - PK = Primary Key, FK = Foreign Key

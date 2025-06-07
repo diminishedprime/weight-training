@@ -185,35 +185,64 @@ export type Database = {
     Tables: {
       exercise_block: {
         Row: {
-          block_order: number | null
-          exercise_group_id: string
-          exercise_id: string
+          block_order: number
+          created_at: string | null
           id: string
+          notes: string | null
+          updated_at: string | null
           user_id: string
-          workout_session_id: string | null
+          wendler_metadata_id: string | null
         }
         Insert: {
-          block_order?: number | null
-          exercise_group_id: string
-          exercise_id: string
+          block_order: number
+          created_at?: string | null
           id?: string
+          notes?: string | null
+          updated_at?: string | null
           user_id: string
-          workout_session_id?: string | null
+          wendler_metadata_id?: string | null
         }
         Update: {
-          block_order?: number | null
-          exercise_group_id?: string
-          exercise_id?: string
+          block_order?: number
+          created_at?: string | null
           id?: string
+          notes?: string | null
+          updated_at?: string | null
           user_id?: string
-          workout_session_id?: string | null
+          wendler_metadata_id?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "exercise_block_workout_session_id_fkey"
-            columns: ["workout_session_id"]
+            foreignKeyName: "exercise_block_wendler_metadata_id_fkey"
+            columns: ["wendler_metadata_id"]
             isOneToOne: false
-            referencedRelation: "workout_session"
+            referencedRelation: "wendler_metadata"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      exercise_block_exercises: {
+        Row: {
+          block_id: string
+          exercise_id: string
+          exercise_order: number
+        }
+        Insert: {
+          block_id: string
+          exercise_id: string
+          exercise_order: number
+        }
+        Update: {
+          block_id?: string
+          exercise_id?: string
+          exercise_order?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fk_block"
+            columns: ["block_id"]
+            isOneToOne: false
+            referencedRelation: "exercise_block"
             referencedColumns: ["id"]
           },
           {
@@ -223,32 +252,67 @@ export type Database = {
             referencedRelation: "exercises"
             referencedColumns: ["id"]
           },
+        ]
+      }
+      exercise_superblock: {
+        Row: {
+          created_at: string | null
+          id: string
+          name: string | null
+          notes: string | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          name?: string | null
+          notes?: string | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          name?: string | null
+          notes?: string | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      exercise_superblock_blocks: {
+        Row: {
+          block_id: string
+          superblock_id: string
+          superblock_order: number
+        }
+        Insert: {
+          block_id: string
+          superblock_id: string
+          superblock_order: number
+        }
+        Update: {
+          block_id?: string
+          superblock_id?: string
+          superblock_order?: number
+        }
+        Relationships: [
           {
-            foreignKeyName: "fk_exercise_group"
-            columns: ["exercise_group_id"]
+            foreignKeyName: "fk_block"
+            columns: ["block_id"]
             isOneToOne: false
-            referencedRelation: "exercise_group"
+            referencedRelation: "exercise_block"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fk_superblock"
+            columns: ["superblock_id"]
+            isOneToOne: false
+            referencedRelation: "exercise_superblock"
             referencedColumns: ["id"]
           },
         ]
-      }
-      exercise_group: {
-        Row: {
-          id: string
-          user_id: string
-          wendler_id: string | null
-        }
-        Insert: {
-          id?: string
-          user_id: string
-          wendler_id?: string | null
-        }
-        Update: {
-          id?: string
-          user_id?: string
-          wendler_id?: string | null
-        }
-        Relationships: []
       }
       exercises: {
         Row: {
@@ -326,63 +390,33 @@ export type Database = {
       }
       wendler_metadata: {
         Row: {
-          cycle_type: Database["public"]["Enums"]["cycle_type_enum"]
+          created_at: string | null
+          cycle_type: Database["public"]["Enums"]["wendler_cycle_type_enum"]
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
           id: string
-          increase_amount_id: string
-          training_max_id: string
+          increase_amount: number
+          training_max: number
+          updated_at: string | null
           user_id: string
         }
         Insert: {
-          cycle_type: Database["public"]["Enums"]["cycle_type_enum"]
+          created_at?: string | null
+          cycle_type: Database["public"]["Enums"]["wendler_cycle_type_enum"]
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
           id?: string
-          increase_amount_id: string
-          training_max_id: string
+          increase_amount: number
+          training_max: number
+          updated_at?: string | null
           user_id: string
         }
         Update: {
-          cycle_type?: Database["public"]["Enums"]["cycle_type_enum"]
+          created_at?: string | null
+          cycle_type?: Database["public"]["Enums"]["wendler_cycle_type_enum"]
           exercise_type?: Database["public"]["Enums"]["exercise_type_enum"]
           id?: string
-          increase_amount_id?: string
-          training_max_id?: string
-          user_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "wendler_metadata_increase_amount_id_fkey"
-            columns: ["increase_amount_id"]
-            isOneToOne: false
-            referencedRelation: "weights"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "wendler_metadata_training_max_id_fkey"
-            columns: ["training_max_id"]
-            isOneToOne: false
-            referencedRelation: "weights"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      workout_session: {
-        Row: {
-          id: string
-          name: string | null
-          notes: string | null
-          user_id: string
-        }
-        Insert: {
-          id?: string
-          name?: string | null
-          notes?: string | null
-          user_id: string
-        }
-        Update: {
-          id?: string
-          name?: string | null
-          notes?: string | null
+          increase_amount?: number
+          training_max?: number
+          updated_at?: string | null
           user_id?: string
         }
         Relationships: []
@@ -392,6 +426,25 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      add_exercise_block: {
+        Args: {
+          p_user_id: string
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
+          p_equipment_type: Database["public"]["Enums"]["equipment_type_enum"]
+          p_weight: number
+          p_sets: number
+          p_reps: number
+        }
+        Returns: string
+      }
+      add_leg_day_superblock: {
+        Args: {
+          p_user_id: string
+          p_training_max: number
+          p_wendler_cycle: Database["public"]["Enums"]["wendler_cycle_type_enum"]
+        }
+        Returns: string
+      }
       create_exercise: {
         Args: {
           p_user_id: string
@@ -404,15 +457,6 @@ export type Database = {
           p_warmup?: boolean
           p_completion_status?: Database["public"]["Enums"]["completion_status_enum"]
           p_relative_effort?: Database["public"]["Enums"]["relative_effort_enum"]
-        }
-        Returns: string
-      }
-      create_wendler_exercise_session_5s: {
-        Args: {
-          p_user_id: string
-          p_training_max_lbs: number
-          p_increase_amount_lbs: number
-          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
         }
         Returns: string
       }
@@ -440,27 +484,6 @@ export type Database = {
           relative_effort: Database["public"]["Enums"]["relative_effort_enum"]
         }[]
       }
-      get_wendler_exercise_group_details: {
-        Args: { p_exercise_group_id: string }
-        Returns: {
-          exercise_group_id: string
-          user_id: string
-          cycle_type: string
-          exercise_type: string
-          training_max: number
-          training_max_unit: string
-          increase_amount: number
-          increase_amount_unit: string
-          exercise_id: string
-          performed_at: string
-          reps: number
-          warmup: boolean
-          completion_status: string
-          weight_value: number
-          weight_unit: string
-          block_order: number
-        }[]
-      }
       normalize_bar_weight: {
         Args: { p_weight: number }
         Returns: number
@@ -485,6 +508,16 @@ export type Database = {
         }
         Returns: undefined
       }
+      wendler_exercise_block: {
+        Args: {
+          p_user_id: string
+          p_training_max: number
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
+          p_cycle_type: Database["public"]["Enums"]["wendler_cycle_type_enum"]
+          p_increase_amount?: number
+        }
+        Returns: string
+      }
     }
     Enums: {
       completion_status_enum:
@@ -492,7 +525,6 @@ export type Database = {
         | "not_completed"
         | "failed"
         | "skipped"
-      cycle_type_enum: "5" | "3" | "1" | "deload"
       equipment_type_enum:
         | "barbell"
         | "dumbbell"
@@ -530,6 +562,7 @@ export type Database = {
         | "plate_stack_calf_raise"
       relative_effort_enum: "easy" | "okay" | "hard"
       weight_unit_enum: "pounds" | "kilograms"
+      wendler_cycle_type_enum: "5" | "3" | "1" | "deload"
     }
     CompositeTypes: {
       exercise_row_type: {
@@ -676,7 +709,6 @@ export const Constants = {
         "failed",
         "skipped",
       ],
-      cycle_type_enum: ["5", "3", "1", "deload"],
       equipment_type_enum: [
         "barbell",
         "dumbbell",
@@ -716,6 +748,7 @@ export const Constants = {
       ],
       relative_effort_enum: ["easy", "okay", "hard"],
       weight_unit_enum: ["pounds", "kilograms"],
+      wendler_cycle_type_enum: ["5", "3", "1", "deload"],
     },
   },
 } as const
