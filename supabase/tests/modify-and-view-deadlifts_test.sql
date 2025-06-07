@@ -14,7 +14,7 @@ SELECT ok(
         '2024-06-04T10:00:00Z'::timestamptz,               -- performed_at
         'pounds'::weight_unit_enum,                        -- weight_unit
         false,                                             -- warmup
-        'Completed'::completion_status_enum                -- completion_status
+        'completed'::completion_status_enum                -- completion_status
     ) IS NOT NULL,
     'create_lift returns a lift id'
 );

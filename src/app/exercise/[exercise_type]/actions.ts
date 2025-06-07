@@ -1,8 +1,9 @@
 "use server";
 import { Database } from "@/database.types";
+import { correspondingEquipment } from "@/util";
 
 export async function addRandomLiftAction(
-  liftType: Database["public"]["Enums"]["lift_type_enum"],
+  liftType: Database["public"]["Enums"]["exercise_type_enum"],
   _: FormData
 ) {
   "use server";
@@ -16,12 +17,13 @@ export async function addRandomLiftAction(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
-  const response = await supabase.rpc("create_lift", {
+  const response = await supabase.rpc("create_exercise", {
     p_user_id: id,
-    p_lift_type: liftType,
+    p_exercise_type: liftType,
     p_weight_value: Math.floor(Math.random() * 1000) + 100,
     p_weight_unit: "pounds" as Database["public"]["Enums"]["weight_unit_enum"],
     p_reps: Math.floor(Math.random() * 10) + 1,
+    p_equipment_type: correspondingEquipment(liftType),
   });
   console.log({ response });
   revalidatePath(`/exercise/${liftType}`);

@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS public.wendler_metadata
     training_max_id uuid NOT NULL,
     increase_amount_id uuid NOT NULL,
     cycle_type cycle_type_enum NOT NULL,
-    lift_type lift_type_enum NOT NULL,
+    exercise_type exercise_type_enum NOT NULL,
     CONSTRAINT wendler_metadata_training_max_id_fkey FOREIGN KEY (training_max_id) 
         REFERENCES public.weights(id) ON DELETE CASCADE,
     CONSTRAINT wendler_metadata_increase_amount_id_fkey FOREIGN KEY (increase_amount_id) 

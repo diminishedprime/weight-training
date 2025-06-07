@@ -3,6 +3,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import { Typography } from "@mui/material";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
 
 export interface RepsSelectorProps {
   reps: number;
@@ -26,12 +28,8 @@ const RepsSelector: React.FC<RepsSelectorProps> = ({
     onChange(reps + 1);
   };
   return (
-    <Box
-      sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
-      <Typography sx={{ mt: 1, textAlign: "center", fontSize: "1.1em" }}>
-        Reps: {reps}
-      </Typography>
+    <FormControl>
+      <FormLabel>Reps</FormLabel>
       <ButtonGroup variant="outlined" size="small">
         <Button onClick={handleDecrement} disabled={reps <= MIN_REPS}>
           -
@@ -47,7 +45,7 @@ const RepsSelector: React.FC<RepsSelectorProps> = ({
         ))}
         <Button onClick={handleIncrement}>+</Button>
       </ButtonGroup>
-    </Box>
+    </FormControl>
   );
 };
 

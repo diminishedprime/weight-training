@@ -10,7 +10,7 @@ import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { Constants } from "@/database.types";
-import { weightUnitUIString } from "@/util";
+import { weightUnitUIString } from "@/uiStrings";
 import IconButton from "@mui/material/IconButton";
 import SettingsIcon from "@mui/icons-material/Settings";
 import Dialog from "@mui/material/Dialog";
@@ -19,28 +19,9 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
-import { Typography } from "@mui/material";
-
-// TODO: consider letting the user input exactly what weights they have available
-// so if they need to like double up on 35s because they're otherwise out of
-// weights to hit a target.
-const ALL_PLATES = [2.5, 5, 10, 25, 35, 45, 55];
-const DEFAULT_PLATE_SIZES = [45, 25, 10, 5, 2.5];
-
-function minimalPlates(
-  targetWeight: number,
-  availablePlates = DEFAULT_PLATE_SIZES
-): number[] {
-  let remaining = targetWeight;
-  const result: number[] = [];
-  for (const plate of availablePlates) {
-    while (remaining >= plate) {
-      result.push(plate);
-      remaining -= plate;
-    }
-  }
-  return result;
-}
+import { FormLabel, Typography } from "@mui/material";
+import { minimalPlates, ALL_PLATES, DEFAULT_PLATE_SIZES } from "@/util";
+import { PLATE_COLORS } from "@/components/Barbell";
 
 export interface BarbellEditorProps {
   totalWeight: number; // total weight on bar (including bar)
@@ -139,71 +120,83 @@ export default function BarbellEditor({
           </Button>
         </DialogActions>
       </Dialog>
-      <Box>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <TextField
-            label="Value"
-            value={totalWeight}
-            onChange={(e) => {
-              const val = Number(e.target.value);
-              if (onChange && !isNaN(val) && val >= barWeight) onChange(val);
-            }}
-            variant="outlined"
-            size="small"
-            sx={{ width: "7ch" }}
-          />
-          <FormControl size="small">
-            <InputLabel id="barbell-unit-label">Unit</InputLabel>
-            <Select
-              labelId="barbell-unit-label"
-              value={weightUnit}
-              label="Unit"
-              onChange={(e) => onUnitChange && onUnitChange(e.target.value)}
-            >
-              {Constants.public.Enums.weight_unit_enum.map((unit) => (
-                <MenuItem key={unit} value={unit}>
-                  {weightUnitUIString(unit)}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+      <Barbell
+        weight={totalWeight}
+        barWeight={barWeight}
+        plateSizes={plateSizes}
+      />
 
-          <IconButton size="small" onClick={() => setSettingsOpen(true)}>
-            <SettingsIcon />
-          </IconButton>
-        </Box>
-      </Box>
-      <Barbell plateList={plateList} />
-      <ButtonGroup variant="outlined" sx={{ mt: 2, position: "relative" }}>
-        {plateSizes.map((inc) => {
-          // Only count plates on one side (per side)
-          const count = plateList.filter((p) => p === inc).length;
-          return (
-            <Badge
-              key={inc}
-              color="primary"
-              badgeContent={count > 0 ? count : undefined}
-              anchorOrigin={{ vertical: "top", horizontal: "right" }}
-            >
-              <Button
-                variant="outlined"
-                size="small"
-                onClick={() => handleAdd(inc)}
+      <Box sx={{ display: "flex", mt: 3 }}>
+        <Box>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <TextField
+              label="Value"
+              value={totalWeight}
+              onChange={(e) => {
+                const val = Number(e.target.value);
+                if (onChange && !isNaN(val) && val >= barWeight) onChange(val);
+              }}
+              variant="outlined"
+              size="small"
+              sx={{ width: "7ch" }}
+            />
+            <FormControl size="small" sx={{ pr: 1 }}>
+              <InputLabel id="barbell-unit-label">Unit</InputLabel>
+              <Select
+                labelId="barbell-unit-label"
+                value={weightUnit}
+                label="Unit"
+                onChange={(e) => onUnitChange && onUnitChange(e.target.value)}
               >
-                {inc}
-              </Button>
-            </Badge>
-          );
-        })}
-        <Button
-          variant="outlined"
-          color="error"
-          size="small"
-          onClick={() => onChange && onChange(barWeight)}
-        >
-          Clear
-        </Button>
-      </ButtonGroup>
+                {Constants.public.Enums.weight_unit_enum.map((unit) => (
+                  <MenuItem key={unit} value={unit}>
+                    {weightUnitUIString(unit)}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Box>
+        </Box>
+        <ButtonGroup variant="outlined">
+          {plateSizes.map((inc) => {
+            // Only count plates on one side (per side)
+            const count = plateList.filter((p) => p === inc).length;
+            const badgeSx = {
+              "& .MuiBadge-badge": {
+                backgroundColor: PLATE_COLORS[inc]?.bg || "gray",
+                color: PLATE_COLORS[inc]?.fg || "white",
+              },
+            };
+            return (
+              <Badge
+                key={inc}
+                sx={badgeSx}
+                badgeContent={count > 0 ? count : undefined}
+                anchorOrigin={{ vertical: "top", horizontal: "right" }}
+              >
+                <Button
+                  variant="outlined"
+                  size="small"
+                  onClick={() => handleAdd(inc)}
+                >
+                  {inc}
+                </Button>
+              </Badge>
+            );
+          })}
+          <Button
+            variant="outlined"
+            color="error"
+            size="small"
+            onClick={() => onChange && onChange(barWeight)}
+          >
+            Clear
+          </Button>
+        </ButtonGroup>
+        <IconButton size="small" onClick={() => setSettingsOpen(true)}>
+          <SettingsIcon />
+        </IconButton>
+      </Box>
     </Box>
   );
 }

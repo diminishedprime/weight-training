@@ -1,44 +1,7 @@
-import { Database } from '@/database.types';
 import { createClient } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 import { Session } from "next-auth";
-
-type LiftType = Database["public"]["Enums"]["lift_type_enum"];
-export const liftTypeUIString = (type: LiftType): string => {
-  switch (type) {
-    case "deadlift":
-      return "Deadlift";
-    case "squat":
-      return "Squat";
-    case "bench_press":
-      return "Bench Press";
-    case "overhead_press":
-      return "Overhead Press";
-    case "row":
-      return "Row";
-    default: {
-      // This will cause a type error if a new enum value is added and not handled
-      const _exhaustiveCheck: never = type;
-      return _exhaustiveCheck;
-    }
-  }
-};
-
-export const weightUnitUIString = (
-  unit: Database["public"]["Enums"]["weight_unit_enum"]
-): string => {
-  switch (unit) {
-    case "kilograms":
-      return "kgs";
-    case "pounds":
-      return "lbs";
-    default: {
-      // This will cause a type error if a new enum value is added and not handled
-      const _exhaustiveCheck: never = unit;
-      return _exhaustiveCheck;
-    }
-  }
-};
+import { Database } from "@/database.types";
 
 export const getSupabaseClient = () => {
   return createClient<Database>(
@@ -58,3 +21,44 @@ export function requireId(
   }
   return id;
 }
+
+// so if they need to like double up on 35s because they're otherwise out of
+// weights to hit a target.
+export const ALL_PLATES = [2.5, 5, 10, 25, 35, 45, 55];
+export const DEFAULT_PLATE_SIZES = [45, 25, 10, 5, 2.5];
+
+export function minimalPlates(
+  targetWeight: number,
+  availablePlates = DEFAULT_PLATE_SIZES
+): number[] {
+  let remaining = targetWeight;
+  const result: number[] = [];
+  for (const plate of availablePlates) {
+    while (remaining >= plate) {
+      result.push(plate);
+      remaining -= plate;
+    }
+  }
+  return result;
+}
+
+export function correspondingEquipment(
+  lift_type: Database["public"]["Enums"]["exercise_type_enum"]
+): Database["public"]["Enums"]["equipment_type_enum"] {
+  switch (lift_type) {
+    case "barbell_deadlift":
+    case "barbell_squat":
+    case "barbell_bench_press":
+    case "barbell_overhead_press":
+    case "barbell_row":
+      return "barbell";
+    case "dumbbell_row":
+      return "dumbbell";
+    default: {
+      // This will cause a type error if a new enum value is added and not handled
+      const _exhaustiveCheck: never = lift_type;
+      return _exhaustiveCheck;
+    }
+  }
+}
+

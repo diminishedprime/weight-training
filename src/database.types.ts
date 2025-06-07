@@ -186,25 +186,25 @@ export type Database = {
       exercise_block: {
         Row: {
           block_order: number | null
+          exercise_group_id: string
+          exercise_id: string
           id: string
-          lift_group_id: string
-          lift_id: string
           user_id: string
           workout_session_id: string | null
         }
         Insert: {
           block_order?: number | null
+          exercise_group_id: string
+          exercise_id: string
           id?: string
-          lift_group_id: string
-          lift_id: string
           user_id: string
           workout_session_id?: string | null
         }
         Update: {
           block_order?: number | null
+          exercise_group_id?: string
+          exercise_id?: string
           id?: string
-          lift_group_id?: string
-          lift_id?: string
           user_id?: string
           workout_session_id?: string | null
         }
@@ -217,22 +217,22 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "fk_lift"
-            columns: ["lift_id"]
+            foreignKeyName: "fk_exercise"
+            columns: ["exercise_id"]
             isOneToOne: false
-            referencedRelation: "lifts"
+            referencedRelation: "exercises"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "fk_lift_group"
-            columns: ["lift_group_id"]
+            foreignKeyName: "fk_exercise_group"
+            columns: ["exercise_group_id"]
             isOneToOne: false
-            referencedRelation: "lift_group"
+            referencedRelation: "exercise_group"
             referencedColumns: ["id"]
           },
         ]
       }
-      lift_group: {
+      exercise_group: {
         Row: {
           id: string
           user_id: string
@@ -250,11 +250,12 @@ export type Database = {
         }
         Relationships: []
       }
-      lifts: {
+      exercises: {
         Row: {
           completion_status: Database["public"]["Enums"]["completion_status_enum"]
+          equipment_type: Database["public"]["Enums"]["equipment_type_enum"]
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
           id: string
-          lift_type: Database["public"]["Enums"]["lift_type_enum"]
           notes: string | null
           performed_at: string | null
           reps: number
@@ -264,8 +265,9 @@ export type Database = {
         }
         Insert: {
           completion_status?: Database["public"]["Enums"]["completion_status_enum"]
+          equipment_type?: Database["public"]["Enums"]["equipment_type_enum"]
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
           id?: string
-          lift_type: Database["public"]["Enums"]["lift_type_enum"]
           notes?: string | null
           performed_at?: string | null
           reps: number
@@ -275,8 +277,9 @@ export type Database = {
         }
         Update: {
           completion_status?: Database["public"]["Enums"]["completion_status_enum"]
+          equipment_type?: Database["public"]["Enums"]["equipment_type_enum"]
+          exercise_type?: Database["public"]["Enums"]["exercise_type_enum"]
           id?: string
-          lift_type?: Database["public"]["Enums"]["lift_type_enum"]
           notes?: string | null
           performed_at?: string | null
           reps?: number
@@ -286,7 +289,7 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "lifts_weight_id_fkey"
+            foreignKeyName: "exercises_weight_id_fkey"
             columns: ["weight_id"]
             isOneToOne: false
             referencedRelation: "weights"
@@ -315,25 +318,25 @@ export type Database = {
       wendler_metadata: {
         Row: {
           cycle_type: Database["public"]["Enums"]["cycle_type_enum"]
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
           id: string
           increase_amount_id: string
-          lift_type: Database["public"]["Enums"]["lift_type_enum"]
           training_max_id: string
           user_id: string
         }
         Insert: {
           cycle_type: Database["public"]["Enums"]["cycle_type_enum"]
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
           id?: string
           increase_amount_id: string
-          lift_type: Database["public"]["Enums"]["lift_type_enum"]
           training_max_id: string
           user_id: string
         }
         Update: {
           cycle_type?: Database["public"]["Enums"]["cycle_type_enum"]
+          exercise_type?: Database["public"]["Enums"]["exercise_type_enum"]
           id?: string
           increase_amount_id?: string
-          lift_type?: Database["public"]["Enums"]["lift_type_enum"]
           training_max_id?: string
           user_id?: string
         }
@@ -380,10 +383,11 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      create_lift: {
+      create_exercise: {
         Args: {
           p_user_id: string
-          p_lift_type: Database["public"]["Enums"]["lift_type_enum"]
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
+          p_equipment_type: Database["public"]["Enums"]["equipment_type_enum"]
           p_weight_value: number
           p_reps: number
           p_performed_at?: string
@@ -393,48 +397,50 @@ export type Database = {
         }
         Returns: string
       }
-      create_wendler_lift_session_5s: {
+      create_wendler_exercise_session_5s: {
         Args: {
           p_user_id: string
           p_training_max_lbs: number
           p_increase_amount_lbs: number
-          p_lift_type: Database["public"]["Enums"]["lift_type_enum"]
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
         }
         Returns: string
       }
-      get_lift_for_user: {
-        Args: { p_user_id: string; p_lift_id: string }
-        Returns: Database["public"]["CompositeTypes"]["lift_row_type"]
+      get_exercise_for_user: {
+        Args: { p_user_id: string; p_exercise_id: string }
+        Returns: Database["public"]["CompositeTypes"]["exercise_row_type"]
       }
-      get_lifts_by_type_for_user: {
+      get_exercises_by_type_for_user: {
         Args: {
           p_user_id: string
-          p_lift_type: Database["public"]["Enums"]["lift_type_enum"]
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
         }
         Returns: {
-          lift_id: string
+          exercise_id: string
           user_id: string
-          lift_type: Database["public"]["Enums"]["lift_type_enum"]
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
+          equipment_type: Database["public"]["Enums"]["equipment_type_enum"]
           performed_at: string
           weight_value: number
           weight_unit: Database["public"]["Enums"]["weight_unit_enum"]
           reps: number
           warmup: boolean
           completion_status: Database["public"]["Enums"]["completion_status_enum"]
+          notes: string
         }[]
       }
-      get_wendler_lift_group_details: {
-        Args: { p_lift_group_id: string }
+      get_wendler_exercise_group_details: {
+        Args: { p_exercise_group_id: string }
         Returns: {
-          lift_group_id: string
+          exercise_group_id: string
           user_id: string
           cycle_type: string
-          lift_type: string
+          exercise_type: string
           training_max: number
           training_max_unit: string
           increase_amount: number
           increase_amount_unit: string
-          lift_id: string
+          exercise_id: string
           performed_at: string
           reps: number
           warmup: boolean
@@ -452,41 +458,52 @@ export type Database = {
         Args: { p_weight: number }
         Returns: number
       }
-      update_lift_for_user: {
+      update_exercise_for_user: {
         Args: {
-          p_lift_id: string
+          p_exercise_id: string
           p_user_id: string
-          p_lift_type: Database["public"]["Enums"]["lift_type_enum"]
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
           p_weight_value: number
           p_reps: number
           p_performed_at?: string
           p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"]
           p_warmup?: boolean
           p_completion_status?: Database["public"]["Enums"]["completion_status_enum"]
+          p_notes?: string
         }
         Returns: undefined
       }
     }
     Enums: {
       completion_status_enum:
-        | "Completed"
-        | "Not Completed"
-        | "Failed"
-        | "Skipped"
+        | "completed"
+        | "not_completed"
+        | "failed"
+        | "skipped"
       cycle_type_enum: "5" | "3" | "1" | "deload"
-      lift_type_enum:
-        | "deadlift"
-        | "squat"
-        | "bench_press"
-        | "overhead_press"
-        | "row"
+      equipment_type_enum:
+        | "barbell"
+        | "dumbbell"
+        | "kettlebell"
+        | "machine"
+        | "bodyweight"
+      exercise_type_enum:
+        | "barbell_deadlift"
+        | "barbell_squat"
+        | "barbell_bench_press"
+        | "barbell_overhead_press"
+        | "barbell_row"
+        | "dumbbell_row"
       weight_unit_enum: "pounds" | "kilograms"
     }
     CompositeTypes: {
-      lift_row_type: {
-        lift_id: string | null
+      exercise_row_type: {
+        exercise_id: string | null
         user_id: string | null
-        lift_type: Database["public"]["Enums"]["lift_type_enum"] | null
+        exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null
+        equipment_type:
+          | Database["public"]["Enums"]["equipment_type_enum"]
+          | null
         performed_at: string | null
         weight_value: number | null
         weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null
@@ -495,6 +512,7 @@ export type Database = {
         completion_status:
           | Database["public"]["Enums"]["completion_status_enum"]
           | null
+        notes: string | null
       }
     }
   }
@@ -615,18 +633,26 @@ export const Constants = {
   public: {
     Enums: {
       completion_status_enum: [
-        "Completed",
-        "Not Completed",
-        "Failed",
-        "Skipped",
+        "completed",
+        "not_completed",
+        "failed",
+        "skipped",
       ],
       cycle_type_enum: ["5", "3", "1", "deload"],
-      lift_type_enum: [
-        "deadlift",
-        "squat",
-        "bench_press",
-        "overhead_press",
-        "row",
+      equipment_type_enum: [
+        "barbell",
+        "dumbbell",
+        "kettlebell",
+        "machine",
+        "bodyweight",
+      ],
+      exercise_type_enum: [
+        "barbell_deadlift",
+        "barbell_squat",
+        "barbell_bench_press",
+        "barbell_overhead_press",
+        "barbell_row",
+        "dumbbell_row",
       ],
       weight_unit_enum: ["pounds", "kilograms"],
     },

@@ -1,16 +1,16 @@
 import { createClient } from "@supabase/supabase-js";
 import { Database } from "@/database.types";
-import LiftsTable from "./LiftsTable";
+import ExercisesTable from "./ExercisesTable";
 
-interface LiftsTableWrapperProps {
+interface ExercisesTableWrapperProps {
   userId: string;
-  lift_type: Database["public"]["Enums"]["lift_type_enum"];
+  lift_type: Database["public"]["Enums"]["exercise_type_enum"];
 }
 
-export default async function LiftsTableWrapper({
+export default async function ExercisesTableWrapper({
   userId,
   lift_type,
-}: LiftsTableWrapperProps) {
+}: ExercisesTableWrapperProps) {
   const supabase = createClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -19,12 +19,12 @@ export default async function LiftsTableWrapper({
   const lifts =
     (
       await supabase
-        .rpc("get_lifts_by_type_for_user", {
+        .rpc("get_exercises_by_type_for_user", {
           p_user_id: userId,
-          p_lift_type: lift_type,
+          p_exercise_type: lift_type,
         })
         .select()
     ).data || [];
 
-  return <LiftsTable lifts={lifts} lift_type={lift_type} />;
+  return <ExercisesTable exercises={lifts} exercise_type={lift_type} />;
 }
