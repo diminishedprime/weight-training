@@ -14,8 +14,6 @@ import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import { Database, Constants } from "@/database.types";
 import { completionStatusUIString } from "@/uiStrings";
-import BarbellEditor from "@/components/BarbellEditor";
-import DumbbellEditor from "@/components/DumbbellEditor";
 import RepsSelector from "@/components/RepsSelector";
 import {
   DatePicker,
@@ -25,52 +23,7 @@ import {
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import Box from "@mui/material/Box";
 import { correspondingEquipment } from "@/util";
-
-export function EquipmentWeightEditor({
-  equipment,
-  weightValue,
-  setWeightValue,
-  weightUnit,
-  setWeightUnit,
-}: {
-  equipment: Database["public"]["Enums"]["equipment_type_enum"];
-  weightValue: number;
-  setWeightValue: (v: number) => void;
-  weightUnit: Database["public"]["Enums"]["weight_unit_enum"];
-  setWeightUnit: (v: string) => void;
-}) {
-  switch (equipment) {
-    case "barbell":
-      return (
-        <BarbellEditor
-          totalWeight={weightValue}
-          barWeight={45}
-          onChange={setWeightValue}
-          weightUnit={weightUnit}
-          onUnitChange={(unit) =>
-            setWeightUnit(
-              unit as Database["public"]["Enums"]["weight_unit_enum"]
-            )
-          }
-        />
-      );
-    case "dumbbell":
-      return (
-        <DumbbellEditor
-          weight={weightValue}
-          onChange={setWeightValue}
-          weightUnit={weightUnit}
-          onUnitChange={(unit) =>
-            setWeightUnit(
-              unit as Database["public"]["Enums"]["weight_unit_enum"]
-            )
-          }
-        />
-      );
-    default:
-      return null;
-  }
-}
+import { EquipmentWeightEditor } from "./EquipmentWeightEditor";
 
 export default function EditLiftForm({
   exercise,
