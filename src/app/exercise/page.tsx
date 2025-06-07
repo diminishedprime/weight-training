@@ -1,6 +1,10 @@
 import { Button, Stack, Typography } from "@mui/material";
 import Link from "next/link";
-import { equipmentTypeUIString, exerciseTypeUIString } from "@/uiStrings";
+import {
+  equipmentTypeUIString,
+  exerciseTypeUIStringBrief,
+  exerciseTypeUIStringLong,
+} from "@/uiStrings";
 import { correspondingEquipment } from "@/util";
 import { Constants, Database } from "@/database.types";
 
@@ -38,7 +42,7 @@ export default function ExercisePage() {
                       variant="contained"
                       color="primary"
                     >
-                      {exerciseTypeUIString(type)}
+                      {exerciseTypeUIStringBrief(type)}
                     </Button>
                   );
                 })}

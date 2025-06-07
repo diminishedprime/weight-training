@@ -487,6 +487,7 @@ export type Database = {
         | "kettlebell"
         | "machine"
         | "bodyweight"
+        | "plate_stack"
       exercise_type_enum:
         | "barbell_deadlift"
         | "barbell_squat"
@@ -494,10 +495,27 @@ export type Database = {
         | "barbell_overhead_press"
         | "barbell_row"
         | "dumbbell_row"
+        | "machine_converging_chest_press"
+        | "machine_diverging_lat_pulldown"
+        | "machine_diverging_low_row"
+        | "machine_converging_shoulder_press"
+        | "machine_lateral_raise"
+        | "machine_abdominal"
+        | "machine_back_extension"
+        | "machine_seated_leg_curl"
+        | "machine_leg_extension"
+        | "machine_leg_press"
+        | "machine_inner_thigh"
+        | "machine_outer_thigh"
+        | "machine_triceps_extension"
+        | "machine_biceps_curl"
+        | "machine_rear_delt"
+        | "machine_pec_fly"
         | "pushup"
         | "situp"
         | "pullup"
         | "chinup"
+        | "plate_stack_calf_raise"
       weight_unit_enum: "pounds" | "kilograms"
     }
     CompositeTypes: {
@@ -649,6 +667,7 @@ export const Constants = {
         "kettlebell",
         "machine",
         "bodyweight",
+        "plate_stack",
       ],
       exercise_type_enum: [
         "barbell_deadlift",
@@ -657,10 +676,27 @@ export const Constants = {
         "barbell_overhead_press",
         "barbell_row",
         "dumbbell_row",
+        "machine_converging_chest_press",
+        "machine_diverging_lat_pulldown",
+        "machine_diverging_low_row",
+        "machine_converging_shoulder_press",
+        "machine_lateral_raise",
+        "machine_abdominal",
+        "machine_back_extension",
+        "machine_seated_leg_curl",
+        "machine_leg_extension",
+        "machine_leg_press",
+        "machine_inner_thigh",
+        "machine_outer_thigh",
+        "machine_triceps_extension",
+        "machine_biceps_curl",
+        "machine_rear_delt",
+        "machine_pec_fly",
         "pushup",
         "situp",
         "pullup",
         "chinup",
+        "plate_stack_calf_raise",
       ],
       weight_unit_enum: ["pounds", "kilograms"],
     },

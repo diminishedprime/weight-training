@@ -1,7 +1,8 @@
 import { Database } from "@/database.types";
+import { correspondingEquipment } from "./util";
 
 type ExerciseType = Database["public"]["Enums"]["exercise_type_enum"];
-export const exerciseTypeUIString = (type: ExerciseType): string => {
+export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
   switch (type) {
     case "barbell_deadlift":
       return "Deadlift";
@@ -12,9 +13,9 @@ export const exerciseTypeUIString = (type: ExerciseType): string => {
     case "barbell_overhead_press":
       return "Overhead Press";
     case "barbell_row":
-      return "Barbell Row";
+      return "Row";
     case "dumbbell_row":
-      return "Dumbbell Row";
+      return "Row";
     case "pushup":
       return "Push Up";
     case "situp":
@@ -23,12 +24,51 @@ export const exerciseTypeUIString = (type: ExerciseType): string => {
       return "Pull Up";
     case "chinup":
       return "Chin Up";
+    case "machine_converging_chest_press":
+      return "Converging Chest Press";
+    case "machine_diverging_lat_pulldown":
+      return "Diverging Lat Pulldown";
+    case "machine_diverging_low_row":
+      return "Diverging Low Row";
+    case "machine_converging_shoulder_press":
+      return "Converging Shoulder Press";
+    case "machine_lateral_raise":
+      return "Lateral Raise";
+    case "machine_abdominal":
+      return "Abdominal";
+    case "machine_leg_extension":
+      return "Leg Extension";
+    case "machine_seated_leg_curl":
+      return "Leg Curl";
+    case "machine_leg_press":
+      return "Leg Press";
+    case "machine_pec_fly":
+      return "Pec Fly";
+    case "machine_back_extension":
+      return "Back Extension";
+    case "machine_inner_thigh":
+      return "Inner Thigh";
+    case "machine_outer_thigh":
+      return "Outer Thigh";
+    case "machine_triceps_extension":
+      return "Triceps Extension";
+    case "machine_biceps_curl":
+      return "Biceps Curl";
+    case "machine_rear_delt":
+      return "Rear Delt";
+    case "plate_stack_calf_raise":
+      return "Calf Raise";
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = type;
       return _exhaustiveCheck;
     }
   }
+};
+export const exerciseTypeUIStringLong = (type: ExerciseType): string => {
+  return `${exerciseTypeUIStringBrief(type)} (${equipmentTypeUIString(
+    correspondingEquipment(type)
+  )})`;
 };
 
 export const weightUnitUIString = (
@@ -81,6 +121,8 @@ export const equipmentTypeUIString = (
       return "Machine";
     case "bodyweight":
       return "Bodyweight";
+    case "plate_stack":
+      return "Plate Stack";
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = type;

@@ -8,7 +8,7 @@ import { addRandomLiftAction } from "./actions";
 import AddRandomLiftButton from "./AddRandomLiftButton";
 import ExercisesTableWrapper from "./ExercisesTableWrapper";
 import { Suspense } from "react";
-import { exerciseTypeUIString } from "@/uiStrings";
+import { exerciseTypeUIStringLong } from "@/uiStrings";
 
 export default async function Home({
   params,
@@ -34,7 +34,7 @@ export default async function Home({
   return (
     <Stack spacing={2} sx={{ p: 4 }}>
       <Typography variant="h4" sx={{ mb: 2 }}>
-        {exerciseTypeUIString(exercise_type)} Lifts
+        {exerciseTypeUIStringLong(exercise_type)} Lifts
       </Typography>
       <AddRandomLiftButton
         addRandomLift={addRandomLiftAction.bind(null, exercise_type)}

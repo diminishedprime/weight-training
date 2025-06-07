@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Database } from "@/database.types";
 import { getSupabaseClient, requireId } from "@/util";
-import { exerciseTypeUIString } from "@/uiStrings";
+import { exerciseTypeUIStringLong } from "@/uiStrings";
 
 export default async function EditExercisePage({
   params,
@@ -40,7 +40,7 @@ export default async function EditExercisePage({
   return (
     <Stack>
       <Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
-        Edit {exerciseTypeUIString(exercise_type)}
+        Edit {exerciseTypeUIStringLong(exercise_type)}
       </Typography>
       <Suspense fallback={<div>Loading...</div>}>
         <EditExerciseForm exercise={exercise} user_id={user_id} />

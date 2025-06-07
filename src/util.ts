@@ -59,6 +59,25 @@ export function correspondingEquipment(
     case "pushup":
     case "situp":
       return "bodyweight";
+    case "machine_converging_chest_press":
+    case "machine_diverging_lat_pulldown":
+    case "machine_diverging_low_row":
+    case "machine_converging_shoulder_press":
+    case "machine_lateral_raise":
+    case "machine_abdominal":
+    case "machine_leg_extension":
+    case "machine_seated_leg_curl":
+    case "machine_leg_press":
+    case "machine_back_extension":
+    case "machine_pec_fly":
+    case "machine_biceps_curl":
+    case "machine_inner_thigh":
+    case "machine_outer_thigh":
+    case "machine_triceps_extension":
+    case "machine_rear_delt":
+      return "machine";
+    case "plate_stack_calf_raise":
+      return "plate_stack";
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = lift_type;
