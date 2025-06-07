@@ -14,7 +14,8 @@ RETURNS TABLE (
     reps integer,
     warmup boolean,
     completion_status completion_status_enum,
-    notes text
+    notes text,
+    relative_effort relative_effort_enum
 ) AS $$
 BEGIN
     RETURN QUERY
@@ -29,7 +30,8 @@ BEGIN
         e.reps,
         e.warmup,
         e.completion_status,
-        e.notes
+        e.notes,
+        e.relative_effort
     FROM public.exercises e
     JOIN public.weights w ON e.weight_id = w.id
     WHERE e.user_id = p_user_id

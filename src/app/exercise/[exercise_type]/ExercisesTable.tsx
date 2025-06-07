@@ -19,6 +19,9 @@ import Dumbbell from "@/components/Dumbell";
 import TimeDisplay from "@/components/TimeDisplay";
 import { format } from "date-fns";
 import { correspondingEquipment } from "@/util";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
+import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
 
 function WeightVisual({
   exercise,
@@ -73,6 +76,7 @@ export default function ExercisesTable({
             <TableCell>Reps</TableCell>
             <TableCell>Warmup</TableCell>
             <TableCell>Status</TableCell>
+            <TableCell>Effort</TableCell>
             <TableCell />
           </TableRow>
         </TableHead>
@@ -114,6 +118,25 @@ export default function ExercisesTable({
                 </TableCell>
                 <TableCell>
                   {completionStatusUIString(exercise.completion_status)}
+                </TableCell>
+
+                <TableCell>
+                  {exercise.relative_effort === "hard" ? (
+                    <SentimentVeryDissatisfiedIcon
+                      titleAccess="Hard"
+                      color="error"
+                    />
+                  ) : exercise.relative_effort === "okay" ? (
+                    <SentimentSatisfiedAltIcon
+                      titleAccess="Okay"
+                      color="primary"
+                    />
+                  ) : exercise.relative_effort === "easy" ? (
+                    <SentimentVerySatisfiedIcon
+                      titleAccess="Easy"
+                      color="success"
+                    />
+                  ) : null}
                 </TableCell>
                 <TableCell>
                   <Button

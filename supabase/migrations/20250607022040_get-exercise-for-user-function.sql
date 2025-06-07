@@ -13,7 +13,8 @@ BEGIN
       reps integer,
       warmup boolean,
       completion_status completion_status_enum,
-      notes text
+      notes text,
+      relative_effort relative_effort_enum
     );
   END IF;
 END$$;
@@ -38,7 +39,8 @@ BEGIN
         e.reps,
         e.warmup,
         e.completion_status,
-        e.notes
+        e.notes,
+        e.relative_effort
     INTO result
     FROM public.exercises e
     JOIN public.weights w ON e.weight_id = w.id

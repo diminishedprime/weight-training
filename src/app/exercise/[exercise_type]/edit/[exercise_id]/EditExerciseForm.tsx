@@ -11,6 +11,7 @@ import { correspondingEquipment } from "@/util";
 import { EquipmentWeightEditor } from "./EquipmentWeightEditor";
 import WarmupCheckbox from "@/components/WarmupCheckbox";
 import CompletionStatusEditor from "@/components/CompletionStatusEditor";
+import { EffortEditor } from "@/components/EffortEditor";
 import { Alert, Button, Stack } from "@mui/material";
 
 export default function EditLiftForm({
@@ -30,6 +31,9 @@ export default function EditLiftForm({
     exercise.completion_status!
   );
   const [notes, setNotes] = useState(exercise.notes ?? "");
+  const [relativeEffort, setRelativeEffort] = useState<
+    Database["public"]["Enums"]["relative_effort_enum"] | null
+  >(exercise.relative_effort ?? null);
 
   // Split performedAt into date and time for UI
   const initialDate = exercise.performed_at
@@ -42,7 +46,7 @@ export default function EditLiftForm({
     e.preventDefault();
     setError(null);
     // Combine date and time into a single ISO string for the DB
-    let performed_at: string | null = null;
+    let performed_at: string | undefined = undefined;
     if (date && time) {
       const combined = new Date(date);
       combined.setHours(time.getHours());
@@ -62,6 +66,7 @@ export default function EditLiftForm({
       warmup,
       completion_status: completionStatus,
       notes: notes || undefined,
+      relative_effort: relativeEffort || undefined,
     });
     if (result?.error) {
       setError(result.error);
@@ -116,6 +121,11 @@ export default function EditLiftForm({
                   .value as Database["public"]["Enums"]["completion_status_enum"]
               )
             }
+          />
+          <EffortEditor
+            value={relativeEffort}
+            onChange={setRelativeEffort}
+            sx={{ ml: 1 }}
           />
         </Box>
         <TextField

@@ -54,6 +54,13 @@ BEGIN
       'plate_stack'
     );
   END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'relative_effort_enum') THEN
+    CREATE TYPE public.relative_effort_enum AS ENUM (
+      'easy',
+      'okay',
+      'hard'
+    );
+  END IF;
 END$$;
 
 CREATE TABLE IF NOT EXISTS public.exercises
@@ -68,6 +75,7 @@ CREATE TABLE IF NOT EXISTS public.exercises
     warmup boolean NOT NULL DEFAULT false,
     completion_status completion_status_enum NOT NULL DEFAULT 'not_completed',
     notes text NULL,
+    relative_effort relative_effort_enum NULL,
     CONSTRAINT exercises_id_pkey PRIMARY KEY (id),
     CONSTRAINT exercises_weight_id_fkey FOREIGN KEY (weight_id) 
         REFERENCES public.weights(id) ON DELETE CASCADE,

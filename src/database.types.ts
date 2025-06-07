@@ -258,6 +258,9 @@ export type Database = {
           id: string
           notes: string | null
           performed_at: string | null
+          relative_effort:
+            | Database["public"]["Enums"]["relative_effort_enum"]
+            | null
           reps: number
           user_id: string
           warmup: boolean
@@ -270,6 +273,9 @@ export type Database = {
           id?: string
           notes?: string | null
           performed_at?: string | null
+          relative_effort?:
+            | Database["public"]["Enums"]["relative_effort_enum"]
+            | null
           reps: number
           user_id: string
           warmup?: boolean
@@ -282,6 +288,9 @@ export type Database = {
           id?: string
           notes?: string | null
           performed_at?: string | null
+          relative_effort?:
+            | Database["public"]["Enums"]["relative_effort_enum"]
+            | null
           reps?: number
           user_id?: string
           warmup?: boolean
@@ -394,6 +403,7 @@ export type Database = {
           p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"]
           p_warmup?: boolean
           p_completion_status?: Database["public"]["Enums"]["completion_status_enum"]
+          p_relative_effort?: Database["public"]["Enums"]["relative_effort_enum"]
         }
         Returns: string
       }
@@ -427,6 +437,7 @@ export type Database = {
           warmup: boolean
           completion_status: Database["public"]["Enums"]["completion_status_enum"]
           notes: string
+          relative_effort: Database["public"]["Enums"]["relative_effort_enum"]
         }[]
       }
       get_wendler_exercise_group_details: {
@@ -470,6 +481,7 @@ export type Database = {
           p_warmup?: boolean
           p_completion_status?: Database["public"]["Enums"]["completion_status_enum"]
           p_notes?: string
+          p_relative_effort?: Database["public"]["Enums"]["relative_effort_enum"]
         }
         Returns: undefined
       }
@@ -516,6 +528,7 @@ export type Database = {
         | "pullup"
         | "chinup"
         | "plate_stack_calf_raise"
+      relative_effort_enum: "easy" | "okay" | "hard"
       weight_unit_enum: "pounds" | "kilograms"
     }
     CompositeTypes: {
@@ -535,6 +548,9 @@ export type Database = {
           | Database["public"]["Enums"]["completion_status_enum"]
           | null
         notes: string | null
+        relative_effort:
+          | Database["public"]["Enums"]["relative_effort_enum"]
+          | null
       }
     }
   }
@@ -698,6 +714,7 @@ export const Constants = {
         "chinup",
         "plate_stack_calf_raise",
       ],
+      relative_effort_enum: ["easy", "okay", "hard"],
       weight_unit_enum: ["pounds", "kilograms"],
     },
   },
