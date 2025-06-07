@@ -21,10 +21,10 @@ export default function TimeDisplay({ performedAt }: { performedAt: string }) {
   const diffSec = Math.floor((now - performed) / 1000);
   if (diffSec >= 0 && diffSec < 600) {
     // Within last 10 minutes, show count up
-    let color =
+    const color =
       diffSec < 120 ? theme.palette.warning.main : theme.palette.success.main;
-    let min = Math.floor(diffSec / 60);
-    let sec = diffSec % 60;
+    const min = Math.floor(diffSec / 60);
+    const sec = diffSec % 60;
     return (
       <span
         style={{ fontWeight: 600, color, fontVariantNumeric: "tabular-nums" }}

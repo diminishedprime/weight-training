@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -18,18 +18,14 @@ import Barbell from "@/components/Barbell";
 import Dumbbell from "@/components/Dumbell";
 import TimeDisplay from "@/components/TimeDisplay";
 import { format } from "date-fns";
+import { correspondingEquipment } from "@/util";
 
-function WeightVisual({ exercise }: { exercise: any }) {
-  // Determine equipment type from exercise_type
-  let equipment: string | undefined;
-  if (exercise.exercise_type && exercise.exercise_type.startsWith("barbell_")) {
-    equipment = "barbell";
-  } else if (
-    exercise.exercise_type &&
-    exercise.exercise_type.startsWith("dumbbell_")
-  ) {
-    equipment = "dumbbell";
-  }
+function WeightVisual({
+  exercise,
+}: {
+  exercise: Database["public"]["Functions"]["get_exercises_by_type_for_user"]["Returns"][number];
+}) {
+  const equipment = correspondingEquipment(exercise.exercise_type);
   if (equipment === "barbell") {
     return (
       <span
@@ -92,12 +88,10 @@ export default function ExercisesTable({
                     : {}
                 }
               >
-                {/* Date column */}
                 <TableCell>
                   {exercise.performed_at &&
                     format(new Date(exercise.performed_at), "MMMM do, yy")}
                 </TableCell>
-                {/* Time column */}
                 <TableCell>
                   {exercise.performed_at && (
                     <TimeDisplay performedAt={exercise.performed_at} />

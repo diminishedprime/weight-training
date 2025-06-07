@@ -11,22 +11,7 @@ const sleeveHeightMM = 50;
 const bushingHeightMM = 70;
 const shaftHeightMM = 28;
 const plateHeightMM = 450;
-const barWidthVW = 95;
 const aspectRatio = 0.2;
-const barHeightVW = barWidthVW * aspectRatio;
-const sleeveWidthP = (sleeveWidthMM / barWidthMM) * 100;
-const sleeveHeightP = (sleeveHeightMM / barWidthMM / aspectRatio) * 100;
-const bushingWidthP = (bushingWidthMM / barWidthMM) * 100;
-const bushingHeightP = (bushingHeightMM / barWidthMM / aspectRatio) * 100;
-const shaftWidthP = (shaftWidthMM / barWidthMM) * 100;
-const shaftHeightP = (shaftHeightMM / barWidthMM / aspectRatio) * 100;
-const plateWidthVW = ((plateWidthMM / barWidthMM) * barHeightVW) / aspectRatio;
-const plateHeightVW =
-  ((plateHeightMM / barWidthMM) * barHeightVW) / aspectRatio;
-const _5HeightMM = plateHeightMM / 1.5;
-const _5HeightVW = ((_5HeightMM / barWidthMM) * barHeightVW) / aspectRatio;
-const _2_5HeightMM = plateHeightMM / 2.0;
-const _2_5HeightVW = ((_2_5HeightMM / barWidthMM) * barHeightVW) / aspectRatio;
 
 export const metalGradient =
   "linear-gradient(180deg, hsl(0,0%,78%) 0%, hsl(0,0%,90%) 47%, hsl(0,0%,78%) 53%, hsl(0,0%,70%) 100%)";
@@ -44,14 +29,6 @@ export interface BarbellProps {
   weight: number;
   barWeight?: number;
   plateSizes?: number[];
-  /**
-   * If true, use fixed pixel sizes for plates/bar instead of viewport-relative units.
-   * Useful for small displays like tables.
-   */
-  fixedSize?: boolean;
-  /**
-   * If true, do not show the plate numbers (for compact display).
-   */
   hidePlateNumbers?: boolean;
 }
 
@@ -59,7 +36,6 @@ const Barbell: React.FC<BarbellProps> = ({
   weight,
   barWeight = 45,
   plateSizes = DEFAULT_PLATE_SIZES,
-  fixedSize = false, // deprecated, kept for backward compatibility
   hidePlateNumbers = false,
 }) => {
   // Calculate the plate list for one side

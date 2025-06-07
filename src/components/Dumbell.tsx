@@ -1,7 +1,6 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import { Database } from "@/database.types";
-import { weightUnitUIString } from "@/uiStrings";
 import { metalGradient } from "./Barbell";
 
 const TotalWidth = 160;
@@ -52,7 +51,7 @@ function DumbbellBulb({
 
 export default function Dumbbell({
   weight,
-  weightUnit,
+  weightUnit: _,
   width = "30%",
   hideText = false,
 }: DumbbellProps) {
