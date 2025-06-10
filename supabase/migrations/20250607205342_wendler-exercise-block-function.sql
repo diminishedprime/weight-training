@@ -5,6 +5,7 @@ CREATE OR REPLACE FUNCTION public.wendler_exercise_block(
     p_training_max numeric,
     p_exercise_type exercise_type_enum,
     p_cycle_type wendler_cycle_type_enum,
+    p_name text,
     p_increase_amount numeric DEFAULT 5.0
 ) RETURNS uuid AS $$
 DECLARE
@@ -30,26 +31,30 @@ BEGIN
 
     -- Insert exercise block
     INSERT INTO public.exercise_block (
-        id, user_id, wendler_metadata_id, block_order, created_at, updated_at
+        id, user_id, wendler_metadata_id, block_order, name, created_at, updated_at
     ) VALUES (
-        v_block_id, p_user_id, v_wendler_metadata_id, 0, timezone('utc', now()), timezone('utc', now())
+        v_block_id, p_user_id, v_wendler_metadata_id, 0, p_name, timezone('utc', now()), timezone('utc', now())
     );
 
     -- Define ratios and reps for warmups and work sets based on cycle type
     IF p_cycle_type = '5' THEN
-        v_ratios := ARRAY[0, 0.4, 0.6, 0.8, 0.65, 0.75, 0.85];
-        v_reps := ARRAY[5, 5, 3, 1, 5, 5, 5];
+        -- Standard Wendler 5s: warmups then work sets
+        v_ratios := ARRAY[0, 0.4, 0.5, 0.6, 0.65, 0.75, 0.85];
+        v_reps := ARRAY[5, 5, 3, 2, 5, 5, 5];
         v_is_warmup := ARRAY[true, true, true, true, false, false, false];
     ELSIF p_cycle_type = '3' THEN
-        v_ratios := ARRAY[0, 0.4, 0.6, 0.8, 0.7, 0.8, 0.9];
-        v_reps := ARRAY[5, 5, 3, 1, 3, 3, 3];
+        -- Standard Wendler 3s: warmups then work sets
+        v_ratios := ARRAY[0, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
+        v_reps := ARRAY[5, 5, 3, 2, 3, 3, 3];
         v_is_warmup := ARRAY[true, true, true, true, false, false, false];
     ELSIF p_cycle_type = '1' THEN
-        v_ratios := ARRAY[0, 0.4, 0.6, 0.8, 0.75, 0.85, 0.95];
-        v_reps := ARRAY[5, 5, 3, 1, 5, 3, 1];
+        -- Standard Wendler 5/3/1: warmups then work sets
+        v_ratios := ARRAY[0, 0.4, 0.5, 0.6, 0.75, 0.85, 0.95];
+        v_reps := ARRAY[5, 5, 3, 2, 5, 3, 1];
         v_is_warmup := ARRAY[true, true, true, true, false, false, false];
     ELSIF p_cycle_type = 'deload' THEN
-        v_ratios := ARRAY[0, 0.4, 0.6, 0.65, 0.5, 0.6, 0.65];
+        -- Standard Wendler deload: warmups then light sets
+        v_ratios := ARRAY[0, 0.4, 0.5, 0.6, 0.65, 0.7, 0.75];
         v_reps := ARRAY[5, 5, 5, 5, 5, 5, 5];
         v_is_warmup := ARRAY[true, true, true, true, false, false, false];
     ELSE
@@ -61,7 +66,7 @@ BEGIN
         IF v_ratios[v_idx] = 0 THEN
             v_working_weight := v_bar_weight;
         ELSE
-            v_working_weight := round(p_training_max * v_ratios[v_idx]);
+            v_working_weight := public.normalize_bar_weight(round(p_training_max * v_ratios[v_idx]));
         END IF;
         -- Insert weight row (if not null)
         IF v_working_weight IS NOT NULL THEN

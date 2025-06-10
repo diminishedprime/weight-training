@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS public.exercise_block
     user_id uuid NOT NULL,
     wendler_metadata_id uuid NULL,
     block_order integer NOT NULL,
+    name text NULL,
     notes text NULL,
     created_at timestamp with time zone DEFAULT timezone('utc', now()),
     updated_at timestamp with time zone DEFAULT timezone('utc', now()),

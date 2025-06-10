@@ -6,7 +6,8 @@ CREATE OR REPLACE FUNCTION public.add_exercise_block(
     p_equipment_type equipment_type_enum,
     p_weight numeric,
     p_sets integer,
-    p_reps integer
+    p_reps integer,
+    p_name text
 ) RETURNS uuid AS $$
 DECLARE
     v_block_id uuid := uuid_generate_v4();
@@ -16,9 +17,9 @@ DECLARE
 BEGIN
     -- Insert exercise block
     INSERT INTO public.exercise_block (
-        id, user_id, block_order, created_at, updated_at
+        id, user_id, block_order, name, created_at, updated_at
     ) VALUES (
-        v_block_id, p_user_id, 0, timezone('utc', now()), timezone('utc', now())
+        v_block_id, p_user_id, 0, p_name, timezone('utc', now()), timezone('utc', now())
     );
 
     -- Insert weight row

@@ -5,7 +5,7 @@ import { updateExerciseForUserAction as updateExerciseForUserAction } from "./ac
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import { Database } from "@/database.types";
-import RepsSelector from "@/components/RepsSelector";
+import RepsSelector from "@/components/RepsSelector/index";
 import DateTimePicker from "@/components/DateTimePicker";
 import { correspondingEquipment } from "@/util";
 import { EquipmentWeightEditor } from "./EquipmentWeightEditor";
@@ -14,15 +14,11 @@ import CompletionStatusEditor from "@/components/CompletionStatusEditor";
 import { EffortEditor } from "@/components/EffortEditor";
 import { Alert, Button, Stack } from "@mui/material";
 
-export default function EditLiftForm({
-  exercise,
-  user_id,
-}: {
-  exercise: Database["public"]["Functions"]["get_exercise_for_user"]["Returns"];
-  user_id: string;
-}) {
+function useEditExerciseForm(
+  exercise: Database["public"]["Functions"]["get_exercise_for_user"]["Returns"],
+  user_id: string
+) {
   const [error, setError] = useState<string | null>(null);
-  const router = useRouter();
   const [weightValue, setWeightValue] = useState(exercise.weight_value!);
   const [weightUnit, setWeightUnit] = useState(exercise.weight_unit!);
   const [reps, setReps] = useState(exercise.reps!);
@@ -34,8 +30,7 @@ export default function EditLiftForm({
   const [relativeEffort, setRelativeEffort] = useState<
     Database["public"]["Enums"]["relative_effort_enum"] | null
   >(exercise.relative_effort ?? null);
-
-  // Split performedAt into date and time for UI
+  const router = useRouter();
   const initialDate = exercise.performed_at
     ? new Date(exercise.performed_at)
     : new Date();
@@ -45,7 +40,6 @@ export default function EditLiftForm({
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
-    // Combine date and time into a single ISO string for the DB
     let performed_at: string | undefined = undefined;
     if (date && time) {
       const combined = new Date(date);
@@ -77,62 +71,137 @@ export default function EditLiftForm({
     );
   }
 
+  // Handler functions for direct use in onChange (typed to match component expectations)
+  function handleWeightValueChange(val: number) {
+    setWeightValue(val);
+  }
+  function handleWeightUnitChange(val: string) {
+    setWeightUnit(val as Database["public"]["Enums"]["weight_unit_enum"]);
+  }
+  function handleRepsChange(val: number) {
+    setReps(val);
+  }
+  function handleWarmupChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setWarmup(e.target.checked);
+  }
+  function handleCompletionStatusChange(
+    e: React.ChangeEvent<{
+      value: Database["public"]["Enums"]["completion_status_enum"];
+    }>
+  ) {
+    setCompletionStatus(
+      e.target.value as Database["public"]["Enums"]["completion_status_enum"]
+    );
+  }
+  function handleRelativeEffortChange(
+    val: Database["public"]["Enums"]["relative_effort_enum"] | null
+  ) {
+    setRelativeEffort(val);
+  }
+  function handleNotesChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    setNotes(e.target.value);
+  }
+  function handleDateChange(val: Date | null) {
+    setDate(val);
+  }
+  function handleTimeChange(val: Date | null) {
+    setTime(val);
+  }
+
+  return {
+    error,
+    setError,
+    weightValue,
+    setWeightValue,
+    handleWeightValueChange,
+    weightUnit,
+    setWeightUnit,
+    handleWeightUnitChange,
+    reps,
+    setReps,
+    handleRepsChange,
+    warmup,
+    setWarmup,
+    handleWarmupChange,
+    completionStatus,
+    setCompletionStatus,
+    handleCompletionStatusChange,
+    notes,
+    setNotes,
+    handleNotesChange,
+    relativeEffort,
+    setRelativeEffort,
+    handleRelativeEffortChange,
+    date,
+    setDate,
+    handleDateChange,
+    time,
+    setTime,
+    handleTimeChange,
+    handleSubmit,
+  };
+}
+
+interface EditLiftFormProps {
+  exercise: Database["public"]["Functions"]["get_exercise_for_user"]["Returns"];
+  user_id: string;
+}
+
+export default function EditExerciseForm(props: EditLiftFormProps) {
+  const { exercise, user_id } = props;
+  const form = useEditExerciseForm(exercise, user_id);
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={form.handleSubmit}>
       <Stack spacing={3}>
-        {error && (
+        {form.error && (
           <Alert severity="error" sx={{ mb: 2 }}>
-            {error}
+            {form.error}
           </Alert>
         )}
         <EquipmentWeightEditor
           equipment={correspondingEquipment(exercise.exercise_type!)}
-          weightValue={weightValue}
-          setWeightValue={setWeightValue}
-          weightUnit={weightUnit}
-          setWeightUnit={(v: string) =>
-            setWeightUnit(v as Database["public"]["Enums"]["weight_unit_enum"])
-          }
+          weightValue={form.weightValue}
+          setWeightValue={form.handleWeightValueChange}
+          weightUnit={form.weightUnit}
+          setWeightUnit={form.handleWeightUnitChange}
         />
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <RepsSelector
-            reps={reps}
-            onChange={setReps}
+            reps={form.reps}
+            onChange={form.handleRepsChange}
             repChoices={[1, 3, 5, 8, 10, 12, 15]}
           />
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
           <DateTimePicker
-            date={date}
-            setDate={setDate}
-            time={time}
-            setTime={setTime}
+            date={form.date}
+            setDate={form.setDate}
+            time={form.time}
+            setTime={form.setTime}
           />
           <WarmupCheckbox
-            checked={warmup}
-            onChange={(e) => setWarmup(e.target.checked)}
+            checked={form.warmup}
+            onChange={form.handleWarmupChange}
             sx={{ ml: 1, mr: 1 }}
           />
           <CompletionStatusEditor
-            value={completionStatus}
-            onChange={(e) =>
-              setCompletionStatus(
-                e.target
-                  .value as Database["public"]["Enums"]["completion_status_enum"]
-              )
-            }
+            value={form.completionStatus}
+            onChange={form.handleCompletionStatusChange}
           />
           <EffortEditor
-            value={relativeEffort}
-            onChange={setRelativeEffort}
+            value={form.relativeEffort}
+            onChange={form.handleRelativeEffortChange}
             sx={{ ml: 1 }}
           />
         </Box>
         <TextField
           label="Notes"
           name="notes"
-          value={notes}
-          onChange={(e) => setNotes(e.target.value)}
+          value={form.notes}
+          onChange={form.handleNotesChange}
           fullWidth
           multiline
           minRows={2}

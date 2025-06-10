@@ -9,7 +9,8 @@
     "lint": "next lint",
     "db:reset": "pnpx supabase start && pnpx supabase db reset && pnpx supabase gen types typescript --local > src/database.types.ts",
     "db:test": "pnpx supabase start && pnpx supabase test db",
-    "db:start": "pnpx supabase start"
+    "db:start": "pnpx supabase start",
+    "test": "jest --env=jsdom"
   },
   "dependencies": {
     "@auth/supabase-adapter": "^1.9.1",
@@ -22,6 +23,7 @@
     "@mui/x-date-pickers": "^8.5.1",
     "@supabase/supabase-js": "^2.49.8",
     "date-fns": "^4.1.0",
+    "lodash": "^4.17.21",
     "next": "15.3.1",
     "next-auth": "5.0.0-beta.27",
     "react": "^19.0.0",
@@ -29,13 +31,21 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@types/date-fns": "^2.6.3",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.14",
+    "@types/lodash": "^4.17.17",
     "@types/node": "^20",
-    "@types/react": "^19",
+    "@types/react": "^19.1.2",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^30.0.0",
+    "jsdom": "^26.1.0",
     "supabase": "^2.24.3",
+    "ts-jest": "^29.1.1",
     "typescript": "^5"
   }
 }
