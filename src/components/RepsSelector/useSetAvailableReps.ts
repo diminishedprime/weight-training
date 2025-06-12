@@ -62,10 +62,6 @@ function reducer(state: State, action: Action): State {
   }
 }
 
-function arraysEqual(a: number[], b: number[]) {
-  return a.length === b.length && a.every((v, i) => v === b[i]);
-}
-
 function useSetAvailableReps(
   repChoices: number[],
   onClose: (choices: number[]) => void

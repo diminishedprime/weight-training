@@ -11,10 +11,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import SettingsIcon from "@mui/icons-material/Settings";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import SendIcon from "@mui/icons-material/Send";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import DoneIcon from "@mui/icons-material/Done";
 import { Stack } from "@mui/material";
 import useSetAvailableReps from "./useSetAvailableReps";
 
