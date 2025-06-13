@@ -1,4 +1,4 @@
-import BarbellEditor from "@/components/BarbellEditor";
+import BarbellEditor from "@/components/BarbellEditor/index";
 import DumbbellEditor from "@/components/DumbbellEditor";
 import { Database } from "@/database.types";
 
@@ -25,7 +25,7 @@ export function EquipmentWeightEditor({
           weightUnit={weightUnit}
           onUnitChange={(unit) =>
             setWeightUnit(
-              unit as Database["public"]["Enums"]["weight_unit_enum"]
+              unit as Database["public"]["Enums"]["weight_unit_enum"],
             )
           }
         />
@@ -38,7 +38,7 @@ export function EquipmentWeightEditor({
           weightUnit={weightUnit}
           onUnitChange={(unit) =>
             setWeightUnit(
-              unit as Database["public"]["Enums"]["weight_unit_enum"]
+              unit as Database["public"]["Enums"]["weight_unit_enum"],
             )
           }
         />

@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import { minimalPlates, DEFAULT_PLATE_SIZES } from "@/util";
+import { minimalPlates } from "@/util";
+import { DEFAULT_PLATE_SIZES, PLATE_COLORS } from "@/constants";
 
 const barWidthMM = 2200;
 const sleeveWidthMM = 445;
@@ -15,15 +16,6 @@ const aspectRatio = 0.2;
 
 export const metalGradient =
   "linear-gradient(180deg, hsl(0,0%,78%) 0%, hsl(0,0%,90%) 47%, hsl(0,0%,78%) 53%, hsl(0,0%,70%) 100%)";
-
-export const PLATE_COLORS: Record<number, { bg: string; fg: string }> = {
-  45: { bg: "red", fg: "white" },
-  35: { bg: "blue", fg: "white" },
-  25: { bg: "yellow", fg: "black" },
-  10: { bg: "green", fg: "white" },
-  5: { bg: "black", fg: "white" },
-  2.5: { bg: "pink", fg: "black" },
-};
 
 export interface BarbellProps {
   weight: number;

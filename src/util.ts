@@ -2,17 +2,18 @@ import { createClient } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 import { Session } from "next-auth";
 import { Database } from "@/database.types";
+import { ALL_PLATES } from "./constants";
 
 export const getSupabaseClient = () => {
   return createClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   );
 };
 
 export function requireId(
   session: Session | null,
-  currentPath: string
+  currentPath: string,
 ): string {
   const id = session?.user?.id;
   if (!id) {
@@ -22,14 +23,9 @@ export function requireId(
   return id;
 }
 
-// so if they need to like double up on 35s because they're otherwise out of
-// weights to hit a target.
-export const ALL_PLATES = [2.5, 5, 10, 25, 35, 45, 55];
-export const DEFAULT_PLATE_SIZES = [45, 25, 10, 5, 2.5];
-
 export function minimalPlates(
   targetWeight: number,
-  availablePlates = DEFAULT_PLATE_SIZES
+  availablePlates: typeof ALL_PLATES,
 ): number[] {
   let remaining = targetWeight;
   const result: number[] = [];
@@ -43,7 +39,7 @@ export function minimalPlates(
 }
 
 export function correspondingEquipment(
-  lift_type: Database["public"]["Enums"]["exercise_type_enum"]
+  lift_type: Database["public"]["Enums"]["exercise_type_enum"],
 ): Database["public"]["Enums"]["equipment_type_enum"] {
   switch (lift_type) {
     case "barbell_deadlift":
@@ -85,4 +81,3 @@ export function correspondingEquipment(
     }
   }
 }
-
