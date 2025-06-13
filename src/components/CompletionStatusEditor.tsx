@@ -12,7 +12,7 @@ interface CompletionStatusSelectProps {
   onChange: (
     event: React.ChangeEvent<{
       value: Database["public"]["Enums"]["completion_status_enum"];
-    }>
+    }>,
   ) => void;
   sx?: SxProps;
 }

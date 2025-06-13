@@ -67,12 +67,12 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
 };
 export const exerciseTypeUIStringLong = (type: ExerciseType): string => {
   return `${exerciseTypeUIStringBrief(type)} (${equipmentTypeUIString(
-    correspondingEquipment(type)
+    correspondingEquipment(type),
   )})`;
 };
 
 export const weightUnitUIString = (
-  unit: Database["public"]["Enums"]["weight_unit_enum"]
+  unit: Database["public"]["Enums"]["weight_unit_enum"],
 ): string => {
   switch (unit) {
     case "kilograms":
@@ -88,7 +88,7 @@ export const weightUnitUIString = (
 };
 
 export const completionStatusUIString = (
-  status: Database["public"]["Enums"]["completion_status_enum"]
+  status: Database["public"]["Enums"]["completion_status_enum"],
 ): string => {
   switch (status) {
     case "completed":
@@ -108,7 +108,7 @@ export const completionStatusUIString = (
 };
 
 export const equipmentTypeUIString = (
-  type: Database["public"]["Enums"]["equipment_type_enum"]
+  type: Database["public"]["Enums"]["equipment_type_enum"],
 ): string => {
   switch (type) {
     case "barbell":

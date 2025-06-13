@@ -17,7 +17,7 @@ const DEFAULT_REP_CHOICES = [1, 3, 5, 8, 10, 12, 15];
 function useRepsSelectorApi(
   repChoices: number[],
   reps: number,
-  onChange: (reps: number) => void
+  onChange: (reps: number) => void,
 ) {
   const MIN_REPS = 1;
   const [choices, setChoices] = React.useState<number[]>(repChoices);

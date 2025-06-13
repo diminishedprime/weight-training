@@ -4,7 +4,7 @@ import { correspondingEquipment } from "@/util";
 
 export async function addRandomLiftAction(
   liftType: Database["public"]["Enums"]["exercise_type_enum"],
-  _: FormData
+  _: FormData,
 ) {
   "use server";
   const { createClient } = await import("@supabase/supabase-js");
@@ -15,7 +15,7 @@ export async function addRandomLiftAction(
   if (!id) throw new Error("User ID is required");
   const supabase = createClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   );
   const response = await supabase.rpc("create_exercise", {
     p_user_id: id,

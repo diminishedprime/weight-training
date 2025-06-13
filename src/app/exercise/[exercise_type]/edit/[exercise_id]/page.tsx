@@ -26,7 +26,7 @@ export default async function EditExercisePage({
   ]);
   const user_id = requireId(
     session,
-    `/exercise/${exercise_type}/edit/${exercise_id}`
+    `/exercise/${exercise_type}/edit/${exercise_id}`,
   );
 
   const supabase = getSupabaseClient();
@@ -35,7 +35,7 @@ export default async function EditExercisePage({
     {
       p_user_id: user_id,
       p_exercise_id: exercise_id,
-    }
+    },
   );
   if (error) throw new Error(error.message);
   // TODO - this could use some work. My stored proc doesn't really work right here type-wise.

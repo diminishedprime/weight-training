@@ -24,7 +24,7 @@ export interface DumbbellEditorProps {
   onChange?: (newWeight: number) => void;
   weightUnit: Database["public"]["Enums"]["weight_unit_enum"];
   onUnitChange?: (
-    unit: Database["public"]["Enums"]["weight_unit_enum"]
+    unit: Database["public"]["Enums"]["weight_unit_enum"],
   ) => void;
 }
 
@@ -40,7 +40,7 @@ export default function DumbbellEditor({
   onUnitChange,
 }: DumbbellEditorProps) {
   const [availableWeights, setAvailableWeights] = React.useState(
-    DEFAULT_DUMBBELL_WEIGHTS
+    DEFAULT_DUMBBELL_WEIGHTS,
   );
   const [settingsOpen, setSettingsOpen] = React.useState(false);
   const [editWeights, setEditWeights] = React.useState(availableWeights);
@@ -118,7 +118,7 @@ export default function DumbbellEditor({
                     onClick={() => handleAddWeight(val)}
                     sx={{ minWidth: 36 }}
                   />
-                )
+                ),
               )}
             </Box>
           </Box>

@@ -6,7 +6,7 @@ describe("useSetAvailableReps", () => {
   it("initializes with given repChoices", () => {
     const onClose = vi.fn();
     const { result } = renderHook(() =>
-      useSetAvailableReps([1, 2, 3], onClose)
+      useSetAvailableReps([1, 2, 3], onClose),
     );
     expect(result.current.choices).toEqual([1, 2, 3]);
     expect(result.current.open).toBe(false);
@@ -16,7 +16,7 @@ describe("useSetAvailableReps", () => {
   it("sets open to true when handleOpen is called", () => {
     const onClose = vi.fn();
     const { result } = renderHook(() =>
-      useSetAvailableReps([1, 2, 3], onClose)
+      useSetAvailableReps([1, 2, 3], onClose),
     );
 
     expect(result.current.open).toBe(false); // Initial state

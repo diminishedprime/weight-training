@@ -66,7 +66,7 @@ export default function AddLegDay() {
           onChange={(e) =>
             setCycle(
               e.target
-                .value as Database["public"]["Enums"]["wendler_cycle_type_enum"]
+                .value as Database["public"]["Enums"]["wendler_cycle_type_enum"],
             )
           }
           size="small"

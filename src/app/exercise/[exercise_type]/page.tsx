@@ -23,7 +23,7 @@ export default async function Home({
 
   if (
     Constants.public.Enums.exercise_type_enum.find(
-      (a) => a === unnarrowed_lift_type
+      (a) => a === unnarrowed_lift_type,
     ) === undefined
   ) {
     return notFound();

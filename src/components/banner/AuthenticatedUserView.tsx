@@ -14,7 +14,9 @@ interface AuthenticatedUserViewProps {
   user: User;
 }
 
-export default function AuthenticatedUserView({ user }: AuthenticatedUserViewProps) {
+export default function AuthenticatedUserView({
+  user,
+}: AuthenticatedUserViewProps) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -28,17 +30,22 @@ export default function AuthenticatedUserView({ user }: AuthenticatedUserViewPro
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <Button
         onClick={handleClick}
-        sx={{ borderRadius: '50%', padding: 0, minWidth: 0 }}
-        aria-controls={open ? 'account-menu' : undefined}
+        sx={{ borderRadius: "50%", padding: 0, minWidth: 0 }}
+        aria-controls={open ? "account-menu" : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
+        aria-expanded={open ? "true" : undefined}
       >
         <Avatar
           src={user.image || undefined}
           alt={user.name || "User"}
           sx={{ width: 32, height: 32 }}
         >
-          {user.image === null && user.name?.split(' ').map(a => a[0]).join('').toUpperCase()}
+          {user.image === null &&
+            user.name
+              ?.split(" ")
+              .map((a) => a[0])
+              .join("")
+              .toUpperCase()}
         </Avatar>
       </Button>
       <Menu
@@ -50,15 +57,20 @@ export default function AuthenticatedUserView({ user }: AuthenticatedUserViewPro
           list: { "aria-labelledby": "basic-button" },
         }}
       >
-        <Box sx={{ p: 1, display: 'flex'}}>
+        <Box sx={{ p: 1, display: "flex" }}>
           <Avatar
             src={user.image || undefined}
             alt={user.name || "User"}
             sx={{ width: 56, height: 56, mb: 1 }}
           >
-            {user.image === null && user.name?.split(' ').map(a => a[0]).join('').toUpperCase()}
+            {user.image === null &&
+              user.name
+                ?.split(" ")
+                .map((a) => a[0])
+                .join("")
+                .toUpperCase()}
           </Avatar>
-          <Box sx={{display: 'flex', flexDirection: 'column', ml: 1}}>
+          <Box sx={{ display: "flex", flexDirection: "column", ml: 1 }}>
             <Typography variant="subtitle1">{user.name}</Typography>
             <Typography variant="body2">{user.email}</Typography>
           </Box>
@@ -68,7 +80,7 @@ export default function AuthenticatedUserView({ user }: AuthenticatedUserViewPro
             await handleSignOut();
             handleClose();
           }}
-          sx={{ justifyContent: 'right', color: 'error.main' }}
+          sx={{ justifyContent: "right", color: "error.main" }}
         >
           Sign out
         </MenuItem>

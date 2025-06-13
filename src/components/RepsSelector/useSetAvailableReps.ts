@@ -64,7 +64,7 @@ function reducer(state: State, action: Action): State {
 
 function useSetAvailableReps(
   repChoices: number[],
-  onClose: (choices: number[]) => void
+  onClose: (choices: number[]) => void,
 ): UseSetAvailableRepsApi {
   const [state, dispatch] = useReducer(reducer, {
     open: false,
@@ -82,7 +82,7 @@ function useSetAvailableReps(
   const handleOpen = () => dispatch({ type: "OPEN" });
   const handleCancel = () => dispatch({ type: "CLOSE" });
   const handlePendingRepInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement>,
   ) => dispatch({ type: "SET_PENDING_REP_INPUT", value: e.target.value });
   const handleAddPendingRepAsChoice = () =>
     dispatch({ type: "ADD_PENDING_REP_AS_CHOICE" });

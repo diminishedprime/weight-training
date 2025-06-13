@@ -17,7 +17,7 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <AppRouterCacheProvider>
-        <CssBaseline />
+          <CssBaseline />
           <Banner />
           <Stack sx={{ p: 1 }}>{children}</Stack>
         </AppRouterCacheProvider>

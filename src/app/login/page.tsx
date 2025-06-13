@@ -7,7 +7,7 @@ import { loginAction } from "./actions";
 export default function LoginPage() {
   const searchParams = useSearchParams();
   const redirectUri = decodeURIComponent(
-    searchParams.get("redirect-uri") || encodeURIComponent("/")
+    searchParams.get("redirect-uri") || encodeURIComponent("/"),
   );
 
   return (
