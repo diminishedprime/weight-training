@@ -14,7 +14,9 @@
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
-    "mutation:run": "stryker run"
+    "mutation:run": "stryker run",
+    "format": "git diff --name-only HEAD -- ./**/*.{js,ts,tsx,json,md} | xargs -r prettier --write",
+    "format:all": "prettier --write ./**/*.{js,ts,tsx,json,md}"
   },
   "dependencies": {
     "@auth/supabase-adapter": "^1.9.1",

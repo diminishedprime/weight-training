@@ -1,5 +1,5 @@
 export const DEFAULT_BAR_WEIGHT = 45; // lbs
-export const ALL_PLATES = [2.5, 5, 10, 25, 35, 45, 55];
+export const ALL_PLATES = [55, 45, 35, 25, 10, 5, 2.5];
 export const DEFAULT_PLATE_SIZES = [45, 25, 10, 5, 2.5];
 
 export const PLATE_COLORS: Record<number, { bg: string; fg: string }> = {

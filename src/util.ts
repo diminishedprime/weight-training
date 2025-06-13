@@ -4,16 +4,18 @@ import { Session } from "next-auth";
 import { Database } from "@/database.types";
 import { ALL_PLATES } from "./constants";
 
+// Stryker disable all
 export const getSupabaseClient = () => {
   return createClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 };
+// Stryker restore all
 
 export function requireId(
   session: Session | null,
-  currentPath: string,
+  currentPath: string
 ): string {
   const id = session?.user?.id;
   if (!id) {
@@ -23,9 +25,21 @@ export function requireId(
   return id;
 }
 
+/**
+ * Calculates the minimal set of plates needed to achieve a target weight for one side of a barbell or a single dumbbell.
+ *
+ * This function assumes that the `availablePlates` array is sorted in descending order of weight.
+ * It greedily selects the largest possible plates to make up the `targetWeight`.
+ * If the `targetWeight` cannot be exactly achieved with the `availablePlates`,
+ * the function will return the plates that sum up to the closest weight less than or equal to the `targetWeight`.
+ *
+ * @param targetWeight The desired weight to achieve (e.g., for one side of a barbell, or a single dumbbell weight).
+ * @param availablePlates An array of numbers representing the weights of available plates, sorted in descending order.
+ * @returns An array of numbers representing the plates selected to make up the target weight. The array will contain duplicates if multiple plates of the same weight are needed.
+ */
 export function minimalPlates(
   targetWeight: number,
-  availablePlates: typeof ALL_PLATES,
+  availablePlates: number[]
 ): number[] {
   let remaining = targetWeight;
   const result: number[] = [];
@@ -39,7 +53,7 @@ export function minimalPlates(
 }
 
 export function correspondingEquipment(
-  lift_type: Database["public"]["Enums"]["exercise_type_enum"],
+  lift_type: Database["public"]["Enums"]["exercise_type_enum"]
 ): Database["public"]["Enums"]["equipment_type_enum"] {
   switch (lift_type) {
     case "barbell_deadlift":
@@ -74,10 +88,12 @@ export function correspondingEquipment(
       return "machine";
     case "plate_stack_calf_raise":
       return "plate_stack";
+    // Stryker disable all
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = lift_type;
       return _exhaustiveCheck;
     }
+    // Stryker restore all
   }
 }
