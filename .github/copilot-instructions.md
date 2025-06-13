@@ -4,7 +4,10 @@ This project is a next.js application that uses Typescript and Material UI.
 
 ## Coding Standards
 
+- All code should be well-commented
+- All code should have clear types, with documentation for each field of the type.
 - prefer defining components as `const function_name = () => { ... }`
+- avoid using `function function_name() { ... }` for any functions, instead prefer named consts. 
 - try to avoid providing values if they're the default values
   - for example, don't write `variant="text"` if the default variant is text
 - prefer to keep files relatively short. If a file is getting long (> 150 lines), consider splitting it into smaller components or files.
