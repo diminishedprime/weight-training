@@ -10,10 +10,10 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
       return "Squat";
     case "barbell_bench_press":
       return "Bench Press";
-    case "barbell_overhead_press":
-      return "Overhead Press";
     case "barbell_row":
       return "Row";
+    case "barbell_overhead_press":
+      return "Overhead Press";
     case "dumbbell_row":
       return "Row";
     case "pushup":
@@ -58,11 +58,14 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
       return "Rear Delt";
     case "plate_stack_calf_raise":
       return "Calf Raise";
+
+    // Stryker disable all
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = type;
       return _exhaustiveCheck;
     }
+    // Stryker restore all
   }
 };
 export const exerciseTypeUIStringLong = (type: ExerciseType): string => {
@@ -79,11 +82,14 @@ export const weightUnitUIString = (
       return "kgs";
     case "pounds":
       return "lbs";
+
+    // Stryker disable all
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = unit;
       return _exhaustiveCheck;
     }
+    // Stryker restore all
   }
 };
 
@@ -99,11 +105,14 @@ export const completionStatusUIString = (
       return "Failed";
     case "skipped":
       return "Skipped";
+
+    // Stryker disable all
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = status;
       return _exhaustiveCheck;
     }
+    // Stryker restore all
   }
 };
 
@@ -123,10 +132,13 @@ export const equipmentTypeUIString = (
       return "Bodyweight";
     case "plate_stack":
       return "Plate Stack";
+
+    // Stryker disable all
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = type;
       return _exhaustiveCheck;
     }
+    // Stryker restore all
   }
 };

@@ -27,6 +27,19 @@ This project is a next.js application that uses Typescript and Material UI.
 - When there is a lot of state management instead an API hook, consider using the redux-style useReducer hook.
 - You should run prettier when you save a file to make sure it's formatted consistently.
 - never change source and test files at the same time.
+- Use stryker ignore and stryker restore when using exhaustiveness checks in switch statements:
+- Tests should avoid complex logic and instead focus on the expected behavior of the component.
+  - This sometimes means being more verbose instead of using shorthand methods, or iterating over arrays.
+
+  ```Typescript
+    // Stryker disable all
+    default: {
+      // This will cause a type error if a new enum value is added and not handled
+      const _exhaustiveCheck: never = lift_type;
+      return _exhaustiveCheck;
+    }
+    // Stryker restore all
+  ```
 
 ## Project hints
 
