@@ -13,7 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import SettingsIcon from "@mui/icons-material/Settings";
 import SendIcon from "@mui/icons-material/Send";
 import { Stack } from "@mui/material";
-import {useSetAvailableReps} from "./useSetAvailableReps";
+import { useSetAvailableReps } from "./useSetAvailableReps";
 
 const COMMON_REP_CHOICES = [
   { label: "Barbell", choices: [1, 3, 5] },
@@ -30,7 +30,7 @@ const SetAvailableReps: React.FC<SetAvailableRepsProps> = ({
   repChoices,
   onClose,
 }) => {
-  const api = useSetAvailableReps({repChoices, onClose});
+  const api = useSetAvailableReps({ repChoices, onClose });
 
   return (
     <>

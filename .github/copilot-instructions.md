@@ -7,7 +7,7 @@ This project is a next.js application that uses Typescript and Material UI.
 - All code should be well-commented
 - All code should have clear types, with documentation for each field of the type.
 - prefer defining components as `const function_name = () => { ... }`
-- avoid using `function function_name() { ... }` for any functions, instead prefer named consts. 
+- avoid using `function function_name() { ... }` for any functions, instead prefer named consts.
 - try to avoid providing values if they're the default values
   - for example, don't write `variant="text"` if the default variant is text
 - prefer to keep files relatively short. If a file is getting long (> 150 lines), consider splitting it into smaller components or files.
@@ -27,11 +27,11 @@ This project is a next.js application that uses Typescript and Material UI.
 - Prefer export default over named exports.
 - Whenever a component needs logic outside of display, such as useState, etc., pull that out into a hook.
   - This hook should use an `api` style, and when used it shouldn't be dustructured, but instead used as `const componentAPI = useComponentAPI()` and then `componentAPI.field`, etc. for use.
-- When there is a lot of state management instead an API hook, consider using the redux-style useReducer hook.
 - You should run prettier when you save a file to make sure it's formatted consistently.
 - never change source and test files at the same time.
 - Use stryker ignore and stryker restore when using exhaustiveness checks in switch statements:
 - Tests should avoid complex logic and instead focus on the expected behavior of the component.
+
   - This sometimes means being more verbose instead of using shorthand methods, or iterating over arrays.
 
   ```Typescript
@@ -53,3 +53,9 @@ pnpm run mutation:run --mutate src/components/BarbellEditor/useBarbellEditor.ts
 ```
 
 adjusting the path to the file as needed.
+
+To run fast coverage tests, use the following command:
+
+```bash
+pnpm run test:coverage
+```

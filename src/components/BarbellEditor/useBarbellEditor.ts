@@ -54,7 +54,9 @@ export interface UseBarbellEditorAPI {
  * @param props - The properties for the hook.
  * @returns An API object with state and functions to interact with the barbell editor. See {@link UseBarbellEditorAPI}.
  */
-export const useBarbellEditor = (props: UseBarbellEditorProps): UseBarbellEditorAPI => {
+export const useBarbellEditor = (
+  props: UseBarbellEditorProps,
+): UseBarbellEditorAPI => {
   const { totalWeight, barWeight, onChange, initialPlateSizes } = props;
 
   const [plateSizes, setPlateSizes] = React.useState(initialPlateSizes);
