@@ -47,7 +47,7 @@ The AUTH_GOOGLE_SECRET can be obtained via [secret-manager].
 
 #### DB Specific Secrets
 
-Running `supabase start` will show you the values you need. For the
+Running `pnpx supabase start` will show you the values you need. For the
 `SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_URL`, they will be the `API URL` value.
 For the `SUPABASE_SERVICE_ROLE_KEY` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`, they
 will be the `service_role key` and `anon key`
