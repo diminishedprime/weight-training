@@ -26,6 +26,7 @@ This project is a next.js application that uses Typescript and Material UI.
   - This hook should use an `api` style, and when used it shouldn't be dustructured, but instead used as `const componentAPI = useComponentAPI()` and then `componentAPI.field`, etc. for use.
 - When there is a lot of state management instead an API hook, consider using the redux-style useReducer hook.
 - You should run prettier when you save a file to make sure it's formatted consistently.
+- never change source and test files at the same time.
 
 ## Project hints
 

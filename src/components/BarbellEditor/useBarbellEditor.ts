@@ -5,14 +5,20 @@ import { minimalPlates } from "@/util";
 import { PLATE_COLORS } from "@/constants";
 
 export interface UseBarbellEditorProps {
+  /** The current total weight on the barbell. */
   totalWeight: number;
-  barWeight: number; // Make this required
+  /** The weight of the barbell itself. */
+  barWeight: number;
+  /** Callback function invoked when the total weight changes. */
   onChange: (newTotal: number) => void;
+  /** Array of available plate weights. */
   initialPlateSizes: number[];
 }
 
 export interface BadgeMetadata {
+  /** The number of plates of a specific size on one side of the barbell. */
   count: number;
+  /** MUI sx prop for styling the badge. */
   sx: {
     "& .MuiBadge-badge": {
       backgroundColor: string;
@@ -21,30 +27,35 @@ export interface BadgeMetadata {
   };
 }
 
+export interface UseBarbellEditorAPI {
+  /** An array of available plate weights. Can be updated via settings. */
+  plateSizes: number[];
+  /** An object mapping plate sizes to their count and styling for UI display (per side). */
+  badgeMetadata: { [key: number]: BadgeMetadata };
+  /** A boolean indicating if the plate size settings dialog is open. */
+  settingsOpen: boolean;
+  /** A function to toggle the settings dialog. */
+  setSettingsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  /** A function to add or remove weight from the barbell (symmetrically). Takes the increment per side. */
+  handleAdd: (increment: number) => void;
+  /** A function to save new custom plate sizes from the settings dialog. */
+  handleSaveSettings: (newPlateSizes: number[]) => void;
+  /** A function to reset the `totalWeight` to just the `barWeight`. */
+  handleClear: () => void;
+}
+
 /**
  * Custom hook to manage the state and logic for a barbell weight editor.
- *
- * @param props - The properties for the hook.
- * @param props.totalWeight - The current total weight on the barbell.
- * @param props.barWeight - The weight of the barbell itself. (Required)
- * @param props.onChange - Callback function invoked when the total weight changes. (Required)
- * @param props.initialPlateSizes - Array of available plate weights.
  *
  * This hook calculates the plates needed on each side of the barbell to reach the `totalWeight`,
  * considering the `barWeight`. It uses a list of available `plateSizes` (which can be customized
  * via a settings dialog) and the `minimalPlates` utility to determine the optimal combination of plates.
  *
- * It returns:
- * - `plateSizes`: An array of available plate weights.
- * - `badgeMetadata`: An object mapping plate sizes to their count and styling for UI display (per side).
- * - `settingsOpen`: A boolean indicating if the plate size settings dialog is open.
- * - `setSettingsOpen`: A function to toggle the settings dialog.
- * - `handleAdd`: A function to add or remove weight from the barbell (symmetrically).
- * - `handleSaveSettings`: A function to save new custom plate sizes.
- * - `handleClear`: A function to reset the `totalWeight` to just the `barWeight`.
+ * @param props - The properties for the hook.
+ * @returns An API object with state and functions to interact with the barbell editor. See {@link UseBarbellEditorAPI}.
  */
-export const useBarbellEditor = (props: UseBarbellEditorProps) => {
-  const { totalWeight, barWeight, onChange, initialPlateSizes } = props; // Remove default for barWeight
+export const useBarbellEditor = (props: UseBarbellEditorProps): UseBarbellEditorAPI => {
+  const { totalWeight, barWeight, onChange, initialPlateSizes } = props;
 
   const [plateSizes, setPlateSizes] = React.useState(initialPlateSizes);
   const [settingsOpen, setSettingsOpen] = React.useState(false);
@@ -77,7 +88,7 @@ export const useBarbellEditor = (props: UseBarbellEditorProps) => {
   }, [plateSizes, plateCounts]);
 
   const handleAdd = (increment: number) => {
-    onChange(totalWeight + increment * 2); // Remove conditional check
+    onChange(totalWeight + increment * 2);
   };
 
   const handleSaveSettings = (newPlateSizes: number[]) => {
@@ -86,7 +97,7 @@ export const useBarbellEditor = (props: UseBarbellEditorProps) => {
   };
 
   const handleClear = () => {
-    onChange(barWeight); // Remove conditional check
+    onChange(barWeight);
   };
 
   return {
