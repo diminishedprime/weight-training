@@ -14,7 +14,7 @@ import { weightUnitUIString } from "@/uiStrings";
 import IconButton from "@mui/material/IconButton";
 import SettingsIcon from "@mui/icons-material/Settings";
 import SettingsDialog from "./SettingsDialog";
-import { Stack, Box } from "@mui/material";
+import { Stack } from "@mui/material";
 import { useBarbellEditor } from "./useBarbellEditor";
 import { DEFAULT_PLATE_SIZES } from "@/constants"; // Import DEFAULT_PLATE_SIZES
 
@@ -45,14 +45,7 @@ const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
   }); // Pass initialPlateSizes
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        my: 2,
-      }}
-    >
+    <Stack display="flex" direction="column" alignItems="center">
       <SettingsDialog
         open={componentAPI.settingsOpen}
         onClose={() => componentAPI.setSettingsOpen(false)}
@@ -67,14 +60,11 @@ const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
       <Stack
         useFlexGap
         direction="row"
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          alignItems: "center",
-          "& > *": { mt: 2 },
-          gap: 1,
-        }}
+        display="flex"
+        flexWrap="wrap"
+        justifyContent="center"
+        alignItems="center"
+        gap={1}
       >
         <IconButton
           size="small"
@@ -115,7 +105,7 @@ const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
             </Select>
           </FormControl>
         </Stack>
-        <ButtonGroup>
+        <ButtonGroup sx={{ mt: 1 }}>
           {componentAPI.plateSizes.map((inc) => {
             const metadata = componentAPI.badgeMetadata[inc];
             return (
@@ -139,7 +129,7 @@ const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
           </Button>
         </ButtonGroup>
       </Stack>
-    </Box>
+    </Stack>
   );
 };
 

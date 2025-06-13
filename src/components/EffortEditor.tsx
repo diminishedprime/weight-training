@@ -7,18 +7,15 @@ import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfi
 export function EffortEditor({
   value,
   onChange,
-  sx,
 }: {
   value: Database["public"]["Enums"]["relative_effort_enum"] | null;
   onChange: (val: Database["public"]["Enums"]["relative_effort_enum"]) => void;
-  sx?: any;
 }) {
   return (
     <ToggleButtonGroup
       value={value}
       exclusive
       onChange={(_e, val) => val && onChange(val)}
-      sx={sx}
       size="small"
       aria-label="Effort"
     >

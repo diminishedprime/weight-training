@@ -2,7 +2,6 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
-import { SxProps } from "@mui/material/styles";
 import { Database, Constants } from "@/database.types";
 import { completionStatusUIString } from "@/uiStrings";
 import React from "react";
@@ -14,18 +13,17 @@ interface CompletionStatusSelectProps {
       value: Database["public"]["Enums"]["completion_status_enum"];
     }>,
   ) => void;
-  sx?: SxProps;
 }
 
 export default function CompletionStatusEditor({
   value,
   onChange,
-  sx,
 }: CompletionStatusSelectProps) {
   return (
-    <FormControl sx={{ minWidth: 120, ...sx }}>
-      <InputLabel id="completion-status-label">Completion Status</InputLabel>
+    <FormControl sx={{ minWidth: 120 }}>
+      <InputLabel id="completion-status-label">Status</InputLabel>
       <Select
+        size="small"
         labelId="completion-status-label"
         name="completion_status"
         value={value}

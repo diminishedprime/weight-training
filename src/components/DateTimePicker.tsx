@@ -5,6 +5,7 @@ import {
   LocalizationProvider,
 } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { Stack } from "@mui/material";
 
 interface DateTimePickerProps {
   date: Date | null;
@@ -20,59 +21,63 @@ export default function DateTimePicker({
   setTime,
 }: DateTimePickerProps) {
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DatePicker
-        label="Date"
-        value={date}
-        onChange={setDate}
-        slotProps={{
-          textField: {
-            sx: {
-              minWidth: 0,
-              width: "auto",
-              "& .MuiInputBase-root": {
+    <Stack flexDirection="row" flexWrap="wrap" useFlexGap gap={1}>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <DatePicker
+          label="Date"
+          value={date}
+          onChange={setDate}
+          slotProps={{
+            textField: {
+              size: "small",
+              sx: {
                 minWidth: 0,
                 width: "auto",
-              },
-              "& .MuiOutlinedInput-root": {
-                minWidth: 0,
-                width: "auto",
-              },
-              "& .MuiPickersSectionList-root": {
-                minWidth: 0,
-                width: "auto",
-              },
-            },
-          },
-        }}
-      />
-      <TimePicker
-        label="Time"
-        value={time}
-        onChange={setTime}
-        views={["hours", "minutes", "seconds"]}
-        format="HH:mm:ss"
-        slotProps={{
-          textField: {
-            sx: {
-              minWidth: 0,
-              width: "auto",
-              "& .MuiInputBase-root": {
-                minWidth: 0,
-                width: "auto",
-              },
-              "& .MuiOutlinedInput-root": {
-                minWidth: 0,
-                width: "auto",
-              },
-              "& .MuiPickersSectionList-root": {
-                minWidth: 0,
-                width: "auto",
+                "& .MuiInputBase-root": {
+                  minWidth: 0,
+                  width: "auto",
+                },
+                "& .MuiOutlinedInput-root": {
+                  minWidth: 0,
+                  width: "auto",
+                },
+                "& .MuiPickersSectionList-root": {
+                  minWidth: 0,
+                  width: "auto",
+                },
               },
             },
-          },
-        }}
-      />
-    </LocalizationProvider>
+          }}
+        />
+        <TimePicker
+          label="Time"
+          value={time}
+          onChange={setTime}
+          views={["hours", "minutes", "seconds"]}
+          format="HH:mm:ss"
+          slotProps={{
+            textField: {
+              size: "small",
+              sx: {
+                minWidth: 0,
+                width: "auto",
+                "& .MuiInputBase-root": {
+                  minWidth: 0,
+                  width: "auto",
+                },
+                "& .MuiOutlinedInput-root": {
+                  minWidth: 0,
+                  width: "auto",
+                },
+                "& .MuiPickersSectionList-root": {
+                  minWidth: 0,
+                  width: "auto",
+                },
+              },
+            },
+          }}
+        />
+      </LocalizationProvider>
+    </Stack>
   );
 }

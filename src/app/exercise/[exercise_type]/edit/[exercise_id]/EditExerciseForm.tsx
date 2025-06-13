@@ -155,7 +155,7 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
 
   return (
     <form onSubmit={form.handleSubmit}>
-      <Stack spacing={3}>
+      <Stack gap={1}>
         {form.error && (
           <Alert severity="error" sx={{ mb: 2 }}>
             {form.error}
@@ -168,14 +168,21 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
           weightUnit={form.weightUnit}
           setWeightUnit={form.handleWeightUnitChange}
         />
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Stack>
           <RepsSelector
             reps={form.reps}
             onChange={form.handleRepsChange}
             repChoices={[1, 3, 5, 8, 10, 12, 15]}
           />
-        </Box>
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
+        </Stack>
+        <Stack
+          gap={1}
+          useFlexGap
+          flexDirection="row"
+          flexWrap="wrap"
+          justifyContent="center"
+          sx={{ my: 1 }}
+        >
           <DateTimePicker
             date={form.date}
             setDate={form.setDate}
@@ -185,7 +192,6 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
           <WarmupCheckbox
             checked={form.warmup}
             onChange={form.handleWarmupChange}
-            sx={{ ml: 1, mr: 1 }}
           />
           <CompletionStatusEditor
             value={form.completionStatus}
@@ -194,9 +200,8 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
           <EffortEditor
             value={form.relativeEffort}
             onChange={form.handleRelativeEffortChange}
-            sx={{ ml: 1 }}
           />
-        </Box>
+        </Stack>
         <TextField
           label="Notes"
           name="notes"
