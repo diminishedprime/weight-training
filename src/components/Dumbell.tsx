@@ -3,31 +3,43 @@ import Box from "@mui/material/Box";
 import { Database } from "@/database.types";
 import { metalGradient } from "./Barbell";
 
-const TotalWidth = 160;
-const TotalHeight = 48; // Reduce from 82 to 48 for less vertical space
-const HandleHeight = 10; // Reduce handle height for a slimmer look
+// Dumbbell dimensions for aspect ratio calculation
+const TOTAL_WIDTH = 160;
+const TOTAL_HEIGHT = 48;
+const HANDLE_HEIGHT = 10;
 
 export interface DumbbellProps {
+  /** The weight value to display on the dumbbell */
   weight: number;
+  /** The unit of weight measurement */
   weightUnit: Database["public"]["Enums"]["weight_unit_enum"];
-  width?: string | number; // px, %, etc.
+  /** Width of the dumbbell component (CSS units) */
+  width?: string | number;
+  /** Whether to hide the weight text on the bulbs */
   hideText?: boolean;
 }
 
-// Bulb component for both sides
-function DumbbellBulb({
+interface DumbbellBulbProps {
+  /** The weight value to display */
+  weight: number;
+  /** Width percentage of the bulb */
+  widthPercent: number;
+  /** Font size percentage */
+  fontSizePercent: number;
+  /** Background color of the bulb */
+  color: string;
+  /** Whether to hide the weight text */
+  hideText?: boolean;
+}
+
+// Bulb component for both sides of the dumbbell
+const DumbbellBulb: React.FC<DumbbellBulbProps> = ({
   weight,
   widthPercent,
   fontSizePercent,
   color,
   hideText,
-}: {
-  weight: number;
-  widthPercent: number;
-  fontSizePercent: number;
-  color: string;
-  hideText?: boolean;
-}) {
+}) => {
   return (
     <Box
       sx={{
@@ -47,32 +59,33 @@ function DumbbellBulb({
       {!hideText && <>{weight}</>}
     </Box>
   );
-}
+};
 
-export default function Dumbbell({
+const Dumbbell: React.FC<DumbbellProps> = ({
   weight,
   weightUnit: _,
   width = "30%",
   hideText = false,
-}: DumbbellProps) {
+}) => {
+  // Calculate bulb and handle dimensions based on weight
   const bulbColor = "black";
   const bulbWidthPercent = 8 + weight / 8;
   const handleWidthPercent = 30;
-  const fontSizePercent = 100; // Slightly smaller font for compactness
+  const fontSizePercent = 100;
 
   return (
     <Box
       sx={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "center", // <-- add this to center horizontally
+        justifyContent: "center",
         width: width,
-        aspectRatio: `${TotalWidth} / ${TotalHeight}`,
+        aspectRatio: `${TOTAL_WIDTH} / ${TOTAL_HEIGHT}`,
         userSelect: "none",
         position: "relative",
         minWidth: 60,
-        minHeight: 10, // Lower min height
-        margin: "0 auto", // ensure horizontal centering in parent
+        minHeight: 10,
+        margin: "0 auto",
       }}
     >
       <DumbbellBulb
@@ -86,7 +99,7 @@ export default function Dumbbell({
       <Box
         sx={{
           width: `${handleWidthPercent}%`,
-          height: `${(HandleHeight / TotalHeight) * 100}%`,
+          height: `${(HANDLE_HEIGHT / TOTAL_HEIGHT) * 100}%`,
           background: metalGradient,
           alignSelf: "center",
         }}
@@ -100,4 +113,6 @@ export default function Dumbbell({
       />
     </Box>
   );
-}
+};
+
+export default Dumbbell;
