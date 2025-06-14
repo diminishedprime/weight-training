@@ -1,15 +1,22 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
+
+interface TimeDisplayProps {
+  /** ISO string representing when the exercise was performed */
+  performedAt: string;
+  /** If true, hides seconds from the time display */
+  noSeconds?: true;
+}
 
 /**
  * TimeDisplay component
  * Shows a live count-up timer for times within the last 10 minutes, color-coded for rest timing.
  * Otherwise, shows static time in HH:MM:SS format.
- *
- * Props:
- *   performedAt: ISO string (required)
  */
-export default function TimeDisplay({ performedAt }: { performedAt: string }) {
+const TimeDisplay: React.FC<TimeDisplayProps> = (props) => {
+  const { performedAt, noSeconds } = props;
   const theme = useTheme();
   const [now, setNow] = useState(() => Date.now());
   useEffect(() => {
@@ -29,7 +36,7 @@ export default function TimeDisplay({ performedAt }: { performedAt: string }) {
       <span
         style={{ fontWeight: 600, color, fontVariantNumeric: "tabular-nums" }}
       >
-        +{min}:{sec.toString().padStart(2, "0")}
+        {min}:{sec.toString().padStart(2, "0")}
       </span>
     );
   }
@@ -37,6 +44,13 @@ export default function TimeDisplay({ performedAt }: { performedAt: string }) {
   const d = new Date(performedAt);
   const hh = String(d.getHours()).padStart(2, "0");
   const min = String(d.getMinutes()).padStart(2, "0");
+
+  if (noSeconds) {
+    return <span>{`${hh}:${min}`}</span>;
+  }
+
   const ss = String(d.getSeconds()).padStart(2, "0");
   return <span>{`${hh}:${min}:${ss}`}</span>;
-}
+};
+
+export default TimeDisplay;

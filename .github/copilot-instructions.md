@@ -44,6 +44,8 @@ This project is a next.js application that uses Typescript and Material UI.
     // Stryker restore all
   ```
 
+- Never change the font outside of using Typogrophy components.
+
 ## Project hints
 
 To run mutation tests on a subset of files, use the following command:

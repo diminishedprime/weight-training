@@ -34,6 +34,9 @@ export async function addRandomLiftAction(
         (Math.random() * Constants.public.Enums.relative_effort_enum.length) | 0
       ],
     p_warmup: Math.random() < 0.5,
+    p_performed_at: new Date(
+      Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000,
+    ).toISOString(),
   });
   console.log({ response });
   revalidatePath(`/exercise/${liftType}`);
