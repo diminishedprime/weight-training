@@ -9,6 +9,7 @@ vi.mock("next/navigation", () => {
     redirect: vi.fn(),
     usePathname: vi.fn(), // if you use it
     useRouter: vi.fn(() => ({ push: vi.fn() })), // if you use it
+    notFound: vi.fn(),
   };
 });
 

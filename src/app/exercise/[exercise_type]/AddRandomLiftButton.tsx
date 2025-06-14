@@ -1,3 +1,6 @@
+// istanbul ignore file
+// This file is excluded from coverage and tests as it's only used during active development and will be removed later.
+
 "use client";
 import React from "react";
 import Button from "@mui/material/Button";
