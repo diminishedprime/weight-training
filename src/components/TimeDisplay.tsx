@@ -33,9 +33,7 @@ const TimeDisplay: React.FC<TimeDisplayProps> = (props) => {
     const min = Math.floor(diffSec / 60);
     const sec = diffSec % 60;
     return (
-      <span
-        style={{ fontWeight: 600, color, fontVariantNumeric: "tabular-nums" }}
-      >
+      <span style={{ color }}>
         {min}:{sec.toString().padStart(2, "0")}
       </span>
     );

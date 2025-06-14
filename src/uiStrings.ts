@@ -60,6 +60,7 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
       return "Calf Raise";
 
     // Stryker disable all
+    /* v8 ignore next 5 */
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = type;
@@ -84,6 +85,7 @@ export const weightUnitUIString = (
       return "lbs";
 
     // Stryker disable all
+    /* v8 ignore next 5 */
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = unit;
@@ -107,6 +109,7 @@ export const completionStatusUIString = (
       return "Skipped";
 
     // Stryker disable all
+    /* v8 ignore next 5 */
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = status;
@@ -134,6 +137,7 @@ export const equipmentTypeUIString = (
       return "Plate Stack";
 
     // Stryker disable all
+    /* v8 ignore next 5 */
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = type;

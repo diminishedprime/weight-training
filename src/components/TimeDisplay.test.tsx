@@ -33,4 +33,24 @@ describe("TimeDisplay", () => {
     const timeElement = screen.getByText(/^\d{2}:\d{2}:\d{2}$/);
     expect(timeElement).toBeInTheDocument();
   });
+
+  it("renders live count-up timer for times within last 10 minutes", () => {
+    const theme = createTheme();
+    // Set performed time to 2 minutes ago (120 seconds)
+    const performedAt = new Date(
+      mockDate.getTime() - 2 * 60 * 1000,
+    ).toISOString();
+
+    render(
+      <ThemeProvider theme={theme}>
+        <TimeDisplay performedAt={performedAt} />
+      </ThemeProvider>,
+    );
+
+    // Should show count-up timer in M:SS format with color coding
+    const timeElement = screen.getByText("2:00");
+    expect(timeElement).toBeInTheDocument();
+    // Should use success color since it's >= 120 seconds
+    expect(timeElement).toHaveStyle({ color: theme.palette.success.main });
+  });
 });

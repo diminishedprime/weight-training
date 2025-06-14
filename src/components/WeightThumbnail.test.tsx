@@ -39,4 +39,20 @@ describe("WeightThumbnail", () => {
     expect(barbellElement.textContent).toContain("Barbell: 135");
     expect(barbellElement.textContent).toContain("hidePlateNumbers: true");
   });
+
+  it("renders dumbbell component for dumbbell exercise types", () => {
+    const { getByTestId } = render(
+      <WeightThumbnail
+        weight={25}
+        weightUnit="pounds"
+        exerciseType="dumbbell_row"
+      />,
+    );
+
+    const dumbbellElement = getByTestId("dumbbell");
+    expect(dumbbellElement).toBeInTheDocument();
+    expect(dumbbellElement.textContent).toContain("Dumbbell: 25 pounds");
+    expect(dumbbellElement.textContent).toContain("width: 100%");
+    expect(dumbbellElement.textContent).toContain("hideText: true");
+  });
 });

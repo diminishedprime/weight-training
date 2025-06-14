@@ -89,6 +89,7 @@ export function correspondingEquipment(
     case "plate_stack_calf_raise":
       return "plate_stack";
     // Stryker disable all
+    /* v8 ignore next 5 */
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = lift_type;
