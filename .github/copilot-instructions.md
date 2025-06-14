@@ -4,8 +4,11 @@ This project is a next.js application that uses Typescript and Material UI.
 
 ## Coding Standards
 
+- Use vitest for testing.
 - All code should be well-commented
 - All code should have clear types, with documentation for each field of the type.
+- Only use mocks when dealing with external dependencies. Try to avoid mocks whenever reasonable.
+- never use relative imports, always use imports relative to `@/` unless there is no way to work without relative imports.
 - prefer defining components as `const function_name = () => { ... }`
 - avoid using `function function_name() { ... }` for any functions, instead prefer named consts.
 - try to avoid providing values if they're the default values

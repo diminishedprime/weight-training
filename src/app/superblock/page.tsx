@@ -1,10 +1,10 @@
 import { auth } from "@/auth";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { requireId } from "@/util";
-import { Typography } from "@mui/material";
-import Link from "next/link";
-import AddLegDay from "./AddLegDay";
-import SuperblockTableWrapper from "./SuperblockTableWrapper";
+import { Stack, Typography } from "@mui/material";
+import AddLegDay from "@/app/superblock/_components/AddLegDay";
+import SuperblockTableWrapper from "@/app/superblock/_components/SuperblockTableWrapper";
+import NewSuperblock from "@/app/superblock/_components/NewSuperblock/index";
 
 export default async function SuperblockPage() {
   const session = await auth();
@@ -13,10 +13,14 @@ export default async function SuperblockPage() {
     <>
       <Breadcrumbs pathname="/superblock" />
       <Typography variant="h4">Superblocks</Typography>
-      <Typography variant="body1">
-        Create superblocks. i.e. a full set of exercises for a day.
+      <Typography variant="body1" sx={{ mb: 2 }}>
+        Superblocks are a collections of exercises blocks. Think of them as an
+        entire day of exercises, such as a "leg day" or a "push day".
       </Typography>
-      <AddLegDay />
+      <Stack spacing={1}>
+        <NewSuperblock />
+        <AddLegDay />
+      </Stack>
       <SuperblockTableWrapper userId={userId} />
     </>
   );

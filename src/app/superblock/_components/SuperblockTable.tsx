@@ -1,5 +1,5 @@
 "use client";
-import { Database } from "@/database.types";
+
 import {
   Table,
   TableBody,

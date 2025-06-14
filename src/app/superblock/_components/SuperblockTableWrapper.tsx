@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { Database } from "@/database.types";
-import SuperblockTable from "./SuperblockTable";
+import SuperblockTable from "@/app/superblock/_components/SuperblockTable";
 
 interface SuperblockTableWrapperProps {
   userId: string;

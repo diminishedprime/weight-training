@@ -13,4 +13,11 @@ vi.mock("next/navigation", () => {
   };
 });
 
+// Mock next/cache
+vi.mock("next/cache", () => ({
+  revalidatePath: vi.fn(),
+  revalidateTag: vi.fn(),
+  unstable_cache: vi.fn(),
+}));
+
 // Add any other global test setup or mocks here

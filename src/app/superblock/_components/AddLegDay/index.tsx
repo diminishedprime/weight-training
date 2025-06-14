@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { addLegDaySuperblock } from "./actions";
+import { addLegDaySuperblock } from "@/app/superblock/_components/AddLegDay/actions";
 import {
   Box,
   Button,
