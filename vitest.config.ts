@@ -27,6 +27,7 @@ export default defineConfig({
         "**/*json",
         "src/database.types.ts",
         "src/middleware.ts",
+        "src/app/layout.tsx",
         "eslint.config.mjs",
         "jest.config.js",
         "postcss.config.mjs",

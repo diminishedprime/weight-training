@@ -16,10 +16,11 @@
     "!src/**/*.test.ts",
     "!src/**/*.spec.ts",
     "!src/database.types.ts",
-    "!src/app/**",
+    "!src/app/layout.tsx",
     "!src/middleware.ts",
     "!src/pages/**",
     "!src/api/**"
   ],
-  "coverageAnalysis": "perTest"
+  "coverageAnalysis": "perTest",
+  "ignoreStatic": true
 }

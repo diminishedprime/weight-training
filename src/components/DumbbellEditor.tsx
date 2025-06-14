@@ -153,6 +153,7 @@ export default function DumbbellEditor({
           freeSolo
           options={availableWeights}
           value={weight}
+          getOptionLabel={(option) => option.toString()} // Ensures label is always a string
           onChange={(_, newValue) => {
             const val = Number(newValue);
             if (onChange && !isNaN(val) && val >= 0) onChange(val);
