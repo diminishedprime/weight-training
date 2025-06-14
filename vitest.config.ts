@@ -9,7 +9,10 @@ export default defineConfig({
     globals: true,
     setupFiles: "./vitest.setup.ts",
     css: false,
-    include: ["**/*.{test,spec}.{ts,tsx}"],
+    include: [
+      "**/*.{test,spec}.{ts,tsx}",
+      "**/*.integration.{test,spec}.{ts,tsx}",
+    ],
     exclude: ["**/node_modules/**", "**/dist/**", "./src/database.types.ts"],
     coverage: {
       provider: "v8",
@@ -23,7 +26,6 @@ export default defineConfig({
         "**/*.d.ts",
         "**/*json",
         "src/database.types.ts",
-        "src/app/**",
         "src/middleware.ts",
         "eslint.config.mjs",
         "jest.config.js",

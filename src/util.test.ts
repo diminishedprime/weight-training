@@ -1,5 +1,10 @@
 import { describe, it, expect, vi, beforeEach, afterAll } from "vitest"; // Added afterAll
-import { minimalPlates, correspondingEquipment, requireId, getSupabaseClient } from "./util"; // Added getSupabaseClient
+import {
+  minimalPlates,
+  correspondingEquipment,
+  requireId,
+  getSupabaseClient,
+} from "./util"; // Added getSupabaseClient
 import { DEFAULT_PLATE_SIZES } from "./constants";
 import { Database } from "@/database.types";
 // Import the globally mocked redirect function with a new alias
@@ -20,9 +25,9 @@ describe("util", () => {
       // Set required environment variables
       process.env.NEXT_PUBLIC_SUPABASE_URL = "https://test.supabase.co";
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "test-anon-key";
-      
+
       const client = getSupabaseClient();
-      
+
       // Verify that a client object is returned
       expect(client).toBeDefined();
       expect(typeof client).toBe("object");
