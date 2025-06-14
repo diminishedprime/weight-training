@@ -1,43 +1,54 @@
 "use client";
 
 import * as React from "react";
-import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import Stack from "@mui/material/Stack";
 import HomeIcon from "@mui/icons-material/Home";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
+/**
+ * Navigation item structure for the drawer menu
+ */
 interface NavItem {
+  /** Display text for the navigation item */
   label: string;
+  /** URL path for the navigation item */
   href: string;
 }
 
+/**
+ * Props for the NavDrawer component
+ */
 interface NavDrawerProps {
-  mobileOpen: boolean;
+  /** Whether the drawer is currently open */
+  open: boolean;
+  /** Function to toggle the drawer open/closed state */
   handleDrawerToggle: () => void;
+  /** Array of navigation items to display in the drawer */
   navItems: NavItem[];
 }
 
-export default function NavDrawer({
-  mobileOpen,
-  handleDrawerToggle,
-  navItems,
-}: NavDrawerProps) {
+/**
+ * Navigation drawer component that displays a slide-out menu with navigation links
+ */
+const NavDrawer: React.FC<NavDrawerProps> = (props) => {
+  const { open, handleDrawerToggle, navItems } = props;
   return (
     <nav>
       <Drawer
-        open={mobileOpen}
+        open={open}
         onClose={handleDrawerToggle}
         ModalProps={{
           keepMounted: true,
         }}
       >
-        <Box onClick={handleDrawerToggle}>
+        <Stack onClick={handleDrawerToggle}>
           <ListItem disablePadding>
             <ListItemButton
               component={Link}
@@ -77,8 +88,10 @@ export default function NavDrawer({
               </ListItem>
             ))}
           </List>
-        </Box>
+        </Stack>
       </Drawer>
     </nav>
   );
-}
+};
+
+export default NavDrawer;

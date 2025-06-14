@@ -4,6 +4,7 @@ This project is a next.js application that uses Typescript and Material UI.
 
 ## Coding Standards
 
+- When running tests, use the `--run` flag for vitest so it doesn't need user input to get results.
 - All code should be well-commented
 - All code should have clear types, with documentation for each field of the type.
 - prefer defining components as `const function_name = () => { ... }`

@@ -52,7 +52,7 @@ export default function BannerClient(props: Props) {
         </Toolbar>
       </AppBar>
       <NavDrawer
-        mobileOpen={drawerOpen}
+        open={drawerOpen}
         handleDrawerToggle={handleDrawerToggle}
         navItems={BASE_NAV_ITEMS}
       />

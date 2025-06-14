@@ -123,7 +123,11 @@ const ExercisesTable: React.FC<ExercisesTableProps> = (props) => {
                               {weightUnitUIString(exercise.weight_unit)}
                               <br />
                               {exercise.warmup && (
-                                <Typography color="success" variant="body2">
+                                <Typography
+                                  color="success"
+                                  variant="body2"
+                                  component="span"
+                                >
                                   (warmup)
                                 </Typography>
                               )}
