@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useSearchParams } from "next/navigation";
 import { loginAction } from "./actions";
+import { Typography } from "@mui/material";
 
 export default function LoginPage() {
   const searchParams = useSearchParams();
@@ -19,6 +20,9 @@ export default function LoginPage() {
       minHeight="60vh"
       gap={3}
     >
+      <Typography variant="body1">
+        You must be logged in order to view this page.
+      </Typography>
       <form action={loginAction.bind(null, redirectUri)}>
         <Button type="submit" variant="contained" color="primary" size="large">
           Sign in with Google
