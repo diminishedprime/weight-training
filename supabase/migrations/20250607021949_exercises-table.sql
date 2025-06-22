@@ -4,7 +4,8 @@ BEGIN
     CREATE TYPE public.exercise_type_enum AS ENUM (
       -- Barbell Exercises
       'barbell_deadlift',
-      'barbell_squat',
+      'barbell_back_squat',
+      'barbell_front_squat',
       'barbell_bench_press',
       'barbell_overhead_press',
       'barbell_row',

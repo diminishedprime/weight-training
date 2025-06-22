@@ -56,7 +56,8 @@ export function correspondingEquipment(
 ): Database["public"]["Enums"]["equipment_type_enum"] {
   switch (lift_type) {
     case "barbell_deadlift":
-    case "barbell_squat":
+    case "barbell_back_squat":
+    case "barbell_front_squat":
     case "barbell_bench_press":
     case "barbell_overhead_press":
     case "barbell_row":

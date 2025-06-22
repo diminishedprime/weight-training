@@ -6,8 +6,10 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
   switch (type) {
     case "barbell_deadlift":
       return "Deadlift";
-    case "barbell_squat":
+    case "barbell_back_squat":
       return "Squat";
+    case "barbell_front_squat":
+      return "Front Squat";
     case "barbell_bench_press":
       return "Bench Press";
     case "barbell_row":

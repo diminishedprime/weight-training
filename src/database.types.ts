@@ -523,6 +523,15 @@ export type Database = {
           block_count: number;
         }[];
       };
+      new_leg_day: {
+        Args: {
+          target_max: number;
+          target_max_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          user_id: string;
+          wendler_type: Database["public"]["Enums"]["wendler_cycle_type_enum"];
+        };
+        Returns: string;
+      };
       normalize_bar_weight: {
         Args: { p_weight: number };
         Returns: number;
@@ -574,7 +583,8 @@ export type Database = {
         | "plate_stack";
       exercise_type_enum:
         | "barbell_deadlift"
-        | "barbell_squat"
+        | "barbell_back_squat"
+        | "barbell_front_squat"
         | "barbell_bench_press"
         | "barbell_overhead_press"
         | "barbell_row"
@@ -759,7 +769,8 @@ export const Constants = {
       ],
       exercise_type_enum: [
         "barbell_deadlift",
-        "barbell_squat",
+        "barbell_back_squat",
+        "barbell_front_squat",
         "barbell_bench_press",
         "barbell_overhead_press",
         "barbell_row",
