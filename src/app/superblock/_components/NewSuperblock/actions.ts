@@ -1,10 +1,7 @@
 "use server";
 
-import { Database } from "@/database.types";
-import { createClient } from "@supabase/supabase-js";
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
-import { get } from "http";
 import { getSupabaseClient, requireId } from "@/util";
 
 /**

@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
 import { Constants, Database } from "@/database.types";
 import { correspondingEquipment, getExercisesByEquipment } from "@/util";
 
@@ -90,7 +90,6 @@ export const useExerciseSelector = (
     if (newExercise && !selectedEquipment) {
       const equipment = correspondingEquipment(newExercise);
       setSelectedEquipment(equipment);
-      setSelectedEquipment(equipment);
     }
   };
 
@@ -99,7 +98,6 @@ export const useExerciseSelector = (
    * When equipment changes, clear the exercise selection if it doesn't match the new equipment.
    */
   const handleEquipmentChange = (newEquipment: EquipmentType | null) => {
-    setSelectedEquipment(newEquipment);
     setSelectedEquipment(newEquipment);
 
     // If equipment changes and current exercise doesn't match, clear the exercise

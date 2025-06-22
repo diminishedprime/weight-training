@@ -1,8 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 import { Session } from "next-auth";
-import { Database } from "@/database.types";
-import { ALL_PLATES } from "./constants";
+import { Constants, Database } from "@/database.types";
 
 // Stryker disable all
 export const getSupabaseClient = () => {
@@ -98,3 +97,26 @@ export function correspondingEquipment(
     // Stryker restore all
   }
 }
+
+export const getExercisesByEquipment = (): Record<
+  Database["public"]["Enums"]["equipment_type_enum"],
+  Database["public"]["Enums"]["exercise_type_enum"][]
+> => {
+  const exercisesByEquipment = {} as Record<
+    Database["public"]["Enums"]["equipment_type_enum"],
+    Database["public"]["Enums"]["exercise_type_enum"][]
+  >;
+
+  for (const equipment of Constants.public.Enums.equipment_type_enum) {
+    exercisesByEquipment[equipment] = [];
+  }
+
+  for (const exercise of Constants.public.Enums.exercise_type_enum) {
+    const equipment = correspondingEquipment(exercise);
+    if (exercisesByEquipment[equipment]) {
+      exercisesByEquipment[equipment].push(exercise);
+    }
+  }
+
+  return exercisesByEquipment;
+};

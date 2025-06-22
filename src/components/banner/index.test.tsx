@@ -9,7 +9,7 @@ vi.mock("@/auth", () => ({
 
 // Mock the BannerClient component
 vi.mock("./BannerClient", () => ({
-  default: ({ user }: { user: any }) => (
+  default: ({ user }: { user: { name?: string } | null }) => (
     <div data-testid="banner-client">
       {user ? `User: ${user.name}` : "No user"}
     </div>
@@ -19,7 +19,7 @@ vi.mock("./BannerClient", () => ({
 describe("Banner", () => {
   it("renders BannerClient with user when session exists", async () => {
     const { auth } = await import("@/auth");
-    const mockAuth = auth as any;
+    const mockAuth = auth as unknown as ReturnType<typeof vi.fn>;
 
     mockAuth.mockResolvedValue({
       user: {
@@ -38,7 +38,7 @@ describe("Banner", () => {
 
   it("renders BannerClient with undefined user when no session", async () => {
     const { auth } = await import("@/auth");
-    const mockAuth = auth as any;
+    const mockAuth = auth as unknown as ReturnType<typeof vi.fn>;
 
     mockAuth.mockResolvedValue(null);
 

@@ -9,9 +9,9 @@ interface SuperblockPageProps {
 }
 
 function groupBlocks(
-  rows: Database["public"]["Functions"]["get_exercise_blocks_for_superblock"]["Returns"],
+  rows: Database["public"]["Functions"]["get_exercise_blocks_for_superblock"]["Returns"]
 ): Array<import("./ExerciseBlockList").GroupedBlock> {
-  const blocks: Record<string, any> = {};
+  const blocks: Record<string, import("./ExerciseBlockList").GroupedBlock> = {};
   for (const row of rows) {
     if (!blocks[row.block_id]) {
       blocks[row.block_id] = {
@@ -34,7 +34,7 @@ function groupBlocks(
 export default async function SuperblockPage({ params }: SuperblockPageProps) {
   const supabase = createClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
   const { superblock_id } = await params;
   // Fetch superblock metadata
@@ -49,7 +49,7 @@ export default async function SuperblockPage({ params }: SuperblockPageProps) {
     "get_exercise_blocks_for_superblock",
     {
       p_superblock_id: superblock_id,
-    },
+    }
   );
 
   const groupedBlocks = blocks ? groupBlocks(blocks) : [];

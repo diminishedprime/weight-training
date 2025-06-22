@@ -32,8 +32,8 @@ export default function AddLegDay() {
     try {
       await addLegDaySuperblock(trainingMax, cycle, new FormData());
       setSuccess(true);
-    } catch (err: any) {
-      setError(err.message || "Unknown error");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error");
     } finally {
       setLoading(false);
     }
@@ -50,8 +50,7 @@ export default function AddLegDay() {
         p: 2,
         bgcolor: "background.paper",
         boxShadow: 2,
-      }}
-    >
+      }}>
       <Typography variant="h5" fontWeight="bold" mb={2}>
         Create Leg Day Superblock
       </Typography>
@@ -66,11 +65,10 @@ export default function AddLegDay() {
           onChange={(e) =>
             setCycle(
               e.target
-                .value as Database["public"]["Enums"]["wendler_cycle_type_enum"],
+                .value as Database["public"]["Enums"]["wendler_cycle_type_enum"]
             )
           }
-          size="small"
-        >
+          size="small">
           <MenuItem value="5">5</MenuItem>
           <MenuItem value="3">3</MenuItem>
           <MenuItem value="1">1</MenuItem>
@@ -95,8 +93,7 @@ export default function AddLegDay() {
         variant="contained"
         color="primary"
         fullWidth
-        disabled={loading}
-      >
+        disabled={loading}>
         {loading ? "Creating..." : "Create Superblock"}
       </Button>
       {error && (

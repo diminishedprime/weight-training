@@ -1,13 +1,14 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import ExercisesTableWrapper from "./ExercisesTableWrapper";
 import * as supabaseJs from "@supabase/supabase-js";
-import ExercisesTable from "./ExercisesTable";
 import React from "react";
 
 // Mock ExercisesTable to just render props for easier assertion
 vi.mock("./ExercisesTable", () => ({
   __esModule: true,
-  default: (props: any) => <div data-testid="ex-table-mock" {...props} />,
+  default: (props: Record<string, unknown>) => (
+    <div data-testid="ex-table-mock" {...props} />
+  ),
 }));
 
 describe("ExercisesTableWrapper", () => {
@@ -26,9 +27,9 @@ describe("ExercisesTableWrapper", () => {
     // Mock createClient and .rpc().select().data
     const select = vi.fn().mockResolvedValue({ data: fakeLifts });
     const rpc = vi.fn(() => ({ select }));
-    vi.spyOn(supabaseJs, "createClient").mockReturnValue({ rpc } as any);
+    vi.spyOn(supabaseJs, "createClient").mockReturnValue({ rpc } as never);
 
-    // @ts-ignore
+    // @ts-expect-error - Testing component as function rather than JSX
     const result = await ExercisesTableWrapper({ userId, lift_type });
     // Should render the mock ExercisesTable with correct props
     expect(result.props.exercises).toEqual(fakeLifts);
@@ -38,9 +39,9 @@ describe("ExercisesTableWrapper", () => {
   it("renders ExercisesTable with empty array if no data", async () => {
     const select = vi.fn().mockResolvedValue({ data: undefined });
     const rpc = vi.fn(() => ({ select }));
-    vi.spyOn(supabaseJs, "createClient").mockReturnValue({ rpc } as any);
+    vi.spyOn(supabaseJs, "createClient").mockReturnValue({ rpc } as never);
 
-    // @ts-ignore
+    // @ts-expect-error - Testing component as function rather than JSX
     const result = await ExercisesTableWrapper({ userId, lift_type });
     expect(result.props.exercises).toEqual([]);
   });

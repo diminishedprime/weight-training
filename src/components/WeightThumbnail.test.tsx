@@ -4,7 +4,13 @@ import WeightThumbnail from "./WeightThumbnail";
 
 // Mock the child components since we're focusing on the conditional rendering logic
 vi.mock("@/components/Barbell", () => ({
-  default: function MockBarbell({ weight, hidePlateNumbers }: any) {
+  default: function MockBarbell({
+    weight,
+    hidePlateNumbers,
+  }: {
+    weight: number;
+    hidePlateNumbers: boolean;
+  }) {
     return (
       <div data-testid="barbell">
         Barbell: {weight} (hidePlateNumbers: {String(hidePlateNumbers)})
@@ -14,7 +20,17 @@ vi.mock("@/components/Barbell", () => ({
 }));
 
 vi.mock("@/components/Dumbell", () => ({
-  default: function MockDumbbell({ weight, weightUnit, width, hideText }: any) {
+  default: function MockDumbbell({
+    weight,
+    weightUnit,
+    width,
+    hideText,
+  }: {
+    weight: number;
+    weightUnit: string;
+    width: number;
+    hideText: boolean;
+  }) {
     return (
       <div data-testid="dumbbell">
         Dumbbell: {weight} {weightUnit} (width: {width}, hideText:{" "}
@@ -31,7 +47,7 @@ describe("WeightThumbnail", () => {
         weight={135}
         weightUnit="pounds"
         exerciseType="barbell_squat"
-      />,
+      />
     );
 
     const barbellElement = getByTestId("barbell");
@@ -46,7 +62,7 @@ describe("WeightThumbnail", () => {
         weight={25}
         weightUnit="pounds"
         exerciseType="dumbbell_row"
-      />,
+      />
     );
 
     const dumbbellElement = getByTestId("dumbbell");

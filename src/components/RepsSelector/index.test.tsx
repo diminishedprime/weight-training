@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import RepsSelector, { RepsSelectorProps } from "./index";
 
@@ -7,10 +7,10 @@ import RepsSelector, { RepsSelectorProps } from "./index";
 vi.mock("./SetAvailableReps", () => ({
   default: ({
     repChoices,
-    onClose,
+    _onClose,
   }: {
     repChoices: number[];
-    onClose: (choices: number[]) => void;
+    _onClose: (choices: number[]) => void;
   }) => (
     <div data-testid="set-available-reps">
       Set Available Reps: {repChoices.join(", ")}
@@ -33,10 +33,10 @@ describe("RepsSelector", () => {
     expect(screen.getByRole("button", { name: "1" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "3" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "5" })).toHaveClass(
-      "MuiButton-contained",
+      "MuiButton-contained"
     );
     expect(screen.getByTestId("set-available-reps")).toHaveTextContent(
-      "Set Available Reps: 1, 3, 5, 8, 10, 12, 15",
+      "Set Available Reps: 1, 3, 5, 8, 10, 12, 15"
     );
   });
 });

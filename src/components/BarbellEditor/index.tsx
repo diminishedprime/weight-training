@@ -45,7 +45,7 @@ const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
   }); // Pass initialPlateSizes
 
   return (
-    <Stack display="flex" direction="column" alignItems="center">
+    <Stack display="flex" direction="column" alignItems="center" spacing={2}>
       <SettingsDialog
         open={componentAPI.settingsOpen}
         onClose={() => componentAPI.setSettingsOpen(false)}

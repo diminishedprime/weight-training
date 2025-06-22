@@ -4,7 +4,15 @@ import ExercisePage from "./page";
 
 // Mock Next.js Link component
 vi.mock("next/link", () => ({
-  default: ({ children, href, ...props }: any) => (
+  default: ({
+    children,
+    href,
+    ...props
+  }: {
+    children: React.ReactNode;
+    href: string;
+    [key: string]: unknown;
+  }) => (
     <a href={href} {...props}>
       {children}
     </a>
@@ -35,14 +43,14 @@ describe("Exercise Page Integration", () => {
 
     // Should have buttons for barbell exercises
     expect(
-      screen.getByRole("link", { name: /bench press/i }),
+      screen.getByRole("link", { name: /bench press/i })
     ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /squat/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /deadlift/i })).toBeInTheDocument();
 
     // Should have buttons for machine exercises
     expect(
-      screen.getByRole("link", { name: /leg press/i }),
+      screen.getByRole("link", { name: /leg press/i })
     ).toBeInTheDocument();
   });
   it("generates correct href paths for exercise buttons", () => {
@@ -52,7 +60,7 @@ describe("Exercise Page Integration", () => {
     const benchPressButton = screen.getByRole("link", { name: /bench press/i });
     expect(benchPressButton).toHaveAttribute(
       "href",
-      "/exercise/barbell_bench_press",
+      "/exercise/barbell_bench_press"
     );
 
     const squatButton = screen.getByRole("link", { name: /squat/i });

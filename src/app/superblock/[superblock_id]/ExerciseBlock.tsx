@@ -13,11 +13,7 @@ import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt
 import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
 import { Database } from "@/database.types";
 import { weightUnitUIString, completionStatusUIString } from "@/uiStrings";
-import Barbell from "@/components/Barbell";
-import Dumbbell from "@/components/Dumbell";
 import TimeDisplay from "@/components/TimeDisplay";
-import { format } from "date-fns";
-import { correspondingEquipment } from "@/util";
 
 interface ExerciseBlockProps {
   block: {

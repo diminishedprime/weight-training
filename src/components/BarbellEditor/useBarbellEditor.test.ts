@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach, Mock } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { renderHook, act } from "@testing-library/react";
 import { useBarbellEditor } from "./useBarbellEditor";
 import { DEFAULT_BAR_WEIGHT, DEFAULT_PLATE_SIZES } from "@/constants";
@@ -12,7 +12,7 @@ describe("useBarbellEditor", () => {
         onChange: mockOnChange,
         initialPlateSizes: DEFAULT_PLATE_SIZES,
         barWeight: DEFAULT_BAR_WEIGHT,
-      }),
+      })
     );
 
     // Check initial state based on the hook's actual return values
@@ -36,7 +36,7 @@ describe("useBarbellEditor", () => {
         initialPlateSizes: DEFAULT_PLATE_SIZES,
 
         barWeight: DEFAULT_BAR_WEIGHT,
-      }),
+      })
     );
 
     expect(result.current.plateSizes).toEqual(DEFAULT_PLATE_SIZES);
@@ -62,7 +62,7 @@ describe("useBarbellEditor", () => {
         barWeight,
         onChange: mockOnChange,
         initialPlateSizes: DEFAULT_PLATE_SIZES,
-      }),
+      })
     );
 
     act(() => {
@@ -82,7 +82,7 @@ describe("useBarbellEditor", () => {
         onChange: mockOnChange,
         initialPlateSizes: DEFAULT_PLATE_SIZES,
         barWeight: DEFAULT_BAR_WEIGHT,
-      }),
+      })
     );
 
     act(() => {
@@ -90,7 +90,7 @@ describe("useBarbellEditor", () => {
     });
 
     expect(mockOnChange).toHaveBeenCalledWith(
-      initialTotalWeight + increment * 2,
+      initialTotalWeight + increment * 2
     );
   });
 
@@ -103,7 +103,7 @@ describe("useBarbellEditor", () => {
         initialPlateSizes: DEFAULT_PLATE_SIZES,
 
         barWeight: DEFAULT_BAR_WEIGHT,
-      }),
+      })
     );
     const newPlateSizes = [50, 25, 10, 5]; // Example new plate sizes
 
@@ -134,7 +134,7 @@ describe("useBarbellEditor", () => {
         barWeight,
         onChange: mockOnChange,
         initialPlateSizes: initialPlates,
-      }),
+      })
     );
 
     // Initial check: one 5lb plate, zero 2.5lb plates
@@ -178,17 +178,17 @@ describe("useBarbellEditor", () => {
         barWeight,
         onChange: mockOnChange,
         initialPlateSizes: customPlateSizes,
-      }),
+      })
     );
 
     // Expect one 55lb plate on each side
     expect(result.current.badgeMetadata[55].count).toBe(1);
     // Check default colors for the 55lb plate
     expect(
-      result.current.badgeMetadata[55].sx["& .MuiBadge-badge"].backgroundColor,
+      result.current.badgeMetadata[55].sx["& .MuiBadge-badge"].backgroundColor
     ).toBe("gray");
     expect(result.current.badgeMetadata[55].sx["& .MuiBadge-badge"].color).toBe(
-      "white",
+      "white"
     );
   });
 });

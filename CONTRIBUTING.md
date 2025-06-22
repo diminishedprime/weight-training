@@ -1,15 +1,5 @@
 # Contributing
 
-## Prereqs
-
-### Supabase CLI
-
-To install the supabase cli:
-
-```sh
-brew install supabase/tap/supabase
-```
-
 ## Local Setup
 
 For local set up, you'll need to set up necessary environment variables via an `.env.local` file.

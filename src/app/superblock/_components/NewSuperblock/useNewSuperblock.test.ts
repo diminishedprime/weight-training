@@ -1,5 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
+import React from "react";
 
 import { useNewSuperblock } from "./useNewSuperblock";
 import * as actions from "./actions";
@@ -62,7 +63,9 @@ describe("useNewSuperblock", () => {
       status: 200,
       statusText: "OK",
       count: null,
-    } as any);
+    } as ReturnType<typeof actions.addNewSuperblock> extends Promise<infer T>
+      ? T
+      : never);
 
     const { result } = renderHook(() => useNewSuperblock());
 
@@ -74,7 +77,9 @@ describe("useNewSuperblock", () => {
 
     // Submit the form
     await act(async () => {
-      const mockEvent = { preventDefault: vi.fn() } as any;
+      const mockEvent = {
+        preventDefault: vi.fn(),
+      } as unknown as React.FormEvent<HTMLFormElement>;
       await result.current.handleSubmit(mockEvent);
     });
 
@@ -104,7 +109,9 @@ describe("useNewSuperblock", () => {
       status: 400,
       statusText: "Bad Request",
       count: null,
-    } as any);
+    } as ReturnType<typeof actions.addNewSuperblock> extends Promise<infer T>
+      ? T
+      : never);
 
     const { result } = renderHook(() => useNewSuperblock());
 
@@ -113,7 +120,9 @@ describe("useNewSuperblock", () => {
     });
 
     await act(async () => {
-      const mockEvent = { preventDefault: vi.fn() } as any;
+      const mockEvent = {
+        preventDefault: vi.fn(),
+      } as unknown as React.FormEvent<HTMLFormElement>;
       await result.current.handleSubmit(mockEvent);
     });
 
@@ -131,18 +140,22 @@ describe("useNewSuperblock", () => {
 
   it("should set loading state during submission", async () => {
     const mockAddNewSuperblock = vi.mocked(actions.addNewSuperblock);
-    let resolvePromise: (value: any) => void;
+    let resolvePromise: (value: unknown) => void;
     const submitPromise = new Promise((resolve) => {
       resolvePromise = resolve;
     });
 
-    mockAddNewSuperblock.mockReturnValueOnce(submitPromise as any);
+    mockAddNewSuperblock.mockReturnValueOnce(
+      submitPromise as ReturnType<typeof actions.addNewSuperblock>
+    );
 
     const { result } = renderHook(() => useNewSuperblock());
 
     // Start submission
     act(() => {
-      const mockEvent = { preventDefault: vi.fn() } as any;
+      const mockEvent = {
+        preventDefault: vi.fn(),
+      } as unknown as React.FormEvent<HTMLFormElement>;
       result.current.handleSubmit(mockEvent);
     });
 
@@ -179,12 +192,16 @@ describe("useNewSuperblock", () => {
       status: 400,
       statusText: "Bad Request",
       count: null,
-    } as any);
+    } as ReturnType<typeof actions.addNewSuperblock> extends Promise<infer T>
+      ? T
+      : never);
 
     const { result } = renderHook(() => useNewSuperblock());
 
     await act(async () => {
-      const mockEvent = { preventDefault: vi.fn() } as any;
+      const mockEvent = {
+        preventDefault: vi.fn(),
+      } as unknown as React.FormEvent<HTMLFormElement>;
       await result.current.handleSubmit(mockEvent);
     });
 
@@ -197,10 +214,14 @@ describe("useNewSuperblock", () => {
       status: 200,
       statusText: "OK",
       count: null,
-    } as any);
+    } as ReturnType<typeof actions.addNewSuperblock> extends Promise<infer T>
+      ? T
+      : never);
 
     await act(async () => {
-      const mockEvent = { preventDefault: vi.fn() } as any;
+      const mockEvent = {
+        preventDefault: vi.fn(),
+      } as unknown as React.FormEvent<HTMLFormElement>;
       await result.current.handleSubmit(mockEvent);
     });
 

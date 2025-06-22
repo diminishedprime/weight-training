@@ -1,6 +1,5 @@
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { SxProps } from "@mui/material/styles";
 import React from "react";
 
 interface WarmupCheckboxProps {

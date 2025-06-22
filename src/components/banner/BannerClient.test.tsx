@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import BannerClient from "./BannerClient";
 import { User } from "next-auth";
@@ -11,7 +11,15 @@ vi.mock("./AuthenticatedUserView", () => ({
 }));
 
 vi.mock("./NavDrawer", () => ({
-  default: ({ open, handleDrawerToggle, navItems }: any) => (
+  default: ({
+    open,
+    handleDrawerToggle,
+    navItems,
+  }: {
+    open: boolean;
+    handleDrawerToggle: () => void;
+    navItems: { title: string; href: string }[];
+  }) => (
     <div data-testid="nav-drawer">
       <span>Open: {open.toString()}</span>
       <button onClick={handleDrawerToggle}>Toggle</button>

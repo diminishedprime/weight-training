@@ -34,7 +34,7 @@ describe("AddNewSuperblock Component", () => {
     expect(screen.getByLabelText("name")).toBeInTheDocument();
     expect(screen.getByLabelText("Notes")).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Create Superblock" }),
+      screen.getByRole("button", { name: "Create Superblock" })
     ).toBeInTheDocument();
   });
 
@@ -81,11 +81,11 @@ describe("AddNewSuperblock Component", () => {
     // Check that inputs have proper names for form submission
     expect(screen.getByRole("textbox", { name: "name" })).toHaveAttribute(
       "name",
-      "name",
+      "name"
     );
     expect(screen.getByRole("textbox", { name: "Notes" })).toHaveAttribute(
       "name",
-      "notes",
+      "notes"
     );
   });
 
@@ -102,11 +102,13 @@ describe("AddNewSuperblock Component", () => {
     const mockAddNewSuperblock = vi.mocked(addNewSuperblock);
 
     // Mock a slow response
-    let resolvePromise: (value: any) => void;
+    let resolvePromise: (value: unknown) => void;
     const submitPromise = new Promise((resolve) => {
       resolvePromise = resolve;
     });
-    mockAddNewSuperblock.mockReturnValueOnce(submitPromise as any);
+    mockAddNewSuperblock.mockReturnValueOnce(
+      submitPromise as ReturnType<typeof addNewSuperblock>
+    );
 
     render(<AddNewSuperblock />);
 
@@ -120,10 +122,10 @@ describe("AddNewSuperblock Component", () => {
     // Should show loading state
     await waitFor(() => {
       expect(
-        screen.getByRole("button", { name: "Creating..." }),
+        screen.getByRole("button", { name: "Creating..." })
       ).toBeInTheDocument();
       expect(
-        screen.getByRole("button", { name: "Creating..." }),
+        screen.getByRole("button", { name: "Creating..." })
       ).toBeDisabled();
     });
 
@@ -142,7 +144,7 @@ describe("AddNewSuperblock Component", () => {
     // Should return to normal state
     await waitFor(() => {
       expect(
-        screen.getByRole("button", { name: "Create Superblock" }),
+        screen.getByRole("button", { name: "Create Superblock" })
       ).toBeInTheDocument();
     });
   });
@@ -164,7 +166,9 @@ describe("AddNewSuperblock Component", () => {
       status: 400,
       statusText: "Bad Request",
       count: null,
-    } as any);
+    } as ReturnType<typeof addNewSuperblock> extends Promise<infer T>
+      ? T
+      : never);
 
     render(<AddNewSuperblock />);
 
@@ -199,7 +203,9 @@ describe("AddNewSuperblock Component", () => {
       status: 200,
       statusText: "OK",
       count: null,
-    } as any);
+    } as ReturnType<typeof addNewSuperblock> extends Promise<infer T>
+      ? T
+      : never);
 
     render(<AddNewSuperblock />);
 

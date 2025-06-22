@@ -15,7 +15,8 @@ export default async function SuperblockPage() {
       <Typography variant="h4">Superblocks</Typography>
       <Typography variant="body1" sx={{ mb: 2 }}>
         Superblocks are a collections of exercises blocks. Think of them as an
-        entire day of exercises, such as a "leg day" or a "push day".
+        entire day of exercises, such as a &ldquo;leg day&rdquo; or a
+        &ldquo;push day&rdquo;.
       </Typography>
       <Stack spacing={1}>
         <NewSuperblock />

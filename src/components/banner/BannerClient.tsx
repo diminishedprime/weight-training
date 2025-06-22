@@ -5,12 +5,10 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Link from "next/link";
 import AuthenticatedUserView from "./AuthenticatedUserView";
 import CssBaseline from "@mui/material/CssBaseline";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import Button from "@mui/material/Button";
 import { User } from "next-auth";
 import NavDrawer from "./NavDrawer";
 
@@ -41,8 +39,7 @@ export default function BannerClient(props: Props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2 }}
-          >
+            sx={{ mr: 2 }}>
             <MenuIcon />
             <Typography variant="h6" component="span" sx={{ ml: 1 }}>
               Weight Training

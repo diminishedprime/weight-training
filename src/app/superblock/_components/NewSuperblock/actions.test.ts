@@ -1,5 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { addNewSuperblock } from "./actions";
+import type { SupabaseClient } from "@supabase/supabase-js";
+import type { Database } from "@/database.types";
 
 // Mock dependencies
 vi.mock("@/auth", () => ({
@@ -30,7 +32,9 @@ describe("NewSuperblock server actions", () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    vi.mocked(getSupabaseClient).mockReturnValue(mockSupabaseClient as any);
+    vi.mocked(getSupabaseClient).mockReturnValue(
+      mockSupabaseClient as unknown as SupabaseClient<Database>
+    );
     vi.mocked(revalidatePath).mockImplementation(() => {});
   });
 
@@ -40,7 +44,9 @@ describe("NewSuperblock server actions", () => {
       const mockUserId = "user-123";
       const mockSuperblockId = "superblock-456";
 
-      vi.mocked(auth).mockResolvedValue(mockSession as any);
+      vi.mocked(auth).mockResolvedValue(
+        mockSession as unknown as Awaited<ReturnType<typeof auth>>
+      );
       vi.mocked(requireId).mockReturnValue(mockUserId);
       mockSingle.mockResolvedValue({
         data: { id: mockSuperblockId },
@@ -70,7 +76,9 @@ describe("NewSuperblock server actions", () => {
       const mockUserId = "user-123";
       const mockSuperblockId = "superblock-456";
 
-      vi.mocked(auth).mockResolvedValue(mockSession as any);
+      vi.mocked(auth).mockResolvedValue(
+        mockSession as unknown as Awaited<ReturnType<typeof auth>>
+      );
       vi.mocked(requireId).mockReturnValue(mockUserId);
       mockSingle.mockResolvedValue({
         data: { id: mockSuperblockId },
@@ -100,7 +108,9 @@ describe("NewSuperblock server actions", () => {
         name: "DatabaseError",
       };
 
-      vi.mocked(auth).mockResolvedValue(mockSession as any);
+      vi.mocked(auth).mockResolvedValue(
+        mockSession as unknown as Awaited<ReturnType<typeof auth>>
+      );
       vi.mocked(requireId).mockReturnValue(mockUserId);
       mockSingle.mockResolvedValue({
         data: null,
@@ -122,7 +132,9 @@ describe("NewSuperblock server actions", () => {
       const mockSession = null;
       const requireIdError = new Error("User ID is required");
 
-      vi.mocked(auth).mockResolvedValue(mockSession as any);
+      vi.mocked(auth).mockResolvedValue(
+        mockSession as unknown as Awaited<ReturnType<typeof auth>>
+      );
       vi.mocked(requireId).mockImplementation(() => {
         throw requireIdError;
       });
@@ -156,7 +168,9 @@ describe("NewSuperblock server actions", () => {
       const mockUserId = "user-123";
       const mockSuperblockId = "superblock-456";
 
-      vi.mocked(auth).mockResolvedValue(mockSession as any);
+      vi.mocked(auth).mockResolvedValue(
+        mockSession as unknown as Awaited<ReturnType<typeof auth>>
+      );
       vi.mocked(requireId).mockReturnValue(mockUserId);
       mockSingle.mockResolvedValue({
         data: { id: mockSuperblockId },

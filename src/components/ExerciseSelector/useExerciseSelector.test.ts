@@ -1,11 +1,11 @@
 import { renderHook, act } from "@testing-library/react";
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import {
   useExerciseSelector,
   UseExerciseSelectorProps,
 } from "./useExerciseSelector";
 import { Database, Constants } from "@/database.types";
-import { correspondingEquipment, getExercisesByEquipment } from "@/util";
+import { correspondingEquipment } from "@/util";
 
 type ExerciseType = Database["public"]["Enums"]["exercise_type_enum"];
 type EquipmentType = Database["public"]["Enums"]["equipment_type_enum"];
@@ -85,7 +85,7 @@ describe("useExerciseSelector", () => {
     // Available exercises should now be filtered to only barbell exercises
     const allExercises = [...Constants.public.Enums.exercise_type_enum];
     expect(result.current.availableExercises.length).toBeLessThan(
-      allExercises.length,
+      allExercises.length
     );
 
     // Each available exercise should correspond to barbell equipment
@@ -172,7 +172,7 @@ describe("useExerciseSelector", () => {
     // Available exercises should now be filtered to only dumbbell exercises
     const allExercises = [...Constants.public.Enums.exercise_type_enum];
     expect(result.current.availableExercises.length).toBeLessThan(
-      allExercises.length,
+      allExercises.length
     );
 
     // Each available exercise should correspond to dumbbell equipment

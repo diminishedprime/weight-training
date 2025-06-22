@@ -1,10 +1,10 @@
-import { describe, it, expect, vi, beforeEach, afterAll } from "vitest"; // Added afterAll
+import { describe, it, expect, vi, beforeEach } from "vitest";
 import {
   minimalPlates,
   correspondingEquipment,
   requireId,
   getSupabaseClient,
-} from "./util"; // Added getSupabaseClient
+} from "./util";
 import { DEFAULT_PLATE_SIZES } from "./constants";
 import { Database } from "@/database.types";
 // Import the globally mocked redirect function with a new alias
@@ -112,7 +112,7 @@ describe("util", () => {
 
     it('should return "plate_stack" for plate_stack exercises', () => {
       expect(correspondingEquipment("plate_stack_calf_raise")).toBe(
-        "plate_stack",
+        "plate_stack"
       );
     });
   });
@@ -126,7 +126,7 @@ describe("util", () => {
       const mockSession = {
         user: { id: "test-user-id" },
         expires: "",
-      } as any;
+      };
       const currentPath = "/test-path";
       const userId = requireId(mockSession, currentPath);
       expect(userId).toBe("test-user-id");
@@ -138,39 +138,39 @@ describe("util", () => {
       const encodedPath = encodeURIComponent(currentPath);
       try {
         requireId(null, currentPath);
-      } catch (e: any) {
+      } catch {
         // next/navigation's redirect throws an error in test environments
         // to halt execution, which is expected.
       }
       expect(navigationRedirectMock).toHaveBeenCalledWith(
-        `/login?redirect-uri=${encodedPath}`,
+        `/login?redirect-uri=${encodedPath}`
       );
     });
 
     it("should call redirect if session user or user ID is missing", () => {
-      const mockSessionNoUser = { expires: "" } as any;
-      const mockSessionNoId = { user: {}, expires: "" } as any;
+      const mockSessionNoUser = { expires: "" };
+      const mockSessionNoId = { user: {}, expires: "" };
       const currentPath = "/another-path";
       const encodedPath = encodeURIComponent(currentPath);
 
       try {
         requireId(mockSessionNoUser, currentPath);
-      } catch (e) {
+      } catch {
         // Expected
       }
       expect(navigationRedirectMock).toHaveBeenCalledWith(
-        `/login?redirect-uri=${encodedPath}`,
+        `/login?redirect-uri=${encodedPath}`
       );
 
       vi.mocked(navigationRedirectMock).mockClear(); // Clear before the next assertion in the same test
 
       try {
         requireId(mockSessionNoId, currentPath);
-      } catch (e) {
+      } catch {
         // Expected
       }
       expect(navigationRedirectMock).toHaveBeenCalledWith(
-        `/login?redirect-uri=${encodedPath}`,
+        `/login?redirect-uri=${encodedPath}`
       );
     });
   });
