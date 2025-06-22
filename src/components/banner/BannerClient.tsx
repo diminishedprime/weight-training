@@ -39,7 +39,8 @@ export default function BannerClient(props: Props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2 }}>
+            sx={{ mr: 2 }}
+          >
             <MenuIcon />
             <Typography variant="h6" component="span" sx={{ ml: 1 }}>
               Weight Training

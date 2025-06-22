@@ -27,7 +27,7 @@ describe("Not Found Page Integration", () => {
     expect(screen.getByText("404")).toBeInTheDocument();
     expect(screen.getByText("Page Not Found")).toBeInTheDocument();
     expect(
-      screen.getByText("Sorry, the page you are looking for does not exist.")
+      screen.getByText("Sorry, the page you are looking for does not exist."),
     ).toBeInTheDocument();
   });
 

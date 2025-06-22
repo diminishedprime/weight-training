@@ -34,7 +34,7 @@ describe("AddNewSuperblock Component", () => {
     expect(screen.getByLabelText("name")).toBeInTheDocument();
     expect(screen.getByLabelText("Notes")).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Create Superblock" })
+      screen.getByRole("button", { name: "Create Superblock" }),
     ).toBeInTheDocument();
   });
 
@@ -81,11 +81,11 @@ describe("AddNewSuperblock Component", () => {
     // Check that inputs have proper names for form submission
     expect(screen.getByRole("textbox", { name: "name" })).toHaveAttribute(
       "name",
-      "name"
+      "name",
     );
     expect(screen.getByRole("textbox", { name: "Notes" })).toHaveAttribute(
       "name",
-      "notes"
+      "notes",
     );
   });
 
@@ -107,7 +107,7 @@ describe("AddNewSuperblock Component", () => {
       resolvePromise = resolve;
     });
     mockAddNewSuperblock.mockReturnValueOnce(
-      submitPromise as ReturnType<typeof addNewSuperblock>
+      submitPromise as ReturnType<typeof addNewSuperblock>,
     );
 
     render(<AddNewSuperblock />);
@@ -122,10 +122,10 @@ describe("AddNewSuperblock Component", () => {
     // Should show loading state
     await waitFor(() => {
       expect(
-        screen.getByRole("button", { name: "Creating..." })
+        screen.getByRole("button", { name: "Creating..." }),
       ).toBeInTheDocument();
       expect(
-        screen.getByRole("button", { name: "Creating..." })
+        screen.getByRole("button", { name: "Creating..." }),
       ).toBeDisabled();
     });
 
@@ -144,7 +144,7 @@ describe("AddNewSuperblock Component", () => {
     // Should return to normal state
     await waitFor(() => {
       expect(
-        screen.getByRole("button", { name: "Create Superblock" })
+        screen.getByRole("button", { name: "Create Superblock" }),
       ).toBeInTheDocument();
     });
   });

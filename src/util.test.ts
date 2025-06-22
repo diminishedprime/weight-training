@@ -112,7 +112,7 @@ describe("util", () => {
 
     it('should return "plate_stack" for plate_stack exercises', () => {
       expect(correspondingEquipment("plate_stack_calf_raise")).toBe(
-        "plate_stack"
+        "plate_stack",
       );
     });
   });
@@ -143,7 +143,7 @@ describe("util", () => {
         // to halt execution, which is expected.
       }
       expect(navigationRedirectMock).toHaveBeenCalledWith(
-        `/login?redirect-uri=${encodedPath}`
+        `/login?redirect-uri=${encodedPath}`,
       );
     });
 
@@ -159,7 +159,7 @@ describe("util", () => {
         // Expected
       }
       expect(navigationRedirectMock).toHaveBeenCalledWith(
-        `/login?redirect-uri=${encodedPath}`
+        `/login?redirect-uri=${encodedPath}`,
       );
 
       vi.mocked(navigationRedirectMock).mockClear(); // Clear before the next assertion in the same test
@@ -170,7 +170,7 @@ describe("util", () => {
         // Expected
       }
       expect(navigationRedirectMock).toHaveBeenCalledWith(
-        `/login?redirect-uri=${encodedPath}`
+        `/login?redirect-uri=${encodedPath}`,
       );
     });
   });

@@ -9,7 +9,7 @@ import { Suspense } from "react";
 const LoginContent = () => {
   const searchParams = useSearchParams();
   const redirectUri = decodeURIComponent(
-    searchParams.get("redirect-uri") || encodeURIComponent("/")
+    searchParams.get("redirect-uri") || encodeURIComponent("/"),
   );
 
   return (
@@ -19,7 +19,8 @@ const LoginContent = () => {
       alignItems="center"
       justifyContent="center"
       minHeight="60vh"
-      gap={3}>
+      gap={3}
+    >
       <Typography variant="body1">
         You must be logged in order to view this page.
       </Typography>

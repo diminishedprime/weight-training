@@ -54,7 +54,7 @@ const ExercisesTable: React.FC<ExercisesTableProps> = (props) => {
       groups[dateKey].push(exercise);
       return groups;
     },
-    {} as Record<string, typeof exercises>
+    {} as Record<string, typeof exercises>,
   );
 
   // Get dates in the order they appear (since exercises are already sorted)
@@ -71,10 +71,11 @@ const ExercisesTable: React.FC<ExercisesTableProps> = (props) => {
             {/* Date Header */}
             <Typography
               variant="h6"
-              sx={{ fontWeight: 600, color: "primary.main" }}>
+              sx={{ fontWeight: 600, color: "primary.main" }}
+            >
               {format(
                 new Date(firstExercise.performed_at!),
-                "EEEE, MMMM do, yyyy"
+                "EEEE, MMMM do, yyyy",
               )}
             </Typography>
             {/* Table for this date */}
@@ -99,7 +100,8 @@ const ExercisesTable: React.FC<ExercisesTableProps> = (props) => {
                             exercise.exercise_id === flashId)
                             ? { animation: "flash-bg 2.5s ease-in-out" }
                             : {}
-                        }>
+                        }
+                      >
                         <TableCell padding="none" align="center">
                           {exercise.performed_at && (
                             <TimeDisplay
@@ -123,7 +125,8 @@ const ExercisesTable: React.FC<ExercisesTableProps> = (props) => {
                                 <Typography
                                   color="success"
                                   variant="body2"
-                                  component="span">
+                                  component="span"
+                                >
                                   (warmup)
                                 </Typography>
                               )}
@@ -157,7 +160,8 @@ const ExercisesTable: React.FC<ExercisesTableProps> = (props) => {
                             href={`/exercise/${exercise_type}/edit/${
                               exercise.exercise_id || exercise.exercise_id
                             }`}
-                            size="small">
+                            size="small"
+                          >
                             Edit
                           </Button>
                         </TableCell>
@@ -170,7 +174,8 @@ const ExercisesTable: React.FC<ExercisesTableProps> = (props) => {
                             sx={{
                               background: "#fafafa",
                               p: 1,
-                            }}>
+                            }}
+                          >
                             <Typography variant="caption">
                               {exercise.notes}
                             </Typography>

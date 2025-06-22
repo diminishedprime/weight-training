@@ -47,7 +47,7 @@ describe("WeightThumbnail", () => {
         weight={135}
         weightUnit="pounds"
         exerciseType="barbell_squat"
-      />
+      />,
     );
 
     const barbellElement = getByTestId("barbell");
@@ -62,7 +62,7 @@ describe("WeightThumbnail", () => {
         weight={25}
         weightUnit="pounds"
         exerciseType="dumbbell_row"
-      />
+      />,
     );
 
     const dumbbellElement = getByTestId("dumbbell");

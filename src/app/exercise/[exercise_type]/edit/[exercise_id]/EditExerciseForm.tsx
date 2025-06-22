@@ -15,7 +15,7 @@ import { Alert, Button, Stack } from "@mui/material";
 
 function useEditExerciseForm(
   exercise: Database["public"]["Functions"]["get_exercise_for_user"]["Returns"],
-  user_id: string
+  user_id: string,
 ) {
   const [error, setError] = useState<string | null>(null);
   const [weightValue, setWeightValue] = useState(exercise.weight_value!);
@@ -23,7 +23,7 @@ function useEditExerciseForm(
   const [reps, setReps] = useState(exercise.reps!);
   const [warmup, setWarmup] = useState(exercise.warmup!);
   const [completionStatus, setCompletionStatus] = useState(
-    exercise.completion_status!
+    exercise.completion_status!,
   );
   const [notes, setNotes] = useState(exercise.notes ?? "");
   const [relativeEffort, setRelativeEffort] = useState<
@@ -66,7 +66,7 @@ function useEditExerciseForm(
       return;
     }
     router.push(
-      `/exercise/${exercise.exercise_type!}?flash=${exercise.exercise_id}`
+      `/exercise/${exercise.exercise_type!}?flash=${exercise.exercise_id}`,
     );
   }
 
@@ -86,19 +86,19 @@ function useEditExerciseForm(
   function handleCompletionStatusChange(
     e: React.ChangeEvent<{
       value: Database["public"]["Enums"]["completion_status_enum"];
-    }>
+    }>,
   ) {
     setCompletionStatus(
-      e.target.value as Database["public"]["Enums"]["completion_status_enum"]
+      e.target.value as Database["public"]["Enums"]["completion_status_enum"],
     );
   }
   function handleRelativeEffortChange(
-    val: Database["public"]["Enums"]["relative_effort_enum"] | null
+    val: Database["public"]["Enums"]["relative_effort_enum"] | null,
   ) {
     setRelativeEffort(val);
   }
   function handleNotesChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     setNotes(e.target.value);
   }
@@ -180,7 +180,8 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
           flexDirection="row"
           flexWrap="wrap"
           justifyContent="center"
-          sx={{ my: 1 }}>
+          sx={{ my: 1 }}
+        >
           <DateTimePicker
             date={form.date}
             setDate={form.setDate}

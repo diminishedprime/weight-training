@@ -23,7 +23,8 @@ const AddNewSuperblock: React.FC<AddNewSuperblockProps> = () => {
       onSubmit={api.handleSubmit}
       boxShadow="2"
       spacing={2}
-      sx={{ p: 1 }}>
+      sx={{ p: 1 }}
+    >
       <Typography variant="h5">Create New Superblock</Typography>
       <TextField
         label="name"
@@ -49,7 +50,8 @@ const AddNewSuperblock: React.FC<AddNewSuperblockProps> = () => {
         variant="contained"
         color="primary"
         fullWidth
-        disabled={api.loading}>
+        disabled={api.loading}
+      >
         {api.loading ? "Creating..." : "Create Superblock"}
       </Button>
       {api.error && (

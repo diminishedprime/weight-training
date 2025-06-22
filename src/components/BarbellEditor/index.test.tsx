@@ -35,7 +35,8 @@ vi.mock("./SettingsDialog", () => ({
   }) => (
     <div
       data-testid="settings-dialog"
-      style={{ display: open ? "block" : "none" }}>
+      style={{ display: open ? "block" : "none" }}
+    >
       Settings Dialog: plateSizes={plateSizes.join(",")}
     </div>
   ),
@@ -72,7 +73,7 @@ describe("BarbellEditor", () => {
   it("renders with required components and controls", () => {
     render(<BarbellEditor {...defaultProps} />);
     expect(screen.getByTestId("barbell")).toHaveTextContent(
-      "Barbell: weight=135, barWeight=45, plateSizes=45,25,10,5,2.5"
+      "Barbell: weight=135, barWeight=45, plateSizes=45,25,10,5,2.5",
     );
     expect(screen.getByLabelText("Value")).toHaveValue("135");
     expect(screen.getByDisplayValue("pounds")).toBeInTheDocument();

@@ -35,20 +35,20 @@ describe("Home Page Integration", () => {
 
     // Check if navigation buttons are rendered
     expect(
-      screen.getByRole("link", { name: /exercises/i })
+      screen.getByRole("link", { name: /exercises/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /superblock/i })
+      screen.getByRole("link", { name: /superblock/i }),
     ).toBeInTheDocument();
 
     // Check if buttons have correct hrefs
     expect(screen.getByRole("link", { name: /exercises/i })).toHaveAttribute(
       "href",
-      "/exercise"
+      "/exercise",
     );
     expect(screen.getByRole("link", { name: /superblock/i })).toHaveAttribute(
       "href",
-      "/superblock"
+      "/superblock",
     );
   });
 
