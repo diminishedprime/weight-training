@@ -4,11 +4,12 @@ import Button from "@mui/material/Button";
 import { useSearchParams } from "next/navigation";
 import { loginAction } from "./actions";
 import { Typography } from "@mui/material";
+import { Suspense } from "react";
 
-export default function LoginPage() {
+const LoginContent = () => {
   const searchParams = useSearchParams();
   const redirectUri = decodeURIComponent(
-    searchParams.get("redirect-uri") || encodeURIComponent("/"),
+    searchParams.get("redirect-uri") || encodeURIComponent("/")
   );
 
   return (
@@ -18,8 +19,7 @@ export default function LoginPage() {
       alignItems="center"
       justifyContent="center"
       minHeight="60vh"
-      gap={3}
-    >
+      gap={3}>
       <Typography variant="body1">
         You must be logged in order to view this page.
       </Typography>
@@ -29,5 +29,13 @@ export default function LoginPage() {
         </Button>
       </form>
     </Box>
+  );
+};
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LoginContent />
+    </Suspense>
   );
 }
