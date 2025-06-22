@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "db:reset": "pnpx supabase start && pnpx supabase db reset && pnpx supabase gen types typescript --local > src/database.types.ts",
-    "db:start": "pnpx supabase start",
-    "db:test": "pnpx supabase start && pnpx supabase test db",
+    "db:reset": "supabase start && supabase db reset && supabase gen types typescript --local > src/database.types.ts",
+    "db:start": "supabase start",
+    "db:test": "supabase start && supabase test db",
+    "db:new-migration": "supabase migration new",
     "dev": "next dev --turbopack",
     "format": "prettier --write ./**/*.{js,ts,tsx,json,md}",
     "lint": "next lint",
