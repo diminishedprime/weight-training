@@ -121,8 +121,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       supabase:
-        specifier: ^2.24.3
-        version: 2.24.3
+        specifier: ^2.26.9
+        version: 2.26.9
       typescript:
         specifier: ^5
         version: 5.8.3
@@ -329,6 +329,10 @@ packages:
 
   '@babel/runtime@7.27.4':
     resolution: {integrity: sha512-t3yaEOuGu9NlIZ+hIeGbBjFtZT7j2cb2tg0fuaJKeGotchRjjLfrBA9Kwf8quhpP1EUuxModQg04q/mBwyg8uA==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/runtime@7.27.6':
+    resolution: {integrity: sha512-vbavdySgbTTrmFE+EsiqUTzlOr5bzlnJtUv9PynGCAKvfQqjIXbvFdumPM/GxMDfyuGMJaJAU6TO4zc1Jf1i8Q==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.27.2':
@@ -3541,8 +3545,8 @@ packages:
   stylis@4.2.0:
     resolution: {integrity: sha512-Orov6g6BB1sDfYgzWfTHDOxamtX1bE/zo104Dh9e6fqJ3PooipYyfJ0pUmrZO2wAvO8YbEyeFrkV91XTsGMSrw==}
 
-  supabase@2.24.3:
-    resolution: {integrity: sha512-mh9pi4C5pM159GyYE+Rv9qL8kg1kqzimQ4FBr6UH/WhzB/VcDaA+vpn/VeRC3CGVKr+d89Ra5MjDWg+/UoPpXg==}
+  supabase@2.26.9:
+    resolution: {integrity: sha512-wHl7HtAD2iHMVXL8JZyfSjdI0WYM7EF0ydThp1tSvDANaD2JHCZc8GH1NdzglbwGqdHmjCYeSZ+H28fmucYl7Q==}
     engines: {npm: '>=8'}
     hasBin: true
 
@@ -4212,6 +4216,8 @@ snapshots:
       - supports-color
 
   '@babel/runtime@7.27.4': {}
+
+  '@babel/runtime@7.27.6': {}
 
   '@babel/template@7.27.2':
     dependencies:
@@ -5122,7 +5128,7 @@ snapshots:
   '@testing-library/dom@10.4.0':
     dependencies:
       '@babel/code-frame': 7.27.1
-      '@babel/runtime': 7.27.4
+      '@babel/runtime': 7.27.6
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
       chalk: 4.1.2
@@ -7636,7 +7642,7 @@ snapshots:
 
   stylis@4.2.0: {}
 
-  supabase@2.24.3:
+  supabase@2.26.9:
     dependencies:
       bin-links: 5.0.0
       https-proxy-agent: 7.0.6

@@ -15,14 +15,16 @@ CREATE TABLE IF NOT EXISTS public.wendler_metadata
 (
     id uuid NOT NULL DEFAULT uuid_generate_v4(),
     user_id uuid NOT NULL,
-    training_max numeric(6,2) NOT NULL,
-    increase_amount numeric(5,2) NOT NULL,
+    training_max_weight_id uuid NOT NULL,
+    increase_amount_weight_id uuid NULL,
     cycle_type wendler_cycle_type_enum NOT NULL,
     exercise_type exercise_type_enum NOT NULL,
     created_at timestamp with time zone DEFAULT timezone('utc', now()),
     updated_at timestamp with time zone DEFAULT timezone('utc', now()),
     CONSTRAINT wendler_metadata_pkey PRIMARY KEY (id),
-    CONSTRAINT wendler_metadata_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users(id) ON DELETE CASCADE
+    CONSTRAINT wendler_metadata_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users(id) ON DELETE CASCADE,
+    CONSTRAINT wendler_metadata_training_max_weight_id_fkey FOREIGN KEY (training_max_weight_id) REFERENCES public.weights(id) ON DELETE RESTRICT,
+    CONSTRAINT wendler_metadata_increase_amount_weight_id_fkey FOREIGN KEY (increase_amount_weight_id) REFERENCES public.weights(id) ON DELETE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS public.exercise_block
