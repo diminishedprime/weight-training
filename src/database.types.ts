@@ -376,6 +376,7 @@ export type Database = {
       user_exercise_weights: {
         Row: {
           created_at: string | null
+          default_rest_time_seconds: number | null
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
           id: string
           one_rep_max_weight_id: string | null
@@ -384,6 +385,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string | null
+          default_rest_time_seconds?: number | null
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
           id?: string
           one_rep_max_weight_id?: string | null
@@ -392,6 +394,7 @@ export type Database = {
         }
         Update: {
           created_at?: string | null
+          default_rest_time_seconds?: number | null
           exercise_type?: Database["public"]["Enums"]["exercise_type_enum"]
           id?: string
           one_rep_max_weight_id?: string | null
@@ -418,7 +421,6 @@ export type Database = {
       user_metadata: {
         Row: {
           created_at: string | null
-          default_rest_time_seconds: number | null
           id: string
           preferred_weight_unit:
             | Database["public"]["Enums"]["weight_unit_enum"]
@@ -428,7 +430,6 @@ export type Database = {
         }
         Insert: {
           created_at?: string | null
-          default_rest_time_seconds?: number | null
           id?: string
           preferred_weight_unit?:
             | Database["public"]["Enums"]["weight_unit_enum"]
@@ -438,7 +439,6 @@ export type Database = {
         }
         Update: {
           created_at?: string | null
-          default_rest_time_seconds?: number | null
           id?: string
           preferred_weight_unit?:
             | Database["public"]["Enums"]["weight_unit_enum"]
@@ -614,16 +614,15 @@ export type Database = {
         }[]
       }
       get_user_preferences: {
-        Args: { target_user_id: string }
-        Returns: {
-          preferred_weight_unit: Database["public"]["Enums"]["weight_unit_enum"]
-          default_rest_time_seconds: number
-          exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
-          one_rep_max_value: number
-          one_rep_max_unit: Database["public"]["Enums"]["weight_unit_enum"]
-          target_max_value: number
-          target_max_unit: Database["public"]["Enums"]["weight_unit_enum"]
-        }[]
+        Args: { p_user_id: string }
+        Returns: Database["public"]["CompositeTypes"]["user_preferences_row"][]
+      }
+      get_weight: {
+        Args: {
+          p_weight_value: number
+          p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"]
+        }
+        Returns: string
       }
       new_leg_day: {
         Args: {
@@ -635,7 +634,7 @@ export type Database = {
         }
         Returns: string
       }
-      normalize_bar_weight: {
+      normalize_bar_weight_pounds: {
         Args: { p_weight: number }
         Returns: number
       }
@@ -656,6 +655,14 @@ export type Database = {
           p_completion_status?: Database["public"]["Enums"]["completion_status_enum"]
           p_notes?: string
           p_relative_effort?: Database["public"]["Enums"]["relative_effort_enum"]
+        }
+        Returns: undefined
+      }
+      update_user_default_rest_time: {
+        Args: {
+          p_user_id: string
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
+          p_default_rest_time_seconds: number
         }
         Returns: undefined
       }
@@ -755,6 +762,17 @@ export type Database = {
         relative_effort:
           | Database["public"]["Enums"]["relative_effort_enum"]
           | null
+      }
+      user_preferences_row: {
+        preferred_weight_unit:
+          | Database["public"]["Enums"]["weight_unit_enum"]
+          | null
+        exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null
+        one_rep_max_value: number | null
+        one_rep_max_unit: Database["public"]["Enums"]["weight_unit_enum"] | null
+        target_max_value: number | null
+        target_max_unit: Database["public"]["Enums"]["weight_unit_enum"] | null
+        default_rest_time_seconds: number | null
       }
     }
   }

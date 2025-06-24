@@ -38,6 +38,7 @@ export default defineConfig({
         "**/*.config.ts",
         "**/*.d.ts",
         "**/*json",
+        "src/testUtil/**", // Exclude all test utilities from coverage
         "src/database.types.ts",
         "src/middleware.ts",
         "src/app/layout.tsx",

@@ -8,6 +8,7 @@
     "db:start": "supabase start",
     "db:test": "supabase start && supabase test db",
     "db:new-migration": "supabase migration new",
+    "db:new-test": "supabase test new",
     "dev": "next dev --turbopack",
     "format": "prettier --write ./**/*.{js,ts,tsx,json,md}",
     "lint": "next lint",

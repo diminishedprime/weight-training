@@ -12,16 +12,14 @@ import {
   FormControl,
   InputLabel,
   Divider,
-  Collapse,
-  IconButton,
   Chip,
   InputAdornment,
+  IconButton,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import CloseIcon from "@mui/icons-material/Close";
 import { Constants, type Database } from "@/database.types";
-import { exerciseTypeUIStringBrief } from "@/uiStrings";
-import SetExerciseWeights from "./SetExerciseWeights/SetExerciseWeights";
+import { exerciseTypeUIStringBrief, equipmentTypeUIString } from "@/uiStrings";
+import SetExercisePreferences from "./SetExerciseWeights/SetExercisePreferences";
 import { getExercisesByEquipment } from "@/util";
 
 // Use the generated type for the get_user_preferences function result
@@ -30,32 +28,17 @@ type UserPreferencesRow =
   Database["public"]["Functions"]["get_user_preferences"]["Returns"][number];
 
 interface PreferencesClientProps {
-  userId: string;
-  userPreferencesRows: UserPreferencesRow[];
+  userPreferencesRows: Database["public"]["Functions"]["get_user_preferences"]["Returns"];
 }
 
 const PreferencesClient: React.FC<PreferencesClientProps> = (props) => {
-  const { userId, userPreferencesRows } = props;
+  const { userPreferencesRows } = props;
 
   // General preferences from the first row (invariant: always exists)
   const generalPreferences = {
-    preferredWeightUnit: userPreferencesRows[0].preferred_weight_unit,
-    defaultRestTimeSeconds: userPreferencesRows[0].default_rest_time_seconds,
+    preferredWeightUnit:
+      userPreferencesRows[0]?.preferred_weight_unit ?? "pounds",
   };
-
-  // Map exercise weights for display
-  const exerciseWeights: Record<
-    string,
-    { oneRepMax?: number; targetMax?: number }
-  > = {};
-  for (const row of userPreferencesRows) {
-    if (row.exercise_type) {
-      exerciseWeights[row.exercise_type] = {
-        oneRepMax: row.one_rep_max_value ?? undefined,
-        targetMax: row.target_max_value ?? undefined,
-      };
-    }
-  }
 
   // Equipment filter chips and search state
   const equipmentGroups = getExercisesByEquipment();
@@ -66,35 +49,28 @@ const PreferencesClient: React.FC<PreferencesClientProps> = (props) => {
 
   // All exercise types
   const allExerciseTypes = React.useMemo(
-    () =>
-      Object.values(
-        Constants.public.Enums.exercise_type_enum
-      ) as Database["public"]["Enums"]["exercise_type_enum"][],
+    () => Constants.public.Enums.exercise_type_enum,
     []
   );
 
-  // Filter by equipment
-  const filteredByEquipment = React.useMemo(() => {
+  // Filter userPreferencesRows by selected equipment and search
+  const filteredRows = React.useMemo(() => {
     if (selectedEquipment.length === 0) return [];
-    return allExerciseTypes.filter((ex) => {
-      return allEquipmentTypes.some(
-        (eq) =>
-          selectedEquipment.includes(eq) &&
-          equipmentGroups[eq as keyof typeof equipmentGroups].includes(ex)
-      );
-    });
-  }, [selectedEquipment, allExerciseTypes, allEquipmentTypes, equipmentGroups]);
-
-  // Filter by search (enum or friendly name)
-  const filtered = React.useMemo(() => {
-    if (!search.trim()) return filteredByEquipment;
     const lower = search.toLowerCase();
-    return filteredByEquipment.filter(
-      (ex: Database["public"]["Enums"]["exercise_type_enum"]) =>
-        ex.toLowerCase().includes(lower) ||
-        exerciseTypeUIStringBrief(ex).toLowerCase().includes(lower)
-    );
-  }, [filteredByEquipment, search]);
+    return userPreferencesRows.filter((row) => {
+      const eq = Object.entries(equipmentGroups).find(([, exercises]) =>
+        (exercises as string[]).includes(row.exercise_type!)
+      )?.[0];
+      const matchesEquipment = eq && selectedEquipment.includes(eq);
+      const matchesSearch =
+        !search.trim() ||
+        row.exercise_type!.toLowerCase().includes(lower) ||
+        exerciseTypeUIStringBrief(row.exercise_type!)
+          .toLowerCase()
+          .includes(lower);
+      return matchesEquipment && matchesSearch;
+    });
+  }, [selectedEquipment, userPreferencesRows, equipmentGroups, search]);
 
   return (
     <Stack spacing={3} sx={{ maxWidth: 800, mx: "auto", p: 2 }}>
@@ -119,14 +95,6 @@ const PreferencesClient: React.FC<PreferencesClientProps> = (props) => {
                 <MenuItem value="kilograms">Kilograms</MenuItem>
               </Select>
             </FormControl>
-
-            <TextField
-              label="Default Rest Time (seconds)"
-              type="number"
-              value={generalPreferences.defaultRestTimeSeconds}
-              fullWidth
-              // read-only
-            />
           </Stack>
         </CardContent>
       </Card>
@@ -150,11 +118,12 @@ const PreferencesClient: React.FC<PreferencesClientProps> = (props) => {
             have actually lifted. For example, with the 5/3/1 program, you
             typically set your target max to 90% of your 1 rep max, and then
             calculate your weight for exercises to do off of that. Since you
-            don't do a true 1 rep max day that ofen, your target max will start
-            to get closer to your highest 1 rep max. That is okay, just use that
-            as a guide for when you're ready to have another 1 rep max day.
+            don&apos;t do a true 1 rep max day that ofen, your target max will
+            start to get closer to your highest 1 rep max. That is okay, just
+            use that as a guide for when you&apos;re ready to have another 1 rep
+            max day.
           </Typography>
-          <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 2 }}>
+          <Stack spacing={3}>
             <TextField
               label="Search exercise"
               value={search}
@@ -162,44 +131,61 @@ const PreferencesClient: React.FC<PreferencesClientProps> = (props) => {
               size="small"
               sx={{ minWidth: 200 }}
               InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">🔍</InputAdornment>
-                ),
+                endAdornment: search ? (
+                  <InputAdornment position="end">
+                    <IconButton
+                      size="small"
+                      aria-label="Clear search"
+                      onClick={() => setSearch("")}
+                      edge="end">
+                      <CloseIcon fontSize="small" />
+                    </IconButton>
+                  </InputAdornment>
+                ) : null,
               }}
             />
-            {allEquipmentTypes.map((eq) => (
+            <Stack
+              direction="row"
+              useFlexGap
+              flexWrap="wrap"
+              spacing={1}
+              alignItems="center"
+              sx={{ mt: 1 }}>
+              {allEquipmentTypes.map((eq) => (
+                <Chip
+                  key={eq}
+                  label={equipmentTypeUIString(
+                    eq as Database["public"]["Enums"]["equipment_type_enum"]
+                  )}
+                  color={selectedEquipment.includes(eq) ? "primary" : "default"}
+                  onClick={() => {
+                    setSelectedEquipment((prev) =>
+                      prev.includes(eq)
+                        ? prev.filter((e) => e !== eq)
+                        : [...prev, eq]
+                    );
+                  }}
+                  variant={
+                    selectedEquipment.includes(eq) ? "filled" : "outlined"
+                  }
+                />
+              ))}
               <Chip
-                key={eq}
-                label={eq.charAt(0).toUpperCase() + eq.slice(1)}
-                color={selectedEquipment.includes(eq) ? "primary" : "default"}
-                onClick={() => {
-                  setSelectedEquipment((prev) =>
-                    prev.includes(eq)
-                      ? prev.filter((e) => e !== eq)
-                      : [...prev, eq]
-                  );
-                }}
-                variant={selectedEquipment.includes(eq) ? "filled" : "outlined"}
+                label="Clear Filters"
+                color="error"
+                onClick={() => setSelectedEquipment([])}
+                variant="outlined"
+                sx={{ ml: 1 }}
+              />
+            </Stack>
+            {filteredRows.map((row) => (
+              <SetExercisePreferences
+                key={row.exercise_type as string}
+                {...row}
+                exercise_type={row.exercise_type!}
+                default_rest_time_seconds={row.default_rest_time_seconds!}
               />
             ))}
-          </Stack>
-          <Stack spacing={3}>
-            {filtered.map(
-              (
-                exerciseType: Database["public"]["Enums"]["exercise_type_enum"]
-              ) => {
-                const weights = exerciseWeights[exerciseType];
-                return (
-                  <SetExerciseWeights
-                    key={exerciseType}
-                    exerciseType={exerciseType}
-                    oneRepMax={weights?.oneRepMax}
-                    targetMax={weights?.targetMax}
-                    weightUnit={generalPreferences.preferredWeightUnit}
-                  />
-                );
-              }
-            )}
           </Stack>
         </CardContent>
       </Card>

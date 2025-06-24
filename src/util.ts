@@ -1,58 +1,13 @@
-import { createClient } from "@supabase/supabase-js";
-import { redirect } from "next/navigation";
-import { Session } from "next-auth";
 import { Constants, Database } from "@/database.types";
 
-// Stryker disable all
-export const getSupabaseClient = () => {
-  return createClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  );
-};
-// Stryker restore all
-
-export function requireId(
-  session: Session | null,
-  currentPath: string,
-): string {
-  const id = session?.user?.id;
-  if (!id) {
-    const encoded = encodeURIComponent(currentPath);
-    redirect(`/login?redirect-uri=${encoded}`);
-  }
-  return id;
-}
-
 /**
- * Calculates the minimal set of plates needed to achieve a target weight for one side of a barbell or a single dumbbell.
+ * Determines the corresponding equipment for a given lift type.
  *
- * This function assumes that the `availablePlates` array is sorted in descending order of weight.
- * It greedily selects the largest possible plates to make up the `targetWeight`.
- * If the `targetWeight` cannot be exactly achieved with the `availablePlates`,
- * the function will return the plates that sum up to the closest weight less than or equal to the `targetWeight`.
- *
- * @param targetWeight The desired weight to achieve (e.g., for one side of a barbell, or a single dumbbell weight).
- * @param availablePlates An array of numbers representing the weights of available plates, sorted in descending order.
- * @returns An array of numbers representing the plates selected to make up the target weight. The array will contain duplicates if multiple plates of the same weight are needed.
+ * @param lift_type The type of the exercise (e.g., "barbell_deadlift").
+ * @returns The equipment type that corresponds to the given lift type.
  */
-export function minimalPlates(
-  targetWeight: number,
-  availablePlates: number[],
-): number[] {
-  let remaining = targetWeight;
-  const result: number[] = [];
-  for (const plate of availablePlates) {
-    while (remaining >= plate) {
-      result.push(plate);
-      remaining -= plate;
-    }
-  }
-  return result;
-}
-
 export function correspondingEquipment(
-  lift_type: Database["public"]["Enums"]["exercise_type_enum"],
+  lift_type: Database["public"]["Enums"]["exercise_type_enum"]
 ): Database["public"]["Enums"]["equipment_type_enum"] {
   switch (lift_type) {
     case "barbell_deadlift":
@@ -97,6 +52,33 @@ export function correspondingEquipment(
     }
     // Stryker restore all
   }
+}
+
+/**
+ * Calculates the minimal set of plates needed to achieve a target weight for one side of a barbell or a single dumbbell.
+ *
+ * This function assumes that the `availablePlates` array is sorted in descending order of weight.
+ * It greedily selects the largest possible plates to make up the `targetWeight`.
+ * If the `targetWeight` cannot be exactly achieved with the `availablePlates`,
+ * the function will return the plates that sum up to the closest weight less than or equal to the `targetWeight`.
+ *
+ * @param targetWeight The desired weight to achieve (e.g., for one side of a barbell, or a single dumbbell weight).
+ * @param availablePlates An array of numbers representing the weights of available plates, sorted in descending order.
+ * @returns An array of numbers representing the plates selected to make up the target weight. The array will contain duplicates if multiple plates of the same weight are needed.
+ */
+export function minimalPlates(
+  targetWeight: number,
+  availablePlates: number[]
+): number[] {
+  let remaining = targetWeight;
+  const result: number[] = [];
+  for (const plate of availablePlates) {
+    while (remaining >= plate) {
+      result.push(plate);
+      remaining -= plate;
+    }
+  }
+  return result;
 }
 
 export const getExercisesByEquipment = (): Record<

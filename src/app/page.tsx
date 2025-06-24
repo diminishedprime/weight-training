@@ -11,17 +11,22 @@ export default function Home() {
           component={Link}
           href="/exercise"
           variant="contained"
-          color="primary"
-        >
+          color="primary">
           Exercises
         </Button>
         <Button
           component={Link}
           href="/superblock"
           variant="contained"
-          color="primary"
-        >
+          color="primary">
           Superblock
+        </Button>
+        <Button
+          component={Link}
+          href="/preferences"
+          variant="contained"
+          color="primary">
+          Preferences
         </Button>
       </Stack>
     </>

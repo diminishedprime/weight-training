@@ -66,11 +66,11 @@ BEGIN
         IF v_ratios[v_idx] = 0 THEN
             v_working_weight := v_bar_weight;
         ELSE
-            v_working_weight := public.normalize_bar_weight(round(p_training_max * v_ratios[v_idx]));
+            v_working_weight := public.normalize_bar_weight_pounds(round(p_training_max * v_ratios[v_idx]));
         END IF;
-        -- Insert weight row (if not null)
+        -- Get or insert weight row (if not null)
         IF v_working_weight IS NOT NULL THEN
-            INSERT INTO public.weights (weight_value, weight_unit) VALUES (v_working_weight, 'pounds') RETURNING id INTO v_weight_id;
+            v_weight_id := public.get_weight(v_working_weight, 'pounds');
         ELSE
             v_weight_id := NULL;
         END IF;

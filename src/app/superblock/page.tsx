@@ -1,14 +1,12 @@
-import { auth } from "@/auth";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { requireId } from "@/util";
+import { requireLoggedInUser } from "@/serverUtil";
 import { Stack, Typography } from "@mui/material";
 import AddLegDay from "@/app/superblock/_components/AddLegDay";
 import SuperblockTableWrapper from "@/app/superblock/_components/SuperblockTableWrapper";
 import NewSuperblock from "@/app/superblock/_components/NewSuperblock/index";
 
 export default async function SuperblockPage() {
-  const session = await auth();
-  const userId = requireId(session, "/superblock");
+  const { userId } = await requireLoggedInUser("/superblock");
   return (
     <>
       <Breadcrumbs pathname="/superblock" />

@@ -1,8 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { auth } from "@/auth";
-import { getSupabaseClient, requireId } from "@/util";
+import { requireLoggedInUser, getSupabaseClient } from "@/serverUtil";
 
 /**
  * Adds a new superblock to the exercise_superblock table using Supabase.
@@ -14,13 +13,12 @@ export async function addNewSuperblock(params: {
   notes?: string;
 }) {
   "use server";
-  const session = await auth();
-  const id = requireId(session, "/superblock");
+  const { userId } = await requireLoggedInUser("/superblock");
   const supabase = getSupabaseClient();
   const result = await supabase
     .from("exercise_superblock")
     .insert({
-      user_id: id,
+      user_id: userId,
       name: params.name,
       notes: params.notes,
     })

@@ -1,8 +1,7 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Constants, Database } from "@/database.types";
-import { auth } from "@/auth";
-import { requireId } from "@/util";
+import { requireLoggedInUser } from "@/serverUtil";
 import { notFound } from "next/navigation";
 import { addRandomLiftAction } from "./actions";
 import AddRandomLiftButton from "./AddRandomLiftButton";
@@ -23,7 +22,7 @@ export default async function Home({
 
   if (
     Constants.public.Enums.exercise_type_enum.find(
-      (a) => a === unnarrowed_lift_type,
+      (a) => a === unnarrowed_lift_type
     ) === undefined
   ) {
     return notFound();
@@ -32,8 +31,7 @@ export default async function Home({
   const exercise_type =
     unnarrowed_lift_type as Database["public"]["Enums"]["exercise_type_enum"];
 
-  const session = await auth();
-  const id = requireId(session, `/exercise/${exercise_type}`);
+  const { userId } = await requireLoggedInUser(`/exercise/${exercise_type}`);
 
   return (
     <>
@@ -52,7 +50,7 @@ export default async function Home({
           addRandomLift={addRandomLiftAction.bind(null, exercise_type)}
         />
         <Suspense fallback={<div>Loading lifts...</div>}>
-          <ExercisesTableWrapper userId={id} lift_type={exercise_type} />
+          <ExercisesTableWrapper userId={userId} lift_type={exercise_type} />
         </Suspense>
       </Stack>
     </>

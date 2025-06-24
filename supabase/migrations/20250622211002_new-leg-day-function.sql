@@ -33,16 +33,12 @@ BEGIN
         RAISE EXCEPTION 'Kilogram support not yet implemented';
     END IF;
     
-    -- 1. Create weight record for training max
-    INSERT INTO public.weights (weight_value, weight_unit) 
-    VALUES (target_max, target_max_weight_unit) 
-    RETURNING id INTO v_training_max_weight_id;
+    -- 1. Get or insert weight record for training max
+    v_training_max_weight_id := public.get_weight(target_max, target_max_weight_unit);
     
-    -- 2. Create weight record for increase amount if provided
+    -- 2. Get or insert weight record for increase amount if provided
     IF increase_amount IS NOT NULL THEN
-        INSERT INTO public.weights (weight_value, weight_unit) 
-        VALUES (increase_amount, target_max_weight_unit) 
-        RETURNING id INTO v_increase_amount_weight_id;
+        v_increase_amount_weight_id := public.get_weight(increase_amount, target_max_weight_unit);
     END IF;
     
     -- 3. Create wendler metadata
@@ -90,13 +86,11 @@ BEGIN
         IF v_ratios[v_idx] = 0 THEN
             v_working_weight := v_bar_weight;
         ELSE
-            v_working_weight := public.normalize_bar_weight(round(target_max * v_ratios[v_idx]));
+            v_working_weight := public.normalize_bar_weight_pounds(round(target_max * v_ratios[v_idx]));
         END IF;
         
-        -- Insert weight row
-        INSERT INTO public.weights (weight_value, weight_unit) 
-        VALUES (v_working_weight, target_max_weight_unit) 
-        RETURNING id INTO v_weight_id;
+        -- Get or insert weight row
+        v_weight_id := public.get_weight(v_working_weight, target_max_weight_unit);
         
         -- Insert exercise
         INSERT INTO public.exercises (
@@ -157,7 +151,7 @@ BEGIN
         
         -- Calculate intelligent default weight based on exercise type and main lift
         v_working_weight := CASE v_idx
-            WHEN 1 THEN public.normalize_bar_weight(round(target_max * 0.75)) -- Front squat ~75% of back squat
+            WHEN 1 THEN public.normalize_bar_weight_pounds(round(target_max * 0.75)) -- Front squat ~75% of back squat
             WHEN 2 THEN round(target_max * 1.5) -- Leg press ~150% of back squat (machine advantage)
             WHEN 3 THEN round(target_max * 0.4) -- Leg extension ~40% of back squat
             WHEN 4 THEN round(target_max * 0.3) -- Abdominal ~30% of back squat
@@ -166,9 +160,7 @@ BEGIN
         END;
         
         -- Create weight record with intelligent default
-        INSERT INTO public.weights (weight_value, weight_unit) 
-        VALUES (v_working_weight, target_max_weight_unit) 
-        RETURNING id INTO v_weight_id;
+        v_weight_id := public.get_weight(v_working_weight, target_max_weight_unit);
         
         -- Insert exercise with intelligent default weight (user can modify)
         INSERT INTO public.exercises (
