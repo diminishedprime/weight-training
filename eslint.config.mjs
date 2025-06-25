@@ -17,6 +17,19 @@ const eslintConfig = [
         "error",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
+      // Enforce imports start with a library or @
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: ["./*", "../*"],
+              message:
+                "Use absolute imports (from a library or starting with @) instead of relative imports.",
+            },
+          ],
+        },
+      ],
     },
   },
 ];

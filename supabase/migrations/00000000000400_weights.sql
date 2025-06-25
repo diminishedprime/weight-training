@@ -18,19 +18,17 @@ END$$;
 --   weight_value (numeric(5,1)): The numeric value of the weight, rounded to 1 decimal place.
 --   weight_unit (weight_unit_enum): The unit of the weight (pounds or kilograms).
 -- Usage: Referenced by exercises and user metadata to track weights in a normalized way.
-CREATE TABLE IF NOT EXISTS public.weights
-(
-    id uuid NOT NULL DEFAULT uuid_generate_v4(),
-    weight_value numeric(5, 1) NOT NULL,
-    weight_unit weight_unit_enum NOT NULL DEFAULT 'pounds',
-    CONSTRAINT weights_pkey PRIMARY KEY (id),
-    CONSTRAINT weights_value_unit_unique UNIQUE (weight_value, weight_unit)
+CREATE TABLE IF NOT EXISTS public.weights (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  weight_value numeric(5, 1) NOT NULL,
+  weight_unit weight_unit_enum NOT NULL DEFAULT 'pounds',
+  CONSTRAINT weights_pkey PRIMARY KEY (id),
+  CONSTRAINT weights_value_unit_unique UNIQUE (weight_value, weight_unit)
 );
 
 -- Trigger function to round weight_value to 1 decimal place
 -- Ensures all weights are stored consistently for uniqueness and lookup.
-CREATE OR REPLACE FUNCTION public.round_weight_value()
-RETURNS TRIGGER AS $$
+CREATE OR REPLACE FUNCTION public.round_weight_value () RETURNS TRIGGER AS $$
 BEGIN
   NEW.weight_value := ROUND(NEW.weight_value::numeric, 1);
   RETURN NEW;
@@ -39,9 +37,11 @@ $$ LANGUAGE plpgsql;
 
 -- Attach trigger to weights table
 DROP TRIGGER IF EXISTS trg_round_weight_value ON public.weights;
-CREATE TRIGGER trg_round_weight_value
-BEFORE INSERT OR UPDATE ON public.weights
-FOR EACH ROW EXECUTE FUNCTION public.round_weight_value();
+
+CREATE TRIGGER trg_round_weight_value BEFORE INSERT
+OR
+UPDATE ON public.weights FOR EACH ROW
+EXECUTE FUNCTION public.round_weight_value ();
 
 -- Index for fast lookup by (weight_value, weight_unit)
 -- This supports extremely frequent get-or-insert operations.
@@ -55,9 +55,9 @@ CREATE INDEX IF NOT EXISTS idx_weights_value_unit ON public.weights (weight_valu
 -- Returns:
 --   uuid: The id of the weight row for the given value/unit.
 -- Usage: Used by application logic and other stored procedures to ensure a single canonical row for each unique weight/unit combination.
-CREATE OR REPLACE FUNCTION public.get_weight(
-    p_weight_value numeric,
-    p_weight_unit weight_unit_enum
+CREATE OR REPLACE FUNCTION public.get_weight (
+  p_weight_value numeric,
+  p_weight_unit weight_unit_enum
 ) RETURNS uuid AS $$
 DECLARE
     v_id uuid;

@@ -19,7 +19,14 @@ export default async function RootLayout({
         <AppRouterCacheProvider>
           <CssBaseline />
           <Banner />
-          <Stack sx={{ p: 1 }}>{children}</Stack>
+          <Stack
+            sx={{
+              maxWidth: "800px",
+              mx: "auto",
+              px: 2,
+            }}>
+            {children}
+          </Stack>
         </AppRouterCacheProvider>
       </body>
     </html>

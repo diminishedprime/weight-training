@@ -1,96 +1,57 @@
 # Copilot Instructions
 
-This project is a next.js application that uses Typescript and Material UI.
+This project is a Next.js application using TypeScript and Material UI, with a
+focus on mobile-first, maintainable, and type-safe code. Follow these summarized
+standards:
 
-## Coding Standards
+## UI & Component Standards
 
-- Use vitest for testing.
-- All code should be well-commented
-- All code should have clear types, with documentation for each field of the
-  type.
-- Only use mocks when dealing with external dependencies. Try to avoid mocks
-  whenever reasonable.
-- never use relative imports, always use imports relative to `@/` unless there
-  is no way to work without relative imports.
-- prefer defining components as `const function_name = () => { ... }`
-- avoid using `function function_name() { ... }` for any functions, instead
-  prefer named consts.
-- try to avoid providing values if they're the default values
-  - for example, don't write `variant="text"` if the default variant is text
-- prefer to keep code files relatively short. If a file is getting long (> 150
-  lines), consider splitting it into smaller components or files.
-- Don't use `inputProps`, they're deprecated in the version of MUI we're using.
-- Whenever you need to use a client-side hook (like `useState`, `useEffect`,
-  etc.), make sure to add `use client` at the top.
-  - If you need to use server functionality such as querying the database, or
-    `useSession`, create a wrapper component of the same name called
-    `ServerComponentName`.
-- If you need to use a server action, put it in a file in the same component
-  called `actions.ts`
-  - If you're doing that in a component that is in the `src/components/`
-    directory, put the actions in `src/components/ComponentName/actions.ts`
-- Minimize the amount of css that you're using. Prefer using default MUI
-  components. When you need to use flex, etc. use the prop directly instead of
-  using `sx` if possible.
-- This is primarily a mobile application, so make sure styles look good on
-  mobile devices and account for the smaller screen size.
-  - Make frequent use of automatic wrapping, such as using `flexWrap: 'wrap'` in
-    flexbox containers.
-- Prefer using the variable name `props` and then dustructuring in the body of
-  the function instead of destructuring in the function signature.
-- Prefer using `Stack` over `Box` for layout purposes.
-  - When using `Stack`, also use `useFlexGap` if any children will need a
-    top-margin.
-- Only use the `any` type as a last resort. If you need to use it, add a comment
-  explaining why.
-- Prefer explictly typing react components with definitions such as
-  `React.FC<PropType>`
-- Prefer export default over named exports.
-- Whenever a component needs logic outside of display, such as useState, etc.,
-  pull that out into a hook.
-  - This hook should use an `api` style, and when used it shouldn't be
-    dustructured, but instead used as `const componentAPI = useComponentAPI()`
-    and then `componentAPI.field`, etc. for use.
-- You should run prettier when you save a file to make sure it's formatted
-  consistently.
-- never change source and test files at the same time without a good reason.
-  Generally speaking you want to be changing only tests, or only source code.
-  - It's okay when changing source code that the tests may need to be updated,
-    but we will do that separately if needed.
-- Use stryker ignore and stryker restore when using exhaustiveness checks in
-  switch statements.
-- Tests should avoid complex logic and instead focus on the expected behavior of
-  the component.
-  - This sometimes means being more verbose instead of using shorthand methods,
-    or iterating over arrays.
-  ```Typescript
-    // Stryker disable all
-    default: {
-      // This will cause a type error if a new enum value is added and not handled
-      const _exhaustiveCheck: never = lift_type;
-      return _exhaustiveCheck;
-    }
-    // Stryker restore all
-  ```
-- Before and after making changes, run the tests to ensure everything is working
-  correctly.
-- If you changes break tests, talk to me about it and give me options about what
-  we want to change to account for that.
-- Absolutely never add tests to non-integration test files. All tests must go in
-  integration test files (e.g., `*.integration.test.tsx`).
+- Use absolute imports (with `@/`), never relative imports.
+- Prefer `const functionName = () => {}` for components and functions.
+- Use `Stack` for layout (never `Box`), and minimal custom CSS.
+- All logic/state for a component should be in a local hook named
+  `use{ComponentName}API`, used as `const api = use{ComponentName}API()`. All
+  event handlers (e.g., `onClick`) should be provided by this hook and wrapped
+  in `useCallback`.
+- Mark client components with `"use client"` at the top.
+- Use explicit types and document all fields.
+- Keep files under 150 lines; split if needed.
+- Prefer export default, and use `React.FC<PropType>` for component typing.
+- Only use `any` as a last resort, with a comment.
+- Place page-specific components in a `_components` directory within the page
+  folder; general-purpose components go in `components/`.
 
-## Project hints
+## Forms & Server Actions
 
-To run mutation tests on a subset of files, use the following command:
+- Use MUI components for forms, with `component="form"` on `Stack`.
+- Use server actions (with `"use server"`) for mutations, called directly or
+  with `.bind` from the client.
 
-```bash
-pnpm run test:mutation --mutate src/components/BarbellEditor/useBarbellEditor.ts
-```
+## Testing
 
-adjusting the path to the file as needed.
+- Use `vitest` for integration/flow-based tests, not isolated component tests
+  unless necessary.
+- Only mock external dependencies; use real implementations for internal
+  logic/UI.
+- Use `data-testid` for test targeting.
+- Restore all mocks before each test; use `waitFor` and `act` for async UI
+  updates.
+- All tests must be in `*.integration.test.tsx` unless testing a utility/hook.
 
-To run fast coverage tests, use the following command:
+## Database
 
-```bash
-pnpm run test:coverage
-```
+- Follow domain-driven design and composability (see `DATABASE_STRATEGY.md`).
+- Use enums for domain values, join tables for many-to-many, and stored
+  procedures for business logic.
+- All migrations and database code must be well-commented.
+- Write flow-based tests for stored procedures and user flows, not just
+  tables/columns.
+- Use PGTap for database tests; all test files must use a sortable numeric
+  prefix.
+
+## General
+
+- Never change source and test files at the same time unless necessary.
+- If a change breaks tests, discuss options before proceeding.
+
+For details, see the full strategy docs in `/docs`

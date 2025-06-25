@@ -56,6 +56,16 @@ in this project:
 - Use clear, descriptive names for tables, types, and functions, prefixed by
   domain (e.g., `public.create_exercise`).
 
+## Test File Naming Convention
+
+- All test files in `supabase/tests` must use a sortable, all-zeros numeric
+  prefix (e.g., `800_update_user_target_max_test.sql`).
+- This matches the migration or feature they test, ensures clear ordering, and
+  makes it easy to map tests to migrations.
+- Example test files:
+  - `100_normalize-bar-weight_test.sql`
+  - `800_update_user_target_max_test.sql`
+
 ## Additional Guidelines
 
 - Prefer enums and composite types for clarity and type safety.

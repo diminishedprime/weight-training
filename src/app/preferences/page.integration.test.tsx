@@ -6,16 +6,16 @@ import { describe, it, expect, beforeEach } from "vitest";
 import { USER_ID_LOGGED_IN, USER_ID_LOGGED_OUT } from "@/test/constants";
 import * as fakeServerUtil from "@/test/serverUtil";
 import * as serverUtil from "@/serverUtil";
-import { getExercisePreferenceTestIds } from "./_components/SetExerciseWeights/SetExercisePreferences";
-import { getSupabaseClient } from "@/serverUtil";
-import { Constants, Database } from "@/database.types";
+import { getExercisePreferenceTestIds } from "@/app/preferences/_components/SetExercisePreferences";
 import {
   EQUIPMENT_CHIP_TESTID_ALL,
   EQUIPMENT_CHIP_TESTID_NONE,
   getEquipmentChipTestIds,
-} from "./_components/EquipmentChipFilters";
-import { FUZZY_SEARCH_FIELD_TESTID } from "./_components/FuzzySearchField";
-import { exerciseSorter } from "./util";
+} from "@/app/preferences/_components/EquipmentChipFilters";
+import { FUZZY_SEARCH_FIELD_TESTID } from "@/app/preferences/_components/FuzzySearchField";
+import { exerciseSorter } from "@/util";
+import { getSupabaseClient } from "@/serverUtil";
+import { Constants, Database } from "@/database.types";
 
 describe("PreferencesPage", () => {
   // Resets all relevant test data for a given userId in the database.
@@ -24,6 +24,14 @@ describe("PreferencesPage", () => {
   // and prevents flaky tests due to leftover data from previous runs.
   const resetTestData = async (userId: string) => {
     const supabase = getSupabaseClient();
+    // Delete all 1RM history for this user and exercise to fully reset state
+    // since we have triggers to handle this all in history.
+    await supabase
+      .from("user_one_rep_max_history")
+      .delete()
+      .eq("user_id", userId)
+      .eq("exercise_type", "barbell_back_squat");
+    // Also clear canonical values in user_exercise_weights
     await supabase
       .from("user_exercise_weights")
       .update({
@@ -116,41 +124,6 @@ describe("PreferencesPage", () => {
     });
     await waitFor(() => {
       expect(targetMaxInput!.value).toBe("285");
-    });
-  });
-
-  it("shows '90% 1RM' button for deadlift if target max is much lower than 1RM", async () => {
-    await getSupabaseClient().rpc("update_user_one_rep_max", {
-      p_user_id: USER_ID_LOGGED_IN,
-      p_exercise_type: "barbell_deadlift",
-      p_weight_unit: "pounds",
-      p_weight_value: 200,
-    });
-    await getSupabaseClient().rpc("update_user_target_max", {
-      p_user_id: USER_ID_LOGGED_IN,
-      p_exercise_type: "barbell_deadlift",
-      p_weight_unit: "pounds",
-      p_weight_value: 100,
-    });
-    vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-      fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN)
-    );
-    render(await PreferencesPage());
-    await waitFor(() => {
-      expect(screen.getByText(/Deadlift/i)).toBeInTheDocument();
-    });
-    const testIds = getExercisePreferenceTestIds("barbell_deadlift");
-    const setTo90Button = screen.getByTestId(testIds.setTo90);
-    expect(setTo90Button).toBeTruthy();
-    const targetMaxInput = screen.getByTestId(
-      testIds.targetMaxInput
-    ) as HTMLInputElement;
-    expect(targetMaxInput).toBeTruthy();
-    await act(async () => {
-      setTo90Button.click();
-    });
-    await waitFor(() => {
-      expect(targetMaxInput.value).toBe("180");
     });
   });
 

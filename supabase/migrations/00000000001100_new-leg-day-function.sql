@@ -1,17 +1,12 @@
 -- TODO this needs to be updated to account for the new user-metadata, but I
 -- haven't gotten there yet.
-
-CREATE OR REPLACE FUNCTION public.new_leg_day(
-    target_max numeric(6,2),
-    target_max_weight_unit weight_unit_enum,
-    user_id uuid,
-    wendler_type wendler_cycle_type_enum,
-    increase_amount numeric(5,2) DEFAULT NULL
-)
-RETURNS uuid
-LANGUAGE plpgsql
-SECURITY DEFINER
-AS $$
+CREATE OR REPLACE FUNCTION public.new_leg_day (
+  target_max numeric(6, 2),
+  target_max_weight_unit weight_unit_enum,
+  user_id uuid,
+  wendler_type wendler_cycle_type_enum,
+  increase_amount numeric(5, 2) DEFAULT NULL
+) RETURNS uuid LANGUAGE plpgsql SECURITY DEFINER AS $$
 DECLARE
     v_wendler_metadata_id uuid;
     v_main_block_id uuid;

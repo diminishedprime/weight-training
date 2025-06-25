@@ -1,9 +1,9 @@
 -- Function: add_leg_day_superblock
 -- Creates a superblock for leg day with a Wendler block and three machine blocks (5x15)
-CREATE OR REPLACE FUNCTION public.add_leg_day_superblock(
-    p_user_id uuid,
-    p_training_max numeric,
-    p_wendler_cycle wendler_cycle_type_enum
+CREATE OR REPLACE FUNCTION public.add_leg_day_superblock (
+  p_user_id uuid,
+  p_training_max numeric,
+  p_wendler_cycle wendler_cycle_type_enum
 ) RETURNS uuid AS $$
 DECLARE
     v_superblock_id uuid := uuid_generate_v4();

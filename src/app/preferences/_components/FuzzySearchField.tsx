@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Stack,
@@ -11,9 +13,15 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
 export const FUZZY_SEARCH_FIELD_TESTID = "fuzzy-search-field";
 
-interface SearchFieldProps {
+/**
+ * Props for FuzzySearchField component.
+ * @property value - The current value of the search field.
+ * @property onChange - Callback when the search value changes. Receives the change event from the input.
+ * @property onClear - Callback to clear the search field.
+ */
+export interface SearchFieldProps {
   value: string;
-  onChange: (value: string) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClear: () => void;
 }
 
@@ -26,9 +34,9 @@ const FuzzySearchField: React.FC<SearchFieldProps> = ({
     <TextField
       label="Fuzzy search exercise"
       value={value}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={onChange}
       size="small"
-      sx={{ minWidth: 200, flexGrow: 1 }}
+      sx={{ flexGrow: 1 }}
       inputProps={{ "data-testid": FUZZY_SEARCH_FIELD_TESTID }}
       InputProps={{
         endAdornment: value ? (

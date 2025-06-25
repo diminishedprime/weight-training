@@ -7,180 +7,6 @@ export type Json =
   | Json[]
 
 export type Database = {
-  graphql_public: {
-    Tables: {
-      [_ in never]: never
-    }
-    Views: {
-      [_ in never]: never
-    }
-    Functions: {
-      graphql: {
-        Args: {
-          operationName?: string
-          query?: string
-          variables?: Json
-          extensions?: Json
-        }
-        Returns: Json
-      }
-    }
-    Enums: {
-      [_ in never]: never
-    }
-    CompositeTypes: {
-      [_ in never]: never
-    }
-  }
-  next_auth: {
-    Tables: {
-      accounts: {
-        Row: {
-          access_token: string | null
-          expires_at: number | null
-          id: string
-          id_token: string | null
-          oauth_token: string | null
-          oauth_token_secret: string | null
-          provider: string
-          providerAccountId: string
-          refresh_token: string | null
-          scope: string | null
-          session_state: string | null
-          token_type: string | null
-          type: string
-          userId: string | null
-        }
-        Insert: {
-          access_token?: string | null
-          expires_at?: number | null
-          id?: string
-          id_token?: string | null
-          oauth_token?: string | null
-          oauth_token_secret?: string | null
-          provider: string
-          providerAccountId: string
-          refresh_token?: string | null
-          scope?: string | null
-          session_state?: string | null
-          token_type?: string | null
-          type: string
-          userId?: string | null
-        }
-        Update: {
-          access_token?: string | null
-          expires_at?: number | null
-          id?: string
-          id_token?: string | null
-          oauth_token?: string | null
-          oauth_token_secret?: string | null
-          provider?: string
-          providerAccountId?: string
-          refresh_token?: string | null
-          scope?: string | null
-          session_state?: string | null
-          token_type?: string | null
-          type?: string
-          userId?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "accounts_userId_fkey"
-            columns: ["userId"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      sessions: {
-        Row: {
-          expires: string
-          id: string
-          sessionToken: string
-          userId: string | null
-        }
-        Insert: {
-          expires: string
-          id?: string
-          sessionToken: string
-          userId?: string | null
-        }
-        Update: {
-          expires?: string
-          id?: string
-          sessionToken?: string
-          userId?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "sessions_userId_fkey"
-            columns: ["userId"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      users: {
-        Row: {
-          email: string | null
-          emailVerified: string | null
-          id: string
-          image: string | null
-          name: string | null
-        }
-        Insert: {
-          email?: string | null
-          emailVerified?: string | null
-          id?: string
-          image?: string | null
-          name?: string | null
-        }
-        Update: {
-          email?: string | null
-          emailVerified?: string | null
-          id?: string
-          image?: string | null
-          name?: string | null
-        }
-        Relationships: []
-      }
-      verification_tokens: {
-        Row: {
-          expires: string
-          identifier: string | null
-          token: string
-        }
-        Insert: {
-          expires: string
-          identifier?: string | null
-          token: string
-        }
-        Update: {
-          expires?: string
-          identifier?: string | null
-          token?: string
-        }
-        Relationships: []
-      }
-    }
-    Views: {
-      [_ in never]: never
-    }
-    Functions: {
-      uid: {
-        Args: Record<PropertyKey, never>
-        Returns: string
-      }
-    }
-    Enums: {
-      [_ in never]: never
-    }
-    CompositeTypes: {
-      [_ in never]: never
-    }
-  }
   public: {
     Tables: {
       exercise_block: {
@@ -448,6 +274,44 @@ export type Database = {
         }
         Relationships: []
       }
+      user_one_rep_max_history: {
+        Row: {
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
+          id: string
+          notes: string | null
+          recorded_at: string
+          source: Database["public"]["Enums"]["user_one_rep_max_source_enum"]
+          user_id: string
+          weight_id: string
+        }
+        Insert: {
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
+          id?: string
+          notes?: string | null
+          recorded_at?: string
+          source?: Database["public"]["Enums"]["user_one_rep_max_source_enum"]
+          user_id: string
+          weight_id: string
+        }
+        Update: {
+          exercise_type?: Database["public"]["Enums"]["exercise_type_enum"]
+          id?: string
+          notes?: string | null
+          recorded_at?: string
+          source?: Database["public"]["Enums"]["user_one_rep_max_source_enum"]
+          user_id?: string
+          weight_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_one_rep_max_history_weight_id_fkey"
+            columns: ["weight_id"]
+            isOneToOne: false
+            referencedRelation: "weights"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       weights: {
         Row: {
           id: string
@@ -554,6 +418,18 @@ export type Database = {
         }
         Returns: string
       }
+      edit_user_one_rep_max_history: {
+        Args: {
+          p_history_id: string
+          p_user_id: string
+          p_weight_value: number
+          p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"]
+          p_recorded_at: string
+          p_source: Database["public"]["Enums"]["user_one_rep_max_source_enum"]
+          p_notes: string
+        }
+        Returns: undefined
+      }
       get_exercise_blocks_for_superblock: {
         Args: { p_superblock_id: string }
         Returns: {
@@ -611,6 +487,22 @@ export type Database = {
           created_at: string
           updated_at: string
           block_count: number
+        }[]
+      }
+      get_user_one_rep_max_history: {
+        Args: {
+          p_user_id: string
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
+        }
+        Returns: {
+          id: string
+          user_id: string
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
+          weight_value: number
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"]
+          recorded_at: string
+          source: Database["public"]["Enums"]["user_one_rep_max_source_enum"]
+          notes: string
         }[]
       }
       get_user_preferences: {
@@ -672,6 +564,9 @@ export type Database = {
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"]
           p_weight_value: number
           p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"]
+          p_source?: Database["public"]["Enums"]["user_one_rep_max_source_enum"]
+          p_notes?: string
+          p_recorded_at?: string
         }
         Returns: undefined
       }
@@ -739,6 +634,12 @@ export type Database = {
         | "chinup"
         | "plate_stack_calf_raise"
       relative_effort_enum: "easy" | "okay" | "hard"
+      user_one_rep_max_source_enum:
+        | "manual"
+        | "competition"
+        | "auto"
+        | "imported"
+        | "other"
       weight_unit_enum: "pounds" | "kilograms"
       wendler_cycle_type_enum: "5" | "3" | "1" | "deload"
     }
@@ -884,12 +785,6 @@ export type CompositeTypes<
     : never
 
 export const Constants = {
-  graphql_public: {
-    Enums: {},
-  },
-  next_auth: {
-    Enums: {},
-  },
   public: {
     Enums: {
       completion_status_enum: [
@@ -937,6 +832,13 @@ export const Constants = {
         "plate_stack_calf_raise",
       ],
       relative_effort_enum: ["easy", "okay", "hard"],
+      user_one_rep_max_source_enum: [
+        "manual",
+        "competition",
+        "auto",
+        "imported",
+        "other",
+      ],
       weight_unit_enum: ["pounds", "kilograms"],
       wendler_cycle_type_enum: ["5", "3", "1", "deload"],
     },

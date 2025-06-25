@@ -7,8 +7,7 @@
 -- Usage:
 --   Used for standardizing weight values in exercise calculations and ensuring
 --   consistency in barbell math.
-CREATE OR REPLACE FUNCTION public.round_to_nearest_5(p_weight numeric)
-RETURNS numeric AS $$
+CREATE OR REPLACE FUNCTION public.round_to_nearest_5 (p_weight numeric) RETURNS numeric AS $$
 BEGIN
     RETURN ROUND(p_weight / 5.0) * 5;
 END;
@@ -22,8 +21,7 @@ $$ LANGUAGE plpgsql IMMUTABLE;
 --   numeric: The normalized barbell weight (minimum 45, rounded to nearest 5).
 -- Usage:
 --   Used to enforce a minimum barbell weight and standardize increments for barbell exercises (in pounds).
-CREATE OR REPLACE FUNCTION public.normalize_bar_weight_pounds(p_weight numeric)
-RETURNS numeric AS $$
+CREATE OR REPLACE FUNCTION public.normalize_bar_weight_pounds (p_weight numeric) RETURNS numeric AS $$
 BEGIN
     RETURN GREATEST(45, public.round_to_nearest_5(p_weight));
 END;

@@ -1,12 +1,12 @@
 -- Function: wendler_exercise_block
 -- Creates a wendler_metadata row and an exercise_block row, returning the new block id
-CREATE OR REPLACE FUNCTION public.wendler_exercise_block(
-    p_user_id uuid,
-    p_training_max numeric,
-    p_exercise_type exercise_type_enum,
-    p_cycle_type wendler_cycle_type_enum,
-    p_name text,
-    p_increase_amount numeric DEFAULT 5.0
+CREATE OR REPLACE FUNCTION public.wendler_exercise_block (
+  p_user_id uuid,
+  p_training_max numeric,
+  p_exercise_type exercise_type_enum,
+  p_cycle_type wendler_cycle_type_enum,
+  p_name text,
+  p_increase_amount numeric DEFAULT 5.0
 ) RETURNS uuid AS $$
 DECLARE
     v_wendler_metadata_id uuid := uuid_generate_v4();

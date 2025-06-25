@@ -1,3 +1,8 @@
+-- Migration: 20250607021949_exercises.sql
+-- Purpose: All exercise-related tables, types, and functions. See 20250603140001_schemas.sql for schema documentation.
+--
+-- Note: The public schema is declared and documented in 20250603140001_schemas.sql.
+--       All objects in this file are created in the public schema.
 DO $$
 BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'exercise_type_enum') THEN
@@ -64,38 +69,35 @@ BEGIN
   END IF;
 END$$;
 
-CREATE TABLE IF NOT EXISTS public.exercises
-(
-    id uuid NOT NULL DEFAULT uuid_generate_v4(),
-    user_id uuid NOT NULL,
-    exercise_type exercise_type_enum NOT NULL,
-    equipment_type equipment_type_enum NOT NULL DEFAULT 'barbell',
-    performed_at timestamp with time zone NULL,
-    weight_id uuid NOT NULL,
-    reps integer NOT NULL,
-    warmup boolean NOT NULL DEFAULT false,
-    completion_status completion_status_enum NOT NULL DEFAULT 'not_completed',
-    notes text NULL,
-    relative_effort relative_effort_enum NULL,
-    CONSTRAINT exercises_id_pkey PRIMARY KEY (id),
-    CONSTRAINT exercises_weight_id_fkey FOREIGN KEY (weight_id) 
-        REFERENCES public.weights(id) ON DELETE CASCADE,
-    CONSTRAINT exercises_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users(id) ON DELETE CASCADE
+CREATE TABLE IF NOT EXISTS public.exercises (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  user_id uuid NOT NULL,
+  exercise_type exercise_type_enum NOT NULL,
+  equipment_type equipment_type_enum NOT NULL DEFAULT 'barbell',
+  performed_at timestamp with time zone NULL,
+  weight_id uuid NOT NULL,
+  reps integer NOT NULL,
+  warmup boolean NOT NULL DEFAULT false,
+  completion_status completion_status_enum NOT NULL DEFAULT 'not_completed',
+  notes text NULL,
+  relative_effort relative_effort_enum NULL,
+  CONSTRAINT exercises_id_pkey PRIMARY KEY (id),
+  CONSTRAINT exercises_weight_id_fkey FOREIGN KEY (weight_id) REFERENCES public.weights (id) ON DELETE CASCADE,
+  CONSTRAINT exercises_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
 );
 
-
 -- Function: create_exercise
-CREATE OR REPLACE FUNCTION public.create_exercise(
-    p_user_id uuid,
-    p_exercise_type exercise_type_enum,
-    p_equipment_type equipment_type_enum,
-    p_weight_value numeric,
-    p_reps integer,
-    p_performed_at timestamptz DEFAULT NULL,
-    p_weight_unit weight_unit_enum DEFAULT 'pounds',
-    p_warmup boolean DEFAULT false,
-    p_completion_status completion_status_enum DEFAULT 'completed',
-    p_relative_effort relative_effort_enum DEFAULT NULL
+CREATE OR REPLACE FUNCTION public.create_exercise (
+  p_user_id uuid,
+  p_exercise_type exercise_type_enum,
+  p_equipment_type equipment_type_enum,
+  p_weight_value numeric,
+  p_reps integer,
+  p_performed_at timestamptz DEFAULT NULL,
+  p_weight_unit weight_unit_enum DEFAULT 'pounds',
+  p_warmup boolean DEFAULT false,
+  p_completion_status completion_status_enum DEFAULT 'completed',
+  p_relative_effort relative_effort_enum DEFAULT NULL
 ) RETURNS uuid AS $$
 DECLARE
     v_weight_id uuid;
@@ -114,25 +116,23 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-
 -- Function: get_exercises_by_type_for_user
-CREATE OR REPLACE FUNCTION public.get_exercises_by_type_for_user(
-    p_user_id uuid,
-    p_exercise_type exercise_type_enum
-)
-RETURNS TABLE (
-    exercise_id uuid,
-    user_id uuid,
-    exercise_type exercise_type_enum,
-    equipment_type equipment_type_enum,
-    performed_at timestamptz,
-    weight_value numeric,
-    weight_unit weight_unit_enum,
-    reps integer,
-    warmup boolean,
-    completion_status completion_status_enum,
-    notes text,
-    relative_effort relative_effort_enum
+CREATE OR REPLACE FUNCTION public.get_exercises_by_type_for_user (
+  p_user_id uuid,
+  p_exercise_type exercise_type_enum
+) RETURNS TABLE (
+  exercise_id uuid,
+  user_id uuid,
+  exercise_type exercise_type_enum,
+  equipment_type equipment_type_enum,
+  performed_at timestamptz,
+  weight_value numeric,
+  weight_unit weight_unit_enum,
+  reps integer,
+  warmup boolean,
+  completion_status completion_status_enum,
+  notes text,
+  relative_effort relative_effort_enum
 ) AS $$
 BEGIN
     RETURN QUERY
@@ -158,21 +158,19 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql STABLE;
 
-
-
 -- Function: update_exercise_for_user
-CREATE OR REPLACE FUNCTION public.update_exercise_for_user(
-    p_exercise_id uuid,
-    p_user_id uuid,
-    p_exercise_type exercise_type_enum,
-    p_weight_value numeric,
-    p_reps integer,
-    p_performed_at timestamptz DEFAULT NULL,
-    p_weight_unit weight_unit_enum DEFAULT 'pounds',
-    p_warmup boolean DEFAULT false,
-    p_completion_status completion_status_enum DEFAULT 'completed',
-    p_notes text DEFAULT NULL,
-    p_relative_effort relative_effort_enum DEFAULT NULL
+CREATE OR REPLACE FUNCTION public.update_exercise_for_user (
+  p_exercise_id uuid,
+  p_user_id uuid,
+  p_exercise_type exercise_type_enum,
+  p_weight_value numeric,
+  p_reps integer,
+  p_performed_at timestamptz DEFAULT NULL,
+  p_weight_unit weight_unit_enum DEFAULT 'pounds',
+  p_warmup boolean DEFAULT false,
+  p_completion_status completion_status_enum DEFAULT 'completed',
+  p_notes text DEFAULT NULL,
+  p_relative_effort relative_effort_enum DEFAULT NULL
 ) RETURNS void AS $$
 DECLARE
     v_weight_id uuid;
@@ -216,11 +214,7 @@ BEGIN
 END$$;
 
 -- Function: get_exercise_for_user
-CREATE OR REPLACE FUNCTION public.get_exercise_for_user(
-    p_user_id uuid,
-    p_exercise_id uuid
-)
-RETURNS exercise_row_type AS $$
+CREATE OR REPLACE FUNCTION public.get_exercise_for_user (p_user_id uuid, p_exercise_id uuid) RETURNS exercise_row_type AS $$
 DECLARE
     result exercise_row_type;
 BEGIN

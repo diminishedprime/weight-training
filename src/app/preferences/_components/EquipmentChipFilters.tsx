@@ -1,32 +1,78 @@
-import React from "react";
+"use client";
+
+import React, { useCallback } from "react";
 import { Stack, Typography, Chip, Tooltip, IconButton } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { Set } from "immutable";
 import { equipmentTypeUIString } from "@/uiStrings";
 import type { Database } from "@/database.types";
 
-interface EquipmentChipFiltersProps {
-  allEquipmentTypes: Database["public"]["Enums"]["equipment_type_enum"][];
-  selectedEquipment: Set<Database["public"]["Enums"]["equipment_type_enum"]>;
+/**
+ * Type alias for equipment type enum from the database.
+ */
+type EquipmentType = Database["public"]["Enums"]["equipment_type_enum"];
+
+/**
+ * Props for EquipmentChipFilters.
+ * @property allEquipmentTypes - All available equipment types.
+ * @property selectedEquipment - Currently selected equipment types.
+ * @property setSelectedEquipment - Setter for selected equipment types.
+ */
+export interface EquipmentChipFiltersProps {
+  allEquipmentTypes: EquipmentType[];
+  selectedEquipment: Set<EquipmentType>;
   setSelectedEquipment: React.Dispatch<
-    React.SetStateAction<
-      Set<Database["public"]["Enums"]["equipment_type_enum"]>
-    >
+    React.SetStateAction<Set<EquipmentType>>
   >;
 }
 
 export const EQUIPMENT_CHIP_TESTID_ALL = "equipment-type-chip-all";
 export const EQUIPMENT_CHIP_TESTID_NONE = "equipment-type-chip-none";
 
-export const getEquipmentChipTestIds = (
-  equipmentType: Database["public"]["Enums"]["equipment_type_enum"]
-) => `equipment-type-chip-${equipmentType}`;
+export const getEquipmentChipTestIds = (equipmentType: EquipmentType) =>
+  `equipment-type-chip-${equipmentType}`;
 
-const EquipmentChipFilters: React.FC<EquipmentChipFiltersProps> = ({
-  allEquipmentTypes,
-  selectedEquipment,
-  setSelectedEquipment,
-}) => {
+/**
+ * Local hook for EquipmentChipFilters logic and event handlers.
+ * @param props EquipmentChipFiltersProps
+ * @returns EquipmentChipFiltersAPI
+ */
+const useEquipmentChipFiltersAPI = (props: EquipmentChipFiltersProps) => {
+  const handleChipClick = useCallback(
+    (equipmentType: EquipmentType) => {
+      props.setSelectedEquipment((prev) =>
+        prev.has(equipmentType)
+          ? prev.remove(equipmentType)
+          : prev.add(equipmentType)
+      );
+    },
+    [props.setSelectedEquipment]
+  );
+
+  const handleAllClick = useCallback(() => {
+    props.setSelectedEquipment(Set(props.allEquipmentTypes));
+  }, [props.setSelectedEquipment, props.allEquipmentTypes]);
+
+  const handleNoneClick = useCallback(() => {
+    props.setSelectedEquipment((old) => old.clear());
+  }, [props.setSelectedEquipment]);
+
+  const isAllDisabled =
+    props.selectedEquipment.size === props.allEquipmentTypes.length;
+  const isNoneDisabled = props.selectedEquipment.size === 0;
+
+  return {
+    handleChipClick,
+    handleAllClick,
+    handleNoneClick,
+    isAllDisabled,
+    isNoneDisabled,
+  };
+};
+
+const EquipmentChipFilters: React.FC<EquipmentChipFiltersProps> = (props) => {
+  const api = useEquipmentChipFiltersAPI(props);
+
   return (
     <Stack>
       <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 1 }}>
@@ -55,19 +101,17 @@ const EquipmentChipFilters: React.FC<EquipmentChipFiltersProps> = ({
         aria-labelledby="equipment-type-label"
         role="group"
         id="equipment-type-chips">
-        {allEquipmentTypes.map((equipmentType) => (
+        {props.allEquipmentTypes.map((equipmentType) => (
           <Chip
             key={equipmentType}
             data-testid={getEquipmentChipTestIds(equipmentType)}
             label={equipmentTypeUIString(equipmentType)}
-            color={selectedEquipment.has(equipmentType) ? "primary" : "default"}
-            onClick={() => {
-              selectedEquipment.has(equipmentType)
-                ? setSelectedEquipment((prev) => prev.remove(equipmentType))
-                : setSelectedEquipment((prev) => prev.add(equipmentType));
-            }}
+            color={
+              props.selectedEquipment.has(equipmentType) ? "primary" : "default"
+            }
+            onClick={() => api.handleChipClick(equipmentType)}
             variant={
-              selectedEquipment.has(equipmentType) ? "filled" : "outlined"
+              props.selectedEquipment.has(equipmentType) ? "filled" : "outlined"
             }
           />
         ))}
@@ -75,19 +119,19 @@ const EquipmentChipFilters: React.FC<EquipmentChipFiltersProps> = ({
           label="All"
           data-testid={EQUIPMENT_CHIP_TESTID_ALL}
           color="primary"
-          onClick={() => setSelectedEquipment(Set(allEquipmentTypes))}
+          onClick={api.handleAllClick}
           variant="outlined"
           sx={{ ml: 1, width: "10ch" }}
-          disabled={selectedEquipment.size === allEquipmentTypes.length}
+          disabled={api.isAllDisabled}
         />
         <Chip
           label="None"
           data-testid={EQUIPMENT_CHIP_TESTID_NONE}
           color="error"
-          onClick={() => setSelectedEquipment((old) => old.clear())}
+          onClick={api.handleNoneClick}
           variant="outlined"
           sx={{ width: "10ch" }}
-          disabled={selectedEquipment.size === 0}
+          disabled={api.isNoneDisabled}
         />
       </Stack>
     </Stack>

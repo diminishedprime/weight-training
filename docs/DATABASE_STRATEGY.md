@@ -130,3 +130,15 @@ pnpm run db:new-test
 This will run `supabase db new` to scaffold a new migration or migration test.
 Name your migration or test file appropriately and follow the standards outlined
 in this document for structure, documentation, and test coverage.
+
+## Test File Naming Convention
+
+All test files in `supabase/tests` must use a sortable, all-zeros numeric
+prefix, matching the migration or feature they test. This ensures clear ordering
+and easy mapping between migrations and their tests. For example:
+
+- `100_normalize-bar-weight_test.sql`
+- `800_update_user_target_max_test.sql`
+
+This convention makes it easy to locate, sort, and maintain test files as the
+schema evolves.

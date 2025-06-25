@@ -1,24 +1,40 @@
 "use server";
 
 import { requireLoggedInUser, getSupabaseClient } from "@/serverUtil";
-import PreferencesClient from "./_components/PreferencesClient";
-import { sortPreferencesData } from "@/app/preferences/util";
+import PreferencesClient from "@/app/preferences/_components/PreferencesClient";
+import { sortPreferencesData } from "@/util";
 
 // TODO(matt) - Eventually, I'll probably want a component that's specifically
 // for setting the target max, this component should be aware of what the
 // one-rep-max is if set, and show the % of the one-rep-max that the current
 // target max is. Additionally, it should have a button that can bump the weight
 // by 5lbs or 10lbs depenpending on if it's it's a leg or arm workout.
-//
-// I also probably want to handle the target-max being a weight that wouldn't
-// really fit on the bar.
 
+/**
+ * User Preferences Page (Server Component)
+ *
+ * This page is responsible for displaying and managing all exercise-related
+ * user preferences.  It ensures the user is authenticated, fetches all relevant
+ * preference data from the database, and passes it to the client-side UI for
+ * editing and display. This enables users to view and update their exercise
+ * settings (such as one-rep max, target max, and rest times) in a single,
+ * cohesive interface.
+ *
+ * The page enforces that only logged-in users can access preferences, and will
+ * throw an error if the user's preference data is missing (which should not
+ * occur in normal operation).
+ *
+ * Usage: Rendered at `/preferences` for authenticated users. Supports all flows
+ * for updating exercise preferences, and is the entry point for user
+ * customization of training parameters.
+ *
+ * @returns The preferences management UI for the current user.
+ */
 export default async function PreferencesPage() {
   const { userId } = await requireLoggedInUser("/preferences");
 
   const supabase = getSupabaseClient();
 
-  // Use the database function to get all preference data in one query
   const { data: preferencesData } = await supabase.rpc("get_user_preferences", {
     p_user_id: userId,
   });
@@ -36,9 +52,9 @@ export default async function PreferencesPage() {
   // Stryker restore all
 
   // Sort preferences data before rendering
-  // @ts-ignore - I can't prove this invriant because the database doesn't have
-  //              good enough type generation, but I promise the inners aren't
-  //              null.
+  // @ts-expect-error - I can't prove this invriant because the database doesn't have
+  //                   good enough type generation, but I promise the inners aren't
+  //                   null.
   sortPreferencesData(preferencesData);
 
   return <PreferencesClient userPreferencesRows={preferencesData} />;
