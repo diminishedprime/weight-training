@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Constants, Database } from "@/database.types";
-import { correspondingEquipment, getExercisesByEquipment } from "@/util";
+import { equipmentForExercise, getExercisesByEquipment } from "@/util";
 
 type ExerciseType = Database["public"]["Enums"]["exercise_type_enum"];
 type EquipmentType = Database["public"]["Enums"]["equipment_type_enum"];
@@ -48,17 +48,17 @@ export interface UseExerciseSelectorAPI {
  *   will be set to the corresponding equipment of that exercise.
  */
 export const useExerciseSelector = (
-  props: UseExerciseSelectorProps,
+  props: UseExerciseSelectorProps
 ): UseExerciseSelectorAPI => {
   const { initial_exercise, onExerciseChange } = props;
   // Initialize state with provided initial values
   const [selectedExercise, setSelectedExercise] = useState<ExerciseType | null>(
-    initial_exercise ?? null,
+    initial_exercise ?? null
   );
   const [selectedEquipment, setSelectedEquipment] =
     useState<EquipmentType | null>(
-      (initial_exercise !== null && correspondingEquipment(initial_exercise)) ||
-        null,
+      (initial_exercise !== null && equipmentForExercise(initial_exercise)) ||
+        null
     );
   // Calculate available exercises based on selected equipment
   const availableExercises = useMemo(() => {
@@ -88,7 +88,7 @@ export const useExerciseSelector = (
 
     // If an exercise is selected and no equipment is set, set the corresponding equipment
     if (newExercise && !selectedEquipment) {
-      const equipment = correspondingEquipment(newExercise);
+      const equipment = equipmentForExercise(newExercise);
       setSelectedEquipment(equipment);
     }
   };
@@ -102,7 +102,7 @@ export const useExerciseSelector = (
 
     // If equipment changes and current exercise doesn't match, clear the exercise
     if (selectedExercise && newEquipment) {
-      const exerciseEquipment = correspondingEquipment(selectedExercise);
+      const exerciseEquipment = equipmentForExercise(selectedExercise);
       if (exerciseEquipment !== newEquipment) {
         setSelectedExercise(null);
         onExerciseChange(null);

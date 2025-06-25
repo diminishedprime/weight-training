@@ -45,6 +45,10 @@ redundant or overly granular test files. This approach will help us:
 - **Edge Case Coverage:**  
   Cover both typical and edge cases (e.g., not logged in, error handling,
   special UI buttons).
+- **No stderr Output:**  
+  All tests should run cleanly without warnings or errors in stderr. Fix any act
+  warnings, Suspense warnings, or other noisy output before considering a test
+  complete.
 
 ## Test Organization
 

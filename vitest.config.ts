@@ -1,22 +1,17 @@
 import { defineConfig } from "vitest/config";
+import { loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
+import "dotenv/config";
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react(), tsconfigPaths()],
   test: {
+    env: loadEnv(mode, process.cwd(), ""),
     environment: "happy-dom",
     globals: true,
     setupFiles: "./vitest.setup.ts",
     css: false,
-    env: {
-      SUPABASE_URL: "https://test.supabase.co",
-      SUPABASE_ANON_KEY: "test-anon-key",
-      SUPABASE_SERVICE_ROLE_KEY: "test-service-role-key",
-      AUTH_SECRET: "test-auth-secret",
-      AUTH_SUPABASE_URL: "https://test.supabase.co",
-      AUTH_SUPABASE_SERVICE_ROLE_KEY: "test-service-role-key",
-    },
     include: [
       "**/*.{test,spec}.{ts,tsx}",
       "**/*.integration.{test,spec}.{ts,tsx}",
@@ -49,4 +44,4 @@ export default defineConfig({
       ],
     },
   },
-});
+}));

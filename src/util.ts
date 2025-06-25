@@ -6,7 +6,7 @@ import { Constants, Database } from "@/database.types";
  * @param lift_type The type of the exercise (e.g., "barbell_deadlift").
  * @returns The equipment type that corresponds to the given lift type.
  */
-export function correspondingEquipment(
+export function equipmentForExercise(
   lift_type: Database["public"]["Enums"]["exercise_type_enum"]
 ): Database["public"]["Enums"]["equipment_type_enum"] {
   switch (lift_type) {
@@ -95,7 +95,7 @@ export const getExercisesByEquipment = (): Record<
   }
 
   for (const exercise of Constants.public.Enums.exercise_type_enum) {
-    const equipment = correspondingEquipment(exercise);
+    const equipment = equipmentForExercise(exercise);
     if (exercisesByEquipment[equipment]) {
       exercisesByEquipment[equipment].push(exercise);
     }

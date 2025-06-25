@@ -1,5 +1,5 @@
 import { Database } from "@/database.types";
-import { correspondingEquipment } from "./util";
+import { equipmentForExercise } from "./util";
 
 type ExerciseType = Database["public"]["Enums"]["exercise_type_enum"];
 export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
@@ -73,7 +73,7 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
 };
 export const exerciseTypeUIStringLong = (type: ExerciseType): string => {
   return `${exerciseTypeUIStringBrief(type)} (${equipmentTypeUIString(
-    correspondingEquipment(type)
+    equipmentForExercise(type)
   )})`;
 };
 

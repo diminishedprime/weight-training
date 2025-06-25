@@ -3,11 +3,11 @@
 
 "use server";
 import { Constants, Database } from "@/database.types";
-import { correspondingEquipment } from "@/util";
+import { equipmentForExercise } from "@/util";
 
 export async function addRandomLiftAction(
   liftType: Database["public"]["Enums"]["exercise_type_enum"],
-  _: FormData,
+  _: FormData
 ) {
   "use server";
   const { createClient } = await import("@supabase/supabase-js");
@@ -18,7 +18,7 @@ export async function addRandomLiftAction(
   if (!id) throw new Error("User ID is required");
   const supabase = createClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
   const response = await supabase.rpc("create_exercise", {
     p_user_id: id,
@@ -26,7 +26,7 @@ export async function addRandomLiftAction(
     p_weight_value: Math.floor(Math.random() * 450) + 10,
     p_weight_unit: "pounds" as Database["public"]["Enums"]["weight_unit_enum"],
     p_reps: Math.floor(Math.random() * 10) + 1,
-    p_equipment_type: correspondingEquipment(liftType),
+    p_equipment_type: equipmentForExercise(liftType),
     p_completion_status:
       Constants.public.Enums.completion_status_enum[
         (Math.random() * Constants.public.Enums.completion_status_enum.length) |
@@ -38,7 +38,7 @@ export async function addRandomLiftAction(
       ],
     p_warmup: Math.random() < 0.5,
     p_performed_at: new Date(
-      Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000,
+      Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000
     ).toISOString(),
   });
   console.log({ response });

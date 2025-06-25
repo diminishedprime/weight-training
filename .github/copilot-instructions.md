@@ -76,13 +76,15 @@ This project is a next.js application that uses Typescript and Material UI.
   correctly.
 - If you changes break tests, talk to me about it and give me options about what
   we want to change to account for that.
+- Absolutely never add tests to non-integration test files. All tests must go in
+  integration test files (e.g., `*.integration.test.tsx`).
 
 ## Project hints
 
 To run mutation tests on a subset of files, use the following command:
 
 ```bash
-pnpm run mutation:run --mutate src/components/BarbellEditor/useBarbellEditor.ts
+pnpm run test:mutation --mutate src/components/BarbellEditor/useBarbellEditor.ts
 ```
 
 adjusting the path to the file as needed.

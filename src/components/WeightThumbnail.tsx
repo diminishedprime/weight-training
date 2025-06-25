@@ -4,7 +4,7 @@ import React from "react";
 import { Database } from "@/database.types";
 import Barbell from "@/components/Barbell";
 import Dumbbell from "@/components/Dumbell";
-import { correspondingEquipment } from "@/util";
+import { equipmentForExercise } from "@/util";
 
 interface WeightThumbnailProps {
   /** The weight value to display */
@@ -21,7 +21,7 @@ interface WeightThumbnailProps {
  */
 const WeightThumbnail: React.FC<WeightThumbnailProps> = (props) => {
   const { weight, weightUnit, exerciseType } = props;
-  const equipment = correspondingEquipment(exerciseType);
+  const equipment = equipmentForExercise(exerciseType);
 
   if (equipment === "barbell") {
     return (
@@ -30,8 +30,7 @@ const WeightThumbnail: React.FC<WeightThumbnailProps> = (props) => {
           display: "inline-block",
           verticalAlign: "middle",
           width: 80,
-        }}
-      >
+        }}>
         <Barbell weight={weight} hidePlateNumbers />
       </span>
     );

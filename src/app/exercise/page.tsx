@@ -1,7 +1,7 @@
 import { Button, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import { equipmentTypeUIString, exerciseTypeUIStringBrief } from "@/uiStrings";
-import { correspondingEquipment } from "@/util";
+import { equipmentForExercise } from "@/util";
 import { Constants, Database } from "@/database.types";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
@@ -27,7 +27,7 @@ export default function ExercisePage() {
               </Typography>
               <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
                 {Constants.public.Enums.exercise_type_enum
-                  .filter((type) => correspondingEquipment(type) === equipment)
+                  .filter((type) => equipmentForExercise(type) === equipment)
                   .map((type) => {
                     return (
                       <Button
@@ -35,8 +35,7 @@ export default function ExercisePage() {
                         component={Link}
                         href={`/exercise/${type}`}
                         variant="contained"
-                        color="primary"
-                      >
+                        color="primary">
                         {exerciseTypeUIStringBrief(type)}
                       </Button>
                     );
