@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { Database } from "@/database.types";
-import ExercisesTable from "./ExercisesTable";
+import ExercisesTable from "@/app/exercise/[exercise_type]/ExercisesTable";
 
 interface ExercisesTableWrapperProps {
   userId: string;

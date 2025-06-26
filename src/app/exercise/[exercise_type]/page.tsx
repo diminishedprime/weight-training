@@ -3,9 +3,9 @@ import Typography from "@mui/material/Typography";
 import { Constants, Database } from "@/database.types";
 import { requireLoggedInUser } from "@/serverUtil";
 import { notFound } from "next/navigation";
-import { addRandomLiftAction } from "./actions";
-import AddRandomLiftButton from "./AddRandomLiftButton";
-import ExercisesTableWrapper from "./ExercisesTableWrapper";
+import { addRandomLiftAction } from "@/app/exercise/[exercise_type]/actions";
+import AddRandomLiftButton from "@/app/exercise/[exercise_type]/AddRandomLiftButton";
+import ExercisesTableWrapper from "@/app/exercise/[exercise_type]/ExercisesTableWrapper";
 import { Suspense } from "react";
 import {
   exerciseTypeUIStringBrief,
@@ -22,7 +22,7 @@ export default async function Home({
 
   if (
     Constants.public.Enums.exercise_type_enum.find(
-      (a) => a === unnarrowed_lift_type
+      (a) => a === unnarrowed_lift_type,
     ) === undefined
   ) {
     return notFound();

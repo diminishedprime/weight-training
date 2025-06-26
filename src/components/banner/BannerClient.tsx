@@ -5,12 +5,12 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import AuthenticatedUserView from "./AuthenticatedUserView";
+import AuthenticatedUserView from "@/components/banner/AuthenticatedUserView";
 import CssBaseline from "@mui/material/CssBaseline";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { User } from "next-auth";
-import NavDrawer from "./NavDrawer";
+import NavDrawer from "@/components/banner/NavDrawer";
 
 interface Props {
   user: User | undefined;

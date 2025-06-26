@@ -49,19 +49,19 @@ describe("PreferencesPage", () => {
 
   it("renders successfully with preferences data", async () => {
     vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-      fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN)
+      fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN),
     );
     render(await PreferencesPage());
     await waitFor(() => {
       expect(
-        screen.getAllByText(/Exercise Preferences/i).length
+        screen.getAllByText(/Exercise Preferences/i).length,
       ).toBeGreaterThan(0);
     });
   });
 
   it("redirects to login with correct url if user is not logged in", async () => {
     vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-      fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_OUT)
+      fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_OUT),
     );
     let error: Error | null = null;
     try {
@@ -71,13 +71,13 @@ describe("PreferencesPage", () => {
     }
     expect(error).not.toBeNull();
     expect(error?.message).toContain(
-      "redirect:/login?redirect-uri=%2Fpreferences"
+      "redirect:/login?redirect-uri=%2Fpreferences",
     );
   });
 
   it("can modify a back_squat one rep max", async () => {
     vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-      fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN)
+      fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN),
     );
     render(await PreferencesPage());
     const testIds = getExercisePreferenceTestIds("barbell_back_squat");
@@ -85,7 +85,7 @@ describe("PreferencesPage", () => {
       expect(screen.getByTestId(testIds.oneRepMaxInput)).toBeInTheDocument();
     });
     const oneRepMaxInput = screen.getByTestId(
-      testIds.oneRepMaxInput
+      testIds.oneRepMaxInput,
     ) as HTMLInputElement;
     expect(oneRepMaxInput.value).toBe("");
     await act(async () => {
@@ -103,7 +103,7 @@ describe("PreferencesPage", () => {
 
   it("can modify a back_squat target max", async () => {
     vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-      fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN)
+      fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN),
     );
     render(await PreferencesPage());
     const testIds = getExercisePreferenceTestIds("barbell_back_squat");
@@ -111,7 +111,7 @@ describe("PreferencesPage", () => {
       expect(screen.getByTestId(testIds.targetMaxInput)).toBeInTheDocument();
     });
     const targetMaxInput = screen.getByTestId(
-      testIds.targetMaxInput
+      testIds.targetMaxInput,
     ) as HTMLInputElement;
     expect(targetMaxInput.value).toBe("");
     await act(async () => {
@@ -131,7 +131,7 @@ describe("PreferencesPage", () => {
   // always put back_squat first.
   it("shows back_squat as the first SetExercisePreferences row that can be changed", async () => {
     vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-      fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN)
+      fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN),
     );
     render(await PreferencesPage());
     // Find the container for all exercise preferences
@@ -142,7 +142,7 @@ describe("PreferencesPage", () => {
     expect(firstChild).toBeTruthy();
     // Use the backsquat-specific testid for the one rep max input
     const backsquatInput = firstChild.querySelector(
-      '[data-testid="one-rep-max-input-barbell_back_squat"]'
+      '[data-testid="one-rep-max-input-barbell_back_squat"]',
     );
     expect(backsquatInput).toBeTruthy();
   });
@@ -150,12 +150,12 @@ describe("PreferencesPage", () => {
   describe("for the equipment chip filters", () => {
     beforeEach(async () => {
       vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-        fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN)
+        fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN),
       );
       render(await PreferencesPage());
       await waitFor(() => {
         expect(
-          screen.getByTestId(EQUIPMENT_CHIP_TESTID_ALL)
+          screen.getByTestId(EQUIPMENT_CHIP_TESTID_ALL),
         ).toBeInTheDocument();
       });
     });
@@ -185,7 +185,7 @@ describe("PreferencesPage", () => {
           expect(chip).not.toHaveClass("MuiChip-colorPrimary");
         }
         expect(screen.queryAllByTestId("exercise-preference-row").length).toBe(
-          0
+          0,
         );
       });
 
@@ -245,12 +245,12 @@ describe("PreferencesPage", () => {
   describe("sortPreferencesData", () => {
     describe("exerciseSorter", () => {
       const make = (
-        type: Database["public"]["Enums"]["exercise_type_enum"]
+        type: Database["public"]["Enums"]["exercise_type_enum"],
       ) => ({ exercise_type: type });
 
       it("returns -1 when a's equipment is before b's", () => {
         expect(
-          exerciseSorter(make("barbell_bench_press"), make("dumbbell_row"))
+          exerciseSorter(make("barbell_bench_press"), make("dumbbell_row")),
         ).toBe(-1);
       });
 
@@ -258,8 +258,8 @@ describe("PreferencesPage", () => {
         expect(
           exerciseSorter(
             make("machine_converging_chest_press"),
-            make("barbell_bench_press")
-          )
+            make("barbell_bench_press"),
+          ),
         ).toBe(1);
       });
 
@@ -267,14 +267,14 @@ describe("PreferencesPage", () => {
         expect(
           exerciseSorter(
             make("barbell_bench_press"),
-            make("barbell_overhead_press")
-          )
+            make("barbell_overhead_press"),
+          ),
         ).toBe(-2);
       });
 
       it("returns 1 when equipment is the same and a's exercise_type is after b's", () => {
         expect(
-          exerciseSorter(make("barbell_row"), make("barbell_bench_press"))
+          exerciseSorter(make("barbell_row"), make("barbell_bench_press")),
         ).toBe(2);
       });
 
@@ -282,8 +282,8 @@ describe("PreferencesPage", () => {
         expect(
           exerciseSorter(
             make("barbell_bench_press"),
-            make("barbell_bench_press")
-          )
+            make("barbell_bench_press"),
+          ),
         ).toBe(0);
       });
     });
@@ -292,12 +292,12 @@ describe("PreferencesPage", () => {
   describe("search field integration", () => {
     it("filters to only barbell squat row when searching for 'barbell_front_squat'", async () => {
       vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-        fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN)
+        fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN),
       );
       render(await PreferencesPage());
       await waitFor(() => {
         expect(
-          screen.getByTestId(FUZZY_SEARCH_FIELD_TESTID)
+          screen.getByTestId(FUZZY_SEARCH_FIELD_TESTID),
         ).toBeInTheDocument();
       });
       const searchField = screen.getByTestId(FUZZY_SEARCH_FIELD_TESTID);
@@ -311,19 +311,19 @@ describe("PreferencesPage", () => {
         expect(rows.length).toBe(1);
         const name = rows[0].querySelector('[data-testid="exercise-name"]');
         expect(name?.textContent?.toLowerCase()).toContain(
-          "front squat (barbell)"
+          "front squat (barbell)",
         );
       });
     });
 
     it("clears the search when the x button is clicked", async () => {
       vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-        fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN)
+        fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN),
       );
       render(await PreferencesPage());
       await waitFor(() => {
         expect(
-          screen.getByTestId(FUZZY_SEARCH_FIELD_TESTID)
+          screen.getByTestId(FUZZY_SEARCH_FIELD_TESTID),
         ).toBeInTheDocument();
       });
       const searchField = screen.getByTestId(FUZZY_SEARCH_FIELD_TESTID);
@@ -352,17 +352,17 @@ describe("PreferencesPage", () => {
   it("disables the save button for default rest time when the field is cleared", async () => {
     const backSquatTestIds = getExercisePreferenceTestIds("barbell_back_squat");
     vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-      fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN)
+      fakeServerUtil.requireLoggedInUser(USER_ID_LOGGED_IN),
     );
     render(await PreferencesPage());
     // Wait for the default rest time input to appear
     await waitFor(() => {
       expect(
-        screen.getByTestId(backSquatTestIds.restTimeInput)
+        screen.getByTestId(backSquatTestIds.restTimeInput),
       ).toBeInTheDocument();
     });
     const restTimeInput = screen.getByTestId(
-      backSquatTestIds.restTimeInput
+      backSquatTestIds.restTimeInput,
     ) as HTMLInputElement;
     // Clear the input
     await act(async () => {

@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import { Constants, Database } from "@/database.types";
 import { weightUnitUIString } from "@/uiStrings";
 import { Button } from "@mui/material";
-import Dumbbell from "./Dumbell";
+import Dumbbell from "@/components/Dumbell";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";

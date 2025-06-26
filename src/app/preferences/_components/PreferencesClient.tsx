@@ -28,7 +28,7 @@ const usePreferencesAPI = (userPreferencesRows: UserPreferencesRow) => {
   const allEquipmentTypes = Constants.public.Enums
     .equipment_type_enum as never as EquipmentType[];
   const [selectedEquipment, setSelectedEquipment] = React.useState(
-    Set(allEquipmentTypes)
+    Set(allEquipmentTypes),
   );
   const [search, setSearchState] = React.useState("");
 
@@ -37,7 +37,7 @@ const usePreferencesAPI = (userPreferencesRows: UserPreferencesRow) => {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setSearchState(event.target.value);
     },
-    []
+    [],
   );
 
   // clearSearch resets the search state
@@ -48,7 +48,7 @@ const usePreferencesAPI = (userPreferencesRows: UserPreferencesRow) => {
   const filteredRows = React.useMemo(() => {
     if (selectedEquipment.size === 0) return [];
     const filtered = userPreferencesRows.filter((row) =>
-      selectedEquipment.has(equipmentForExercise(row.exercise_type!))
+      selectedEquipment.has(equipmentForExercise(row.exercise_type!)),
     );
     if (search.trim()) {
       const fuse = new Fuse(filtered, {

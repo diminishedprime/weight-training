@@ -45,7 +45,8 @@ const FuzzySearchField: React.FC<SearchFieldProps> = ({
               size="small"
               aria-label="Clear search"
               onClick={onClear}
-              edge="end">
+              edge="end"
+            >
               <CloseIcon fontSize="small" />
             </IconButton>
           </InputAdornment>

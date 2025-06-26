@@ -10,7 +10,7 @@ import { auth } from "@/auth";
 export const getSupabaseClient = () => {
   return createClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   );
 };
 
@@ -20,7 +20,7 @@ export const getSupabaseClient = () => {
  * @returns The session and userId if logged in.
  */
 export async function requireLoggedInUser(
-  currentPath: string
+  currentPath: string,
 ): Promise<{ session: Session; userId: string }> {
   const session = await getSession();
   const userId = session?.user?.id;

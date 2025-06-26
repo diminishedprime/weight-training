@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { Database } from "@/database.types";
 import { Typography, Box } from "@mui/material";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import ExerciseBlockList from "./ExerciseBlockList";
+import ExerciseBlockList from "@/app/superblock/[superblock_id]/ExerciseBlockList";
 
 interface SuperblockPageProps {
   params: Promise<{ superblock_id: string }>;

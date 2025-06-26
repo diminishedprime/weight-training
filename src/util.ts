@@ -7,7 +7,7 @@ import { Constants, Database } from "@/database.types";
  * @returns The equipment type that corresponds to the given lift type.
  */
 export function equipmentForExercise(
-  lift_type: Database["public"]["Enums"]["exercise_type_enum"]
+  lift_type: Database["public"]["Enums"]["exercise_type_enum"],
 ): Database["public"]["Enums"]["equipment_type_enum"] {
   switch (lift_type) {
     case "barbell_deadlift":
@@ -91,7 +91,7 @@ export function equipmentForExercise(
  */
 export function minimalPlates(
   targetWeight: number,
-  availablePlates: number[]
+  availablePlates: number[],
 ): number[] {
   let remaining = targetWeight;
   const result: number[] = [];
@@ -146,7 +146,7 @@ export const equipmentToNum: SortableEquipment =
  */
 export const exerciseSorter = (
   a: { exercise_type: Database["public"]["Enums"]["exercise_type_enum"] },
-  b: { exercise_type: Database["public"]["Enums"]["exercise_type_enum"] }
+  b: { exercise_type: Database["public"]["Enums"]["exercise_type_enum"] },
 ) => {
   const aNum = equipmentToNum[equipmentForExercise(a.exercise_type!)];
   const bNum = equipmentToNum[equipmentForExercise(b.exercise_type!)];
@@ -161,7 +161,7 @@ export const exerciseSorter = (
 export const sortPreferencesData = (
   preferencesData: Array<{
     exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
-  }>
+  }>,
 ) => {
   preferencesData.sort((a, b) => exerciseSorter(a, b));
   return preferencesData;
@@ -174,7 +174,7 @@ export const sortPreferencesData = (
  * @returns The bump amount in lbs (10 for lower body, 5 for upper body).
  */
 export const getBumpAmountForExerciseType = (
-  exerciseType: Database["public"]["Enums"]["exercise_type_enum"]
+  exerciseType: Database["public"]["Enums"]["exercise_type_enum"],
 ): number => {
   switch (exerciseType) {
     case "barbell_deadlift":

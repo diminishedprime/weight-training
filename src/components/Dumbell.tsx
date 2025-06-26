@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import { Database } from "@/database.types";
-import { metalGradient } from "./Barbell";
+import { metalGradient } from "@/components/Barbell";
 
 // Dumbbell dimensions for aspect ratio calculation
 const TOTAL_WIDTH = 160;

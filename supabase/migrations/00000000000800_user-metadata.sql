@@ -6,17 +6,16 @@
 --   preferred_weight_unit (weight_unit_enum): User's preferred weight unit.
 --   created_at, updated_at (timestamptz): Timestamps for record tracking.
 -- Usage: Used to store and retrieve user-specific settings.
-CREATE TABLE IF NOT EXISTS
-  public.user_metadata (
-    id uuid NOT NULL DEFAULT uuid_generate_v4 (),
-    user_id uuid NOT NULL,
-    preferred_weight_unit weight_unit_enum DEFAULT 'pounds',
-    created_at timestamp with time zone DEFAULT timezone ('utc', now()),
-    updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
-    CONSTRAINT user_metadata_pkey PRIMARY KEY (id),
-    CONSTRAINT user_metadata_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
-    CONSTRAINT user_metadata_user_unique UNIQUE (user_id)
-  );
+CREATE TABLE IF NOT EXISTS public.user_metadata (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  user_id uuid NOT NULL,
+  preferred_weight_unit weight_unit_enum DEFAULT 'pounds',
+  created_at timestamp with time zone DEFAULT timezone ('utc', now()),
+  updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
+  CONSTRAINT user_metadata_pkey PRIMARY KEY (id),
+  CONSTRAINT user_metadata_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
+  CONSTRAINT user_metadata_user_unique UNIQUE (user_id)
+);
 
 -- Table: user_exercise_weights
 -- Purpose: Stores per-user, per-exercise one-rep max and target max weights, and rest time.
@@ -29,21 +28,20 @@ CREATE TABLE IF NOT EXISTS
 --   default_rest_time_seconds (integer): Default rest time in seconds for this exercise (default 120).
 --   created_at (timestamptz): Timestamp for record creation.
 -- Usage: Used to track user progress, goals, and rest preferences for each exercise.
-CREATE TABLE IF NOT EXISTS
-  public.user_exercise_weights (
-    id uuid NOT NULL DEFAULT uuid_generate_v4 (),
-    user_id uuid NOT NULL,
-    exercise_type exercise_type_enum NOT NULL,
-    one_rep_max_weight_id uuid,
-    target_max_weight_id uuid,
-    default_rest_time_seconds integer DEFAULT 120,
-    created_at timestamp with time zone DEFAULT timezone ('utc', now()),
-    CONSTRAINT user_exercise_weights_pkey PRIMARY KEY (id),
-    CONSTRAINT user_exercise_weights_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
-    CONSTRAINT user_exercise_weights_one_rep_max_fkey FOREIGN KEY (one_rep_max_weight_id) REFERENCES public.weights (id) ON DELETE CASCADE,
-    CONSTRAINT user_exercise_weights_target_max_fkey FOREIGN KEY (target_max_weight_id) REFERENCES public.weights (id) ON DELETE CASCADE,
-    CONSTRAINT user_exercise_weights_unique UNIQUE (user_id, exercise_type)
-  );
+CREATE TABLE IF NOT EXISTS public.user_exercise_weights (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  user_id uuid NOT NULL,
+  exercise_type exercise_type_enum NOT NULL,
+  one_rep_max_weight_id uuid,
+  target_max_weight_id uuid,
+  default_rest_time_seconds integer DEFAULT 120,
+  created_at timestamp with time zone DEFAULT timezone ('utc', now()),
+  CONSTRAINT user_exercise_weights_pkey PRIMARY KEY (id),
+  CONSTRAINT user_exercise_weights_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
+  CONSTRAINT user_exercise_weights_one_rep_max_fkey FOREIGN KEY (one_rep_max_weight_id) REFERENCES public.weights (id) ON DELETE CASCADE,
+  CONSTRAINT user_exercise_weights_target_max_fkey FOREIGN KEY (target_max_weight_id) REFERENCES public.weights (id) ON DELETE CASCADE,
+  CONSTRAINT user_exercise_weights_unique UNIQUE (user_id, exercise_type)
+);
 
 -- Type: user_preferences_row
 -- Purpose: Composite type for get_user_preferences return value, with nullable max fields.
@@ -95,25 +93,23 @@ END$$;
 --   recorded_at (timestamptz): When this 1RM was set.
 --   source (user_one_rep_max_source_enum): Source of the entry.
 --   notes (text): Optional user notes.
-CREATE TABLE IF NOT EXISTS
-  public.user_one_rep_max_history (
-    id uuid NOT NULL DEFAULT uuid_generate_v4 (),
-    user_id uuid NOT NULL,
-    exercise_type exercise_type_enum NOT NULL,
-    weight_id uuid NOT NULL,
-    recorded_at timestamptz NOT NULL DEFAULT timezone ('utc', now()),
-    source user_one_rep_max_source_enum NOT NULL DEFAULT 'manual',
-    notes text,
-    CONSTRAINT user_one_rep_max_history_pkey PRIMARY KEY (id),
-    CONSTRAINT user_one_rep_max_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
-    CONSTRAINT user_one_rep_max_history_weight_id_fkey FOREIGN KEY (weight_id) REFERENCES public.weights (id) ON DELETE CASCADE
-  );
+CREATE TABLE IF NOT EXISTS public.user_one_rep_max_history (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  user_id uuid NOT NULL,
+  exercise_type exercise_type_enum NOT NULL,
+  weight_id uuid NOT NULL,
+  recorded_at timestamptz NOT NULL DEFAULT timezone ('utc', now()),
+  source user_one_rep_max_source_enum NOT NULL DEFAULT 'manual',
+  notes text,
+  CONSTRAINT user_one_rep_max_history_pkey PRIMARY KEY (id),
+  CONSTRAINT user_one_rep_max_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
+  CONSTRAINT user_one_rep_max_history_weight_id_fkey FOREIGN KEY (weight_id) REFERENCES public.weights (id) ON DELETE CASCADE
+);
 
 -- Trigger: create_user_metadata_on_user_insert
 -- Purpose: Automatically creates a user_metadata row and user_exercise_weights
 -- rows for all exercise types when a new user is inserted.
-CREATE
-OR REPLACE FUNCTION public.create_user_metadata_on_user_insert () RETURNS TRIGGER AS $$
+CREATE OR REPLACE FUNCTION public.create_user_metadata_on_user_insert () RETURNS TRIGGER AS $$
 DECLARE
   exercise_type_val exercise_type_enum;
 BEGIN
@@ -145,8 +141,7 @@ EXECUTE FUNCTION public.create_user_metadata_on_user_insert ();
 --   p_weight_value (numeric): The weight value.
 --   p_weight_unit (weight_unit_enum): The weight unit.
 -- Usage: Ensures a single canonical row for each user/exercise, updating or inserting as needed.
-CREATE
-OR REPLACE FUNCTION public.update_user_one_rep_max (
+CREATE OR REPLACE FUNCTION public.update_user_one_rep_max (
   p_user_id uuid,
   p_exercise_type exercise_type_enum,
   p_weight_value numeric,
@@ -180,8 +175,7 @@ $$ LANGUAGE plpgsql;
 --   p_weight_value (numeric): The weight value.
 --   p_weight_unit (weight_unit_enum): The weight unit.
 -- Usage: Ensures a single canonical row for each user/exercise, updating or inserting as needed.
-CREATE
-OR REPLACE FUNCTION public.update_user_target_max (
+CREATE OR REPLACE FUNCTION public.update_user_target_max (
   p_user_id uuid,
   p_exercise_type exercise_type_enum,
   p_weight_value numeric,
@@ -206,8 +200,7 @@ $$ LANGUAGE plpgsql;
 --   p_exercise_type (exercise_type_enum): The exercise type.
 --   p_default_rest_time_seconds (integer): The new default rest time in seconds.
 -- Usage: Ensures a single canonical row for each user/exercise, updating or inserting as needed.
-CREATE
-OR REPLACE FUNCTION public.update_user_default_rest_time (
+CREATE OR REPLACE FUNCTION public.update_user_default_rest_time (
   p_user_id uuid,
   p_exercise_type exercise_type_enum,
   p_default_rest_time_seconds integer
@@ -231,8 +224,7 @@ $$ LANGUAGE plpgsql;
 --   p_notes (text): Optional notes.
 --   p_recorded_at (timestamptz): Optional override for timestamp.
 -- Usage: Always logs to history, and updates canonical value in user_exercise_weights.
-CREATE
-OR REPLACE FUNCTION public.update_user_one_rep_max (
+CREATE OR REPLACE FUNCTION public.update_user_one_rep_max (
   p_user_id uuid,
   p_exercise_type exercise_type_enum,
   p_weight_value numeric,
@@ -264,8 +256,7 @@ $$ LANGUAGE plpgsql;
 --   p_user_id (uuid): The user id.
 --   p_exercise_type (exercise_type_enum): The exercise type.
 -- Returns: Table of history rows.
-CREATE
-OR REPLACE FUNCTION public.get_user_one_rep_max_history (
+CREATE OR REPLACE FUNCTION public.get_user_one_rep_max_history (
   p_user_id uuid,
   p_exercise_type exercise_type_enum
 ) RETURNS TABLE (
@@ -299,8 +290,7 @@ $$ LANGUAGE plpgsql STABLE;
 --   p_source (user_one_rep_max_source_enum): New source.
 --   p_notes (text): New notes.
 -- Usage: Updates the specified row if it belongs to the user.
-CREATE
-OR REPLACE FUNCTION public.edit_user_one_rep_max_history (
+CREATE OR REPLACE FUNCTION public.edit_user_one_rep_max_history (
   p_history_id uuid,
   p_user_id uuid,
   p_weight_value numeric,
@@ -328,8 +318,7 @@ $$ LANGUAGE plpgsql;
 --   p_user_id (uuid): The user id.
 -- Returns: Table of user preferences and maxes.
 -- Usage: Uses most recent 1RM from history if present, else falls back to user_exercise_weights.
-CREATE
-OR REPLACE FUNCTION public.get_user_preferences (p_user_id uuid) RETURNS SETOF user_preferences_row language sql as $$
+CREATE OR REPLACE FUNCTION public.get_user_preferences (p_user_id uuid) RETURNS SETOF user_preferences_row language sql as $$
   with latest_1rm as (
     select distinct on (h.exercise_type)
       h.exercise_type,
@@ -380,8 +369,7 @@ $$;
 --     automatically by triggers defined later in this file.
 --   - If you add new ways to modify user_one_rep_max_history, ensure those
 --     flows will still fire the triggers (or call this function).
-CREATE
-OR REPLACE FUNCTION _trigger.sync_user_exercise_weights_one_rep_max (
+CREATE OR REPLACE FUNCTION _trigger.sync_user_exercise_weights_one_rep_max (
   p_user_id uuid,
   p_exercise_type exercise_type_enum
 ) RETURNS void AS $$
@@ -402,8 +390,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- Trigger function: after_insert_user_one_rep_max_history
-CREATE
-OR REPLACE FUNCTION _trigger.after_insert_user_one_rep_max_history () RETURNS TRIGGER AS $$
+CREATE OR REPLACE FUNCTION _trigger.after_insert_user_one_rep_max_history () RETURNS TRIGGER AS $$
 BEGIN
   PERFORM _trigger.sync_user_exercise_weights_one_rep_max(NEW.user_id, NEW.exercise_type);
   RETURN NULL;
@@ -411,8 +398,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- Trigger function: after_update_user_one_rep_max_history
-CREATE
-OR REPLACE FUNCTION _trigger.after_update_user_one_rep_max_history () RETURNS TRIGGER AS $$
+CREATE OR REPLACE FUNCTION _trigger.after_update_user_one_rep_max_history () RETURNS TRIGGER AS $$
 BEGIN
   PERFORM _trigger.sync_user_exercise_weights_one_rep_max(NEW.user_id, NEW.exercise_type);
   RETURN NULL;
@@ -420,8 +406,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- Trigger function: after_delete_user_one_rep_max_history
-CREATE
-OR REPLACE FUNCTION _trigger.after_delete_user_one_rep_max_history () RETURNS TRIGGER AS $$
+CREATE OR REPLACE FUNCTION _trigger.after_delete_user_one_rep_max_history () RETURNS TRIGGER AS $$
 BEGIN
   PERFORM _trigger.sync_user_exercise_weights_one_rep_max(OLD.user_id, OLD.exercise_type);
   RETURN NULL;

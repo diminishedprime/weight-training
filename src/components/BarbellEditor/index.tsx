@@ -13,9 +13,9 @@ import { Constants, Database } from "@/database.types";
 import { weightUnitUIString } from "@/uiStrings";
 import IconButton from "@mui/material/IconButton";
 import SettingsIcon from "@mui/icons-material/Settings";
-import SettingsDialog from "./SettingsDialog";
+import SettingsDialog from "@/components/BarbellEditor/SettingsDialog";
 import { Stack } from "@mui/material";
-import { useBarbellEditor } from "./useBarbellEditor";
+import { useBarbellEditor } from "@/components/BarbellEditor/useBarbellEditor";
 import { DEFAULT_PLATE_SIZES } from "@/constants"; // Import DEFAULT_PLATE_SIZES
 
 export interface BarbellEditorProps {

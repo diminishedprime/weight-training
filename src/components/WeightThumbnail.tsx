@@ -30,7 +30,8 @@ const WeightThumbnail: React.FC<WeightThumbnailProps> = (props) => {
           display: "inline-block",
           verticalAlign: "middle",
           width: 80,
-        }}>
+        }}
+      >
         <Barbell weight={weight} hidePlateNumbers />
       </span>
     );

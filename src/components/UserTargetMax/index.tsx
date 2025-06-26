@@ -42,7 +42,7 @@ export const getUserTargetMaxTestIds = (exerciseType: ExerciseType) => ({
  */
 const useUserTargetMaxAPI = (props: UserTargetMaxProps) => {
   const [localTargetMax, setLocalTargetMax] = React.useState<string>(
-    props.targetMax?.toString() ?? ""
+    props.targetMax?.toString() ?? "",
   );
   React.useEffect(() => {
     setLocalTargetMax(props.targetMax?.toString() ?? "");
@@ -50,23 +50,23 @@ const useUserTargetMaxAPI = (props: UserTargetMaxProps) => {
 
   const numericTargetMax = React.useMemo(
     () => Number(localTargetMax),
-    [localTargetMax]
+    [localTargetMax],
   );
   const savedTargetMax = React.useMemo(
     () => Number(props.targetMax),
-    [props.targetMax]
+    [props.targetMax],
   );
   const numericOneRepMax = React.useMemo(
     () => Number(props.oneRepMax),
-    [props.oneRepMax]
+    [props.oneRepMax],
   );
   const targetMaxChanged = React.useMemo(
     () => numericTargetMax !== savedTargetMax && !!numericTargetMax,
-    [numericTargetMax, savedTargetMax]
+    [numericTargetMax, savedTargetMax],
   );
   const bumpAmount = React.useMemo(
     () => getBumpAmountForExerciseType(props.exerciseType),
-    [props.exerciseType]
+    [props.exerciseType],
   );
 
   const targetMaxSummary = React.useMemo(() => {
@@ -126,7 +126,7 @@ const useUserTargetMaxAPI = (props: UserTargetMaxProps) => {
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setLocalTargetMax(e.target.value);
     },
-    []
+    [],
   );
 
   const handleSetTo90 = React.useCallback(() => {
@@ -210,7 +210,8 @@ const UserTargetMax: React.FC<UserTargetMaxProps> = (props) => {
         spacing={1}
         flexWrap="wrap"
         useFlexGap
-        alignItems="flex-start">
+        alignItems="flex-start"
+      >
         <Tooltip title="Reset to saved value">
           <span>
             <IconButton
@@ -218,7 +219,8 @@ const UserTargetMax: React.FC<UserTargetMaxProps> = (props) => {
               size="small"
               aria-label="Reset to saved value"
               data-testid={`reset-target-max-${props.exerciseType}`}
-              disabled={!api.targetMaxChanged}>
+              disabled={!api.targetMaxChanged}
+            >
               <UndoIcon />
             </IconButton>
           </span>
@@ -228,7 +230,8 @@ const UserTargetMax: React.FC<UserTargetMaxProps> = (props) => {
           aria-label={`Subtract ${api.bumpAmount}`}
           data-testid={`bump-down-${props.exerciseType}`}
           disabled={isNaN(api.numericTargetMax)}
-          variant="outlined">
+          variant="outlined"
+        >
           {`Sub ${api.bumpAmount}`}
         </Button>
         <form
@@ -237,9 +240,10 @@ const UserTargetMax: React.FC<UserTargetMaxProps> = (props) => {
             props.exerciseType,
             props.preferredWeightUnit,
             api.localTargetMax,
-            props.currentPath
+            props.currentPath,
           )}
-          style={{ display: "flex", alignItems: "center", margin: 0 }}>
+          style={{ display: "flex", alignItems: "center", margin: 0 }}
+        >
           <TextField
             label={api.targetMaxLabel}
             sx={{ width: "17ch" }}
@@ -266,7 +270,8 @@ const UserTargetMax: React.FC<UserTargetMaxProps> = (props) => {
                       ? undefined
                       : "primary"
                   }
-                  sx={{ alignSelf: "center" }}>
+                  sx={{ alignSelf: "center" }}
+                >
                   <SendIcon />
                 </IconButton>
               ),
@@ -278,7 +283,8 @@ const UserTargetMax: React.FC<UserTargetMaxProps> = (props) => {
           aria-label={`Add ${api.bumpAmount}`}
           data-testid={`bump-up-${props.exerciseType}`}
           disabled={isNaN(api.numericTargetMax)}
-          variant="outlined">
+          variant="outlined"
+        >
           {`Add ${api.bumpAmount}`}
         </Button>
       </Stack>
@@ -289,7 +295,8 @@ const UserTargetMax: React.FC<UserTargetMaxProps> = (props) => {
             <Typography
               variant="body2"
               sx={{ color: api.targetMaxSummaryParts.percentPart.color }}
-              data-testid="target-max-percent-summary">
+              data-testid="target-max-percent-summary"
+            >
               {api.targetMaxSummaryParts.percentPart.text}
             </Typography>
           )}
@@ -297,7 +304,8 @@ const UserTargetMax: React.FC<UserTargetMaxProps> = (props) => {
             <Typography
               variant="body2"
               sx={{ color: api.targetMaxSummaryParts.diffPart.color }}
-              data-testid="target-max-diff-summary">
+              data-testid="target-max-diff-summary"
+            >
               {api.targetMaxSummaryParts.diffPart.text}
             </Typography>
           )}

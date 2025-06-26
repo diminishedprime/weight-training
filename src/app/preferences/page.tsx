@@ -46,7 +46,7 @@ export default async function PreferencesPage() {
   // Stryker disable next-line all
   if (!preferencesData) {
     throw new Error(
-      "No preferences data returned from get_user_preferences. This likely means your user is not set up correctly in the database. Reach out to the developer for help getting this resolved."
+      "No preferences data returned from get_user_preferences. This likely means your user is not set up correctly in the database. Reach out to the developer for help getting this resolved.",
     );
   }
   // Stryker restore all

@@ -38,24 +38,27 @@ export const getEquipmentChipTestIds = (equipmentType: EquipmentType) =>
  * @returns EquipmentChipFiltersAPI
  */
 const useEquipmentChipFiltersAPI = (props: EquipmentChipFiltersProps) => {
+  // Destructure props for useCallback dependencies
+  const { setSelectedEquipment, allEquipmentTypes } = props;
+
   const handleChipClick = useCallback(
     (equipmentType: EquipmentType) => {
-      props.setSelectedEquipment((prev) =>
+      setSelectedEquipment((prev) =>
         prev.has(equipmentType)
           ? prev.remove(equipmentType)
-          : prev.add(equipmentType)
+          : prev.add(equipmentType),
       );
     },
-    [props.setSelectedEquipment]
+    [setSelectedEquipment],
   );
 
   const handleAllClick = useCallback(() => {
-    props.setSelectedEquipment(Set(props.allEquipmentTypes));
-  }, [props.setSelectedEquipment, props.allEquipmentTypes]);
+    setSelectedEquipment(Set(allEquipmentTypes));
+  }, [setSelectedEquipment, allEquipmentTypes]);
 
   const handleNoneClick = useCallback(() => {
-    props.setSelectedEquipment((old) => old.clear());
-  }, [props.setSelectedEquipment]);
+    setSelectedEquipment((old) => old.clear());
+  }, [setSelectedEquipment]);
 
   const isAllDisabled =
     props.selectedEquipment.size === props.allEquipmentTypes.length;
@@ -80,14 +83,16 @@ const EquipmentChipFilters: React.FC<EquipmentChipFiltersProps> = (props) => {
           variant="subtitle2"
           sx={{ mb: 0.5 }}
           component="label"
-          htmlFor="equipment-type-chips">
+          htmlFor="equipment-type-chips"
+        >
           Equipment Type
         </Typography>
         <Tooltip title="Filter the list by equipment type. Click chips to show or hide exercises for each equipment.">
           <IconButton
             size="small"
             aria-label="Equipment filter info"
-            tabIndex={-1}>
+            tabIndex={-1}
+          >
             <InfoOutlinedIcon fontSize="small" />
           </IconButton>
         </Tooltip>
@@ -100,7 +105,8 @@ const EquipmentChipFilters: React.FC<EquipmentChipFiltersProps> = (props) => {
         alignItems="center"
         aria-labelledby="equipment-type-label"
         role="group"
-        id="equipment-type-chips">
+        id="equipment-type-chips"
+      >
         {props.allEquipmentTypes.map((equipmentType) => (
           <Chip
             key={equipmentType}

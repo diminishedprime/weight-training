@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import ExerciseBlock from "./ExerciseBlock";
+import ExerciseBlock from "@/app/superblock/[superblock_id]/ExerciseBlock";
 import { Box, Typography } from "@mui/material";
 import type { Database } from "@/database.types";
 

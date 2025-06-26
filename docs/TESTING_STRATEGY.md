@@ -26,7 +26,7 @@ redundant or overly granular test files. This approach will help us:
   Example:
   ```ts
   vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-    fakeServerUtil.requireLoggedInUser(USER_ID)
+    fakeServerUtil.requireLoggedInUser(USER_ID),
   );
   ```
 - **Use Test IDs for Targeting:**  

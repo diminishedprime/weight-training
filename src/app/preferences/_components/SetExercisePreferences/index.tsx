@@ -1,13 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useEffect, useCallback } from "react";
-import {
-  Typography,
-  Stack,
-  TextField,
-  Button,
-  IconButton,
-} from "@mui/material";
+import { Typography, Stack, TextField, IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import Tooltip from "@mui/material/Tooltip";
@@ -49,10 +43,10 @@ const useSetExercisePreferencesAPI = (props: UserExercisePreferences) => {
   } = props;
 
   const [localOneRepMax, setLocalOneRepMax] = useState<string>(
-    one_rep_max_value?.toString() ?? ""
+    one_rep_max_value?.toString() ?? "",
   );
   const [localRestTime, setLocalRestTime] = useState<string>(
-    default_rest_time_seconds.toString()
+    default_rest_time_seconds.toString(),
   );
 
   useEffect(() => {
@@ -65,36 +59,36 @@ const useSetExercisePreferencesAPI = (props: UserExercisePreferences) => {
 
   const numericOneRepMax = useMemo(
     () => Number(localOneRepMax),
-    [localOneRepMax]
+    [localOneRepMax],
   );
   const numericRestTime = useMemo(() => Number(localRestTime), [localRestTime]);
   const savedOneRepMax = useMemo(
     () => Number(one_rep_max_value),
-    [one_rep_max_value]
+    [one_rep_max_value],
   );
   const savedRestTime = useMemo(
     () => Number(default_rest_time_seconds),
-    [default_rest_time_seconds]
+    [default_rest_time_seconds],
   );
 
   const oneRepMaxChanged = useMemo(
     () => numericOneRepMax !== savedOneRepMax && !!numericOneRepMax,
-    [numericOneRepMax, savedOneRepMax]
+    [numericOneRepMax, savedOneRepMax],
   );
   const restTimeChanged = useMemo(
     () => numericRestTime !== savedRestTime && !!numericRestTime,
-    [numericRestTime, savedRestTime]
+    [numericRestTime, savedRestTime],
   );
 
   const testIds = useMemo(
     () => getExercisePreferenceTestIds(exercise_type),
-    [exercise_type]
+    [exercise_type],
   );
 
   // Use util to determine if this is a bodyweight exercise
   const isBodyweight = useMemo(
     () => equipmentForExercise(exercise_type) === "bodyweight",
-    [exercise_type]
+    [exercise_type],
   );
 
   /**
@@ -103,12 +97,12 @@ const useSetExercisePreferencesAPI = (props: UserExercisePreferences) => {
   const handleOneRepMaxChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) =>
       setLocalOneRepMax(e.target.value),
-    []
+    [],
   );
   const handleRestTimeChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) =>
       setLocalRestTime(e.target.value),
-    []
+    [],
   );
 
   return {
@@ -145,7 +139,8 @@ const SetExercisePreferences: React.FC<UserExercisePreferences> = (props) => {
       direction="column"
       spacing={1}
       data-testid="exercise-preference-row"
-      sx={{ mb: 2 }}>
+      sx={{ mb: 2 }}
+    >
       <Stack direction="row" alignItems="center" spacing={1}>
         <Typography variant="h6" gutterBottom data-testid="exercise-name">
           {exerciseTypeUIStringLong(api.exercise_type)}
@@ -154,7 +149,8 @@ const SetExercisePreferences: React.FC<UserExercisePreferences> = (props) => {
           title={
             "Set your 1 rep max and target max for each exercise. Target max is typically 85-90% of your 1RM. For the way this app works, you should only ever set your 1 rep max to a value you have actually lifted. This value will get updated automatically as you log workouts, so you should not need to update it often. The target max, on the other hand, is used by a lot of training plans to determine what weight you should be doing and is necessarily reflective of a weight you have actually lifted. For example, with the 5/3/1 program, you typically set your target max to 90% of your 1 rep max, and then calculate your weight for exercises to do off of that. Since you don't do a true 1 rep max day that often, your target max will start to get closer to your highest 1 rep max. That is okay, just use that as a guide for when you're ready to have another 1 rep max day."
           }
-          placement="top">
+          placement="top"
+        >
           <IconButton size="small" aria-label="Exercise maxes info">
             <InfoOutlinedIcon fontSize="small" />
           </IconButton>
@@ -167,8 +163,9 @@ const SetExercisePreferences: React.FC<UserExercisePreferences> = (props) => {
               null,
               api.exercise_type,
               api.preferred_weight_unit!,
-              api.localOneRepMax
-            )}>
+              api.localOneRepMax,
+            )}
+          >
             <TextField
               label={`1 Rep Max${api.oneRepMaxChanged ? " (changed)" : ""}`}
               sx={{ width: "17ch" }}
@@ -192,7 +189,8 @@ const SetExercisePreferences: React.FC<UserExercisePreferences> = (props) => {
                       api.numericOneRepMax === api.savedOneRepMax
                         ? undefined
                         : "primary"
-                    }>
+                    }
+                  >
                     <SendIcon />
                   </IconButton>
                 ),
@@ -215,8 +213,9 @@ const SetExercisePreferences: React.FC<UserExercisePreferences> = (props) => {
           action={updateDefaultRestTime.bind(
             null,
             api.exercise_type,
-            api.localRestTime
-          )}>
+            api.localRestTime,
+          )}
+        >
           <TextField
             label={`Rest Time${api.restTimeChanged ? " (changed)" : ""}`}
             sx={{ width: "20ch" }}
@@ -231,7 +230,8 @@ const SetExercisePreferences: React.FC<UserExercisePreferences> = (props) => {
                   <Typography
                     variant="body2"
                     color="text.secondary"
-                    sx={{ mr: 1 }}>
+                    sx={{ mr: 1 }}
+                  >
                     seconds
                   </Typography>
                   <IconButton
@@ -247,7 +247,8 @@ const SetExercisePreferences: React.FC<UserExercisePreferences> = (props) => {
                       api.numericRestTime === api.savedRestTime
                         ? undefined
                         : "primary"
-                    }>
+                    }
+                  >
                     <SendIcon />
                   </IconButton>
                 </>
@@ -267,7 +268,7 @@ const SetExercisePreferences: React.FC<UserExercisePreferences> = (props) => {
  * @returns Object with data-testid strings for each field.
  */
 export const getExercisePreferenceTestIds = (
-  exerciseType: Database["public"]["Enums"]["exercise_type_enum"]
+  exerciseType: Database["public"]["Enums"]["exercise_type_enum"],
 ) => ({
   oneRepMaxInput: `one-rep-max-input-${exerciseType}`,
   saveOneRepMax: `save-one-rep-max-${exerciseType}`,

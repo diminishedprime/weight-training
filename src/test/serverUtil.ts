@@ -4,7 +4,7 @@ import type {
   requireLoggedInUser as RealRequireLoggedInUser,
   getSession as RealGetSession,
 } from "@/serverUtil";
-import { USER_ID_LOGGED_OUT, USER_ID_LOGGED_IN } from "./constants";
+import { USER_ID_LOGGED_OUT } from "@/test/constants";
 
 /**
  * Generates a full set of user preference rows for all exercise types, matching the DB invariant.
@@ -13,7 +13,7 @@ import { USER_ID_LOGGED_OUT, USER_ID_LOGGED_IN } from "./constants";
 export const get_user_preferences_default_rows = (
   userId: string
 ): Array<Database["public"]["Tables"]["user_exercise_weights"]["Row"]> => {
-  return Constants.public.Enums.exercise_type_enum.map((exercise_type, idx) => {
+  return Constants.public.Enums.exercise_type_enum.map((exercise_type) => {
     return {
       id: `mock-id-${userId}-${exercise_type}`,
       user_id: userId,

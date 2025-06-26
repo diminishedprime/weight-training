@@ -35,7 +35,8 @@ export default function ExercisePage() {
                         component={Link}
                         href={`/exercise/${type}`}
                         variant="contained"
-                        color="primary">
+                        color="primary"
+                      >
                         {exerciseTypeUIStringBrief(type)}
                       </Button>
                     );

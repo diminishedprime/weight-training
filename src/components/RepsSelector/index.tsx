@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import SetAvailableReps from "./SetAvailableReps";
+import SetAvailableReps from "@/components/RepsSelector/SetAvailableReps";
 import { Box } from "@mui/material";
 
 export interface RepsSelectorProps {

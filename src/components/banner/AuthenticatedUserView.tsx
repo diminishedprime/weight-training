@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { User } from "next-auth";
-import { handleSignOut } from "./actions";
+import { handleSignOut } from "@/components/banner/actions";
 import { useState } from "react";
 
 interface AuthenticatedUserViewProps {
