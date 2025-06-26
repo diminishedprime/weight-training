@@ -20,7 +20,8 @@
     "test:coverage": "dotenv -e .env.local -- pnpm run db:start && vitest run --coverage",
     "test:mutation": "dotenv -e .env.local -- pnpm run db:start && stryker run",
     "test:ui": "dotenv -e .env.local -- pnpm run db:start && vitest --ui",
-    "test:watch": "dotenv -e .env.local -- pnpm run db:start && vitest"
+    "test:watch": "dotenv -e .env.local -- pnpm run db:start && vitest",
+    "prepare": "husky"
   },
   "dependencies": {
     "@auth/supabase-adapter": "^1.9.1",
@@ -62,6 +63,7 @@
     "eslint-config-next": "15.3.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "happy-dom": "^17.6.3",
+    "husky": "^9.1.7",
     "jsdom": "^26.1.0",
     "prettier": "^3.5.3",
     "stryker-cli": "^1.0.2",

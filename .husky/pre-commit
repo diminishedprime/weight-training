@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Format code
+pnpm run format
+
+# Check for changes after formatting
+if ! git diff --exit-code; then
+    echo "Formatting made changes. Please commit formatted code."
+    exit 1
+fi
+
+# Build project
+pnpm run build
+if [ $? -ne 0 ]; then
+    echo "Build failed. Please fix errors before committing."
+    exit 1
+fi
