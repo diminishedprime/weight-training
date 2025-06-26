@@ -13,6 +13,13 @@ if ! git diff --exit-code; then
     exit 1
 fi
 
+# Run all tests (UI and DB are combined in the main test script)
+pnpm run test
+if [ $? -ne 0 ]; then
+    echo "Tests failed. Please fix errors before committing."
+    exit 1
+fi
+
 # Build project
 pnpm run build
 if [ $? -ne 0 ]; then
