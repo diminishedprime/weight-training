@@ -1,4 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env zsh
+
+# Load nvm so Node and pnpm are available in this shell
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Format code
 pnpm run format
