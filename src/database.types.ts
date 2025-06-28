@@ -194,6 +194,33 @@ export type Database = {
         };
         Relationships: [];
       };
+      target_max_history: {
+        Row: {
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          id: string;
+          recorded_at: string;
+          unit: Database["public"]["Enums"]["weight_unit_enum"];
+          user_id: string;
+          value: number;
+        };
+        Insert: {
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          id?: string;
+          recorded_at?: string;
+          unit: Database["public"]["Enums"]["weight_unit_enum"];
+          user_id: string;
+          value: number;
+        };
+        Update: {
+          exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
+          id?: string;
+          recorded_at?: string;
+          unit?: Database["public"]["Enums"]["weight_unit_enum"];
+          user_id?: string;
+          value?: number;
+        };
+        Relationships: [];
+      };
       user_exercise_weights: {
         Row: {
           created_at: string | null;
@@ -370,6 +397,17 @@ export type Database = {
         };
         Returns: string;
       };
+      create_wendler_exercise_block: {
+        Args: {
+          p_user_id: string;
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          p_cycle_type: Database["public"]["Enums"]["wendler_cycle_type_enum"];
+          p_block_order: number;
+          p_increase_amount_value: number;
+          p_increase_amount_unit: Database["public"]["Enums"]["weight_unit_enum"];
+        };
+        Returns: string;
+      };
       edit_user_one_rep_max_history: {
         Args: {
           p_history_id: string;
@@ -406,6 +444,17 @@ export type Database = {
           relative_effort: Database["public"]["Enums"]["relative_effort_enum"];
         }[];
       };
+      get_target_max: {
+        Args: {
+          p_user_id: string;
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+        };
+        Returns: {
+          value: number;
+          unit: Database["public"]["Enums"]["weight_unit_enum"];
+          recorded_at: string;
+        }[];
+      };
       get_user_one_rep_max_history: {
         Args: {
           p_user_id: string;
@@ -433,6 +482,16 @@ export type Database = {
       round_to_nearest_5: {
         Args: { p_weight: number };
         Returns: number;
+      };
+      set_target_max: {
+        Args: {
+          p_user_id: string;
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          p_value: number;
+          p_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          p_recorded_at?: string;
+        };
+        Returns: undefined;
       };
       update_exercise_for_user: {
         Args: {

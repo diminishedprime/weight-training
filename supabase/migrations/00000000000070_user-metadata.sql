@@ -180,6 +180,111 @@ CREATE TABLE IF NOT EXISTS public.user_one_rep_max_history (
   CONSTRAINT user_one_rep_max_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
 );
 
+-- Table: target_max_history
+--
+-- Purpose: Tracks all target max values for each user/exercise.
+--
+-- Why: This table provides a full audit trail of Wendler target max changes,
+--      supporting analytics, undo/history, and compliance with domain
+--      requirements for tracking progress over time. It is a junction/history
+--      table for user/exercise/target max.
+--
+-- Columns:
+--   id (uuid): Primary key.
+--   user_id (uuid): Foreign key to next_auth.users(id).
+--   exercise_type (exercise_type_enum): The exercise type.
+--   value (numeric): The Wendler target max value.
+--   unit (weight_unit_enum): The Wendler target max unit.
+--   recorded_at (timestamptz): When this target max was set.
+CREATE TABLE IF NOT EXISTS public.target_max_history (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  user_id uuid NOT NULL,
+  exercise_type exercise_type_enum NOT NULL,
+  value numeric NOT NULL,
+  unit weight_unit_enum NOT NULL,
+  recorded_at timestamptz NOT NULL DEFAULT timezone ('utc', now()),
+  CONSTRAINT target_max_history_pkey PRIMARY KEY (id),
+  CONSTRAINT target_max_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
+);
+
+-- Index: idx_target_max_history_user_exercise_recorded_at
+--
+-- Purpose: Supports efficient lookup of the most recent target max for a user/exercise.
+--
+-- Why: The get_target_max function queries by user_id and exercise_type,
+--      ordering by recorded_at DESC. This index optimizes that access pattern
+--      for analytics, UI, and business logic.
+CREATE INDEX IF NOT EXISTS idx_target_max_history_user_exercise_recorded_at ON public.target_max_history (user_id, exercise_type, recorded_at DESC, id DESC);
+
+-- Function: set_target_max
+--
+-- Purpose: Inserts a new Wendler target max history row for a user/exercise.
+--
+-- Why: This function provides a single, auditable way to record a new Wendler
+--      target max value for a user/exercise, supporting analytics,
+--      undo/history, and compliance with domain requirements. It does not
+--      update the canonical value in user_exercise_weights; use
+--      update_user_target_max for that purpose.
+--
+-- Arguments:
+--   p_user_id (uuid): The user id.
+--   p_exercise_type (exercise_type_enum): The exercise type.
+--   p_value (numeric): The Wendler target max value.
+--   p_unit (weight_unit_enum): The Wendler target max unit.
+--   p_recorded_at (timestamptz, optional): Optional override for timestamp.
+CREATE OR REPLACE FUNCTION public.set_target_max (
+  p_user_id uuid,
+  p_exercise_type exercise_type_enum,
+  p_value numeric,
+  p_unit weight_unit_enum,
+  p_recorded_at timestamptz DEFAULT NULL
+) RETURNS void AS $$
+DECLARE
+  v_now timestamptz;
+BEGIN
+  v_now := COALESCE(p_recorded_at, timezone('utc', now()));
+  INSERT INTO public.target_max_history (
+    user_id, exercise_type, value, unit, recorded_at
+  ) VALUES (
+    p_user_id, p_exercise_type, p_value, p_unit, v_now
+  );
+END;
+$$ LANGUAGE plpgsql;
+
+-- Function: public.get_target_max
+--
+-- Purpose: Returns the most recent Wendler target max value, unit, and
+--          timestamp for a user/exercise.
+--
+-- Why: This function provides a single, type-safe way to retrieve the latest
+--      Wendler target max for analytics, UI, and business logic. It queries the
+--      target_max_history table, returning the most recent entry by
+--      recorded_at.
+--
+-- Arguments:
+--   p_user_id (uuid): The user id.
+--   p_exercise_type (exercise_type_enum): The exercise type.
+--
+-- Returns: TABLE (value numeric, unit weight_unit_enum, recorded_at timestamptz)
+CREATE OR REPLACE FUNCTION public.get_target_max (
+  p_user_id uuid,
+  p_exercise_type exercise_type_enum
+) RETURNS TABLE (
+  value numeric,
+  unit weight_unit_enum,
+  recorded_at timestamptz
+) AS $$
+BEGIN
+  RETURN QUERY
+    SELECT h.value, h.unit, h.recorded_at
+      FROM public.target_max_history h
+     WHERE h.user_id = p_user_id
+       AND h.exercise_type = p_exercise_type
+     ORDER BY h.recorded_at DESC, h.id DESC
+     LIMIT 1;
+END;
+$$ LANGUAGE plpgsql STABLE;
+
 -- Trigger: create_user_metadata_on_user_insert
 --
 -- Purpose: Automatically creates a user_metadata row and user_exercise_weights
