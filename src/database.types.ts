@@ -157,7 +157,8 @@ export type Database = {
           reps: number;
           user_id: string;
           warmup: boolean;
-          weight_id: string;
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          weight_value: number;
         };
         Insert: {
           completion_status?: Database["public"]["Enums"]["completion_status_enum"];
@@ -172,7 +173,8 @@ export type Database = {
           reps: number;
           user_id: string;
           warmup?: boolean;
-          weight_id: string;
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          weight_value: number;
         };
         Update: {
           completion_status?: Database["public"]["Enums"]["completion_status_enum"];
@@ -187,17 +189,10 @@ export type Database = {
           reps?: number;
           user_id?: string;
           warmup?: boolean;
-          weight_id?: string;
+          weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
+          weight_value?: number;
         };
-        Relationships: [
-          {
-            foreignKeyName: "exercises_weight_id_fkey";
-            columns: ["weight_id"];
-            isOneToOne: false;
-            referencedRelation: "weights";
-            referencedColumns: ["id"];
-          },
-        ];
+        Relationships: [];
       };
       user_exercise_weights: {
         Row: {
@@ -205,8 +200,14 @@ export type Database = {
           default_rest_time_seconds: number | null;
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id: string;
-          one_rep_max_weight_id: string | null;
-          target_max_weight_id: string | null;
+          one_rep_max_unit:
+            | Database["public"]["Enums"]["weight_unit_enum"]
+            | null;
+          one_rep_max_value: number | null;
+          target_max_unit:
+            | Database["public"]["Enums"]["weight_unit_enum"]
+            | null;
+          target_max_value: number | null;
           user_id: string;
         };
         Insert: {
@@ -214,8 +215,14 @@ export type Database = {
           default_rest_time_seconds?: number | null;
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
-          one_rep_max_weight_id?: string | null;
-          target_max_weight_id?: string | null;
+          one_rep_max_unit?:
+            | Database["public"]["Enums"]["weight_unit_enum"]
+            | null;
+          one_rep_max_value?: number | null;
+          target_max_unit?:
+            | Database["public"]["Enums"]["weight_unit_enum"]
+            | null;
+          target_max_value?: number | null;
           user_id: string;
         };
         Update: {
@@ -223,26 +230,17 @@ export type Database = {
           default_rest_time_seconds?: number | null;
           exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
-          one_rep_max_weight_id?: string | null;
-          target_max_weight_id?: string | null;
+          one_rep_max_unit?:
+            | Database["public"]["Enums"]["weight_unit_enum"]
+            | null;
+          one_rep_max_value?: number | null;
+          target_max_unit?:
+            | Database["public"]["Enums"]["weight_unit_enum"]
+            | null;
+          target_max_value?: number | null;
           user_id?: string;
         };
-        Relationships: [
-          {
-            foreignKeyName: "user_exercise_weights_one_rep_max_fkey";
-            columns: ["one_rep_max_weight_id"];
-            isOneToOne: false;
-            referencedRelation: "weights";
-            referencedColumns: ["id"];
-          },
-          {
-            foreignKeyName: "user_exercise_weights_target_max_fkey";
-            columns: ["target_max_weight_id"];
-            isOneToOne: false;
-            referencedRelation: "weights";
-            referencedColumns: ["id"];
-          },
-        ];
+        Relationships: [];
       };
       user_metadata: {
         Row: {
@@ -282,7 +280,8 @@ export type Database = {
           recorded_at: string;
           source: Database["public"]["Enums"]["user_one_rep_max_source_enum"];
           user_id: string;
-          weight_id: string;
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          weight_value: number;
         };
         Insert: {
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
@@ -291,7 +290,8 @@ export type Database = {
           recorded_at?: string;
           source?: Database["public"]["Enums"]["user_one_rep_max_source_enum"];
           user_id: string;
-          weight_id: string;
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          weight_value: number;
         };
         Update: {
           exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
@@ -300,31 +300,6 @@ export type Database = {
           recorded_at?: string;
           source?: Database["public"]["Enums"]["user_one_rep_max_source_enum"];
           user_id?: string;
-          weight_id?: string;
-        };
-        Relationships: [
-          {
-            foreignKeyName: "user_one_rep_max_history_weight_id_fkey";
-            columns: ["weight_id"];
-            isOneToOne: false;
-            referencedRelation: "weights";
-            referencedColumns: ["id"];
-          },
-        ];
-      };
-      weights: {
-        Row: {
-          id: string;
-          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
-          weight_value: number;
-        };
-        Insert: {
-          id?: string;
-          weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
-          weight_value: number;
-        };
-        Update: {
-          id?: string;
           weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
           weight_value?: number;
         };
@@ -336,8 +311,12 @@ export type Database = {
           cycle_type: Database["public"]["Enums"]["wendler_cycle_type_enum"];
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id: string;
-          increase_amount_weight_id: string | null;
-          training_max_weight_id: string;
+          increase_amount_unit:
+            | Database["public"]["Enums"]["weight_unit_enum"]
+            | null;
+          increase_amount_value: number | null;
+          training_max_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          training_max_value: number;
           updated_at: string | null;
           user_id: string;
         };
@@ -346,8 +325,12 @@ export type Database = {
           cycle_type: Database["public"]["Enums"]["wendler_cycle_type_enum"];
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
-          increase_amount_weight_id?: string | null;
-          training_max_weight_id: string;
+          increase_amount_unit?:
+            | Database["public"]["Enums"]["weight_unit_enum"]
+            | null;
+          increase_amount_value?: number | null;
+          training_max_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          training_max_value: number;
           updated_at?: string | null;
           user_id: string;
         };
@@ -356,27 +339,16 @@ export type Database = {
           cycle_type?: Database["public"]["Enums"]["wendler_cycle_type_enum"];
           exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
-          increase_amount_weight_id?: string | null;
-          training_max_weight_id?: string;
+          increase_amount_unit?:
+            | Database["public"]["Enums"]["weight_unit_enum"]
+            | null;
+          increase_amount_value?: number | null;
+          training_max_unit?: Database["public"]["Enums"]["weight_unit_enum"];
+          training_max_value?: number;
           updated_at?: string | null;
           user_id?: string;
         };
-        Relationships: [
-          {
-            foreignKeyName: "wendler_metadata_increase_amount_weight_id_fkey";
-            columns: ["increase_amount_weight_id"];
-            isOneToOne: false;
-            referencedRelation: "weights";
-            referencedColumns: ["id"];
-          },
-          {
-            foreignKeyName: "wendler_metadata_training_max_weight_id_fkey";
-            columns: ["training_max_weight_id"];
-            isOneToOne: false;
-            referencedRelation: "weights";
-            referencedColumns: ["id"];
-          },
-        ];
+        Relationships: [];
       };
     };
     Views: {
@@ -390,8 +362,8 @@ export type Database = {
           p_equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
           p_weight_value: number;
           p_reps: number;
-          p_performed_at?: string;
           p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
+          p_performed_at?: string;
           p_warmup?: boolean;
           p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
           p_relative_effort?: Database["public"]["Enums"]["relative_effort_enum"];
@@ -454,13 +426,6 @@ export type Database = {
         Args: { p_user_id: string };
         Returns: Database["public"]["CompositeTypes"]["user_preferences_row"][];
       };
-      get_weight: {
-        Args: {
-          p_weight_value: number;
-          p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
-        };
-        Returns: string;
-      };
       normalize_bar_weight_pounds: {
         Args: { p_weight: number };
         Returns: number;
@@ -476,8 +441,8 @@ export type Database = {
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           p_weight_value: number;
           p_reps: number;
-          p_performed_at?: string;
           p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
+          p_performed_at?: string;
           p_warmup?: boolean;
           p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
           p_notes?: string;

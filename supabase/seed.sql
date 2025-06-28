@@ -44,19 +44,19 @@ DECLARE
   i integer := 0;
   base_weight numeric := 100.0;
   v_user_id uuid := '00000000-0000-0000-0000-000000000003';
-  weight_id_1rm uuid;
-  weight_id_target uuid;
+  one_rep_max_value numeric;
+  target_max_value numeric;
 BEGIN
   FOR ex_type IN SELECT unnest(enum_range(NULL::public.exercise_type_enum)) LOOP
-    -- Use get_weight function for 1RM and target max
-    weight_id_1rm := public.get_weight(base_weight + (i * 0.1), 'pounds');
-    weight_id_target := public.get_weight(base_weight + (i * 0.1) + 10, 'pounds');
-
-    INSERT INTO public.user_exercise_weights (user_id, exercise_type, one_rep_max_weight_id, target_max_weight_id, default_rest_time_seconds)
-      VALUES (v_user_id, ex_type, weight_id_1rm, weight_id_target, 120)
+    one_rep_max_value := base_weight + (i * 0.1);
+    target_max_value := base_weight + (i * 0.1) + 10;
+    INSERT INTO public.user_exercise_weights (user_id, exercise_type, one_rep_max_value, one_rep_max_unit, target_max_value, target_max_unit, default_rest_time_seconds)
+      VALUES (v_user_id, ex_type, one_rep_max_value, 'pounds', target_max_value, 'pounds', 120)
       ON CONFLICT (user_id, exercise_type) DO UPDATE
-        SET one_rep_max_weight_id = EXCLUDED.one_rep_max_weight_id,
-            target_max_weight_id = EXCLUDED.target_max_weight_id,
+        SET one_rep_max_value = EXCLUDED.one_rep_max_value,
+            one_rep_max_unit = EXCLUDED.one_rep_max_unit,
+            target_max_value = EXCLUDED.target_max_value,
+            target_max_unit = EXCLUDED.target_max_unit,
             default_rest_time_seconds = EXCLUDED.default_rest_time_seconds;
     i := i + 1;
   END LOOP;
@@ -70,15 +70,15 @@ DECLARE
   j integer;
   base_weight numeric := 100.0;
   v_user_id uuid := '00000000-0000-0000-0000-000000000003';
-  weight_id_hist uuid;
+  hist_value numeric;
   hist_time timestamptz;
 BEGIN
   FOR ex_type IN SELECT unnest(enum_range(NULL::public.exercise_type_enum)) LOOP
     FOR j IN 0..9 LOOP
-      weight_id_hist := public.get_weight(base_weight + (i * 1.0) + j, 'pounds');
+      hist_value := base_weight + (i * 1.0) + j;
       hist_time := NOW() - INTERVAL '1 day' * (10 - j); -- older first, most recent last
-      INSERT INTO public.user_one_rep_max_history (user_id, exercise_type, weight_id, recorded_at, source, notes)
-        VALUES (v_user_id, ex_type, weight_id_hist, hist_time, 'manual', 'Seeded history ' || (j+1) || ' for ' || ex_type)
+      INSERT INTO public.user_one_rep_max_history (user_id, exercise_type, weight_value, weight_unit, recorded_at, source, notes)
+        VALUES (v_user_id, ex_type, hist_value, 'pounds', hist_time, 'manual', 'Seeded history ' || (j+1) || ' for ' || ex_type)
         ON CONFLICT DO NOTHING;
     END LOOP;
     i := i + 1;

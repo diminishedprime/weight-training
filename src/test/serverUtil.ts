@@ -1,31 +1,8 @@
-import { Constants } from "@/database.types";
-import { Database } from "@/database.types";
 import type {
   requireLoggedInUser as RealRequireLoggedInUser,
   getSession as RealGetSession,
 } from "@/serverUtil";
 import { USER_ID_LOGGED_OUT } from "@/test/constants";
-
-/**
- * Generates a full set of user preference rows for all exercise types, matching the DB invariant.
- * Used in tests for USER_ID_WITH_PREFERENCES to simulate a real user with all rows present.
- */
-export const get_user_preferences_default_rows = (
-  userId: string
-): Array<Database["public"]["Tables"]["user_exercise_weights"]["Row"]> => {
-  return Constants.public.Enums.exercise_type_enum.map((exercise_type) => {
-    return {
-      id: `mock-id-${userId}-${exercise_type}`,
-      user_id: userId,
-      exercise_type,
-      preferred_weight_unit: "pounds",
-      default_rest_time_seconds: 90,
-      one_rep_max_weight_id: null,
-      target_max_weight_id: null,
-      created_at: null,
-    };
-  });
-};
 
 /**
  * Returns a function suitable for use as a mockImplementation for requireLoggedInUser from util.ts.

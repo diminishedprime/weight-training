@@ -68,8 +68,10 @@ CREATE TABLE IF NOT EXISTS public.user_metadata (
 --   id (uuid): Primary key for the record.
 --   user_id (uuid): Foreign key to next_auth.users(id).
 --   exercise_type (exercise_type_enum): The exercise type.
---   one_rep_max_weight_id (uuid): Foreign key to weights(id) for 1RM (denormalized, always synced to latest history).
---   target_max_weight_id (uuid): Foreign key to weights(id) for target max.
+--   one_rep_max_value (numeric, nullable): 1RM value.
+--   one_rep_max_unit (weight_unit_enum, nullable): 1RM unit.
+--   target_max_value (numeric, nullable): Target max value.
+--   target_max_unit (weight_unit_enum, nullable): Target max unit.
 --   default_rest_time_seconds (integer): Default rest time in seconds for this exercise (default 120).
 --   created_at (timestamptz): Timestamp for record creation.
 --
@@ -77,14 +79,14 @@ CREATE TABLE IF NOT EXISTS public.user_exercise_weights (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
   exercise_type exercise_type_enum NOT NULL,
-  one_rep_max_weight_id uuid,
-  target_max_weight_id uuid,
+  one_rep_max_value numeric NULL,
+  one_rep_max_unit weight_unit_enum NULL,
+  target_max_value numeric NULL,
+  target_max_unit weight_unit_enum NULL,
   default_rest_time_seconds integer DEFAULT 120,
   created_at timestamp with time zone DEFAULT timezone ('utc', now()),
   CONSTRAINT user_exercise_weights_pkey PRIMARY KEY (id),
   CONSTRAINT user_exercise_weights_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
-  CONSTRAINT user_exercise_weights_one_rep_max_fkey FOREIGN KEY (one_rep_max_weight_id) REFERENCES public.weights (id) ON DELETE CASCADE,
-  CONSTRAINT user_exercise_weights_target_max_fkey FOREIGN KEY (target_max_weight_id) REFERENCES public.weights (id) ON DELETE CASCADE,
   CONSTRAINT user_exercise_weights_unique UNIQUE (user_id, exercise_type)
 );
 
@@ -160,7 +162,8 @@ END$$;
 --   id (uuid): Primary key.
 --   user_id (uuid): Foreign key to next_auth.users(id).
 --   exercise_type (exercise_type_enum): The exercise type.
---   weight_id (uuid): Foreign key to weights(id) for 1RM.
+--   weight_value (numeric): The 1RM value.
+--   weight_unit (weight_unit_enum): The 1RM unit.
 --   recorded_at (timestamptz): When this 1RM was set.
 --   source (user_one_rep_max_source_enum): Source of the entry.
 --   notes (text): Optional user notes.
@@ -168,13 +171,13 @@ CREATE TABLE IF NOT EXISTS public.user_one_rep_max_history (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
   exercise_type exercise_type_enum NOT NULL,
-  weight_id uuid NOT NULL,
+  weight_value numeric NOT NULL,
+  weight_unit weight_unit_enum NOT NULL,
   recorded_at timestamptz NOT NULL DEFAULT timezone ('utc', now()),
   source user_one_rep_max_source_enum NOT NULL DEFAULT 'manual',
   notes text,
   CONSTRAINT user_one_rep_max_history_pkey PRIMARY KEY (id),
-  CONSTRAINT user_one_rep_max_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
-  CONSTRAINT user_one_rep_max_history_weight_id_fkey FOREIGN KEY (weight_id) REFERENCES public.weights (id) ON DELETE CASCADE
+  CONSTRAINT user_one_rep_max_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
 );
 
 -- Trigger: create_user_metadata_on_user_insert
@@ -239,17 +242,15 @@ CREATE OR REPLACE FUNCTION public.update_user_one_rep_max (
   p_recorded_at timestamptz DEFAULT NULL
 ) RETURNS void AS $$
 DECLARE
-  v_weight_id uuid;
   v_now timestamptz;
 BEGIN
-  v_weight_id := public.get_weight(p_weight_value, p_weight_unit);
   v_now := COALESCE(p_recorded_at, timezone('utc', now()));
 
   -- Insert into history
   INSERT INTO public.user_one_rep_max_history (
-    user_id, exercise_type, weight_id, recorded_at, source, notes
+    user_id, exercise_type, weight_value, weight_unit, recorded_at, source, notes
   ) VALUES (
-    p_user_id, p_exercise_type, v_weight_id, v_now, p_source, p_notes
+    p_user_id, p_exercise_type, p_weight_value, p_weight_unit, v_now, p_source, p_notes
   );
   -- No need to update canonical value directly; triggers on history will sync it.
 END;
@@ -276,15 +277,12 @@ CREATE OR REPLACE FUNCTION public.update_user_target_max (
   p_weight_value numeric,
   p_weight_unit weight_unit_enum
 ) RETURNS void AS $$
-DECLARE
-  v_weight_id uuid;
 BEGIN
-  v_weight_id := public.get_weight(p_weight_value, p_weight_unit);
-
-  INSERT INTO public.user_exercise_weights (user_id, exercise_type, target_max_weight_id)
-    VALUES (p_user_id, p_exercise_type, v_weight_id)
+  INSERT INTO public.user_exercise_weights (user_id, exercise_type, target_max_value, target_max_unit)
+    VALUES (p_user_id, p_exercise_type, p_weight_value, p_weight_unit)
     ON CONFLICT (user_id, exercise_type) DO UPDATE
-      SET target_max_weight_id = EXCLUDED.target_max_weight_id;
+      SET target_max_value = EXCLUDED.target_max_value,
+          target_max_unit = EXCLUDED.target_max_unit;
 END;
 $$ LANGUAGE plpgsql;
 
@@ -342,16 +340,14 @@ CREATE OR REPLACE FUNCTION public.update_user_one_rep_max (
   p_recorded_at timestamptz DEFAULT NULL
 ) RETURNS void AS $$
 DECLARE
-  v_weight_id uuid;
   v_now timestamptz;
 BEGIN
-  v_weight_id := public.get_weight(p_weight_value, p_weight_unit);
   v_now := COALESCE(p_recorded_at, timezone('utc', now()));
 
   INSERT INTO public.user_one_rep_max_history (
-    user_id, exercise_type, weight_id, recorded_at, source, notes
+    user_id, exercise_type, weight_value, weight_unit, recorded_at, source, notes
   ) VALUES (
-    p_user_id, p_exercise_type, v_weight_id, v_now, p_source, p_notes
+    p_user_id, p_exercise_type, p_weight_value, p_weight_unit, v_now, p_source, p_notes
   );
 END;
 $$ LANGUAGE plpgsql;
@@ -361,9 +357,7 @@ $$ LANGUAGE plpgsql;
 -- Purpose: Returns all 1RM history for a user/exercise, most recent first.
 --
 -- Why: This function provides a full audit trail for a user's 1RM progress,
---      supporting analytics and UI. It joins weights to return value/unit
---      directly, supporting composability and type safety in the application
---      layer.
+--      supporting analytics and UI. It returns value/unit directly, supporting composability and type safety in the application layer.
 --
 -- Arguments:
 --   p_user_id (uuid): The user id.
@@ -384,9 +378,8 @@ CREATE OR REPLACE FUNCTION public.get_user_one_rep_max_history (
 ) AS $$
 BEGIN
   RETURN QUERY
-    SELECT h.id, h.user_id, h.exercise_type, w.weight_value, w.weight_unit, h.recorded_at, h.source, h.notes
+    SELECT h.id, h.user_id, h.exercise_type, h.weight_value, h.weight_unit, h.recorded_at, h.source, h.notes
     FROM public.user_one_rep_max_history h
-    JOIN public.weights w ON h.weight_id = w.id
     WHERE h.user_id = p_user_id AND h.exercise_type = p_exercise_type
     ORDER BY h.recorded_at DESC;
 END;
@@ -400,8 +393,7 @@ $$ LANGUAGE plpgsql STABLE;
 -- Why: This function allows users to correct mistakes or update metadata for a
 --      1RM entry, supporting auditability and user control. The function
 --      enforces that only the owner can edit their history row, supporting
---      security and testability. The use of get_weight ensures type safety and
---      composability.
+--      security and testability.
 --
 -- Arguments:
 --   p_history_id (uuid): The history row id.
@@ -421,12 +413,10 @@ CREATE OR REPLACE FUNCTION public.edit_user_one_rep_max_history (
   p_source user_one_rep_max_source_enum,
   p_notes text
 ) RETURNS void AS $$
-DECLARE
-  v_weight_id uuid;
 BEGIN
-  v_weight_id := public.get_weight(p_weight_value, p_weight_unit);
   UPDATE public.user_one_rep_max_history
-    SET weight_id = v_weight_id,
+    SET weight_value = p_weight_value,
+        weight_unit = p_weight_unit,
         recorded_at = p_recorded_at,
         source = p_source,
         notes = p_notes
@@ -453,27 +443,24 @@ CREATE OR REPLACE FUNCTION public.get_user_preferences (p_user_id uuid) RETURNS 
   with latest_1rm as (
     select distinct on (h.exercise_type)
       h.exercise_type,
-      w.weight_value as one_rep_max_value,
-      w.weight_unit as one_rep_max_unit,
+      h.weight_value as one_rep_max_value,
+      h.weight_unit as one_rep_max_unit,
       h.recorded_at
     from user_one_rep_max_history h
-    join weights w on w.id = h.weight_id
     where h.user_id = p_user_id
     order by h.exercise_type, h.recorded_at desc
   )
   select 
     um.preferred_weight_unit,
     uew.exercise_type,
-    coalesce(l1rm.one_rep_max_value, w1.weight_value) as one_rep_max_value,
-    coalesce(l1rm.one_rep_max_unit, w1.weight_unit) as one_rep_max_unit,
-    w2.weight_value as target_max_value,
-    w2.weight_unit as target_max_unit,
+    coalesce(l1rm.one_rep_max_value, uew.one_rep_max_value) as one_rep_max_value,
+    coalesce(l1rm.one_rep_max_unit, uew.one_rep_max_unit) as one_rep_max_unit,
+    uew.target_max_value,
+    uew.target_max_unit,
     uew.default_rest_time_seconds
   from user_metadata um
   left join user_exercise_weights uew on uew.user_id = um.user_id
   left join latest_1rm l1rm on l1rm.exercise_type = uew.exercise_type
-  left join weights w1 on w1.id = uew.one_rep_max_weight_id
-  left join weights w2 on w2.id = uew.target_max_weight_id
   where um.user_id = p_user_id;
 $$;
 
@@ -502,17 +489,19 @@ CREATE OR REPLACE FUNCTION _trigger.sync_user_exercise_weights_one_rep_max (
   p_exercise_type exercise_type_enum
 ) RETURNS void AS $$
 DECLARE
-  v_latest_weight_id uuid;
+  v_latest_weight_value numeric;
+  v_latest_weight_unit weight_unit_enum;
 BEGIN
-  SELECT h.weight_id
-    INTO v_latest_weight_id
+  SELECT h.weight_value, h.weight_unit
+    INTO v_latest_weight_value, v_latest_weight_unit
     FROM public.user_one_rep_max_history h
     WHERE h.user_id = p_user_id AND h.exercise_type = p_exercise_type
     ORDER BY h.recorded_at DESC, h.id DESC
     LIMIT 1;
 
   UPDATE public.user_exercise_weights
-    SET one_rep_max_weight_id = v_latest_weight_id
+    SET one_rep_max_value = v_latest_weight_value,
+        one_rep_max_unit = v_latest_weight_unit
     WHERE user_id = p_user_id AND exercise_type = p_exercise_type;
 END;
 $$ LANGUAGE plpgsql;

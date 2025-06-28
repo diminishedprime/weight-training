@@ -67,24 +67,26 @@ END$$;
 -- Columns:
 --   id (uuid): Primary key.
 --   user_id (uuid): FK to next_auth.users(id).
---   training_max_weight_id (uuid): FK to weights(id), user's training max.
---   increase_amount_weight_id (uuid, nullable): FK to weights(id), cycle increment.
+--   training_max_value (numeric): User's training max value.
+--   training_max_unit (weight_unit_enum): User's training max unit.
+--   increase_amount_value (numeric, nullable): Cycle increment value.
+--   increase_amount_unit (weight_unit_enum, nullable): Cycle increment unit.
 --   cycle_type (wendler_cycle_type_enum): Type of Wendler cycle.
 --   exercise_type (exercise_type_enum): Exercise type for this cycle.
 --   created_at, updated_at (timestamptz): Timestamps for record tracking.
 CREATE TABLE IF NOT EXISTS public.wendler_metadata (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
-  training_max_weight_id uuid NOT NULL,
-  increase_amount_weight_id uuid NULL,
+  training_max_value numeric NOT NULL,
+  training_max_unit weight_unit_enum NOT NULL,
+  increase_amount_value numeric NULL,
+  increase_amount_unit weight_unit_enum NULL,
   cycle_type wendler_cycle_type_enum NOT NULL,
   exercise_type exercise_type_enum NOT NULL,
   created_at timestamp with time zone DEFAULT timezone ('utc', now()),
   updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
   CONSTRAINT wendler_metadata_pkey PRIMARY KEY (id),
-  CONSTRAINT wendler_metadata_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
-  CONSTRAINT wendler_metadata_training_max_weight_id_fkey FOREIGN KEY (training_max_weight_id) REFERENCES public.weights (id) ON DELETE RESTRICT,
-  CONSTRAINT wendler_metadata_increase_amount_weight_id_fkey FOREIGN KEY (increase_amount_weight_id) REFERENCES public.weights (id) ON DELETE SET NULL
+  CONSTRAINT wendler_metadata_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
 );
 
 -- Table: exercise_block

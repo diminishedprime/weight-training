@@ -13,12 +13,11 @@ SELECT
         1
       FROM
         public.user_exercise_weights uew
-        JOIN public.weights w ON w.id = uew.one_rep_max_weight_id
       WHERE
         uew.user_id = '00000000-0000-0000-0000-000000000002'
         AND uew.exercise_type = 'barbell_bench_press'
-        AND w.weight_value = 100
-        AND w.weight_unit = 'pounds'
+        AND uew.one_rep_max_value = 100
+        AND uew.one_rep_max_unit = 'pounds'
     ),
     'Precondition: canonical 1RM is not already 100 pounds before insert.'
   );
@@ -40,7 +39,7 @@ SELECT
   );
 
 -- Step 2: Confirm that the trigger set
--- user_exercise_weights.one_rep_max_weight_id to 100 pounds.
+-- user_exercise_weights.one_rep_max_value to 100 pounds.
 --
 -- This checks that after inserting a new 1RM, the canonical 1RM for the
 -- user/exercise is correct.
@@ -48,16 +47,15 @@ SELECT
   ok (
     (
       SELECT
-        w.weight_value = 100
-        AND w.weight_unit = 'pounds'
+        uew.one_rep_max_value = 100
+        AND uew.one_rep_max_unit = 'pounds'
       FROM
         public.user_exercise_weights uew
-        JOIN public.weights w ON w.id = uew.one_rep_max_weight_id
       WHERE
         uew.user_id = '00000000-0000-0000-0000-000000000002'
         AND uew.exercise_type = 'barbell_bench_press'
     ),
-    'After insert: one_rep_max_weight_id points to 100 pounds'
+    'After insert: one_rep_max_value/unit is 100 pounds'
   );
 
 -- Step 3: Insert a newer 1RM history row (120 pounds).
@@ -76,7 +74,7 @@ SELECT
   );
 
 -- Step 4: Confirm that the trigger updated
--- user_exercise_weights.one_rep_max_weight_id to 120 pounds.
+-- user_exercise_weights.one_rep_max_value to 120 pounds.
 --
 -- This checks that the canonical 1RM is always the most recent entry in the
 -- history.
@@ -84,16 +82,15 @@ SELECT
   ok (
     (
       SELECT
-        w.weight_value = 120
-        AND w.weight_unit = 'pounds'
+        uew.one_rep_max_value = 120
+        AND uew.one_rep_max_unit = 'pounds'
       FROM
         public.user_exercise_weights uew
-        JOIN public.weights w ON w.id = uew.one_rep_max_weight_id
       WHERE
         uew.user_id = '00000000-0000-0000-0000-000000000002'
         AND uew.exercise_type = 'barbell_bench_press'
     ),
-    'After insert (newer): one_rep_max_weight_id points to 120 pounds'
+    'After insert (newer): one_rep_max_value/unit is 120 pounds'
   );
 
 -- Step 5: Update the older history row (100 pounds) to have a more recent
@@ -106,32 +103,24 @@ SET
   recorded_at = '2024-01-01T00:02:00Z'
 WHERE
   user_id = '00000000-0000-0000-0000-000000000002'
-  AND weight_id = (
-    SELECT
-      id
-    FROM
-      public.weights
-    WHERE
-      weight_value = 100
-      AND weight_unit = 'pounds'
-  );
+  AND weight_value = 100
+  AND weight_unit = 'pounds';
 
 -- Step 6: Confirm that the trigger updated
--- user_exercise_weights.one_rep_max_weight_id to 100 pounds (now most recent).
+-- user_exercise_weights.one_rep_max_value to 100 pounds (now most recent).
 SELECT
   ok (
     (
       SELECT
-        w.weight_value = 100
-        AND w.weight_unit = 'pounds'
+        uew.one_rep_max_value = 100
+        AND uew.one_rep_max_unit = 'pounds'
       FROM
         public.user_exercise_weights uew
-        JOIN public.weights w ON w.id = uew.one_rep_max_weight_id
       WHERE
         uew.user_id = '00000000-0000-0000-0000-000000000002'
         AND uew.exercise_type = 'barbell_bench_press'
     ),
-    'After update: one_rep_max_weight_id points to 100 pounds (now most recent)'
+    'After update: one_rep_max_value/unit is 100 pounds (now most recent)'
   );
 
 -- Step 7: Delete the most recent history row (100 pounds).
@@ -141,32 +130,24 @@ SELECT
 DELETE FROM public.user_one_rep_max_history
 WHERE
   user_id = '00000000-0000-0000-0000-000000000002'
-  AND weight_id = (
-    SELECT
-      id
-    FROM
-      public.weights
-    WHERE
-      weight_value = 100
-      AND weight_unit = 'pounds'
-  );
+  AND weight_value = 100
+  AND weight_unit = 'pounds';
 
 -- Step 8: Confirm that the trigger reverted
--- user_exercise_weights.one_rep_max_weight_id to 120 pounds (now most recent).
+-- user_exercise_weights.one_rep_max_value to 120 pounds (now most recent).
 SELECT
   ok (
     (
       SELECT
-        w.weight_value = 120
-        AND w.weight_unit = 'pounds'
+        uew.one_rep_max_value = 120
+        AND uew.one_rep_max_unit = 'pounds'
       FROM
         public.user_exercise_weights uew
-        JOIN public.weights w ON w.id = uew.one_rep_max_weight_id
       WHERE
         uew.user_id = '00000000-0000-0000-0000-000000000002'
         AND uew.exercise_type = 'barbell_bench_press'
     ),
-    'After delete: one_rep_max_weight_id points to 120 pounds (now most recent)'
+    'After delete: one_rep_max_value/unit is 120 pounds (now most recent)'
   );
 
 SELECT
