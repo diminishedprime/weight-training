@@ -383,18 +383,6 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
-      add_exercise_block: {
-        Args: {
-          p_user_id: string;
-          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
-          p_equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
-          p_weight: number;
-          p_sets: number;
-          p_reps: number;
-          p_name: string;
-        };
-        Returns: string;
-      };
       create_exercise: {
         Args: {
           p_user_id: string;
@@ -422,29 +410,6 @@ export type Database = {
         };
         Returns: undefined;
       };
-      get_exercise_blocks_for_superblock: {
-        Args: { p_superblock_id: string };
-        Returns: {
-          block_id: string;
-          block_order: number;
-          name: string;
-          notes: string;
-          created_at: string;
-          updated_at: string;
-          exercise_id: string;
-          exercise_order: number;
-          performed_at: string;
-          weight_value: number;
-          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
-          reps: number;
-          warmup: boolean;
-          completion_status: Database["public"]["Enums"]["completion_status_enum"];
-          relative_effort: Database["public"]["Enums"]["relative_effort_enum"];
-          notes_exercise: string;
-          exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
-          equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
-        }[];
-      };
       get_exercise_for_user: {
         Args: { p_user_id: string; p_exercise_id: string };
         Returns: Database["public"]["CompositeTypes"]["exercise_row_type"];
@@ -467,18 +432,6 @@ export type Database = {
           completion_status: Database["public"]["Enums"]["completion_status_enum"];
           notes: string;
           relative_effort: Database["public"]["Enums"]["relative_effort_enum"];
-        }[];
-      };
-      get_superblocks_for_user: {
-        Args: { p_user_id: string };
-        Returns: {
-          id: string;
-          user_id: string;
-          name: string;
-          notes: string;
-          created_at: string;
-          updated_at: string;
-          block_count: number;
         }[];
       };
       get_user_one_rep_max_history: {

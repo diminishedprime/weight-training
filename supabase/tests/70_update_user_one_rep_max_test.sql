@@ -26,7 +26,10 @@ SELECT
     '00000000-0000-0000-0000-000000000002',
     'barbell_bench_press',
     225,
-    'pounds'
+    'pounds',
+    'manual',
+    NULL,
+    '2024-01-01T00:00:00Z'
   );
 
 -- 2. Check that the one_rep_max_weight_id is set and points to the correct weight
@@ -52,7 +55,10 @@ SELECT
     '00000000-0000-0000-0000-000000000002',
     'barbell_bench_press',
     250,
-    'pounds'
+    'pounds',
+    'manual',
+    NULL,
+    '2024-01-01T00:01:00Z'
   );
 
 -- 4. Check that the one_rep_max_weight_id is updated to the new value

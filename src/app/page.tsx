@@ -17,14 +17,6 @@ export default function Home() {
         </Button>
         <Button
           component={Link}
-          href="/superblock"
-          variant="contained"
-          color="primary"
-        >
-          Superblock
-        </Button>
-        <Button
-          component={Link}
           href="/preferences"
           variant="contained"
           color="primary"

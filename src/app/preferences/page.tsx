@@ -3,6 +3,8 @@
 import { requireLoggedInUser, getSupabaseClient } from "@/serverUtil";
 import PreferencesClient from "@/app/preferences/_components/PreferencesClient";
 import { sortPreferencesData } from "@/util";
+import React from "react";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 // TODO(matt) - Eventually, I'll probably want a component that's specifically
 // for setting the target max, this component should be aware of what the
@@ -30,7 +32,7 @@ import { sortPreferencesData } from "@/util";
  *
  * @returns The preferences management UI for the current user.
  */
-export default async function PreferencesPage() {
+const PreferencesPage = async () => {
   const { userId } = await requireLoggedInUser("/preferences");
 
   const supabase = getSupabaseClient();
@@ -57,5 +59,12 @@ export default async function PreferencesPage() {
   //                   null.
   sortPreferencesData(preferencesData);
 
-  return <PreferencesClient userPreferencesRows={preferencesData} />;
-}
+  return (
+    <React.Fragment>
+      <Breadcrumbs pathname="/preferences" />
+      <PreferencesClient userPreferencesRows={preferencesData} />;
+    </React.Fragment>
+  );
+};
+
+export default PreferencesPage;

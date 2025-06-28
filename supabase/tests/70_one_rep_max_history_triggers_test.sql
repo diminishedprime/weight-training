@@ -29,11 +29,14 @@ SELECT
 -- update user_exercise_weights.one_rep_max_weight_id to point to the new weight
 -- (100 pounds)
 SELECT
-  public.update_user_one_rep_max_and_log (
+  public.update_user_one_rep_max (
     '00000000-0000-0000-0000-000000000002',
     'barbell_bench_press',
     100,
-    'pounds'
+    'pounds',
+    'manual',
+    NULL,
+    '2024-01-01T00:00:00Z'
   );
 
 -- Step 2: Confirm that the trigger set
@@ -62,11 +65,14 @@ SELECT
 -- The trigger should update user_exercise_weights.one_rep_max_weight_id to
 -- point to the most recent (newest) 1RM (120 pounds).
 SELECT
-  public.update_user_one_rep_max_and_log (
+  public.update_user_one_rep_max (
     '00000000-0000-0000-0000-000000000002',
     'barbell_bench_press',
     120,
-    'pounds'
+    'pounds',
+    'manual',
+    NULL,
+    '2024-01-01T00:01:00Z'
   );
 
 -- Step 4: Confirm that the trigger updated
@@ -97,7 +103,7 @@ SELECT
 -- point back to 100 pounds, since it is now the most recent.
 UPDATE public.user_one_rep_max_history
 SET
-  recorded_at = timezone ('utc', now()) + interval '1 minute'
+  recorded_at = '2024-01-01T00:02:00Z'
 WHERE
   user_id = '00000000-0000-0000-0000-000000000002'
   AND weight_id = (
