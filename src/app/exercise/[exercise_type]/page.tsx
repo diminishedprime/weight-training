@@ -3,8 +3,8 @@ import Typography from "@mui/material/Typography";
 import { Constants, Database } from "@/database.types";
 import { requireLoggedInUser } from "@/serverUtil";
 import { notFound } from "next/navigation";
-import { addRandomLiftAction } from "@/app/exercise/[exercise_type]/_components/actions";
-import AddRandomLiftButton from "@/app/exercise/[exercise_type]/_components/AddRandomLiftButton";
+import { addRandomLiftAction } from "@/app/exercise/[exercise_type]/_components/AddRandomLift/actions";
+import AddRandomLift from "@/app/exercise/[exercise_type]/_components/AddRandomLift";
 import ExercisesTableWrapper from "@/app/exercise/[exercise_type]/_components/ExercisesTableWrapper";
 import { Suspense } from "react";
 import {
@@ -46,7 +46,7 @@ export default async function Home({
         <Typography variant="h4" sx={{ mb: 2 }}>
           {exerciseTypeUIStringLong(exercise_type)}
         </Typography>
-        <AddRandomLiftButton
+        <AddRandomLift
           addRandomLift={addRandomLiftAction.bind(null, exercise_type)}
         />
         <Suspense fallback={<div>Loading lifts...</div>}>
