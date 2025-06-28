@@ -251,37 +251,48 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-- Type: target_max_row
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'target_max_row') THEN
+    CREATE TYPE public.target_max_row AS (
+      value numeric,
+      unit weight_unit_enum,
+      recorded_at timestamptz
+    );
+  END IF;
+END$$;
+
 -- Function: public.get_target_max
 --
 -- Purpose: Returns the most recent Wendler target max value, unit, and
---          timestamp for a user/exercise.
+--          timestamp for a user/exercise as a single row (or NULL if not found).
 --
 -- Why: This function provides a single, type-safe way to retrieve the latest
 --      Wendler target max for analytics, UI, and business logic. It queries the
 --      target_max_history table, returning the most recent entry by
---      recorded_at.
+--      recorded_at, or NULL if none exists.
 --
 -- Arguments:
 --   p_user_id (uuid): The user id.
 --   p_exercise_type (exercise_type_enum): The exercise type.
 --
--- Returns: TABLE (value numeric, unit weight_unit_enum, recorded_at timestamptz)
+-- Returns: target_max_row (value numeric, unit weight_unit_enum, recorded_at timestamptz) or NULL
 CREATE OR REPLACE FUNCTION public.get_target_max (
   p_user_id uuid,
   p_exercise_type exercise_type_enum
-) RETURNS TABLE (
-  value numeric,
-  unit weight_unit_enum,
-  recorded_at timestamptz
-) AS $$
+) RETURNS target_max_row AS $$
+DECLARE
+  result target_max_row;
 BEGIN
-  RETURN QUERY
-    SELECT h.value, h.unit, h.recorded_at
-      FROM public.target_max_history h
-     WHERE h.user_id = p_user_id
-       AND h.exercise_type = p_exercise_type
-     ORDER BY h.recorded_at DESC, h.id DESC
-     LIMIT 1;
+  SELECT h.value, h.unit, h.recorded_at
+    INTO result
+    FROM public.target_max_history h
+   WHERE h.user_id = p_user_id
+     AND h.exercise_type = p_exercise_type
+   ORDER BY h.recorded_at DESC, h.id DESC
+   LIMIT 1;
+  RETURN result;
 END;
 $$ LANGUAGE plpgsql STABLE;
 

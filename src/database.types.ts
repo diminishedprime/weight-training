@@ -449,11 +449,7 @@ export type Database = {
           p_user_id: string;
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
         };
-        Returns: {
-          value: number;
-          unit: Database["public"]["Enums"]["weight_unit_enum"];
-          recorded_at: string;
-        }[];
+        Returns: Database["public"]["CompositeTypes"]["target_max_row"];
       };
       get_user_one_rep_max_history: {
         Args: {
@@ -611,6 +607,11 @@ export type Database = {
         relative_effort:
           | Database["public"]["Enums"]["relative_effort_enum"]
           | null;
+      };
+      target_max_row: {
+        value: number | null;
+        unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
+        recorded_at: string | null;
       };
       user_preferences_row: {
         preferred_weight_unit:
