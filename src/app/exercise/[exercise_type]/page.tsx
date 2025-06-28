@@ -3,9 +3,9 @@ import Typography from "@mui/material/Typography";
 import { Constants, Database } from "@/database.types";
 import { requireLoggedInUser } from "@/serverUtil";
 import { notFound } from "next/navigation";
-import { addRandomLiftAction } from "@/app/exercise/[exercise_type]/actions";
-import AddRandomLiftButton from "@/app/exercise/[exercise_type]/AddRandomLiftButton";
-import ExercisesTableWrapper from "@/app/exercise/[exercise_type]/ExercisesTableWrapper";
+import { addRandomLiftAction } from "@/app/exercise/[exercise_type]/_components/actions";
+import AddRandomLiftButton from "@/app/exercise/[exercise_type]/_components/AddRandomLiftButton";
+import ExercisesTableWrapper from "@/app/exercise/[exercise_type]/_components/ExercisesTableWrapper";
 import { Suspense } from "react";
 import {
   exerciseTypeUIStringBrief,
