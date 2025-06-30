@@ -1,18 +1,18 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Constants, Database } from "@/database.types";
-import { getSupabaseClient, requireLoggedInUser } from "@/serverUtil";
+import { requireLoggedInUser } from "@/serverUtil";
 import { notFound } from "next/navigation";
 import { addRandomLiftAction } from "@/app/exercise/[exercise_type]/_components/AddRandomLift/actions";
 import AddRandomLift from "@/app/exercise/[exercise_type]/_components/AddRandomLift";
 import ExercisesTableWrapper from "@/app/exercise/[exercise_type]/_components/ExercisesTableWrapper";
-import SetTargetMax from "@/app/exercise/[exercise_type]/_components/SetTargetMax";
 import { Suspense } from "react";
 import {
   exerciseTypeUIStringBrief,
   exerciseTypeUIStringLong,
 } from "@/uiStrings";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import SetTargetMax from "@/components/SetTargetMax";
 
 export default async function Home({
   params,
@@ -33,6 +33,8 @@ export default async function Home({
   type ExerciseType = Database["public"]["Enums"]["exercise_type_enum"];
   const exercise_type = unnarrowed_lift_type as ExerciseType;
 
+  const currentPath = `/exercise/${exercise_type}`;
+
   // Require user authentication
   const { userId } = await requireLoggedInUser(`/exercise/${exercise_type}`);
 
@@ -46,19 +48,10 @@ export default async function Home({
 
   const showTargetMax = mainLifts.includes(exercise_type);
 
-  // TODO use the get_target_max call to fetch the existing target max.
-  // TODO also update it to try and return the users one rep max if it exists
-  // since we need to use it for a calculation.
-  const supabase = getSupabaseClient();
-  const { data: targetMaxData } = await supabase.rpc("get_target_max", {
-    p_user_id: userId,
-    p_exercise_type: exercise_type,
-  });
-
   return (
     <>
       <Breadcrumbs
-        pathname={`/exercise/${exercise_type}`}
+        pathname={currentPath}
         labels={{
           [exercise_type]: exerciseTypeUIStringBrief(exercise_type),
         }}
@@ -70,10 +63,9 @@ export default async function Home({
         </Typography>
         {showTargetMax && (
           <SetTargetMax
-            exerciseType={exercise_type}
             userId={userId}
-            value={targetMaxData?.value?.toString() ?? null}
-            unit={targetMaxData?.unit ?? null}
+            exerciseType={exercise_type}
+            pathToRevalidate={currentPath}
           />
         )}
         <AddRandomLift

@@ -138,24 +138,6 @@ BEGIN
   END IF;
 END$$;
 
--- Enum: user_one_rep_max_source_enum
---
--- Purpose: Enumerates the sources of a user's one-rep max (1RM) entry.
---
--- Why: This enum provides a controlled vocabulary for the provenance of 1RM values, supporting analytics and richer domain modeling.
-DO $$
-BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'user_one_rep_max_source_enum') THEN
-    CREATE TYPE public.user_one_rep_max_source_enum AS ENUM (
-      'manual',
-      'competition',
-      'auto',
-      'imported',
-      'other'
-    );
-  END IF;
-END$$;
-
 -- Table: exercises
 --
 -- Purpose: Stores all user exercise records, including type, equipment, weight,
@@ -426,31 +408,3 @@ BEGIN
     RETURN result;
 END;
 $$ LANGUAGE plpgsql;
-
--- Table: user_one_rep_max_history
---
--- Purpose: Tracks all historical 1RM values for each user/exercise, including source and notes.
---
--- Why: This table provides a full audit trail of 1RM changes, supporting analytics, undo/history, and compliance with domain requirements for tracking progress over time. The canonical 1RM is denormalized in user_exercise_weights for fast lookup, but the history table is the source of truth. Notes and source fields support richer domain modeling (e.g., distinguishing between a PR in competition vs. training).
---
--- Columns:
---   id (uuid): Primary key.
---   user_id (uuid): Foreign key to next_auth.users(id).
---   exercise_type (exercise_type_enum): The exercise type.
---   weight_value (numeric): The 1RM value.
---   weight_unit (weight_unit_enum): The 1RM unit.
---   recorded_at (timestamptz): When this 1RM was set.
---   source (user_one_rep_max_source_enum): Source of the entry.
---   notes (text): Optional user notes.
-CREATE TABLE IF NOT EXISTS public.user_one_rep_max_history (
-  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
-  user_id uuid NOT NULL,
-  exercise_type exercise_type_enum NOT NULL,
-  weight_value numeric NOT NULL,
-  weight_unit weight_unit_enum NOT NULL,
-  recorded_at timestamptz NOT NULL DEFAULT timezone ('utc', now()),
-  source user_one_rep_max_source_enum NOT NULL DEFAULT 'manual',
-  notes text,
-  CONSTRAINT user_one_rep_max_history_pkey PRIMARY KEY (id),
-  CONSTRAINT user_one_rep_max_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
-);

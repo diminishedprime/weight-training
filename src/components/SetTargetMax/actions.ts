@@ -1,6 +1,7 @@
 "use server";
 import { Database } from "@/database.types";
 import { getSupabaseClient } from "@/serverUtil";
+import { revalidatePath } from "next/cache";
 
 /**
  * Server action to set the target max for a user and exercise type.
@@ -11,6 +12,7 @@ export const setTargetMaxAction = async (
   exerciseType: Database["public"]["Enums"]["exercise_type_enum"],
   targetMaxValue: string,
   targetMaxUnit: Database["public"]["Enums"]["weight_unit_enum"],
+  pathToRevalidate: string | undefined,
   _formData: FormData
 ) => {
   const supabase = getSupabaseClient();
@@ -22,4 +24,7 @@ export const setTargetMaxAction = async (
     p_unit: targetMaxUnit,
   });
   if (error) throw error;
+  if (pathToRevalidate) {
+    revalidatePath(pathToRevalidate);
+  }
 };
