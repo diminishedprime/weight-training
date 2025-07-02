@@ -1,76 +1,87 @@
-import { Constants, Database } from "@/database.types";
+import { Constants } from "@/database.types";
+import { EquipmentType, ExerciseType } from "@/common-types";
 
 /**
  * Determines the corresponding equipment for a given lift type.
  *
- * @param lift_type The type of the exercise (e.g., "barbell_deadlift").
+ * @param exerciseType The type of the exercise (e.g., "barbell_deadlift").
  * @returns The equipment type that corresponds to the given lift type.
  */
 export function equipmentForExercise(
-  lift_type: Database["public"]["Enums"]["exercise_type_enum"],
-): Database["public"]["Enums"]["equipment_type_enum"] {
-  switch (lift_type) {
+  exerciseType: ExerciseType,
+): EquipmentType {
+  switch (exerciseType) {
+    // --- barbell ---
     case "barbell_deadlift":
-      return "barbell";
     case "barbell_back_squat":
-      return "barbell";
     case "barbell_front_squat":
-      return "barbell";
     case "barbell_bench_press":
-      return "barbell";
     case "barbell_overhead_press":
-      return "barbell";
     case "barbell_row":
+    case "barbell_incline_bench_press":
       return "barbell";
+    // --- end barbell ---
+
+    // --- bodyweight ---
+    case "bodyweight_chinup":
+    case "bodyweight_pullup":
+    case "bodyweight_pushup":
+    case "bodyweight_situp":
+    case "bodyweight_dip":
+      return "bodyweight";
+    // --- end bodyweight ---
+
+    // --- dumbbell ---
+    case "dumbbell_bench_press":
+    case "dumbbell_incline_bench_press":
+    case "dumbbell_overhead_press":
+    case "dumbbell_bicep_curl":
+    case "dumbbell_hammer_curl":
     case "dumbbell_row":
+    case "dumbbell_wrist_curl":
       return "dumbbell";
-    case "chinup":
-      return "bodyweight";
-    case "pullup":
-      return "bodyweight";
-    case "pushup":
-      return "bodyweight";
-    case "situp":
-      return "bodyweight";
+    // --- end dumbbell ---
+
+    // --- kettlebell ---
+    case "kettlebell_row":
+    case "kettlebell_swings":
+    case "kettlebell_front_squat":
+      return "kettlebell";
+    // --- end kettlebell ---
+
+    // --- machine ---
     case "machine_converging_chest_press":
-      return "machine";
     case "machine_diverging_lat_pulldown":
-      return "machine";
     case "machine_diverging_low_row":
-      return "machine";
     case "machine_converging_shoulder_press":
-      return "machine";
     case "machine_lateral_raise":
-      return "machine";
     case "machine_abdominal":
-      return "machine";
     case "machine_leg_extension":
-      return "machine";
     case "machine_seated_leg_curl":
-      return "machine";
     case "machine_leg_press":
-      return "machine";
     case "machine_back_extension":
-      return "machine";
     case "machine_pec_fly":
-      return "machine";
     case "machine_biceps_curl":
-      return "machine";
     case "machine_inner_thigh":
-      return "machine";
     case "machine_outer_thigh":
-      return "machine";
     case "machine_triceps_extension":
-      return "machine";
     case "machine_rear_delt":
+    case "machine_assissted_chinup":
+    case "machine_assissted_pullup":
+    case "machine_assissted_dip":
       return "machine";
+    // --- end machine ---
+
+    // --- plate_stack ---
     case "plate_stack_calf_raise":
       return "plate_stack";
+    // --- end plate_stack ---
+
     // Stryker disable all
     /* v8 ignore next 5 */
     default: {
       // This will cause a type error if a new enum value is added and not handled
-      const _exhaustiveCheck: never = lift_type;
+      const _exhaustiveCheck: never = exerciseType;
       return _exhaustiveCheck;
     }
     // Stryker restore all
@@ -105,13 +116,10 @@ export function minimalPlates(
 }
 
 export const getExercisesByEquipment = (): Record<
-  Database["public"]["Enums"]["equipment_type_enum"],
-  Database["public"]["Enums"]["exercise_type_enum"][]
+  EquipmentType,
+  ExerciseType[]
 > => {
-  const exercisesByEquipment = {} as Record<
-    Database["public"]["Enums"]["equipment_type_enum"],
-    Database["public"]["Enums"]["exercise_type_enum"][]
-  >;
+  const exercisesByEquipment = {} as Record<EquipmentType, ExerciseType[]>;
 
   for (const equipment of Constants.public.Enums.equipment_type_enum) {
     exercisesByEquipment[equipment] = [];
@@ -126,9 +134,6 @@ export const getExercisesByEquipment = (): Record<
 
   return exercisesByEquipment;
 };
-
-// Types
-export type EquipmentType = Database["public"]["Enums"]["equipment_type_enum"];
 
 export type SortableEquipment = Record<EquipmentType, number>;
 
@@ -145,8 +150,8 @@ export const equipmentToNum: SortableEquipment =
  * @returns -1, 0, or 1 for sort order
  */
 export const exerciseSorter = (
-  a: { exercise_type: Database["public"]["Enums"]["exercise_type_enum"] },
-  b: { exercise_type: Database["public"]["Enums"]["exercise_type_enum"] },
+  a: { exercise_type: ExerciseType },
+  b: { exercise_type: ExerciseType },
 ) => {
   const aNum = equipmentToNum[equipmentForExercise(a.exercise_type!)];
   const bNum = equipmentToNum[equipmentForExercise(b.exercise_type!)];
@@ -160,86 +165,9 @@ export const exerciseSorter = (
 
 export const sortPreferencesData = (
   preferencesData: Array<{
-    exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+    exercise_type: ExerciseType;
   }>,
 ) => {
   preferencesData.sort((a, b) => exerciseSorter(a, b));
   return preferencesData;
-};
-
-/**
- * Returns the bump amount (5 or 10) based on whether the exercise is primarily lower or upper body.
- * Explicitly handles every exercise_type_enum variant and uses an exhaustive check.
- * @param exerciseType - The exercise type enum value.
- * @returns The bump amount in lbs (10 for lower body, 5 for upper body).
- */
-export const getBumpAmountForExerciseType = (
-  exerciseType: Database["public"]["Enums"]["exercise_type_enum"],
-): number => {
-  switch (exerciseType) {
-    case "barbell_deadlift":
-      return 10;
-    case "barbell_back_squat":
-      return 10;
-    case "barbell_front_squat":
-      return 10;
-    case "machine_leg_press":
-      return 10;
-    case "machine_leg_extension":
-      return 5;
-    case "machine_seated_leg_curl":
-      return 5;
-    case "machine_inner_thigh":
-      return 5;
-    case "machine_outer_thigh":
-      return 5;
-    case "plate_stack_calf_raise":
-      return 5;
-    case "barbell_bench_press":
-      return 5;
-    case "barbell_overhead_press":
-      return 5;
-    case "barbell_row":
-      return 5;
-    case "dumbbell_row":
-      return 5;
-    case "machine_converging_chest_press":
-      return 5;
-    case "machine_diverging_lat_pulldown":
-      return 5;
-    case "machine_diverging_low_row":
-      return 5;
-    case "machine_converging_shoulder_press":
-      return 5;
-    case "machine_lateral_raise":
-      return 5;
-    case "machine_abdominal":
-      return 5;
-    case "machine_back_extension":
-      return 5;
-    case "machine_pec_fly":
-      return 5;
-    case "machine_biceps_curl":
-      return 5;
-    case "machine_triceps_extension":
-      return 5;
-    case "machine_rear_delt":
-      return 5;
-    case "pushup":
-      return 5;
-    case "situp":
-      return 5;
-    case "pullup":
-      return 5;
-    case "chinup":
-      return 5;
-    // Stryker disable all
-    /* v8 ignore next 5 */
-    default: {
-      // This will cause a type error if a new enum value is added and not handled
-      const _exhaustiveCheck: never = exerciseType;
-      return _exhaustiveCheck;
-    }
-    // Stryker restore all
-  }
 };

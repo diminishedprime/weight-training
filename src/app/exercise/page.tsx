@@ -4,8 +4,10 @@ import { equipmentTypeUIString, exerciseTypeUIStringBrief } from "@/uiStrings";
 import { equipmentForExercise } from "@/util";
 import { Constants, Database } from "@/database.types";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { requireLoggedInUser } from "@/serverUtil";
 
-export default function ExercisePage() {
+export default async function ExercisePage() {
+  await requireLoggedInUser("/exercise");
   // Manual order for equipment enum variants (only include those that exist in the enum)
   const manualOrder = [
     "barbell" as Database["public"]["Enums"]["equipment_type_enum"],
@@ -35,8 +37,7 @@ export default function ExercisePage() {
                         component={Link}
                         href={`/exercise/${type}`}
                         variant="contained"
-                        color="primary"
-                      >
+                        color="primary">
                         {exerciseTypeUIStringBrief(type)}
                       </Button>
                     );

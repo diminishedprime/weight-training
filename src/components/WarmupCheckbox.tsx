@@ -4,7 +4,7 @@ import React from "react";
 
 interface WarmupCheckboxProps {
   checked: boolean;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (checked: boolean) => void;
 }
 
 export default function WarmupCheckbox({
@@ -13,7 +13,13 @@ export default function WarmupCheckbox({
 }: WarmupCheckboxProps) {
   return (
     <FormControlLabel
-      control={<Checkbox name="warmup" checked={checked} onChange={onChange} />}
+      control={
+        <Checkbox
+          name="warmup"
+          checked={checked}
+          onChange={(e) => onChange(e.target.checked)}
+        />
+      }
       label="Warmup"
     />
   );

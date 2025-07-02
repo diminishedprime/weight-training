@@ -1,6 +1,6 @@
+import { EquipmentType, WeightUnit } from "@/common-types";
 import BarbellEditor from "@/components/BarbellEditor/index";
 import DumbbellEditor from "@/components/DumbbellEditor";
-import { Database } from "@/database.types";
 
 export function EquipmentWeightEditor({
   equipment,
@@ -9,11 +9,11 @@ export function EquipmentWeightEditor({
   weightUnit,
   setWeightUnit,
 }: {
-  equipment: Database["public"]["Enums"]["equipment_type_enum"];
+  equipment: EquipmentType;
   weightValue: number;
   setWeightValue: (v: number) => void;
-  weightUnit: Database["public"]["Enums"]["weight_unit_enum"];
-  setWeightUnit: (v: string) => void;
+  weightUnit: WeightUnit;
+  setWeightUnit: (v: WeightUnit) => void;
 }) {
   switch (equipment) {
     case "barbell":
@@ -23,11 +23,7 @@ export function EquipmentWeightEditor({
           barWeight={45}
           onChange={setWeightValue}
           weightUnit={weightUnit}
-          onUnitChange={(unit) =>
-            setWeightUnit(
-              unit as Database["public"]["Enums"]["weight_unit_enum"],
-            )
-          }
+          onUnitChange={(unit) => setWeightUnit(unit)}
         />
       );
     case "dumbbell":
@@ -36,11 +32,7 @@ export function EquipmentWeightEditor({
           weight={weightValue}
           onChange={setWeightValue}
           weightUnit={weightUnit}
-          onUnitChange={(unit) =>
-            setWeightUnit(
-              unit as Database["public"]["Enums"]["weight_unit_enum"],
-            )
-          }
+          onUnitChange={(unit) => setWeightUnit(unit)}
         />
       );
     default:

@@ -25,8 +25,8 @@ const ServerWrapper = async (props: TargetMaxProps) => {
       userId={props.userId}
       targetMaxValue={data?.target_max_value?.toString() ?? null}
       targetMaxUnit={data?.target_max_unit ?? null}
-      oneRepMaxValue={data?.one_rep_max_value?.toString() ?? null}
-      oneRepMaxUnit={data?.one_rep_max_unit ?? null}
+      personalRecordValue={data?.personal_record_value?.toString() ?? null}
+      personalRecordUnit={data?.personal_record_unit ?? null}
       pathToRevalidate={props.pathToRevalidate}
     />
   );

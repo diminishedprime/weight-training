@@ -4,6 +4,7 @@ import { equipmentForExercise } from "@/util";
 type ExerciseType = Database["public"]["Enums"]["exercise_type_enum"];
 export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
   switch (type) {
+    // --- barbell ---
     case "barbell_deadlift":
       return "Deadlift";
     case "barbell_back_squat":
@@ -16,16 +17,50 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
       return "Row";
     case "barbell_overhead_press":
       return "Overhead Press";
+    case "barbell_incline_bench_press":
+      return "Incline Bench Press";
+    // --- end barbell ---
+
+    // --- dumbbell ---
     case "dumbbell_row":
       return "Row";
-    case "pushup":
+    case "dumbbell_bench_press":
+      return "Dumbbell Bench Press";
+    case "dumbbell_incline_bench_press":
+      return "Dumbbell Incline Bench Press";
+    case "dumbbell_overhead_press":
+      return "Dumbbell Overhead Press";
+    case "dumbbell_bicep_curl":
+      return "Dumbbell Bicep Curl";
+    case "dumbbell_hammer_curl":
+      return "Dumbbell Hammer Curl";
+    case "dumbbell_wrist_curl":
+      return "Dumbbell Wrist Curl";
+    // --- end dumbbell ---
+
+    // --- kettlebell ---
+    case "kettlebell_row":
+      return "Kettlebell Row";
+    case "kettlebell_swings":
+      return "Kettlebell Swings";
+    case "kettlebell_front_squat":
+      return "Kettlebell Front Squat";
+    // --- end kettlebell ---
+
+    // --- bodyweight ---
+    case "bodyweight_pushup":
       return "Push Up";
-    case "situp":
+    case "bodyweight_situp":
       return "Sit Up";
-    case "pullup":
+    case "bodyweight_pullup":
       return "Pull Up";
-    case "chinup":
+    case "bodyweight_chinup":
       return "Chin Up";
+    case "bodyweight_dip":
+      return "Dip";
+    // --- end bodyweight ---
+
+    // --- machine ---
     case "machine_converging_chest_press":
       return "Converging Chest Press";
     case "machine_diverging_lat_pulldown":
@@ -58,8 +93,18 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
       return "Biceps Curl";
     case "machine_rear_delt":
       return "Rear Delt";
+    case "machine_assissted_chinup":
+      return "Assisted Chin Up";
+    case "machine_assissted_pullup":
+      return "Assisted Pull Up";
+    case "machine_assissted_dip":
+      return "Assisted Dip";
+    // --- end machine ---
+
+    // --- plate_stack ---
     case "plate_stack_calf_raise":
       return "Calf Raise";
+    // --- end plate_stack ---
 
     // Stryker disable all
     /* v8 ignore next 5 */

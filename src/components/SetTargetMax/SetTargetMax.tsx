@@ -15,16 +15,16 @@ import { ExerciseType, WeightUnit } from "@/common-types";
  * @property userId - The user's ID
  * @property value - (optional) existing target max value
  * @property unit - (optional) existing target max unit
- * @property one_rep_max_value - (optional) existing one rep max value
- * @property one_rep_max_unit - (optional) existing one rep max unit
+ * @property personal_record_value - (optional) existing one rep max value
+ * @property personal_record_unit - (optional) existing one rep max unit
  */
 type SetTargetMaxProps = {
   exerciseType: ExerciseType;
   userId: string;
   targetMaxValue: string | null;
   targetMaxUnit: WeightUnit | null;
-  oneRepMaxValue: string | null;
-  oneRepMaxUnit: WeightUnit | null;
+  personalRecordValue: string | null;
+  personalRecordUnit: WeightUnit | null;
   pathToRevalidate?: string;
 };
 
@@ -60,12 +60,12 @@ const useSetTargetMaxAPI = (props: SetTargetMaxProps) => {
   }, [props.targetMaxValue, targetMaxValue]);
 
   const numericalOneRepMaxValue = useMemo(() => {
-    if (props.oneRepMaxValue === null) {
+    if (props.personalRecordValue === null) {
       return null;
     }
-    const num = Number(props.oneRepMaxValue);
+    const num = Number(props.personalRecordValue);
     return isNaN(num) ? null : num;
-  }, [props.oneRepMaxValue]);
+  }, [props.personalRecordValue]);
 
   const percentOfOneRepMax = useMemo(() => {
     if (numericalOneRepMaxValue === null || numericalTargetMax === null) {

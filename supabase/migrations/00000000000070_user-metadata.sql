@@ -46,26 +46,26 @@ BEGIN
   END IF;
 END$$;
 
--- Table: one_rep_max_history
+-- Table: personal_record_history
 --
--- Purpose: Tracks all historical 1RM values for each user/exercise, including
+-- Purpose: Tracks all historical personal record (1RM) values for each user/exercise, including
 --          source and notes.
 --
--- Why: This table provides a full history of 1RM changes, in order to be able
+-- Why: This table provides a full history of PR changes, in order to be able
 --      to display charts and trends, and for the user to be able to see their
 --      progress over time.
---      
 --
 -- Columns:
 --   id (uuid): Primary key.
 --   user_id (uuid): Foreign key to next_auth.users(id).
 --   exercise_type (exercise_type_enum): The exercise type.
---   weight_value (numeric): The 1RM value.
---   weight_unit (weight_unit_enum): The 1RM unit.
---   recorded_at (timestamptz): When this 1RM was set.
+--   value (numeric): The PR value.
+--   unit (weight_unit_enum): The PR unit.
+--   recorded_at (timestamptz): When this PR was set.
 --   source (update_source_enum): Source of the entry.
 --   notes (text): Optional user notes.
-CREATE TABLE IF NOT EXISTS public.one_rep_max_history (
+--   exercise_id (uuid, nullable): The exercise that set this PR, if any.
+CREATE TABLE IF NOT EXISTS public.personal_record_history (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
   exercise_type exercise_type_enum NOT NULL,
@@ -74,9 +74,17 @@ CREATE TABLE IF NOT EXISTS public.one_rep_max_history (
   recorded_at timestamptz NOT NULL DEFAULT timezone ('utc', now()),
   source update_source_enum NOT NULL DEFAULT 'manual',
   notes text,
-  CONSTRAINT one_rep_max_history_pkey PRIMARY KEY (id),
-  CONSTRAINT one_rep_max_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
+  exercise_id uuid NULL,
+  CONSTRAINT personal_record_history_pkey PRIMARY KEY (id),
+  CONSTRAINT personal_record_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
+  CONSTRAINT personal_record_history_exercise_id_fkey FOREIGN KEY (exercise_id) REFERENCES public.exercises (id) ON DELETE SET NULL
 );
+
+-- Index: idx_personal_record_history_exercise_id
+--
+-- Purpose: Supports efficient lookup of whether an exercise was ever a personal record.
+-- Why: Used for EXISTS subqueries in analytics and UI.
+CREATE INDEX IF NOT EXISTS idx_personal_record_history_exercise_id ON public.personal_record_history (exercise_id);
 
 -- Table: target_max_history
 --
@@ -113,9 +121,14 @@ CREATE TABLE IF NOT EXISTS public.target_max_history (
 -- Why: The most common query is fetching the most recent target max for a given user and exercise_type, ordered by recorded_at DESC.
 CREATE INDEX IF NOT EXISTS idx_target_max_history_user_exercise_recorded_at ON public.target_max_history (user_id, exercise_type, recorded_at DESC, id DESC);
 
--- Index: idx_one_rep_max_history_user_exercise_recorded_at
+-- Index: idx_personal_max_history_user_exercise_recorded_at
 --
 -- Purpose: Supports efficient lookup of the most recent one rep max for a user/exercise.
 --
 -- Why: The most common query is fetching the most recent one rep max for a given user and exercise_type, ordered by recorded_at DESC.
-CREATE INDEX IF NOT EXISTS idx_one_rep_max_history_user_exercise_recorded_at ON public.one_rep_max_history (user_id, exercise_type, recorded_at DESC, id DESC);
+-- Index: idx_personal_record_history_user_exercise_recorded_at
+--
+-- Purpose: Supports efficient lookup of the most recent personal record for a user/exercise.
+--
+-- Why: The most common query is fetching the most recent personal record for a given user and exercise_type, ordered by recorded_at DESC.
+CREATE INDEX IF NOT EXISTS idx_personal_record_history_user_exercise_recorded_at ON public.personal_record_history (user_id, exercise_type, recorded_at DESC, id DESC);

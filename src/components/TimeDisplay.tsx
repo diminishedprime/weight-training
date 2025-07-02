@@ -33,7 +33,9 @@ const TimeDisplay: React.FC<TimeDisplayProps> = (props) => {
     const min = Math.floor(diffSec / 60);
     const sec = diffSec % 60;
     return (
-      <span style={{ color }}>
+      // Suppress hydration warning to avoid mismatch between server and client
+      // rendering since the time is dynamic
+      <span style={{ color }} suppressHydrationWarning>
         {min}:{sec.toString().padStart(2, "0")}
       </span>
     );

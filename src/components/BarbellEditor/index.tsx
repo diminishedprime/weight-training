@@ -5,27 +5,21 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import Badge from "@mui/material/Badge";
 import Barbell from "@/components/Barbell";
 import TextField from "@mui/material/TextField";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import { Constants, Database } from "@/database.types";
-import { weightUnitUIString } from "@/uiStrings";
+import { Database } from "@/database.types";
 import IconButton from "@mui/material/IconButton";
 import SettingsIcon from "@mui/icons-material/Settings";
 import SettingsDialog from "@/components/BarbellEditor/SettingsDialog";
 import { Stack } from "@mui/material";
 import { useBarbellEditor } from "@/components/BarbellEditor/useBarbellEditor";
 import { DEFAULT_PLATE_SIZES } from "@/constants"; // Import DEFAULT_PLATE_SIZES
+import WeightUnitSelector from "@/components/WeightUnitSelector";
 
 export interface BarbellEditorProps {
   totalWeight: number; // total weight on bar (including bar)
   barWeight: number; // Make barWeight required
   onChange: (newTotal: number) => void;
-  weightUnit?: Database["public"]["Enums"]["weight_unit_enum"];
-  onUnitChange?: (
-    unit: Database["public"]["Enums"]["weight_unit_enum"],
-  ) => void;
+  weightUnit: Database["public"]["Enums"]["weight_unit_enum"]; // Now required
+  onUnitChange: (unit: Database["public"]["Enums"]["weight_unit_enum"]) => void; // Now required
 }
 
 const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
@@ -33,7 +27,7 @@ const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
     totalWeight,
     barWeight, // Remove default, now required
     onChange,
-    weightUnit = "pounds",
+    weightUnit,
     onUnitChange,
   } = props;
 
@@ -64,12 +58,10 @@ const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
         flexWrap="wrap"
         justifyContent="center"
         alignItems="center"
-        gap={1}
-      >
+        gap={1}>
         <IconButton
           size="small"
-          onClick={() => componentAPI.setSettingsOpen(true)}
-        >
+          onClick={() => componentAPI.setSettingsOpen(true)}>
           <SettingsIcon />
         </IconButton>
         <Stack direction="row" alignItems="center" spacing={1}>
@@ -83,27 +75,7 @@ const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
             size="small"
             sx={{ width: "7ch" }}
           />
-          <FormControl size="small" sx={{ pr: 1 }}>
-            <InputLabel id="barbell-unit-label">Unit</InputLabel>
-            <Select
-              labelId="barbell-unit-label"
-              value={weightUnit}
-              label="Unit"
-              onChange={(e) =>
-                onUnitChange &&
-                onUnitChange(
-                  e.target
-                    .value as Database["public"]["Enums"]["weight_unit_enum"],
-                )
-              }
-            >
-              {Constants.public.Enums.weight_unit_enum.map((unit) => (
-                <MenuItem key={unit} value={unit}>
-                  {weightUnitUIString(unit)}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <WeightUnitSelector value={weightUnit} onChange={onUnitChange} />
         </Stack>
         <ButtonGroup sx={{ mt: 1 }}>
           {componentAPI.plateSizes.map((inc) => {
@@ -113,12 +85,10 @@ const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
                 key={inc}
                 sx={metadata.sx}
                 badgeContent={metadata.count > 0 ? metadata.count : undefined}
-                anchorOrigin={{ vertical: "top", horizontal: "right" }}
-              >
+                anchorOrigin={{ vertical: "top", horizontal: "right" }}>
                 <Button
                   size="small"
-                  onClick={() => componentAPI.handleAdd(inc)}
-                >
+                  onClick={() => componentAPI.handleAdd(inc)}>
                   {inc}
                 </Button>
               </Badge>

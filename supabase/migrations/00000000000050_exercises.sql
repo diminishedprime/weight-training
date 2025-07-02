@@ -32,10 +32,17 @@ BEGIN
       'barbell_back_squat',
       'barbell_front_squat',
       'barbell_bench_press',
+      'barbell_incline_bench_press',
       'barbell_overhead_press',
       'barbell_row',
       -- Dumbbell Exercises
       'dumbbell_row',
+      'dumbbell_bench_press',
+      'dumbbell_incline_bench_press',
+      'dumbbell_overhead_press',
+      'dumbbell_bicep_curl',
+      'dumbbell_hammer_curl',
+      'dumbbell_wrist_curl', -- Is that what this is called?
       -- Machine Exercises
       'machine_converging_chest_press',
       'machine_diverging_lat_pulldown',
@@ -53,11 +60,19 @@ BEGIN
       'machine_biceps_curl',
       'machine_rear_delt',
       'machine_pec_fly',
+      'machine_assissted_chinup',
+      'machine_assissted_pullup',
+      'machine_assissted_dip',
       -- Bodyweight Exercises
-      'pushup',
-      'situp',
-      'pullup',
-      'chinup',
+      'bodyweight_pushup',
+      'bodyweight_situp',
+      'bodyweight_pullup',
+      'bodyweight_chinup',
+      'bodyweight_dip',
+      -- Kettlebell Exercises
+      'kettlebell_swings',
+      'kettlebell_front_squat',
+      'kettlebell_row',
       -- Corner Case Exercises
       'plate_stack_calf_raise'
     );
@@ -198,6 +213,7 @@ CREATE TABLE IF NOT EXISTS public.exercises (
 --   p_warmup (boolean, default false): Whether this is a warmup set.
 --   p_completion_status (completion_status_enum, default 'completed'): Completion state.
 --   p_relative_effort (relative_effort_enum, default null): User's perceived effort.
+--   p_notes (text, default null): Optional notes.
 -- Returns: uuid (the new exercise id).
 CREATE OR REPLACE FUNCTION public.create_exercise (
   p_user_id uuid,
@@ -209,7 +225,8 @@ CREATE OR REPLACE FUNCTION public.create_exercise (
   p_performed_at timestamptz DEFAULT NULL,
   p_warmup boolean DEFAULT false,
   p_completion_status completion_status_enum DEFAULT 'completed',
-  p_relative_effort relative_effort_enum DEFAULT NULL
+  p_relative_effort relative_effort_enum DEFAULT NULL,
+  p_notes text DEFAULT NULL
 ) RETURNS uuid AS $$
 DECLARE
     v_exercise_id uuid;
@@ -217,67 +234,12 @@ BEGIN
     INSERT INTO public.exercises (
         user_id, exercise_type, equipment_type, performed_at, weight_value, weight_unit, reps, warmup, completion_status, notes, relative_effort
     ) VALUES (
-        p_user_id, p_exercise_type, p_equipment_type, p_performed_at, p_weight_value, p_weight_unit, p_reps, p_warmup, p_completion_status, NULL, p_relative_effort
+        p_user_id, p_exercise_type, p_equipment_type, p_performed_at, p_weight_value, p_weight_unit, p_reps, p_warmup, p_completion_status, p_notes, p_relative_effort
     )
     RETURNING id INTO v_exercise_id;
     RETURN v_exercise_id;
 END;
 $$ LANGUAGE plpgsql;
-
--- Function: get_exercises_by_type_for_user
---
--- Purpose: Returns up to 30 most recent exercises of a given type for a user.
---
--- Why: This function enables efficient retrieval of a user's exercise history
---      for analytics, progress tracking, and UI display. The limit of 30 is a
---      trade-off between performance and usability for most user flows.
--- Arguments:
---   p_user_id (uuid): The user id.
---   p_exercise_type (exercise_type_enum): The exercise type.
--- Returns: Table of exercise records (see columns below).
---
---  Todo - update this to support pagination, additionally creating a composite
---         index to support efficient pagination.
---
-CREATE OR REPLACE FUNCTION public.get_exercises_by_type_for_user (
-  p_user_id uuid,
-  p_exercise_type exercise_type_enum
-) RETURNS TABLE (
-  exercise_id uuid,
-  user_id uuid,
-  exercise_type exercise_type_enum,
-  equipment_type equipment_type_enum,
-  performed_at timestamptz,
-  weight_value numeric,
-  weight_unit weight_unit_enum,
-  reps integer,
-  warmup boolean,
-  completion_status completion_status_enum,
-  notes text,
-  relative_effort relative_effort_enum
-) AS $$
-BEGIN
-    RETURN QUERY
-    SELECT
-        e.id,
-        e.user_id,
-        e.exercise_type,
-        e.equipment_type,
-        e.performed_at,
-        e.weight_value,
-        e.weight_unit,
-        e.reps,
-        e.warmup,
-        e.completion_status,
-        e.notes,
-        e.relative_effort
-    FROM public.exercises e
-    WHERE e.user_id = p_user_id
-      AND e.exercise_type = p_exercise_type
-    ORDER BY e.performed_at DESC NULLS LAST
-    LIMIT 30;
-END;
-$$ LANGUAGE plpgsql STABLE;
 
 -- Function: update_exercise_for_user
 --
@@ -408,3 +370,26 @@ BEGIN
     RETURN result;
 END;
 $$ LANGUAGE plpgsql;
+
+-- TODO: Consider creating a new table `bodyweight_exercise_details` to track bodyweight-specific data for exercises.
+-- This table would have a foreign key to exercises(id) and could include fields like:
+--   bodyweight_value numeric NULL, -- The user's bodyweight at the time of exercise
+--   bodyweight_unit weight_unit_enum NULL, -- Unit for bodyweight (e.g., pounds, kilograms)
+--   added_weight_value numeric NULL, -- Any additional weight used (vest, belt, etc.)
+--   added_weight_unit weight_unit_enum NULL -- Unit for added weight
+-- This would allow more accurate tracking and analytics for bodyweight and weighted bodyweight exercises.
+--
+-- Example table definition:
+--
+-- CREATE TABLE public.bodyweight_exercise_details (
+--   exercise_id uuid PRIMARY KEY REFERENCES public.exercises(id) ON DELETE CASCADE,
+--   bodyweight_value numeric NULL,
+--   bodyweight_unit weight_unit_enum NULL,
+--   added_weight_value numeric NULL,
+--   added_weight_unit weight_unit_enum NULL
+-- );
+--
+-- Example usage:
+-- -- For a bodyweight pullup with a 20lb vest, user weighed 180lb:
+-- -- INSERT INTO public.bodyweight_exercise_details (exercise_id, bodyweight_value, bodyweight_unit, added_weight_value, added_weight_unit)
+-- -- VALUES ('<exercise_id>', 180, 'pounds', 20, 'pounds');

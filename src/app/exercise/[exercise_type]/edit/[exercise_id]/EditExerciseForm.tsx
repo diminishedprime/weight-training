@@ -9,13 +9,14 @@ import DateTimePicker from "@/components/DateTimePicker";
 import { equipmentForExercise } from "@/util";
 import { EquipmentWeightEditor } from "@/app/exercise/[exercise_type]/edit/[exercise_id]/EquipmentWeightEditor";
 import WarmupCheckbox from "@/components/WarmupCheckbox";
-import CompletionStatusEditor from "@/components/CompletionStatusEditor";
 import { EffortEditor } from "@/components/EffortEditor";
 import { Alert, Button, Stack } from "@mui/material";
+import CompletionStatusSelector from "@/components/CompletionStatusSelector";
+import { CompletionStatus, WeightUnit } from "@/common-types";
 
 function useEditExerciseForm(
   exercise: Database["public"]["Functions"]["get_exercise_for_user"]["Returns"],
-  user_id: string,
+  user_id: string
 ) {
   const [error, setError] = useState<string | null>(null);
   const [weightValue, setWeightValue] = useState(exercise.weight_value!);
@@ -23,7 +24,7 @@ function useEditExerciseForm(
   const [reps, setReps] = useState(exercise.reps!);
   const [warmup, setWarmup] = useState(exercise.warmup!);
   const [completionStatus, setCompletionStatus] = useState(
-    exercise.completion_status!,
+    exercise.completion_status!
   );
   const [notes, setNotes] = useState(exercise.notes ?? "");
   const [relativeEffort, setRelativeEffort] = useState<
@@ -66,7 +67,7 @@ function useEditExerciseForm(
       return;
     }
     router.push(
-      `/exercise/${exercise.exercise_type!}?flash=${exercise.exercise_id}`,
+      `/exercise/${exercise.exercise_type!}?flash=${exercise.exercise_id}`
     );
   }
 
@@ -74,31 +75,25 @@ function useEditExerciseForm(
   function handleWeightValueChange(val: number) {
     setWeightValue(val);
   }
-  function handleWeightUnitChange(val: string) {
-    setWeightUnit(val as Database["public"]["Enums"]["weight_unit_enum"]);
+  function handleWeightUnitChange(val: WeightUnit) {
+    setWeightUnit(val);
   }
   function handleRepsChange(val: number) {
     setReps(val);
   }
-  function handleWarmupChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setWarmup(e.target.checked);
+  function handleWarmupChange(value: boolean) {
+    setWarmup(value);
   }
-  function handleCompletionStatusChange(
-    e: React.ChangeEvent<{
-      value: Database["public"]["Enums"]["completion_status_enum"];
-    }>,
-  ) {
-    setCompletionStatus(
-      e.target.value as Database["public"]["Enums"]["completion_status_enum"],
-    );
+  function handleCompletionStatusChange(value: CompletionStatus) {
+    setCompletionStatus(value);
   }
   function handleRelativeEffortChange(
-    val: Database["public"]["Enums"]["relative_effort_enum"] | null,
+    val: Database["public"]["Enums"]["relative_effort_enum"] | null
   ) {
     setRelativeEffort(val);
   }
   function handleNotesChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
     setNotes(e.target.value);
   }
@@ -152,6 +147,13 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
   const { exercise, user_id } = props;
   const form = useEditExerciseForm(exercise, user_id);
 
+  // TODO - implement delete functionality
+  // TODO - Update form to use action instead of onSubmit
+  // TODO - Update value handling to also accept a number I think?
+  // TODO - Update the text input for the weight to allow you to actually type
+  // in a number, right now you can't backspace since it wants it to be 45, but
+  // that should be handled another way.
+
   return (
     <form onSubmit={form.handleSubmit}>
       <Stack gap={1}>
@@ -180,8 +182,7 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
           flexDirection="row"
           flexWrap="wrap"
           justifyContent="center"
-          sx={{ my: 1 }}
-        >
+          sx={{ my: 1 }}>
           <DateTimePicker
             date={form.date}
             setDate={form.setDate}
@@ -192,9 +193,9 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
             checked={form.warmup}
             onChange={form.handleWarmupChange}
           />
-          <CompletionStatusEditor
+          <CompletionStatusSelector
             value={form.completionStatus}
-            onChange={form.handleCompletionStatusChange}
+            onChange={(e) => form.handleCompletionStatusChange(e)}
           />
           <EffortEditor
             value={form.relativeEffort}
@@ -211,9 +212,18 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
           minRows={2}
           maxRows={6}
         />
-        <Button type="submit" variant="contained" color="primary" fullWidth>
-          Save Changes
-        </Button>
+        <Stack
+          direction="row"
+          spacing={1}
+          useFlexGap
+          justifyContent="space-between">
+          <Button color="error" variant="outlined">
+            Delete
+          </Button>
+          <Button type="submit" variant="contained" color="primary">
+            Save Changes
+          </Button>
+        </Stack>
       </Stack>
     </form>
   );

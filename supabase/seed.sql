@@ -11,14 +11,14 @@ VALUES
   )
 ON CONFLICT (id) DO NOTHING;
 
--- Additional seed user for update_user_one_rep_max tests
+-- Additional seed user for update_user_personal_record tests
 INSERT INTO
   next_auth.users (id, name, email, "emailVerified", image)
 VALUES
   (
     '00000000-0000-0000-0000-000000000002',
-    '1RM Test User',
-    'one_rep_max_test@example.com',
+    'PR Test User',
+    'personal_record_test@example.com',
     NOW(),
     'https://example.com/avatar2.png'
   )
@@ -43,8 +43,8 @@ INSERT INTO
 VALUES
   (
     '00000000-0000-0000-0000-000000000004',
-    'ORM Test User',
-    'ormtest@example.com',
+    'PR Test User',
+    'prtest@example.com',
     NOW(),
     'https://example.com/avatar4.png'
   )

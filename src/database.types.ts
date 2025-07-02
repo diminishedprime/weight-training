@@ -194,8 +194,9 @@ export type Database = {
         };
         Relationships: [];
       };
-      one_rep_max_history: {
+      personal_record_history: {
         Row: {
+          exercise_id: string | null;
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id: string;
           notes: string | null;
@@ -206,6 +207,7 @@ export type Database = {
           value: number;
         };
         Insert: {
+          exercise_id?: string | null;
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
           notes?: string | null;
@@ -216,6 +218,7 @@ export type Database = {
           value: number;
         };
         Update: {
+          exercise_id?: string | null;
           exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
           notes?: string | null;
@@ -225,7 +228,15 @@ export type Database = {
           user_id?: string;
           value?: number;
         };
-        Relationships: [];
+        Relationships: [
+          {
+            foreignKeyName: "personal_record_history_exercise_id_fkey";
+            columns: ["exercise_id"];
+            isOneToOne: false;
+            referencedRelation: "exercises";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       target_max_history: {
         Row: {
@@ -355,6 +366,7 @@ export type Database = {
           p_warmup?: boolean;
           p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
           p_relative_effort?: Database["public"]["Enums"]["relative_effort_enum"];
+          p_notes?: string;
         };
         Returns: string;
       };
@@ -391,14 +403,15 @@ export type Database = {
           completion_status: Database["public"]["Enums"]["completion_status_enum"];
           notes: string;
           relative_effort: Database["public"]["Enums"]["relative_effort_enum"];
+          personal_record: boolean;
         }[];
       };
-      get_one_rep_max: {
+      get_personal_record: {
         Args: {
           p_user_id: string;
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
         };
-        Returns: Database["public"]["CompositeTypes"]["one_rep_max_row"];
+        Returns: Database["public"]["CompositeTypes"]["personal_record_row"];
       };
       get_target_max: {
         Args: {
@@ -426,7 +439,7 @@ export type Database = {
         Args: { p_weight: number };
         Returns: number;
       };
-      set_one_rep_max: {
+      set_personal_record: {
         Args: {
           p_user_id: string;
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
@@ -434,6 +447,8 @@ export type Database = {
           p_unit: Database["public"]["Enums"]["weight_unit_enum"];
           p_recorded_at?: string;
           p_source?: Database["public"]["Enums"]["update_source_enum"];
+          p_notes?: string;
+          p_exercise_id?: string;
         };
         Returns: undefined;
       };
@@ -491,9 +506,16 @@ export type Database = {
         | "barbell_back_squat"
         | "barbell_front_squat"
         | "barbell_bench_press"
+        | "barbell_incline_bench_press"
         | "barbell_overhead_press"
         | "barbell_row"
         | "dumbbell_row"
+        | "dumbbell_bench_press"
+        | "dumbbell_incline_bench_press"
+        | "dumbbell_overhead_press"
+        | "dumbbell_bicep_curl"
+        | "dumbbell_hammer_curl"
+        | "dumbbell_wrist_curl"
         | "machine_converging_chest_press"
         | "machine_diverging_lat_pulldown"
         | "machine_diverging_low_row"
@@ -510,10 +532,17 @@ export type Database = {
         | "machine_biceps_curl"
         | "machine_rear_delt"
         | "machine_pec_fly"
-        | "pushup"
-        | "situp"
-        | "pullup"
-        | "chinup"
+        | "machine_assissted_chinup"
+        | "machine_assissted_pullup"
+        | "machine_assissted_dip"
+        | "bodyweight_pushup"
+        | "bodyweight_situp"
+        | "bodyweight_pullup"
+        | "bodyweight_chinup"
+        | "bodyweight_dip"
+        | "kettlebell_swings"
+        | "kettlebell_front_squat"
+        | "kettlebell_row"
         | "plate_stack_calf_raise";
       relative_effort_enum: "easy" | "okay" | "hard";
       update_source_enum: "manual" | "system";
@@ -541,10 +570,11 @@ export type Database = {
           | Database["public"]["Enums"]["relative_effort_enum"]
           | null;
       };
-      one_rep_max_row: {
+      personal_record_row: {
         value: number | null;
         unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
         recorded_at: string | null;
+        exercise_id: string | null;
       };
       target_max_row: {
         value: number | null;
@@ -564,11 +594,11 @@ export type Database = {
         target_max_value: number | null;
         target_max_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
         target_max_recorded_at: string | null;
-        one_rep_max_value: number | null;
-        one_rep_max_unit:
+        personal_record_value: number | null;
+        personal_record_unit:
           | Database["public"]["Enums"]["weight_unit_enum"]
           | null;
-        one_rep_max_recorded_at: string | null;
+        personal_record_recorded_at: string | null;
       };
     };
   };
@@ -701,9 +731,16 @@ export const Constants = {
         "barbell_back_squat",
         "barbell_front_squat",
         "barbell_bench_press",
+        "barbell_incline_bench_press",
         "barbell_overhead_press",
         "barbell_row",
         "dumbbell_row",
+        "dumbbell_bench_press",
+        "dumbbell_incline_bench_press",
+        "dumbbell_overhead_press",
+        "dumbbell_bicep_curl",
+        "dumbbell_hammer_curl",
+        "dumbbell_wrist_curl",
         "machine_converging_chest_press",
         "machine_diverging_lat_pulldown",
         "machine_diverging_low_row",
@@ -720,10 +757,17 @@ export const Constants = {
         "machine_biceps_curl",
         "machine_rear_delt",
         "machine_pec_fly",
-        "pushup",
-        "situp",
-        "pullup",
-        "chinup",
+        "machine_assissted_chinup",
+        "machine_assissted_pullup",
+        "machine_assissted_dip",
+        "bodyweight_pushup",
+        "bodyweight_situp",
+        "bodyweight_pullup",
+        "bodyweight_chinup",
+        "bodyweight_dip",
+        "kettlebell_swings",
+        "kettlebell_front_squat",
+        "kettlebell_row",
         "plate_stack_calf_raise",
       ],
       relative_effort_enum: ["easy", "okay", "hard"],
