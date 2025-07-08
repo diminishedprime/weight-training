@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useLocalStorageState, LocalStorageKeys as LSK } from "@/clientHooks";
 import Stack from "@mui/material/Stack";
 // import Typography from "@mui/material/Typography";
 import BarbellEditor from "@/components/BarbellEditor";
@@ -10,7 +11,8 @@ import { EffortEditor } from "@/components/EffortEditor";
 import WarmupCheckbox from "@/components/WarmupCheckbox";
 import CompletionStatusSelector from "@/components/CompletionStatusSelector";
 import { AddBarbelProps } from ".";
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
+import { TestIds } from "@/test-ids";
 import { addBarbellLift } from "@/app/exercise/[exercise_type]/_components/AddExercise/actions";
 
 /**
@@ -23,41 +25,116 @@ import { addBarbellLift } from "@/app/exercise/[exercise_type]/_components/AddEx
  * Returns an API object for use in the AddBarbell component.
  */
 const useAddBarbellAPI = () => {
-  const [totalWeight, setTotalWeight] = React.useState(45);
+  // Initial values for reset
+  const initial = React.useMemo(
+    () => ({
+      totalWeight: 45,
+      weightUnit: "pounds" as WeightUnit,
+      reps: 5,
+      effort: null as RelativeEffort | null,
+      warmup: false,
+      completionStatus: "completed" as CompletionStatus,
+      notes: "",
+    }),
+    []
+  );
+  const [totalWeight, setTotalWeight] = useLocalStorageState<number>(
+    LSK.AddBarbellTotalWeight,
+    45
+  );
+  // barWeight is always 45, not user-editable, so no need to persist
   const [barWeight] = React.useState(45);
-  const [weightUnit, setWeightUnit] = React.useState<WeightUnit>("pounds");
-  const [reps, setReps] = React.useState<number>(5);
-  const [effort, setEffort] = React.useState<RelativeEffort | null>(null);
-  const [warmup, setWarmup] = React.useState(false);
+  const [weightUnit, setWeightUnit] = useLocalStorageState<WeightUnit>(
+    LSK.AddBarbellWeightUnit,
+    "pounds"
+  );
+  const [reps, setReps] = useLocalStorageState<number>(LSK.AddBarbellReps, 5);
+  const [effort, setEffort] = useLocalStorageState<RelativeEffort | null>(
+    LSK.AddBarbellEffort,
+    null
+  );
+  const [warmup, setWarmup] = useLocalStorageState<boolean>(
+    LSK.AddBarbellWarmup,
+    false
+  );
   const [completionStatus, setCompletionStatus] =
-    React.useState<CompletionStatus>("completed");
+    useLocalStorageState<CompletionStatus>(
+      LSK.AddBarbellCompletionStatus,
+      "completed"
+    );
+  const [notes, setNotes] = useLocalStorageState<string>(
+    LSK.AddBarbellNotes,
+    ""
+  );
 
-  const onChange = React.useCallback((newTotal: number) => {
-    setTotalWeight(newTotal);
-  }, []);
+  const onChange = React.useCallback(
+    (newTotal: number) => {
+      setTotalWeight(newTotal);
+    },
+    [setTotalWeight]
+  );
 
-  const onUnitChange = React.useCallback((unit: WeightUnit) => {
-    setWeightUnit(unit);
-  }, []);
+  const onUnitChange = React.useCallback(
+    (unit: WeightUnit) => {
+      setWeightUnit(unit);
+    },
+    [setWeightUnit]
+  );
 
-  const onRepsChange = React.useCallback((newReps: number) => {
-    setReps(newReps);
-  }, []);
+  const onRepsChange = React.useCallback(
+    (newReps: number) => {
+      setReps(newReps);
+    },
+    [setReps]
+  );
 
-  const onEffortChange = React.useCallback((newEffort: RelativeEffort) => {
-    setEffort(newEffort);
-  }, []);
+  const onEffortChange = React.useCallback(
+    (newEffort: RelativeEffort) => {
+      setEffort(newEffort);
+    },
+    [setEffort]
+  );
 
-  const onWarmupChange = React.useCallback((checked: boolean) => {
-    setWarmup(checked);
-  }, []);
+  const onWarmupChange = React.useCallback(
+    (checked: boolean) => {
+      setWarmup(checked);
+    },
+    [setWarmup]
+  );
 
   const onCompletionStatusChange = React.useCallback(
     (status: CompletionStatus) => {
       setCompletionStatus(status);
     },
-    []
+    [setCompletionStatus]
   );
+
+  const onNotesChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setNotes(e.target.value);
+    },
+    [setNotes]
+  );
+
+  // Reset all fields to initial values
+  const reset = React.useCallback(() => {
+    setTotalWeight(initial.totalWeight);
+    setWeightUnit(initial.weightUnit);
+    setReps(initial.reps);
+    setEffort(initial.effort);
+    setWarmup(initial.warmup);
+    setCompletionStatus(initial.completionStatus);
+    setNotes(initial.notes);
+  }, [
+    setTotalWeight,
+    setWeightUnit,
+    setReps,
+    setEffort,
+    setWarmup,
+    setCompletionStatus,
+    setNotes,
+    initial,
+  ]);
 
   return {
     totalWeight,
@@ -73,6 +150,9 @@ const useAddBarbellAPI = () => {
     onWarmupChange,
     completionStatus,
     onCompletionStatusChange,
+    notes,
+    onNotesChange,
+    reset,
   };
 };
 
@@ -103,7 +183,7 @@ const AddBarbell: React.FC<AddBarbelProps> = (props) => {
         api.completionStatus,
         api.effort,
         api.warmup,
-        null
+        api.notes ? api.notes : null
       )}>
       <Stack spacing={1} direction={"column"}>
         <BarbellEditor
@@ -114,7 +194,11 @@ const AddBarbell: React.FC<AddBarbelProps> = (props) => {
           onUnitChange={api.onUnitChange}
         />
         <Stack alignSelf="center">
-          <RepsSelector reps={api.reps} onChange={api.onRepsChange} />
+          <RepsSelector
+            reps={api.reps}
+            onChange={api.onRepsChange}
+            repChoices={[1, 3, 5, 8]}
+          />
         </Stack>
         <Stack
           direction="row"
@@ -129,9 +213,28 @@ const AddBarbell: React.FC<AddBarbelProps> = (props) => {
             onChange={api.onCompletionStatusChange}
           />
         </Stack>
+        <TextField
+          multiline
+          minRows={1}
+          label="Notes"
+          value={api.notes}
+          onChange={api.onNotesChange}
+        />
         <Stack direction="row" flexGrow={1} justifyContent="space-between">
-          {props.cancelComponent}
-          <Button variant="contained" type="submit">
+          <Stack direction="row" spacing={1}>
+            {props.cancelComponent}
+            <Button
+              variant="outlined"
+              color="warning"
+              onClick={api.reset}
+              data-testid={TestIds.AddBarbellResetButton}>
+              Reset
+            </Button>
+          </Stack>
+          <Button
+            variant="contained"
+            type="submit"
+            data-testid={TestIds.AddBarbellLiftButton}>
             Add Lift
           </Button>
         </Stack>

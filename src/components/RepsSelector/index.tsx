@@ -17,7 +17,7 @@ const DEFAULT_REP_CHOICES = [1, 3, 5, 8, 10, 12, 15];
 function useRepsSelectorApi(
   repChoices: number[],
   reps: number,
-  onChange: (reps: number) => void,
+  onChange: (reps: number) => void
 ) {
   const MIN_REPS = 1;
   const [choices, setChoices] = React.useState<number[]>(repChoices);
@@ -46,6 +46,11 @@ function useRepsSelectorApi(
   };
 }
 
+// TODO - Update this to use the icon button group thingy that like effort and
+// completion status use, and then have it where if you go above the biggest rep
+// choice that's explicitly passed in, it adds in a new one that shows you the
+// current reps that are selected.
+
 const RepsSelector: React.FC<RepsSelectorProps> = ({
   reps,
   onChange,
@@ -67,16 +72,14 @@ const RepsSelector: React.FC<RepsSelectorProps> = ({
           <ButtonGroup variant="outlined" size="small">
             <Button
               onClick={api.handleDecrement}
-              disabled={reps <= api.MIN_REPS}
-            >
+              disabled={reps <= api.MIN_REPS}>
               -
             </Button>
             {api.choices.map((val) => (
               <Button
                 key={val}
                 variant={reps === val ? "contained" : "outlined"}
-                onClick={onChange.bind(null, val)}
-              >
+                onClick={onChange.bind(null, val)}>
                 {val}
               </Button>
             ))}

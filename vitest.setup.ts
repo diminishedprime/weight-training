@@ -26,7 +26,11 @@ vi.mock("next/navigation", () => {
     ...actual,
     redirect: vi.fn(),
     usePathname: vi.fn(), // if you use it
-    useRouter: vi.fn(() => ({ push: vi.fn() })), // if you use it
+    useRouter: vi.fn(() => ({ push: vi.fn(), replace: vi.fn() })), // add replace if you use it
+    useSearchParams: vi.fn(() => ({
+      get: vi.fn(() => null),
+      toString: vi.fn(() => ""),
+    })),
     notFound: vi.fn(),
   };
 });

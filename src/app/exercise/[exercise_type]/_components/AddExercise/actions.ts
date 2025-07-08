@@ -22,7 +22,6 @@ export async function addBarbellLift(
   notes: string | null,
   _: FormData
 ) {
-  console.log("made it here");
   const equipment = equipmentForExercise(exerciseType);
   if (equipment !== "barbell") {
     throw new Error(
@@ -47,11 +46,10 @@ export async function addBarbellLift(
     p_relative_effort: relativeEffort || undefined,
     p_warmup: isWarmup,
     p_notes: notes || undefined,
-    ...(completionStatus === "completed"
+    ...(completionStatus === "completed" || completionStatus === "failed"
       ? { p_performed_at: new Date().toISOString() }
       : {}),
   });
-  console.log("Response from create_exercise:", response);
   if (response.error) {
     throw response.error;
   }

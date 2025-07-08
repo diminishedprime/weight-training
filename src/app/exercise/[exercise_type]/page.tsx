@@ -1,10 +1,9 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { Constants, Database } from "@/database.types";
-import { requireLoggedInUser } from "@/serverUtil";
+import { getSupabaseClient, requireLoggedInUser } from "@/serverUtil";
 import { notFound } from "next/navigation";
-import ExercisesTableWrapper from "@/app/exercise/[exercise_type]/_components/ExercisesTableWrapper";
-import { Suspense } from "react";
+import ExercisesTables from "@/app/exercise/[exercise_type]/_components/ExercisesTables";
 import {
   exerciseTypeUIStringBrief,
   exerciseTypeUIStringLong,
@@ -49,6 +48,20 @@ export default async function Home({
 
   const showTargetMax = mainLifts.includes(exerciseType);
 
+  // Fetch lifts data here (was in ExercisesTableWrapper)
+  const supabase = getSupabaseClient();
+  const { data, error } = await supabase.rpc("get_exercises_by_type_for_user", {
+    p_user_id: userId,
+    p_exercise_type: exerciseType,
+  });
+
+  if (error) {
+    console.error("Error fetching lifts:", error);
+    return null;
+  }
+
+  const lifts = data || [];
+
   return (
     <>
       <Breadcrumbs
@@ -58,7 +71,12 @@ export default async function Home({
         }}
         nonLinkable={["edit"]}
       />
-      <Stack direction="column" spacing={1} alignItems="flex-start">
+      <Stack
+        direction="column"
+        spacing={1}
+        data-testid="exercise-page"
+        alignItems="flex-start"
+        sx={{ width: "100%" }}>
         <Typography variant="h4" sx={{ mb: 2 }}>
           {exerciseTypeUIStringLong(exerciseType)}
         </Typography>
@@ -75,9 +93,7 @@ export default async function Home({
           exerciseType={exerciseType}
           pathToRevalidate={currentPath}
         />
-        <Suspense fallback={<div>Loading lifts...</div>}>
-          <ExercisesTableWrapper userId={userId} lift_type={exerciseType} />
-        </Suspense>
+        <ExercisesTables exercises={lifts} exercise_type={exerciseType} />
       </Stack>
     </>
   );

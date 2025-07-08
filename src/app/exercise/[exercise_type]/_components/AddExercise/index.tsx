@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { EquipmentType, ExerciseType } from "@/common-types";
 import { Button, Paper } from "@mui/material";
+import { TestIds } from "@/test-ids";
 import AddIcon from "@mui/icons-material/Add";
 import AddBarbell from "@/app/exercise/[exercise_type]/_components/AddExercise/AddBarbell";
 
@@ -77,23 +79,48 @@ const AddExerciseControl: React.FC<AddExerciseControlProps> = (props) => {
       );
     default: {
       // Exhaustiveness check
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const _exhaustiveCheck: never = props.equipmentType;
     }
   }
 };
 
 const useAddExerciseAPI = (_props: AddExerciseProps) => {
-  const [showForm, setShowForm] = useState(false);
-  const hideForm = useCallback(() => setShowForm(false), []);
-  const cancelComponent = useMemo(() => {
-    return (
-      <Button color="error" variant="outlined" onClick={hideForm}>
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [showForm, setShowForm] = React.useState(
+    () => searchParams.get("addExercise") === "true"
+  );
+  const setShowFormAndSync = useCallback(
+    (val: boolean) => {
+      setShowForm(val);
+      const params = new URLSearchParams(searchParams.toString());
+      if (val) {
+        params.set("addExercise", "true");
+      } else {
+        params.delete("addExercise");
+      }
+      router.replace(`?${params.toString()}`, { scroll: false });
+    },
+    [searchParams, router]
+  );
+
+  const hideForm = useCallback(
+    () => setShowFormAndSync(false),
+    [setShowFormAndSync]
+  );
+  const cancelComponent = useMemo(
+    () => (
+      <Button
+        color="error"
+        variant="outlined"
+        onClick={hideForm}
+        data-testid={TestIds.AddExerciseCancelButton}>
         Cancel
       </Button>
-    );
-  }, [hideForm]);
-  return { showForm, setShowForm, cancelComponent };
+    ),
+    [hideForm]
+  );
+  return { showForm, setShowForm: setShowFormAndSync, cancelComponent };
 };
 
 const AddExercise: React.FC<AddExerciseProps> = (props) => {
@@ -102,6 +129,7 @@ const AddExercise: React.FC<AddExerciseProps> = (props) => {
     <React.Fragment>
       {!api.showForm && (
         <Button
+          data-testid={TestIds.AddExerciseButton}
           variant="contained"
           onClick={() => api.setShowForm(true)}
           startIcon={<AddIcon />}>
@@ -109,7 +137,7 @@ const AddExercise: React.FC<AddExerciseProps> = (props) => {
         </Button>
       )}
       {api.showForm && (
-        <Paper sx={{ p: 1, flexGrow: 1 }}>
+        <Paper sx={{ p: 1, width: "100%" }}>
           <AddExerciseControl
             {...props}
             cancelComponent={api.cancelComponent}
