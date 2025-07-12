@@ -11,16 +11,21 @@ export default function Home() {
           component={Link}
           href="/exercise"
           variant="contained"
-          color="primary"
-        >
+          color="primary">
           Exercises
+        </Button>
+        <Button
+          component={Link}
+          href="/exercise-block/wendler/leg-day"
+          variant="contained"
+          color="primary">
+          Wendler Leg Day Block
         </Button>
         <Button
           component={Link}
           href="/preferences"
           variant="contained"
-          color="primary"
-        >
+          color="primary">
           Preferences
         </Button>
       </Stack>

@@ -1,3 +1,21 @@
+-- Function: round_to_1_decimal
+--
+-- Purpose: Rounds a numeric value to 1 decimal place.
+--
+-- Why: Used for storing/displaying the actual (unrounded) weight value for exercises, while still enforcing a consistent decimal format.
+--
+-- Arguments:
+--   p_value (numeric): The value to round.
+-- Returns:
+--   numeric: The input value rounded to 1 decimal place.
+-- Usage:
+--   Used for storing the actual weight value in the exercises table.
+CREATE OR REPLACE FUNCTION public.round_to_1_decimal (p_value numeric) RETURNS numeric AS $$
+BEGIN
+    RETURN ROUND(p_value::numeric, 1);
+END;
+$$ LANGUAGE plpgsql IMMUTABLE;
+
 -- ========================================================================== --
 --
 -- Migration: 00000000000010_pure-functions.sql

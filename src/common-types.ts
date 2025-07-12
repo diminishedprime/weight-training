@@ -9,3 +9,12 @@ export type RelativeEffort =
   Database["public"]["Enums"]["relative_effort_enum"];
 export type WendlerCycleType =
   Database["public"]["Enums"]["wendler_cycle_type_enum"];
+
+export type WendlerBlockPrereqs =
+  Database["public"]["Functions"]["check_wendler_block_prereqs"]["Returns"];
+export type WendlerMaxesData =
+  Database["public"]["Functions"]["get_wendler_maxes"]["Returns"];
+export type WendlerBlock =
+  Database["public"]["Functions"]["get_wendler_block"]["Returns"];
+export type WendlerMetadata =
+  Database["public"]["Functions"]["get_wendler_metadata"]["Returns"];

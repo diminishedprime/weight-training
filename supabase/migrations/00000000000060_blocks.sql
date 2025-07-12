@@ -104,37 +104,28 @@ CREATE TABLE IF NOT EXISTS public.wendler_metadata (
 --      flexible, testable flows for both templated and ad-hoc training.
 --
 -- Columns:
---   id (uuid): Primary key.
---   user_id (uuid): FK to next_auth.users(id).
---   wendler_metadata_id (uuid, nullable): FK to wendler_metadata(id).
---   block_order (integer): Order of block in a superblock or program.
---   name, notes (text, nullable): Optional metadata.
---   created_at, updated_at (timestamptz): Timestamps for record tracking.
 CREATE TABLE IF NOT EXISTS public.exercise_block (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
   wendler_metadata_id uuid NULL,
-  block_order integer NOT NULL,
   name text NULL,
   notes text NULL,
+  active_exercise_id uuid NULL, -- FK to public.exercises(id), the currently active exercise in the block
   created_at timestamp with time zone DEFAULT timezone ('utc', now()),
   updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
   CONSTRAINT exercise_block_pkey PRIMARY KEY (id),
   CONSTRAINT exercise_block_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
-  CONSTRAINT exercise_block_wendler_metadata_id_fkey FOREIGN KEY (wendler_metadata_id) REFERENCES public.wendler_metadata (id) ON DELETE SET NULL
+  CONSTRAINT exercise_block_wendler_metadata_id_fkey FOREIGN KEY (wendler_metadata_id) REFERENCES public.wendler_metadata (id) ON DELETE SET NULL,
+  CONSTRAINT exercise_block_active_exercise_id_fkey FOREIGN KEY (active_exercise_id) REFERENCES public.exercises (id) ON DELETE SET NULL
 );
 
 -- Table: exercise_block_exercises (join table)
 --
--- Purpose: Many-to-many join between exercise_block and exercises.
+-- Purpose: Orders exercises within a block (one-to-many, not many-to-many).
 --
--- Why: The exercise_block_exercises table is a classic junction (join) table
---      that enables each block to contain multiple exercises (sets), and each
---      exercise to be reused in different blocks if needed. This design is
---      necessary because a block is composed of a sequence of individual
---      exercise records (e.g., each set of a "5x5" block is a separate row in
---      exercises), and we need to preserve both the association and the order
---      of those sets within the block. 
+-- Why: Each exercise_block contains a sequence of exercises (sets), and we need
+--      to preserve the order of those sets within the block. Each exercise
+--      belongs to exactly one block.
 --
 -- Columns:
 --   block_id (uuid): FK to exercise_block(id).
@@ -144,13 +135,14 @@ CREATE TABLE IF NOT EXISTS public.exercise_block_exercises (
   block_id uuid NOT NULL,
   exercise_id uuid NOT NULL,
   exercise_order integer NOT NULL,
-  CONSTRAINT exercise_block_exercises_pkey PRIMARY KEY (block_id, exercise_id),
+  CONSTRAINT exercise_block_exercises_pkey PRIMARY KEY (block_id, exercise_order),
   CONSTRAINT fk_block FOREIGN KEY (block_id) REFERENCES public.exercise_block (id) ON DELETE CASCADE,
   CONSTRAINT fk_exercise FOREIGN KEY (exercise_id) REFERENCES public.exercises (id) ON DELETE CASCADE
 );
 
 -- Table: exercise_superblock
--- Purpose: Represents a collection of exercise blocks (e.g., a workout program or template).
+-- Purpose: Represents a collection of exercise blocks (e.g., a workout program
+--          or template).
 --
 -- Why: The exercise_superblock table provides a high-level abstraction for
 --      grouping multiple blocks into a single, ordered structure—such to

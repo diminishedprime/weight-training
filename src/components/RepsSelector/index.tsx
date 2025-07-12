@@ -1,6 +1,5 @@
 import React from "react";
-import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
+import { ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import SetAvailableReps from "@/components/RepsSelector/SetAvailableReps";
@@ -10,39 +9,56 @@ export interface RepsSelectorProps {
   reps: number;
   onChange: (reps: number) => void;
   repChoices?: number[];
+  wendlerReps?: boolean;
+  isAmrap?: boolean;
+  hideSettings?: boolean;
 }
 
 const DEFAULT_REP_CHOICES = [1, 3, 5, 8, 10, 12, 15];
 
-function useRepsSelectorApi(
-  repChoices: number[],
-  reps: number,
-  onChange: (reps: number) => void
-) {
+function useRepsSelectorApi(props: RepsSelectorProps) {
+  const { reps, onChange, repChoices, wendlerReps } = props;
   const MIN_REPS = 1;
-  const [choices, setChoices] = React.useState<number[]>(repChoices);
+  const initialChoices = wendlerReps
+    ? [1, 3, 5, 8]
+    : repChoices || DEFAULT_REP_CHOICES;
+  const [choices, setChoices] = React.useState<number[]>(initialChoices);
 
-  function handleDecrement() {
-    if (reps > MIN_REPS) onChange(reps - 1);
-  }
-  function handleIncrement() {
-    onChange(reps + 1);
-  }
-  function handleSetAvailableRepsClose(newChoices: number[]) {
-    setChoices(newChoices);
-    // Snap to a valid rep if current is not in new choices
-    if (!newChoices.includes(reps) && newChoices.length > 0) {
-      onChange(newChoices[0]);
-    }
-  }
+  const isDecrementDisabled = reps <= MIN_REPS;
+
+  // Unified onChange handler for ToggleButtonGroup
+  const handleToggleChange = React.useCallback(
+    (_e: React.MouseEvent<HTMLElement> | null, val: number | string | null) => {
+      if (!val) return;
+      if (val === "-" && !isDecrementDisabled) {
+        onChange(reps - 1);
+      } else if (val === "+") {
+        onChange(reps + 1);
+      } else if (typeof val === "number") {
+        onChange(val);
+      }
+    },
+    [reps, onChange, isDecrementDisabled]
+  );
+
+  const handleSetAvailableRepsClose = React.useCallback(
+    (newChoices: number[]) => {
+      setChoices(newChoices);
+      // Snap to a valid rep if current is not in new choices
+      if (!newChoices.includes(reps) && newChoices.length > 0) {
+        onChange(newChoices[0]);
+      }
+    },
+    [reps, onChange]
+  );
 
   return {
     choices,
     setChoices,
-    handleDecrement,
-    handleIncrement,
+    handleToggleChange,
     handleSetAvailableRepsClose,
     MIN_REPS,
+    isDecrementDisabled,
   };
 }
 
@@ -51,40 +67,55 @@ function useRepsSelectorApi(
 // choice that's explicitly passed in, it adds in a new one that shows you the
 // current reps that are selected.
 
-const RepsSelector: React.FC<RepsSelectorProps> = ({
-  reps,
-  onChange,
-  repChoices = DEFAULT_REP_CHOICES,
-}) => {
-  const api = useRepsSelectorApi(repChoices, reps, onChange);
+const RepsSelector: React.FC<RepsSelectorProps> = (props) => {
+  const api = useRepsSelectorApi(props);
 
   return (
     <Box sx={{ display: "flex", alignItems: "end" }}>
-      <SetAvailableReps
-        repChoices={api.choices}
-        onClose={api.handleSetAvailableRepsClose}
-      />
+      {!props.hideSettings && (
+        <SetAvailableReps
+          repChoices={api.choices}
+          onClose={api.handleSetAvailableRepsClose}
+        />
+      )}
       <FormControl>
         <FormLabel sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          Reps: {reps}
+          Reps: {props.reps}
+          {props.isAmrap && (
+            <Typography variant="body2" color="primary">
+              (AMRAP)
+            </Typography>
+          )}
         </FormLabel>
         <Box>
-          <ButtonGroup variant="outlined" size="small">
-            <Button
-              onClick={api.handleDecrement}
-              disabled={reps <= api.MIN_REPS}>
+          <ToggleButtonGroup
+            color="primary"
+            value={props.reps}
+            exclusive
+            onChange={api.handleToggleChange}
+            size="small"
+            aria-label="Reps Selector"
+            sx={{ mb: 1 }}>
+            <ToggleButton
+              value="-"
+              disabled={api.isDecrementDisabled}
+              aria-label="decrement reps"
+              size="small">
               -
-            </Button>
+            </ToggleButton>
             {api.choices.map((val) => (
-              <Button
+              <ToggleButton
                 key={val}
-                variant={reps === val ? "contained" : "outlined"}
-                onClick={onChange.bind(null, val)}>
+                value={val}
+                aria-label={`reps ${val}`}
+                size="small">
                 {val}
-              </Button>
+              </ToggleButton>
             ))}
-            <Button onClick={api.handleIncrement}>+</Button>
-          </ButtonGroup>
+            <ToggleButton value="+" aria-label="increment reps" size="small">
+              +
+            </ToggleButton>
+          </ToggleButtonGroup>
         </Box>
       </FormControl>
     </Box>

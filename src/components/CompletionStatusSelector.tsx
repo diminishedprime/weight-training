@@ -1,7 +1,14 @@
-import { ToggleButton, ToggleButtonGroup, Tooltip } from "@mui/material";
+import {
+  ToggleButton,
+  ToggleButtonGroup,
+  Tooltip,
+  FormControl,
+  FormLabel,
+} from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import CancelIcon from "@mui/icons-material/Cancel";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
 import { CompletionStatus } from "@/common-types";
 
 /**
@@ -14,44 +21,49 @@ interface CompletionStatusSelectorProps {
   value: CompletionStatus;
   onChange: (val: CompletionStatus) => void;
   notCompleted?: true;
+  customLabel?: string;
 }
 
-const CompletionStatusSelector: React.FC<CompletionStatusSelectorProps> = ({
-  value,
-  onChange,
-  notCompleted,
-}) => {
+const CompletionStatusSelector: React.FC<CompletionStatusSelectorProps> = (
+  props
+) => {
   return (
-    <ToggleButtonGroup
-      color="primary"
-      value={value}
-      exclusive
-      onChange={(_e, val) => val && onChange(val)}
-      size="small"
-      aria-label="Completion Status">
-      <ToggleButton value="completed" aria-label="Completed">
-        <Tooltip title="Completed">
-          <CheckCircleIcon color="success" />
-        </Tooltip>
-      </ToggleButton>
-      {notCompleted && (
-        <ToggleButton value="not_completed" aria-label="Not Completed">
-          <Tooltip title="Not Completed">
-            <RadioButtonUncheckedIcon color="warning" />
+    <FormControl>
+      <FormLabel>{props.customLabel || "Completion Status"}</FormLabel>
+      <ToggleButtonGroup
+        color="primary"
+        value={props.value}
+        exclusive
+        onChange={(_e, val) => val && props.onChange(val)}
+        size="small"
+        aria-label="Completion Status">
+        <ToggleButton value="completed" aria-label="Completed" size="small">
+          <Tooltip title="Completed">
+            <CheckCircleIcon color="success" />
           </Tooltip>
         </ToggleButton>
-      )}
-      <ToggleButton value="failed" aria-label="Failed">
-        <Tooltip title="Failed">
-          <CancelIcon color="error" />
-        </Tooltip>
-      </ToggleButton>
-      <ToggleButton value="skipped" aria-label="Skipped">
-        <Tooltip title="Skipped">
-          <CancelIcon color="disabled" />
-        </Tooltip>
-      </ToggleButton>
-    </ToggleButtonGroup>
+        {props.notCompleted && (
+          <ToggleButton
+            value="not_completed"
+            aria-label="Not Completed"
+            size="small">
+            <Tooltip title="Not Completed">
+              <RadioButtonUncheckedIcon color="warning" />
+            </Tooltip>
+          </ToggleButton>
+        )}
+        <ToggleButton value="failed" aria-label="Failed" size="small">
+          <Tooltip title="Failed">
+            <CancelIcon color="error" />
+          </Tooltip>
+        </ToggleButton>
+        <ToggleButton value="skipped" aria-label="Skipped" size="small">
+          <Tooltip title="Skipped">
+            <SkipNextIcon color="secondary" />
+          </Tooltip>
+        </ToggleButton>
+      </ToggleButtonGroup>
+    </FormControl>
   );
 };
 

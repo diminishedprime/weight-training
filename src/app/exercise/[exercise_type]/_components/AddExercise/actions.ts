@@ -49,6 +49,7 @@ export async function addBarbellLift(
     ...(completionStatus === "completed" || completionStatus === "failed"
       ? { p_performed_at: new Date().toISOString() }
       : {}),
+    p_actual_weight_value: weightValueNum,
   });
   if (response.error) {
     throw response.error;

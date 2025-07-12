@@ -20,6 +20,9 @@ function useEditExerciseForm(
 ) {
   const [error, setError] = useState<string | null>(null);
   const [weightValue, setWeightValue] = useState(exercise.weight_value!);
+  const [actualWeightValue, setActualWeightValue] = useState(
+    exercise.actual_weight_value ?? exercise.weight_value!
+  );
   const [weightUnit, setWeightUnit] = useState(exercise.weight_unit!);
   const [reps, setReps] = useState(exercise.reps!);
   const [warmup, setWarmup] = useState(exercise.warmup!);
@@ -49,19 +52,20 @@ function useEditExerciseForm(
       combined.setMilliseconds(0);
       performed_at = combined.toISOString();
     }
-    const result = await updateExerciseForUserAction({
-      exercise_id: exercise.exercise_id!,
+    const result = await updateExerciseForUserAction(
+      exercise.exercise_id!,
       user_id,
-      exercise_type: exercise.exercise_type!,
-      weight_value: Number(weightValue),
-      reps: Number(reps),
+      exercise.exercise_type!,
+      Number(weightValue),
+      Number(actualWeightValue),
+      Number(reps),
       performed_at,
-      weight_unit: weightUnit,
+      weightUnit,
       warmup,
-      completion_status: completionStatus,
-      notes: notes || undefined,
-      relative_effort: relativeEffort || undefined,
-    });
+      completionStatus,
+      notes || undefined,
+      relativeEffort || undefined
+    );
     if (result?.error) {
       setError(result.error);
       return;
@@ -69,6 +73,10 @@ function useEditExerciseForm(
     router.push(
       `/exercise/${exercise.exercise_type!}?flash=${exercise.exercise_id}`
     );
+  }
+
+  function handleActualWeightValueChange(val: number) {
+    setActualWeightValue(val);
   }
 
   // Handler functions for direct use in onChange (typed to match component expectations)
@@ -110,6 +118,9 @@ function useEditExerciseForm(
     weightValue,
     setWeightValue,
     handleWeightValueChange,
+    actualWeightValue,
+    setActualWeightValue,
+    handleActualWeightValueChange,
     weightUnit,
     setWeightUnit,
     handleWeightUnitChange,
@@ -153,6 +164,7 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
   // TODO - Update the text input for the weight to allow you to actually type
   // in a number, right now you can't backspace since it wants it to be 45, but
   // that should be handled another way.
+  // TODO - actually allow the user to change the actual weight value (which should just be a TextField)
 
   return (
     <form onSubmit={form.handleSubmit}>

@@ -31,30 +31,22 @@ SELECT
     'No personal record exists initially'
   );
 
--- 2. Insert completed exercise, should set personal record
-INSERT INTO
-  public.exercises (
-    user_id,
-    exercise_type,
-    equipment_type,
-    performed_at,
-    weight_value,
-    weight_unit,
-    reps,
-    warmup,
-    completion_status
-  )
-VALUES
-  (
+SELECT
+  'Insert 200 completed' AS log,
+  public.create_exercise (
     '00000000-0000-0000-0000-000000000004',
     'barbell_bench_press',
     'barbell',
-    '2023-01-01T10:00:00Z',
     200,
-    'pounds',
+    200,
     1,
+    'pounds',
+    '2023-01-01T10:00:00Z',
     false,
-    'completed'
+    false,
+    'completed',
+    NULL,
+    NULL
   );
 
 SELECT
@@ -87,30 +79,22 @@ SELECT
     'Completed exercise sets personal record returns non-null exercise_id'
   );
 
--- 3. Insert newer, smaller completed exercise, should NOT change record
-INSERT INTO
-  public.exercises (
-    user_id,
-    exercise_type,
-    equipment_type,
-    performed_at,
-    weight_value,
-    weight_unit,
-    reps,
-    warmup,
-    completion_status
-  )
-VALUES
-  (
+SELECT
+  'Insert 180 completed' AS log,
+  public.create_exercise (
     '00000000-0000-0000-0000-000000000004',
     'barbell_bench_press',
     'barbell',
-    '2023-01-01T10:01:00Z',
     180,
-    'pounds',
+    180,
     1,
+    'pounds',
+    '2023-01-01T10:01:00Z',
     false,
-    'completed'
+    false,
+    'completed',
+    NULL,
+    NULL
   );
 
 SELECT
@@ -128,42 +112,70 @@ SELECT
     'Newer, smaller completed exercise does not change record'
   );
 
--- 4. Insert newer, larger not-completed exercise, should NOT change record
--- Insert and fetch the id for later update
-INSERT INTO
-  public.exercises (
-    user_id,
-    exercise_type,
-    equipment_type,
-    performed_at,
-    weight_value,
-    weight_unit,
-    reps,
-    warmup,
-    completion_status
-  )
-VALUES
-  (
+-- Insert the 250 not_completed row and capture its id
+-- Insert the 250 not_completed row
+SELECT
+  public.create_exercise (
     '00000000-0000-0000-0000-000000000004',
     'barbell_bench_press',
     'barbell',
-    '2023-01-01T10:02:00Z',
     250,
-    'pounds',
+    250,
     1,
+    'pounds',
+    '2023-01-01T10:02:00Z',
     false,
-    'not_completed'
+    false,
+    'not_completed',
+    NULL,
+    NULL
   );
 
--- 5. Update that row to completed, should update record
-UPDATE public.exercises
-SET
-  completion_status = 'completed'
+-- Now update using the stored proc, selecting the id by performed_at
+SELECT
+  public.update_exercise_for_user (
+    (
+      SELECT
+        id
+      FROM
+        public.exercises
+      WHERE
+        user_id = '00000000-0000-0000-0000-000000000004'
+        AND exercise_type = 'barbell_bench_press'
+        AND weight_value = 250
+        AND performed_at = '2023-01-01T10:02:00Z'
+    ),
+    '00000000-0000-0000-0000-000000000004',
+    'barbell_bench_press',
+    250,
+    250,
+    1,
+    'pounds',
+    '2023-01-01T10:02:00Z',
+    false,
+    false,
+    'completed',
+    NULL,
+    NULL
+  );
+
+-- Show updated exercise for verification
+SELECT
+  *
+FROM
+  public.exercises
 WHERE
-  user_id = '00000000-0000-0000-0000-000000000004'
-  AND exercise_type = 'barbell_bench_press'
-  AND weight_value = 250
-  AND performed_at = '2023-01-01T10:02:00Z';
+  id = (
+    SELECT
+      id
+    FROM
+      public.exercises
+    WHERE
+      user_id = '00000000-0000-0000-0000-000000000004'
+      AND exercise_type = 'barbell_bench_press'
+      AND weight_value = 250
+      AND performed_at = '2023-01-01T10:02:00Z'
+  );
 
 SELECT
   is (

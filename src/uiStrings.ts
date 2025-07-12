@@ -1,3 +1,25 @@
+export const wendlerCycleUIString = (
+  cycle: Database["public"]["Enums"]["wendler_cycle_type_enum"],
+): string => {
+  switch (cycle) {
+    case "5":
+      return "5s";
+    case "3":
+      return "3s";
+    case "1":
+      return "1s";
+    case "deload":
+      return "Deload";
+    // Stryker disable all
+    /* v8 ignore next 5 */
+    default: {
+      // This will cause a type error if a new enum value is added and not handled
+      const _exhaustiveCheck: never = cycle;
+      return _exhaustiveCheck;
+    }
+    // Stryker restore all
+  }
+};
 import { Database } from "@/database.types";
 import { equipmentForExercise } from "@/util";
 

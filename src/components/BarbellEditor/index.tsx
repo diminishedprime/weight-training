@@ -22,21 +22,23 @@ export interface BarbellEditorProps {
   onUnitChange: (unit: Database["public"]["Enums"]["weight_unit_enum"]) => void; // Now required
 }
 
+// TODO - the api hook should probably just be inline. Also, I should use the
+// common-types
+
+// TODO - The plate selector buttongroup thing should be a separate component
+
+// TODO - there should be an easy way to pass in the default values for settings
+// so they can come from user preferences.
+
 const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
-  const {
-    totalWeight,
-    barWeight, // Remove default, now required
-    onChange,
-    weightUnit,
-    onUnitChange,
-  } = props;
+  const { totalWeight, barWeight, onChange, weightUnit, onUnitChange } = props;
 
   const componentAPI = useBarbellEditor({
     totalWeight,
     barWeight,
     onChange,
     initialPlateSizes: DEFAULT_PLATE_SIZES,
-  }); // Pass initialPlateSizes
+  });
 
   return (
     <Stack display="flex" direction="column" alignItems="center" spacing={2}>

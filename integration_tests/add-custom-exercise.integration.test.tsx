@@ -29,7 +29,6 @@ beforeEach(async () => {
   await deleteAllExercisesForUser(USER_ID_LOGGED_IN);
 });
 
-// Placeholder for the user journey: "Logged in users can add in a custom exercise."
 describe("User Journey: Add Custom Barbell Exercises", () => {
   exercisesByEquipment["barbell"].forEach((exerciseType) => {
     it(`should allow a logged in user to add a custom barbell exercise: ${exerciseType}`, async () => {

@@ -9,6 +9,8 @@ import { useCallback, useMemo, useState } from "react";
 import { setTargetMaxAction } from "@/components/SetTargetMax/actions";
 import { ExerciseType, WeightUnit } from "@/common-types";
 
+// TODO - update this to use the BarbellEditor component instead of a Textfield.
+
 /**
  * Props for SetTargetMax component.
  * @property exerciseType - The exercise type (enum value)
@@ -34,17 +36,17 @@ type SetTargetMaxProps = {
  */
 const useSetTargetMaxAPI = (props: SetTargetMaxProps) => {
   const [targetMaxValue, setTargetMaxValue] = useState<string>(
-    props.targetMaxValue ?? "",
+    props.targetMaxValue ?? ""
   );
   const [targetMaxUnit, setTargetMaxUnit] = useState<WeightUnit>(
-    props.targetMaxUnit ?? "pounds",
+    props.targetMaxUnit ?? "pounds"
   );
 
   const onValueChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setTargetMaxValue(e.target.value);
     },
-    [],
+    []
   );
 
   const onUnitChange = useCallback((e: SelectChangeEvent) => {
@@ -81,7 +83,7 @@ const useSetTargetMaxAPI = (props: SetTargetMaxProps) => {
         setTargetMaxValue((numericalOneRepMaxValue * 0.9).toFixed(2));
       }
     },
-    [numericalOneRepMaxValue],
+    [numericalOneRepMaxValue]
   );
 
   const percentHelperText = useMemo(() => {
@@ -136,9 +138,8 @@ const SetTargetMax: React.FC<SetTargetMaxProps> = (props) => {
         props.exerciseType,
         api.value,
         api.unit,
-        props.pathToRevalidate,
-      )}
-    >
+        props.pathToRevalidate
+      )}>
       <Stack spacing={1}>
         <Stack direction="row" spacing={1} useFlexGap alignItems="flex-start">
           <TextField
@@ -155,8 +156,7 @@ const SetTargetMax: React.FC<SetTargetMaxProps> = (props) => {
             value={api.unit}
             onChange={api.onUnitChange}
             displayEmpty
-            inputProps={{ "aria-label": "Unit" }}
-          >
+            inputProps={{ "aria-label": "Unit" }}>
             <MenuItem value="pounds">pounds</MenuItem>
             <MenuItem value="kilograms">kilograms</MenuItem>
           </Select>

@@ -18,5 +18,6 @@ export const TestIds = {
   exercisesTableRow: "exercises-table-row",
   exercisesTableEditButton: "exercises-table-edit-button",
   exercisesTableNotesRow: "exercises-table-notes-row",
+  addWendlerLegDayButton: "add-wendler-leg-day-button",
   // Add more test IDs here as needed
 } as const;

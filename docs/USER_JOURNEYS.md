@@ -1,9 +1,15 @@
 - [ ] User can log into the app
-
-- [ ] Users can add in a custom exercise. [User Journey: Add Custom Exercise]
+- [ ] Users can add in a custom exercise.
+  - [x] Users can add in a custom barbell exercise. [User Journey: Add Custom
+        Exercise]
+  - [ ] Users can add in a custom dumbbell exercise.
+  - [ ] Users can add in a custom bodyweight exercise.
+  - [ ] Users can add in a custom machine exercise.
   - [ ] Question: Is it valid for an exercise to be dangling, i.e. not a part of
         a block or superblock
 - [ ] Users can edit an existing exercise.
+- [ ] Exercise Blocks
+  - [ ] Users can add in a wendler superblock for leg day.
 - [ ] Users can add in a Leg Day superblock
   - [ ] This superblock contains the following blocks:
     - [ ] Wendler Squats
