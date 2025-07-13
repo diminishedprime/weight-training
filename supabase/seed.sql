@@ -12,6 +12,17 @@ VALUES
   )
 ON CONFLICT (id) DO NOTHING;
 
+-- Insert user metadata for the test user. This is needed so we don't always
+-- redirect within the unit tests which isn't really supported since it has to
+-- throw to redirect.
+SELECT
+  public.set_user_preferences (
+    p_user_id => '00000000-0000-0000-0000-000000000001'::uuid,
+    p_preferred_weight_unit => 'pounds'::weight_unit_enum,
+    p_default_rest_time => 120,
+    p_available_plates => ARRAY[45, 35, 25, 10, 5, 2.5]::numeric[]
+  );
+
 -- Additional seed user for update_user_personal_record tests
 INSERT INTO
   next_auth.users (id, name, email, "emailVerified", image)
@@ -50,6 +61,9 @@ VALUES
   )
 ON CONFLICT (id) DO NOTHING;
 
+-- Note: Matt & Steph users are NOT created here - they will be created automatically
+-- when they sign up through NextAuth, thanks to the get_deterministic_uuid() function
+-- and trigger in the auth migration.
 -- End test seed data.
 -- START OF IMPORTED EXERCISE DATA --
 -- ========================================================================== --
@@ -61,31 +75,6 @@ ON CONFLICT (id) DO NOTHING;
 -- when stephaniebpena@gmail.com and matthewjhamrick@gmail.com sign up.
 -- The next_auth.get_deterministic_uuid() function ensures proper linking.
 -- ========================================================================== --
--- First, create the imported users with deterministic UUIDs
-INSERT INTO
-  next_auth.users (id, name, email, "emailVerified", image)
-VALUES
-  (
-    'd6e4a8a4-a0c1-4760-9512-a569473fe162',
-    'Stephanie Pena',
-    'stephaniebpena@gmail.com',
-    NOW(),
-    'https://example.com/stephanie.png'
-  )
-ON CONFLICT (id) DO NOTHING;
-
-INSERT INTO
-  next_auth.users (id, name, email, "emailVerified", image)
-VALUES
-  (
-    '97097295-6eb1-4824-8bfa-8984cf9bea6b',
-    'Matthew Hamrick',
-    'matthewjhamrick@gmail.com',
-    NOW(),
-    'https://example.com/matthew.png'
-  )
-ON CONFLICT (id) DO NOTHING;
-
 -- Import all exercise data using stored procedures (sorted by timestamp with 0.1ms delays)
 SELECT
   public.create_exercise (

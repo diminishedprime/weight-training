@@ -1,31 +1,16 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import Typography from "@mui/material/Typography";
-import { Constants, Database } from "@/database.types";
-import { weightUnitUIString } from "@/uiStrings";
 import { Button } from "@mui/material";
 import Dumbbell from "@/components/Dumbell";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
-import IconButton from "@mui/material/IconButton";
-import SettingsIcon from "@mui/icons-material/Settings";
-import Chip from "@mui/material/Chip";
 import Autocomplete from "@mui/material/Autocomplete";
+import { WeightUnit } from "@/common-types";
 
 export interface DumbbellEditorProps {
+  // TODO available weights should be passed in and come from user preferences.
   weight: number;
   onChange?: (newWeight: number) => void;
-  weightUnit: Database["public"]["Enums"]["weight_unit_enum"];
-  onUnitChange?: (
-    unit: Database["public"]["Enums"]["weight_unit_enum"],
-  ) => void;
+  weightUnit: WeightUnit;
 }
 
 const DEFAULT_DUMBBELL_WEIGHTS = [
@@ -33,17 +18,10 @@ const DEFAULT_DUMBBELL_WEIGHTS = [
   85, 90, 95, 100,
 ];
 
-export default function DumbbellEditor({
-  weight,
-  onChange,
-  weightUnit,
-  onUnitChange,
-}: DumbbellEditorProps) {
-  const [availableWeights, setAvailableWeights] = React.useState(
-    DEFAULT_DUMBBELL_WEIGHTS,
-  );
-  const [settingsOpen, setSettingsOpen] = React.useState(false);
-  const [editWeights, setEditWeights] = React.useState(availableWeights);
+const useDumbbellEditorAPI = (props: DumbbellEditorProps) => {
+  const { weight, onChange } = props;
+
+  const availableWeights = DEFAULT_DUMBBELL_WEIGHTS;
 
   // Find the closest index in availableWeights
   const idx =
@@ -55,29 +33,47 @@ export default function DumbbellEditor({
       ? idx
       : availableWeights.findIndex((w) => w === weight);
 
-  const bumpDown = () => {
+  const handleBumpDown = React.useCallback(() => {
     if (!onChange) return;
     const prevIdx = currentIdx > 0 ? currentIdx - 1 : 0;
     onChange(availableWeights[prevIdx]);
-  };
-  const bumpUp = () => {
+  }, [onChange, currentIdx, availableWeights]);
+
+  const handleBumpUp = React.useCallback(() => {
     if (!onChange) return;
     const nextIdx =
       currentIdx < availableWeights.length - 1 ? currentIdx + 1 : currentIdx;
     onChange(availableWeights[nextIdx]);
-  };
+  }, [onChange, currentIdx, availableWeights]);
 
-  function handleAddWeight(val: number) {
-    if (!editWeights.includes(val))
-      setEditWeights([...editWeights, val].sort((a, b) => a - b));
-  }
-  function handleRemoveWeight(val: number) {
-    setEditWeights(editWeights.filter((w) => w !== val));
-  }
-  function handleSaveSettings() {
-    setAvailableWeights(editWeights);
-    setSettingsOpen(false);
-  }
+  const handleWeightChange = React.useCallback(
+    (newValue: unknown) => {
+      const val = Number(newValue);
+      if (onChange && !isNaN(val) && val >= 0) onChange(val);
+    },
+    [onChange]
+  );
+
+  const handleInputChange = React.useCallback(
+    (newInputValue: string) => {
+      const val = Number(newInputValue);
+      if (onChange && !isNaN(val) && val >= 0) onChange(val);
+    },
+    [onChange]
+  );
+
+  return {
+    availableWeights,
+    currentIdx,
+    handleBumpDown,
+    handleBumpUp,
+    handleWeightChange,
+    handleInputChange,
+  };
+};
+
+const DumbbellEditor: React.FC<DumbbellEditorProps> = (props) => {
+  const api = useDumbbellEditorAPI(props);
 
   return (
     <Box
@@ -86,83 +82,26 @@ export default function DumbbellEditor({
         flexDirection: "column",
         alignItems: "center",
         gap: 2,
-      }}
-    >
-      <Dialog open={settingsOpen} onClose={() => setSettingsOpen(false)}>
-        <DialogTitle>Dumbbell Settings</DialogTitle>
-        <DialogContent>
-          <Box>
-            <Typography>Available Dumbbells:</Typography>
-            <Box
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 1,
-                mt: 1,
-              }}
-            >
-              {DEFAULT_DUMBBELL_WEIGHTS.map((val) =>
-                editWeights.includes(val) ? (
-                  <Chip
-                    key={val}
-                    label={val}
-                    color="primary"
-                    onDelete={() => handleRemoveWeight(val)}
-                    sx={{ minWidth: 36 }}
-                  />
-                ) : (
-                  <Chip
-                    key={val}
-                    label={val}
-                    variant="outlined"
-                    onClick={() => handleAddWeight(val)}
-                    sx={{ minWidth: 36 }}
-                  />
-                ),
-              )}
-            </Box>
-          </Box>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            variant="outlined"
-            color="error"
-            onClick={() => setSettingsOpen(false)}
-          >
-            Cancel
-          </Button>
-          <Button onClick={handleSaveSettings} variant="contained">
-            Save
-          </Button>
-        </DialogActions>
-      </Dialog>
-      <Dumbbell weight={weight} weightUnit={weightUnit} />
+      }}>
+      <Dumbbell weight={props.weight} weightUnit={props.weightUnit} />
       <Box sx={{ display: "flex", alignItems: "center", gap: 1, mt: 2 }}>
-        <IconButton size="small" onClick={() => setSettingsOpen(true)}>
-          <SettingsIcon />
-        </IconButton>
         <Button
           variant="outlined"
           color="secondary"
-          onClick={bumpDown}
-          disabled={currentIdx <= 0}
-        >
+          onClick={api.handleBumpDown}
+          disabled={api.currentIdx <= 0}>
           Down
         </Button>
         <Autocomplete
           freeSolo
-          options={availableWeights}
-          value={weight}
-          getOptionLabel={(option) => option.toString()} // Ensures label is always a string
-          onChange={(_, newValue) => {
-            const val = Number(newValue);
-            if (onChange && !isNaN(val) && val >= 0) onChange(val);
-          }}
-          inputValue={String(weight)}
-          onInputChange={(_, newInputValue) => {
-            const val = Number(newInputValue);
-            if (onChange && !isNaN(val) && val >= 0) onChange(val);
-          }}
+          options={api.availableWeights}
+          value={props.weight}
+          getOptionLabel={(option) => option.toString()}
+          onChange={(_, newValue) => api.handleWeightChange(newValue)}
+          inputValue={String(props.weight)}
+          onInputChange={(_, newInputValue) =>
+            api.handleInputChange(newInputValue)
+          }
           disableClearable
           renderInput={(params) => (
             <TextField
@@ -174,29 +113,15 @@ export default function DumbbellEditor({
             />
           )}
         />
-        <FormControl size="small">
-          <InputLabel id="dumbbell-unit-label">Unit</InputLabel>
-          <Select
-            labelId="dumbbell-unit-label"
-            value={weightUnit}
-            label="Unit"
-            onChange={(e) => onUnitChange && onUnitChange(e.target.value)}
-          >
-            {Constants.public.Enums.weight_unit_enum.map((unit) => (
-              <MenuItem key={unit} value={unit}>
-                {weightUnitUIString(unit)}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
         <Button
           variant="outlined"
-          onClick={bumpUp}
-          disabled={currentIdx >= availableWeights.length - 1}
-        >
+          onClick={api.handleBumpUp}
+          disabled={api.currentIdx >= api.availableWeights.length - 1}>
           Up
         </Button>
       </Box>
     </Box>
   );
-}
+};
+
+export default DumbbellEditor;

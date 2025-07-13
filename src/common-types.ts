@@ -10,6 +10,9 @@ export type PercievedEffort =
 export type WendlerCycleType =
   Database["public"]["Enums"]["wendler_cycle_type_enum"];
 
+export type ExerciseForUser =
+  Database["public"]["Functions"]["get_exercise_for_user"]["Returns"];
+
 export type WendlerBlockPrereqs =
   Database["public"]["Functions"]["check_wendler_block_prereqs"]["Returns"];
 export type WendlerMaxesData =

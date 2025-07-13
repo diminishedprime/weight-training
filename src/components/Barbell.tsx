@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import { minimalPlates } from "@/util";
-import { DEFAULT_PLATE_SIZES, PLATE_COLORS } from "@/constants";
+import { PLATE_COLORS } from "@/constants";
 
 const barWidthMM = 2200;
 const sleeveWidthMM = 445;
@@ -20,18 +20,18 @@ export const metalGradient =
 export interface BarbellProps {
   weight: number;
   barWeight?: number;
-  plateSizes?: number[];
+  availablePlates: number[];
   hidePlateNumbers?: boolean;
 }
 
 const Barbell: React.FC<BarbellProps> = ({
   weight,
   barWeight = 45,
-  plateSizes = DEFAULT_PLATE_SIZES,
+  availablePlates,
   hidePlateNumbers = false,
 }) => {
   // Calculate the plate list for one side
-  const plateList = minimalPlates((weight - barWeight) / 2, plateSizes);
+  const plateList = minimalPlates((weight - barWeight) / 2, availablePlates);
 
   // Instead of using vw or px, use 100% width and calculate all sizes relative to that
   // The parent container should control the width of the Barbell
@@ -111,8 +111,7 @@ const Barbell: React.FC<BarbellProps> = ({
               borderRadius: "3px",
               backgroundColor: color.bg,
               alignItems: "center",
-            }}
-          >
+            }}>
             {!hidePlateNumbers && (
               <Box
                 sx={{
@@ -120,8 +119,7 @@ const Barbell: React.FC<BarbellProps> = ({
                     side === "left" ? "rotate(270deg)" : "rotate(90deg)",
                   fontSize: `${_plateWidth}px`,
                   lineHeight: 1,
-                }}
-              >
+                }}>
                 {value}
               </Box>
             )}
@@ -142,8 +140,7 @@ const Barbell: React.FC<BarbellProps> = ({
         margin: 0,
         minWidth: 60,
         minHeight: 16,
-      }}
-    >
+      }}>
       <Box
         sx={{
           width: `${_sleeveWidth}px`,
@@ -152,8 +149,7 @@ const Barbell: React.FC<BarbellProps> = ({
           alignItems: "center",
           background: metalGradient,
           justifyContent: "flex-end",
-        }}
-      >
+        }}>
         <Plates plates={plateList} side="left" />
       </Box>
       <Box
@@ -188,8 +184,7 @@ const Barbell: React.FC<BarbellProps> = ({
           display: "flex",
           alignItems: "center",
           background: metalGradient,
-        }}
-      >
+        }}>
         <Plates plates={plateList} side="right" />
       </Box>
     </Box>

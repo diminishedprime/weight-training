@@ -1,38 +1,33 @@
 import { EquipmentType, WeightUnit } from "@/common-types";
-import BarbellEditor from "@/components/BarbellEditor/index";
+import BarbellEditor from "@/components/BarbellEditor";
 import DumbbellEditor from "@/components/DumbbellEditor";
 
-export function EquipmentWeightEditor({
-  equipment,
-  weightValue,
-  setWeightValue,
-  weightUnit,
-  setWeightUnit,
-}: {
+interface EquipmentWeightEditorProps {
   equipment: EquipmentType;
   weightValue: number;
   setWeightValue: (v: number) => void;
   weightUnit: WeightUnit;
-  setWeightUnit: (v: WeightUnit) => void;
-}) {
-  switch (equipment) {
+  availablePlates: number[];
+}
+
+export function EquipmentWeightEditor(props: EquipmentWeightEditorProps) {
+  switch (props.equipment) {
     case "barbell":
       return (
         <BarbellEditor
-          totalWeight={weightValue}
+          totalWeight={props.weightValue}
           barWeight={45}
-          onChange={setWeightValue}
-          weightUnit={weightUnit}
-          onUnitChange={(unit) => setWeightUnit(unit)}
+          onChange={props.setWeightValue}
+          weightUnit={props.weightUnit}
+          availablePlates={props.availablePlates}
         />
       );
     case "dumbbell":
       return (
         <DumbbellEditor
-          weight={weightValue}
-          onChange={setWeightValue}
-          weightUnit={weightUnit}
-          onUnitChange={(unit) => setWeightUnit(unit)}
+          weight={props.weightValue}
+          onChange={props.setWeightValue}
+          weightUnit={props.weightUnit}
         />
       );
     default:

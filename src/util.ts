@@ -111,6 +111,9 @@ export function minimalPlates(
   targetWeight: number,
   availablePlates: number[],
 ): number[] {
+  // TODO ideally this would covered elsewhere, but it's complicated to make
+  // sure that all callers know to sort.
+  availablePlates.sort((a, b) => b - a); // Ensure plates are sorted in descending order
   let remaining = targetWeight;
   const result: number[] = [];
   for (const plate of availablePlates) {
@@ -164,11 +167,19 @@ export const exerciseSorter = (
 ) => {
   const aNum = equipmentToNum[equipmentForExercise(a.exercise_type!)];
   const bNum = equipmentToNum[equipmentForExercise(b.exercise_type!)];
-  if (aNum < bNum) return -1;
-  if (aNum > bNum) return 1;
+  if (aNum < bNum) {
+    return -1;
+  }
+  if (aNum > bNum) {
+    return 1;
+  }
   // If equipment is the same, sort alphabetically by exercise_type
-  if (a.exercise_type! < b.exercise_type!) return -2;
-  if (a.exercise_type! > b.exercise_type!) return 2;
+  if (a.exercise_type! < b.exercise_type!) {
+    return -2;
+  }
+  if (a.exercise_type! > b.exercise_type!) {
+    return 2;
+  }
   return 0;
 };
 
@@ -196,4 +207,42 @@ export const lbsToKg = (lbs: number): number => lbs / 2.20462;
  */
 export const normalizeWeightToLbs = (value: number, unit: string): number => {
   return unit === "kg" ? kgToLbs(value) : value;
+};
+
+/**
+ * Compares two arrays of primitive types for equality
+ * @param a First array
+ * @param b Second array
+ * @returns true if arrays have same length and same elements in same order
+ */
+export const arrayEquals = <T extends string | number | boolean>(
+  a: T[],
+  b: T[],
+): boolean => {
+  if (a.length !== b.length) {
+    return false;
+  }
+  return a.every((val, index) => val === b[index]);
+};
+
+/**
+ * Compares two arrays of primitive types for equality, handling null/undefined cases
+ * @param a First array (can be null/undefined)
+ * @param b Second array (can be null/undefined)
+ * @returns true if arrays are equal (including both being null/undefined)
+ */
+export const nullableArrayEquals = <T extends string | number | boolean>(
+  a: T[] | null | undefined,
+  b: T[] | null | undefined,
+): boolean => {
+  // Both null/undefined
+  if (!a && !b) {
+    return true;
+  }
+  // One null/undefined, other not
+  if (!a || !b) {
+    return false;
+  }
+  // Both exist, use regular arrayEquals
+  return arrayEquals(a, b);
 };

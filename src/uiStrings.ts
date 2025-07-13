@@ -22,6 +22,7 @@ export const wendlerCycleUIString = (
 };
 import { Database } from "@/database.types";
 import { equipmentForExercise } from "@/util";
+import { UserPreferences } from "@/common-types";
 
 type ExerciseType = Database["public"]["Enums"]["exercise_type_enum"];
 export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
@@ -224,6 +225,35 @@ export const equipmentTypeUIString = (
     default: {
       // This will cause a type error if a new enum value is added and not handled
       const _exhaustiveCheck: never = type;
+      return _exhaustiveCheck;
+    }
+    // Stryker restore all
+  }
+};
+
+export const userPreferenceUIString = (
+  preference: keyof UserPreferences,
+): string => {
+  switch (preference) {
+    case "preferred_weight_unit":
+      return "Weight Unit";
+    case "default_rest_time":
+      return "Rest Time";
+    case "available_plates":
+      return "Available Plates";
+    // These probably shouldn't be mapped to, but that's okay.
+    case "user_id":
+      return "User ID";
+    case "created_at":
+      return "Created At";
+    case "updated_at":
+      return "Updated At";
+
+    // Stryker disable all
+    /* v8 ignore next 5 */
+    default: {
+      // This will cause a type error if a new enum value is added and not handled
+      const _exhaustiveCheck: never = preference;
       return _exhaustiveCheck;
     }
     // Stryker restore all

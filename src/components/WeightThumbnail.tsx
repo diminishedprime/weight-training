@@ -13,6 +13,10 @@ interface WeightThumbnailProps {
   weightUnit: Database["public"]["Enums"]["weight_unit_enum"];
   /** The type of exercise to determine equipment visualization */
   exerciseType: Database["public"]["Enums"]["exercise_type_enum"];
+  // TODO: This technically isn't the best since it means this value is needed
+  // for the other equipment types, but whatever. It sorta brings into question
+  // if we can even do a generic weight thumbnail.
+  availablePlates: number[];
 }
 
 /**
@@ -30,9 +34,12 @@ const WeightThumbnail: React.FC<WeightThumbnailProps> = (props) => {
           display: "inline-block",
           verticalAlign: "middle",
           width: 80,
-        }}
-      >
-        <Barbell weight={weight} hidePlateNumbers />
+        }}>
+        <Barbell
+          availablePlates={props.availablePlates}
+          weight={weight}
+          hidePlateNumbers
+        />
       </span>
     );
   } else if (equipment === "dumbbell") {

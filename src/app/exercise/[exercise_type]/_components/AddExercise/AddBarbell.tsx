@@ -74,13 +74,6 @@ const useAddBarbellAPI = () => {
     [setTotalWeight]
   );
 
-  const onUnitChange = React.useCallback(
-    (unit: WeightUnit) => {
-      setWeightUnit(unit);
-    },
-    [setWeightUnit]
-  );
-
   const onRepsChange = React.useCallback(
     (newReps: number) => {
       setReps(newReps);
@@ -141,7 +134,6 @@ const useAddBarbellAPI = () => {
     barWeight,
     onChange,
     weightUnit,
-    onUnitChange,
     reps,
     onRepsChange,
     effort: percievedEffort,
@@ -180,7 +172,7 @@ const AddBarbell: React.FC<AddBarbelProps> = (props) => {
           barWeight={api.barWeight}
           onChange={api.onChange}
           weightUnit={api.weightUnit}
-          onUnitChange={api.onUnitChange}
+          availablePlates={props.availablePlates}
         />
         <Stack alignSelf="center">
           <SelectReps

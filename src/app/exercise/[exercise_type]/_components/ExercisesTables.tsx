@@ -55,15 +55,10 @@ interface ExercisesDateSectionProps {
   exercisesForDate: ExercisesTableProps["exercises"];
   exercise_type: ExercisesTableProps["exercise_type"];
   api: ReturnType<typeof useExercisesTableAPI>;
+  availablePlates: number[];
 }
 
-const ExercisesDateSection: React.FC<ExercisesDateSectionProps> = ({
-  dateKey,
-  firstExercise,
-  exercisesForDate,
-  exercise_type,
-  api,
-}) => (
+const ExercisesDateSection: React.FC<ExercisesDateSectionProps> = (props) => (
   <Stack
     spacing={1}
     data-testid={TestIds.exercisesTableDateSection}
@@ -73,10 +68,13 @@ const ExercisesDateSection: React.FC<ExercisesDateSectionProps> = ({
       variant="h6"
       sx={{ fontWeight: 600, color: "primary.main" }}
       data-testid={TestIds.exercisesTableDateHeader}>
-      {dateKey === "NO_DATE"
+      {props.dateKey === "NO_DATE"
         ? "No Date"
-        : firstExercise?.performed_at
-          ? format(new Date(firstExercise.performed_at), "EEEE, MMMM do, yyyy")
+        : props.firstExercise?.performed_at
+          ? format(
+              new Date(props.firstExercise.performed_at),
+              "EEEE, MMMM do, yyyy"
+            )
           : ""}
     </Typography>
     {/* Table for this date */}
@@ -92,11 +90,12 @@ const ExercisesDateSection: React.FC<ExercisesDateSectionProps> = ({
           </TableRow>
         </TableHead>
         <TableBody>
-          {exercisesForDate.map((exercise, idx: number) => (
+          {props.exercisesForDate.map((exercise, idx: number) => (
             <React.Fragment key={exercise.exercise_id || idx}>
               <TableRow
                 sx={
-                  api.flashId && exercise.exercise_id === api.flashId
+                  props.api.flashId &&
+                  exercise.exercise_id === props.api.flashId
                     ? { animation: "flash-bg 2.5s ease-in-out" }
                     : {}
                 }
@@ -112,6 +111,7 @@ const ExercisesDateSection: React.FC<ExercisesDateSectionProps> = ({
                 <TableCell align="center" padding="none" sx={{ pt: 1 }}>
                   <Stack alignItems="center">
                     <WeightThumbnail
+                      availablePlates={props.availablePlates}
                       weight={exercise.weight_value ?? 0}
                       weightUnit={exercise.weight_unit}
                       exerciseType={exercise.exercise_type}
@@ -154,7 +154,7 @@ const ExercisesDateSection: React.FC<ExercisesDateSectionProps> = ({
                 <TableCell>
                   <Button
                     component={Link}
-                    href={`/exercise/${exercise_type}/edit/${
+                    href={`/exercise/${props.exercise_type}/edit/${
                       exercise.exercise_id || exercise.exercise_id
                     }`}
                     size="small"
@@ -190,6 +190,7 @@ interface ExercisesTableProps {
   exercises: Database["public"]["Functions"]["get_exercises_by_type_for_user"]["Returns"];
   /** The type of exercise being displayed */
   exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+  availablePlates: number[];
 }
 
 // Helper function to get date string for grouping
@@ -284,6 +285,7 @@ const ExercisesTables: React.FC<ExercisesTableProps> = (props) => {
           <NoDateEmptySection key={dateKey} />
         ) : (
           <ExercisesDateSection
+            availablePlates={props.availablePlates}
             key={dateKey}
             dateKey={dateKey}
             firstExercise={firstExercise}

@@ -22,6 +22,7 @@ interface AddExerciseProps {
   equipmentType: EquipmentType;
   exerciseType: ExerciseType;
   pathToRevalidate: string;
+  availablePlates: number[];
 }
 
 type AddExerciseControlProps = AddExerciseProps & {

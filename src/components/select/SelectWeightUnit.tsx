@@ -5,15 +5,17 @@ import {
   FormLabel,
 } from "@mui/material";
 import { WeightUnit } from "@/common-types";
-import React from "react";
+import React, { useMemo } from "react";
 
 interface SelectWeightUnitProps {
   weightUnit: WeightUnit | null;
   onWeightUnitChange: (unit: WeightUnit) => void;
+  modified?: boolean;
+  label?: string;
 }
 
 const useSelectWeightUnitAPI = (props: SelectWeightUnitProps) => {
-  const { weightUnit, onWeightUnitChange } = props;
+  const { weightUnit, onWeightUnitChange, modified, label } = props;
 
   const [localWeightUnit, setLocalWeightUnit] = React.useState<WeightUnit>(
     weightUnit ?? "pounds"
@@ -23,6 +25,10 @@ const useSelectWeightUnitAPI = (props: SelectWeightUnitProps) => {
     setLocalWeightUnit(newValue);
   }, []);
 
+  const selectWeightUnitLabel = useMemo(() => {
+    return `${label ?? "Weight Unit"}${modified ? "*" : ""}`;
+  }, [modified, label]);
+
   React.useEffect(() => {
     onWeightUnitChange(localWeightUnit);
   }, [onWeightUnitChange, localWeightUnit]);
@@ -30,6 +36,7 @@ const useSelectWeightUnitAPI = (props: SelectWeightUnitProps) => {
   return {
     weightUnit: localWeightUnit,
     onWeightUnitChange: localOnWeightUnitChange,
+    label: selectWeightUnitLabel,
   };
 };
 
@@ -37,7 +44,7 @@ const SelectWeightUnit = (props: SelectWeightUnitProps) => {
   const api = useSelectWeightUnitAPI(props);
   return (
     <FormControl>
-      <FormLabel>Weight Unit</FormLabel>
+      <FormLabel>{api.label}</FormLabel>
       <ToggleButtonGroup
         color="primary"
         value={api.weightUnit}

@@ -79,7 +79,8 @@ CREATE TABLE IF NOT EXISTS public.personal_record_history (
   notes text,
   exercise_id uuid NULL,
   CONSTRAINT personal_record_history_pkey PRIMARY KEY (id),
-  CONSTRAINT personal_record_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
+  -- TODO: Re-enable this constraint once Steph & Matt exist in production database
+  -- CONSTRAINT personal_record_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
   CONSTRAINT personal_record_history_exercise_id_fkey FOREIGN KEY (exercise_id) REFERENCES public.exercises (id) ON DELETE SET NULL
 );
 

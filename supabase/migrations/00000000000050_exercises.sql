@@ -213,8 +213,11 @@ CREATE TABLE IF NOT EXISTS public.exercises (
   completion_status completion_status_enum NOT NULL DEFAULT 'not_completed',
   notes text NULL,
   relative_effort relative_effort_enum NULL,
-  CONSTRAINT exercises_id_pkey PRIMARY KEY (id),
-  CONSTRAINT exercises_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
+  CONSTRAINT exercises_id_pkey PRIMARY KEY (id)
+  -- TODO: Re-enable this constraint once Steph & Matt exist in production database
+  -- The constraint is temporarily disabled to allow seeding imported exercise data
+  -- without pre-creating user records, since some auth fields can't be determined ahead of time
+  -- CONSTRAINT exercises_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
 );
 
 -- Function: create_exercise

@@ -12,7 +12,12 @@ import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
 import SelectReps from "@/components/select/SelectReps/index";
 import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
 import { Alert, Button, Stack } from "@mui/material";
-import { CompletionStatus, PercievedEffort, WeightUnit } from "@/common-types";
+import {
+  CompletionStatus,
+  ExerciseForUser,
+  PercievedEffort,
+  WeightUnit,
+} from "@/common-types";
 
 function useEditExerciseForm(
   exercise: Database["public"]["Functions"]["get_exercise_for_user"]["Returns"],
@@ -24,7 +29,6 @@ function useEditExerciseForm(
   const [actualWeightValue, setActualWeightValue] = useState(
     exercise.actual_weight_value ?? exercise.weight_value!
   );
-  const [weightUnit, setWeightUnit] = useState(exercise.weight_unit!);
   const [reps, setReps] = useState(exercise.reps!);
   const [warmup, setWarmup] = useState(exercise.warmup!);
   const [completionStatus, setCompletionStatus] = useState(
@@ -59,7 +63,10 @@ function useEditExerciseForm(
       Number(actualWeightValue),
       Number(reps),
       performed_at,
-      weightUnit,
+      // TODO this should come from user preferences or actually mabe be
+      // editable here, just don't want it to be a part of the existing
+      // components.
+      "pounds" as WeightUnit,
       warmup,
       completionStatus,
       notes || undefined,
@@ -78,12 +85,8 @@ function useEditExerciseForm(
     setActualWeightValue(val);
   }
 
-  // Handler functions for direct use in onChange (typed to match component expectations)
   function handleWeightValueChange(val: number) {
     setWeightValue(val);
-  }
-  function handleWeightUnitChange(val: WeightUnit) {
-    setWeightUnit(val);
   }
   function handleRepsChange(val: number) {
     setReps(val);
@@ -120,9 +123,6 @@ function useEditExerciseForm(
     actualWeightValue,
     setActualWeightValue,
     handleActualWeightValueChange,
-    weightUnit,
-    setWeightUnit,
-    handleWeightUnitChange,
     reps,
     setReps,
     handleRepsChange,
@@ -149,8 +149,9 @@ function useEditExerciseForm(
 }
 
 interface EditLiftFormProps {
-  exercise: Database["public"]["Functions"]["get_exercise_for_user"]["Returns"];
   user_id: string;
+  exercise: ExerciseForUser;
+  availablePlates: number[];
 }
 
 export default function EditExerciseForm(props: EditLiftFormProps) {
@@ -177,8 +178,8 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
           equipment={equipmentForExercise(exercise.exercise_type!)}
           weightValue={form.weightValue}
           setWeightValue={form.handleWeightValueChange}
-          weightUnit={form.weightUnit}
-          setWeightUnit={form.handleWeightUnitChange}
+          weightUnit={"pounds" as WeightUnit} // TODO: This should come from user preferences eventually.
+          availablePlates={props.availablePlates}
         />
         <Stack>
           <SelectReps

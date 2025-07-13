@@ -4,7 +4,7 @@ import * as serverUtil from "@/serverUtil";
 import { requireLoggedInUser, getSession } from "@/test/serverUtil";
 import { USER_ID_LOGGED_IN } from "@/test/constants";
 import { render, screen, waitFor, act } from "@testing-library/react";
-import ExercisePage from "@/app/exercise/[exercise_type]/page";
+import { ExerciseTypePage } from "@/app/exercise/[exercise_type]/_page";
 import { TestIds } from "@/test-ids";
 
 // Utility to delete all exercises for the logged-in user before each test
@@ -17,7 +17,6 @@ const deleteAllExercisesForUser = async (userId: string) => {
 
 const exercisesByEquipment = getExercisesByEquipment();
 
-let searchParams: URLSearchParams;
 beforeEach(async () => {
   vi.restoreAllMocks();
   vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
@@ -33,8 +32,9 @@ describe("User Journey: Add Custom Barbell Exercises", () => {
   exercisesByEquipment["barbell"].forEach((exerciseType) => {
     it(`should allow a logged in user to add a custom barbell exercise: ${exerciseType}`, async () => {
       // Render the exercise page for this barbell exercise type as a server component
-      let page = await ExercisePage({
-        params: Promise.resolve({ exercise_type: exerciseType }),
+      let page = await ExerciseTypePage({
+        exerciseType,
+        currentPath: `/exercise/${exerciseType}`,
       });
       await act(async () => {
         render(page);
@@ -71,8 +71,9 @@ describe("User Journey: Add Custom Barbell Exercises", () => {
       // 25.
       await new Promise((resolve) => setTimeout(resolve, 25));
 
-      page = await ExercisePage({
-        params: Promise.resolve({ exercise_type: exerciseType }),
+      page = await ExerciseTypePage({
+        exerciseType,
+        currentPath: `/exercise/${exerciseType}`,
       });
       await act(async () => {
         render(page);
