@@ -13,7 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import SettingsIcon from "@mui/icons-material/Settings";
 import SendIcon from "@mui/icons-material/Send";
 import { Stack } from "@mui/material";
-import { useSetAvailableReps } from "@/components/RepsSelector/useSetAvailableReps";
+import { useSetAvailableReps } from "@/components/select/RepsSelector/useSetAvailableReps";
 
 const COMMON_REP_CHOICES = [
   { label: "Barbell", choices: [1, 3, 5] },
@@ -48,8 +48,7 @@ const SetAvailableReps: React.FC<SetAvailableRepsProps> = ({
                   sx={{ mr: 1 }}
                   variant="outlined"
                   onClick={() => api.setChoices(choices)}
-                  key={label}
-                >
+                  key={label}>
                   {label}
                 </Button>
               ))}
@@ -85,8 +84,7 @@ const SetAvailableReps: React.FC<SetAvailableRepsProps> = ({
                         edge="end"
                         aria-label="Add rep choice"
                         title="Add this rep value as a selectable button"
-                        color="primary"
-                      >
+                        color="primary">
                         <SendIcon />
                       </IconButton>
                     </InputAdornment>

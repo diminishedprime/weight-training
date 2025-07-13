@@ -12,7 +12,7 @@ import SettingsDialog from "@/components/BarbellEditor/SettingsDialog";
 import { Stack } from "@mui/material";
 import { useBarbellEditor } from "@/components/BarbellEditor/useBarbellEditor";
 import { DEFAULT_PLATE_SIZES } from "@/constants"; // Import DEFAULT_PLATE_SIZES
-import WeightUnitSelector from "@/components/WeightUnitSelector";
+import WeightUnitSelector from "@/components/select/WeightUnitSelector";
 
 export interface BarbellEditorProps {
   totalWeight: number; // total weight on bar (including bar)

@@ -7,7 +7,7 @@ import {
   exerciseTypeUIStringLong,
   equipmentTypeUIString,
 } from "@/uiStrings";
-import { useExerciseSelector } from "@/components/ExerciseSelector/useExerciseSelector";
+import { useExerciseSelector } from "@/components/select/ExerciseSelector/useExerciseSelector";
 
 type ExerciseType = Database["public"]["Enums"]["exercise_type_enum"];
 

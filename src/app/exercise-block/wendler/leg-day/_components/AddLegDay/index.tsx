@@ -8,7 +8,7 @@ import { TestIds } from "@/test-ids";
 import AddIcon from "@mui/icons-material/Add";
 import SetTargetMax from "@/components/SetTargetMax/SetTargetMax";
 import { addLegDay } from "@/app/exercise-block/wendler/leg-day/_components/AddLegDay/actions";
-import WendlerCycleSelector from "@/components/WendlerCycleSelector";
+import WendlerCycleSelector from "@/components/select/WendlerCycleSelector";
 
 interface AddLegDayProps {
   userId: string;

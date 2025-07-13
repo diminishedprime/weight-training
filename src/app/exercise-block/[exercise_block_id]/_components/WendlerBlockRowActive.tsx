@@ -1,10 +1,10 @@
 "use client";
 import * as React from "react";
 import { Stack, TextField, Typography } from "@mui/material";
-import { EffortEditor } from "@/components/EffortEditor";
-import RepsSelector from "@/components/RepsSelector";
+import { EffortEditor } from "@/components/select/EffortEditor";
+import RepsSelector from "@/components/select/RepsSelector";
 import type { CompletionStatus, WendlerBlock } from "@/common-types";
-import CompletionStatusSelector from "@/components/CompletionStatusSelector";
+import CompletionStatusSelector from "@/components/select/CompletionStatusSelector";
 
 interface WendlerBlockRowActiveProps {
   row: WendlerBlock[number];

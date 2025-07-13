@@ -2,7 +2,7 @@ import React from "react";
 import { ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import SetAvailableReps from "@/components/RepsSelector/SetAvailableReps";
+import SetAvailableReps from "@/components/select/RepsSelector/SetAvailableReps";
 import { Box } from "@mui/material";
 
 export interface RepsSelectorProps {

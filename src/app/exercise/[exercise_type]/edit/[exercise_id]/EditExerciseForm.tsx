@@ -4,14 +4,14 @@ import { useRouter } from "next/navigation";
 import { updateExerciseForUserAction as updateExerciseForUserAction } from "@/app/exercise/[exercise_type]/edit/[exercise_id]/actions";
 import TextField from "@mui/material/TextField";
 import { Database } from "@/database.types";
-import RepsSelector from "@/components/RepsSelector/index";
+import RepsSelector from "@/components/select/RepsSelector/index";
 import DateTimePicker from "@/components/DateTimePicker";
 import { equipmentForExercise } from "@/util";
 import { EquipmentWeightEditor } from "@/app/exercise/[exercise_type]/edit/[exercise_id]/EquipmentWeightEditor";
 import WarmupCheckbox from "@/components/WarmupCheckbox";
-import { EffortEditor } from "@/components/EffortEditor";
+import { EffortEditor } from "@/components/select/EffortEditor";
 import { Alert, Button, Stack } from "@mui/material";
-import CompletionStatusSelector from "@/components/CompletionStatusSelector";
+import CompletionStatusSelector from "@/components/select/CompletionStatusSelector";
 import { CompletionStatus, WeightUnit } from "@/common-types";
 
 function useEditExerciseForm(
