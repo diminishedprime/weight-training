@@ -4,20 +4,21 @@ import { useRouter } from "next/navigation";
 import { updateExerciseForUserAction as updateExerciseForUserAction } from "@/app/exercise/[exercise_type]/edit/[exercise_id]/actions";
 import TextField from "@mui/material/TextField";
 import { Database } from "@/database.types";
-import RepsSelector from "@/components/select/RepsSelector/index";
 import DateTimePicker from "@/components/DateTimePicker";
 import { equipmentForExercise } from "@/util";
 import { EquipmentWeightEditor } from "@/app/exercise/[exercise_type]/edit/[exercise_id]/EquipmentWeightEditor";
 import WarmupCheckbox from "@/components/WarmupCheckbox";
-import { EffortEditor } from "@/components/select/EffortEditor";
+import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
+import SelectReps from "@/components/select/SelectReps/index";
+import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
 import { Alert, Button, Stack } from "@mui/material";
-import CompletionStatusSelector from "@/components/select/CompletionStatusSelector";
-import { CompletionStatus, WeightUnit } from "@/common-types";
+import { CompletionStatus, PercievedEffort, WeightUnit } from "@/common-types";
 
 function useEditExerciseForm(
   exercise: Database["public"]["Functions"]["get_exercise_for_user"]["Returns"],
   user_id: string
 ) {
+  const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [weightValue, setWeightValue] = useState(exercise.weight_value!);
   const [actualWeightValue, setActualWeightValue] = useState(
@@ -30,10 +31,8 @@ function useEditExerciseForm(
     exercise.completion_status!
   );
   const [notes, setNotes] = useState(exercise.notes ?? "");
-  const [relativeEffort, setRelativeEffort] = useState<
-    Database["public"]["Enums"]["relative_effort_enum"] | null
-  >(exercise.relative_effort ?? null);
-  const router = useRouter();
+  const [percievedEffort, setPercievedEffort] =
+    useState<PercievedEffort | null>(exercise.relative_effort ?? null);
   const initialDate = exercise.performed_at
     ? new Date(exercise.performed_at)
     : new Date();
@@ -64,7 +63,7 @@ function useEditExerciseForm(
       warmup,
       completionStatus,
       notes || undefined,
-      relativeEffort || undefined
+      percievedEffort || undefined
     );
     if (result?.error) {
       setError(result.error);
@@ -98,7 +97,7 @@ function useEditExerciseForm(
   function handleRelativeEffortChange(
     val: Database["public"]["Enums"]["relative_effort_enum"] | null
   ) {
-    setRelativeEffort(val);
+    setPercievedEffort(val);
   }
   function handleNotesChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -136,8 +135,8 @@ function useEditExerciseForm(
     notes,
     setNotes,
     handleNotesChange,
-    relativeEffort,
-    setRelativeEffort,
+    relativeEffort: percievedEffort,
+    setRelativeEffort: setPercievedEffort,
     handleRelativeEffortChange,
     date,
     setDate,
@@ -182,9 +181,9 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
           setWeightUnit={form.handleWeightUnitChange}
         />
         <Stack>
-          <RepsSelector
+          <SelectReps
             reps={form.reps}
-            onChange={form.handleRepsChange}
+            onRepsChange={form.handleRepsChange}
             repChoices={[1, 3, 5, 8, 10, 12, 15]}
           />
         </Stack>
@@ -205,13 +204,13 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
             checked={form.warmup}
             onChange={form.handleWarmupChange}
           />
-          <CompletionStatusSelector
-            value={form.completionStatus}
-            onChange={(e) => form.handleCompletionStatusChange(e)}
+          <SelectCompletionStatus
+            completionStatus={form.completionStatus}
+            onCompletionStatusChange={form.handleCompletionStatusChange}
           />
-          <EffortEditor
-            value={form.relativeEffort}
-            onChange={form.handleRelativeEffortChange}
+          <SelectPercievedEffort
+            percievedEffort={form.relativeEffort}
+            onPercievedEffortChange={form.handleRelativeEffortChange}
           />
         </Stack>
         <TextField

@@ -13,7 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import SettingsIcon from "@mui/icons-material/Settings";
 import SendIcon from "@mui/icons-material/Send";
 import { Stack } from "@mui/material";
-import { useSetAvailableReps } from "@/components/select/RepsSelector/useSetAvailableReps";
+import { useSetAvailableReps } from "@/components/select/SelectReps/useSetAvailableReps";
 
 const COMMON_REP_CHOICES = [
   { label: "Barbell", choices: [1, 3, 5] },

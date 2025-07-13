@@ -5,7 +5,7 @@ import type {
   ExerciseType,
   WeightUnit,
   CompletionStatus,
-  RelativeEffort,
+  PercievedEffort,
 } from "@/common-types";
 
 export async function updateExerciseForUserAction(
@@ -20,7 +20,7 @@ export async function updateExerciseForUserAction(
   warmup: boolean,
   completion_status: CompletionStatus,
   notes?: string,
-  relative_effort?: RelativeEffort
+  relative_effort?: PercievedEffort
 ) {
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,

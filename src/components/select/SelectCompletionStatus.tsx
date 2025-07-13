@@ -10,31 +10,51 @@ import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import CancelIcon from "@mui/icons-material/Cancel";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import { CompletionStatus } from "@/common-types";
+import React from "react";
 
-/**
- * Selector for completion status (complete, partial, skipped).
- * @param value The selected completion status.
- * @param onChange Handler for status change.
- */
-
-interface CompletionStatusSelectorProps {
-  value: CompletionStatus;
-  onChange: (val: CompletionStatus) => void;
+interface SelectCompletionStatusProps {
+  completionStatus: CompletionStatus;
+  onCompletionStatusChange: (status: CompletionStatus) => void;
   notCompleted?: true;
   customLabel?: string;
 }
 
-const CompletionStatusSelector: React.FC<CompletionStatusSelectorProps> = (
+const useSelectCompletionStatusAPI = (props: SelectCompletionStatusProps) => {
+  const { completionStatus, onCompletionStatusChange } = props;
+
+  const [localCompletionStatus, setLocalCompletionStatus] =
+    React.useState<CompletionStatus>(completionStatus);
+
+  const localOnCompletionStatusChange = React.useCallback(
+    (newValue: CompletionStatus) => {
+      setLocalCompletionStatus(newValue);
+    },
+    []
+  );
+
+  React.useEffect(() => {
+    onCompletionStatusChange(localCompletionStatus);
+  }, [localCompletionStatus, onCompletionStatusChange]);
+
+  return {
+    completionStatus: localCompletionStatus,
+    onCompletionStatusChange: localOnCompletionStatusChange,
+  };
+};
+
+const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
   props
 ) => {
+  const api = useSelectCompletionStatusAPI(props);
+
   return (
     <FormControl>
       <FormLabel>{props.customLabel || "Completion Status"}</FormLabel>
       <ToggleButtonGroup
         color="primary"
-        value={props.value}
+        value={api.completionStatus}
         exclusive
-        onChange={(_e, val) => val && props.onChange(val)}
+        onChange={(_e, val) => val && api.onCompletionStatusChange(val)}
         size="small"
         aria-label="Completion Status">
         <ToggleButton value="completed" aria-label="Completed" size="small">
@@ -67,4 +87,4 @@ const CompletionStatusSelector: React.FC<CompletionStatusSelectorProps> = (
   );
 };
 
-export default CompletionStatusSelector;
+export default SelectCompletionStatus;

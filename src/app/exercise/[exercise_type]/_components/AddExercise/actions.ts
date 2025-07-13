@@ -3,7 +3,7 @@
 import {
   CompletionStatus,
   ExerciseType,
-  RelativeEffort,
+  PercievedEffort,
   WeightUnit,
 } from "@/common-types";
 import { getSupabaseClient } from "@/serverUtil";
@@ -17,7 +17,7 @@ export async function addBarbellLift(
   weightUnit: WeightUnit,
   reps: number,
   completionStatus: CompletionStatus,
-  relativeEffort: RelativeEffort | null,
+  relativeEffort: PercievedEffort | null,
   isWarmup: boolean,
   notes: string | null,
   _: FormData

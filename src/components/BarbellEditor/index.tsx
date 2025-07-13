@@ -12,7 +12,7 @@ import SettingsDialog from "@/components/BarbellEditor/SettingsDialog";
 import { Stack } from "@mui/material";
 import { useBarbellEditor } from "@/components/BarbellEditor/useBarbellEditor";
 import { DEFAULT_PLATE_SIZES } from "@/constants"; // Import DEFAULT_PLATE_SIZES
-import WeightUnitSelector from "@/components/select/WeightUnitSelector";
+import SelectWeightUnit from "@/components/select/SelectWeightUnit";
 
 export interface BarbellEditorProps {
   totalWeight: number; // total weight on bar (including bar)
@@ -77,7 +77,10 @@ const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
             size="small"
             sx={{ width: "7ch" }}
           />
-          <WeightUnitSelector value={weightUnit} onChange={onUnitChange} />
+          <SelectWeightUnit
+            weightUnit={weightUnit}
+            onWeightUnitChange={onUnitChange}
+          />
         </Stack>
         <ButtonGroup sx={{ mt: 1 }}>
           {componentAPI.plateSizes.map((inc) => {

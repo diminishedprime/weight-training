@@ -8,7 +8,7 @@ export const LocalStorageKeys = {
   AddBarbellTotalWeight: "addBarbell_totalWeight",
   AddBarbellWeightUnit: "addBarbell_weightUnit",
   AddBarbellReps: "addBarbell_reps",
-  AddBarbellEffort: "addBarbell_effort",
+  AddBarbellPercievedEffort: "addBarbell_effort",
   AddBarbellWarmup: "addBarbell_warmup",
   AddBarbellCompletionStatus: "addBarbell_completionStatus",
   AddBarbellNotes: "addBarbell_notes",

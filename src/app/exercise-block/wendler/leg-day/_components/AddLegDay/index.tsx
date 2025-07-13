@@ -8,7 +8,7 @@ import { TestIds } from "@/test-ids";
 import AddIcon from "@mui/icons-material/Add";
 import SetTargetMax from "@/components/SetTargetMax/SetTargetMax";
 import { addLegDay } from "@/app/exercise-block/wendler/leg-day/_components/AddLegDay/actions";
-import WendlerCycleSelector from "@/components/select/WendlerCycleSelector";
+import SelectWendlerCycle from "@/components/select/SelectWendlerCycle";
 
 interface AddLegDayProps {
   userId: string;
@@ -58,9 +58,9 @@ const AddLegDay: React.FC<AddLegDayProps> = (props) => {
               props.pathToRevalidate
             )}>
             <Stack spacing={1}>
-              <WendlerCycleSelector
-                initialCycle={api.cycle}
-                onChange={api.handleCycleChange}
+              <SelectWendlerCycle
+                cycleType={api.cycle}
+                onCycleTypeChange={api.handleCycleChange}
               />
               <Button
                 type="submit"

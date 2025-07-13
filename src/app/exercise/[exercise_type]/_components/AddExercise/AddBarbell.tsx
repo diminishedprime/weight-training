@@ -3,17 +3,16 @@
 import React from "react";
 import { useLocalStorageState, LocalStorageKeys as LSK } from "@/clientHooks";
 import Stack from "@mui/material/Stack";
-// import Typography from "@mui/material/Typography";
 import BarbellEditor from "@/components/BarbellEditor";
-import RepsSelector from "@/components/select/RepsSelector";
-import { CompletionStatus, RelativeEffort, WeightUnit } from "@/common-types";
-import { EffortEditor } from "@/components/select/EffortEditor";
+import SelectReps from "@/components/select/SelectReps";
+import { CompletionStatus, PercievedEffort, WeightUnit } from "@/common-types";
+import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
 import WarmupCheckbox from "@/components/WarmupCheckbox";
-import CompletionStatusSelector from "@/components/select/CompletionStatusSelector";
-import { AddBarbelProps } from ".";
+import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
 import { Button, TextField } from "@mui/material";
 import { TestIds } from "@/test-ids";
 import { addBarbellLift } from "@/app/exercise/[exercise_type]/_components/AddExercise/actions";
+import { AddBarbelProps } from ".";
 
 /**
  * Hook for managing AddBarbell form state and logic.
@@ -31,7 +30,7 @@ const useAddBarbellAPI = () => {
       totalWeight: 45,
       weightUnit: "pounds" as WeightUnit,
       reps: 5,
-      effort: null as RelativeEffort | null,
+      effort: null as PercievedEffort | null,
       warmup: false,
       completionStatus: "completed" as CompletionStatus,
       notes: "",
@@ -49,10 +48,11 @@ const useAddBarbellAPI = () => {
     "pounds"
   );
   const [reps, setReps] = useLocalStorageState<number>(LSK.AddBarbellReps, 5);
-  const [effort, setEffort] = useLocalStorageState<RelativeEffort | null>(
-    LSK.AddBarbellEffort,
-    null
-  );
+  const [percievedEffort, setPercievedEffort] =
+    useLocalStorageState<PercievedEffort | null>(
+      LSK.AddBarbellPercievedEffort,
+      null
+    );
   const [warmup, setWarmup] = useLocalStorageState<boolean>(
     LSK.AddBarbellWarmup,
     false
@@ -89,10 +89,10 @@ const useAddBarbellAPI = () => {
   );
 
   const onEffortChange = React.useCallback(
-    (newEffort: RelativeEffort) => {
-      setEffort(newEffort);
+    (percievedEffort: PercievedEffort | null) => {
+      setPercievedEffort(percievedEffort);
     },
-    [setEffort]
+    [setPercievedEffort]
   );
 
   const onWarmupChange = React.useCallback(
@@ -121,7 +121,7 @@ const useAddBarbellAPI = () => {
     setTotalWeight(initial.totalWeight);
     setWeightUnit(initial.weightUnit);
     setReps(initial.reps);
-    setEffort(initial.effort);
+    setPercievedEffort(initial.effort);
     setWarmup(initial.warmup);
     setCompletionStatus(initial.completionStatus);
     setNotes(initial.notes);
@@ -129,7 +129,7 @@ const useAddBarbellAPI = () => {
     setTotalWeight,
     setWeightUnit,
     setReps,
-    setEffort,
+    setPercievedEffort,
     setWarmup,
     setCompletionStatus,
     setNotes,
@@ -144,7 +144,7 @@ const useAddBarbellAPI = () => {
     onUnitChange,
     reps,
     onRepsChange,
-    effort,
+    effort: percievedEffort,
     onEffortChange,
     warmup,
     onWarmupChange,
@@ -156,17 +156,6 @@ const useAddBarbellAPI = () => {
   };
 };
 
-/**
- * AddBarbell form for creating a new barbell exercise entry.
- *
- * Renders:
- * - BarbellEditor for weight and unit
- * - RepsSelector for reps
- * - EffortEditor, WarmupCheckbox, and CompletionStatusSelector for metadata
- * - Cancel and submit buttons
- *
- * All state and handlers are managed by useAddBarbellAPI.
- */
 const AddBarbell: React.FC<AddBarbelProps> = (props) => {
   const api = useAddBarbellAPI();
 
@@ -194,9 +183,9 @@ const AddBarbell: React.FC<AddBarbelProps> = (props) => {
           onUnitChange={api.onUnitChange}
         />
         <Stack alignSelf="center">
-          <RepsSelector
+          <SelectReps
             reps={api.reps}
-            onChange={api.onRepsChange}
+            onRepsChange={api.onRepsChange}
             repChoices={[1, 3, 5, 8]}
           />
         </Stack>
@@ -207,10 +196,13 @@ const AddBarbell: React.FC<AddBarbelProps> = (props) => {
           useFlexGap
           alignSelf="center">
           <WarmupCheckbox checked={api.warmup} onChange={api.onWarmupChange} />
-          <EffortEditor value={api.effort} onChange={api.onEffortChange} />
-          <CompletionStatusSelector
-            value={api.completionStatus}
-            onChange={api.onCompletionStatusChange}
+          <SelectPercievedEffort
+            percievedEffort={api.effort}
+            onPercievedEffortChange={api.onEffortChange}
+          />
+          <SelectCompletionStatus
+            completionStatus={api.completionStatus}
+            onCompletionStatusChange={api.onCompletionStatusChange}
           />
         </Stack>
         <TextField

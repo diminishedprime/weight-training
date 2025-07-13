@@ -1,10 +1,14 @@
 "use client";
 import * as React from "react";
 import { Stack, TextField, Typography } from "@mui/material";
-import { EffortEditor } from "@/components/select/EffortEditor";
-import RepsSelector from "@/components/select/RepsSelector";
-import type { CompletionStatus, WendlerBlock } from "@/common-types";
-import CompletionStatusSelector from "@/components/select/CompletionStatusSelector";
+import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
+import SelectReps from "@/components/select/SelectReps";
+import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
+import type {
+  CompletionStatus,
+  PercievedEffort,
+  WendlerBlock,
+} from "@/common-types";
 
 interface WendlerBlockRowActiveProps {
   row: WendlerBlock[number];
@@ -18,9 +22,8 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
   const [completionStatus, setCompletionStatus] =
     React.useState<CompletionStatus>(row.completion_status!);
   const [notes, setNotes] = React.useState<string>(row.notes || "");
-  const [relativeEffort, setRelativeEffort] = React.useState<
-    import("@/common-types").RelativeEffort | null
-  >(row.relative_effort ?? null);
+  const [percievedEffort, setPercievedEffort] =
+    React.useState<PercievedEffort | null>(row.relative_effort ?? null);
 
   const onRepsChange = React.useCallback((newReps: number) => {
     setReps(newReps);
@@ -37,9 +40,9 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
     setNotes(newNotes);
   }, []);
 
-  const onEffortChange = React.useCallback(
-    (effort: import("@/common-types").RelativeEffort) => {
-      setRelativeEffort(effort);
+  const onPercievedEffortChange = React.useCallback(
+    (percievedEffort: PercievedEffort | null) => {
+      setPercievedEffort(percievedEffort);
     },
     []
   );
@@ -50,19 +53,19 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
       reps,
       completion_status: completionStatus,
       notes,
-      relative_effort: relativeEffort,
+      relative_effort: percievedEffort,
     };
-  }, [row, reps, completionStatus, notes, relativeEffort]);
+  }, [row, reps, completionStatus, notes, percievedEffort]);
 
   return {
     reps,
     completionStatus,
     notes,
-    relativeEffort,
+    relativeEffort: percievedEffort,
     onRepsChange,
     onCompletionStatusChange,
     onNotesChange,
-    onEffortChange,
+    onEffortChange: onPercievedEffortChange,
     modifiedRow,
   };
 };
@@ -100,16 +103,16 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
             ({row.actual_weight_value})
           </Typography>
         </Stack>
-        <RepsSelector
+        <SelectReps
           reps={api.reps}
-          onChange={api.onRepsChange}
+          onRepsChange={api.onRepsChange}
           wendlerReps
           isAmrap={props.isLastRow}
           hideSettings
         />
-        <EffortEditor
-          value={api.relativeEffort}
-          onChange={api.onEffortChange}
+        <SelectPercievedEffort
+          percievedEffort={api.relativeEffort}
+          onPercievedEffortChange={api.onEffortChange}
         />
       </Stack>
       <Stack direction="row" alignItems="center" spacing={2}>
@@ -123,10 +126,10 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
           }
           sx={{ flexGrow: 1 }}
         />
-        <CompletionStatusSelector
+        <SelectCompletionStatus
           customLabel="Finish Set"
-          value={api.completionStatus}
-          onChange={api.onCompletionStatusChange}
+          completionStatus={api.completionStatus}
+          onCompletionStatusChange={api.onCompletionStatusChange}
         />
       </Stack>
     </Stack>
