@@ -13,12 +13,15 @@ export function equipmentForExercise(
   switch (exerciseType) {
     // --- barbell ---
     case "barbell_deadlift":
+    case "barbell_romanian_deadlift":
     case "barbell_back_squat":
     case "barbell_front_squat":
     case "barbell_bench_press":
+    case "barbell_incline_bench_press":
     case "barbell_overhead_press":
     case "barbell_row":
-    case "barbell_incline_bench_press":
+    case "barbell_snatch":
+    case "barbell_clean_and_jerk":
       return "barbell";
     // --- end barbell ---
 
@@ -39,6 +42,10 @@ export function equipmentForExercise(
     case "dumbbell_hammer_curl":
     case "dumbbell_row":
     case "dumbbell_wrist_curl":
+    case "dumbbell_fly":
+    case "dumbbell_lateral_raise":
+    case "dumbbell_skull_crusher":
+    case "dumbbell_preacher_curl":
       return "dumbbell";
     // --- end dumbbell ---
 
@@ -135,6 +142,8 @@ export const getExercisesByEquipment = (): Record<
   return exercisesByEquipment;
 };
 
+export const EXERCISES_BY_EQUIPMENT = getExercisesByEquipment();
+
 export type SortableEquipment = Record<EquipmentType, number>;
 
 // Utility: Map equipment type to a sortable number
@@ -170,4 +179,21 @@ export const sortPreferencesData = (
 ) => {
   preferencesData.sort((a, b) => exerciseSorter(a, b));
   return preferencesData;
+};
+
+/**
+ * Converts weight from kg to lbs
+ */
+export const kgToLbs = (kg: number): number => kg * 2.20462;
+
+/**
+ * Converts weight from lbs to kg
+ */
+export const lbsToKg = (lbs: number): number => lbs / 2.20462;
+
+/**
+ * Normalizes weight value to pounds for chart display
+ */
+export const normalizeWeightToLbs = (value: number, unit: string): number => {
+  return unit === "kg" ? kgToLbs(value) : value;
 };

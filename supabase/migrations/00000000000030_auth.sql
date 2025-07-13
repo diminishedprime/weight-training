@@ -18,6 +18,30 @@
 --      to avoid conflicts and clarify their domain.
 --
 -- ========================================================================== --
+-- Function: next_auth.get_deterministic_uuid
+-- Purpose: Generate deterministic UUIDs for specific imported users when they sign up
+-- This ensures imported exercise data gets properly linked to users when they authenticate
+CREATE OR REPLACE FUNCTION next_auth.get_deterministic_uuid (email_address text) RETURNS uuid AS $$
+BEGIN
+  CASE email_address
+    WHEN 'stephaniebpena@gmail.com' THEN 
+      RETURN 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid;
+    WHEN 'matthewjhamrick@gmail.com' THEN 
+      RETURN '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid;
+    WHEN 'testuser@example.com' THEN 
+      RETURN '00000000-0000-0000-0000-000000000001'::uuid;
+    WHEN 'personal_record_test@example.com' THEN 
+      RETURN '00000000-0000-0000-0000-000000000002'::uuid;
+    WHEN 'fullyseeded@example.com' THEN 
+      RETURN '00000000-0000-0000-0000-000000000003'::uuid;
+    WHEN 'personal_record_user_1@example.com' THEN 
+      RETURN 'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid;
+    ELSE
+      RETURN uuid_generate_v4();
+  END CASE;
+END;
+$$ LANGUAGE plpgsql;
+
 --
 -- Table: next_auth.users
 --
@@ -26,6 +50,7 @@
 -- Why: Central user table required for all authentication flows. Email is
 --      unique to prevent duplicate accounts. UUID primary key for global
 --      uniqueness and compatibility with Supabase/Next.js conventions.
+--      Uses deterministic UUID function via trigger to ensure imported users get correct IDs.
 CREATE TABLE IF NOT EXISTS next_auth.users (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   name text, -- Optional display name
@@ -35,6 +60,21 @@ CREATE TABLE IF NOT EXISTS next_auth.users (
   CONSTRAINT users_pkey PRIMARY KEY (id),
   CONSTRAINT email_unique UNIQUE (email)
 );
+
+-- Trigger function to set deterministic UUID based on email
+CREATE OR REPLACE FUNCTION next_auth.set_user_uuid () RETURNS TRIGGER AS $$
+BEGIN
+  -- Only set the UUID if it's the default value or null, and we have an email
+  IF NEW.email IS NOT NULL THEN
+    NEW.id := next_auth.get_deterministic_uuid(NEW.email);
+  END IF;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Trigger to call the function before insert
+CREATE TRIGGER trg_set_user_uuid BEFORE INSERT ON next_auth.users FOR EACH ROW
+EXECUTE FUNCTION next_auth.set_user_uuid ();
 
 GRANT ALL ON TABLE next_auth.users TO postgres;
 

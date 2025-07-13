@@ -41,6 +41,12 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
       return "Overhead Press";
     case "barbell_incline_bench_press":
       return "Incline Bench Press";
+    case "barbell_romanian_deadlift":
+      return "Romanian Deadlift";
+    case "barbell_snatch":
+      return "Snatch";
+    case "barbell_clean_and_jerk":
+      return "Clean and Jerk";
     // --- end barbell ---
 
     // --- dumbbell ---
@@ -58,6 +64,14 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
       return "Dumbbell Hammer Curl";
     case "dumbbell_wrist_curl":
       return "Dumbbell Wrist Curl";
+    case "dumbbell_fly":
+      return "Dumbbell Fly";
+    case "dumbbell_lateral_raise":
+      return "Dumbbell Lateral Raise";
+    case "dumbbell_skull_crusher":
+      return "Dumbbell Skull Crusher";
+    case "dumbbell_preacher_curl":
+      return "Dumbbell Preacher Curl";
     // --- end dumbbell ---
 
     // --- kettlebell ---

@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS public.user_metadata (
   user_id uuid NOT NULL,
   preferred_weight_unit weight_unit_enum DEFAULT 'pounds',
   default_rest_time integer DEFAULT 120,
+  available_plates numeric[] DEFAULT ARRAY[]::numeric[],
   created_at timestamp with time zone DEFAULT timezone ('utc', now()),
   updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
   CONSTRAINT user_metadata_pkey PRIMARY KEY (id),
@@ -61,6 +62,7 @@ END$$;
 --   exercise_type (exercise_type_enum): The exercise type.
 --   value (numeric): The PR value.
 --   unit (weight_unit_enum): The PR unit.
+--   reps (integer): The number of reps for this PR.
 --   recorded_at (timestamptz): When this PR was set.
 --   source (update_source_enum): Source of the entry.
 --   notes (text): Optional user notes.
@@ -71,6 +73,7 @@ CREATE TABLE IF NOT EXISTS public.personal_record_history (
   exercise_type exercise_type_enum NOT NULL,
   value numeric NOT NULL,
   unit weight_unit_enum NOT NULL,
+  reps integer NOT NULL,
   recorded_at timestamptz NOT NULL DEFAULT timezone ('utc', now()),
   source update_source_enum NOT NULL DEFAULT 'manual',
   notes text,
@@ -85,6 +88,33 @@ CREATE TABLE IF NOT EXISTS public.personal_record_history (
 -- Purpose: Supports efficient lookup of whether an exercise was ever a personal record.
 -- Why: Used for EXISTS subqueries in analytics and UI.
 CREATE INDEX IF NOT EXISTS idx_personal_record_history_exercise_id ON public.personal_record_history (exercise_id);
+
+-- Index: idx_personal_record_history_user_exercise_reps_timeframe
+--
+-- Purpose: Optimizes personal record history queries by user, exercise, reps, and timeframe.
+-- Why: The get_personal_record_history function filters by user_id, exercise_type, reps,
+--      and recorded_at range, then orders by recorded_at DESC, id DESC.
+CREATE INDEX IF NOT EXISTS idx_personal_record_history_user_exercise_reps_timeframe ON public.personal_record_history (
+  user_id,
+  exercise_type,
+  reps,
+  recorded_at DESC,
+  id DESC
+);
+
+-- Index: idx_personal_record_history_user_exercise_type
+--
+-- Purpose: Optimizes queries for distinct exercise types by user.
+-- Why: The get_personal_record_exercise_types function filters by user_id 
+--      and needs distinct exercise_type values.
+CREATE INDEX IF NOT EXISTS idx_personal_record_history_user_exercise_type ON public.personal_record_history (user_id, exercise_type);
+
+-- Index: idx_personal_record_history_user_exercise_type_reps
+--
+-- Purpose: Optimizes queries for distinct exercise types and reps by user.
+-- Why: The get_personal_record_exercise_types_with_reps function filters by user_id 
+--      and needs distinct (exercise_type, reps) pairs.
+CREATE INDEX IF NOT EXISTS idx_personal_record_history_user_exercise_type_reps ON public.personal_record_history (user_id, exercise_type, reps);
 
 -- Table: target_max_history
 --
@@ -120,15 +150,3 @@ CREATE TABLE IF NOT EXISTS public.target_max_history (
 --
 -- Why: The most common query is fetching the most recent target max for a given user and exercise_type, ordered by recorded_at DESC.
 CREATE INDEX IF NOT EXISTS idx_target_max_history_user_exercise_recorded_at ON public.target_max_history (user_id, exercise_type, recorded_at DESC, id DESC);
-
--- Index: idx_personal_max_history_user_exercise_recorded_at
---
--- Purpose: Supports efficient lookup of the most recent one rep max for a user/exercise.
---
--- Why: The most common query is fetching the most recent one rep max for a given user and exercise_type, ordered by recorded_at DESC.
--- Index: idx_personal_record_history_user_exercise_recorded_at
---
--- Purpose: Supports efficient lookup of the most recent personal record for a user/exercise.
---
--- Why: The most common query is fetching the most recent personal record for a given user and exercise_type, ordered by recorded_at DESC.
-CREATE INDEX IF NOT EXISTS idx_personal_record_history_user_exercise_recorded_at ON public.personal_record_history (user_id, exercise_type, recorded_at DESC, id DESC);

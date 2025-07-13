@@ -29,12 +29,16 @@ BEGIN
     CREATE TYPE public.exercise_type_enum AS ENUM (
       -- Barbell Exercises
       'barbell_deadlift',
+      'barbell_romanian_deadlift',
       'barbell_back_squat',
       'barbell_front_squat',
       'barbell_bench_press',
       'barbell_incline_bench_press',
       'barbell_overhead_press',
       'barbell_row',
+      -- Olympic Barbell Exercises
+      'barbell_snatch',
+      'barbell_clean_and_jerk',
       -- Dumbbell Exercises
       'dumbbell_row',
       'dumbbell_bench_press',
@@ -43,6 +47,10 @@ BEGIN
       'dumbbell_bicep_curl',
       'dumbbell_hammer_curl',
       'dumbbell_wrist_curl', -- Is that what this is called?
+      'dumbbell_fly',
+      'dumbbell_lateral_raise',
+      'dumbbell_skull_crusher',
+      'dumbbell_preacher_curl',
       -- Machine Exercises
       'machine_converging_chest_press',
       'machine_diverging_lat_pulldown',
@@ -153,6 +161,17 @@ BEGIN
   END IF;
 END$$;
 
+-- Sequence: exercises_insert_order_seq
+--
+-- Purpose: Provides a monotonic increasing sequence for tracking insertion order
+--          of exercises, independent of timestamps.
+--
+-- Why: When bulk importing data (e.g., via seed.sql), all insert_time values
+--      can be identical, breaking chronological ordering needed for personal
+--      record triggers. This sequence ensures we can always determine the
+--      actual insertion order.
+CREATE SEQUENCE IF NOT EXISTS public.exercises_insert_order_seq;
+
 -- Table: exercises
 --
 -- Purpose: Stores all user exercise records, including type, equipment, weight,
@@ -168,6 +187,8 @@ END$$;
 --   exercise_type (exercise_type_enum): The type of exercise performed.
 --   equipment_type (equipment_type_enum): The equipment used.
 --   performed_at (timestamptz, nullable): When the exercise was performed.
+--   insert_time (timestamptz): When the row was inserted into the database.
+--   insert_order (bigint): Monotonic sequence for tracking insertion order.
 --   weight_value (numeric): The weight value used.
 --   weight_unit (weight_unit_enum): The weight unit used.
 --   reps (integer): Number of reps performed.
@@ -181,6 +202,8 @@ CREATE TABLE IF NOT EXISTS public.exercises (
   exercise_type exercise_type_enum NOT NULL,
   equipment_type equipment_type_enum NOT NULL DEFAULT 'barbell',
   performed_at timestamp with time zone NULL,
+  insert_time timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
+  insert_order bigint NOT NULL DEFAULT nextval('public.exercises_insert_order_seq'),
   weight_value numeric NOT NULL,
   actual_weight_value numeric NOT NULL,
   weight_unit weight_unit_enum NOT NULL,

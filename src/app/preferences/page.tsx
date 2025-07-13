@@ -1,17 +1,27 @@
 "use server";
 
-import { requireLoggedInUser } from "@/serverUtil";
+import { getSupabaseClient, requireLoggedInUser } from "@/serverUtil";
 import React, { Suspense } from "react";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { Typography } from "@mui/material";
+import UpdateUserPreferences from "@/app/preferences/_components/UpdateUserPreferences";
 
 const PreferencesPage = async () => {
-  await requireLoggedInUser("/preferences");
-  return (
-    <Typography>
-      This is where the user preferences will eventually be managed.
-    </Typography>
+  const { userId } = await requireLoggedInUser("/preferences");
+  const supabase = getSupabaseClient();
+  const { data: preferences, error } = await supabase.rpc(
+    "get_user_preferences",
+    {
+      p_user_id: userId,
+    }
   );
+
+  if (error) {
+    throw new Error("Error fetching user preferences");
+  }
+
+  console.log({ preferences });
+
+  return <UpdateUserPreferences userId={userId} preferences={preferences} />;
 };
 
 export default async function SuspenseWrapper() {

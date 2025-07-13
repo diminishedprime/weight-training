@@ -225,13 +225,14 @@ function useExercisesTableAPI(exercises: ExercisesTableProps["exercises"]) {
     [exercises]
   );
 
-  // Get dates in the order they appear, with NO_DATE first if present
+  // Get dates in reverse chronological order, with NO_DATE first if present
   const dates = React.useMemo(() => {
     const d = Object.keys(exercisesByDate);
     d.sort((a, b) => {
       if (a === "NO_DATE") return -1;
       if (b === "NO_DATE") return 1;
-      return a.localeCompare(b);
+      // Sort in reverse chronological order (most recent first)
+      return b.localeCompare(a);
     });
     return d;
   }, [exercisesByDate]);

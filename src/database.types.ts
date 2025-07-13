@@ -157,6 +157,8 @@ export type Database = {
           equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id: string;
+          insert_order: number;
+          insert_time: string;
           is_amrap: boolean;
           notes: string | null;
           performed_at: string | null;
@@ -175,6 +177,8 @@ export type Database = {
           equipment_type?: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
+          insert_order?: number;
+          insert_time?: string;
           is_amrap?: boolean;
           notes?: string | null;
           performed_at?: string | null;
@@ -193,6 +197,8 @@ export type Database = {
           equipment_type?: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
+          insert_order?: number;
+          insert_time?: string;
           is_amrap?: boolean;
           notes?: string | null;
           performed_at?: string | null;
@@ -214,6 +220,7 @@ export type Database = {
           id: string;
           notes: string | null;
           recorded_at: string;
+          reps: number;
           source: Database["public"]["Enums"]["update_source_enum"];
           unit: Database["public"]["Enums"]["weight_unit_enum"];
           user_id: string;
@@ -225,6 +232,7 @@ export type Database = {
           id?: string;
           notes?: string | null;
           recorded_at?: string;
+          reps: number;
           source?: Database["public"]["Enums"]["update_source_enum"];
           unit: Database["public"]["Enums"]["weight_unit_enum"];
           user_id: string;
@@ -236,6 +244,7 @@ export type Database = {
           id?: string;
           notes?: string | null;
           recorded_at?: string;
+          reps?: number;
           source?: Database["public"]["Enums"]["update_source_enum"];
           unit?: Database["public"]["Enums"]["weight_unit_enum"];
           user_id?: string;
@@ -286,6 +295,7 @@ export type Database = {
       };
       user_metadata: {
         Row: {
+          available_plates: number[] | null;
           created_at: string | null;
           default_rest_time: number | null;
           id: string;
@@ -296,6 +306,7 @@ export type Database = {
           user_id: string;
         };
         Insert: {
+          available_plates?: number[] | null;
           created_at?: string | null;
           default_rest_time?: number | null;
           id?: string;
@@ -306,6 +317,7 @@ export type Database = {
           user_id: string;
         };
         Update: {
+          available_plates?: number[] | null;
           created_at?: string | null;
           default_rest_time?: number | null;
           id?: string;
@@ -430,8 +442,22 @@ export type Database = {
         Args: {
           p_user_id: string;
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          p_reps: number;
         };
         Returns: Database["public"]["CompositeTypes"]["personal_record_row"];
+      };
+      get_personal_record_exercise_types: {
+        Args: { p_user_id: string };
+        Returns: Database["public"]["Enums"]["exercise_type_enum"][];
+      };
+      get_personal_records_for_exercise_type: {
+        Args: {
+          p_user_id: string;
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          p_reps?: number;
+          p_end_time?: string;
+        };
+        Returns: Database["public"]["CompositeTypes"]["personal_record_history_row"][];
       };
       get_target_max: {
         Args: {
@@ -477,6 +503,7 @@ export type Database = {
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           p_value: number;
           p_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          p_reps: number;
           p_recorded_at?: string;
           p_source?: Database["public"]["Enums"]["update_source_enum"];
           p_notes?: string;
@@ -500,6 +527,7 @@ export type Database = {
           p_user_id: string;
           p_preferred_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
           p_default_rest_time: number;
+          p_available_plates: number[];
         };
         Returns: undefined;
       };
@@ -537,12 +565,15 @@ export type Database = {
         | "plate_stack";
       exercise_type_enum:
         | "barbell_deadlift"
+        | "barbell_romanian_deadlift"
         | "barbell_back_squat"
         | "barbell_front_squat"
         | "barbell_bench_press"
         | "barbell_incline_bench_press"
         | "barbell_overhead_press"
         | "barbell_row"
+        | "barbell_snatch"
+        | "barbell_clean_and_jerk"
         | "dumbbell_row"
         | "dumbbell_bench_press"
         | "dumbbell_incline_bench_press"
@@ -550,6 +581,10 @@ export type Database = {
         | "dumbbell_bicep_curl"
         | "dumbbell_hammer_curl"
         | "dumbbell_wrist_curl"
+        | "dumbbell_fly"
+        | "dumbbell_lateral_raise"
+        | "dumbbell_skull_crusher"
+        | "dumbbell_preacher_curl"
         | "machine_converging_chest_press"
         | "machine_diverging_lat_pulldown"
         | "machine_diverging_low_row"
@@ -606,9 +641,21 @@ export type Database = {
           | Database["public"]["Enums"]["relative_effort_enum"]
           | null;
       };
+      personal_record_history_row: {
+        id: string | null;
+        value: number | null;
+        unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
+        reps: number | null;
+        recorded_at: string | null;
+        source: Database["public"]["Enums"]["update_source_enum"] | null;
+        notes: string | null;
+        exercise_id: string | null;
+        days_since_last_record: number | null;
+      };
       personal_record_row: {
         value: number | null;
         unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
+        reps: number | null;
         recorded_at: string | null;
         exercise_id: string | null;
       };
@@ -622,6 +669,7 @@ export type Database = {
           | Database["public"]["Enums"]["weight_unit_enum"]
           | null;
         default_rest_time: number | null;
+        available_plates: number[] | null;
         user_id: string | null;
         created_at: string | null;
         updated_at: string | null;
@@ -665,6 +713,7 @@ export type Database = {
         personal_record_unit:
           | Database["public"]["Enums"]["weight_unit_enum"]
           | null;
+        personal_record_reps: number | null;
         personal_record_recorded_at: string | null;
       };
       wendler_metadata_row: {
@@ -819,12 +868,15 @@ export const Constants = {
       ],
       exercise_type_enum: [
         "barbell_deadlift",
+        "barbell_romanian_deadlift",
         "barbell_back_squat",
         "barbell_front_squat",
         "barbell_bench_press",
         "barbell_incline_bench_press",
         "barbell_overhead_press",
         "barbell_row",
+        "barbell_snatch",
+        "barbell_clean_and_jerk",
         "dumbbell_row",
         "dumbbell_bench_press",
         "dumbbell_incline_bench_press",
@@ -832,6 +884,10 @@ export const Constants = {
         "dumbbell_bicep_curl",
         "dumbbell_hammer_curl",
         "dumbbell_wrist_curl",
+        "dumbbell_fly",
+        "dumbbell_lateral_raise",
+        "dumbbell_skull_crusher",
+        "dumbbell_preacher_curl",
         "machine_converging_chest_press",
         "machine_diverging_lat_pulldown",
         "machine_diverging_low_row",

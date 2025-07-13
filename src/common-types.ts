@@ -18,3 +18,12 @@ export type WendlerBlock =
   Database["public"]["Functions"]["get_wendler_block"]["Returns"];
 export type WendlerMetadata =
   Database["public"]["Functions"]["get_wendler_metadata"]["Returns"];
+
+export type UserPreferences =
+  Database["public"]["Functions"]["get_user_preferences"]["Returns"];
+
+export type PersonalRecordExerciseTypes =
+  Database["public"]["Functions"]["get_personal_record_exercise_types"]["Returns"];
+
+export type PersonalRecordHistory =
+  Database["public"]["Functions"]["get_personal_records_for_exercise_type"]["Returns"];

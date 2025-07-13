@@ -28,6 +28,13 @@ export default function Home() {
           color="primary">
           Preferences
         </Button>
+        <Button
+          component={Link}
+          href="/personal-records"
+          variant="contained"
+          color="primary">
+          Personal Records
+        </Button>
       </Stack>
     </>
   );
