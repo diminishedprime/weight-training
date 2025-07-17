@@ -65,6 +65,12881 @@ ON CONFLICT (id) DO NOTHING;
 -- when they sign up through NextAuth, thanks to the get_deterministic_uuid() function
 -- and trigger in the auth migration.
 -- End test seed data.
+-- STRENGTH-LEVEL CSV DATA FOR MATTHEWJHAMRICK --
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-02 00:00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-02 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-02 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-02 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 145,
+    p_actual_weight_value => 145,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-02 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-04 00:00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-04 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-04 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 125,
+    p_actual_weight_value => 125,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-04 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 9,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-04 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 125,
+    p_actual_weight_value => 125,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-04 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 25,
+    p_actual_weight_value => 25,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-04 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 25,
+    p_actual_weight_value => 25,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-04 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 25,
+    p_actual_weight_value => 25,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-04 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 25,
+    p_actual_weight_value => 25,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-04 00:13:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-08 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-08 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-08 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-08 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-08 00:04:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bent Over Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-08 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bent Over Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-08 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bent Over Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 125,
+    p_actual_weight_value => 125,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-08 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bent Over Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-08 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-08 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 52,
+    p_actual_weight_value => 52,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-08 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-12 00:00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-12 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 155,
+    p_actual_weight_value => 155,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-12 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-12 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 205,
+    p_actual_weight_value => 205,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-12 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 30,
+    p_actual_weight_value => 30,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 30,
+    p_actual_weight_value => 30,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 30,
+    p_actual_weight_value => 30,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 7,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 30,
+    p_actual_weight_value => 30,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 5,
+    p_actual_weight_value => 5,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 7.5,
+    p_actual_weight_value => 7.5,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:13:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:14:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 5,
+    p_actual_weight_value => 5,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:15:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 7.5,
+    p_actual_weight_value => 7.5,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:16:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:17:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-15 00:18:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-17 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-17 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-17 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 205,
+    p_actual_weight_value => 205,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-17 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 205,
+    p_actual_weight_value => 205,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-17 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 52,
+    p_actual_weight_value => 52,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-17 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 52,
+    p_actual_weight_value => 52,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-17 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 52,
+    p_actual_weight_value => 52,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-17 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 60,
+    p_actual_weight_value => 60,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-17 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-24 00:00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-24 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-24 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-24 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 235,
+    p_actual_weight_value => 235,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-24 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-24 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-26 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-26 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 145,
+    p_actual_weight_value => 145,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-26 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 35,
+    p_actual_weight_value => 35,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-26 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-26 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-26 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 145,
+    p_actual_weight_value => 145,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-26 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 35,
+    p_actual_weight_value => 35,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-26 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 35,
+    p_actual_weight_value => 35,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-26 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-26 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-26 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 145,
+    p_actual_weight_value => 145,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-26 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 145,
+    p_actual_weight_value => 145,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-04-26 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-01 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-01 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 235,
+    p_actual_weight_value => 235,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-01 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 245,
+    p_actual_weight_value => 245,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-01 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 255,
+    p_actual_weight_value => 255,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-01 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 255,
+    p_actual_weight_value => 255,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-01 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 60,
+    p_actual_weight_value => 60,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-01 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 60,
+    p_actual_weight_value => 60,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-01 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 60,
+    p_actual_weight_value => 60,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-01 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 60,
+    p_actual_weight_value => 60,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-01 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 145,
+    p_actual_weight_value => 145,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 155,
+    p_actual_weight_value => 155,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 155,
+    p_actual_weight_value => 155,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 40,
+    p_actual_weight_value => 40,
+    p_reps => 15,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 40,
+    p_actual_weight_value => 40,
+    p_reps => 15,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 40,
+    p_actual_weight_value => 40,
+    p_reps => 15,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 155,
+    p_actual_weight_value => 155,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 155,
+    p_actual_weight_value => 155,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:13:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:14:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 10,
+    p_actual_weight_value => 10,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:15:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 40,
+    p_actual_weight_value => 40,
+    p_reps => 15,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-07 00:16:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-09 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-09 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-09 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 52.5,
+    p_actual_weight_value => 52.5,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-09 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 265,
+    p_actual_weight_value => 265,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-09 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-09 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-14 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-14 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-14 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-14 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 205,
+    p_actual_weight_value => 205,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-14 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-14 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 235,
+    p_actual_weight_value => 235,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-14 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 245,
+    p_actual_weight_value => 245,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-14 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 255,
+    p_actual_weight_value => 255,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-14 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 265,
+    p_actual_weight_value => 265,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-14 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 265,
+    p_actual_weight_value => 265,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-14 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 265,
+    p_actual_weight_value => 265,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-14 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-16 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-16 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-16 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 155,
+    p_actual_weight_value => 155,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-16 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 165,
+    p_actual_weight_value => 165,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-16 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-16 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-16 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-16 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-16 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-16 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-21 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-21 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-21 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 245,
+    p_actual_weight_value => 245,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-21 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 265,
+    p_actual_weight_value => 265,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-21 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 265,
+    p_actual_weight_value => 265,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-21 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-21 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-21 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-21 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-21 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-21 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-23 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-23 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-23 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-23 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-23 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 260,
+    p_actual_weight_value => 260,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-23 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 280,
+    p_actual_weight_value => 280,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-23 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-23 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bent Over Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 105,
+    p_actual_weight_value => 105,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-23 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bent Over Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-23 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bent Over Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 145,
+    p_actual_weight_value => 145,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-23 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bent Over Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 145,
+    p_actual_weight_value => 145,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-23 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bent Over Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 155,
+    p_actual_weight_value => 155,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 195,
+    p_actual_weight_value => 195,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 200,
+    p_actual_weight_value => 200,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 300,
+    p_actual_weight_value => 300,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:13:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:14:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 335,
+    p_actual_weight_value => 335,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:15:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 350,
+    p_actual_weight_value => 350,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-05-28 00:16:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-04 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-04 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 205,
+    p_actual_weight_value => 205,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-04 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-04 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-04 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-04 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-04 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-04 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-06 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-06 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 280,
+    p_actual_weight_value => 280,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-06 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 280,
+    p_actual_weight_value => 280,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-06 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 280,
+    p_actual_weight_value => 280,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-06 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 280,
+    p_actual_weight_value => 280,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-06 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 280,
+    p_actual_weight_value => 280,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-06 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-11 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-11 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-11 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 165,
+    p_actual_weight_value => 165,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-11 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 195,
+    p_actual_weight_value => 195,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-11 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 200,
+    p_actual_weight_value => 200,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-11 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 85,
+    p_actual_weight_value => 85,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 100,
+    p_actual_weight_value => 100,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 105,
+    p_actual_weight_value => 105,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-13 00:13:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 15,
+    p_actual_weight_value => 15,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-17 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 15,
+    p_actual_weight_value => 15,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-17 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 15,
+    p_actual_weight_value => 15,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-17 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 15,
+    p_actual_weight_value => 15,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-17 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 20,
+    p_actual_weight_value => 20,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-17 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 20,
+    p_actual_weight_value => 20,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-17 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 20,
+    p_actual_weight_value => 20,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-17 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 15,
+    p_actual_weight_value => 15,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-17 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-17 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 50,
+    p_actual_weight_value => 50,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-17 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 50,
+    p_actual_weight_value => 50,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-17 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'dumbbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 50,
+    p_actual_weight_value => 50,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-17 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Dumbbell Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-25 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-25 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-25 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-25 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 205,
+    p_actual_weight_value => 205,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-25 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-25 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-25 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-25 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 120,
+    p_actual_weight_value => 120,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 125,
+    p_actual_weight_value => 125,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 125,
+    p_actual_weight_value => 125,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 300,
+    p_actual_weight_value => 300,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-06-27 00:13:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-02 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-02 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-02 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 205,
+    p_actual_weight_value => 205,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-02 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-02 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-02 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-02 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-02 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-02 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 155,
+    p_actual_weight_value => 155,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 165,
+    p_actual_weight_value => 165,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 155,
+    p_actual_weight_value => 155,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 145,
+    p_actual_weight_value => 145,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 6,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:13:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:14:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:15:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bent Over Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 85,
+    p_actual_weight_value => 85,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:16:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bent Over Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 105,
+    p_actual_weight_value => 105,
+    p_reps => 12,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:17:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bent Over Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_row'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 105,
+    p_actual_weight_value => 105,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-03 00:18:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bent Over Row'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-09 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-09 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-09 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 205,
+    p_actual_weight_value => 205,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-09 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 205,
+    p_actual_weight_value => 205,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-09 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 210,
+    p_actual_weight_value => 210,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-09 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 215,
+    p_actual_weight_value => 215,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-09 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 215,
+    p_actual_weight_value => 215,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-09 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 75,
+    p_actual_weight_value => 75,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 280,
+    p_actual_weight_value => 280,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 280,
+    p_actual_weight_value => 280,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 280,
+    p_actual_weight_value => 280,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 280,
+    p_actual_weight_value => 280,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 280,
+    p_actual_weight_value => 280,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-11 00:13:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-16 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-16 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-16 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-16 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 245,
+    p_actual_weight_value => 245,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-16 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 255,
+    p_actual_weight_value => 255,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-16 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 255,
+    p_actual_weight_value => 255,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-16 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 255,
+    p_actual_weight_value => 255,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-16 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 265,
+    p_actual_weight_value => 265,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-16 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-18 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-18 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-18 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 155,
+    p_actual_weight_value => 155,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-18 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-18 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-18 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-18 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-18 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-18 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-18 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-18 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-18 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 325,
+    p_actual_weight_value => 325,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-18 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-23 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-23 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-23 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-23 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-23 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 245,
+    p_actual_weight_value => 245,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-23 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 260,
+    p_actual_weight_value => 260,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-23 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 265,
+    p_actual_weight_value => 265,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-23 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-23 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-23 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-23 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-25 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-25 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-25 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 365,
+    p_actual_weight_value => 365,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-25 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 385,
+    p_actual_weight_value => 385,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-25 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-30 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-30 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 265,
+    p_actual_weight_value => 265,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-30 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 285,
+    p_actual_weight_value => 285,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-30 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 300,
+    p_actual_weight_value => 300,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-30 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-30 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 325,
+    p_actual_weight_value => 325,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-30 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 335,
+    p_actual_weight_value => 335,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-07-30 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-01 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-01 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-01 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-01 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 195,
+    p_actual_weight_value => 195,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-01 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 205,
+    p_actual_weight_value => 205,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-01 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 210,
+    p_actual_weight_value => 210,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-01 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-13 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-13 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-13 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-13 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 245,
+    p_actual_weight_value => 245,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-13 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 285,
+    p_actual_weight_value => 285,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-13 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 265,
+    p_actual_weight_value => 265,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-13 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 265,
+    p_actual_weight_value => 265,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-13 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 265,
+    p_actual_weight_value => 265,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-13 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 265,
+    p_actual_weight_value => 265,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-13 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 155,
+    p_actual_weight_value => 155,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 170,
+    p_actual_weight_value => 170,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 170,
+    p_actual_weight_value => 170,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 170,
+    p_actual_weight_value => 170,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 170,
+    p_actual_weight_value => 170,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 170,
+    p_actual_weight_value => 170,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:13:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:14:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:15:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-15 00:16:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-20 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-20 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-20 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 210,
+    p_actual_weight_value => 210,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-20 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 210,
+    p_actual_weight_value => 210,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-20 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 210,
+    p_actual_weight_value => 210,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-20 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 210,
+    p_actual_weight_value => 210,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-20 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 210,
+    p_actual_weight_value => 210,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-20 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 285,
+    p_actual_weight_value => 285,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 325,
+    p_actual_weight_value => 325,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 325,
+    p_actual_weight_value => 325,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 325,
+    p_actual_weight_value => 325,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-22 00:13:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 350,
+    p_actual_weight_value => 350,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 350,
+    p_actual_weight_value => 350,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 350,
+    p_actual_weight_value => 350,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-08-29 00:13:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-04 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-04 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-04 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 120,
+    p_actual_weight_value => 120,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-04 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 120,
+    p_actual_weight_value => 120,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-04 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 120,
+    p_actual_weight_value => 120,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-04 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-04 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-04 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-04 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-04 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 355,
+    p_actual_weight_value => 355,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-04 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 355,
+    p_actual_weight_value => 355,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-04 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 355,
+    p_actual_weight_value => 355,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-04 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-17 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-17 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-17 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 215,
+    p_actual_weight_value => 215,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-17 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 215,
+    p_actual_weight_value => 215,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-17 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 215,
+    p_actual_weight_value => 215,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-17 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 215,
+    p_actual_weight_value => 215,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-17 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-19 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-19 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-19 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 155,
+    p_actual_weight_value => 155,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-19 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 170,
+    p_actual_weight_value => 170,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-19 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 170,
+    p_actual_weight_value => 170,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-19 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 170,
+    p_actual_weight_value => 170,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-19 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 170,
+    p_actual_weight_value => 170,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-19 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-19 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-19 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-19 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-19 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-19 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 85,
+    p_actual_weight_value => 85,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 245,
+    p_actual_weight_value => 245,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 245,
+    p_actual_weight_value => 245,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:13:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 245,
+    p_actual_weight_value => 245,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:14:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 245,
+    p_actual_weight_value => 245,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:15:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 245,
+    p_actual_weight_value => 245,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-09-27 00:16:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-01 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-01 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-01 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-01 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-01 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-01 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-01 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-02 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-02 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-02 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 180,
+    p_actual_weight_value => 180,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-02 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 180,
+    p_actual_weight_value => 180,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-02 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 180,
+    p_actual_weight_value => 180,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-02 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-03 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-03 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-03 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-03 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 345,
+    p_actual_weight_value => 345,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-03 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 345,
+    p_actual_weight_value => 345,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-03 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 345,
+    p_actual_weight_value => 345,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-03 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-08 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-08 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-08 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-08 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-08 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 165,
+    p_actual_weight_value => 165,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-08 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 165,
+    p_actual_weight_value => 165,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-08 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 165,
+    p_actual_weight_value => 165,
+    p_reps => 7,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-08 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-10 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-10 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-10 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-10 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 365,
+    p_actual_weight_value => 365,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-10 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 365,
+    p_actual_weight_value => 365,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-10 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 365,
+    p_actual_weight_value => 365,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-10 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-10 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-10 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-10 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 125,
+    p_actual_weight_value => 125,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-10 00:10:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 125,
+    p_actual_weight_value => 125,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-10 00:11:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 125,
+    p_actual_weight_value => 125,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-10 00:12:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-15 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-15 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-15 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-15 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-15 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 255,
+    p_actual_weight_value => 255,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-15 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-15 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 285,
+    p_actual_weight_value => 285,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-15 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 295,
+    p_actual_weight_value => 295,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-15 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-17 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-17 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-17 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-17 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-17 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 365,
+    p_actual_weight_value => 365,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-17 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 405,
+    p_actual_weight_value => 405,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-17 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 425,
+    p_actual_weight_value => 425,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-17 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-22 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-22 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-22 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-22 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 195,
+    p_actual_weight_value => 195,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-22 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 215,
+    p_actual_weight_value => 215,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-22 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 16,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-22 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-24 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-24 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-24 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-24 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-24 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-24 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-24 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-24 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 335,
+    p_actual_weight_value => 335,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-24 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 345,
+    p_actual_weight_value => 345,
+    p_reps => 1,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-24 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-29 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-29 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-29 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-29 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-29 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-29 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-29 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-29 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-29 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-29 00:09:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-31 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-31 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-31 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-31 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 340,
+    p_actual_weight_value => 340,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-31 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 340,
+    p_actual_weight_value => 340,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-31 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 340,
+    p_actual_weight_value => 340,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-31 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 340,
+    p_actual_weight_value => 340,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-31 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 340,
+    p_actual_weight_value => 340,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-10-31 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-01 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-01 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-01 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-01 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-01 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-01 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-01 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 175,
+    p_actual_weight_value => 175,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-01 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-05 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-05 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-05 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-05 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-05 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-05 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-05 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-05 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-05 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Front Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-07 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-07 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-07 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-07 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-07 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 345,
+    p_actual_weight_value => 345,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-07 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 345,
+    p_actual_weight_value => 345,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-07 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 345,
+    p_actual_weight_value => 345,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-07 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-14 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-14 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-14 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 380,
+    p_actual_weight_value => 380,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-14 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 380,
+    p_actual_weight_value => 380,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-14 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 380,
+    p_actual_weight_value => 380,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-14 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-15 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-15 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-15 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-15 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-15 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-15 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 20,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-15 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 2,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-15 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Bench Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-19 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-19 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-19 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-19 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-19 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 295,
+    p_actual_weight_value => 295,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-19 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 295,
+    p_actual_weight_value => 295,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-19 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 295,
+    p_actual_weight_value => 295,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-19 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Squat'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-21 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 135,
+    p_actual_weight_value => 135,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-21 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-21 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 225,
+    p_actual_weight_value => 225,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-21 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-21 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 315,
+    p_actual_weight_value => 315,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-21 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 355,
+    p_actual_weight_value => 355,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-21 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 385,
+    p_actual_weight_value => 385,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-21 00:07:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 385,
+    p_actual_weight_value => 385,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-21 00:08:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Deadlift'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-22 00:00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-22 00:01:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 85,
+    p_actual_weight_value => 85,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-22 00:02:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 105,
+    p_actual_weight_value => 105,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-22 00:03:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 120,
+    p_actual_weight_value => 120,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-22 00:04:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 120,
+    p_actual_weight_value => 120,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-22 00:05:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_weight_value => 120,
+    p_actual_weight_value => 120,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2019-11-22 00:06:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from strength-level csv: Shoulder Press'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay
+-- END OF STRENGTH-LEVEL CSV DATA FOR MATTHEWJHAMRICK --
 -- START OF IMPORTED EXERCISE DATA --
 -- ========================================================================== --
 -- IMPORTED EXERCISE DATA FROM FIRESTORE
@@ -75,6 +12950,31 @@ ON CONFLICT (id) DO NOTHING;
 -- when stephaniebpena@gmail.com and matthewjhamrick@gmail.com sign up.
 -- The next_auth.get_deterministic_uuid() function ensures proper linking.
 -- ========================================================================== --
+-- First, create the imported users with deterministic UUIDs
+INSERT INTO
+  next_auth.users (id, name, email, "emailVerified", image)
+VALUES
+  (
+    'd6e4a8a4-a0c1-4760-9512-a569473fe162',
+    'Stephanie Pena',
+    'stephaniebpena@gmail.com',
+    NOW(),
+    'https://example.com/stephanie.png'
+  )
+ON CONFLICT (id) DO NOTHING;
+
+INSERT INTO
+  next_auth.users (id, name, email, "emailVerified", image)
+VALUES
+  (
+    '97097295-6eb1-4824-8bfa-8984cf9bea6b',
+    'Matthew Hamrick',
+    'matthewjhamrick@gmail.com',
+    NOW(),
+    'https://example.com/matthew.png'
+  )
+ON CONFLICT (id) DO NOTHING;
+
 -- Import all exercise data using stored procedures (sorted by timestamp with 0.1ms delays)
 SELECT
   public.create_exercise (

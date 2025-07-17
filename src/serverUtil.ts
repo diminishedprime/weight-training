@@ -91,3 +91,32 @@ export async function requirePreferences<K extends keyof UserPreferences>(
  * This indirection makes it easy to mock in tests.
  */
 export const getSession = () => auth();
+
+/**
+ * Calls a Supabase RPC function with type safety from the generated Database types.
+ *
+ * This rethrows any functions and assumes that it'll be called within a server
+ * context where thrown errors route to the nearest error boundary. For
+ * scenarios where you can properly handle the error locally, use the regular
+ * getSupabaseClient().rpc(...) functionality.
+ *
+ * @param fnName - The name of the RPC function (must exist in Database['functions'])
+ * @param rpcArgs - The arguments for the RPC function
+ * @returns The result of the RPC call
+ */
+export const supabaseRPC = async <
+  T extends keyof Database["public"]["Functions"],
+  Args extends Database["public"]["Functions"][T]["Args"],
+  Return = Database["public"]["Functions"][T]["Returns"],
+>(
+  fnName: T,
+  rpcArgs: Args,
+): Promise<Return> => {
+  const supabase = getSupabaseClient();
+  const { data, error } = await supabase.rpc(fnName, rpcArgs);
+  if (error) {
+    const errorMsg = `Failed to call RPC ${String(fnName)}: ${error.message} ${error.code ? `Code: ${error.code}\n` : ""}${error.details ? `Details: ${error.details}\n` : ""}${error.hint ? `Hint: ${error.hint}\n` : ""}`;
+    throw new Error(errorMsg);
+  }
+  return data as Return;
+};

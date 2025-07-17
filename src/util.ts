@@ -1,5 +1,5 @@
 import { Constants } from "@/database.types";
-import { EquipmentType, ExerciseType } from "@/common-types";
+import { EquipmentType, ExerciseType, RoundingMode } from "@/common-types";
 
 /**
  * Determines the corresponding equipment for a given lift type.
@@ -8,7 +8,7 @@ import { EquipmentType, ExerciseType } from "@/common-types";
  * @returns The equipment type that corresponds to the given lift type.
  */
 export function equipmentForExercise(
-  exerciseType: ExerciseType,
+  exerciseType: ExerciseType
 ): EquipmentType {
   switch (exerciseType) {
     // --- barbell ---
@@ -22,6 +22,8 @@ export function equipmentForExercise(
     case "barbell_row":
     case "barbell_snatch":
     case "barbell_clean_and_jerk":
+    case "barbell_hip_thrust":
+    case "barbell_single_leg_squat":
       return "barbell";
     // --- end barbell ---
 
@@ -46,6 +48,9 @@ export function equipmentForExercise(
     case "dumbbell_lateral_raise":
     case "dumbbell_skull_crusher":
     case "dumbbell_preacher_curl":
+    case "dumbbell_front_raise":
+    case "dumbbell_shoulder_press":
+    case "dumbbell_split_squat":
       return "dumbbell";
     // --- end dumbbell ---
 
@@ -76,6 +81,7 @@ export function equipmentForExercise(
     case "machine_assissted_chinup":
     case "machine_assissted_pullup":
     case "machine_assissted_dip":
+    case "machine_cable_triceps_pushdown":
       return "machine";
     // --- end machine ---
 
@@ -95,26 +101,54 @@ export function equipmentForExercise(
   }
 }
 
-/**
- * Calculates the minimal set of plates needed to achieve a target weight for one side of a barbell or a single dumbbell.
- *
- * This function assumes that the `availablePlates` array is sorted in descending order of weight.
- * It greedily selects the largest possible plates to make up the `targetWeight`.
- * If the `targetWeight` cannot be exactly achieved with the `availablePlates`,
- * the function will return the plates that sum up to the closest weight less than or equal to the `targetWeight`.
- *
- * @param targetWeight The desired weight to achieve (e.g., for one side of a barbell, or a single dumbbell weight).
- * @param availablePlates An array of numbers representing the weights of available plates, sorted in descending order.
- * @returns An array of numbers representing the plates selected to make up the target weight. The array will contain duplicates if multiple plates of the same weight are needed.
- */
+const roundingFunction = (
+  roundingMode: RoundingMode,
+  nearest: number,
+  toRound: number
+) => {
+  const floor = Math.floor(toRound / nearest) * nearest;
+  const ceil = Math.ceil(toRound / nearest) * nearest;
+  const round = Math.round(toRound / nearest) * nearest;
+  switch (roundingMode) {
+    case RoundingMode.UP:
+      return ceil;
+    case RoundingMode.DOWN:
+      return floor;
+    case RoundingMode.NEAREST:
+    default:
+      // Pick the candidate closest to toRound
+      const candidates = [floor, round, ceil];
+      let best = candidates[0];
+      let minDiff = Math.abs(toRound - best);
+      for (let i = 1; i < candidates.length; i++) {
+        const diff = Math.abs(toRound - candidates[i]);
+        if (diff < minDiff) {
+          minDiff = diff;
+          best = candidates[i];
+        }
+      }
+      return best;
+  }
+};
+
+// Returns the minimal set of plates needed to reach a target weight.
 export function minimalPlates(
   targetWeight: number,
   availablePlates: number[],
-): number[] {
-  // TODO ideally this would covered elsewhere, but it's complicated to make
-  // sure that all callers know to sort.
-  availablePlates.sort((a, b) => b - a); // Ensure plates are sorted in descending order
-  let remaining = targetWeight;
+  roundingMode: RoundingMode
+): { plates: number[]; rounded: boolean } {
+  // Ensure plates are sorted in descending order, if we ever do profiling and
+  // this is a bottleneck, we can make it where callers have to sort ahead of
+  // time, but I doubt we'll ever be there.
+  availablePlates.sort((a, b) => b - a);
+  const smallestPlate = availablePlates[availablePlates.length - 1];
+  const rounded = roundingFunction(
+    roundingMode,
+    smallestPlate * 2,
+    targetWeight
+  );
+
+  let remaining = rounded;
   const result: number[] = [];
   for (const plate of availablePlates) {
     while (remaining >= plate) {
@@ -122,7 +156,47 @@ export function minimalPlates(
       remaining -= plate;
     }
   }
-  return result;
+  return { plates: result, rounded: remaining !== targetWeight };
+}
+
+// Convenience function to make it easier to call minimalPlates from the UI
+// where in practice, we have a barWeight and a targetWeight.
+export function minimalPlatesForTargetWeight(
+  targetWeight: number,
+  barWeight: number,
+  availablePlates: number[],
+  roundingMode: RoundingMode
+): { plates: number[]; rounded: boolean } {
+  const minusBar = targetWeight - barWeight;
+  const platesForOneSideWeight = minusBar / 2;
+  const platesForOneSide = minimalPlates(
+    platesForOneSideWeight,
+    availablePlates,
+    roundingMode
+  );
+  return platesForOneSide;
+}
+
+const sum = (a: number, b: number) => a + b;
+
+// Uses the utility functions for determining the actualWeight for a given
+// targetWeight based on availablePlates and bar weight.
+export function actualWeightForTarget(
+  targetWeight: number,
+  barWeight: number,
+  availablePlates: number[],
+  roundingMode: RoundingMode
+): { actualWeight: number; rounded: boolean } {
+  const platesForOneSide = minimalPlatesForTargetWeight(
+    targetWeight,
+    barWeight,
+    availablePlates,
+    roundingMode
+  );
+  const platesforOneSideWeight = platesForOneSide.plates.reduce(sum, 0);
+  const totalPlatesWeight = platesforOneSideWeight * 2;
+  const actualWeight = barWeight + totalPlatesWeight;
+  return { actualWeight, rounded: platesForOneSide.rounded };
 }
 
 export const getExercisesByEquipment = (): Record<
@@ -147,6 +221,14 @@ export const getExercisesByEquipment = (): Record<
 
 export const EXERCISES_BY_EQUIPMENT = getExercisesByEquipment();
 
+/**
+ * Pre-computed Set of valid barbell form draft paths for O(1) lookup.
+ * Generated from the barbell exercises in EXERCISES_BY_EQUIPMENT.
+ */
+export const VALID_BARBELL_FORM_DRAFT_PATHS = new Set(
+  EXERCISES_BY_EQUIPMENT["barbell"].map((exercise) => `/exercise/${exercise}`)
+);
+
 export type SortableEquipment = Record<EquipmentType, number>;
 
 // Utility: Map equipment type to a sortable number
@@ -163,7 +245,7 @@ export const equipmentToNum: SortableEquipment =
  */
 export const exerciseSorter = (
   a: { exercise_type: ExerciseType },
-  b: { exercise_type: ExerciseType },
+  b: { exercise_type: ExerciseType }
 ) => {
   const aNum = equipmentToNum[equipmentForExercise(a.exercise_type!)];
   const bNum = equipmentToNum[equipmentForExercise(b.exercise_type!)];
@@ -186,7 +268,7 @@ export const exerciseSorter = (
 export const sortPreferencesData = (
   preferencesData: Array<{
     exercise_type: ExerciseType;
-  }>,
+  }>
 ) => {
   preferencesData.sort((a, b) => exerciseSorter(a, b));
   return preferencesData;
@@ -217,7 +299,7 @@ export const normalizeWeightToLbs = (value: number, unit: string): number => {
  */
 export const arrayEquals = <T extends string | number | boolean>(
   a: T[],
-  b: T[],
+  b: T[]
 ): boolean => {
   if (a.length !== b.length) {
     return false;
@@ -233,7 +315,7 @@ export const arrayEquals = <T extends string | number | boolean>(
  */
 export const nullableArrayEquals = <T extends string | number | boolean>(
   a: T[] | null | undefined,
-  b: T[] | null | undefined,
+  b: T[] | null | undefined
 ): boolean => {
   // Both null/undefined
   if (!a && !b) {

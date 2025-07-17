@@ -36,6 +36,8 @@ BEGIN
       'barbell_incline_bench_press',
       'barbell_overhead_press',
       'barbell_row',
+      'barbell_hip_thrust',
+      'barbell_single_leg_squat',
       -- Olympic Barbell Exercises
       'barbell_snatch',
       'barbell_clean_and_jerk',
@@ -51,6 +53,9 @@ BEGIN
       'dumbbell_lateral_raise',
       'dumbbell_skull_crusher',
       'dumbbell_preacher_curl',
+      'dumbbell_front_raise',
+      'dumbbell_shoulder_press',
+      'dumbbell_split_squat',
       -- Machine Exercises
       'machine_converging_chest_press',
       'machine_diverging_lat_pulldown',
@@ -71,6 +76,7 @@ BEGIN
       'machine_assissted_chinup',
       'machine_assissted_pullup',
       'machine_assissted_dip',
+      'machine_cable_triceps_pushdown',
       -- Bodyweight Exercises
       'bodyweight_pushup',
       'bodyweight_situp',

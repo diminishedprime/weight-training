@@ -213,6 +213,36 @@ export type Database = {
         };
         Relationships: [];
       };
+      form_drafts: {
+        Row: {
+          created_at: string;
+          expires_at: string;
+          form_data: Json;
+          form_type: string;
+          id: string;
+          updated_at: string;
+          user_id: string;
+        };
+        Insert: {
+          created_at?: string;
+          expires_at?: string;
+          form_data: Json;
+          form_type: string;
+          id?: string;
+          updated_at?: string;
+          user_id: string;
+        };
+        Update: {
+          created_at?: string;
+          expires_at?: string;
+          form_data?: Json;
+          form_type?: string;
+          id?: string;
+          updated_at?: string;
+          user_id?: string;
+        };
+        Relationships: [];
+      };
       personal_record_history: {
         Row: {
           exercise_id: string | null;
@@ -386,6 +416,14 @@ export type Database = {
         };
         Returns: Database["public"]["CompositeTypes"]["wendler_block_prereqs_row"];
       };
+      cleanup_expired_form_drafts: {
+        Args: Record<PropertyKey, never>;
+        Returns: number;
+      };
+      clear_form_draft: {
+        Args: { p_user_id: string; p_form_type: string };
+        Returns: undefined;
+      };
       create_exercise: {
         Args: {
           p_user_id: string;
@@ -437,6 +475,10 @@ export type Database = {
           relative_effort: Database["public"]["Enums"]["relative_effort_enum"];
           personal_record: boolean;
         }[];
+      };
+      get_form_draft: {
+        Args: { p_user_id: string; p_form_type: string };
+        Returns: Json;
       };
       get_personal_record: {
         Args: {
@@ -496,6 +538,15 @@ export type Database = {
       round_to_nearest_5: {
         Args: { p_weight: number };
         Returns: number;
+      };
+      save_form_draft: {
+        Args: {
+          p_user_id: string;
+          p_form_type: string;
+          p_form_data: Json;
+          p_ttl_days?: number;
+        };
+        Returns: undefined;
       };
       set_personal_record: {
         Args: {
@@ -572,6 +623,8 @@ export type Database = {
         | "barbell_incline_bench_press"
         | "barbell_overhead_press"
         | "barbell_row"
+        | "barbell_hip_thrust"
+        | "barbell_single_leg_squat"
         | "barbell_snatch"
         | "barbell_clean_and_jerk"
         | "dumbbell_row"
@@ -585,6 +638,9 @@ export type Database = {
         | "dumbbell_lateral_raise"
         | "dumbbell_skull_crusher"
         | "dumbbell_preacher_curl"
+        | "dumbbell_front_raise"
+        | "dumbbell_shoulder_press"
+        | "dumbbell_split_squat"
         | "machine_converging_chest_press"
         | "machine_diverging_lat_pulldown"
         | "machine_diverging_low_row"
@@ -604,6 +660,7 @@ export type Database = {
         | "machine_assissted_chinup"
         | "machine_assissted_pullup"
         | "machine_assissted_dip"
+        | "machine_cable_triceps_pushdown"
         | "bodyweight_pushup"
         | "bodyweight_situp"
         | "bodyweight_pullup"
@@ -875,6 +932,8 @@ export const Constants = {
         "barbell_incline_bench_press",
         "barbell_overhead_press",
         "barbell_row",
+        "barbell_hip_thrust",
+        "barbell_single_leg_squat",
         "barbell_snatch",
         "barbell_clean_and_jerk",
         "dumbbell_row",
@@ -888,6 +947,9 @@ export const Constants = {
         "dumbbell_lateral_raise",
         "dumbbell_skull_crusher",
         "dumbbell_preacher_curl",
+        "dumbbell_front_raise",
+        "dumbbell_shoulder_press",
+        "dumbbell_split_squat",
         "machine_converging_chest_press",
         "machine_diverging_lat_pulldown",
         "machine_diverging_low_row",
@@ -907,6 +969,7 @@ export const Constants = {
         "machine_assissted_chinup",
         "machine_assissted_pullup",
         "machine_assissted_dip",
+        "machine_cable_triceps_pushdown",
         "bodyweight_pushup",
         "bodyweight_situp",
         "bodyweight_pullup",

@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Breadcrumbs pathname="/" />
-      <Stack spacing={2} direction="row">
+      <Stack spacing={1} direction="row" flexWrap="wrap" useFlexGap>
         <Button
           component={Link}
           href="/exercise"

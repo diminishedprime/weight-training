@@ -7,9 +7,7 @@ import { ExerciseType } from "@/common-types";
 import { ExerciseTypePage } from "@/app/exercise/[exercise_type]/_page";
 
 interface SuspenseWrapperProps {
-  params: Promise<{
-    exercise_type: string;
-  }>;
+  params: Promise<{ exercise_type: string }>;
 }
 
 export default async function SuspenseWrapper(props: SuspenseWrapperProps) {

@@ -5,6 +5,7 @@ import { Database } from "@/database.types";
 import Barbell from "@/components/Barbell";
 import Dumbbell from "@/components/Dumbell";
 import { equipmentForExercise } from "@/util";
+import { RoundingMode } from "@/common-types";
 
 interface WeightThumbnailProps {
   /** The weight value to display */
@@ -37,8 +38,11 @@ const WeightThumbnail: React.FC<WeightThumbnailProps> = (props) => {
         }}>
         <Barbell
           availablePlates={props.availablePlates}
-          weight={weight}
+          targetWeight={weight}
           hidePlateNumbers
+          barWeight={0}
+          roundingMode={RoundingMode.NEAREST}
+          weightUnit={"pounds"}
         />
       </span>
     );

@@ -1,4 +1,4 @@
-import { EquipmentType, WeightUnit } from "@/common-types";
+import { EquipmentType, RoundingMode, WeightUnit } from "@/common-types";
 import BarbellEditor from "@/components/BarbellEditor";
 import DumbbellEditor from "@/components/DumbbellEditor";
 
@@ -15,11 +15,12 @@ export function EquipmentWeightEditor(props: EquipmentWeightEditorProps) {
     case "barbell":
       return (
         <BarbellEditor
-          totalWeight={props.weightValue}
+          targetWeight={props.weightValue}
           barWeight={45}
-          onChange={props.setWeightValue}
+          onTargetWeightChange={props.setWeightValue}
           weightUnit={props.weightUnit}
           availablePlates={props.availablePlates}
+          roundingMode={RoundingMode.NEAREST}
         />
       );
     case "dumbbell":

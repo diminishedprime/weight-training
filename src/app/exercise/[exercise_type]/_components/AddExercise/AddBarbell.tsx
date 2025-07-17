@@ -1,18 +1,26 @@
 "use client";
 
-import React from "react";
-import { useLocalStorageState, LocalStorageKeys as LSK } from "@/clientHooks";
+import React, { useEffect, useState } from "react";
 import Stack from "@mui/material/Stack";
 import BarbellEditor from "@/components/BarbellEditor";
 import SelectReps from "@/components/select/SelectReps";
-import { CompletionStatus, PercievedEffort, WeightUnit } from "@/common-types";
+import {
+  CompletionStatus,
+  PercievedEffort,
+  RoundingMode,
+  WeightUnit,
+} from "@/common-types";
 import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
 import WarmupCheckbox from "@/components/WarmupCheckbox";
 import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
 import { Button, TextField } from "@mui/material";
 import { TestIds } from "@/test-ids";
-import { addBarbellLift } from "@/app/exercise/[exercise_type]/_components/AddExercise/actions";
+import {
+  addBarbellLift,
+  saveBarbellFormDraft,
+} from "@/app/exercise/[exercise_type]/_components/AddExercise/actions";
 import { AddBarbelProps } from ".";
+import { useDebouncedCallback } from "use-debounce";
 
 /**
  * Hook for managing AddBarbell form state and logic.
@@ -23,48 +31,62 @@ import { AddBarbelProps } from ".";
  *
  * Returns an API object for use in the AddBarbell component.
  */
-const useAddBarbellAPI = () => {
+const useAddBarbellAPI = (props: AddBarbelProps) => {
   // Initial values for reset
   const initial = React.useMemo(
     () => ({
-      totalWeight: 45,
-      weightUnit: "pounds" as WeightUnit,
-      reps: 5,
-      effort: null as PercievedEffort | null,
-      warmup: false,
-      completionStatus: "completed" as CompletionStatus,
-      notes: "",
+      // Use initialFormData if provided, otherwise use defaults
+      ...(props.initialFormData || {
+        totalWeight: 45,
+        weightUnit: "pounds" as WeightUnit,
+        reps: 5,
+        effort: null as PercievedEffort | null,
+        warmup: false,
+        completionStatus: "completed" as CompletionStatus,
+        notes: "",
+      }),
+      // barWeight is always 45, not user-editable and not part of BarbellFormDraft
+      barWeight: 45,
     }),
-    []
+    [props.initialFormData]
   );
-  const [totalWeight, setTotalWeight] = useLocalStorageState<number>(
-    LSK.AddBarbellTotalWeight,
-    45
-  );
+  const [totalWeight, setTotalWeight] = useState<number>(initial.totalWeight);
   // barWeight is always 45, not user-editable, so no need to persist
-  const [barWeight] = React.useState(45);
-  const [weightUnit, setWeightUnit] = useLocalStorageState<WeightUnit>(
-    LSK.AddBarbellWeightUnit,
-    "pounds"
-  );
-  const [reps, setReps] = useLocalStorageState<number>(LSK.AddBarbellReps, 5);
+  // TODO: However this should eventually be configurable so we're keeping it around.
+  // TODO: We could actually do a SelectBarbell component in the future to support that.
+  const [barWeight] = React.useState(initial.barWeight);
+  const [weightUnit, setWeightUnit] = useState<WeightUnit>(initial.weightUnit);
+  const [reps, setReps] = useState<number>(initial.reps);
   const [percievedEffort, setPercievedEffort] =
-    useLocalStorageState<PercievedEffort | null>(
-      LSK.AddBarbellPercievedEffort,
-      null
-    );
-  const [warmup, setWarmup] = useLocalStorageState<boolean>(
-    LSK.AddBarbellWarmup,
-    false
+    useState<PercievedEffort | null>(initial.effort);
+  const [warmup, setWarmup] = useState<boolean>(initial.warmup);
+  const [completionStatus, setCompletionStatus] = useState<CompletionStatus>(
+    initial.completionStatus
   );
-  const [completionStatus, setCompletionStatus] =
-    useLocalStorageState<CompletionStatus>(
-      LSK.AddBarbellCompletionStatus,
-      "completed"
-    );
-  const [notes, setNotes] = useLocalStorageState<string>(
-    LSK.AddBarbellNotes,
-    ""
+  const [notes, setNotes] = useState<string>(initial.notes);
+
+  // Debounced save function
+  const debouncedSave = useDebouncedCallback(
+    async (formData: {
+      totalWeight: number;
+      weightUnit: WeightUnit;
+      reps: number;
+      effort: PercievedEffort | null;
+      warmup: boolean;
+      completionStatus: CompletionStatus;
+      notes: string;
+    }) => {
+      try {
+        await saveBarbellFormDraft(
+          props.userId,
+          `/exercise/${props.exerciseType}`,
+          formData
+        );
+      } catch (error) {
+        console.error("Failed to save form draft:", error);
+      }
+    },
+    1000
   );
 
   const onChange = React.useCallback(
@@ -109,8 +131,32 @@ const useAddBarbellAPI = () => {
     [setNotes]
   );
 
+  useEffect(() => {
+    // Save form data whenever it changes
+    const formData = {
+      totalWeight,
+      weightUnit,
+      reps,
+      effort: percievedEffort,
+      warmup,
+      completionStatus,
+      notes,
+    };
+
+    debouncedSave(formData);
+  }, [
+    totalWeight,
+    weightUnit,
+    reps,
+    percievedEffort,
+    warmup,
+    completionStatus,
+    notes,
+    debouncedSave,
+  ]);
+
   // Reset all fields to initial values
-  const reset = React.useCallback(() => {
+  const reset = React.useCallback(async () => {
     setTotalWeight(initial.totalWeight);
     setWeightUnit(initial.weightUnit);
     setReps(initial.reps);
@@ -149,7 +195,7 @@ const useAddBarbellAPI = () => {
 };
 
 const AddBarbell: React.FC<AddBarbelProps> = (props) => {
-  const api = useAddBarbellAPI();
+  const api = useAddBarbellAPI(props);
 
   return (
     <form
@@ -168,11 +214,12 @@ const AddBarbell: React.FC<AddBarbelProps> = (props) => {
       )}>
       <Stack spacing={1} direction={"column"}>
         <BarbellEditor
-          totalWeight={api.totalWeight}
+          targetWeight={api.totalWeight}
           barWeight={api.barWeight}
-          onChange={api.onChange}
+          onTargetWeightChange={api.onChange}
           weightUnit={api.weightUnit}
           availablePlates={props.availablePlates}
+          roundingMode={RoundingMode.NEAREST}
         />
         <Stack alignSelf="center">
           <SelectReps

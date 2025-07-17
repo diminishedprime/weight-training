@@ -1,5 +1,5 @@
 export const wendlerCycleUIString = (
-  cycle: Database["public"]["Enums"]["wendler_cycle_type_enum"],
+  cycle: Database["public"]["Enums"]["wendler_cycle_type_enum"]
 ): string => {
   switch (cycle) {
     case "5":
@@ -48,6 +48,10 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
       return "Snatch";
     case "barbell_clean_and_jerk":
       return "Clean and Jerk";
+    case "barbell_hip_thrust":
+      return "Hip Thrust";
+    case "barbell_single_leg_squat":
+      return "Single Leg Squat";
     // --- end barbell ---
 
     // --- dumbbell ---
@@ -73,6 +77,12 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
       return "Dumbbell Skull Crusher";
     case "dumbbell_preacher_curl":
       return "Dumbbell Preacher Curl";
+    case "dumbbell_front_raise":
+      return "Dumbbell Front Raise";
+    case "dumbbell_shoulder_press":
+      return "Dumbbell Shoulder Press";
+    case "dumbbell_split_squat":
+      return "Dumbbell Split Squat";
     // --- end dumbbell ---
 
     // --- kettlebell ---
@@ -136,6 +146,8 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
       return "Assisted Pull Up";
     case "machine_assissted_dip":
       return "Assisted Dip";
+    case "machine_cable_triceps_pushdown":
+      return "Cable Triceps Pushdown";
     // --- end machine ---
 
     // --- plate_stack ---
@@ -155,12 +167,12 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
 };
 export const exerciseTypeUIStringLong = (type: ExerciseType): string => {
   return `${exerciseTypeUIStringBrief(type)} (${equipmentTypeUIString(
-    equipmentForExercise(type),
+    equipmentForExercise(type)
   )})`;
 };
 
 export const weightUnitUIString = (
-  unit: Database["public"]["Enums"]["weight_unit_enum"],
+  unit: Database["public"]["Enums"]["weight_unit_enum"]
 ): string => {
   switch (unit) {
     case "kilograms":
@@ -180,7 +192,7 @@ export const weightUnitUIString = (
 };
 
 export const completionStatusUIString = (
-  status: Database["public"]["Enums"]["completion_status_enum"],
+  status: Database["public"]["Enums"]["completion_status_enum"]
 ): string => {
   switch (status) {
     case "completed":
@@ -204,7 +216,7 @@ export const completionStatusUIString = (
 };
 
 export const equipmentTypeUIString = (
-  type: Database["public"]["Enums"]["equipment_type_enum"],
+  type: Database["public"]["Enums"]["equipment_type_enum"]
 ): string => {
   switch (type) {
     case "barbell":
@@ -232,7 +244,7 @@ export const equipmentTypeUIString = (
 };
 
 export const userPreferenceUIString = (
-  preference: keyof UserPreferences,
+  preference: keyof UserPreferences
 ): string => {
   switch (preference) {
     case "preferred_weight_unit":

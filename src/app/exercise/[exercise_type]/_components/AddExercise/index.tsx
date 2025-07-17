@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useCallback, useMemo } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { EquipmentType, ExerciseType } from "@/common-types";
@@ -9,6 +8,11 @@ import { Button, Paper } from "@mui/material";
 import { TestIds } from "@/test-ids";
 import AddIcon from "@mui/icons-material/Add";
 import AddBarbell from "@/app/exercise/[exercise_type]/_components/AddExercise/AddBarbell";
+import {
+  BarbellFormDraft,
+  clearBarbellFormDraft,
+  createBarbellFormDraft,
+} from "@/app/exercise/[exercise_type]/_components/AddExercise/actions";
 
 // Import equipment-specific add components (to be implemented)
 // import AddDumbbell from "./AddDumbbell";
@@ -23,12 +27,15 @@ interface AddExerciseProps {
   exerciseType: ExerciseType;
   pathToRevalidate: string;
   availablePlates: number[];
+  barbellFormDraft?: BarbellFormDraft | null;
 }
 
 type AddExerciseControlProps = AddExerciseProps & {
   cancelComponent: React.JSX.Element;
 };
-export type AddBarbelProps = AddExerciseControlProps;
+export type AddBarbelProps = AddExerciseControlProps & {
+  initialFormData?: BarbellFormDraft | null;
+};
 
 const AddExerciseControl: React.FC<AddExerciseControlProps> = (props) => {
   // TODO - For all of these, we want to pull in reps, and plate preferences,
@@ -37,7 +44,7 @@ const AddExerciseControl: React.FC<AddExerciseControlProps> = (props) => {
   // to work with context.
   switch (props.equipmentType) {
     case "barbell":
-      return <AddBarbell {...props} />;
+      return <AddBarbell {...props} initialFormData={props.barbellFormDraft} />;
     case "dumbbell":
       return (
         <Stack spacing={2}>
@@ -85,30 +92,35 @@ const AddExerciseControl: React.FC<AddExerciseControlProps> = (props) => {
   }
 };
 
-const useAddExerciseAPI = (_props: AddExerciseProps) => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const [showForm, setShowForm] = React.useState(
-    () => searchParams.get("addExercise") === "true"
-  );
-  const setShowFormAndSync = useCallback(
-    (val: boolean) => {
-      setShowForm(val);
-      const params = new URLSearchParams(searchParams.toString());
-      if (val) {
-        params.set("addExercise", "true");
-      } else {
-        params.delete("addExercise");
-      }
-      router.replace(`?${params.toString()}`, { scroll: false });
-    },
-    [searchParams, router]
-  );
+const useAddExerciseAPI = (props: AddExerciseProps) => {
+  // Show form purely based on whether there's draft data
+  const showForm =
+    props.barbellFormDraft !== null && props.barbellFormDraft !== undefined;
 
-  const hideForm = useCallback(
-    () => setShowFormAndSync(false),
-    [setShowFormAndSync]
-  );
+  const hideForm = useCallback(async () => {
+    // Clear the form draft when canceling
+    try {
+      await clearBarbellFormDraft(
+        props.userId,
+        `/exercise/${props.exerciseType}`
+      );
+    } catch (error) {
+      console.error("Failed to clear form draft:", error);
+    }
+  }, [props.userId, props.exerciseType]);
+
+  const showFormHandler = useCallback(async () => {
+    // Create draft data to show the form
+    try {
+      await createBarbellFormDraft(
+        props.userId,
+        `/exercise/${props.exerciseType}`
+      );
+    } catch (error) {
+      console.error("Failed to create form draft:", error);
+    }
+  }, [props.userId, props.exerciseType]);
+
   const cancelComponent = useMemo(
     () => (
       <Button
@@ -121,7 +133,8 @@ const useAddExerciseAPI = (_props: AddExerciseProps) => {
     ),
     [hideForm]
   );
-  return { showForm, setShowForm: setShowFormAndSync, cancelComponent };
+
+  return { showForm, setShowForm: showFormHandler, cancelComponent };
 };
 
 const AddExercise: React.FC<AddExerciseProps> = (props) => {
@@ -132,7 +145,7 @@ const AddExercise: React.FC<AddExerciseProps> = (props) => {
         <Button
           data-testid={TestIds.AddExerciseButton}
           variant="contained"
-          onClick={() => api.setShowForm(true)}
+          onClick={api.setShowForm}
           startIcon={<AddIcon />}>
           Add Exercise
         </Button>

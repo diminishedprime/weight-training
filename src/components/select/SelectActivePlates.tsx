@@ -7,7 +7,10 @@ import {
   Badge,
   FormControl,
   FormLabel,
+  IconButton,
+  Stack,
 } from "@mui/material";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { PLATE_COLORS } from "@/constants";
 
 export interface SelectActivePlatesProps {
@@ -47,7 +50,7 @@ const useSelectActivePlatesAPI = (props: SelectActivePlatesProps) => {
 
   const badgeMetadata = React.useMemo(() => {
     const metadata: Record<number, { sx: object }> = {};
-    Object.keys(activePlates).forEach((plateStr) => {
+    Object.keys(PLATE_COLORS).forEach((plateStr) => {
       const plate = Number(plateStr);
       metadata[plate] = {
         sx: {
@@ -59,7 +62,7 @@ const useSelectActivePlatesAPI = (props: SelectActivePlatesProps) => {
       };
     });
     return metadata;
-  }, [activePlates]);
+  }, []);
 
   React.useEffect(() => {
     setLocalActivePlates(activePlates);
@@ -77,29 +80,38 @@ const useSelectActivePlatesAPI = (props: SelectActivePlatesProps) => {
 const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
   const api = useSelectActivePlatesAPI(props);
 
+  // TODO consider making this a togglegroup thing instead of a button group. It
+  // may look okay that way?
+
   return (
     <FormControl>
       <FormLabel>{api.label}</FormLabel>
-      <ButtonGroup>
-        {props.availablePlates.map((plate) => {
-          const count = api.activePlates[plate] || 0;
-          const metadata = api.badgeMetadata?.[plate];
-          return (
-            <Badge
-              key={plate}
-              sx={metadata?.sx}
-              badgeContent={count > 0 ? count : undefined}
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}>
-              <Button size="small" onClick={() => api.onAddPlate(plate)}>
-                {plate}
-              </Button>
-            </Badge>
-          );
-        })}
-        <Button color="error" size="small" onClick={api.onClear}>
-          Clear
-        </Button>
-      </ButtonGroup>
+      <Stack direction="row" flexWrap="wrap" useFlexGap spacing={0.5}>
+        <ButtonGroup>
+          {props.availablePlates.map((plate) => {
+            const count = api.activePlates[plate] || 0;
+            const metadata = api.badgeMetadata?.[plate];
+            return (
+              <Badge
+                key={plate}
+                sx={metadata?.sx}
+                badgeContent={count > 0 ? count : undefined}
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}>
+                <Button size="small" onClick={() => api.onAddPlate(plate)}>
+                  {plate}
+                </Button>
+              </Badge>
+            );
+          })}
+        </ButtonGroup>
+        <IconButton
+          color="error"
+          size="small"
+          onClick={api.onClear}
+          aria-label="Clear plates">
+          <DeleteOutlineIcon />
+        </IconButton>
+      </Stack>
     </FormControl>
   );
 };

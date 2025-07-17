@@ -5,7 +5,11 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { Stack } from "@mui/material";
 import WendlerBlockTable from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockTable";
 import type { WendlerBlock, WendlerMetadata } from "@/common-types";
-import { getSupabaseClient, requireLoggedInUser } from "@/serverUtil";
+import {
+  getSupabaseClient,
+  requireLoggedInUser,
+  requirePreferences,
+} from "@/serverUtil";
 
 type ExerciseBlockProps = {
   exercise_block_id: string;
@@ -18,6 +22,13 @@ const ExerciseBlock: React.FC<ExerciseBlockProps> = async ({
     `/exercise-block/${exercise_block_id}`
   );
   const supabase = getSupabaseClient();
+
+  // Require available plates preference
+  const userPreferences = await requirePreferences(
+    userId,
+    ["available_plates"],
+    `/exercise-block/${exercise_block_id}`
+  );
 
   const [
     { data: blockData, error: blockError },
@@ -47,6 +58,7 @@ const ExerciseBlock: React.FC<ExerciseBlockProps> = async ({
       <WendlerBlockTable
         block={blockData as WendlerBlock}
         metadata={metadataData as WendlerMetadata}
+        availablePlates={userPreferences.available_plates}
       />
     </Stack>
   );

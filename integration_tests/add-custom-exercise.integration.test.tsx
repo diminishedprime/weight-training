@@ -28,6 +28,14 @@ beforeEach(async () => {
   await deleteAllExercisesForUser(USER_ID_LOGGED_IN);
 });
 
+// TODO to make my life easier I should have one of these add barbell exercises
+// tests be static so I can comment out the others when stuff goes wrong.
+
+// TODO these tests are broken right now because I changed how the add exercise
+// form is rendered. It's now conditional by the presence of some formDraft data
+// in the database so I may need to handle some of that to make sure it works in
+// the tests.
+
 describe("User Journey: Add Custom Barbell Exercises", () => {
   exercisesByEquipment["barbell"].forEach((exerciseType) => {
     it(`should allow a logged in user to add a custom barbell exercise: ${exerciseType}`, async () => {

@@ -1,18 +1,40 @@
 "use client";
 import * as React from "react";
 
-import { Stack, Typography, Paper } from "@mui/material";
-import type { WendlerBlock, WendlerMetadata } from "@/common-types";
+import { Stack, Typography } from "@mui/material";
+import { actualWeightForTarget } from "@/util";
+import {
+  RoundingMode,
+  type WendlerBlock,
+  type WendlerMetadata,
+} from "@/common-types";
 import {
   completionStatusUIString,
-  exerciseTypeUIStringLong,
+  exerciseTypeUIStringBrief,
+  weightUnitUIString,
   wendlerCycleUIString,
 } from "@/uiStrings";
 import WendlerBlockRowActive from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockRowActive";
+import WendlerBlockRowInactive from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockRowInactive";
+
+interface MetadataColumnProps {
+  label: string;
+  value: React.ReactNode;
+}
+
+const MetadataColumn: React.FC<MetadataColumnProps> = (props) => (
+  <Stack alignItems="center">
+    <Typography variant="caption" color="text.secondary">
+      {props.label}
+    </Typography>
+    <Typography variant="subtitle2">{props.value}</Typography>
+  </Stack>
+);
 
 export interface WendlerBlockTableProps {
   block: WendlerBlock;
   metadata: WendlerMetadata;
+  availablePlates: number[];
 }
 
 // TODO - this is the next big thing to work on. Want to make this ui _really_
@@ -24,95 +46,92 @@ export interface WendlerBlockTableProps {
 
 // TODO - make a new component to show a weight with good uistrings, etc.
 
-const WendlerBlockTable: React.FC<WendlerBlockTableProps> = ({
-  block,
-  metadata,
-}) => {
+const WendlerBlockTable: React.FC<WendlerBlockTableProps> = (props) => {
+  const { block, metadata, availablePlates } = props;
   if (!block || block.length === 0) {
     return <Typography>No exercises found for this block.</Typography>;
   }
+  let warmupCount = 0;
+  let workingSetCount = 0;
+
+  // TODO: this is another instance where the bar is just hardcoded to 45 lbs
+  // instead of letting the user have a say.
+  const totalVolume = block.reduce(
+    (acc, row) =>
+      actualWeightForTarget(
+        row.actual_weight_value!,
+        45,
+        availablePlates,
+        RoundingMode.NEAREST
+      ).actualWeight *
+        row.reps! +
+      acc,
+    0
+  );
+
   return (
-    <Paper sx={{ p: 1 }}>
-      <Stack spacing={1}>
-        {/* Metadata summary */}
-        <Typography variant="h4">{metadata.block_name}</Typography>
-        <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 1 }}>
-          <Typography variant="subtitle2" color="text.secondary">
-            <strong>Wendler Cycle:</strong>{" "}
-            {wendlerCycleUIString(metadata.cycle_type!)}
-          </Typography>
-          <Typography variant="subtitle2" color="text.secondary">
-            <strong>Training Max:</strong> {metadata.training_max_value}{" "}
-            {metadata.training_max_unit}
-          </Typography>
-          <Typography variant="subtitle2" color="text.secondary">
-            <strong>Increase:</strong> {metadata.increase_amount_value}{" "}
-            {metadata.increase_amount_unit}
-          </Typography>
-          <Typography variant="subtitle2" color="text.secondary">
-            <strong>Exercise:</strong>{" "}
-            {exerciseTypeUIStringLong(metadata.exercise_type!)}
-          </Typography>
-        </Stack>
-        {block.map((row, idx) =>
-          row.exercise_id === metadata.active_exercise_id ? (
+    <Stack spacing={1}>
+      {/* Metadata summary */}
+      <Typography variant="h4">{metadata.block_name}</Typography>
+      <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+        <MetadataColumn
+          label="Exercise"
+          value={exerciseTypeUIStringBrief(metadata.exercise_type!)}
+        />
+        <MetadataColumn
+          label="Cycle"
+          value={wendlerCycleUIString(metadata.cycle_type!)}
+        />
+        <MetadataColumn
+          label="Training Max"
+          value={`${metadata.training_max_value} ${weightUnitUIString(metadata.training_max_unit!)}`}
+        />
+        <MetadataColumn
+          label="Increase"
+          value={`${metadata.increase_amount_value} ${weightUnitUIString(metadata.increase_amount_unit!)}`}
+        />
+        <MetadataColumn
+          label="Total Volume"
+          value={`${totalVolume.toFixed(1)} ${weightUnitUIString(metadata.increase_amount_unit!)}`}
+        />
+      </Stack>
+      {block.map((row, idx) => {
+        let setName;
+        if (row.warmup) {
+          warmupCount++;
+          setName = `Warmup ${warmupCount}`;
+        } else {
+          workingSetCount++;
+          setName = `Working Set ${workingSetCount}`;
+        }
+        setName = `${setName}: ${row.actual_weight_value}x${row.reps}`;
+        if (row.is_amrap) {
+          setName = `${setName} (AMRAP)`;
+        }
+        if (row.exercise_id === metadata.active_exercise_id) {
+          return (
             <WendlerBlockRowActive
               key={row.exercise_id}
               row={row}
               isLastRow={idx === block.length - 1}
+              setName={setName}
+              availablePlates={availablePlates}
             />
-          ) : (
-            <WendlerBlockRowInactive key={row.exercise_id} row={row} />
-          )
-        )}
-      </Stack>
-    </Paper>
+          );
+        } else {
+          return (
+            <WendlerBlockRowInactive
+              key={row.exercise_id}
+              row={row}
+              availablePlates={availablePlates}
+              setName={setName}
+              completionStatusUIString={completionStatusUIString}
+            />
+          );
+        }
+      })}
+    </Stack>
   );
 };
-
-interface WendlerBlockRowProps {
-  row: WendlerBlock[number];
-}
-
-const WendlerBlockRowInactive: React.FC<WendlerBlockRowProps> = ({ row }) => (
-  <Stack
-    direction="row"
-    alignItems="center"
-    spacing={1}
-    sx={{
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr 1fr 2fr",
-      gap: 1,
-      px: 1,
-      py: 0.5,
-      borderRadius: 1,
-      bgcolor: "background.paper",
-      border: 1,
-      borderColor: "grey.300",
-      mb: 1,
-      cursor: "pointer",
-    }}
-    data-testid="wendler-row">
-    <Stack direction="row" alignItems="center" spacing={0.5}>
-      <Typography>{row.weight_value}</Typography>
-      <Typography variant="body2" color="text.secondary">
-        ({row.actual_weight_value})
-      </Typography>
-    </Stack>
-    <Stack direction="row" alignItems="center" spacing={0.5}>
-      <Typography>{row.reps}</Typography>
-      {row.is_amrap && (
-        <Typography variant="caption" color="primary" sx={{ ml: 0.5 }}>
-          (AMRAP)
-        </Typography>
-      )}
-    </Stack>
-    <Typography color={row.warmup ? "warning" : "success"}>
-      {row.warmup ? "Warmup" : "Working Set"}
-    </Typography>
-    <Typography>{completionStatusUIString(row.completion_status!)}</Typography>
-    <Typography sx={{ whiteSpace: "pre-line" }}>{row.notes || ""}</Typography>
-  </Stack>
-);
 
 export default WendlerBlockTable;
