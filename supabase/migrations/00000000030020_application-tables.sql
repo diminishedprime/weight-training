@@ -1,0 +1,144 @@
+-- This file has all the application tables that are needed for the database.
+CREATE SEQUENCE IF NOT EXISTS public.exercises_insert_order_seq;
+
+CREATE TABLE IF NOT EXISTS public.exercises (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  user_id uuid NOT NULL,
+  exercise_type exercise_type_enum NOT NULL,
+  equipment_type equipment_type_enum NOT NULL DEFAULT 'barbell',
+  performed_at timestamp with time zone NULL,
+  insert_time timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
+  insert_order bigint NOT NULL DEFAULT nextval('public.exercises_insert_order_seq'),
+  actual_weight_value numeric NULL,
+  target_weight_value numeric NOT NULL,
+  weight_unit weight_unit_enum NOT NULL,
+  reps integer NOT NULL,
+  warmup boolean NOT NULL DEFAULT false,
+  is_amrap boolean NOT NULL DEFAULT false,
+  completion_status completion_status_enum NOT NULL DEFAULT 'not_completed',
+  notes text NULL,
+  relative_effort relative_effort_enum NULL,
+  CONSTRAINT exercises_id_pkey PRIMARY KEY (id)
+  -- TODO: Re-enable this constraint once Steph & Matt exist in production database
+  -- The constraint is temporarily disabled to allow seeding imported exercise data
+  -- without pre-creating user records, since some auth fields can't be determined ahead of time
+  -- CONSTRAINT exercises_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS public.exercise_block (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  user_id uuid NOT NULL,
+  name text NULL,
+  notes text NULL,
+  active_exercise_id uuid NULL,
+  completion_status completion_status_enum NOT NULL DEFAULT 'not_completed',
+  created_at timestamp with time zone DEFAULT timezone ('utc', now()),
+  updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
+  CONSTRAINT exercise_block_pkey PRIMARY KEY (id),
+  CONSTRAINT exercise_block_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
+  CONSTRAINT exercise_block_active_exercise_id_fkey FOREIGN KEY (active_exercise_id) REFERENCES public.exercises (id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS public.exercise_block_exercises (
+  block_id uuid NOT NULL,
+  exercise_id uuid NOT NULL,
+  exercise_order integer NOT NULL,
+  CONSTRAINT exercise_block_exercises_pkey PRIMARY KEY (block_id, exercise_order),
+  CONSTRAINT fk_block FOREIGN KEY (block_id) REFERENCES public.exercise_block (id) ON DELETE CASCADE,
+  CONSTRAINT fk_exercise FOREIGN KEY (exercise_id) REFERENCES public.exercises (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS public.exercise_superblock (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  user_id uuid NOT NULL,
+  name text NULL,
+  notes text NULL,
+  created_at timestamp with time zone DEFAULT timezone ('utc', now()),
+  updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
+  CONSTRAINT exercise_superblock_pkey PRIMARY KEY (id),
+  CONSTRAINT exercise_superblock_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS public.exercise_superblock_blocks (
+  superblock_id uuid NOT NULL,
+  block_id uuid NOT NULL,
+  superblock_order integer NOT NULL,
+  CONSTRAINT exercise_superblock_blocks_pkey PRIMARY KEY (superblock_id, block_id),
+  CONSTRAINT fk_superblock FOREIGN KEY (superblock_id) REFERENCES public.exercise_superblock (id) ON DELETE CASCADE,
+  CONSTRAINT fk_block FOREIGN KEY (block_id) REFERENCES public.exercise_block (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS public.wendler_metadata (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  block_id uuid NOT NULL,
+  user_id uuid NOT NULL,
+  training_max_value numeric NOT NULL,
+  training_max_unit weight_unit_enum NOT NULL,
+  increase_amount_value numeric NULL,
+  increase_amount_unit weight_unit_enum NULL,
+  cycle_type wendler_cycle_type_enum NOT NULL,
+  exercise_type exercise_type_enum NOT NULL,
+  created_at timestamp with time zone DEFAULT timezone ('utc', now()),
+  updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
+  CONSTRAINT wendler_metadata_pkey PRIMARY KEY (id),
+  CONSTRAINT wendler_metadata_block_id_fkey FOREIGN KEY (block_id) REFERENCES public.exercise_block (id) ON DELETE CASCADE,
+  CONSTRAINT wendler_metadata_block_id_unique UNIQUE (block_id),
+  CONSTRAINT wendler_metadata_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS public.user_preferences (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  user_id uuid NOT NULL,
+  preferred_weight_unit weight_unit_enum DEFAULT 'pounds',
+  default_rest_time integer DEFAULT 120,
+  available_plates_lbs numeric[] DEFAULT ARRAY[]::numeric[],
+  available_dumbbells_lbs numeric[] DEFAULT ARRAY[]::numeric[],
+  created_at timestamp with time zone DEFAULT timezone ('utc', now()),
+  updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
+  CONSTRAINT user_preferences_pkey PRIMARY KEY (id),
+  CONSTRAINT user_preferences_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
+  CONSTRAINT user_preferences_user_unique UNIQUE (user_id)
+);
+
+CREATE TABLE IF NOT EXISTS public.personal_record_history (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  user_id uuid NOT NULL,
+  exercise_type exercise_type_enum NOT NULL,
+  weight_value numeric NOT NULL,
+  weight_unit weight_unit_enum NOT NULL,
+  reps integer NOT NULL,
+  recorded_at timestamptz NOT NULL DEFAULT timezone ('utc', now()),
+  source update_source_enum NOT NULL DEFAULT 'manual',
+  notes text,
+  exercise_id uuid NULL,
+  CONSTRAINT personal_record_history_pkey PRIMARY KEY (id),
+  -- TODO: Re-enable this constraint once Steph & Matt exist in production database
+  -- CONSTRAINT personal_record_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
+  CONSTRAINT personal_record_history_exercise_id_fkey FOREIGN KEY (exercise_id) REFERENCES public.exercises (id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS public.target_max_history (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  user_id uuid NOT NULL,
+  exercise_type exercise_type_enum NOT NULL,
+  weight_value numeric NOT NULL,
+  weight_unit weight_unit_enum NOT NULL,
+  recorded_at timestamptz NOT NULL DEFAULT timezone ('utc', now()),
+  source update_source_enum NOT NULL DEFAULT 'manual',
+  notes text,
+  CONSTRAINT target_max_history_pkey PRIMARY KEY (id),
+  CONSTRAINT target_max_history_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS public.form_drafts (
+  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
+  user_id uuid NOT NULL,
+  form_type text NOT NULL,
+  form_data jsonb NOT NULL,
+  created_at timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
+  updated_at timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
+  expires_at timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()) + INTERVAL '7 days',
+  CONSTRAINT form_drafts_pkey PRIMARY KEY (id),
+  CONSTRAINT form_drafts_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
+  CONSTRAINT form_drafts_user_form_unique UNIQUE (user_id, form_type)
+);

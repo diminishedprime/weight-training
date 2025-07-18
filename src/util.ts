@@ -1,5 +1,10 @@
 import { Constants } from "@/database.types";
-import { EquipmentType, ExerciseType, RoundingMode } from "@/common-types";
+import {
+  EquipmentType,
+  ExerciseType,
+  RequiredNonNullable,
+  RoundingMode,
+} from "@/common-types";
 
 /**
  * Determines the corresponding equipment for a given lift type.
@@ -324,3 +329,32 @@ export const nullableArrayEquals = <T extends string | number | boolean>(
   // Both exist, use regular arrayEquals
   return arrayEquals(a, b);
 };
+
+export const requiredKeys = <T, K extends keyof T>(
+  input: T,
+  requiredKeys: K[],
+): RequiredNonNullable<T, K> => {
+  for (const key of requiredKeys) {
+    if (input[key] === null || input[key] === undefined) {
+      throw new Error(`Missing required key: ${String(key)}`);
+    }
+  }
+  return input as RequiredNonNullable<T, K>;
+};
+
+export function fractionWeightFormat(value: number): string {
+  const FRACTIONS: Record<number, string> = {
+    0.25: "¼",
+    0.5: "½",
+    0.75: "¾",
+  };
+  const intPart = Math.floor(value);
+  const fracPart = Number((value - intPart).toFixed(2));
+  if (fracPart in FRACTIONS && intPart > 0) {
+    return `${intPart}${FRACTIONS[fracPart]}`;
+  } else if (value in FRACTIONS) {
+    return FRACTIONS[value];
+  } else {
+    return value.toString();
+  }
+}

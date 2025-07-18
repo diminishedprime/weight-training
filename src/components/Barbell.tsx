@@ -1,11 +1,12 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import { minimalPlates } from "@/util";
+import { minimalPlates, fractionWeightFormat } from "@/util";
 import { PLATE_COLORS } from "@/constants";
 import { Typography } from "@mui/material";
 import { weightUnitUIString } from "@/uiStrings";
 import { RoundingMode, WeightUnit } from "@/common-types";
+import PrettyWeight from "@/components/PrettyWeight";
 
 const barWidthMM = 2200;
 const sleeveWidthMM = 445;
@@ -146,7 +147,7 @@ const Barbell: React.FC<BarbellProps> = ({
                   fontSize: `${_plateWidth}px`,
                   lineHeight: 1,
                 }}>
-                {value}
+                {fractionWeightFormat(value)}
               </Box>
             )}
           </Box>
@@ -171,9 +172,11 @@ const Barbell: React.FC<BarbellProps> = ({
           }}
           onClick={onClickWeight}>
           {!hidePlateNumbers && (
-            <h2 style={{ margin: 0 }}>
-              {actualWeight} {weightUnitUIString(weightUnit)}
-            </h2>
+            <PrettyWeight
+              variant="h5"
+              weightValue={actualWeight}
+              weightUnit={weightUnit}
+            />
           )}
         </Box>
         <Box

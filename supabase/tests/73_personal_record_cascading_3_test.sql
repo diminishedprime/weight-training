@@ -27,7 +27,7 @@ SELECT
   is (
     (
       SELECT
-        value
+        weight_value
       FROM
         public.get_personal_records_for_exercise_type (
           'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,
@@ -56,7 +56,7 @@ SELECT
   is (
     (
       SELECT
-        value
+        weight_value
       FROM
         public.get_personal_records_for_exercise_type (
           'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,

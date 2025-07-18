@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { updateExerciseForUser as updateExerciseForUser } from "@/app/exercise/[exercise_type]/edit/[exercise_id]/actions";
+import { updateExerciseForUser as updateExerciseForUser } from "@/app/exercise/[exercise_type]/edit/[exercise_id]/_components/actions";
 import TextField from "@mui/material/TextField";
 import DateTimePicker from "@/components/DateTimePicker";
 import { equipmentForExercise } from "@/util";
-import { EquipmentWeightEditor } from "@/app/exercise/[exercise_type]/edit/[exercise_id]/EquipmentWeightEditor";
+import { EquipmentWeightEditor } from "@/app/exercise/[exercise_type]/edit/[exercise_id]/_components/EquipmentWeightEditor";
 import WarmupCheckbox from "@/components/WarmupCheckbox";
 import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
 import SelectReps from "@/components/select/SelectReps/index";

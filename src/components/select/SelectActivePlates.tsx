@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { PLATE_COLORS } from "@/constants";
+import { fractionWeightFormat } from "@/util";
 
 export interface SelectActivePlatesProps {
   availablePlates: number[];
@@ -98,7 +99,7 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
                 badgeContent={count > 0 ? count : undefined}
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}>
                 <Button size="small" onClick={() => api.onAddPlate(plate)}>
-                  {plate}
+                  {fractionWeightFormat(plate)}
                 </Button>
               </Badge>
             );

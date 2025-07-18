@@ -1,3 +1,6 @@
+-- TODO: I want to add in some wendler preferences such as the default bar to
+-- use, and then make those be optional parameters here that use the default
+-- value via coalesce.
 CREATE OR REPLACE FUNCTION public.create_wendler_exercise_block (
   p_user_id UUID,
   p_exercise_type exercise_type_enum,
@@ -16,7 +19,6 @@ DECLARE
     v_increase_amount_value NUMERIC;
     v_increase_amount_unit weight_unit_enum;
 BEGIN
-    -- Look up the user's current training max for this exercise using get_target_max
     SELECT value, unit
       INTO v_training_max_value, v_training_max_unit
       FROM public.get_target_max(p_user_id, p_exercise_type);
@@ -31,7 +33,6 @@ BEGIN
      ORDER BY created_at DESC
      LIMIT 1;
 
-    -- Check that the most recent lift has the same unit type
     IF v_prev_training_max_value IS NOT NULL THEN
         IF v_prev_training_max_unit IS DISTINCT FROM v_training_max_unit THEN
             RAISE EXCEPTION 'Unit mismatch: previous training max unit % does not match current unit % for user % and exercise %', v_prev_training_max_unit, v_training_max_unit, p_user_id, p_exercise_type;
@@ -41,7 +42,6 @@ BEGIN
     v_increase_amount_value := COALESCE(v_training_max_value - v_prev_training_max_value, v_training_max_value);
     v_increase_amount_unit := v_training_max_unit;
 
-    -- Insert exercise_block first to get its id
     INSERT INTO exercise_block (
         user_id,
         name,
@@ -179,170 +179,4 @@ BEGIN
 
     RETURN v_block_id;
 END;
-$$;
-
-DO $$
-BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'wendler_block_prereq_error_enum') THEN
-    CREATE TYPE public.wendler_block_prereq_error_enum AS ENUM (
-      'no_target_max',
-      'unit_mismatch'
-    );
-  END IF;
-END$$;
-
-DO $$
-BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'wendler_block_prereqs_row') THEN
-    CREATE TYPE public.wendler_block_prereqs_row AS (
-      is_target_max_set BOOLEAN,
-      is_prev_cycle_unit_match BOOLEAN,
-      has_no_target_max BOOLEAN,
-      has_unit_mismatch BOOLEAN,
-      prev_cycle_unit weight_unit_enum,
-      current_unit weight_unit_enum,
-      prev_training_max NUMERIC,
-      current_training_max NUMERIC
-    );
-  END IF;
-END$$;
-
-CREATE OR REPLACE FUNCTION public.check_wendler_block_prereqs (
-  p_user_id UUID,
-  p_exercise_type exercise_type_enum
-) RETURNS wendler_block_prereqs_row LANGUAGE plpgsql AS $$
-DECLARE
-  v_current_training_max NUMERIC;
-  v_current_unit weight_unit_enum;
-  v_prev_training_max NUMERIC;
-  v_prev_unit weight_unit_enum;
-  result wendler_block_prereqs_row;
-  has_no_target_max BOOLEAN := FALSE;
-  has_unit_mismatch BOOLEAN := FALSE;
-BEGIN
-  -- Check if target max is set
-  SELECT value, unit INTO v_current_training_max, v_current_unit
-    FROM public.get_target_max(p_user_id, p_exercise_type);
-  IF v_current_training_max IS NULL OR v_current_unit IS NULL THEN
-    has_no_target_max := TRUE;
-  END IF;
-
-  -- Get previous cycle's training max and unit
-  SELECT training_max_value, training_max_unit INTO v_prev_training_max, v_prev_unit
-    FROM wendler_metadata
-   WHERE user_id = p_user_id AND exercise_type = p_exercise_type
-   ORDER BY created_at DESC
-   LIMIT 1;
-
-  IF v_prev_training_max IS NOT NULL AND v_prev_unit IS DISTINCT FROM v_current_unit THEN
-    has_unit_mismatch := TRUE;
-  END IF;
-
-  result.is_target_max_set := v_current_training_max IS NOT NULL AND v_current_unit IS NOT NULL;
-  result.is_prev_cycle_unit_match := (v_prev_training_max IS NULL) OR (v_prev_unit = v_current_unit);
-  result.has_no_target_max := has_no_target_max;
-  result.has_unit_mismatch := has_unit_mismatch;
-  result.prev_cycle_unit := v_prev_unit;
-  result.current_unit := v_current_unit;
-  result.prev_training_max := v_prev_training_max;
-  result.current_training_max := v_current_training_max;
-  RETURN result;
-END;
-$$;
-
-DO $$
-BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'wendler_block_exercise_row') THEN
-    CREATE TYPE public.wendler_block_exercise_row AS (
-      block_id uuid,
-      exercise_id uuid,
-      user_id uuid,
-      exercise_type exercise_type_enum,
-      equipment_type equipment_type_enum,
-      performed_at timestamptz,
-      actual_weight_value numeric,
-      target_weight_value numeric,
-      weight_unit weight_unit_enum,
-      reps integer,
-      warmup boolean,
-      is_amrap boolean,
-      completion_status completion_status_enum,
-      notes text,
-      relative_effort relative_effort_enum
-    );
-  END IF;
-END$$;
-
-CREATE OR REPLACE FUNCTION public.get_wendler_block (p_block_id UUID, p_user_id UUID) RETURNS SETOF public.wendler_block_exercise_row LANGUAGE sql STABLE AS $$
-  SELECT
-    b.id AS block_id,
-    e.id AS exercise_id,
-    b.user_id,
-    e.exercise_type,
-    e.equipment_type,
-    e.performed_at,
-    e.actual_weight_value,
-    e.target_weight_value,
-    e.weight_unit,
-    e.reps,
-    e.warmup,
-    e.is_amrap,
-    e.completion_status,
-    e.notes,
-    e.relative_effort
-  FROM public.exercise_block_exercises ebe
-  JOIN public.exercises e ON ebe.exercise_id = e.id
-  JOIN public.exercise_block b ON ebe.block_id = b.id
-  WHERE ebe.block_id = p_block_id
-    AND b.user_id = p_user_id
-  ORDER BY ebe.exercise_order ASC;
-$$;
-
-DO $$
-BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'wendler_metadata_row') THEN
-    CREATE TYPE public.wendler_metadata_row AS (
-      id uuid,
-      user_id uuid,
-      training_max_value numeric,
-      training_max_unit weight_unit_enum,
-      increase_amount_value numeric,
-      increase_amount_unit weight_unit_enum,
-      cycle_type wendler_cycle_type_enum,
-      exercise_type exercise_type_enum,
-      created_at timestamptz,
-      updated_at timestamptz,
-      block_id uuid,
-      block_name text,
-      block_notes text,
-      block_created_at timestamptz,
-      block_updated_at timestamptz,
-      active_exercise_id uuid
-    );
-  END IF;
-END$$;
-
-CREATE OR REPLACE FUNCTION public.get_wendler_metadata (p_block_id UUID, p_user_id UUID) RETURNS public.wendler_metadata_row LANGUAGE sql STABLE AS $$
-  SELECT
-    wm.id,
-    wm.user_id,
-    wm.training_max_value,
-    wm.training_max_unit,
-    wm.increase_amount_value,
-    wm.increase_amount_unit,
-    wm.cycle_type,
-    wm.exercise_type,
-    wm.created_at,
-    wm.updated_at,
-    b.id AS block_id,
-    b.name AS block_name,
-    b.notes AS block_notes,
-    b.created_at AS block_created_at,
-    b.updated_at AS block_updated_at,
-    b.active_exercise_id
-  FROM public.exercise_block b
-  JOIN public.wendler_metadata wm ON wm.block_id = b.id
-  WHERE b.id = p_block_id
-    AND b.user_id = p_user_id
-  LIMIT 1;
 $$;

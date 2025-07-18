@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { Session } from "next-auth";
 import { Database } from "@/database.types";
 import { auth } from "@/auth";
-import { UserPreferences } from "@/common-types";
+import { RequiredNonNullable, UserPreferences } from "@/common-types";
 
 /**
  * Returns a Supabase client instance for server-side usage.
@@ -31,11 +31,6 @@ export async function requireLoggedInUser(
   }
   return { session, userId };
 }
-
-// Utility type that makes specified keys required and non-nullable
-type RequiredNonNullable<T, K extends keyof T> = T & {
-  [P in K]-?: NonNullable<T[P]>;
-};
 
 // This function retrieves user preferences from the database and ensures that
 // values that are required (indicated via) requiredKeys are non-null. If they

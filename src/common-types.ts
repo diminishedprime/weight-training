@@ -41,3 +41,8 @@ export enum RoundingMode {
   DOWN = "DOWN",
   NEAREST = "NEAREST",
 }
+
+// Utility type that makes specified keys required and non-nullable
+export type RequiredNonNullable<T, K extends keyof T> = T & {
+  [P in K]-?: NonNullable<T[P]>;
+};

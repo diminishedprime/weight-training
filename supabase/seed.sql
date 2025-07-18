@@ -57716,4 +57716,2398 @@ SELECT
   pg_sleep(0.0001);
 
 -- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 105,
+    p_actual_weight_value => 105,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:25:34.762000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "squat"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 60,
+    p_actual_weight_value => 60,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:25:37.214000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "squat"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 155,
+    p_actual_weight_value => 155,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:28:11.623000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "squat"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:28:27.942000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "squat"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 190,
+    p_actual_weight_value => 190,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:30:41.858000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "squat"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:30:59.608000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "squat"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 240,
+    p_actual_weight_value => 240,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:33:31.975000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "squat"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 145,
+    p_actual_weight_value => 145,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:33:33.754000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "squat"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 275,
+    p_actual_weight_value => 275,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:36:12.587000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "squat"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 165,
+    p_actual_weight_value => 165,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:36:16.359000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "squat"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 310,
+    p_actual_weight_value => 310,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:40:13.830000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "squat"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:40:31.504000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "squat"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 120,
+    p_actual_weight_value => 120,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:43:47.619000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 70,
+    p_actual_weight_value => 70,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:43:58.508000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-curl-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 120,
+    p_actual_weight_value => 120,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:44:54.520000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 75,
+    p_actual_weight_value => 75,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:45:11.191000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-curl-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 120,
+    p_actual_weight_value => 120,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:45:59.820000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 80,
+    p_actual_weight_value => 80,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:46:11.969000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-curl-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 120,
+    p_actual_weight_value => 120,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:47:08.067000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 85,
+    p_actual_weight_value => 85,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:47:23.118000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-curl-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 90,
+    p_actual_weight_value => 90,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:47:36.439000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-curl-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 120,
+    p_actual_weight_value => 120,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:48:41.498000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:49:41.160000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-curl-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 75,
+    p_actual_weight_value => 75,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:49:49.102000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:50:57.890000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-curl-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:51:55.916000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-curl-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 80,
+    p_actual_weight_value => 80,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:51:56.574000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:52:50.222000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-curl-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 80,
+    p_actual_weight_value => 80,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:53:01.653000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 130,
+    p_actual_weight_value => 130,
+    p_reps => 20,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:54:07.881000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-curl-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 85,
+    p_actual_weight_value => 85,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:54:29.883000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 85,
+    p_actual_weight_value => 85,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:55:21.937000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "leg-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
+    p_equipment_type => 'plate_stack'::equipment_type_enum,
+    p_target_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:57:02.836000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "seated-calf-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
+    p_equipment_type => 'plate_stack'::equipment_type_enum,
+    p_target_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:58:09.194000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "seated-calf-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
+    p_equipment_type => 'plate_stack'::equipment_type_enum,
+    p_target_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-13T23:59:14.700000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "seated-calf-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
+    p_equipment_type => 'plate_stack'::equipment_type_enum,
+    p_target_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-14T00:00:01.492000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "seated-calf-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
+    p_equipment_type => 'plate_stack'::equipment_type_enum,
+    p_target_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-14T00:00:51.077000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "seated-calf-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
+    p_equipment_type => 'plate_stack'::equipment_type_enum,
+    p_target_weight_value => 25,
+    p_actual_weight_value => 25,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-14T00:01:21.083000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "seated-calf-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
+    p_equipment_type => 'plate_stack'::equipment_type_enum,
+    p_target_weight_value => 25,
+    p_actual_weight_value => 25,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-14T00:01:26.198000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "seated-calf-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
+    p_equipment_type => 'plate_stack'::equipment_type_enum,
+    p_target_weight_value => 25,
+    p_actual_weight_value => 25,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-14T00:01:31.015000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "seated-calf-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
+    p_equipment_type => 'plate_stack'::equipment_type_enum,
+    p_target_weight_value => 25,
+    p_actual_weight_value => 25,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-14T00:01:38.447000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "seated-calf-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
+    p_equipment_type => 'plate_stack'::equipment_type_enum,
+    p_target_weight_value => 25,
+    p_actual_weight_value => 25,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-14T00:01:44.885000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "seated-calf-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 70,
+    p_actual_weight_value => 70,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-15T23:45:17.397000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "bench-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-15T23:46:21.232000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "bench-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 105,
+    p_actual_weight_value => 105,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-15T23:47:40.884000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "bench-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 50,
+    p_actual_weight_value => 50,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-15T23:49:57.331000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "bench-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 125,
+    p_actual_weight_value => 125,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-15T23:50:01.040000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "bench-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 60,
+    p_actual_weight_value => 60,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-15T23:51:31.446000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "bench-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 160,
+    p_actual_weight_value => 160,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-15T23:52:26.525000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "bench-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 80,
+    p_actual_weight_value => 80,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-15T23:54:04.920000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "bench-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 185,
+    p_actual_weight_value => 185,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-15T23:54:50.020000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "bench-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 90,
+    p_actual_weight_value => 90,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-15T23:56:59.941000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "bench-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 205,
+    p_actual_weight_value => 205,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-15T23:59:05.794000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "bench-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 100,
+    p_actual_weight_value => 100,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-15T23:59:08.579000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "bench-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:02:30.126000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "overhead-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:02:41.413000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "overhead-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:05:55.909000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "overhead-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:06:00.611000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "overhead-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 75,
+    p_actual_weight_value => 75,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:08:40.625000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "overhead-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:08:52.548000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "overhead-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 50,
+    p_actual_weight_value => 50,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:11:49.831000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "overhead-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 100,
+    p_actual_weight_value => 100,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:12:31.760000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "overhead-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 60,
+    p_actual_weight_value => 60,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:14:01.206000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "overhead-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:15:00.995000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "overhead-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 4,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:17:12.669000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "overhead-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 125,
+    p_actual_weight_value => 125,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:18:32.840000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "overhead-press"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 20,
+    p_actual_weight_value => 20,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:31:01.549000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "converging-chest-press-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:31:27.149000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "converging-chest-press-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 20,
+    p_actual_weight_value => 20,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:32:16.096000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "converging-chest-press-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:32:34.604000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "converging-chest-press-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 20,
+    p_actual_weight_value => 20,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:33:02.482000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "converging-chest-press-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:33:39.711000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "converging-chest-press-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 20,
+    p_actual_weight_value => 20,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:34:10.616000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "converging-chest-press-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:35:17.518000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "converging-chest-press-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 20,
+    p_actual_weight_value => 20,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:35:48.045000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "converging-chest-press-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 65,
+    p_actual_weight_value => 65,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:39:53.181000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "arm-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 45,
+    p_actual_weight_value => 45,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:40:48.291000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "arm-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 55,
+    p_actual_weight_value => 55,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:41:19.983000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "arm-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 40,
+    p_actual_weight_value => 40,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:41:46.577000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "arm-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 55,
+    p_actual_weight_value => 55,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:42:26.458000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "arm-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 40,
+    p_actual_weight_value => 40,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:42:59.376000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "arm-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 55,
+    p_actual_weight_value => 55,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:43:48.358000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "arm-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 55,
+    p_actual_weight_value => 55,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-16T00:45:18.101000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "arm-extension-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 130,
+    p_actual_weight_value => 130,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-17T23:42:31.725000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "deadlift"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 190,
+    p_actual_weight_value => 190,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-17T23:44:58.901000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "deadlift"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 70,
+    p_actual_weight_value => 70,
+    p_reps => 8,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-17T23:46:31.209000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "deadlift"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 235,
+    p_actual_weight_value => 235,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-17T23:47:38.674000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "deadlift"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 105,
+    p_actual_weight_value => 105,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-17T23:49:01.012000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "deadlift"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 300,
+    p_actual_weight_value => 300,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-17T23:50:49.954000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "deadlift"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 130,
+    p_actual_weight_value => 130,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-17T23:52:22.200000+00:00'::timestamptz,
+    p_warmup => true,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "deadlift"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 340,
+    p_actual_weight_value => 340,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-17T23:54:27.622000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "deadlift"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 165,
+    p_actual_weight_value => 165,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-17T23:55:25.379000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "deadlift"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 190,
+    p_actual_weight_value => 190,
+    p_reps => 3,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-17T23:58:47.506000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "deadlift"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 385,
+    p_actual_weight_value => 385,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:00:27.562000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "deadlift"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 215,
+    p_actual_weight_value => 215,
+    p_reps => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:02:55.451000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "deadlift"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:09:27.646000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "diverging-low-row-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 70,
+    p_actual_weight_value => 70,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:10:09.651000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "diverging-low-row-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:11:00.745000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "diverging-low-row-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 70,
+    p_actual_weight_value => 70,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:11:34.804000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "diverging-low-row-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:12:07.170000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "diverging-low-row-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 70,
+    p_actual_weight_value => 70,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:12:41.972000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "diverging-low-row-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 120,
+    p_actual_weight_value => 120,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:13:16.025000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "diverging-low-row-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 70,
+    p_actual_weight_value => 70,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:13:47.781000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "diverging-low-row-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 115,
+    p_actual_weight_value => 115,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:15:30.849000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "diverging-low-row-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 70,
+    p_actual_weight_value => 70,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:16:09.003000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "diverging-low-row-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_abdominal'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 90,
+    p_actual_weight_value => 90,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:27:41.119000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "abdominal-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_abdominal'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:28:53.498000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "abdominal-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_abdominal'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 90,
+    p_actual_weight_value => 90,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:29:27.464000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "abdominal-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_abdominal'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:30:46.453000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "abdominal-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_abdominal'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 90,
+    p_actual_weight_value => 90,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:30:50.721000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "abdominal-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
+    p_exercise_type => 'machine_abdominal'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 95,
+    p_actual_weight_value => 95,
+    p_reps => 15,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:31:24.372000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "abdominal-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_abdominal'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:32:35.147000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "abdominal-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_abdominal'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 10,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:32:36.765000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "abdominal-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
+SELECT
+  public.create_exercise (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
+    p_exercise_type => 'machine_abdominal'::exercise_type_enum,
+    p_equipment_type => 'machine'::equipment_type_enum,
+    p_target_weight_value => 110,
+    p_actual_weight_value => 110,
+    p_reps => 17,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_performed_at => '2025-07-18T00:35:47.339000+00:00'::timestamptz,
+    p_warmup => false,
+    p_is_amrap => false,
+    p_completion_status => 'completed'::completion_status_enum,
+    p_relative_effort => NULL::relative_effort_enum,
+    p_notes => 'imported from firestore data: "abdominal-machine"'
+  );
+
+SELECT
+  pg_sleep(0.0001);
+
+-- 0.1ms delay to ensure trigger sequencing
 -- END OF IMPORTED EXERCISE DATA --

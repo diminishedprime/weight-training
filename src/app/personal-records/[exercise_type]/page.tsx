@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { ExerciseType } from "@/common-types";
 import React, { Suspense } from "react";
-import { exerciseTypeUIStringLong, weightUnitUIString } from "@/uiStrings";
+import { exerciseTypeUIStringLong } from "@/uiStrings";
 import {
   Stack,
   Typography,
@@ -17,7 +17,8 @@ import {
   Paper,
 } from "@mui/material";
 import Link from "next/link";
-import { format } from "date-fns";
+import { format, formatDistance, formatDistanceToNow } from "date-fns";
+import PrettyWeight from "@/components/PrettyWeight";
 
 type PersonalRecordsExerciseTypeProps = {
   exercise_type: ExerciseType;
@@ -88,16 +89,39 @@ const PersonalRecordsExerciseType = async (
 
       {repGroups.map(({ reps, records }) => (
         <Stack key={reps} spacing={1}>
-          <Typography variant="h6" color="primary">
-            {reps} Rep{reps === 1 ? "" : "s"}
-          </Typography>
+          <Stack
+            direction="row"
+            spacing={1}
+            display="flex"
+            alignItems="baseline">
+            <Typography variant="h6" color="primary">
+              {reps} Rep{reps === 1 ? "" : "s"}
+            </Typography>
+            <Typography>
+              <Typography component="span">
+                Last record (
+                <PrettyWeight
+                  weightValue={records[0].weight_value!}
+                  weightUnit={records[0].weight_unit!}
+                  reps={records[0].reps!}
+                />
+                )
+              </Typography>
+              <Typography component="span">
+                {" "}
+                {formatDistanceToNow(new Date(records[0].recorded_at!), {
+                  addSuffix: true,
+                })}
+              </Typography>
+            </Typography>
+          </Stack>
           <TableContainer component={Paper}>
             <Table size="small">
               <TableHead>
                 <TableRow>
                   <TableCell>Date</TableCell>
                   <TableCell align="right">Weight</TableCell>
-                  <TableCell align="center">Reps</TableCell>
+                  <TableCell align="center">Increase</TableCell>
                   <TableCell align="center">Time Since Last</TableCell>
                 </TableRow>
               </TableHead>
@@ -109,14 +133,28 @@ const PersonalRecordsExerciseType = async (
                         ? format(new Date(record.recorded_at), "MMM d, yyyy")
                         : "—"}
                     </TableCell>
-                    <TableCell align="right">
-                      {record.value} {weightUnitUIString(record.unit!)}
+                    <TableCell>
+                      <PrettyWeight
+                        weightValue={record.weight_value!}
+                        weightUnit={record.weight_unit!}
+                      />
                     </TableCell>
-                    <TableCell align="center">{record.reps}</TableCell>
                     <TableCell align="center">
-                      {record.days_since_last_record
-                        ? `${record.days_since_last_record} day${record.days_since_last_record === 1 ? "" : "s"}`
-                        : "—"}
+                      {record.increase_weight_value != null ? (
+                        <PrettyWeight
+                          weightValue={record.increase_weight_value}
+                          weightUnit={record.weight_unit!}
+                        />
+                      ) : (
+                        "—"
+                      )}
+                    </TableCell>
+                    <TableCell align="center">
+                      {record.previous_recorded_at &&
+                        formatDistance(
+                          record.previous_recorded_at,
+                          record.recorded_at!
+                        )}
                     </TableCell>
                   </TableRow>
                 ))}
