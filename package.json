@@ -71,6 +71,7 @@
     "supabase": "^2.30.4",
     "typescript": "^5",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.2.3"
+    "vitest": "^3.2.3",
+    "vite": "^6.3.5"
   }
 }

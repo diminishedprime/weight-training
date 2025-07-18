@@ -1,0 +1,87 @@
+---
+globs: src/app/**/*.tsx,src/components/**/*.tsx
+---
+# UI & Component Patterns
+
+## Component Structure (per [UI_STRATEGY.md](mdc:docs/UI_STRATEGY.md))
+- **Client Components**: Mark with `"use client"` directive for hooks/interactivity
+- **Server Components**: Default for auth, database queries, static content
+- **Material UI**: Use MUI components, `Stack` for layouts, minimal custom CSS
+- **Mobile-First**: Responsive design with MUI breakpoints
+
+## Component Logic Patterns
+- **API-Style Hooks**: Components with logic should use `use{ComponentName}API()` hook
+- **useCallback**: Always use for event handlers (onClick, onSubmit, etc.)
+- **Props Access**: Use dot notation (`props.value`) instead of destructuring
+- **Type Safety**: Explicit typing for components, inference for hook returns
+
+Example pattern:
+```tsx
+"use client";
+import { useCallback } from 'react';
+
+function useMyComponentAPI() {
+  const handleClick = useCallback(() => {
+    // logic here
+  }, []);
+  
+  return { handleClick };
+}
+
+export function MyComponent(props: { value: string }) {
+  const api = useMyComponentAPI();
+  
+  return (
+    <Button onClick={api.handleClick}>
+      {props.value}
+    </Button>
+  );
+}
+```
+
+## Server Actions Pattern
+Actions in `actions.ts` files colocated with components:
+```typescript
+"use server";
+import { supabaseRPC } from "@/serverUtil";
+import { revalidatePath } from "next/cache";
+
+export async function myAction(userId: string, data: FormData) {
+  const result = await supabaseRPC('function_name', { 
+    p_user_id: userId 
+  });
+  revalidatePath('/path/to/revalidate');
+  return result;
+}
+```
+
+## Type Aliases
+Always create local type aliases for database types in components:
+```typescript
+// Good
+type Exercise = Database["public"]["Functions"]["get_exercise_for_user"]["Returns"];
+
+// Avoid using generated types directly in components
+```
+
+## Authentication Patterns
+- Use `requireLoggedInUser()` from [src/serverUtil.ts](mdc:src/serverUtil.ts) in server components
+- User preferences via `requirePreferences()` with redirect handling
+- Session data from NextAuth via `auth()` function
+
+## Form State Management
+- Form drafts stored in database via `form_drafts` table
+- Use form state persistence across sessions per [form-drafts migration](mdc:supabase/migrations/00000000000110_form-drafts.sql)
+- Clear drafts on successful submission
+
+## Test IDs
+Use `data-testid` attributes for elements targeted in tests:
+```tsx
+<Button data-testid="submit-exercise">Submit</Button>
+```
+
+## File Organization
+- Pages in `src/app/` with App Router structure
+- Shared components in `src/components/`
+- Page-specific components in `_components/` subdirectories
+- Actions colocated with components in `actions.ts` files
