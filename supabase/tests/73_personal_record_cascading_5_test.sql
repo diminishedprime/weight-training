@@ -14,19 +14,13 @@ SELECT
 -- Test 1: Insert first exercise with 1 rep to establish baseline
 SELECT
   public.create_exercise (
-    'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,
-    'barbell_bench_press'::exercise_type_enum,
-    'barbell'::equipment_type_enum,
-    185::numeric,
-    185::numeric,
-    1::integer,
-    'pounds'::weight_unit_enum,
-    '2023-01-01T10:00:00Z'::timestamptz,
-    false::boolean,
-    false::boolean,
-    'completed'::completion_status_enum,
-    NULL::relative_effort_enum,
-    NULL::text
+    p_user_id => 'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 184::numeric,
+    p_reps => 1::integer,
+    p_actual_weight_value => 185::numeric,
+    p_performed_at => '2023-01-01T10:00:00Z'::timestamptz
   );
 
 -- Test 2: Verify initial 1-rep PR was created
@@ -51,22 +45,15 @@ SELECT
 -- Test 3: Insert second exercise with 2 reps at higher weight
 SELECT
   public.create_exercise (
-    'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,
-    'barbell_bench_press'::exercise_type_enum,
-    'barbell'::equipment_type_enum,
-    205::numeric,
-    205::numeric,
-    2::integer,
-    'pounds'::weight_unit_enum,
-    '2023-01-02T10:00:00Z'::timestamptz,
-    false::boolean,
-    false::boolean,
-    'completed'::completion_status_enum,
-    NULL::relative_effort_enum,
-    NULL::text
+    p_user_id => 'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 204::numeric,
+    p_reps => 2::integer,
+    p_actual_weight_value => 205::numeric,
+    p_performed_at => '2023-01-02T10:00:00Z'::timestamptz
   );
 
--- Test 4: Verify 1-rep PR was updated to higher weight
 SELECT
   is (
     (
@@ -103,6 +90,19 @@ SELECT
     205::numeric,
     '2-rep PR created at 205 lbs'
   );
+
+-- Debug: Show all PR history for this user/exercise
+SELECT
+  *
+FROM
+  public.personal_record_history
+WHERE
+  user_id = 'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid
+  AND exercise_type = 'barbell_bench_press'::exercise_type_enum
+ORDER BY
+  reps,
+  value,
+  recorded_at;
 
 SELECT
   *

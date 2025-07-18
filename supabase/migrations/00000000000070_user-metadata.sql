@@ -7,25 +7,25 @@
 --
 -- ========================================================================== --
 --
--- Table: user_metadata
+-- Table: user_preferences
 --
--- Columns:
---   id (uuid): Primary key for the metadata record.
+--   id (uuid): Primary key for the preferences record.
 --   user_id (uuid): Foreign key to next_auth.users(id).
 --   preferred_weight_unit (weight_unit_enum): User's preferred weight unit.
 --   created_at, updated_at (timestamptz): Timestamps for record tracking.
 --
-CREATE TABLE IF NOT EXISTS public.user_metadata (
+CREATE TABLE IF NOT EXISTS public.user_preferences (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
   preferred_weight_unit weight_unit_enum DEFAULT 'pounds',
   default_rest_time integer DEFAULT 120,
-  available_plates numeric[] DEFAULT ARRAY[]::numeric[],
+  available_plates_lbs numeric[] DEFAULT ARRAY[]::numeric[],
+  available_dumbbells_lbs numeric[] DEFAULT ARRAY[]::numeric[],
   created_at timestamp with time zone DEFAULT timezone ('utc', now()),
   updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
-  CONSTRAINT user_metadata_pkey PRIMARY KEY (id),
-  CONSTRAINT user_metadata_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
-  CONSTRAINT user_metadata_user_unique UNIQUE (user_id)
+  CONSTRAINT user_preferences_pkey PRIMARY KEY (id),
+  CONSTRAINT user_preferences_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
+  CONSTRAINT user_preferences_user_unique UNIQUE (user_id)
 );
 
 -- Enum: update_source_enum

@@ -5,22 +5,77 @@ import { Stack, TextField, Button, Typography } from "@mui/material";
 import { updateUserPreferences } from "@/app/preferences/_components/UpdateUserPreferences/actions";
 import { UserPreferences, WeightUnit } from "@/common-types";
 import SelectPlates from "@/components/select/SelectPlates";
-import { AVAILABLE_PLATES, COMMON_AVAILABLE_PLATES } from "@/constants";
+import SelectAvailableDumbbells from "@/components/select/SelectAvailableDumbbells";
+import { DEFAULT_VALUES } from "@/constants";
 import SelectWeightUnit from "@/components/select/SelectWeightUnit";
 import { nullableArrayEquals } from "@/util";
 import { useSearchParams } from "next/navigation";
 import { userPreferenceUIString } from "@/uiStrings";
+import { useRequiredModifiableLabel } from "@/hooks";
+import { TestIds } from "@/test-ids";
 
 type UpdateUserPreferencesProps = {
   userId: string;
   preferences: UserPreferences;
 };
 
-const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
-  const {
-    preferences: { preferred_weight_unit, default_rest_time, available_plates },
-  } = props;
+const useUserPreferencesModified = (
+  preferred_weight_unit: WeightUnit,
+  default_rest_time: number | null,
+  available_plates_lbs: number[] | null,
+  available_dumbbells_lbs: number[] | null,
+  localPreferredWeightUnit: WeightUnit,
+  localDefaultRestTime: string,
+  localAvailablePlatesLbs: number[],
+  localAvailableDumbbellsLbs: number[]
+) => {
+  const unitModified = React.useMemo(() => {
+    return localPreferredWeightUnit !== preferred_weight_unit;
+  }, [localPreferredWeightUnit, preferred_weight_unit]);
 
+  const restTimeModified = React.useMemo(() => {
+    return localDefaultRestTime !== (default_rest_time?.toString() ?? "");
+  }, [localDefaultRestTime, default_rest_time]);
+
+  const platesLBSModified = React.useMemo(() => {
+    return !nullableArrayEquals(localAvailablePlatesLbs, available_plates_lbs);
+  }, [localAvailablePlatesLbs, available_plates_lbs]);
+
+  const dumbbellsLBSModified = React.useMemo(() => {
+    if (!available_dumbbells_lbs) return true;
+    const a = (available_dumbbells_lbs || []).slice().sort((a, b) => a - b);
+    const b = (localAvailableDumbbellsLbs || []).slice().sort((a, b) => a - b);
+    if (a.length !== b.length) return true;
+    for (let i = 0; i < a.length; i++) {
+      if (a[i] !== b[i]) return true;
+    }
+    return false;
+  }, [localAvailableDumbbellsLbs, available_dumbbells_lbs]);
+
+  const preferencesModified = React.useMemo(() => {
+    return (
+      unitModified ||
+      restTimeModified ||
+      platesLBSModified ||
+      dumbbellsLBSModified
+    );
+  }, [unitModified, restTimeModified, platesLBSModified, dumbbellsLBSModified]);
+
+  return {
+    unitModified,
+    restTimeModified,
+    platesLBSModified,
+    dumbbellsLBSModified,
+    preferencesModified,
+  };
+};
+
+const useRequiredPreferences = (
+  localPreferredWeightUnit: WeightUnit,
+  localDefaultRestTime: string,
+  localAvailablePlatesLbs: number[],
+  localAvailableDumbbellsLbs: number[]
+) => {
   const params = useSearchParams();
   const backTo = params.get("backTo");
   const requiredPreferences = useMemo(() => {
@@ -28,35 +83,10 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     return reqPrefString?.split(",") as (keyof UserPreferences)[] | null;
   }, [params]);
 
-  const [localPreferredWeightUnit, setLocalPreferredWeightUnit] = useState(
-    preferred_weight_unit || ("pounds" as WeightUnit)
-  );
-  const [localDefaultRestTime, setLocalDefaultRestTime] = useState(
-    default_rest_time?.toString() ?? "120"
-  );
-  const [localAvailablePlates, setLocalAvailablePlates] = useState<number[]>(
-    available_plates || COMMON_AVAILABLE_PLATES
-  );
-
-  const unitModified = React.useMemo(() => {
-    return localPreferredWeightUnit !== preferred_weight_unit;
-  }, [localPreferredWeightUnit, preferred_weight_unit]);
-
-  const restTimeModified = React.useMemo(() => {
-    return localDefaultRestTime !== default_rest_time?.toString();
-  }, [localDefaultRestTime, default_rest_time]);
-
-  const availablePlatesModified = React.useMemo(() => {
-    return !nullableArrayEquals(localAvailablePlates, available_plates);
-  }, [localAvailablePlates, available_plates]);
-
-  const preferencesModified = React.useMemo(() => {
-    return unitModified || restTimeModified || availablePlatesModified;
-  }, [unitModified, restTimeModified, availablePlatesModified]);
-
-  // Check if all required preferences are set
   const requiredPreferencesSet = useMemo(() => {
-    if (!requiredPreferences) return true;
+    if (!requiredPreferences) {
+      return true;
+    }
 
     return requiredPreferences.every((prefKey) => {
       switch (prefKey) {
@@ -64,8 +94,12 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
           return !!localPreferredWeightUnit;
         case "default_rest_time":
           return !!localDefaultRestTime && !isNaN(Number(localDefaultRestTime));
-        case "available_plates":
-          return localAvailablePlates && localAvailablePlates.length > 0;
+        case "available_plates_lbs":
+          return localAvailablePlatesLbs && localAvailablePlatesLbs.length > 0;
+        case "available_dumbbells_lbs":
+          return (
+            localAvailableDumbbellsLbs && localAvailableDumbbellsLbs.length > 0
+          );
         default:
           return true;
       }
@@ -74,19 +108,9 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     requiredPreferences,
     localPreferredWeightUnit,
     localDefaultRestTime,
-    localAvailablePlates,
+    localAvailablePlatesLbs,
+    localAvailableDumbbellsLbs,
   ]);
-
-  const canSave = useMemo(() => {
-    return preferencesModified && requiredPreferencesSet;
-  }, [preferencesModified, requiredPreferencesSet]);
-
-  const restTimeLabel = React.useMemo(() => {
-    const isRequired = requiredPreferences?.includes("default_rest_time");
-    const requiredIndicator = isRequired ? " *" : "";
-    const modifiedIndicator = restTimeModified ? " (modified)" : "";
-    return `Rest Time (seconds)${requiredIndicator}${modifiedIndicator}`;
-  }, [restTimeModified, requiredPreferences]);
 
   const requiredPreferencesMessage = useMemo(() => {
     if (!requiredPreferences || requiredPreferences.length === 0) {
@@ -95,6 +119,74 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     const friendlyNames = requiredPreferences.map(userPreferenceUIString);
     return `Please set the following required preferences to continue: ${friendlyNames.join(", ")}`;
   }, [requiredPreferences]);
+
+  return {
+    backTo,
+    requiredPreferences,
+    requiredPreferencesSet,
+    requiredPreferencesMessage,
+  };
+};
+
+const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
+  const {
+    preferences: {
+      preferred_weight_unit,
+      default_rest_time,
+      available_plates_lbs,
+      available_dumbbells_lbs,
+    },
+  } = props;
+
+  const [localPreferredWeightUnit, setLocalPreferredWeightUnit] = useState(
+    preferred_weight_unit || DEFAULT_VALUES.PREFERRED_WEIGHT_UNIT
+  );
+  const [localDefaultRestTime, setLocalDefaultRestTime] = useState(
+    default_rest_time?.toString() ?? DEFAULT_VALUES.REST_TIME_SECONDS.toString()
+  );
+
+  const [localAvailablePlatesLbs, setLocalAvailablePlatesLbs] = useState<
+    number[]
+  >(available_plates_lbs ?? DEFAULT_VALUES.SELECTED_PLATES);
+
+  const [localAvailableDumbbellsLbs, setLocalAvailableDumbbellsLbs] = useState<
+    number[]
+  >(available_dumbbells_lbs ?? DEFAULT_VALUES.AVAILABLE_DUMBBELLS_LBS);
+
+  // Use the new modification-tracking hook
+  const modifications = useUserPreferencesModified(
+    preferred_weight_unit ?? "pounds",
+    default_rest_time,
+    available_plates_lbs,
+    available_dumbbells_lbs,
+    localPreferredWeightUnit,
+    localDefaultRestTime,
+    localAvailablePlatesLbs,
+    localAvailableDumbbellsLbs
+  );
+
+  const {
+    backTo,
+    requiredPreferences,
+    requiredPreferencesSet,
+    requiredPreferencesMessage,
+  } = useRequiredPreferences(
+    localPreferredWeightUnit,
+    localDefaultRestTime,
+    localAvailablePlatesLbs,
+    localAvailableDumbbellsLbs
+  );
+
+  const canSave = useMemo(() => {
+    return modifications.preferencesModified && requiredPreferencesSet;
+  }, [modifications.preferencesModified, requiredPreferencesSet]);
+
+  // TODO: create a useModifidableLabel hook to handle this logic.
+  const restTimeLabel = useRequiredModifiableLabel(
+    "Rest Time (seconds)",
+    !!requiredPreferences?.includes("default_rest_time"),
+    modifications.restTimeModified
+  );
 
   const handleWeightUnitChange = useCallback((unit: WeightUnit) => {
     setLocalPreferredWeightUnit(unit);
@@ -108,26 +200,32 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
   );
 
   const handleAvailablePlatesChange = useCallback((plates: number[]) => {
-    setLocalAvailablePlates(plates);
+    setLocalAvailablePlatesLbs(plates);
   }, []);
+
+  const handleAvailableDumbbellsChange = React.useCallback(
+    (dumbbells: number[]) => {
+      setLocalAvailableDumbbellsLbs(dumbbells);
+    },
+    []
+  );
 
   return {
     preferredWeightUnit: localPreferredWeightUnit,
     defaultRestTime: localDefaultRestTime,
-    availablePlates: localAvailablePlates,
-    unitModified,
-    restTimeModified,
-    availablePlatesModified,
-    preferencesModified,
+    availablePlatesLbs: localAvailablePlatesLbs,
+    availableDumbbellsLbs: localAvailableDumbbellsLbs,
+    backTo,
+    requiredPreferences,
     requiredPreferencesSet,
     canSave,
     restTimeLabel,
     requiredPreferencesMessage,
-    backTo,
-    requiredPreferences,
     handleWeightUnitChange,
     handleRestTimeChange,
     handleAvailablePlatesChange,
+    handleAvailableDumbbellsChange,
+    ...modifications,
   };
 };
 
@@ -143,7 +241,8 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
         props.userId,
         api.preferredWeightUnit,
         api.defaultRestTime,
-        api.availablePlates,
+        api.availablePlatesLbs,
+        api.availableDumbbellsLbs,
         api.backTo
       )}
       data-testid="update-user-preferences-form">
@@ -162,7 +261,7 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             weightUnit={api.preferredWeightUnit}
             onWeightUnitChange={api.handleWeightUnitChange}
           />
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="caption" color="text.secondary">
             The default weight unit that will be used for all exercises.
             {api.requiredPreferences?.includes("preferred_weight_unit") && (
               <strong> * Required</strong>
@@ -182,7 +281,7 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             fullWidth
             required={api.requiredPreferences?.includes("default_rest_time")}
           />
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="caption" color="text.secondary">
             The rest time that will be used to indicate when you&apos;re ready
             for the next set.
             <br />
@@ -191,15 +290,18 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
         </Stack>
         <Stack spacing={1}>
           <SelectPlates
-            modified={api.availablePlatesModified}
-            availablePlates={AVAILABLE_PLATES}
-            selectedPlates={api.availablePlates}
+            modified={api.platesLBSModified}
+            // Intentionally hard-coded. When we want to support kg, we'll add
+            // an additional control similiar to this one.
+            unit="pounds"
+            availablePlates={DEFAULT_VALUES.AVAILABLE_PLATES_LBS}
+            initialSelectedPlates={api.availablePlatesLbs}
             onSelectedPlatesChange={api.handleAvailablePlatesChange}
           />
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="caption" color="text.secondary">
             The plates that are available in your gym. i.e. Some gyms have 55s,
             or 100s, and some folks bother with small change plates.
-            {api.requiredPreferences?.includes("available_plates") && (
+            {api.requiredPreferences?.includes("available_plates_lbs") && (
               <strong> * Required</strong>
             )}
             <br />
@@ -208,6 +310,22 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             (Also in the future, you can set the number of available plates
             which can help with weight calculations if you need to like double
             up on 35s to meet a given weight.)
+          </Typography>
+        </Stack>
+        <Stack spacing={1}>
+          <SelectAvailableDumbbells
+            modified={api.dumbbellsLBSModified}
+            initiallyAvailableDumbbells={DEFAULT_VALUES.AVAILABLE_DUMBBELLS_LBS}
+            initiallySelectedDumbbells={api.availableDumbbellsLbs}
+            unit={api.preferredWeightUnit}
+            onSelectedDumbbellsChange={api.handleAvailableDumbbellsChange}
+          />
+          <Typography variant="caption" color="text.secondary">
+            The dumbbells that are available in your gym. Some gyms have 100s,
+            some only go up to 50, and some have odd increments.
+            {/* TODO: Add required indicator and per-gym note when supported */}
+            <br />
+            (In the future you will be able to set preferences per gym.)
           </Typography>
         </Stack>
         <Stack
@@ -230,6 +348,7 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             type="submit"
             variant="contained"
             size="small"
+            data-testid={TestIds.Preferences_SavePreferencesButton}
             disabled={!api.canSave}>
             Save
           </Button>

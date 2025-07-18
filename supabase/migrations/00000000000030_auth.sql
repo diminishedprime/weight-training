@@ -28,16 +28,8 @@ BEGIN
       RETURN 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid;
     WHEN 'matthewjhamrick@gmail.com' THEN 
       RETURN '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid;
-    WHEN 'testuser@example.com' THEN 
-      RETURN '00000000-0000-0000-0000-000000000001'::uuid;
-    WHEN 'personal_record_test@example.com' THEN 
-      RETURN '00000000-0000-0000-0000-000000000002'::uuid;
-    WHEN 'fullyseeded@example.com' THEN 
-      RETURN '00000000-0000-0000-0000-000000000003'::uuid;
-    WHEN 'personal_record_user_1@example.com' THEN 
-      RETURN 'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid;
     ELSE
-      RETURN uuid_generate_v4();
+      RAISE EXCEPTION 'get_deterministic_uuid should only be called with matt or stephs email.';
   END CASE;
 END;
 $$ LANGUAGE plpgsql;
@@ -64,8 +56,8 @@ CREATE TABLE IF NOT EXISTS next_auth.users (
 -- Trigger function to set deterministic UUID based on email
 CREATE OR REPLACE FUNCTION next_auth.set_user_uuid () RETURNS TRIGGER AS $$
 BEGIN
-  -- Only set the UUID if it's the default value or null, and we have an email
-  IF NEW.email IS NOT NULL THEN
+  -- Only set the UUID if it's the default value or null, and the email is Steph or Matt's
+  IF NEW.email IN ('stephaniebpena@gmail.com', 'matthewjhamrick@gmail.com') THEN
     NEW.id := next_auth.get_deterministic_uuid(NEW.email);
   END IF;
   RETURN NEW;

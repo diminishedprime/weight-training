@@ -14,19 +14,13 @@ SELECT
 -- Test 1: Insert first exercise with 2 reps at 100lbs
 SELECT
   public.create_exercise (
-    'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,
-    'barbell_bench_press'::exercise_type_enum,
-    'barbell'::equipment_type_enum,
-    100::numeric,
-    100::numeric,
-    2::integer,
-    'pounds'::weight_unit_enum,
-    '2023-01-01T10:00:00Z'::timestamptz,
-    false::boolean,
-    false::boolean,
-    'completed'::completion_status_enum,
-    NULL::relative_effort_enum,
-    NULL::text
+    p_user_id => 'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 99::numeric,
+    p_reps => 2::integer,
+    p_actual_weight_value => 100::numeric,
+    p_performed_at => '2023-01-01T10:00:00Z'::timestamptz
   );
 
 -- Test 2: Verify 1-rep PR was set from 2-rep exercise at 100lbs
@@ -70,19 +64,13 @@ SELECT
 -- Test 4: Insert second exercise with 1 rep at 125lbs
 SELECT
   public.create_exercise (
-    'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,
-    'barbell_bench_press'::exercise_type_enum,
-    'barbell'::equipment_type_enum,
-    125::numeric,
-    125::numeric,
-    1::integer,
-    'pounds'::weight_unit_enum,
-    '2023-01-02T10:00:00Z'::timestamptz,
-    false::boolean,
-    false::boolean,
-    'completed'::completion_status_enum,
-    NULL::relative_effort_enum,
-    NULL::text
+    p_user_id => 'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 124::numeric,
+    p_reps => 1::integer,
+    p_actual_weight_value => 125::numeric,
+    p_performed_at => '2023-01-02T10:00:00Z'::timestamptz
   );
 
 -- Test 5: Verify 1-rep PR was updated to 125lbs
@@ -126,19 +114,13 @@ SELECT
 -- Test 7: Insert third exercise with 2 reps at 110lbs
 SELECT
   public.create_exercise (
-    'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,
-    'barbell_bench_press'::exercise_type_enum,
-    'barbell'::equipment_type_enum,
-    110::numeric,
-    110::numeric,
-    2::integer,
-    'pounds'::weight_unit_enum,
-    '2023-01-03T10:00:00Z'::timestamptz,
-    false::boolean,
-    false::boolean,
-    'completed'::completion_status_enum,
-    NULL::relative_effort_enum,
-    NULL::text
+    p_user_id => 'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,
+    p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
+    p_equipment_type => 'barbell'::equipment_type_enum,
+    p_target_weight_value => 109::numeric,
+    p_reps => 2::integer,
+    p_actual_weight_value => 110::numeric,
+    p_performed_at => '2023-01-03T10:00:00Z'::timestamptz
   );
 
 -- Test 8: Verify 1-rep PR remains at 125lbs (not updated by lower weight 2-rep exercise)

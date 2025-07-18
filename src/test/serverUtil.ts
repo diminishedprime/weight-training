@@ -2,7 +2,6 @@ import type {
   requireLoggedInUser as RealRequireLoggedInUser,
   getSession as RealGetSession,
 } from "@/serverUtil";
-import { USER_ID_LOGGED_OUT } from "@/test/constants";
 
 /**
  * Returns a function suitable for use as a mockImplementation for requireLoggedInUser from util.ts.
@@ -12,12 +11,14 @@ import { USER_ID_LOGGED_OUT } from "@/test/constants";
  * @returns A function to use as mockImplementation for requireLoggedInUser.
  */
 export const requireLoggedInUser = (userId: string) => {
-  const impl: typeof RealRequireLoggedInUser = async (currentPath: string) => {
+  const impl: typeof RealRequireLoggedInUser = async (_currentPath: string) => {
     switch (userId) {
-      case USER_ID_LOGGED_OUT:
-        throw new Error(
-          `redirect:/login?redirect-uri=${encodeURIComponent(currentPath)}`
-        );
+      // // If needed, we can simulate a logged out user by throwing an error
+      // // like this. Isn't needed in tests yet, though.
+      // case USER_ID_LOGGED_OUT:
+      //   throw new Error(
+      //     `redirect:/login?redirect-uri=${encodeURIComponent(currentPath)}`
+      //   );
       default:
         return {
           session: {
@@ -46,8 +47,9 @@ export const requireLoggedInUser = (userId: string) => {
 export const getSession = (userId: string) => {
   const impl: typeof RealGetSession = async () => {
     switch (userId) {
-      case USER_ID_LOGGED_OUT:
-        return null;
+      // // If needed, we can simulate a logged out user by returning null
+      // case USER_ID_LOGGED_OUT:
+      //   return null;
       default:
         return {
           user: {

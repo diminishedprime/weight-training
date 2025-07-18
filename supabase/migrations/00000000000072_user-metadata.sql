@@ -12,15 +12,36 @@ BEGIN
     IF NEW.completion_status = 'completed' THEN
       -- First, update the PR for the actual rep count performed
       current_pr := get_personal_record(NEW.user_id, NEW.exercise_type, NEW.reps);
-      IF current_pr.value IS NULL OR NEW.weight_value > current_pr.value THEN
-        PERFORM set_personal_record(NEW.user_id, NEW.exercise_type, NEW.weight_value, NEW.weight_unit, NEW.reps, NEW.performed_at, 'system', NULL, NEW.id);
+      IF current_pr.value IS NULL OR NEW.actual_weight_value > current_pr.value THEN
+        
+        PERFORM set_personal_record(
+          p_user_id => NEW.user_id::uuid,
+          p_exercise_type => NEW.exercise_type::exercise_type_enum,
+          p_weight_value => NEW.actual_weight_value::numeric,
+          p_weight_unit => NEW.weight_unit::weight_unit_enum,
+          p_reps => NEW.reps::integer,
+          p_recorded_at => NEW.performed_at::timestamptz,
+          p_source => 'system'::update_source_enum,
+          p_notes => NULL::text,
+          p_exercise_id => NEW.id::uuid
+        );
         
         -- Only update 1-rep max if this is a higher rep count (2+) and the weight exceeds current 1RM
         IF NEW.reps > 1 THEN
           one_rep_max_pr := get_personal_record(NEW.user_id, NEW.exercise_type, 1);
-          IF one_rep_max_pr.value IS NULL OR NEW.weight_value > one_rep_max_pr.value THEN
-            PERFORM set_personal_record(NEW.user_id, NEW.exercise_type, NEW.weight_value, NEW.weight_unit, 1, NEW.performed_at, 'system', 
-              format('Updated from %s-rep PR set at %s', NEW.reps, NEW.performed_at::text), NEW.id);
+          IF one_rep_max_pr.value IS NULL OR NEW.actual_weight_value > one_rep_max_pr.value THEN
+            
+            PERFORM set_personal_record(
+              p_user_id => NEW.user_id::uuid,
+              p_exercise_type => NEW.exercise_type::exercise_type_enum,
+              p_weight_value => NEW.actual_weight_value::numeric,
+              p_weight_unit => NEW.weight_unit::weight_unit_enum,
+              p_reps => 1::integer,
+              p_recorded_at => NEW.performed_at::timestamptz,
+              p_source => 'system'::update_source_enum,
+              p_notes => format('Updated from %s-rep PR set at %s', NEW.reps, NEW.performed_at::text)::text,
+              p_exercise_id => NEW.id::uuid
+            );
           END IF;
         END IF;
       END IF;
@@ -32,15 +53,36 @@ BEGIN
        AND NEW.exercise_type = OLD.exercise_type THEN
       -- First, update the PR for the actual rep count performed
       current_pr := get_personal_record(NEW.user_id, NEW.exercise_type, NEW.reps);
-      IF current_pr.value IS NULL OR NEW.weight_value > current_pr.value THEN
-        PERFORM set_personal_record(NEW.user_id, NEW.exercise_type, NEW.weight_value, NEW.weight_unit, NEW.reps, NEW.performed_at, 'system', NULL, NEW.id);
+      IF current_pr.value IS NULL OR NEW.actual_weight_value > current_pr.value THEN
+        
+        PERFORM set_personal_record(
+          p_user_id => NEW.user_id::uuid,
+          p_exercise_type => NEW.exercise_type::exercise_type_enum,
+          p_weight_value => NEW.actual_weight_value::numeric,
+          p_weight_unit => NEW.weight_unit::weight_unit_enum,
+          p_reps => NEW.reps::integer,
+          p_recorded_at => NEW.performed_at::timestamptz,
+          p_source => 'system'::update_source_enum,
+          p_notes => NULL::text,
+          p_exercise_id => NEW.id::uuid
+        );
         
         -- Only update 1-rep max if this is a higher rep count (2+) and the weight exceeds current 1RM
         IF NEW.reps > 1 THEN
           one_rep_max_pr := get_personal_record(NEW.user_id, NEW.exercise_type, 1);
-          IF one_rep_max_pr.value IS NULL OR NEW.weight_value > one_rep_max_pr.value THEN
-            PERFORM set_personal_record(NEW.user_id, NEW.exercise_type, NEW.weight_value, NEW.weight_unit, 1, NEW.performed_at, 'system', 
-              format('Updated from %s-rep PR set at %s', NEW.reps, NEW.performed_at::text), NEW.id);
+          IF one_rep_max_pr.value IS NULL OR NEW.actual_weight_value > one_rep_max_pr.value THEN
+            
+            PERFORM set_personal_record(
+              p_user_id => NEW.user_id::uuid,
+              p_exercise_type => NEW.exercise_type::exercise_type_enum,
+              p_weight_value => NEW.actual_weight_value::numeric,
+              p_weight_unit => NEW.weight_unit::weight_unit_enum,
+              p_reps => 1::integer,
+              p_recorded_at => NEW.performed_at::timestamptz,
+              p_source => 'system'::update_source_enum,
+              p_notes => format('Updated from %s-rep PR set at %s', NEW.reps, NEW.performed_at::text)::text,
+              p_exercise_id => NEW.id::uuid
+            );
           END IF;
         END IF;
       END IF;

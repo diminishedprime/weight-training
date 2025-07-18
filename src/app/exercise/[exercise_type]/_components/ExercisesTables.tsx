@@ -112,12 +112,12 @@ const ExercisesDateSection: React.FC<ExercisesDateSectionProps> = (props) => (
                   <Stack alignItems="center">
                     <WeightThumbnail
                       availablePlates={props.availablePlates}
-                      weight={exercise.weight_value ?? 0}
+                      weight={exercise.target_weight_value ?? 0}
                       weightUnit={exercise.weight_unit}
                       exerciseType={exercise.exercise_type}
                     />
                     <Typography variant="body1">
-                      {`${exercise.reps}x${exercise.weight_value}${weightUnitUIString(exercise.weight_unit)}`}
+                      {`${exercise.reps}x${exercise.target_weight_value}${weightUnitUIString(exercise.weight_unit)}`}
                       <br />
                       {exercise.warmup && (
                         <Typography

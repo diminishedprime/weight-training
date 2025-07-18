@@ -49,10 +49,7 @@ const WendlerPage = async () => {
 export default async function SuspenseWrapper() {
   return (
     <React.Fragment>
-      <Breadcrumbs
-        pathname="/exercise-block/wendler"
-        nonLinkable={["exercise-block"]}
-      />
+      <Breadcrumbs pathname="/exercise-block/wendler" />
       <Suspense fallback={<div>Loading wendler block...</div>}>
         <WendlerPage />
       </Suspense>

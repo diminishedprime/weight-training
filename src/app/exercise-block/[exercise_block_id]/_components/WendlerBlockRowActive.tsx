@@ -12,6 +12,11 @@ import {
 } from "@/common-types";
 import WendlerBlockRow from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockRow";
 import BarbellEditor from "@/components/BarbellEditor";
+import {
+  finishExercise,
+  failExercise,
+  skipExercise,
+} from "@/app/exercise-block/[exercise_block_id]/_components/actions";
 
 interface WendlerBlockRowActiveProps {
   row: WendlerBlock[number];
@@ -21,7 +26,10 @@ interface WendlerBlockRowActiveProps {
 }
 
 const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
-  const { row } = props;
+  const {
+    row: { block_id, exercise_id },
+    row,
+  } = props;
   // These fields are not nullable in UI usage
   const [reps, setReps] = React.useState<number>(row.reps!);
   const [completionStatus, setCompletionStatus] =
@@ -75,6 +83,10 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
     };
   }, [row, reps, completionStatus, notes, percievedEffort, targetWeight]);
 
+  const path = React.useMemo(() => {
+    return `/exercise-block/${block_id}/exercise/${exercise_id}`;
+  }, [block_id, exercise_id]);
+
   return {
     reps,
     completionStatus,
@@ -89,6 +101,7 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
     modifiedRow,
     editable,
     handleClickWeight,
+    path,
   };
 };
 
@@ -155,6 +168,30 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
           customLabel="Finish Set"
           completionStatus={api.completionStatus}
           onCompletionStatusChange={api.onCompletionStatusChange}
+          boundSkipAction={skipExercise.bind(
+            null,
+            row.user_id!,
+            row.block_id!,
+            row.exercise_id!,
+            api.notes,
+            api.path
+          )}
+          boundFailAction={failExercise.bind(
+            null,
+            row.user_id!,
+            row.block_id!,
+            row.exercise_id!,
+            api.notes,
+            api.path
+          )}
+          boundFinishAction={finishExercise.bind(
+            null,
+            row.user_id!,
+            row.block_id!,
+            row.exercise_id!,
+            api.notes,
+            api.path
+          )}
         />
       </Stack>
     </WendlerBlockRow>

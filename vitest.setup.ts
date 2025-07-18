@@ -19,6 +19,20 @@ console.warn = (msg, ...args) => {
   originalWarn(msg, ...args);
 };
 
+// Patch console.error to suppress the same act warning if it appears as an error
+const originalError = console.error;
+console.error = (msg, ...args) => {
+  if (
+    typeof msg === "string" &&
+    msg.includes(
+      "The current testing environment is not configured to support act("
+    )
+  ) {
+    return;
+  }
+  originalError(msg, ...args);
+};
+
 // Mock next/navigation
 vi.mock("next/navigation", () => {
   const actual = vi.importActual("next/navigation");

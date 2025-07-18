@@ -1,32 +1,3 @@
--- -----------------------------------------------------------------------------
--- Function: public.create_wendler_exercise_block
---
--- Purpose: Creates an exercise block for a Wendler 5/3/1 cycle, and records the
---          cycle metadata.
---
--- Requirements & Important Notes:
---   - The user's target max (see get_target_max) for the given exercise must be
---     set to the new value BEFORE calling this function.
---     This function will use the current target max as the new training max for
---     the cycle.
---   - The increase amount is calculated automatically as the difference between
---     the new target max and the previous cycle's training max.  The user does
---     NOT provide the increase amount directly.
---   - If this is the first cycle for the user/exercise, the increase amount
---     will be set to the current target max value.
---   - If the most recent previous cycle uses a different unit (e.g., kg vs lb),
---     the function will throw an exception.
---
--- Arguments:
---   p_user_id UUID - The user for whom the block is being created.
---   p_exercise_type exercise_type_enum - The exercise type (e.g., 'bench_press').
---   p_cycle_type wendler_cycle_type_enum - The Wendler cycle type ('5', '3', '1', 'deload').
---
--- Returns:
---   UUID - The ID of the created exercise block.
---
--- This is a template function. Implementation to be completed.
--- -----------------------------------------------------------------------------
 CREATE OR REPLACE FUNCTION public.create_wendler_exercise_block (
   p_user_id UUID,
   p_exercise_type exercise_type_enum,
@@ -45,7 +16,6 @@ DECLARE
     v_increase_amount_value NUMERIC;
     v_increase_amount_unit weight_unit_enum;
 BEGIN
-
     -- Look up the user's current training max for this exercise using get_target_max
     SELECT value, unit
       INTO v_training_max_value, v_training_max_unit
@@ -53,7 +23,6 @@ BEGIN
     IF v_training_max_value IS NULL OR v_training_max_unit IS NULL THEN
         RAISE EXCEPTION 'No training max (target max) found for user % and exercise %', p_user_id, p_exercise_type;
     END IF;
-
 
     SELECT training_max_value, training_max_unit
       INTO v_prev_training_max_value, v_prev_training_max_unit
@@ -72,53 +41,36 @@ BEGIN
     v_increase_amount_value := COALESCE(v_training_max_value - v_prev_training_max_value, v_training_max_value);
     v_increase_amount_unit := v_training_max_unit;
 
-    INSERT INTO wendler_metadata (
-        user_id,
-        training_max_value,
-        training_max_unit,
-        increase_amount_value,
-        increase_amount_unit,
-        cycle_type,
-        exercise_type
-    ) VALUES (
-        p_user_id,
-        v_training_max_value,
-        v_training_max_unit,
-        v_increase_amount_value,
-        v_increase_amount_unit,
-        p_cycle_type,
-        p_exercise_type
-    ) RETURNING id INTO v_wendler_metadata_id;
-
-    -- 1. Empty bar set (8 reps)
-    v_exercise_id := public.create_exercise(
-        p_user_id::uuid, -- user_id
-        p_exercise_type::exercise_type_enum, -- exercise_type
-        'barbell'::equipment_type_enum, -- equipment_type
-        public.normalize_bar_weight_pounds(0)::numeric, -- weight_value (rounded)
-        public.normalize_bar_weight_pounds(0)::numeric, -- actual_weight_value (actual, same as rounded for empty bar)
-        8::integer, -- reps
-        v_training_max_unit::weight_unit_enum, -- weight_unit
-        NULL::timestamptz, -- performed_at
-        TRUE::boolean, -- warmup
-        FALSE::boolean, -- is_amrap
-        'not_completed'::completion_status_enum, -- completion_status
-        NULL::relative_effort_enum, -- relative_effort
-        NULL -- notes
-    );
-
-    -- Insert exercise_block with the empty bar set as the first active exercise
+    -- Insert exercise_block first to get its id
     INSERT INTO exercise_block (
         user_id,
-        wendler_metadata_id,
         name,
         active_exercise_id
     ) VALUES (
         p_user_id,
-        v_wendler_metadata_id,
         p_block_name,
-        v_exercise_id
+        NULL -- will update after creating first exercise
     ) RETURNING id INTO v_block_id;
+
+    -- 1. Empty bar set (8 reps)
+    v_exercise_id := public.create_exercise(
+        user_id => p_user_id::uuid,
+        exercise_type => p_exercise_type::exercise_type_enum,
+        equipment_type => 'barbell'::equipment_type_enum,
+        weight_value => public.normalize_bar_weight_pounds(0)::numeric,
+        actual_weight_value => NULL,
+        reps => 8::integer,
+        weight_unit => v_training_max_unit::weight_unit_enum,
+        performed_at => NULL::timestamptz,
+        warmup => TRUE::boolean,
+        is_amrap => FALSE::boolean,
+        completion_status => 'not_completed'::completion_status_enum,
+        relative_effort => NULL::relative_effort_enum,
+        notes => NULL
+    );
+
+    -- Update exercise_block with the first active exercise
+    UPDATE exercise_block SET active_exercise_id = v_exercise_id WHERE id = v_block_id;
 
     INSERT INTO exercise_block_exercises (block_id, exercise_id, exercise_order)
     VALUES (v_block_id, v_exercise_id, v_set_order);
@@ -144,19 +96,19 @@ BEGIN
         END IF;
         FOR i IN 1..3 LOOP
             v_exercise_id := public.create_exercise(
-                p_user_id::uuid, -- user_id
-                p_exercise_type::exercise_type_enum, -- exercise_type
-                'barbell'::equipment_type_enum, -- equipment_type
-                public.round_to_nearest_5(v_training_max_value * warmup_fractions[i])::numeric, -- weight_value (rounded)
-                public.round_to_1_decimal(v_training_max_value * warmup_fractions[i])::numeric, -- actual_weight_value
-                warmup_reps[i]::integer, -- reps
-                v_training_max_unit::weight_unit_enum, -- weight_unit
-                NULL::timestamptz, -- performed_at
-                TRUE::boolean, -- warmup
-                FALSE::boolean, -- is_amrap
-                'not_completed'::completion_status_enum, -- completion_status
-                NULL::relative_effort_enum, -- relative_effort
-                NULL -- notes
+                user_id => p_user_id::uuid,
+                exercise_type => p_exercise_type::exercise_type_enum,
+                equipment_type => 'barbell'::equipment_type_enum,
+                weight_value => public.round_to_nearest_5(v_training_max_value * warmup_fractions[i])::numeric,
+                actual_weight_value => NULL,
+                reps => warmup_reps[i]::integer,
+                weight_unit => v_training_max_unit::weight_unit_enum,
+                performed_at => NULL::timestamptz,
+                warmup => TRUE::boolean,
+                is_amrap => FALSE::boolean,
+                completion_status => 'not_completed'::completion_status_enum,
+                relative_effort => NULL::relative_effort_enum,
+                notes => NULL
             );
             INSERT INTO exercise_block_exercises (block_id, exercise_id, exercise_order)
             VALUES (v_block_id, v_exercise_id, v_set_order);
@@ -184,25 +136,46 @@ BEGIN
         END IF;
         FOR i IN 1..3 LOOP
             v_exercise_id := public.create_exercise(
-                p_user_id::uuid, -- user_id
-                p_exercise_type::exercise_type_enum, -- exercise_type
-                'barbell'::equipment_type_enum, -- equipment_type
-                public.round_to_nearest_5(v_training_max_value * working_fractions[i])::numeric, -- weight_value (rounded)
-                public.round_to_1_decimal(v_training_max_value * working_fractions[i])::numeric, -- actual_weight_value
-                working_reps[i]::integer, -- reps
-                v_training_max_unit::weight_unit_enum, -- weight_unit
-                NULL::timestamptz, -- performed_at
-                FALSE::boolean, -- warmup
-                (i = 3)::boolean, -- is_amrap: true for last set
-                'not_completed'::completion_status_enum, -- completion_status
-                NULL::relative_effort_enum, -- relative_effort
-                NULL -- notes
+                user_id => p_user_id::uuid,
+                exercise_type => p_exercise_type::exercise_type_enum,
+                equipment_type => 'barbell'::equipment_type_enum,
+                weight_value => public.round_to_nearest_5(v_training_max_value * working_fractions[i])::numeric,
+                actual_weight_value => NULL,
+                reps => working_reps[i]::integer,
+                weight_unit => v_training_max_unit::weight_unit_enum,
+                performed_at => NULL::timestamptz,
+                warmup => FALSE::boolean,
+                is_amrap => (i = 3)::boolean,
+                completion_status => 'not_completed'::completion_status_enum,
+                relative_effort => NULL::relative_effort_enum,
+                notes => NULL
             );
             INSERT INTO exercise_block_exercises (block_id, exercise_id, exercise_order)
             VALUES (v_block_id, v_exercise_id, v_set_order);
             v_set_order := v_set_order + 1;
         END LOOP;
     END;
+
+    -- Now insert wendler_metadata with the block_id
+    INSERT INTO wendler_metadata (
+        block_id,
+        user_id,
+        training_max_value,
+        training_max_unit,
+        increase_amount_value,
+        increase_amount_unit,
+        cycle_type,
+        exercise_type
+    ) VALUES (
+        v_block_id,
+        p_user_id,
+        v_training_max_value,
+        v_training_max_unit,
+        v_increase_amount_value,
+        v_increase_amount_unit,
+        p_cycle_type,
+        p_exercise_type
+    ) RETURNING id INTO v_wendler_metadata_id;
 
     RETURN v_block_id;
 END;
@@ -234,19 +207,6 @@ BEGIN
   END IF;
 END$$;
 
--- -----------------------------------------------------------------------------
--- Function: public.check_wendler_block_prereqs
---
--- Purpose: Checks if all required values for creating a Wendler 5/3/1 block are set for a user/exercise.
---          Returns a single row with booleans and details for UI to display actionable feedback.
---
--- Arguments:
---   p_user_id UUID - The user to check.
---   p_exercise_type exercise_type_enum - The exercise type (e.g., 'bench_press').
---
--- Returns:
---   wendler_block_prereqs_row
--- -----------------------------------------------------------------------------
 CREATE OR REPLACE FUNCTION public.check_wendler_block_prereqs (
   p_user_id UUID,
   p_exercise_type exercise_type_enum
@@ -290,18 +250,18 @@ BEGIN
 END;
 $$;
 
--- -----------------------------------------------------------------------------
--- Composite type: wendler_block_exercise_row
 DO $$
 BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'wendler_block_exercise_row') THEN
     CREATE TYPE public.wendler_block_exercise_row AS (
+      block_id uuid,
       exercise_id uuid,
+      user_id uuid,
       exercise_type exercise_type_enum,
       equipment_type equipment_type_enum,
       performed_at timestamptz,
-      weight_value numeric,
       actual_weight_value numeric,
+      target_weight_value numeric,
       weight_unit weight_unit_enum,
       reps integer,
       warmup boolean,
@@ -313,21 +273,16 @@ BEGIN
   END IF;
 END$$;
 
--- Function: public.get_wendler_block
--- Purpose: Given a Wendler block ID and user ID, returns all exercises in the block (ordered) for that user.
--- Arguments:
---   p_block_id UUID - The Wendler block ID (exercise_block.id, assumed to be a Wendler block).
---   p_user_id UUID - The user ID (for security/multi-tenancy).
--- Returns:
---   SETOF wendler_block_exercise_row (ordered by exercise_order)
 CREATE OR REPLACE FUNCTION public.get_wendler_block (p_block_id UUID, p_user_id UUID) RETURNS SETOF public.wendler_block_exercise_row LANGUAGE sql STABLE AS $$
   SELECT
+    b.id AS block_id,
     e.id AS exercise_id,
+    b.user_id,
     e.exercise_type,
     e.equipment_type,
     e.performed_at,
-    e.weight_value,
     e.actual_weight_value,
+    e.target_weight_value,
     e.weight_unit,
     e.reps,
     e.warmup,
@@ -343,7 +298,6 @@ CREATE OR REPLACE FUNCTION public.get_wendler_block (p_block_id UUID, p_user_id 
   ORDER BY ebe.exercise_order ASC;
 $$;
 
--- -----------------------------------------------------------------------------
 DO $$
 BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'wendler_metadata_row') THEN
@@ -387,7 +341,7 @@ CREATE OR REPLACE FUNCTION public.get_wendler_metadata (p_block_id UUID, p_user_
     b.updated_at AS block_updated_at,
     b.active_exercise_id
   FROM public.exercise_block b
-  JOIN public.wendler_metadata wm ON b.wendler_metadata_id = wm.id
+  JOIN public.wendler_metadata wm ON wm.block_id = b.id
   WHERE b.id = p_block_id
     AND b.user_id = p_user_id
   LIMIT 1;

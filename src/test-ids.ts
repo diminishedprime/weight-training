@@ -19,5 +19,7 @@ export const TestIds = {
   exercisesTableEditButton: "exercises-table-edit-button",
   exercisesTableNotesRow: "exercises-table-notes-row",
   addWendlerLegDayButton: "add-wendler-leg-day-button",
+  // PreferencesPage test IDs
+  Preferences_SavePreferencesButton: "save-user-preferences-button",
   // Add more test IDs here as needed
 } as const;

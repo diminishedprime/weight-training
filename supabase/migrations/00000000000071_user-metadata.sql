@@ -83,8 +83,8 @@ $$ LANGUAGE plpgsql STABLE;
 CREATE OR REPLACE FUNCTION public.set_personal_record (
   p_user_id uuid,
   p_exercise_type exercise_type_enum,
-  p_value numeric,
-  p_unit weight_unit_enum,
+  p_weight_value numeric,
+  p_weight_unit weight_unit_enum,
   p_reps integer,
   p_recorded_at timestamptz DEFAULT NULL,
   p_source update_source_enum DEFAULT 'manual',
@@ -98,7 +98,7 @@ BEGIN
   INSERT INTO public.personal_record_history (
     user_id, exercise_type, value, unit, reps, recorded_at, source, notes, exercise_id
   ) VALUES (
-    p_user_id, p_exercise_type, p_value, p_unit, p_reps, v_now, p_source, p_notes, p_exercise_id
+    p_user_id, p_exercise_type, p_weight_value, p_weight_unit, p_reps, v_now, p_source, p_notes, p_exercise_id
   );
 END;
 $$ LANGUAGE plpgsql;
@@ -146,7 +146,8 @@ BEGIN
     CREATE TYPE public.user_preferences_row AS (
       preferred_weight_unit weight_unit_enum,
       default_rest_time integer,
-      available_plates numeric[],
+      available_plates_lbs numeric[],
+      available_dumbbells_lbs numeric[],
       user_id uuid,
       created_at timestamptz,
       updated_at timestamptz
@@ -158,9 +159,9 @@ CREATE OR REPLACE FUNCTION public.get_user_preferences (p_user_id uuid) RETURNS 
 DECLARE
   result user_preferences_row;
 BEGIN
-  SELECT preferred_weight_unit, default_rest_time, available_plates, user_id, created_at, updated_at
+  SELECT preferred_weight_unit, default_rest_time, available_plates_lbs, available_dumbbells_lbs, user_id, created_at, updated_at
     INTO result
-    FROM public.user_metadata
+    FROM public.user_preferences
     WHERE user_id = p_user_id;
   RETURN result;
 END;
@@ -170,15 +171,17 @@ CREATE OR REPLACE FUNCTION public.set_user_preferences (
   p_user_id uuid,
   p_preferred_weight_unit weight_unit_enum,
   p_default_rest_time integer,
-  p_available_plates numeric[]
+  p_available_plates_lbs numeric[],
+  p_available_dumbbells_lbs numeric[]
 ) RETURNS void AS $$
 BEGIN
-  INSERT INTO public.user_metadata (user_id, preferred_weight_unit, default_rest_time, available_plates)
-    VALUES (p_user_id, p_preferred_weight_unit, p_default_rest_time, p_available_plates)
+  INSERT INTO public.user_preferences (user_id, preferred_weight_unit, default_rest_time, available_plates_lbs, available_dumbbells_lbs)
+    VALUES (p_user_id, p_preferred_weight_unit, p_default_rest_time, p_available_plates_lbs, p_available_dumbbells_lbs)
     ON CONFLICT (user_id) DO UPDATE
       SET preferred_weight_unit = EXCLUDED.preferred_weight_unit,
           default_rest_time = EXCLUDED.default_rest_time,
-          available_plates = EXCLUDED.available_plates,
+          available_plates_lbs = EXCLUDED.available_plates_lbs,
+          available_dumbbells_lbs = EXCLUDED.available_dumbbells_lbs,
           updated_at = timezone('utc', now());
 END;
 $$ LANGUAGE plpgsql;

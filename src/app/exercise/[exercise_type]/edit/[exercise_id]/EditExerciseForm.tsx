@@ -1,9 +1,8 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { updateExerciseForUserAction as updateExerciseForUserAction } from "@/app/exercise/[exercise_type]/edit/[exercise_id]/actions";
+import { useSearchParams } from "next/navigation";
+import { updateExerciseForUser as updateExerciseForUser } from "@/app/exercise/[exercise_type]/edit/[exercise_id]/actions";
 import TextField from "@mui/material/TextField";
-import { Database } from "@/database.types";
 import DateTimePicker from "@/components/DateTimePicker";
 import { equipmentForExercise } from "@/util";
 import { EquipmentWeightEditor } from "@/app/exercise/[exercise_type]/edit/[exercise_id]/EquipmentWeightEditor";
@@ -18,17 +17,26 @@ import {
   PercievedEffort,
   WeightUnit,
 } from "@/common-types";
+import React from "react";
+import { useNumberInput } from "@/hooks";
 
-function useEditExerciseForm(
-  exercise: Database["public"]["Functions"]["get_exercise_for_user"]["Returns"],
-  user_id: string
-) {
-  const router = useRouter();
+interface EditLiftFormProps {
+  user_id: string;
+  exercise: ExerciseForUser;
+  availablePlates: number[];
+}
+
+const useEditExerciseFormAPI = (props: EditLiftFormProps) => {
+  const { exercise } = props;
   const [error, setError] = useState<string | null>(null);
-  const [weightValue, setWeightValue] = useState(exercise.weight_value!);
-  const [actualWeightValue, setActualWeightValue] = useState(
-    exercise.actual_weight_value ?? exercise.weight_value!
+  const [targetWeightValue, setTargetWeightValue] = React.useState(
+    exercise.target_weight_value!
   );
+
+  const [_, actualWeightValue, setActualWeightValue] = useNumberInput(
+    exercise.actual_weight_value
+  );
+
   const [reps, setReps] = useState(exercise.reps!);
   const [warmup, setWarmup] = useState(exercise.warmup!);
   const [completionStatus, setCompletionStatus] = useState(
@@ -43,51 +51,6 @@ function useEditExerciseForm(
   const [date, setDate] = useState<Date | null>(initialDate);
   const [time, setTime] = useState<Date | null>(initialDate);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setError(null);
-    let performed_at: string | undefined = undefined;
-    if (date && time) {
-      const combined = new Date(date);
-      combined.setHours(time.getHours());
-      combined.setMinutes(time.getMinutes());
-      combined.setSeconds(0);
-      combined.setMilliseconds(0);
-      performed_at = combined.toISOString();
-    }
-    const result = await updateExerciseForUserAction(
-      exercise.exercise_id!,
-      user_id,
-      exercise.exercise_type!,
-      Number(weightValue),
-      Number(actualWeightValue),
-      Number(reps),
-      performed_at,
-      // TODO this should come from user preferences or actually mabe be
-      // editable here, just don't want it to be a part of the existing
-      // components.
-      "pounds" as WeightUnit,
-      warmup,
-      completionStatus,
-      notes || undefined,
-      percievedEffort || undefined
-    );
-    if (result?.error) {
-      setError(result.error);
-      return;
-    }
-    router.push(
-      `/exercise/${exercise.exercise_type!}?flash=${exercise.exercise_id}`
-    );
-  }
-
-  function handleActualWeightValueChange(val: number) {
-    setActualWeightValue(val);
-  }
-
-  function handleWeightValueChange(val: number) {
-    setWeightValue(val);
-  }
   function handleRepsChange(val: number) {
     setReps(val);
   }
@@ -97,9 +60,7 @@ function useEditExerciseForm(
   function handleCompletionStatusChange(value: CompletionStatus) {
     setCompletionStatus(value);
   }
-  function handleRelativeEffortChange(
-    val: Database["public"]["Enums"]["relative_effort_enum"] | null
-  ) {
+  function handleRelativeEffortChange(val: PercievedEffort | null) {
     setPercievedEffort(val);
   }
   function handleNotesChange(
@@ -114,15 +75,19 @@ function useEditExerciseForm(
     setTime(val);
   }
 
+  const searchParams = useSearchParams();
+  const backTo = React.useMemo(
+    () => searchParams.get("backTo"),
+    [searchParams]
+  );
+
   return {
     error,
     setError,
-    weightValue,
-    setWeightValue,
-    handleWeightValueChange,
+    weightValue: targetWeightValue,
+    setWeightValue: setTargetWeightValue,
     actualWeightValue,
     setActualWeightValue,
-    handleActualWeightValueChange,
     reps,
     setReps,
     handleRepsChange,
@@ -144,19 +109,17 @@ function useEditExerciseForm(
     time,
     setTime,
     handleTimeChange,
-    handleSubmit,
+    backTo,
+    setTargetWeightValue,
+    targetWeightValue,
   };
-}
-
-interface EditLiftFormProps {
-  user_id: string;
-  exercise: ExerciseForUser;
-  availablePlates: number[];
-}
+};
 
 export default function EditExerciseForm(props: EditLiftFormProps) {
-  const { exercise, user_id } = props;
-  const form = useEditExerciseForm(exercise, user_id);
+  const api = useEditExerciseFormAPI(props);
+
+  // TODO - `/exercise/${exercise.exercise_type!}?flash=${exercise.exercise_id}`
+  // should be passed from the other page so it knows where to redirect back to.
 
   // TODO - implement delete functionality
   // TODO - Update form to use action instead of onSubmit
@@ -167,24 +130,42 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
   // TODO - actually allow the user to change the actual weight value (which should just be a TextField)
 
   return (
-    <form onSubmit={form.handleSubmit}>
+    <form
+      action={updateExerciseForUser.bind(
+        null,
+        props.exercise.exercise_id!,
+        props.user_id,
+        props.exercise.exercise_type!,
+        api.targetWeightValue,
+        api.actualWeightValue,
+        api.reps,
+        api.date && api.time
+          ? new Date(api.date.getTime() + api.time.getTime()).toISOString()
+          : undefined,
+        props.exercise.weight_unit as WeightUnit, // TODO: This should come from user preferences eventually.
+        api.warmup,
+        api.completionStatus,
+        api.notes || null,
+        api.relativeEffort || null,
+        api.backTo
+      )}>
       <Stack gap={1}>
-        {form.error && (
+        {api.error && (
           <Alert severity="error" sx={{ mb: 2 }}>
-            {form.error}
+            {api.error}
           </Alert>
         )}
         <EquipmentWeightEditor
-          equipment={equipmentForExercise(exercise.exercise_type!)}
-          weightValue={form.weightValue}
-          setWeightValue={form.handleWeightValueChange}
+          equipment={equipmentForExercise(props.exercise.exercise_type!)}
+          weightValue={api.targetWeightValue}
+          setWeightValue={api.setTargetWeightValue}
           weightUnit={"pounds" as WeightUnit} // TODO: This should come from user preferences eventually.
           availablePlates={props.availablePlates}
         />
         <Stack>
           <SelectReps
-            reps={form.reps}
-            onRepsChange={form.handleRepsChange}
+            reps={api.reps}
+            onRepsChange={api.handleRepsChange}
             repChoices={[1, 3, 5, 8, 10, 12, 15]}
           />
         </Stack>
@@ -196,29 +177,29 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
           justifyContent="center"
           sx={{ my: 1 }}>
           <DateTimePicker
-            date={form.date}
-            setDate={form.setDate}
-            time={form.time}
-            setTime={form.setTime}
+            date={api.date}
+            setDate={api.setDate}
+            time={api.time}
+            setTime={api.setTime}
           />
           <WarmupCheckbox
-            checked={form.warmup}
-            onChange={form.handleWarmupChange}
+            checked={api.warmup}
+            onChange={api.handleWarmupChange}
           />
           <SelectCompletionStatus
-            completionStatus={form.completionStatus}
-            onCompletionStatusChange={form.handleCompletionStatusChange}
+            completionStatus={api.completionStatus}
+            onCompletionStatusChange={api.handleCompletionStatusChange}
           />
           <SelectPercievedEffort
-            percievedEffort={form.relativeEffort}
-            onPercievedEffortChange={form.handleRelativeEffortChange}
+            percievedEffort={api.relativeEffort}
+            onPercievedEffortChange={api.handleRelativeEffortChange}
           />
         </Stack>
         <TextField
           label="Notes"
           name="notes"
-          value={form.notes}
-          onChange={form.handleNotesChange}
+          value={api.notes}
+          onChange={api.handleNotesChange}
           fullWidth
           multiline
           minRows={2}

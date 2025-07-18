@@ -16,6 +16,13 @@ export default function Home() {
         </Button>
         <Button
           component={Link}
+          href="/exercise-block"
+          variant="contained"
+          color="primary">
+          Exercise Blocks
+        </Button>
+        <Button
+          component={Link}
           href="/exercise-block/wendler/leg-day"
           variant="contained"
           color="primary">

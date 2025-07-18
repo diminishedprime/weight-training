@@ -61,7 +61,7 @@ interface ExerciseTypePageProps {
   currentPath: string;
 }
 
-export const ExerciseTypePage = async (props: ExerciseTypePageProps) => {
+export default async function ExerciseTypePage(props: ExerciseTypePageProps) {
   const { exerciseType, currentPath } = props;
   const equipmentType = equipmentForExercise(exerciseType);
 
@@ -71,15 +71,21 @@ export const ExerciseTypePage = async (props: ExerciseTypePageProps) => {
   const showTargetMax = WENDLER_EXERCISE_TYPES.includes(exerciseType);
 
   let barbellFormDraft: BarbellFormDraft | null = null;
-  const [formDraft, preferences, exercises] = await Promise.all([
+  const [formDraft, preferences, exercises, wendlerMaxes] = await Promise.all([
     isBarbellFormDraftPath(currentPath)
       ? getBarbellFormDraft(userId, currentPath)
       : null,
-    requirePreferences(userId, ["available_plates"], currentPath),
+    requirePreferences(userId, ["available_plates_lbs"], currentPath),
     supabaseRPC("get_exercises_by_type_for_user", {
       p_user_id: userId,
       p_exercise_type: exerciseType,
     }),
+    showTargetMax
+      ? supabaseRPC("get_wendler_maxes", {
+          p_user_id: userId,
+          p_exercise_type: exerciseType,
+        })
+      : null,
   ]);
   barbellFormDraft = formDraft;
 
@@ -96,10 +102,17 @@ export const ExerciseTypePage = async (props: ExerciseTypePageProps) => {
         {exerciseTypeUIStringLong(exerciseType)}
       </Typography>
       {showTargetMax && (
+        // This is a bit weird, but we know that the wendlerMaxes object is
+        // non-null if showTargetMax is true (I think).
         <SetTargetMax
+          exerciseType={props.exerciseType}
           userId={userId}
-          exerciseType={exerciseType}
-          pathToRevalidate={currentPath}
+          targetMaxValue={wendlerMaxes?.target_max_value?.toString() ?? null}
+          targetMaxUnit={wendlerMaxes?.target_max_unit ?? null}
+          personalRecordValue={
+            wendlerMaxes?.personal_record_value?.toString() ?? null
+          }
+          personalRecordUnit={wendlerMaxes?.personal_record_unit ?? null}
         />
       )}
       <AddExercise
@@ -107,14 +120,14 @@ export const ExerciseTypePage = async (props: ExerciseTypePageProps) => {
         equipmentType={equipmentType}
         exerciseType={exerciseType}
         pathToRevalidate={currentPath}
-        availablePlates={preferences.available_plates}
+        availablePlates={preferences.available_plates_lbs}
         barbellFormDraft={barbellFormDraft}
       />
       <ExercisesTables
-        availablePlates={preferences.available_plates}
+        availablePlates={preferences.available_plates_lbs}
         exercises={lifts}
         exercise_type={exerciseType}
       />
     </Stack>
   );
-};
+}

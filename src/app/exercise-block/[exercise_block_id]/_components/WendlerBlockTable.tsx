@@ -48,6 +48,13 @@ export interface WendlerBlockTableProps {
 
 const WendlerBlockTable: React.FC<WendlerBlockTableProps> = (props) => {
   const { block, metadata, availablePlates } = props;
+  // TODO - I have a problem here now where actualweightvalue and weightvalue
+  // aren't really being used correctly. When you edit a block, you change its
+  // weightvalue (read: the actual weight) not the actual weight value (read:
+  // the target of the exercise). To fix this, I first need to rename in the
+  // database from actual_weight_value to target_weight_value, then I need to
+  // rename the weight_value to actual_weight_value.
+  console.log({ block });
   if (!block || block.length === 0) {
     return <Typography>No exercises found for this block.</Typography>;
   }

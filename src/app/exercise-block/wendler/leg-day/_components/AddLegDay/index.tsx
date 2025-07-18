@@ -6,7 +6,7 @@ import { WendlerBlockPrereqs, WendlerMaxesData } from "@/common-types";
 import { Button } from "@mui/material";
 import { TestIds } from "@/test-ids";
 import AddIcon from "@mui/icons-material/Add";
-import SetTargetMax from "@/components/SetTargetMax/SetTargetMax";
+import SetTargetMax from "@/components/SetTargetMax";
 import { addLegDay } from "@/app/exercise-block/wendler/leg-day/_components/AddLegDay/actions";
 import SelectWendlerCycle from "@/components/select/SelectWendlerCycle";
 

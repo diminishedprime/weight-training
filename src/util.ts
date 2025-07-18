@@ -8,7 +8,7 @@ import { EquipmentType, ExerciseType, RoundingMode } from "@/common-types";
  * @returns The equipment type that corresponds to the given lift type.
  */
 export function equipmentForExercise(
-  exerciseType: ExerciseType
+  exerciseType: ExerciseType,
 ): EquipmentType {
   switch (exerciseType) {
     // --- barbell ---
@@ -104,7 +104,7 @@ export function equipmentForExercise(
 const roundingFunction = (
   roundingMode: RoundingMode,
   nearest: number,
-  toRound: number
+  toRound: number,
 ) => {
   const floor = Math.floor(toRound / nearest) * nearest;
   const ceil = Math.ceil(toRound / nearest) * nearest;
@@ -135,18 +135,14 @@ const roundingFunction = (
 export function minimalPlates(
   targetWeight: number,
   availablePlates: number[],
-  roundingMode: RoundingMode
+  roundingMode: RoundingMode,
 ): { plates: number[]; rounded: boolean } {
   // Ensure plates are sorted in descending order, if we ever do profiling and
   // this is a bottleneck, we can make it where callers have to sort ahead of
   // time, but I doubt we'll ever be there.
   availablePlates.sort((a, b) => b - a);
   const smallestPlate = availablePlates[availablePlates.length - 1];
-  const rounded = roundingFunction(
-    roundingMode,
-    smallestPlate * 2,
-    targetWeight
-  );
+  const rounded = roundingFunction(roundingMode, smallestPlate, targetWeight);
 
   let remaining = rounded;
   const result: number[] = [];
@@ -165,14 +161,14 @@ export function minimalPlatesForTargetWeight(
   targetWeight: number,
   barWeight: number,
   availablePlates: number[],
-  roundingMode: RoundingMode
+  roundingMode: RoundingMode,
 ): { plates: number[]; rounded: boolean } {
   const minusBar = targetWeight - barWeight;
   const platesForOneSideWeight = minusBar / 2;
   const platesForOneSide = minimalPlates(
     platesForOneSideWeight,
     availablePlates,
-    roundingMode
+    roundingMode,
   );
   return platesForOneSide;
 }
@@ -185,13 +181,13 @@ export function actualWeightForTarget(
   targetWeight: number,
   barWeight: number,
   availablePlates: number[],
-  roundingMode: RoundingMode
+  roundingMode: RoundingMode,
 ): { actualWeight: number; rounded: boolean } {
   const platesForOneSide = minimalPlatesForTargetWeight(
     targetWeight,
     barWeight,
     availablePlates,
-    roundingMode
+    roundingMode,
   );
   const platesforOneSideWeight = platesForOneSide.plates.reduce(sum, 0);
   const totalPlatesWeight = platesforOneSideWeight * 2;
@@ -226,7 +222,7 @@ export const EXERCISES_BY_EQUIPMENT = getExercisesByEquipment();
  * Generated from the barbell exercises in EXERCISES_BY_EQUIPMENT.
  */
 export const VALID_BARBELL_FORM_DRAFT_PATHS = new Set(
-  EXERCISES_BY_EQUIPMENT["barbell"].map((exercise) => `/exercise/${exercise}`)
+  EXERCISES_BY_EQUIPMENT["barbell"].map((exercise) => `/exercise/${exercise}`),
 );
 
 export type SortableEquipment = Record<EquipmentType, number>;
@@ -245,7 +241,7 @@ export const equipmentToNum: SortableEquipment =
  */
 export const exerciseSorter = (
   a: { exercise_type: ExerciseType },
-  b: { exercise_type: ExerciseType }
+  b: { exercise_type: ExerciseType },
 ) => {
   const aNum = equipmentToNum[equipmentForExercise(a.exercise_type!)];
   const bNum = equipmentToNum[equipmentForExercise(b.exercise_type!)];
@@ -268,7 +264,7 @@ export const exerciseSorter = (
 export const sortPreferencesData = (
   preferencesData: Array<{
     exercise_type: ExerciseType;
-  }>
+  }>,
 ) => {
   preferencesData.sort((a, b) => exerciseSorter(a, b));
   return preferencesData;
@@ -299,7 +295,7 @@ export const normalizeWeightToLbs = (value: number, unit: string): number => {
  */
 export const arrayEquals = <T extends string | number | boolean>(
   a: T[],
-  b: T[]
+  b: T[],
 ): boolean => {
   if (a.length !== b.length) {
     return false;
@@ -315,7 +311,7 @@ export const arrayEquals = <T extends string | number | boolean>(
  */
 export const nullableArrayEquals = <T extends string | number | boolean>(
   a: T[] | null | undefined,
-  b: T[] | null | undefined
+  b: T[] | null | undefined,
 ): boolean => {
   // Both null/undefined
   if (!a && !b) {

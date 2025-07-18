@@ -23,10 +23,9 @@ const ExerciseBlock: React.FC<ExerciseBlockProps> = async ({
   );
   const supabase = getSupabaseClient();
 
-  // Require available plates preference
   const userPreferences = await requirePreferences(
     userId,
-    ["available_plates"],
+    ["available_plates_lbs"],
     `/exercise-block/${exercise_block_id}`
   );
 
@@ -58,7 +57,7 @@ const ExerciseBlock: React.FC<ExerciseBlockProps> = async ({
       <WendlerBlockTable
         block={blockData as WendlerBlock}
         metadata={metadataData as WendlerMetadata}
-        availablePlates={userPreferences.available_plates}
+        availablePlates={userPreferences.available_plates_lbs}
       />
     </Stack>
   );
@@ -75,7 +74,6 @@ export default async function SuspenseWrapper(props: SuspenseWrapperProps) {
     <React.Fragment>
       <Breadcrumbs
         pathname={`/exercise-block/${unnarrowedExerciseBlockId}`}
-        nonLinkable={["exercise-block"]}
         labels={{
           [unnarrowedExerciseBlockId]: unnarrowedExerciseBlockId.slice(0, 8),
         }}

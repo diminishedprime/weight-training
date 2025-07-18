@@ -31,6 +31,11 @@ export type PersonalRecordExerciseTypes =
 export type PersonalRecordHistory =
   Database["public"]["Functions"]["get_personal_records_for_exercise_type"]["Returns"];
 
+export type ExerciseBlocks =
+  Database["public"]["Functions"]["get_exercise_blocks_for_user"]["Returns"];
+
+export type ExerciseBlock = ExerciseBlocks[number];
+
 export enum RoundingMode {
   UP = "UP",
   DOWN = "DOWN",

@@ -7,7 +7,7 @@ import {
   WeightUnit,
 } from "@/common-types";
 import { Json } from "@/database.types";
-import { getSupabaseClient } from "@/serverUtil";
+import { supabaseRPC } from "@/serverUtil";
 import { equipmentForExercise, VALID_BARBELL_FORM_DRAFT_PATHS } from "@/util";
 import { revalidatePath } from "next/cache";
 
@@ -56,12 +56,12 @@ export async function addBarbellLift(
     throw new Error(`Invalid Invariant: Invalid weight value: ${weightValue}`);
   }
 
-  const supabase = getSupabaseClient();
-  const response = await supabase.rpc("create_exercise", {
+  await supabaseRPC("create_exercise", {
     p_user_id: userId,
     p_exercise_type: exerciseType,
     p_equipment_type: "barbell",
-    p_weight_value: weightValueNum,
+    p_target_weight_value: weightValueNum,
+    p_actual_weight_value: weightValueNum,
     p_weight_unit: weightUnit,
     p_reps: reps,
     p_completion_status: completionStatus,
@@ -71,11 +71,7 @@ export async function addBarbellLift(
     ...(completionStatus === "completed" || completionStatus === "failed"
       ? { p_performed_at: new Date().toISOString() }
       : {}),
-    p_actual_weight_value: weightValueNum,
   });
-  if (response.error) {
-    throw response.error;
-  }
 
   // // Clear the form draft after successful submission (don't block the UI)
   // clearBarbellFormDraft(userId, `/exercise/${exerciseType}`).catch((error) => {
@@ -90,59 +86,37 @@ export async function saveBarbellFormDraft(
   path: string,
   formData: BarbellFormDraft,
   ttlDays: number = 7
-): Promise<boolean> {
+) {
   if (!isBarbellFormDraftPath(path)) {
-    return false; // This path doesn't support barbell form drafts
+    return;
   }
 
-  const supabase = getSupabaseClient();
-  const { error } = await supabase.rpc("save_form_draft", {
+  await supabaseRPC("save_form_draft", {
     p_user_id: userId,
     p_form_type: path,
     p_form_data: formData as unknown as Json, // JSONB serialization
     p_ttl_days: ttlDays,
   });
-
-  if (error) {
-    throw new Error(`Failed to save form draft: ${error.message}`);
-  }
-
-  return true;
 }
 
-export async function clearBarbellFormDraft(
-  userId: string,
-  path: string
-): Promise<boolean> {
+export async function clearBarbellFormDraft(userId: string, path: string) {
   if (!isBarbellFormDraftPath(path)) {
-    return false;
+    return;
   }
 
-  const supabase = getSupabaseClient();
-  const { error } = await supabase.rpc("clear_form_draft", {
+  await supabaseRPC("clear_form_draft", {
     p_user_id: userId,
     p_form_type: path,
   });
 
-  if (error) {
-    throw new Error(`Failed to clear form draft: ${error.message}`);
-  }
-
-  // Revalidate the path to reflect the cleared draft data
   revalidatePath(path);
-
-  return true;
 }
 
-export async function createBarbellFormDraft(
-  userId: string,
-  path: string
-): Promise<boolean> {
+export async function createBarbellFormDraft(userId: string, path: string) {
   if (!isBarbellFormDraftPath(path)) {
-    return false;
+    return;
   }
 
-  // Create default form data
   const defaultFormData: BarbellFormDraft = {
     totalWeight: 45,
     weightUnit: "pounds",
@@ -153,20 +127,12 @@ export async function createBarbellFormDraft(
     notes: "",
   };
 
-  const supabase = getSupabaseClient();
-  const { error } = await supabase.rpc("save_form_draft", {
+  await supabaseRPC("save_form_draft", {
     p_user_id: userId,
     p_form_type: path,
     p_form_data: defaultFormData as unknown as Json,
     p_ttl_days: 7,
   });
 
-  if (error) {
-    throw new Error(`Failed to create form draft: ${error.message}`);
-  }
-
-  // Revalidate the path to show the form
   revalidatePath(path);
-
-  return true;
 }

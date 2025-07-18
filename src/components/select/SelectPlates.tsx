@@ -7,41 +7,64 @@ import {
   FormControl,
   FormLabel,
 } from "@mui/material";
+import { Set as ImmutableSet } from "immutable";
+import { useRequiredModifiableLabel } from "@/hooks";
+import { WeightUnit } from "@/common-types";
+import { weightUnitUIString } from "@/uiStrings";
 
 export interface SelectPlatesProps {
   availablePlates: number[];
-  selectedPlates: number[] | null;
+  initialSelectedPlates: number[] | null;
+  unit: WeightUnit;
   label?: string;
   modified?: boolean;
+  required?: boolean;
   onSelectedPlatesChange: (plates: number[]) => void;
 }
 
 const useSelectPlatesAPI = (props: SelectPlatesProps) => {
-  const { selectedPlates, onSelectedPlatesChange, modified, label } = props;
+  const {
+    initialSelectedPlates,
+    onSelectedPlatesChange,
+    modified,
+    required,
+    label,
+    unit,
+    availablePlates,
+  } = props;
 
-  const [localSelectedPlates, setLocalSelectedPlates] = React.useState<
-    number[]
-  >(selectedPlates || []);
+  // TODO: eventually, we'll want the user to be able to provide custom plates
+  // and once that happens, we'll use the set.
+  const [localAvailablePlates] = React.useState(availablePlates);
 
-  const localOnSelectedPlatesChange = React.useCallback(
-    (newValue: number[]) => {
-      setLocalSelectedPlates(newValue);
-    },
-    []
+  const [selectedSet, setSelectedSet] = React.useState(() =>
+    ImmutableSet(initialSelectedPlates ?? [])
   );
 
-  const selectPlatesLabel = React.useMemo(() => {
-    return `${label ?? "Available Plates"}${modified ? "*" : ""}`;
-  }, [modified, label]);
+  const localLabel = useRequiredModifiableLabel(
+    label ?? `Available Plates ${weightUnitUIString(unit).toUpperCase()}`,
+    !!required,
+    !!modified
+  );
 
-  React.useEffect(() => {
-    onSelectedPlatesChange(localSelectedPlates);
-  }, [localSelectedPlates, onSelectedPlatesChange]);
+  const localOnChange = React.useCallback(
+    (plates: number[]) => {
+      setSelectedSet(ImmutableSet(plates));
+      onSelectedPlatesChange(plates);
+    },
+    [onSelectedPlatesChange]
+  );
+
+  const localSelectedPlates = React.useMemo(
+    () => selectedSet.toArray().sort((a, b) => b - a),
+    [selectedSet]
+  );
 
   return {
     selectedPlates: localSelectedPlates,
-    onSelectedPlatesChange: localOnSelectedPlatesChange,
-    label: selectPlatesLabel,
+    onSelectedPlatesChange: localOnChange,
+    label: localLabel,
+    availablePlates: localAvailablePlates,
   };
 };
 
@@ -57,7 +80,7 @@ const SelectPlates: React.FC<SelectPlatesProps> = (props) => {
         onChange={(_e, val) => api.onSelectedPlatesChange(val)}
         size="small"
         aria-label="Available Plates">
-        {props.availablePlates.map((plate) => (
+        {api.availablePlates.map((plate) => (
           <ToggleButton
             key={plate}
             value={plate}

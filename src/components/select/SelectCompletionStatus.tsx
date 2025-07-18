@@ -17,6 +17,9 @@ interface SelectCompletionStatusProps {
   onCompletionStatusChange: (status: CompletionStatus) => void;
   notCompleted?: true;
   customLabel?: string;
+  boundFinishAction?: (formData: FormData) => Promise<void>;
+  boundSkipAction?: (formData: FormData) => Promise<void>;
+  boundFailAction?: (formData: FormData) => Promise<void>;
 }
 
 const useSelectCompletionStatusAPI = (props: SelectCompletionStatusProps) => {
@@ -47,6 +50,17 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
 ) => {
   const api = useSelectCompletionStatusAPI(props);
 
+  // Helper to conditionally wrap a ToggleButton in a form if a boundAction is provided
+  const renderWithOptionalForm = (
+    action: ((formData: FormData) => Promise<void>) | undefined,
+    button: React.ReactNode
+  ) => {
+    if (action) {
+      return <form action={action}>{button}</form>;
+    }
+    return button;
+  };
+
   return (
     <FormControl>
       <FormLabel>{props.customLabel || "Completion Status"}</FormLabel>
@@ -57,11 +71,18 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
         onChange={(_e, val) => val && api.onCompletionStatusChange(val)}
         size="small"
         aria-label="Completion Status">
-        <ToggleButton value="completed" aria-label="Completed" size="small">
-          <Tooltip title="Completed">
-            <CheckCircleIcon color="success" />
-          </Tooltip>
-        </ToggleButton>
+        {renderWithOptionalForm(
+          props.boundFinishAction,
+          <ToggleButton
+            value="completed"
+            aria-label="Completed"
+            size="small"
+            type={props.boundFinishAction ? "submit" : "button"}>
+            <Tooltip title="Completed">
+              <CheckCircleIcon color="success" />
+            </Tooltip>
+          </ToggleButton>
+        )}
         {props.notCompleted && (
           <ToggleButton
             value="not_completed"
@@ -72,16 +93,30 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
             </Tooltip>
           </ToggleButton>
         )}
-        <ToggleButton value="failed" aria-label="Failed" size="small">
-          <Tooltip title="Failed">
-            <CancelIcon color="error" />
-          </Tooltip>
-        </ToggleButton>
-        <ToggleButton value="skipped" aria-label="Skipped" size="small">
-          <Tooltip title="Skipped">
-            <SkipNextIcon color="secondary" />
-          </Tooltip>
-        </ToggleButton>
+        {renderWithOptionalForm(
+          props.boundFailAction,
+          <ToggleButton
+            value="failed"
+            aria-label="Failed"
+            size="small"
+            type={props.boundFailAction ? "submit" : "button"}>
+            <Tooltip title="Failed">
+              <CancelIcon color="error" />
+            </Tooltip>
+          </ToggleButton>
+        )}
+        {renderWithOptionalForm(
+          props.boundSkipAction,
+          <ToggleButton
+            value="skipped"
+            aria-label="Skipped"
+            size="small"
+            type={props.boundSkipAction ? "submit" : "button"}>
+            <Tooltip title="Skipped">
+              <SkipNextIcon color="secondary" />
+            </Tooltip>
+          </ToggleButton>
+        )}
       </ToggleButtonGroup>
     </FormControl>
   );

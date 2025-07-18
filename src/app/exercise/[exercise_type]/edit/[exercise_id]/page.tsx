@@ -31,7 +31,7 @@ const EditExercisePage = async (props: EditExercisePageProps) => {
     await Promise.all([
       requirePreferences(
         user_id,
-        ["available_plates"],
+        ["available_plates_lbs"],
         `/exercise/${exercise_type}/edit/${exercise_id}`
       ),
       supabase.rpc("get_exercise_for_user", {
@@ -52,7 +52,7 @@ const EditExercisePage = async (props: EditExercisePageProps) => {
         Edit {exerciseTypeUIStringLong(exercise_type)}
       </Typography>
       <EditExerciseForm
-        availablePlates={userPreferences.available_plates}
+        availablePlates={userPreferences.available_plates_lbs}
         exercise={exercise}
         user_id={user_id}
       />
@@ -61,6 +61,7 @@ const EditExercisePage = async (props: EditExercisePageProps) => {
 };
 
 interface SuspenseWrapperProps {
+  // TODO I think I need search params here too.
   params: Promise<{
     exercise_id: string;
     exercise_type: ExerciseType;

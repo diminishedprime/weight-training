@@ -4,7 +4,7 @@ import { exerciseTypeUIStringBrief } from "@/uiStrings";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Suspense } from "react";
 import { ExerciseType } from "@/common-types";
-import { ExerciseTypePage } from "@/app/exercise/[exercise_type]/_page";
+import ExerciseTypePage from "@/app/exercise/[exercise_type]/_page";
 
 interface SuspenseWrapperProps {
   params: Promise<{ exercise_type: string }>;

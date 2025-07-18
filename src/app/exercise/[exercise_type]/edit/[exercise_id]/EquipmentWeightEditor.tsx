@@ -15,6 +15,7 @@ export function EquipmentWeightEditor(props: EquipmentWeightEditorProps) {
     case "barbell":
       return (
         <BarbellEditor
+          editing
           targetWeight={props.weightValue}
           barWeight={45}
           onTargetWeightChange={props.setWeightValue}
