@@ -214,6 +214,7 @@ const AddBarbell: React.FC<AddBarbelProps> = (props) => {
       )}>
       <Stack spacing={1} direction={"column"}>
         <BarbellEditor
+          editing
           targetWeight={api.totalWeight}
           barWeight={api.barWeight}
           onTargetWeightChange={api.onChange}

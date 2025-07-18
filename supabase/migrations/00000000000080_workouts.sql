@@ -54,19 +54,19 @@ BEGIN
 
     -- 1. Empty bar set (8 reps)
     v_exercise_id := public.create_exercise(
-        user_id => p_user_id::uuid,
-        exercise_type => p_exercise_type::exercise_type_enum,
-        equipment_type => 'barbell'::equipment_type_enum,
-        weight_value => public.normalize_bar_weight_pounds(0)::numeric,
-        actual_weight_value => NULL,
-        reps => 8::integer,
-        weight_unit => v_training_max_unit::weight_unit_enum,
-        performed_at => NULL::timestamptz,
-        warmup => TRUE::boolean,
-        is_amrap => FALSE::boolean,
-        completion_status => 'not_completed'::completion_status_enum,
-        relative_effort => NULL::relative_effort_enum,
-        notes => NULL
+        p_user_id => p_user_id::uuid,
+        p_exercise_type => p_exercise_type::exercise_type_enum,
+        p_equipment_type => 'barbell'::equipment_type_enum,
+        p_target_weight_value => public.normalize_bar_weight_pounds(0)::numeric,
+        p_actual_weight_value => NULL,
+        p_reps => 8::integer,
+        p_weight_unit => v_training_max_unit::weight_unit_enum,
+        p_performed_at => NULL::timestamptz,
+        p_warmup => TRUE::boolean,
+        p_is_amrap => FALSE::boolean,
+        p_completion_status => 'not_completed'::completion_status_enum,
+        p_relative_effort => NULL::relative_effort_enum,
+        p_notes => NULL
     );
 
     -- Update exercise_block with the first active exercise
@@ -96,19 +96,19 @@ BEGIN
         END IF;
         FOR i IN 1..3 LOOP
             v_exercise_id := public.create_exercise(
-                user_id => p_user_id::uuid,
-                exercise_type => p_exercise_type::exercise_type_enum,
-                equipment_type => 'barbell'::equipment_type_enum,
-                weight_value => public.round_to_nearest_5(v_training_max_value * warmup_fractions[i])::numeric,
-                actual_weight_value => NULL,
-                reps => warmup_reps[i]::integer,
-                weight_unit => v_training_max_unit::weight_unit_enum,
-                performed_at => NULL::timestamptz,
-                warmup => TRUE::boolean,
-                is_amrap => FALSE::boolean,
-                completion_status => 'not_completed'::completion_status_enum,
-                relative_effort => NULL::relative_effort_enum,
-                notes => NULL
+                p_user_id => p_user_id::uuid,
+                p_exercise_type => p_exercise_type::exercise_type_enum,
+                p_equipment_type => 'barbell'::equipment_type_enum,
+                p_target_weight_value => public.round_to_nearest_5(v_training_max_value * warmup_fractions[i])::numeric,
+                p_actual_weight_value => NULL,
+                p_reps => warmup_reps[i]::integer,
+                p_weight_unit => v_training_max_unit::weight_unit_enum,
+                p_performed_at => NULL::timestamptz,
+                p_warmup => TRUE::boolean,
+                p_is_amrap => FALSE::boolean,
+                p_completion_status => 'not_completed'::completion_status_enum,
+                p_relative_effort => NULL::relative_effort_enum,
+                p_notes => NULL
             );
             INSERT INTO exercise_block_exercises (block_id, exercise_id, exercise_order)
             VALUES (v_block_id, v_exercise_id, v_set_order);
@@ -136,19 +136,19 @@ BEGIN
         END IF;
         FOR i IN 1..3 LOOP
             v_exercise_id := public.create_exercise(
-                user_id => p_user_id::uuid,
-                exercise_type => p_exercise_type::exercise_type_enum,
-                equipment_type => 'barbell'::equipment_type_enum,
-                weight_value => public.round_to_nearest_5(v_training_max_value * working_fractions[i])::numeric,
-                actual_weight_value => NULL,
-                reps => working_reps[i]::integer,
-                weight_unit => v_training_max_unit::weight_unit_enum,
-                performed_at => NULL::timestamptz,
-                warmup => FALSE::boolean,
-                is_amrap => (i = 3)::boolean,
-                completion_status => 'not_completed'::completion_status_enum,
-                relative_effort => NULL::relative_effort_enum,
-                notes => NULL
+                p_user_id => p_user_id::uuid,
+                p_exercise_type => p_exercise_type::exercise_type_enum,
+                p_equipment_type => 'barbell'::equipment_type_enum,
+                p_target_weight_value => public.round_to_nearest_5(v_training_max_value * working_fractions[i])::numeric,
+                p_actual_weight_value => NULL,
+                p_reps => working_reps[i]::integer,
+                p_weight_unit => v_training_max_unit::weight_unit_enum,
+                p_performed_at => NULL::timestamptz,
+                p_warmup => FALSE::boolean,
+                p_is_amrap => (i = 3)::boolean,
+                p_completion_status => 'not_completed'::completion_status_enum,
+                p_relative_effort => NULL::relative_effort_enum,
+                p_notes => NULL
             );
             INSERT INTO exercise_block_exercises (block_id, exercise_id, exercise_order)
             VALUES (v_block_id, v_exercise_id, v_set_order);

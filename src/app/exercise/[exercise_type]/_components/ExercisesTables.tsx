@@ -112,7 +112,11 @@ const ExercisesDateSection: React.FC<ExercisesDateSectionProps> = (props) => (
                   <Stack alignItems="center">
                     <WeightThumbnail
                       availablePlates={props.availablePlates}
-                      weight={exercise.target_weight_value ?? 0}
+                      weight={
+                        exercise.actual_weight_value ??
+                        exercise.target_weight_value ??
+                        0
+                      }
                       weightUnit={exercise.weight_unit}
                       exerciseType={exercise.exercise_type}
                     />

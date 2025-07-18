@@ -107,6 +107,8 @@ const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
           gap={1}
           alignItems="flex-end">
           <TextField
+            // TODO: we should make this be target_weight, but we're not really
+            // supporting both, yet.
             label="Weight"
             value={api.weightInput}
             onChange={(e) => api.setWeightInput(e.target.value)}

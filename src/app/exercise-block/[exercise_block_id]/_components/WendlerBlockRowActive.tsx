@@ -38,7 +38,7 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
   const [percievedEffort, setPercievedEffort] =
     React.useState<PercievedEffort | null>(row.relative_effort ?? null);
   const [targetWeight, setTargetWeight] = React.useState<number>(
-    row.actual_weight_value!
+    row.target_weight_value!
   );
   const [editable, setEditable] = React.useState<boolean>(false);
 

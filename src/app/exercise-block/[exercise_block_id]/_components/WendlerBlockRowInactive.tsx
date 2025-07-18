@@ -47,7 +47,9 @@ const WendlerBlockRowInactive: React.FC<WendlerBlockRowInactiveProps> = (
         }}>
         <Stack sx={{ gridColumn: "1 / span 4", justifySelf: "center" }}>
           <BarbellEditor
-            targetWeight={props.row.actual_weight_value!}
+            targetWeight={
+              props.row.actual_weight_value ?? props.row.target_weight_value!
+            }
             barWeight={45}
             availablePlates={props.availablePlates}
             weightUnit={props.row.weight_unit!}

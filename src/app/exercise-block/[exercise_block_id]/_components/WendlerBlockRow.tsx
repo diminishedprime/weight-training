@@ -8,6 +8,7 @@ export interface WendlerBlockRowProps {
   highlight?: boolean;
 }
 
+// TODO: none of these really support target & actual weight correctly, yet.
 const WendlerBlockRow: React.FC<WendlerBlockRowProps> = ({
   setName,
   children,

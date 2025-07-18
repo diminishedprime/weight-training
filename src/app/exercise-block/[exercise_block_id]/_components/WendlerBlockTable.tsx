@@ -111,7 +111,7 @@ const WendlerBlockTable: React.FC<WendlerBlockTableProps> = (props) => {
           workingSetCount++;
           setName = `Working Set ${workingSetCount}`;
         }
-        setName = `${setName}: ${row.actual_weight_value}x${row.reps}`;
+        setName = `${setName}: ${row.actual_weight_value ?? row.target_weight_value}x${row.reps}`;
         if (row.is_amrap) {
           setName = `${setName} (AMRAP)`;
         }

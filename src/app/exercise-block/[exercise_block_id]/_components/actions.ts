@@ -3,6 +3,7 @@
 import { supabaseRPC } from "@/serverUtil";
 import { revalidatePath } from "next/cache";
 
+// TODO: I think all of these are broken and need to be updated.
 export const skipExercise = async (
   userId: string,
   blockId: string,

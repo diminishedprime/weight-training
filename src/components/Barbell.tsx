@@ -170,9 +170,11 @@ const Barbell: React.FC<BarbellProps> = ({
             cursor: onClickWeight ? "pointer" : undefined,
           }}
           onClick={onClickWeight}>
-          <h2 style={{ margin: 0 }}>
-            {actualWeight} {weightUnitUIString(weightUnit)}
-          </h2>
+          {!hidePlateNumbers && (
+            <h2 style={{ margin: 0 }}>
+              {actualWeight} {weightUnitUIString(weightUnit)}
+            </h2>
+          )}
         </Box>
         <Box
           ref={containerRef}
