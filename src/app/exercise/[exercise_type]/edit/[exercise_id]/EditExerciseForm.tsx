@@ -24,6 +24,7 @@ interface EditLiftFormProps {
   user_id: string;
   exercise: ExerciseForUser;
   availablePlates: number[];
+  availableDumbbells: number[];
 }
 
 const useEditExerciseFormAPI = (props: EditLiftFormProps) => {
@@ -161,6 +162,7 @@ export default function EditExerciseForm(props: EditLiftFormProps) {
           setWeightValue={api.setTargetWeightValue}
           weightUnit={"pounds" as WeightUnit} // TODO: This should come from user preferences eventually.
           availablePlates={props.availablePlates}
+          availableDumbbells={props.availableDumbbells}
         />
         <Stack>
           <SelectReps

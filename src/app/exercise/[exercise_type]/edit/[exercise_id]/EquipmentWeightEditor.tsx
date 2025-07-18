@@ -8,6 +8,7 @@ interface EquipmentWeightEditorProps {
   setWeightValue: (v: number) => void;
   weightUnit: WeightUnit;
   availablePlates: number[];
+  availableDumbbells: number[];
 }
 
 export function EquipmentWeightEditor(props: EquipmentWeightEditorProps) {
@@ -27,9 +28,10 @@ export function EquipmentWeightEditor(props: EquipmentWeightEditorProps) {
     case "dumbbell":
       return (
         <DumbbellEditor
-          weight={props.weightValue}
+          weightValue={props.weightValue}
           onChange={props.setWeightValue}
           weightUnit={props.weightUnit}
+          availableDumbbells={props.availableDumbbells}
         />
       );
     default:

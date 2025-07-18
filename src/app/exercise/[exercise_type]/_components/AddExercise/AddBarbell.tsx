@@ -219,7 +219,7 @@ const AddBarbell: React.FC<AddBarbelProps> = (props) => {
           barWeight={api.barWeight}
           onTargetWeightChange={api.onChange}
           weightUnit={api.weightUnit}
-          availablePlates={props.availablePlates}
+          availablePlates={props.availablePlates!}
           roundingMode={RoundingMode.NEAREST}
         />
         <Stack alignSelf="center">

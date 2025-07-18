@@ -26,7 +26,8 @@ interface AddExerciseProps {
   equipmentType: EquipmentType;
   exerciseType: ExerciseType;
   pathToRevalidate: string;
-  availablePlates: number[];
+  availablePlates?: number[];
+  availableDumbbells?: number[];
   barbellFormDraft?: BarbellFormDraft | null;
 }
 

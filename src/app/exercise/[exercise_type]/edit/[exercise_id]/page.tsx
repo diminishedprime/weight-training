@@ -31,7 +31,9 @@ const EditExercisePage = async (props: EditExercisePageProps) => {
     await Promise.all([
       requirePreferences(
         user_id,
-        ["available_plates_lbs"],
+        // This is a bit janky, but it works for now. We also need to have this
+        // be either specific per equipment type, or handle the nullability.
+        ["available_plates_lbs", "available_dumbbells_lbs"],
         `/exercise/${exercise_type}/edit/${exercise_id}`
       ),
       supabase.rpc("get_exercise_for_user", {
@@ -53,6 +55,7 @@ const EditExercisePage = async (props: EditExercisePageProps) => {
       </Typography>
       <EditExerciseForm
         availablePlates={userPreferences.available_plates_lbs}
+        availableDumbbells={userPreferences.available_dumbbells_lbs}
         exercise={exercise}
         user_id={user_id}
       />

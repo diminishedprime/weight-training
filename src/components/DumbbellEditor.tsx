@@ -7,59 +7,63 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { WeightUnit } from "@/common-types";
 
 export interface DumbbellEditorProps {
-  // TODO available weights should be passed in and come from user preferences.
-  weight: number;
-  onChange?: (newWeight: number) => void;
+  weightValue: number;
+  onChange: (newWeight: number) => void;
   weightUnit: WeightUnit;
+  availableDumbbells: number[];
 }
 
-const DEFAULT_DUMBBELL_WEIGHTS = [
-  1, 2, 3, 5, 8, 10, 12, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80,
-  85, 90, 95, 100,
-];
-
 const useDumbbellEditorAPI = (props: DumbbellEditorProps) => {
-  const { weight, onChange } = props;
+  const { weightValue: weight, onChange } = props;
 
-  const availableWeights = DEFAULT_DUMBBELL_WEIGHTS;
+  const [availableWeights, setAvailableWeights] = React.useState(() => [
+    ...props.availableDumbbells,
+  ]);
 
-  // Find the closest index in availableWeights
-  const idx =
-    availableWeights.findIndex((w) => w >= weight) === -1
-      ? availableWeights.length - 1
-      : availableWeights.findIndex((w) => w >= weight);
-  const currentIdx =
-    availableWeights[idx] === weight
-      ? idx
-      : availableWeights.findIndex((w) => w === weight);
+  const currentIdx = React.useMemo(() => {
+    return availableWeights.findIndex((w) => w === weight);
+  }, [availableWeights, weight]);
 
   const handleBumpDown = React.useCallback(() => {
-    if (!onChange) return;
-    const prevIdx = currentIdx > 0 ? currentIdx - 1 : 0;
+    if (currentIdx === -1) return;
+    const firstIdx = 0;
+    const prevIdx = Math.max(currentIdx - 1, firstIdx);
     onChange(availableWeights[prevIdx]);
   }, [onChange, currentIdx, availableWeights]);
 
   const handleBumpUp = React.useCallback(() => {
-    if (!onChange) return;
-    const nextIdx =
-      currentIdx < availableWeights.length - 1 ? currentIdx + 1 : currentIdx;
+    if (currentIdx === -1) return;
+    const lastIdx = availableWeights.length - 1;
+    const nextIdx = Math.min(currentIdx + 1, lastIdx);
     onChange(availableWeights[nextIdx]);
   }, [onChange, currentIdx, availableWeights]);
 
   const handleWeightChange = React.useCallback(
     (newValue: unknown) => {
       const val = Number(newValue);
-      if (onChange && !isNaN(val) && val >= 0) onChange(val);
+      if (!isNaN(val) && val >= 0) {
+        // If the value is not in availableWeights, add it and sort
+        if (!availableWeights.includes(val)) {
+          setAvailableWeights((prev) => [...prev, val].sort((a, b) => a - b));
+        }
+        onChange(val);
+      }
     },
-    [onChange]
+    [onChange, availableWeights]
   );
 
   const handleInputChange = React.useCallback(
     (newInputValue: string) => {
       const val = Number(newInputValue);
-      if (onChange && !isNaN(val) && val >= 0) onChange(val);
+      if (!isNaN(val) && val >= 0) {
+        // If the value is not in availableWeights, add it and sort
+        if (!availableWeights.includes(val)) {
+          setAvailableWeights((prev) => [...prev, val].sort((a, b) => a - b));
+        }
+        onChange(val);
+      }
     },
-    [onChange]
+    [onChange, availableWeights]
   );
 
   return {
@@ -83,7 +87,7 @@ const DumbbellEditor: React.FC<DumbbellEditorProps> = (props) => {
         alignItems: "center",
         gap: 2,
       }}>
-      <Dumbbell weight={props.weight} weightUnit={props.weightUnit} />
+      <Dumbbell weight={props.weightValue} weightUnit={props.weightUnit} />
       <Box sx={{ display: "flex", alignItems: "center", gap: 1, mt: 2 }}>
         <Button
           variant="outlined"
@@ -95,10 +99,10 @@ const DumbbellEditor: React.FC<DumbbellEditorProps> = (props) => {
         <Autocomplete
           freeSolo
           options={api.availableWeights}
-          value={props.weight}
+          value={props.weightValue}
           getOptionLabel={(option) => option.toString()}
           onChange={(_, newValue) => api.handleWeightChange(newValue)}
-          inputValue={String(props.weight)}
+          inputValue={String(props.weightValue)}
           onInputChange={(_, newInputValue) =>
             api.handleInputChange(newInputValue)
           }

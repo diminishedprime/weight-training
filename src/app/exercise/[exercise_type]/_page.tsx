@@ -75,7 +75,12 @@ export default async function ExerciseTypePage(props: ExerciseTypePageProps) {
     isBarbellFormDraftPath(currentPath)
       ? getBarbellFormDraft(userId, currentPath)
       : null,
-    requirePreferences(userId, ["available_plates_lbs"], currentPath),
+    // TODO: this should be updated to be specific per equipment type.
+    requirePreferences(
+      userId,
+      ["available_plates_lbs", "available_dumbbells_lbs"],
+      currentPath
+    ),
     supabaseRPC("get_exercises_by_type_for_user", {
       p_user_id: userId,
       p_exercise_type: exerciseType,
@@ -116,6 +121,7 @@ export default async function ExerciseTypePage(props: ExerciseTypePageProps) {
         />
       )}
       <AddExercise
+        // TODO: This should be updated to be specific per equipment type. instead of general.
         userId={userId}
         equipmentType={equipmentType}
         exerciseType={exerciseType}
@@ -124,6 +130,7 @@ export default async function ExerciseTypePage(props: ExerciseTypePageProps) {
         barbellFormDraft={barbellFormDraft}
       />
       <ExercisesTables
+        // TODO: This should be updated to be specific per equipment type.
         availablePlates={preferences.available_plates_lbs}
         exercises={lifts}
         exercise_type={exerciseType}
