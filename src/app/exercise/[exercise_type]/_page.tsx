@@ -7,7 +7,6 @@ import {
 import SetTargetMax from "@/components/SetTargetMax";
 import { WENDLER_EXERCISE_TYPES } from "@/constants";
 import {
-  getSupabaseClient,
   requireLoggedInUser,
   requirePreferences,
   supabaseRPC,
@@ -43,15 +42,10 @@ export async function getBarbellFormDraft(
   userId: string,
   path: string
 ): Promise<BarbellFormDraft | null> {
-  const supabase = getSupabaseClient();
-  const { data, error } = await supabase.rpc("get_form_draft", {
+  const data = await supabaseRPC("get_form_draft", {
     p_user_id: userId,
     p_form_type: path,
   });
-
-  if (error) {
-    throw new Error(`Failed to get form draft: ${error.message}`);
-  }
 
   return data as BarbellFormDraft | null;
 }

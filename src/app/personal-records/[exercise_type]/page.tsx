@@ -1,5 +1,5 @@
 import { Constants } from "@/database.types";
-import { getSupabaseClient, requireLoggedInUser } from "@/serverUtil";
+import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { ExerciseType } from "@/common-types";
@@ -35,18 +35,13 @@ const PersonalRecordsExerciseType = async (
   // ends up here on a valid exercise type but has no records, it makes sense to
   // show them a UI that points them towards the exercise.
 
-  const supabase = getSupabaseClient();
-  const { data: personalRecords, error: personalRecordsError } =
-    await supabase.rpc("get_personal_records_for_exercise_type", {
+  const personalRecords = await supabaseRPC(
+    "get_personal_records_for_exercise_type",
+    {
       p_user_id: userId,
       p_exercise_type: props.exercise_type,
-    });
-
-  // TODO - this is another instance where I should probably have some better error handling.
-  if (personalRecordsError) {
-    console.error("Error fetching personal records:", personalRecordsError);
-    return <>Error loading personal records</>;
-  }
+    }
+  );
 
   if (personalRecords === null || personalRecords.length === 0) {
     return (

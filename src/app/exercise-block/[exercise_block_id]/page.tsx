@@ -4,11 +4,10 @@ import React, { Suspense } from "react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Stack } from "@mui/material";
 import WendlerBlockTable from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockTable";
-import type { WendlerBlock, WendlerMetadata } from "@/common-types";
 import {
-  getSupabaseClient,
   requireLoggedInUser,
   requirePreferences,
+  supabaseRPC,
 } from "@/serverUtil";
 
 type ExerciseBlockProps = {
@@ -21,42 +20,29 @@ const ExerciseBlock: React.FC<ExerciseBlockProps> = async ({
   const { userId } = await requireLoggedInUser(
     `/exercise-block/${exercise_block_id}`
   );
-  const supabase = getSupabaseClient();
 
-  const userPreferences = await requirePreferences(
-    userId,
-    ["available_plates_lbs"],
-    `/exercise-block/${exercise_block_id}`
-  );
-
-  const [
-    { data: blockData, error: blockError },
-    { data: metadataData, error: metadataError },
-  ] = await Promise.all([
-    supabase.rpc("get_wendler_block", {
+  const [blockData, metadata, userPreferences] = await Promise.all([
+    supabaseRPC("get_wendler_block", {
       p_block_id: exercise_block_id,
       p_user_id: userId,
     }),
-    supabase.rpc("get_wendler_metadata", {
+    supabaseRPC("get_wendler_metadata", {
       p_block_id: exercise_block_id,
       p_user_id: userId,
     }),
+    await requirePreferences(
+      userId,
+      ["available_plates_lbs"],
+      `/exercise-block/${exercise_block_id}`
+    ),
   ]);
-
-  if (blockError) {
-    throw new Error("Error fetching block data");
-  }
-
-  if (metadataError) {
-    throw new Error("Error fetching metadata data");
-  }
 
   // Optionally validate blockData shape here
   return (
     <Stack>
       <WendlerBlockTable
-        block={blockData as WendlerBlock}
-        metadata={metadataData as WendlerMetadata}
+        block={blockData}
+        metadata={metadata}
         availablePlates={userPreferences.available_plates_lbs}
       />
     </Stack>
