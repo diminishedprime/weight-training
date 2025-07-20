@@ -70,19 +70,19 @@ export const addBarbellExercise = async (
   path: string,
   defaultFormDraft: BarbellFormDraft
 ) => {
-  // I should do something with the form draft here.
   await supabaseRPC("create_exercise", {
     p_user_id: userId,
     p_exercise_type: exerciseType,
     p_equipment_type: "barbell",
-    // Intentionally using the actualWeight value for the target, but we want to
-    // handle this better probably.
+    // TODO: Intentionally using the actualWeight value for the target, but we
+    // want to handle this better probably.
     p_target_weight_value: actualWeightValue,
     p_actual_weight_value: actualWeightValue,
     p_reps: reps,
     p_completion_status: completionStatus,
     p_is_amrap: isAmrap,
-    p_notes: notes,
+    // Coerce empty string to undefined for better db storage.
+    p_notes: notes ?? undefined,
     p_relative_effort: percievedEffort,
     p_warmup: isWarmup,
     p_weight_unit: weightUnit,

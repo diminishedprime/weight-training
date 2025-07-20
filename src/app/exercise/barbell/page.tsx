@@ -25,9 +25,6 @@ export default function BarbellExercisePage() {
           </Typography>
         ))}
       </Stack>
-      <Typography>
-        TODO: put in the links to the barbell exercises here.
-      </Typography>
     </React.Fragment>
   );
 }

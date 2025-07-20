@@ -21,6 +21,7 @@ import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
 import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
 import SelectWarmup from "@/components/select/SelectWarmup";
 import { TestIds } from "@/test-ids";
+import EditNotes from "@/components/EditNotes";
 
 export interface BarbellFormDraft {
   actualWeight: number;
@@ -47,7 +48,7 @@ const useAddBarbellExerciseAPI = (props: AddBarbellExerciseProps) => {
       roundingMode: RoundingMode.NEAREST,
       completionStatus: "completed",
       reps: 5,
-      notes: undefined,
+      notes: "",
       percievedEffort: undefined,
       isWarmup: false,
       isAmrap: false,
@@ -85,6 +86,19 @@ const useAddBarbellExerciseAPI = (props: AddBarbellExerciseProps) => {
   const [isAmrap, setIsAmrap] = React.useState<boolean>(
     initialDraft?.isAmrap ?? defaults.isAmrap
   );
+
+  // Sync the current state when the initial values change
+  React.useEffect(() => {
+    if (initialDraft) {
+      setActualWeight(initialDraft.actualWeight);
+      setReps(initialDraft.reps);
+      setCompletionStatus(initialDraft.completionStatus);
+      setNotes(initialDraft.notes);
+      setPercievedEffort(initialDraft.percievedEffort);
+      setIsWarmup(initialDraft.isWarmup);
+      setIsAmrap(initialDraft.isAmrap);
+    }
+  }, [initialDraft]);
 
   const barbellFormDraft: BarbellFormDraft = React.useMemo(
     () => ({
@@ -199,7 +213,7 @@ const AddBarbellExercise: React.FC<AddBarbellExerciseProps> = (props) => {
   }
   return (
     <React.Fragment>
-      <Stack spacing={1}>
+      <Stack spacing={1} alignItems="center">
         <BarbellEditor
           editing
           targetWeight={api.actualWeight}
@@ -242,6 +256,7 @@ const AddBarbellExercise: React.FC<AddBarbellExerciseProps> = (props) => {
             onWarmupChange={(isWarmup: boolean) => api.setIsWarmup(isWarmup)}
           />
         </Stack>
+        <EditNotes notes={api.notes} onNotesChange={api.setNotes} />
       </Stack>
       <Stack
         spacing={1}

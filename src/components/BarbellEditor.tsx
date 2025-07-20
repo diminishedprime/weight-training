@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import Barbell from "@/components/Barbell";
-import TextField from "@mui/material/TextField";
 import { Stack } from "@mui/material";
+import { Stack as ImmutableStack } from "immutable";
 import SelectActivePlates from "@/components/select/SelectActivePlates";
 import { minimalPlates } from "@/util";
 import { RoundingMode, WeightUnit } from "@/common-types";
@@ -25,6 +25,11 @@ const useBarbellEditorAPI = (props: BarbellEditorProps) => {
   // Sync weightInput string when actual weight changes externally
   const { targetWeight, barWeight, onTargetWeightChange } = props;
 
+  // Internal stack for undo history
+  const [targetWeightHistory, setTargetWeightHistory] = React.useState(() =>
+    ImmutableStack<number>()
+  );
+
   // Calculate the actual weight: barWeight + sum of all plates (both sides)
   const weightPerSide = (targetWeight - barWeight) / 2;
   const { plates: plateList, rounded } = minimalPlates(
@@ -32,24 +37,6 @@ const useBarbellEditorAPI = (props: BarbellEditorProps) => {
     props.availablePlates,
     props.roundingMode
   );
-  const actualWeight = barWeight + plateList.reduce((sum, p) => sum + p * 2, 0);
-
-  // Local string state for the input value
-  const [weightInput, setWeightInput] = React.useState<string>(
-    String(actualWeight)
-  );
-
-  React.useEffect(() => {
-    setWeightInput(String(actualWeight));
-  }, [actualWeight]);
-
-  // Update targetWeight only on blur
-  const handleWeightBlur = React.useCallback(() => {
-    const val = Number(weightInput);
-    if (!isNaN(val) && val >= barWeight && val !== actualWeight) {
-      onTargetWeightChange(val);
-    }
-  }, [weightInput, barWeight, actualWeight, onTargetWeightChange]);
 
   const plateCounts = React.useMemo(() => {
     const counts: { [key: number]: number } = {};
@@ -61,23 +48,42 @@ const useBarbellEditorAPI = (props: BarbellEditorProps) => {
 
   const handleAdd = React.useCallback(
     (increment: number) => {
+      setTargetWeightHistory((prev) => prev.push(targetWeight));
       onTargetWeightChange(targetWeight + increment * 2);
     },
     [onTargetWeightChange, targetWeight]
   );
 
   const handleClear = React.useCallback(() => {
+    setTargetWeightHistory((prev) => prev.push(targetWeight));
     onTargetWeightChange(barWeight);
-  }, [onTargetWeightChange, barWeight]);
+  }, [onTargetWeightChange, barWeight, targetWeight]);
+
+  // Undo handler
+  const handleUndo = React.useCallback(() => {
+    const previousWeight = targetWeightHistory.peek();
+    onTargetWeightChange(previousWeight!);
+    setTargetWeightHistory(targetWeightHistory.pop());
+  }, [targetWeightHistory, setTargetWeightHistory, onTargetWeightChange]);
+
+  const undoDisabled = React.useMemo(
+    () => targetWeightHistory.size === 0,
+    [targetWeightHistory]
+  );
+
+  const clearDisabled = React.useMemo(
+    () => targetWeight <= barWeight,
+    [targetWeight, barWeight]
+  );
 
   return {
     plateCounts,
     handleAdd,
     handleClear,
-    weightInput,
-    setWeightInput,
-    handleWeightBlur,
+    handleUndo,
+    undoDisabled,
     rounded,
+    clearDisabled,
   };
 };
 
@@ -106,21 +112,14 @@ const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
           useFlexGap
           gap={1}
           alignItems="flex-end">
-          <TextField
-            // TODO: we should make this be target_weight, but we're not really
-            // supporting both, yet.
-            label="Weight"
-            value={api.weightInput}
-            onChange={(e) => api.setWeightInput(e.target.value)}
-            onBlur={api.handleWeightBlur}
-            size="small"
-            sx={{ width: "9ch" }}
-          />
           <SelectActivePlates
             availablePlates={props.availablePlates}
             activePlates={api.plateCounts}
             onAddPlate={api.handleAdd}
             onClear={api.handleClear}
+            clearDisabled={api.clearDisabled}
+            onUndo={api.handleUndo}
+            undoDisabled={api.undoDisabled}
           />
         </Stack>
       )}

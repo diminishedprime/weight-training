@@ -5,9 +5,12 @@
   - [ ] Users can add in a custom dumbbell exercise.
   - [ ] Users can add in a custom bodyweight exercise.
   - [ ] Users can add in a custom machine exercise.
-  - [ ] Question: Is it valid for an exercise to be dangling, i.e. not a part of
-        a block or superblock
+  - [ ] Users can add in a custom kettlebell exercise.
 - [ ] Users can edit an existing exercise.
+  - [ ] Users can edit an existing barbell exercise.
+  - [ ] Users can edit a custom bodyweight exercise.
+  - [ ] Users can edit a custom machine exercise.
+  - [ ] Users can edit a custom kettlebell exercise.
 - [ ] Exercise Blocks
   - [ ] Users can add in a wendler superblock for leg day.
 - [ ] Users can add in a Leg Day superblock
