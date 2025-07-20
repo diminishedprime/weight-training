@@ -5,6 +5,7 @@ import {
   RequiredNonNullable,
   RoundingMode,
 } from "@/common-types";
+import { notFound } from "next/navigation";
 
 /**
  * Determines the corresponding equipment for a given lift type.
@@ -221,6 +222,7 @@ export const getExercisesByEquipment = (): Record<
 };
 
 export const EXERCISES_BY_EQUIPMENT = getExercisesByEquipment();
+export const BARBELL_EXERCISES = EXERCISES_BY_EQUIPMENT["barbell"];
 
 /**
  * Pre-computed Set of valid barbell form draft paths for O(1) lookup.
@@ -356,5 +358,23 @@ export function fractionWeightFormat(value: number): string {
     return FRACTIONS[value];
   } else {
     return value.toString();
+  }
+}
+
+export function narrowOrNotFound<UnNarrowed, Narrowed extends UnNarrowed>(
+  value: UnNarrowed,
+  narrowFn: (v: UnNarrowed) => v is Narrowed,
+): Narrowed {
+  if (narrowFn(value)) {
+    return value;
+  }
+  notFound();
+}
+
+export function notFoundIfNull<T>(
+  value: T | null | undefined,
+): asserts value is T {
+  if (value === null) {
+    notFound();
   }
 }

@@ -4,10 +4,13 @@ import * as serverUtil from "@/serverUtil";
 import { requireLoggedInUser, getSession } from "@/test/serverUtil";
 import { USER_ID_LOGGED_IN } from "@/test/constants";
 import { render, screen, waitFor, act } from "@testing-library/react";
-import ExerciseTypePage from "@/app/exercise/[exercise_type]/_page";
+import BarbellExercisePage, {
+  BarbellExercisePageProps,
+} from "@/app/exercise/barbell/[barbell_exercise_type]/_page";
 import { TestIds } from "@/test-ids";
 import { ExerciseType } from "@/common-types";
 import { afterEach } from "node:test";
+import { FIRST_PAGE_NUM, pathForBarbellExercisePage } from "@/constants";
 
 const supabase = serverUtil.getSupabaseClient();
 
@@ -33,15 +36,19 @@ afterEach(async () => {
   await deleteRelevantRowsForUser(USER_ID_LOGGED_IN);
 });
 
+// TODO: Consider a test for the "real" page that does fancy narrowing, etc.
+
 describe("User Journey: Add Custom Barbell Exercises", () => {
   it("should allow a logged in user to add a custom deadlift barbell exercise", async () => {
-    const pageProps = {
-      exerciseType: "barbell_deadlift" as ExerciseType,
-      currentPath: "/exercise/barbell_deadlift",
+    const pageProps: BarbellExercisePageProps = {
+      barbellExerciseType: "barbell_deadlift" as ExerciseType,
+      path: pathForBarbellExercisePage("barbell_deadlift"),
+      userId: USER_ID_LOGGED_IN,
+      pageNum: FIRST_PAGE_NUM,
     };
 
     // Initial render of the page.
-    let page = await ExerciseTypePage(pageProps);
+    let page = await BarbellExercisePage(pageProps);
     await act(async () => render(page));
 
     // Find and click the "Add Exercise" button. This will add a db form draft.
@@ -70,7 +77,7 @@ describe("User Journey: Add Custom Barbell Exercises", () => {
           .eq("user_id", USER_ID_LOGGED_IN);
         expect(drafts?.length).toBeGreaterThan(0);
       });
-      page = await ExerciseTypePage(pageProps);
+      page = await BarbellExercisePage(pageProps);
       await act(async () => render(page));
     });
 
@@ -94,7 +101,7 @@ describe("User Journey: Add Custom Barbell Exercises", () => {
         expect(lifts?.length).toBeGreaterThan(0);
       });
 
-      page = await ExerciseTypePage(pageProps);
+      page = await BarbellExercisePage(pageProps);
       await act(async () => render(page));
     });
 

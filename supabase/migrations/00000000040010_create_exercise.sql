@@ -16,6 +16,8 @@ CREATE OR REPLACE FUNCTION public.create_exercise (
 DECLARE
     v_exercise_id uuid;
 BEGIN
+-- TODO this should check some invariants. For example, if the completion status
+-- is completed, then it needs a performed_at timestamp.
     INSERT INTO public.exercises (
         user_id, exercise_type, equipment_type, performed_at, target_weight_value, actual_weight_value, weight_unit, reps, warmup, is_amrap, completion_status, notes, relative_effort
     ) VALUES (

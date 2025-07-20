@@ -1,4 +1,4 @@
-- [ ] User can log into the app
+- [x] User can log into the app
 - [ ] Users can add in a custom exercise.
   - [x] Users can add in a custom barbell exercise. [User Journey: Add Custom
         Exercise]
@@ -67,5 +67,8 @@
 - [ ] Users can use a special form of making the closest weight where they
       provide exactly what plates they have available (along with a color
       picker) and that is used for determining how to "make change"
+- [ ] For existing exercises, there's a database RPC that can run in seed.sql
+      that will try its best to "wendlize" lifts that map to what a wendler
+      exercise looks like.
 
 [User Journey: Add Custom Exercise]: ../integration_tests/add-custom-exercise.integration.test.tsx

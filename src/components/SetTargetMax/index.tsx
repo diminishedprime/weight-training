@@ -9,8 +9,6 @@ import { useCallback, useMemo, useState } from "react";
 import { setTargetMaxAction } from "@/components/SetTargetMax/actions";
 import { ExerciseType, WeightUnit } from "@/common-types";
 
-// TODO - update this to use the BarbellEditor component instead of a Textfield.
-
 /**
  * Props for SetTargetMax component.
  * @property exerciseType - The exercise type (enum value)

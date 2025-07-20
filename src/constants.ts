@@ -38,3 +38,10 @@ export const DEFAULT_VALUES = {
   AVAILABLE_DUMBBELLS_LBS: AVAILABLE_DUMBBELLS,
   SELECTED_PLATES: COMMON_AVAILABLE_PLATES,
 };
+
+// Page paths
+export const pathForBarbellPage = `/exercise/barbell`;
+export const pathForBarbellExercisePage = (barbell_exercise_type: string) =>
+  `/exercise/barbell/${barbell_exercise_type}`;
+
+export const FIRST_PAGE_NUM = 0;

@@ -54,8 +54,7 @@ const DumbbellBulb: React.FC<DumbbellBulbProps> = ({
         fontWeight: "bold",
         fontSize: `${fontSizePercent}%`,
         p: hideText ? "unset" : 1,
-      }}
-    >
+      }}>
       {!hideText && <>{weight}</>}
     </Box>
   );
@@ -86,8 +85,7 @@ const Dumbbell: React.FC<DumbbellProps> = ({
         minWidth: 60,
         minHeight: 10,
         margin: "0 auto",
-      }}
-    >
+      }}>
       <DumbbellBulb
         weight={weight}
         widthPercent={bulbWidthPercent}

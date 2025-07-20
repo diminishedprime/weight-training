@@ -1,6 +1,7 @@
 import { Database } from "@/database.types";
 
 export type ExerciseType = Database["public"]["Enums"]["exercise_type_enum"];
+
 export type CompletionStatus =
   Database["public"]["Enums"]["completion_status_enum"];
 export type WeightUnit = Database["public"]["Enums"]["weight_unit_enum"];
@@ -9,6 +10,11 @@ export type PercievedEffort =
   Database["public"]["Enums"]["relative_effort_enum"];
 export type WendlerCycleType =
   Database["public"]["Enums"]["wendler_cycle_type_enum"];
+
+export type ExercisesByTypeResult =
+  Database["public"]["Functions"]["get_exercises_by_type"]["Returns"];
+
+export type ExercisesByTypeResultRows = ExercisesByTypeResult["rows"];
 
 export type ExerciseForUser =
   Database["public"]["Functions"]["get_exercise_for_user"]["Returns"];

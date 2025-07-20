@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION public.get_form_draft (p_user_id uuid, p_form_type text) RETURNS jsonb AS $$
+CREATE OR REPLACE FUNCTION public.get_form_draft (p_user_id uuid, p_page_path text) RETURNS jsonb AS $$
 DECLARE
   result jsonb;
 BEGIN
@@ -6,7 +6,7 @@ BEGIN
     INTO result
     FROM public.form_drafts
     WHERE user_id = p_user_id
-      AND form_type = p_form_type
+      AND page_path = p_page_path
       AND expires_at > timezone('utc', now());
   
   RETURN result;

@@ -5,15 +5,17 @@ function toTitleCase(str: string) {
   return str.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+export interface BreadcrumbsProps {
+  pathname: string;
+  labels?: Record<string, string>;
+  nonLinkable?: string[];
+}
+
 export default function Breadcrumbs({
   pathname,
   labels = {},
   nonLinkable = [],
-}: {
-  pathname: string;
-  labels?: Record<string, string>;
-  nonLinkable?: string[];
-}) {
+}: BreadcrumbsProps) {
   const pathParts = pathname.split("/").filter(Boolean);
 
   return (

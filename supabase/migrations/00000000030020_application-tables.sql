@@ -17,6 +17,8 @@ CREATE TABLE IF NOT EXISTS public.exercises (
   is_amrap boolean NOT NULL DEFAULT false,
   completion_status completion_status_enum NOT NULL DEFAULT 'not_completed',
   notes text NULL,
+  -- TODO: I'm calling this percievedEffort everywhere else, need to update the
+  -- db accordingly.
   relative_effort relative_effort_enum NULL,
   CONSTRAINT exercises_id_pkey PRIMARY KEY (id)
   -- TODO: Re-enable this constraint once Steph & Matt exist in production database
@@ -133,12 +135,12 @@ CREATE TABLE IF NOT EXISTS public.target_max_history (
 CREATE TABLE IF NOT EXISTS public.form_drafts (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
-  form_type text NOT NULL,
+  page_path text NOT NULL,
   form_data jsonb NOT NULL,
   created_at timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
   updated_at timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
   expires_at timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()) + INTERVAL '7 days',
   CONSTRAINT form_drafts_pkey PRIMARY KEY (id),
   CONSTRAINT form_drafts_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
-  CONSTRAINT form_drafts_user_form_unique UNIQUE (user_id, form_type)
+  CONSTRAINT form_drafts_user_page_unique UNIQUE (user_id, page_path)
 );
