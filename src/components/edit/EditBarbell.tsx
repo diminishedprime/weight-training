@@ -1,20 +1,21 @@
 "use client";
 import React from "react";
-import DisplayBarbell from "@/components/display/DisplayBarbell";
 import { Stack } from "@mui/material";
 import { Stack as ImmutableStack } from "immutable";
 import SelectActivePlates from "@/components/select/SelectActivePlates";
 import { minimalPlates } from "@/util";
 import { RoundingMode, WeightUnit } from "@/common-types";
+import DisplayBarbell from "@/components/display/DisplayBarbell";
 
 export interface EditBarbellProps {
-  targetWeight: number;
+  targetWeightValue: number;
   roundingMode: RoundingMode;
   barWeight: number;
   onTargetWeightChange: (newTargetWeight: number) => void;
   weightUnit: WeightUnit;
   availablePlates: number[];
   editing?: boolean;
+  // TODO: remove later.
   onClickWeight?: () => void;
 }
 
@@ -23,7 +24,11 @@ export interface EditBarbellProps {
 
 const useEditBarbellAPI = (props: EditBarbellProps) => {
   // Sync weightInput string when actual weight changes externally
-  const { targetWeight, barWeight, onTargetWeightChange } = props;
+  const {
+    targetWeightValue: targetWeight,
+    barWeight,
+    onTargetWeightChange,
+  } = props;
 
   // Internal stack for undo history
   const [targetWeightHistory, setTargetWeightHistory] = React.useState(() =>
@@ -100,10 +105,9 @@ const EditBarbell: React.FC<EditBarbellProps> = (props) => {
     <Stack display="flex" direction="column" alignItems="center" spacing={1}>
       <DisplayBarbell
         weightUnit={props.weightUnit}
-        targetWeight={props.targetWeight}
+        targetWeightValue={props.targetWeightValue}
         barWeight={props.barWeight}
         availablePlates={props.availablePlates}
-        onClickWeight={props.onClickWeight}
         roundingMode={props.roundingMode}
       />
       {props.editing && (

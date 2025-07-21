@@ -58,31 +58,31 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
     case "dumbbell_row":
       return "Row";
     case "dumbbell_bench_press":
-      return "Dumbbell Bench Press";
+      return "Bench Press";
     case "dumbbell_incline_bench_press":
-      return "Dumbbell Incline Bench Press";
+      return "Incline Bench Press";
     case "dumbbell_overhead_press":
-      return "Dumbbell Overhead Press";
+      return "Overhead Press";
     case "dumbbell_bicep_curl":
-      return "Dumbbell Bicep Curl";
+      return "Bicep Curl";
     case "dumbbell_hammer_curl":
-      return "Dumbbell Hammer Curl";
+      return "Hammer Curl";
     case "dumbbell_wrist_curl":
-      return "Dumbbell Wrist Curl";
+      return "Wrist Curl";
     case "dumbbell_fly":
-      return "Dumbbell Fly";
+      return "Fly";
     case "dumbbell_lateral_raise":
-      return "Dumbbell Lateral Raise";
+      return "Lateral Raise";
     case "dumbbell_skull_crusher":
-      return "Dumbbell Skull Crusher";
+      return "Skull Crusher";
     case "dumbbell_preacher_curl":
-      return "Dumbbell Preacher Curl";
+      return "Preacher Curl";
     case "dumbbell_front_raise":
-      return "Dumbbell Front Raise";
+      return "Front Raise";
     case "dumbbell_shoulder_press":
-      return "Dumbbell Shoulder Press";
+      return "Shoulder Press";
     case "dumbbell_split_squat":
-      return "Dumbbell Split Squat";
+      return "Split Squat";
     // --- end dumbbell ---
 
     // --- kettlebell ---

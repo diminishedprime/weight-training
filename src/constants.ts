@@ -1,4 +1,4 @@
-import { ExerciseType, WeightUnit } from "@/common-types";
+import { EquipmentType, ExerciseType, WeightUnit } from "@/common-types";
 
 export const DEFAULT_BAR_WEIGHT = 45; // lbs
 export const ALL_PLATES = [55, 45, 35, 25, 10, 5, 2.5];
@@ -41,6 +41,31 @@ export const DEFAULT_VALUES = {
 
 // Page paths
 export const pathForBarbellPage = `/exercise/barbell`;
+
+export const pathForEquipmentPage = (equipmentType: EquipmentType) =>
+  `/exercise/${equipmentType}`;
+
+export const pathForEquipmentExercisePage = (
+  eqipmentType: EquipmentType,
+  exerciseType: ExerciseType,
+) => `${pathForEquipmentPage(eqipmentType)}/${exerciseType}`;
+
+export const pathForPaginatedEquipmentExercisePage = (
+  equipmentType: EquipmentType,
+  exerciseType: ExerciseType,
+  pageNum: number,
+  startExerciseId?: string,
+) => {
+  return `${pathForEquipmentExercisePage(equipmentType, exerciseType)}?page_num=${pageNum}${startExerciseId ? `&start_exercise_id=${startExerciseId}` : ""}`;
+};
+
+export const pathForEquipmentExerciseEdit = (
+  equipmentType: EquipmentType,
+  exerciseType: ExerciseType,
+  exerciseId: string,
+) =>
+  `${pathForEquipmentExercisePage(equipmentType, exerciseType)}/edit/${exerciseId}`;
+
 export const pathForBarbellExercisePage = (barbell_exercise_type: string) =>
   `/exercise/barbell/${barbell_exercise_type}`;
 
@@ -48,4 +73,4 @@ export const pathForBarbellExerciseEdit = (
   barbell_exercise_type: string,
   exerciseId: string,
 ) => `/exercise/barbell/${barbell_exercise_type}/edit/${exerciseId}`;
-export const FIRST_PAGE_NUM = 0;
+export const FIRST_PAGE_NUM = 1;

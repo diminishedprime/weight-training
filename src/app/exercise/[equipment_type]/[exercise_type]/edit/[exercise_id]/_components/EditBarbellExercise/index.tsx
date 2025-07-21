@@ -16,7 +16,7 @@ import React from "react";
 import {
   cancelEdit,
   saveChanges,
-} from "@/app/exercise/barbell/[barbell_exercise_type]/edit/[exercise_id]/_components/EditBarbellExercise/actions";
+} from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_components/EditBarbellExercise/actions";
 
 interface EditBarbellExerciseProps {
   userId: string;
@@ -126,7 +126,7 @@ const EditBarbellExercise: React.FC<EditBarbellExerciseProps> = (props) => {
       <Stack alignItems="center">
         <EditBarbell
           editing
-          targetWeight={api.targetWeight}
+          targetWeightValue={api.targetWeight}
           roundingMode={RoundingMode.NEAREST}
           // TODO: change this to be from the exercise.
           barWeight={45}

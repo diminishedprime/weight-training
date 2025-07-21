@@ -14,14 +14,21 @@ import DisplayBarbellThumbnail from "@/components/display/DisplayBarbellThumbnai
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import DisplayPercievedEffort from "@/components/display/DisplayPercievedEffort";
 import Link from "next/link";
-import { pathForBarbellExerciseEdit } from "@/constants";
+import {
+  pathForBarbellExerciseEdit,
+  pathForPaginatedEquipmentExercisePage,
+} from "@/constants";
 import DisplayNotes from "@/components/display/DisplayNotes";
+import Pagination from "@/components/Pagination";
 
 export interface BarbellExercisesTableProps {
   barbellExercises: NonNullable<ExercisesByTypeResultRows>;
   barbellExerciseType: ExerciseType;
   availablePlatesLbs: number[];
   path: string;
+  pageNum: number;
+  pageCount: number;
+  startExerciseId?: string;
 }
 
 function getDateString(performedAt: string) {
@@ -74,7 +81,19 @@ const BarbellExercisesTable: React.FC<BarbellExercisesTableProps> = (props) => {
   const api = useExercisesTableAPI(props);
 
   return (
-    <Stack spacing={3} sx={{ mt: 4, width: "100%" }}>
+    <Stack spacing={1}>
+      <Pagination
+        page={props.pageNum}
+        count={props.pageCount}
+        hrefFor={(pageNum) =>
+          pathForPaginatedEquipmentExercisePage(
+            "barbell",
+            props.barbellExerciseType,
+            pageNum,
+            pageNum === props.pageNum + 1 ? props.startExerciseId : undefined
+          )
+        }
+      />
       {api.groupedByDay.map((group, idx) => {
         const date = getDateString(group[0]!.performed_at!);
         return (
@@ -136,10 +155,7 @@ const BarbellExercisesTable: React.FC<BarbellExercisesTableProps> = (props) => {
                         reps={exercise.reps ?? undefined}
                       />
                       <DisplayBarbellThumbnail
-                        targetWeight={
-                          exercise.actual_weight_value ??
-                          exercise.target_weight_value!
-                        }
+                        targetWeightValue={exercise.target_weight_value!}
                         // TODO - Add this to the exercise table
                         barWeight={45}
                         roundingMode={RoundingMode.NEAREST}
@@ -178,6 +194,7 @@ const BarbellExercisesTable: React.FC<BarbellExercisesTableProps> = (props) => {
           </Stack>
         );
       })}
+      <Typography>{props.barbellExercises.length} Exercises</Typography>
     </Stack>
   );
 };

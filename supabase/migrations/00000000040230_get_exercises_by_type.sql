@@ -30,7 +30,8 @@ BEGIN
     CREATE TYPE public.get_exercises_by_type_result AS (
       rows public.get_exercises_by_type_row[],
       day_start_exercise_id uuid,
-      page_size integer
+      page_size integer,
+      page_count integer
     );
   END IF;
 END$$;
@@ -74,7 +75,7 @@ BEGIN
         WHERE e.user_id = p_user_id
             AND e.exercise_type = p_exercise_type
         ORDER BY e.performed_at DESC, e.id DESC
-        LIMIT p_max_results OFFSET (p_page_num * p_page_size)
+        LIMIT p_max_results OFFSET ((p_page_num - 1) * p_page_size)
     ) INTO result;
     RETURN result;
 END;
@@ -94,6 +95,8 @@ DECLARE
     page_size integer := 30;
     max_results integer := page_size + 1;
     start_idx integer;
+    total_rows integer;
+    page_count integer;
 BEGIN
     after_rows := _impl.i_get_exercises_by_type(
         p_user_id => p_user_id::uuid,
@@ -131,10 +134,21 @@ BEGIN
 
     all_rows := before_rows || after_rows;
 
+    SELECT COUNT(*) INTO total_rows FROM public.exercises e WHERE e.user_id = p_user_id AND e.exercise_type = p_exercise_type;
+    IF total_rows = 0 THEN
+        page_count := 0;
+    ELSE
+        page_count := CEIL(total_rows::numeric / page_size)::integer;
+        IF page_count < 1 THEN
+            page_count := 1;
+        END IF;
+    END IF;
+
     RETURN (
         all_rows,
         next_page_start_exercise_id,
-        page_size
+        page_size,
+        page_count
     );
 END;
 $$ LANGUAGE plpgsql STABLE;

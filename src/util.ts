@@ -371,6 +371,12 @@ export function narrowOrNotFound<UnNarrowed, Narrowed extends UnNarrowed>(
   notFound();
 }
 
+export const narrowEquipmentType = (s: string): s is EquipmentType =>
+  Constants.public.Enums.equipment_type_enum.includes(s as EquipmentType);
+
+export const narrowExerciseType = (s: string): s is ExerciseType =>
+  Constants.public.Enums.exercise_type_enum.includes(s as ExerciseType);
+
 export function notFoundIfNull<T>(
   value: T | null | undefined,
 ): asserts value is T {
