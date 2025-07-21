@@ -110,7 +110,19 @@ export const supabaseRPC = async <
   const supabase = getSupabaseClient();
   const { data, error } = await supabase.rpc(fnName, rpcArgs);
   if (error) {
+    console.error({ error });
     console.error(`Error calling RPC ${String(fnName)}:`, error);
+    // Ignore cancellation errors (e.g., debounced/aborted fetch)
+    if (
+      typeof error.message === "string" &&
+      error.message.includes("The operation was aborted")
+    ) {
+      // Optionally log, but do not throw
+      console.warn(
+        `RPC ${String(fnName)} was aborted (likely due to cancellation).`,
+      );
+      return null as Return;
+    }
     const errorMsg = `Failed to call RPC ${String(fnName)}: ${error.message} ${error.code ? `Code: ${error.code}\n` : ""}${error.details ? `Details: ${error.details}\n` : ""}${error.hint ? `Hint: ${error.hint}\n` : ""}`;
     throw new Error(errorMsg);
   }

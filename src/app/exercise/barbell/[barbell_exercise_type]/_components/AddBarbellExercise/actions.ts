@@ -70,6 +70,7 @@ export const addBarbellExercise = async (
   path: string,
   defaultFormDraft: BarbellFormDraft
 ) => {
+  await addBarbellFormDraft(userId, path, defaultFormDraft, new FormData());
   await supabaseRPC("create_exercise", {
     p_user_id: userId,
     p_exercise_type: exerciseType,
@@ -88,5 +89,4 @@ export const addBarbellExercise = async (
     p_weight_unit: weightUnit,
     p_performed_at: new Date().toISOString(),
   });
-  await addBarbellFormDraft(userId, path, defaultFormDraft, new FormData());
 };

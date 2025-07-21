@@ -3,19 +3,12 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
 
-interface TimeDisplayProps {
-  /** ISO string representing when the exercise was performed */
+interface DisplayTimeProps {
   performedAt: string;
-  /** If true, hides seconds from the time display */
   noSeconds?: true;
 }
 
-/**
- * TimeDisplay component
- * Shows a live count-up timer for times within the last 10 minutes, color-coded for rest timing.
- * Otherwise, shows static time in HH:MM:SS format.
- */
-const TimeDisplay: React.FC<TimeDisplayProps> = (props) => {
+const DisplayTime: React.FC<DisplayTimeProps> = (props) => {
   const { performedAt, noSeconds } = props;
   const theme = useTheme();
   const [now, setNow] = useState(() => Date.now());
@@ -40,7 +33,6 @@ const TimeDisplay: React.FC<TimeDisplayProps> = (props) => {
       </span>
     );
   }
-  // Otherwise, show static time
   const d = new Date(performedAt);
   const hh = String(d.getHours()).padStart(2, "0");
   const min = String(d.getMinutes()).padStart(2, "0");
@@ -53,4 +45,4 @@ const TimeDisplay: React.FC<TimeDisplayProps> = (props) => {
   return <span>{`${hh}:${min}:${ss}`}</span>;
 };
 
-export default TimeDisplay;
+export default DisplayTime;

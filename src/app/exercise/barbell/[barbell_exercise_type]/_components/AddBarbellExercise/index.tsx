@@ -8,7 +8,7 @@ import {
   deleteBarbellFormDraft,
   saveBarbellFormDraft,
 } from "@/app/exercise/barbell/[barbell_exercise_type]/_components/AddBarbellExercise/actions";
-import BarbellEditor from "@/components/BarbellEditor";
+import EditBarbell from "@/components/edit/EditBarbell";
 import {
   CompletionStatus,
   ExerciseType,
@@ -21,7 +21,7 @@ import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
 import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
 import SelectWarmup from "@/components/select/SelectWarmup";
 import { TestIds } from "@/test-ids";
-import EditNotes from "@/components/EditNotes";
+import EditNotes from "@/components/edit/EditNotes";
 
 export interface BarbellFormDraft {
   actualWeight: number;
@@ -156,7 +156,12 @@ const useAddBarbellExerciseAPI = (props: AddBarbellExerciseProps) => {
     return initialDraft === null;
   }, [initialDraft]);
 
+  const handleAddBarbellLiftClick = React.useCallback(() => {
+    debouncedSave.cancel();
+  }, [debouncedSave]);
+
   return {
+    handleAddBarbellLiftClick,
     showAddBarbellLiftButton,
     barbellFormDraft,
     reset,
@@ -191,6 +196,7 @@ interface AddBarbellExerciseProps {
 
 const AddBarbellExercise: React.FC<AddBarbellExerciseProps> = (props) => {
   const api = useAddBarbellExerciseAPI(props);
+  // Cancel debounced save before submitting addBarbellExercise
 
   if (api.showAddBarbellLiftButton) {
     return (
@@ -214,7 +220,7 @@ const AddBarbellExercise: React.FC<AddBarbellExerciseProps> = (props) => {
   return (
     <React.Fragment>
       <Stack spacing={1} alignItems="center">
-        <BarbellEditor
+        <EditBarbell
           editing
           targetWeight={api.actualWeight}
           onTargetWeightChange={api.setActualWeight}
@@ -295,7 +301,8 @@ const AddBarbellExercise: React.FC<AddBarbellExerciseProps> = (props) => {
               api.weightUnit,
               props.path,
               api.defaultBarbellFormDraft
-            )}>
+            )}
+            onSubmit={api.handleAddBarbellLiftClick}>
             <Button
               color="primary"
               variant="contained"

@@ -2,18 +2,18 @@ import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
-import Dumbbell from "@/components/Dumbell";
+import DisplayDumbbell from "@/components/display/DisplayDumbbell";
 import Autocomplete from "@mui/material/Autocomplete";
 import { WeightUnit } from "@/common-types";
 
-export interface DumbbellEditorProps {
+export interface EditDumbbellProps {
   weightValue: number;
   onChange: (newWeight: number) => void;
   weightUnit: WeightUnit;
   availableDumbbells: number[];
 }
 
-const useDumbbellEditorAPI = (props: DumbbellEditorProps) => {
+const useEditDumbellAPI = (props: EditDumbbellProps) => {
   const { weightValue: weight, onChange } = props;
 
   const [availableWeights, setAvailableWeights] = React.useState(() => [
@@ -76,8 +76,8 @@ const useDumbbellEditorAPI = (props: DumbbellEditorProps) => {
   };
 };
 
-const DumbbellEditor: React.FC<DumbbellEditorProps> = (props) => {
-  const api = useDumbbellEditorAPI(props);
+const EditDumbbell: React.FC<EditDumbbellProps> = (props) => {
+  const api = useEditDumbellAPI(props);
 
   return (
     <Box
@@ -87,7 +87,10 @@ const DumbbellEditor: React.FC<DumbbellEditorProps> = (props) => {
         alignItems: "center",
         gap: 2,
       }}>
-      <Dumbbell weight={props.weightValue} weightUnit={props.weightUnit} />
+      <DisplayDumbbell
+        weight={props.weightValue}
+        weightUnit={props.weightUnit}
+      />
       <Box sx={{ display: "flex", alignItems: "center", gap: 1, mt: 2 }}>
         <Button
           variant="outlined"
@@ -128,4 +131,4 @@ const DumbbellEditor: React.FC<DumbbellEditorProps> = (props) => {
   );
 };
 
-export default DumbbellEditor;
+export default EditDumbbell;

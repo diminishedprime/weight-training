@@ -3,13 +3,13 @@ import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt
 import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
 import { type PercievedEffort } from "@/common-types";
 
-interface PercievedEffortDisplayProps {
+interface DisplayPercievedEffortProps {
   percievedEffort: PercievedEffort;
 }
 
-export default function PercievedEffortDisplay(
-  props: PercievedEffortDisplayProps
-) {
+export const DisplayPercievedEffort: React.FC<DisplayPercievedEffortProps> = (
+  props
+) => {
   switch (props.percievedEffort) {
     case "easy":
       return <SentimentVerySatisfiedIcon titleAccess="Easy" color="success" />;
@@ -18,4 +18,6 @@ export default function PercievedEffortDisplay(
     case "hard":
       return <SentimentVeryDissatisfiedIcon titleAccess="Hard" color="error" />;
   }
-}
+};
+
+export default DisplayPercievedEffort;

@@ -14,6 +14,7 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { PLATE_COLORS } from "@/constants";
 import { fractionWeightFormat } from "@/util";
 import UndoIcon from "@mui/icons-material/Undo";
+import { TestIds } from "@/test-ids";
 
 export interface SelectActivePlatesProps {
   availablePlates: number[];
@@ -54,7 +55,7 @@ const useSelectActivePlatesAPI = (props: SelectActivePlatesProps) => {
   }, [modified, label]);
 
   const badgeMetadata = React.useMemo(() => {
-    const metadata: Record<number, { sx: object }> = {};
+    const metadata: Record<number, { sx: object; testid: string }> = {};
     Object.keys(PLATE_COLORS).forEach((plateStr) => {
       const plate = Number(plateStr);
       metadata[plate] = {
@@ -64,6 +65,7 @@ const useSelectActivePlatesAPI = (props: SelectActivePlatesProps) => {
             color: PLATE_COLORS[plate]?.fg || "white",
           },
         },
+        testid: TestIds.ActivePlate(plate),
       };
     });
     return metadata;
@@ -108,6 +110,7 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
               <Badge
                 key={plate}
                 sx={metadata?.sx}
+                data-testid={metadata?.testid}
                 badgeContent={count > 0 ? count : undefined}
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}>
                 <Button size="small" onClick={() => api.onAddPlate(plate)}>

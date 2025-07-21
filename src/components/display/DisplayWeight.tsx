@@ -4,14 +4,14 @@ import { weightUnitUIString } from "@/uiStrings";
 import { Typography, TypographyProps, useTheme } from "@mui/material";
 import React from "react";
 
-interface PrettyWeightProps {
+interface DisplayWeightProps {
   weightValue: number;
   weightUnit: WeightUnit;
   reps?: number;
   variant?: TypographyProps["variant"];
   sx?: TypographyProps["sx"];
 }
-const PrettyWeight: React.FC<PrettyWeightProps> = (props) => {
+const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
   const theme = useTheme();
   return (
     <Typography component="span" variant={props.variant} sx={props.sx}>
@@ -30,4 +30,4 @@ const PrettyWeight: React.FC<PrettyWeightProps> = (props) => {
   );
 };
 
-export default PrettyWeight;
+export default DisplayWeight;

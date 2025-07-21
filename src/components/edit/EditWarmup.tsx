@@ -2,25 +2,24 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import React from "react";
 
-interface WarmupCheckboxProps {
+interface EditWarmupProps {
   checked: boolean;
   onChange: (checked: boolean) => void;
 }
 
-export default function WarmupCheckbox({
-  checked,
-  onChange,
-}: WarmupCheckboxProps) {
+const EditWarmup: React.FC<EditWarmupProps> = (props) => {
   return (
     <FormControlLabel
       control={
         <Checkbox
           name="warmup"
-          checked={checked}
-          onChange={(e) => onChange(e.target.checked)}
+          checked={props.checked}
+          onChange={(e) => props.onChange(e.target.checked)}
         />
       }
       label="Warmup"
     />
   );
-}
+};
+
+export default EditWarmup;

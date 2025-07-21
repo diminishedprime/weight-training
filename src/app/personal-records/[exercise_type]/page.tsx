@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import { format, formatDistance, formatDistanceToNow } from "date-fns";
-import PrettyWeight from "@/components/PrettyWeight";
+import DisplayWeight from "@/components/display/DisplayWeight";
 
 type PersonalRecordsExerciseTypeProps = {
   exercise_type: ExerciseType;
@@ -95,7 +95,7 @@ const PersonalRecordsExerciseType = async (
             <Typography>
               <Typography component="span">
                 Last record (
-                <PrettyWeight
+                <DisplayWeight
                   weightValue={records[0].weight_value!}
                   weightUnit={records[0].weight_unit!}
                   reps={records[0].reps!}
@@ -129,14 +129,14 @@ const PersonalRecordsExerciseType = async (
                         : "—"}
                     </TableCell>
                     <TableCell>
-                      <PrettyWeight
+                      <DisplayWeight
                         weightValue={record.weight_value!}
                         weightUnit={record.weight_unit!}
                       />
                     </TableCell>
                     <TableCell align="center">
                       {record.increase_weight_value != null ? (
-                        <PrettyWeight
+                        <DisplayWeight
                           weightValue={record.increase_weight_value}
                           weightUnit={record.weight_unit!}
                         />

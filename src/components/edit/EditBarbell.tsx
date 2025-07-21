@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-import Barbell from "@/components/Barbell";
+import DisplayBarbell from "@/components/display/DisplayBarbell";
 import { Stack } from "@mui/material";
 import { Stack as ImmutableStack } from "immutable";
 import SelectActivePlates from "@/components/select/SelectActivePlates";
 import { minimalPlates } from "@/util";
 import { RoundingMode, WeightUnit } from "@/common-types";
 
-export interface BarbellEditorProps {
+export interface EditBarbellProps {
   targetWeight: number;
   roundingMode: RoundingMode;
   barWeight: number;
@@ -21,7 +21,7 @@ export interface BarbellEditorProps {
 // TODO - there should be an easy way to pass in the default values for settings
 // so they can come from user preferences.
 
-const useBarbellEditorAPI = (props: BarbellEditorProps) => {
+const useEditBarbellAPI = (props: EditBarbellProps) => {
   // Sync weightInput string when actual weight changes externally
   const { targetWeight, barWeight, onTargetWeightChange } = props;
 
@@ -87,8 +87,8 @@ const useBarbellEditorAPI = (props: BarbellEditorProps) => {
   };
 };
 
-const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
-  const api = useBarbellEditorAPI(props);
+const BarbellEditor: React.FC<EditBarbellProps> = (props) => {
+  const api = useEditBarbellAPI(props);
 
   // TODO this has an issue where it moves when you make it editable, but it's
   // probably something that will be fixed if I can move away from all the
@@ -96,7 +96,7 @@ const BarbellEditor: React.FC<BarbellEditorProps> = (props) => {
 
   return (
     <Stack display="flex" direction="column" alignItems="center" spacing={1}>
-      <Barbell
+      <DisplayBarbell
         weightUnit={props.weightUnit}
         targetWeight={props.targetWeight}
         barWeight={props.barWeight}

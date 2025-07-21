@@ -45,6 +45,7 @@ const useSelectCompletionStatusAPI = (props: SelectCompletionStatusProps) => {
   };
 };
 
+// TODO: easy - update this to use the DisplayCompletionStatus component.
 const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
   props
 ) => {

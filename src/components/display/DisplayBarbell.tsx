@@ -6,7 +6,7 @@ import { PLATE_COLORS } from "@/constants";
 import { Typography } from "@mui/material";
 import { weightUnitUIString } from "@/uiStrings";
 import { RoundingMode, WeightUnit } from "@/common-types";
-import PrettyWeight from "@/components/PrettyWeight";
+import DisplayWeight from "@/components/display/DisplayWeight";
 
 const barWidthMM = 2200;
 const sleeveWidthMM = 445;
@@ -22,7 +22,7 @@ const aspectRatio = 0.2;
 export const metalGradient =
   "linear-gradient(180deg, hsl(0,0%,78%) 0%, hsl(0,0%,90%) 47%, hsl(0,0%,78%) 53%, hsl(0,0%,70%) 100%)";
 
-export interface BarbellProps {
+export interface DisplayBarbellProps {
   targetWeight: number;
   barWeight: number;
   roundingMode: RoundingMode;
@@ -32,7 +32,7 @@ export interface BarbellProps {
   onClickWeight?: () => void;
 }
 
-const Barbell: React.FC<BarbellProps> = ({
+const DisplayBarbell: React.FC<DisplayBarbellProps> = ({
   targetWeight,
   roundingMode,
   barWeight,
@@ -172,7 +172,7 @@ const Barbell: React.FC<BarbellProps> = ({
           }}
           onClick={onClickWeight}>
           {!hidePlateNumbers && (
-            <PrettyWeight
+            <DisplayWeight
               variant="h5"
               weightValue={actualWeight}
               weightUnit={weightUnit}
@@ -257,4 +257,4 @@ const Barbell: React.FC<BarbellProps> = ({
   );
 };
 
-export default Barbell;
+export default DisplayBarbell;

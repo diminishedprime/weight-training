@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Typography, Stack } from "@mui/material";
 import WendlerBlockRow from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockRow";
-import BarbellEditor from "@/components/BarbellEditor";
+import EditBarbell from "@/components/edit/EditBarbell";
 import { CompletionStatus, RoundingMode, WendlerBlock } from "@/common-types";
 import Link from "next/link";
 
@@ -46,7 +46,7 @@ const WendlerBlockRowInactive: React.FC<WendlerBlockRowInactiveProps> = (
           gap: 1,
         }}>
         <Stack sx={{ gridColumn: "1 / span 4", justifySelf: "center" }}>
-          <BarbellEditor
+          <EditBarbell
             targetWeight={
               props.row.actual_weight_value ?? props.row.target_weight_value!
             }

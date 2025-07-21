@@ -1,14 +1,14 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import { Database } from "@/database.types";
-import { metalGradient } from "@/components/Barbell";
+import { metalGradient } from "@/components/display/DisplayBarbell";
 
 // Dumbbell dimensions for aspect ratio calculation
 const TOTAL_WIDTH = 160;
 const TOTAL_HEIGHT = 48;
 const HANDLE_HEIGHT = 10;
 
-export interface DumbbellProps {
+export interface DisplayDumbbellProps {
   /** The weight value to display on the dumbbell */
   weight: number;
   /** The unit of weight measurement */
@@ -60,7 +60,7 @@ const DumbbellBulb: React.FC<DumbbellBulbProps> = ({
   );
 };
 
-const Dumbbell: React.FC<DumbbellProps> = ({
+const DisplayDumbbell: React.FC<DisplayDumbbellProps> = ({
   weight,
   weightUnit: _,
   width = "30%",
@@ -113,4 +113,4 @@ const Dumbbell: React.FC<DumbbellProps> = ({
   );
 };
 
-export default Dumbbell;
+export default DisplayDumbbell;

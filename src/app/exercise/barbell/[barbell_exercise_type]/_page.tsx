@@ -42,6 +42,8 @@ const BarbellExercisePage: React.FC<BarbellExercisePageProps> = async (
     preferences,
     unnarrowedFormDraft,
   ] = await Promise.all([
+    // TODO: Update this to have a lag such that it can have the performed_at of
+    // the previous exercise to use in better display logic.
     supabaseRPC("get_exercises_by_type", {
       p_user_id: props.userId,
       p_exercise_type: props.barbellExerciseType,
