@@ -52,9 +52,9 @@ export default async function BarbellExerciseEditPageSuspenseWrapper(
     ),
     labels: {
       [barbellExerciseType]: exerciseTypeUIStringBrief(barbellExerciseType),
-      [params.exercise_id]: `(${params.exercise_id.slice(0, 4)}...)`,
+      [params.exercise_id]: `(${params.exercise_id.slice(0, 8)})`,
     },
-    nonLinkable: ["edit"],
+    nonLinkable: ["edit", params.exercise_id],
   };
 
   await requireLoggedInUser(breadcrumbsProps.pathname);
