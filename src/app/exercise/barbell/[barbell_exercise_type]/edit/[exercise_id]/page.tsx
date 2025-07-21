@@ -6,6 +6,7 @@ import { Constants } from "@/database.types";
 import { exerciseTypeUIStringBrief } from "@/uiStrings";
 import { requireLoggedInUser } from "@/serverUtil";
 import { pathForBarbellExerciseEdit } from "@/constants";
+import BarbellEditPage from "@/app/exercise/barbell/[barbell_exercise_type]/edit/[exercise_id]/_page";
 
 interface BarbellExerciseEditPageSuspenseWrapperProps {
   params: Promise<{ barbell_exercise_type: string; exercise_id: string }>;
@@ -15,7 +16,7 @@ interface BarbellExerciseEditPageSuspenseWrapperProps {
 export default async function BarbellExerciseEditPageSuspenseWrapper(
   props: BarbellExerciseEditPageSuspenseWrapperProps
 ) {
-  const [params, _searchParams] = await Promise.all([
+  const [params, searchParams] = await Promise.all([
     props.params,
     props.searchParams,
   ]);
@@ -39,12 +40,6 @@ export default async function BarbellExerciseEditPageSuspenseWrapper(
   // Rename for clarity.
   const barbellExerciseType = exerciseType;
 
-  // TODO: easy I think. I have discovered my breadcrumbs are too long so I need
-  // a way to do a "..." in the middle of it, I think.
-  //
-  // https://mui.com/material-ui/react-breadcrumbs/#condensed-with-menu
-  //
-  // Looks like it's supported, I just gotta do it.
   const breadcrumbsProps: BreadcrumbsProps = {
     pathname: pathForBarbellExerciseEdit(
       barbellExerciseType,
@@ -57,12 +52,20 @@ export default async function BarbellExerciseEditPageSuspenseWrapper(
     nonLinkable: ["edit", params.exercise_id],
   };
 
-  await requireLoggedInUser(breadcrumbsProps.pathname);
+  const { userId } = await requireLoggedInUser(breadcrumbsProps.pathname);
 
   return (
     <React.Fragment>
       <Breadcrumbs {...breadcrumbsProps} />
-      <Suspense fallback={<div>Loading...</div>}>TODO!</Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <BarbellEditPage
+          barbellExerciseType={barbellExerciseType}
+          path={breadcrumbsProps.pathname}
+          userId={userId}
+          exerciseId={params.exercise_id}
+          backTo={searchParams.backTo?.toString() || undefined}
+        />
+      </Suspense>
     </React.Fragment>
   );
 }

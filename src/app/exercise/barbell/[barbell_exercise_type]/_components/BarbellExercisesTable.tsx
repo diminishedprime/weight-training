@@ -15,12 +15,13 @@ import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatu
 import DisplayPercievedEffort from "@/components/display/DisplayPercievedEffort";
 import Link from "next/link";
 import { pathForBarbellExerciseEdit } from "@/constants";
-import { TestIds } from "@/test-ids";
+import DisplayNotes from "@/components/display/DisplayNotes";
 
 export interface BarbellExercisesTableProps {
   barbellExercises: NonNullable<ExercisesByTypeResultRows>;
   barbellExerciseType: ExerciseType;
   availablePlatesLbs: number[];
+  path: string;
 }
 
 function getDateString(performedAt: string) {
@@ -103,69 +104,75 @@ const BarbellExercisesTable: React.FC<BarbellExercisesTableProps> = (props) => {
                 Edit
               </Typography>
             </Stack>
-            {group.map((exercise, innerIdx) => {
+            {group.map((exercise) => {
+              const editPath = pathForBarbellExerciseEdit(
+                exercise.exercise_type!,
+                exercise.exercise_id!
+              );
+              const params = new URLSearchParams();
+              params.set("backTo", props.path);
               return (
-                <Stack
-                  data-testid={
-                    idx === 0 && innerIdx === 0 ? TestIds.FirstBarbellRow : ""
-                  }
-                  key={exercise.exercise_id}
-                  sx={{
-                    display: "grid",
-                    gridTemplateColumns: "2fr 2fr 1fr 1fr 1fr",
-                    alignItems: "center",
-                    gap: 2,
-                    ...(api.flashId && exercise.exercise_id === api.flashId
-                      ? { animation: "flash-bg 2.5s ease-in-out" }
-                      : {}),
-                  }}>
-                  <Stack>
-                    <DisplayTime performedAt={exercise.performed_at!} />
-                  </Stack>
-                  <Stack>
-                    <DisplayWeight
-                      weightValue={
-                        exercise.actual_weight_value ??
-                        exercise.target_weight_value!
-                      }
-                      weightUnit={exercise.weight_unit!}
-                      reps={exercise.reps ?? undefined}
-                    />
-                    <DisplayBarbellThumbnail
-                      targetWeight={
-                        exercise.actual_weight_value ??
-                        exercise.target_weight_value!
-                      }
-                      // TODO - Add this to the exercise table
-                      barWeight={45}
-                      roundingMode={RoundingMode.NEAREST}
-                      availablePlates={props.availablePlatesLbs}
-                      weightUnit={exercise.weight_unit!}
-                    />
-                  </Stack>
-                  <Stack>
-                    {exercise.relative_effort && (
-                      <DisplayPercievedEffort
-                        percievedEffort={exercise.relative_effort}
+                <React.Fragment key={exercise.exercise_id}>
+                  <Stack
+                    sx={{
+                      display: "grid",
+                      gridTemplateColumns: "2fr 2fr 1fr 1fr 1fr",
+                      alignItems: "center",
+                      gap: 2,
+                      ...(api.flashId && exercise.exercise_id === api.flashId
+                        ? { animation: "flash-bg 2.5s ease-in-out" }
+                        : {}),
+                    }}>
+                    <Stack>
+                      <DisplayTime performedAt={exercise.performed_at!} />
+                    </Stack>
+                    <Stack>
+                      <DisplayWeight
+                        weightValue={
+                          exercise.actual_weight_value ??
+                          exercise.target_weight_value!
+                        }
+                        weightUnit={exercise.weight_unit!}
+                        reps={exercise.reps ?? undefined}
                       />
-                    )}
+                      <DisplayBarbellThumbnail
+                        targetWeight={
+                          exercise.actual_weight_value ??
+                          exercise.target_weight_value!
+                        }
+                        // TODO - Add this to the exercise table
+                        barWeight={45}
+                        roundingMode={RoundingMode.NEAREST}
+                        availablePlates={props.availablePlatesLbs}
+                        weightUnit={exercise.weight_unit!}
+                      />
+                    </Stack>
+                    <Stack>
+                      {exercise.relative_effort && (
+                        <DisplayPercievedEffort
+                          percievedEffort={exercise.relative_effort}
+                        />
+                      )}
+                    </Stack>
+                    <Stack>
+                      <DisplayCompletionStatus
+                        completionStatus={exercise.completion_status!}
+                      />
+                    </Stack>
+                    <Stack>
+                      <Typography
+                        component={Link}
+                        href={`${editPath}?${params.toString()}`}>
+                        Edit
+                      </Typography>
+                    </Stack>
                   </Stack>
-                  <Stack>
-                    <DisplayCompletionStatus
-                      completionStatus={exercise.completion_status!}
-                    />
-                  </Stack>
-                  <Stack>
-                    <Typography
-                      component={Link}
-                      href={pathForBarbellExerciseEdit(
-                        exercise.exercise_type!,
-                        exercise.exercise_id!
-                      )}>
-                      Edit
-                    </Typography>
-                  </Stack>
-                </Stack>
+                  {exercise.notes && (
+                    <Stack gridColumn="1 / -1" sx={{ mt: 0.5 }}>
+                      <DisplayNotes notes={exercise.notes} />
+                    </Stack>
+                  )}
+                </React.Fragment>
               );
             })}
           </Stack>

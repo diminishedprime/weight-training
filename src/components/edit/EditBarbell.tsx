@@ -87,12 +87,14 @@ const useEditBarbellAPI = (props: EditBarbellProps) => {
   };
 };
 
-const BarbellEditor: React.FC<EditBarbellProps> = (props) => {
+const EditBarbell: React.FC<EditBarbellProps> = (props) => {
   const api = useEditBarbellAPI(props);
 
   // TODO this has an issue where it moves when you make it editable, but it's
   // probably something that will be fixed if I can move away from all the
   // weirdness of the useRef stuff.
+
+  // TODO: This should probably be a form control with a label at some point.
 
   return (
     <Stack display="flex" direction="column" alignItems="center" spacing={1}>
@@ -127,4 +129,4 @@ const BarbellEditor: React.FC<EditBarbellProps> = (props) => {
   );
 };
 
-export default BarbellEditor;
+export default EditBarbell;

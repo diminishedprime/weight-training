@@ -110,6 +110,7 @@ const BarbellExercisePage: React.FC<BarbellExercisePageProps> = async (
         barbellExercises={barbellExercises}
         barbellExerciseType={props.barbellExerciseType}
         availablePlatesLbs={preferences.available_plates_lbs}
+        path={props.path}
       />
     </React.Fragment>
   );
