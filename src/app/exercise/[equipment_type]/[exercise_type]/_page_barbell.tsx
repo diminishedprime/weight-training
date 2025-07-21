@@ -1,13 +1,12 @@
 import { ExerciseType } from "@/common-types";
 import React from "react";
-import BarbellExercisesTable from "@/app/exercise/barbell/[barbell_exercise_type]/_components/BarbellExercisesTable";
+import BarbellExercisesTable from "@/app/exercise/[equipment_type]/[exercise_type]/_components/BarbellExercisesTable";
 import { requirePreferences, supabaseRPC } from "@/serverUtil";
 import { notFoundIfNull } from "@/util";
-import { Button, Stack } from "@mui/material";
-import Link from "next/link";
+import { Stack } from "@mui/material";
 import AddBarbellExercise, {
   BarbellFormDraft,
-} from "@/app/exercise/barbell/[barbell_exercise_type]/_components/AddBarbellExercise";
+} from "@/app/exercise/[equipment_type]/[exercise_type]/_components/AddBarbellExercise";
 import { Json } from "@/database.types";
 
 export const conformsToBarbellFormDraft = (
@@ -38,6 +37,7 @@ const BarbellExercisePage: React.FC<BarbellExercisePageProps> = async (
       rows: barbellExercises,
       day_start_exercise_id: dayStartExerciseId,
       page_size: pageSize,
+      page_count: pageCount,
     },
     preferences,
     unnarrowedFormDraft,
@@ -59,44 +59,10 @@ const BarbellExercisePage: React.FC<BarbellExercisePageProps> = async (
   notFoundIfNull(barbellExercises);
   notFoundIfNull(pageSize);
 
-  // Next page link: include start_exercise_id if day_start_exercise_id is present
-  const nextParams = new URLSearchParams({
-    page_num: (props.pageNum + 1).toString(),
-  });
-  if (dayStartExerciseId) {
-    nextParams.set("start_exercise_id", dayStartExerciseId);
-  }
-  const hrefNext = `${props.path}?${nextParams.toString()}`;
-
-  const previousParams = new URLSearchParams({
-    page_num: (props.pageNum - 1).toString(),
-  });
-
-  // Previous page link (never includes start_exercise_id, but it kinda should
-  // probably, but that's okay.)
-  const hrefPrevious =
-    props.pageNum > 1 && `${props.path}?${previousParams.toString()}`;
-
   const barbellFormDraft = conformsToBarbellFormDraft(unnarrowedFormDraft);
 
   return (
     <React.Fragment>
-      <Stack spacing={1} direction="row">
-        <Button
-          LinkComponent={Link}
-          href={hrefPrevious || undefined}
-          disabled={!hrefPrevious}>
-          icon Previous
-        </Button>
-        <Button
-          LinkComponent={Link}
-          href={hrefNext}
-          disabled={
-            barbellExercises.length < (pageSize ?? 1) && !dayStartExerciseId
-          }>
-          icon Next
-        </Button>
-      </Stack>
       <Stack spacing={1}>
         <AddBarbellExercise
           exerciseType={props.barbellExerciseType}
@@ -111,6 +77,9 @@ const BarbellExercisePage: React.FC<BarbellExercisePageProps> = async (
         barbellExerciseType={props.barbellExerciseType}
         availablePlatesLbs={preferences.available_plates_lbs}
         path={props.path}
+        pageNum={props.pageNum}
+        pageCount={pageCount!}
+        startExerciseId={dayStartExerciseId ?? undefined}
       />
     </React.Fragment>
   );

@@ -772,6 +772,7 @@ export type Database = {
           | null;
         day_start_exercise_id: string | null;
         page_size: number | null;
+        page_count: number | null;
       };
       get_exercises_by_type_row: {
         exercise_id: string | null;

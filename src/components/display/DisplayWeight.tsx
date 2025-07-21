@@ -10,13 +10,21 @@ interface DisplayWeightProps {
   reps?: number;
   variant?: TypographyProps["variant"];
   sx?: TypographyProps["sx"];
+  hideUnit?: boolean;
+  valueColor?: string;
 }
 const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
   const theme = useTheme();
+  const { weightValue } = props;
+  const oneDecimal = Math.floor(weightValue) === weightValue;
+  const twoDecimals = Math.floor(weightValue * 10) === weightValue * 10;
+  const fixedDecimals = oneDecimal ? 0 : twoDecimals ? 2 : 1;
+
   return (
     <Typography component="span" variant={props.variant} sx={props.sx}>
-      <span style={{ color: theme.palette.primary.main }}>
-        {props.weightValue} {weightUnitUIString(props.weightUnit)}
+      <span style={{ color: props.valueColor || theme.palette.primary.main }}>
+        {props.weightValue.toFixed(fixedDecimals)}{" "}
+        {!props.hideUnit && weightUnitUIString(props.weightUnit)}
       </span>
       {props.reps && (
         <>

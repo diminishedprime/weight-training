@@ -10,7 +10,7 @@ const DisplayBarbellThumbnail: React.FC<DisplayBarbellProps> = (props) => {
         verticalAlign: "middle",
         width: 80,
       }}>
-      <DisplayBarbell {...props} hidePlateNumbers />
+      <DisplayBarbell {...props} />
     </span>
   );
 };

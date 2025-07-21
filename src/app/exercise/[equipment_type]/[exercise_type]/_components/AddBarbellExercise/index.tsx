@@ -7,7 +7,7 @@ import {
   addBarbellFormDraft,
   deleteBarbellFormDraft,
   saveBarbellFormDraft,
-} from "@/app/exercise/barbell/[barbell_exercise_type]/_components/AddBarbellExercise/actions";
+} from "@/app/exercise/[equipment_type]/[exercise_type]/_components/AddBarbellExercise/actions";
 import EditBarbell from "@/components/edit/EditBarbell";
 import {
   CompletionStatus,
@@ -219,17 +219,17 @@ const AddBarbellExercise: React.FC<AddBarbellExerciseProps> = (props) => {
   }
   return (
     <React.Fragment>
+      <EditBarbell
+        editing
+        targetWeightValue={api.actualWeight}
+        onTargetWeightChange={api.setActualWeight}
+        roundingMode={api.roundingMode}
+        weightUnit={api.weightUnit}
+        availablePlates={props.availablePlatesLbs}
+        // TODO: rename to barbellWeightValue
+        barWeight={api.barWeight}
+      />
       <Stack spacing={1} alignItems="center">
-        <EditBarbell
-          editing
-          targetWeight={api.actualWeight}
-          onTargetWeightChange={api.setActualWeight}
-          roundingMode={api.roundingMode}
-          weightUnit={api.weightUnit}
-          availablePlates={props.availablePlatesLbs}
-          // TODO: rename to barbellWeightValue
-          barWeight={api.barWeight}
-        />
         <SelectReps
           reps={api.reps}
           onRepsChange={(reps: number) => api.setReps(reps)}

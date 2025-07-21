@@ -2,9 +2,9 @@ import { ExerciseType } from "@/common-types";
 import React from "react";
 import { requirePreferences, supabaseRPC } from "@/serverUtil";
 import { Typography } from "@mui/material";
-import EditBarbellExercise from "@/app/exercise/barbell/[barbell_exercise_type]/edit/[exercise_id]/_components/EditBarbellExercise";
+import EditBarbellExercise from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_components/EditBarbellExercise";
 
-export interface BarbellExercisePageProps {
+export interface BarbellExerciseEditPageProps {
   // This is narrowed at runtime from the parent page, but not at a static type
   // level because it's not worth it.
   barbellExerciseType: ExerciseType;
@@ -14,7 +14,9 @@ export interface BarbellExercisePageProps {
   backTo?: string;
 }
 
-const BarbellEditPage: React.FC<BarbellExercisePageProps> = async (props) => {
+const BarbellExerciseEditPage: React.FC<BarbellExerciseEditPageProps> = async (
+  props
+) => {
   const [preferences, exercise] = await Promise.all([
     requirePreferences(props.userId, ["available_plates_lbs"], props.path),
     supabaseRPC("get_exercise_for_user", {
@@ -36,4 +38,4 @@ const BarbellEditPage: React.FC<BarbellExercisePageProps> = async (props) => {
   );
 };
 
-export default BarbellEditPage;
+export default BarbellExerciseEditPage;

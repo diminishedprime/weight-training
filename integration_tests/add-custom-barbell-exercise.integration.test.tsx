@@ -6,12 +6,12 @@ import { USER_ID_LOGGED_IN } from "@/test/constants";
 import { render, screen, waitFor, act } from "@testing-library/react";
 import BarbellExercisePage, {
   BarbellExercisePageProps,
-} from "@/app/exercise/barbell/[barbell_exercise_type]/_page";
+} from "@/app/exercise/[equipment_type]/[exercise_type]/_page_barbell";
 import { TestIds } from "@/test-ids";
 import { ExerciseType } from "@/common-types";
 import { afterEach } from "node:test";
 import { FIRST_PAGE_NUM, pathForBarbellExercisePage } from "@/constants";
-import { BarbellFormDraft } from "@/app/exercise/barbell/[barbell_exercise_type]/_components/AddBarbellExercise";
+import { BarbellFormDraft } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/AddBarbellExercise";
 
 const supabase = serverUtil.getSupabaseClient();
 
