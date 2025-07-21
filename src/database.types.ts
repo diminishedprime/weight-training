@@ -211,8 +211,8 @@ export type Database = {
           created_at: string;
           expires_at: string;
           form_data: Json;
-          form_type: string;
           id: string;
+          page_path: string;
           updated_at: string;
           user_id: string;
         };
@@ -220,8 +220,8 @@ export type Database = {
           created_at?: string;
           expires_at?: string;
           form_data: Json;
-          form_type: string;
           id?: string;
+          page_path: string;
           updated_at?: string;
           user_id: string;
         };
@@ -229,8 +229,8 @@ export type Database = {
           created_at?: string;
           expires_at?: string;
           form_data?: Json;
-          form_type?: string;
           id?: string;
+          page_path?: string;
           updated_at?: string;
           user_id?: string;
         };
@@ -245,9 +245,9 @@ export type Database = {
           recorded_at: string;
           reps: number;
           source: Database["public"]["Enums"]["update_source_enum"];
-          unit: Database["public"]["Enums"]["weight_unit_enum"];
           user_id: string;
-          value: number;
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          weight_value: number;
         };
         Insert: {
           exercise_id?: string | null;
@@ -257,9 +257,9 @@ export type Database = {
           recorded_at?: string;
           reps: number;
           source?: Database["public"]["Enums"]["update_source_enum"];
-          unit: Database["public"]["Enums"]["weight_unit_enum"];
           user_id: string;
-          value: number;
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          weight_value: number;
         };
         Update: {
           exercise_id?: string | null;
@@ -269,9 +269,9 @@ export type Database = {
           recorded_at?: string;
           reps?: number;
           source?: Database["public"]["Enums"]["update_source_enum"];
-          unit?: Database["public"]["Enums"]["weight_unit_enum"];
           user_id?: string;
-          value?: number;
+          weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
+          weight_value?: number;
         };
         Relationships: [
           {
@@ -290,9 +290,9 @@ export type Database = {
           notes: string | null;
           recorded_at: string;
           source: Database["public"]["Enums"]["update_source_enum"];
-          unit: Database["public"]["Enums"]["weight_unit_enum"];
           user_id: string;
-          value: number;
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          weight_value: number;
         };
         Insert: {
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
@@ -300,9 +300,9 @@ export type Database = {
           notes?: string | null;
           recorded_at?: string;
           source?: Database["public"]["Enums"]["update_source_enum"];
-          unit: Database["public"]["Enums"]["weight_unit_enum"];
           user_id: string;
-          value: number;
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          weight_value: number;
         };
         Update: {
           exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
@@ -310,9 +310,9 @@ export type Database = {
           notes?: string | null;
           recorded_at?: string;
           source?: Database["public"]["Enums"]["update_source_enum"];
-          unit?: Database["public"]["Enums"]["weight_unit_enum"];
           user_id?: string;
-          value?: number;
+          weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
+          weight_value?: number;
         };
         Relationships: [];
       };
@@ -428,7 +428,7 @@ export type Database = {
         Returns: number;
       };
       clear_form_draft: {
-        Args: { p_user_id: string; p_form_type: string };
+        Args: { p_user_id: string; p_page_path: string };
         Returns: undefined;
       };
       create_exercise: {
@@ -489,30 +489,17 @@ export type Database = {
         Args: { p_user_id: string; p_exercise_id: string };
         Returns: Database["public"]["CompositeTypes"]["exercise_row_type"];
       };
-      get_exercises_by_type_for_user: {
+      get_exercises_by_type: {
         Args: {
           p_user_id: string;
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          p_page_num: number;
+          p_start_exercise_id?: string;
         };
-        Returns: {
-          exercise_id: string;
-          user_id: string;
-          exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
-          equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
-          performed_at: string;
-          actual_weight_value: number;
-          target_weight_value: number;
-          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
-          reps: number;
-          warmup: boolean;
-          completion_status: Database["public"]["Enums"]["completion_status_enum"];
-          notes: string;
-          relative_effort: Database["public"]["Enums"]["relative_effort_enum"];
-          personal_record: boolean;
-        }[];
+        Returns: Database["public"]["CompositeTypes"]["get_exercises_by_type_result"];
       };
       get_form_draft: {
-        Args: { p_user_id: string; p_form_type: string };
+        Args: { p_user_id: string; p_page_path: string };
         Returns: Json;
       };
       get_next_exercise_in_block: {
@@ -581,7 +568,7 @@ export type Database = {
       save_form_draft: {
         Args: {
           p_user_id: string;
-          p_form_type: string;
+          p_page_path: string;
           p_form_data: Json;
           p_ttl_days?: number;
         };
@@ -779,27 +766,57 @@ export type Database = {
           | Database["public"]["Enums"]["relative_effort_enum"]
           | null;
       };
+      get_exercises_by_type_result: {
+        rows:
+          | Database["public"]["CompositeTypes"]["get_exercises_by_type_row"][]
+          | null;
+        day_start_exercise_id: string | null;
+        page_size: number | null;
+      };
+      get_exercises_by_type_row: {
+        exercise_id: string | null;
+        user_id: string | null;
+        exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null;
+        equipment_type:
+          | Database["public"]["Enums"]["equipment_type_enum"]
+          | null;
+        performed_at: string | null;
+        actual_weight_value: number | null;
+        target_weight_value: number | null;
+        weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
+        reps: number | null;
+        warmup: boolean | null;
+        completion_status:
+          | Database["public"]["Enums"]["completion_status_enum"]
+          | null;
+        notes: string | null;
+        relative_effort:
+          | Database["public"]["Enums"]["relative_effort_enum"]
+          | null;
+        personal_record: boolean | null;
+      };
       personal_record_history_row: {
         id: string | null;
-        value: number | null;
-        unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
+        weight_value: number | null;
+        weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
         reps: number | null;
         recorded_at: string | null;
         source: Database["public"]["Enums"]["update_source_enum"] | null;
         notes: string | null;
         exercise_id: string | null;
-        days_since_last_record: number | null;
+        previous_recorded_at: string | null;
+        increase_weight_value: number | null;
       };
       personal_record_row: {
-        value: number | null;
-        unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
+        weight_value: number | null;
+        weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
         reps: number | null;
         recorded_at: string | null;
         exercise_id: string | null;
       };
       target_max_row: {
-        value: number | null;
-        unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
+        weight_value: number | null;
+        weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
         recorded_at: string | null;
       };
       user_preferences_row: {

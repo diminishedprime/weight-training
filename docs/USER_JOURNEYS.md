@@ -1,13 +1,16 @@
-- [ ] User can log into the app
+- [x] User can log into the app
 - [ ] Users can add in a custom exercise.
   - [x] Users can add in a custom barbell exercise. [User Journey: Add Custom
         Exercise]
   - [ ] Users can add in a custom dumbbell exercise.
   - [ ] Users can add in a custom bodyweight exercise.
   - [ ] Users can add in a custom machine exercise.
-  - [ ] Question: Is it valid for an exercise to be dangling, i.e. not a part of
-        a block or superblock
+  - [ ] Users can add in a custom kettlebell exercise.
 - [ ] Users can edit an existing exercise.
+  - [ ] Users can edit an existing barbell exercise.
+  - [ ] Users can edit a custom bodyweight exercise.
+  - [ ] Users can edit a custom machine exercise.
+  - [ ] Users can edit a custom kettlebell exercise.
 - [ ] Exercise Blocks
   - [ ] Users can add in a wendler superblock for leg day.
 - [ ] Users can add in a Leg Day superblock
@@ -67,5 +70,8 @@
 - [ ] Users can use a special form of making the closest weight where they
       provide exactly what plates they have available (along with a color
       picker) and that is used for determining how to "make change"
+- [ ] For existing exercises, there's a database RPC that can run in seed.sql
+      that will try its best to "wendlize" lifts that map to what a wendler
+      exercise looks like.
 
 [User Journey: Add Custom Exercise]: ../integration_tests/add-custom-exercise.integration.test.tsx

@@ -1,10 +1,10 @@
 import { Constants } from "@/database.types";
-import { getSupabaseClient, requireLoggedInUser } from "@/serverUtil";
+import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { ExerciseType } from "@/common-types";
 import React, { Suspense } from "react";
-import { exerciseTypeUIStringLong, weightUnitUIString } from "@/uiStrings";
+import { exerciseTypeUIStringLong } from "@/uiStrings";
 import {
   Stack,
   Typography,
@@ -17,7 +17,8 @@ import {
   Paper,
 } from "@mui/material";
 import Link from "next/link";
-import { format } from "date-fns";
+import { format, formatDistance, formatDistanceToNow } from "date-fns";
+import DisplayWeight from "@/components/display/DisplayWeight";
 
 type PersonalRecordsExerciseTypeProps = {
   exercise_type: ExerciseType;
@@ -34,18 +35,13 @@ const PersonalRecordsExerciseType = async (
   // ends up here on a valid exercise type but has no records, it makes sense to
   // show them a UI that points them towards the exercise.
 
-  const supabase = getSupabaseClient();
-  const { data: personalRecords, error: personalRecordsError } =
-    await supabase.rpc("get_personal_records_for_exercise_type", {
+  const personalRecords = await supabaseRPC(
+    "get_personal_records_for_exercise_type",
+    {
       p_user_id: userId,
       p_exercise_type: props.exercise_type,
-    });
-
-  // TODO - this is another instance where I should probably have some better error handling.
-  if (personalRecordsError) {
-    console.error("Error fetching personal records:", personalRecordsError);
-    return <>Error loading personal records</>;
-  }
+    }
+  );
 
   if (personalRecords === null || personalRecords.length === 0) {
     return (
@@ -88,16 +84,39 @@ const PersonalRecordsExerciseType = async (
 
       {repGroups.map(({ reps, records }) => (
         <Stack key={reps} spacing={1}>
-          <Typography variant="h6" color="primary">
-            {reps} Rep{reps === 1 ? "" : "s"}
-          </Typography>
+          <Stack
+            direction="row"
+            spacing={1}
+            display="flex"
+            alignItems="baseline">
+            <Typography variant="h6" color="primary">
+              {reps} Rep{reps === 1 ? "" : "s"}
+            </Typography>
+            <Typography>
+              <Typography component="span">
+                Last record (
+                <DisplayWeight
+                  weightValue={records[0].weight_value!}
+                  weightUnit={records[0].weight_unit!}
+                  reps={records[0].reps!}
+                />
+                )
+              </Typography>
+              <Typography component="span">
+                {" "}
+                {formatDistanceToNow(new Date(records[0].recorded_at!), {
+                  addSuffix: true,
+                })}
+              </Typography>
+            </Typography>
+          </Stack>
           <TableContainer component={Paper}>
             <Table size="small">
               <TableHead>
                 <TableRow>
                   <TableCell>Date</TableCell>
                   <TableCell align="right">Weight</TableCell>
-                  <TableCell align="center">Reps</TableCell>
+                  <TableCell align="center">Increase</TableCell>
                   <TableCell align="center">Time Since Last</TableCell>
                 </TableRow>
               </TableHead>
@@ -109,14 +128,28 @@ const PersonalRecordsExerciseType = async (
                         ? format(new Date(record.recorded_at), "MMM d, yyyy")
                         : "—"}
                     </TableCell>
-                    <TableCell align="right">
-                      {record.value} {weightUnitUIString(record.unit!)}
+                    <TableCell>
+                      <DisplayWeight
+                        weightValue={record.weight_value!}
+                        weightUnit={record.weight_unit!}
+                      />
                     </TableCell>
-                    <TableCell align="center">{record.reps}</TableCell>
                     <TableCell align="center">
-                      {record.days_since_last_record
-                        ? `${record.days_since_last_record} day${record.days_since_last_record === 1 ? "" : "s"}`
-                        : "—"}
+                      {record.increase_weight_value != null ? (
+                        <DisplayWeight
+                          weightValue={record.increase_weight_value}
+                          weightUnit={record.weight_unit!}
+                        />
+                      ) : (
+                        "—"
+                      )}
+                    </TableCell>
+                    <TableCell align="center">
+                      {record.previous_recorded_at &&
+                        formatDistance(
+                          record.previous_recorded_at,
+                          record.recorded_at!
+                        )}
                     </TableCell>
                   </TableRow>
                 ))}

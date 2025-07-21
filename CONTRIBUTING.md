@@ -2,7 +2,8 @@
 
 ## Local Setup
 
-For local set up, you'll need to set up necessary environment variables via an `.env.local` file.
+For local set up, you'll need to set up necessary environment variables via an
+`.env.local` file.
 
 ### Environment Variables
 
@@ -29,7 +30,8 @@ pnpx auth secret
 
 #### AUTH_GOOGLE_ID
 
-To get the AUTH_GOOGLE_ID, see the [weight-training-nextjs-test] credentials page.
+To get the AUTH_GOOGLE_ID, see the [weight-training-nextjs-test] credentials
+page.
 
 #### AUTH_GOOGLE_SECRET
 
@@ -47,10 +49,15 @@ will be the `service_role key` and `anon key`
 After setting up the auth, to run the app:
 
 ```sh
-pnpm run dev
+pnpm run db:reset && pnpm run dev
 ```
+
+Note: reset really only needs to be run once (or whenever you make a change to
+the migrations), but it's definitely needed on the first run.
 
 ## Staging Setup
 
-[weight-training-nextjs-test]: https://console.cloud.google.com/apis/credentials?inv=1&invt=AbyXSA&project=weight-training-nextjs-test
-[secret-manager]: https://console.cloud.google.com/security/secret-manager/secret/oauth-secret-test/versions?inv=1&invt=AbyXSA&project=weight-training-nextjs-test
+[weight-training-nextjs-test]:
+  https://console.cloud.google.com/apis/credentials?inv=1&invt=AbyXSA&project=weight-training-nextjs-test
+[secret-manager]:
+  https://console.cloud.google.com/security/secret-manager/secret/oauth-secret-test/versions?inv=1&invt=AbyXSA&project=weight-training-nextjs-test

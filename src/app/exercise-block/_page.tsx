@@ -12,6 +12,5 @@ export default async function ExerciseBlockPage(props: ExerciseBlockProps) {
     p_user_id: userId,
     p_page: props.page,
   });
-  console.log({ exerciseBlocks });
   return <ExerciseBlockClient exerciseBlocks={exerciseBlocks} />;
 }

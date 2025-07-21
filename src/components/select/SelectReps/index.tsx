@@ -2,8 +2,6 @@ import React, { useMemo } from "react";
 import { ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import SetAvailableReps from "@/components/select/SelectReps/SetAvailableReps";
-import { Box } from "@mui/material";
 
 export interface SelectRepsProps {
   reps: number;
@@ -60,63 +58,55 @@ function useSelectRepsAPI(props: SelectRepsProps) {
   };
 }
 
-// TODO - Update this to use the icon button group thingy that like effort and
-// completion status use, and then have it where if you go above the biggest rep
-// choice that's explicitly passed in, it adds in a new one that shows you the
-// current reps that are selected.
+// TODO - Consider updating this where the current rep choice always has a
+// button, even if it's not in the choices. It doesn't need to stay, but it'll
+// make it easier to see what the current rep number is.
+//
+// Thinking about this more, it may be annoying because it may cause the UI to
+// bump around?
 
 const SelectReps: React.FC<SelectRepsProps> = (props) => {
   const api = useSelectRepsAPI(props);
 
   return (
-    <Box sx={{ display: "flex", alignItems: "end" }}>
-      {!props.hideSettings && (
-        <SetAvailableReps
-          repChoices={api.choices}
-          onClose={api.handleSetAvailableRepsClose}
-        />
-      )}
-      <FormControl>
-        <FormLabel sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          Reps: {props.reps}
-          {props.isAmrap && (
-            <Typography variant="body2" color="primary">
-              (AMRAP)
-            </Typography>
-          )}
-        </FormLabel>
-        <Box>
-          <ToggleButtonGroup
-            color="primary"
-            value={props.reps}
-            exclusive
-            onChange={api.handleToggleChange}
-            size="small"
-            aria-label="Select Reps"
-            sx={{ mb: 1 }}>
-            <ToggleButton
-              value="-"
-              disabled={api.isDecrementDisabled}
-              aria-label="decrement reps"
-              size="small">
-              -
-            </ToggleButton>
-            {api.choices.map((val) => (
-              <ToggleButton
-                key={val}
-                value={val}
-                aria-label={`reps ${val}`}
-                size="small">
-                {val}
-              </ToggleButton>
-            ))}
-            <ToggleButton value="+" aria-label="increment reps" size="small">
-              +
-            </ToggleButton>
-          </ToggleButtonGroup>
-        </Box>
-      </FormControl>
-    </Box>
+    <FormControl>
+      <FormLabel sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+        Reps: {props.reps}
+        {props.isAmrap && (
+          <Typography variant="body2" color="primary">
+            (AMRAP)
+          </Typography>
+        )}
+      </FormLabel>
+      <ToggleButtonGroup
+        color="primary"
+        value={props.reps}
+        exclusive
+        onChange={api.handleToggleChange}
+        size="small"
+        aria-label="Select Reps"
+        sx={{ mb: 1 }}>
+        <ToggleButton
+          value="-"
+          disabled={api.isDecrementDisabled}
+          aria-label="decrement reps"
+          size="small">
+          -
+        </ToggleButton>
+        {api.choices.map((val) => (
+          <ToggleButton
+            key={val}
+            value={val}
+            aria-label={`reps ${val}`}
+            size="small">
+            {val}
+          </ToggleButton>
+        ))}
+        <ToggleButton value="+" aria-label="increment reps" size="small">
+          +
+        </ToggleButton>
+      </ToggleButtonGroup>
+    </FormControl>
   );
 };
 

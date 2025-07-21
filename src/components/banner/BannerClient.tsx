@@ -11,6 +11,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { User } from "next-auth";
 import NavDrawer from "@/components/banner/NavDrawer";
+import Link from "next/link";
 
 interface Props {
   user: User | undefined;
@@ -33,20 +34,28 @@ export default function BannerClient(props: Props) {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar component="nav" position="static" color="primary">
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Toolbar sx={{ display: "flex" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2 }}
-          >
+            sx={{ mr: 2 }}>
             <MenuIcon />
-            <Typography variant="h6" component="span" sx={{ ml: 1 }}>
-              Weight Training
-            </Typography>
           </IconButton>
-          {user && <AuthenticatedUserView user={user} />}
+          <Typography
+            variant="h6"
+            component={Link}
+            href="/"
+            sx={{ textDecoration: "none", color: "inherit" }}>
+            Weight Training
+          </Typography>
+          <Box sx={{ flexGrow: 1 }} />
+          {user && (
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <AuthenticatedUserView user={user} />
+            </Box>
+          )}
         </Toolbar>
       </AppBar>
       <NavDrawer

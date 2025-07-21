@@ -11,7 +11,7 @@ import {
   type WendlerBlock,
 } from "@/common-types";
 import WendlerBlockRow from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockRow";
-import BarbellEditor from "@/components/BarbellEditor";
+import EditBarbell from "@/components/edit/EditBarbell";
 import {
   finishExercise,
   failExercise,
@@ -118,7 +118,7 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
       <Stack spacing={2} direction="column" width="100%">
         {/* Top row: BarbellEditor spanning all columns */}
         <Stack alignItems="center" width="100%">
-          <BarbellEditor
+          <EditBarbell
             targetWeight={api.targetWeight}
             barWeight={45}
             availablePlates={props.availablePlates}

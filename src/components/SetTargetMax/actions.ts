@@ -1,6 +1,6 @@
 "use server";
 import { Database } from "@/database.types";
-import { getSupabaseClient } from "@/serverUtil";
+import { supabaseRPC } from "@/serverUtil";
 import { revalidatePath } from "next/cache";
 
 /**
@@ -15,15 +15,13 @@ export const setTargetMaxAction = async (
   pathToRevalidate: string | undefined,
   _formData: FormData
 ) => {
-  const supabase = getSupabaseClient();
   const targetMax = Number(targetMaxValue);
-  const { error } = await supabase.rpc("set_target_max", {
+  await supabaseRPC("set_target_max", {
     p_user_id: userId,
     p_exercise_type: exerciseType,
     p_value: targetMax,
     p_unit: targetMaxUnit,
   });
-  if (error) throw error;
   if (pathToRevalidate) {
     revalidatePath(pathToRevalidate);
   }

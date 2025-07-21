@@ -1,5 +1,11 @@
 import { Constants } from "@/database.types";
-import { EquipmentType, ExerciseType, RoundingMode } from "@/common-types";
+import {
+  EquipmentType,
+  ExerciseType,
+  RequiredNonNullable,
+  RoundingMode,
+} from "@/common-types";
+import { notFound } from "next/navigation";
 
 /**
  * Determines the corresponding equipment for a given lift type.
@@ -216,6 +222,7 @@ export const getExercisesByEquipment = (): Record<
 };
 
 export const EXERCISES_BY_EQUIPMENT = getExercisesByEquipment();
+export const BARBELL_EXERCISES = EXERCISES_BY_EQUIPMENT["barbell"];
 
 /**
  * Pre-computed Set of valid barbell form draft paths for O(1) lookup.
@@ -324,3 +331,50 @@ export const nullableArrayEquals = <T extends string | number | boolean>(
   // Both exist, use regular arrayEquals
   return arrayEquals(a, b);
 };
+
+export const requiredKeys = <T, K extends keyof T>(
+  input: T,
+  requiredKeys: K[],
+): RequiredNonNullable<T, K> => {
+  for (const key of requiredKeys) {
+    if (input[key] === null || input[key] === undefined) {
+      throw new Error(`Missing required key: ${String(key)}`);
+    }
+  }
+  return input as RequiredNonNullable<T, K>;
+};
+
+export function fractionWeightFormat(value: number): string {
+  const FRACTIONS: Record<number, string> = {
+    0.25: "¼",
+    0.5: "½",
+    0.75: "¾",
+  };
+  const intPart = Math.floor(value);
+  const fracPart = Number((value - intPart).toFixed(2));
+  if (fracPart in FRACTIONS && intPart > 0) {
+    return `${intPart}${FRACTIONS[fracPart]}`;
+  } else if (value in FRACTIONS) {
+    return FRACTIONS[value];
+  } else {
+    return value.toString();
+  }
+}
+
+export function narrowOrNotFound<UnNarrowed, Narrowed extends UnNarrowed>(
+  value: UnNarrowed,
+  narrowFn: (v: UnNarrowed) => v is Narrowed,
+): Narrowed {
+  if (narrowFn(value)) {
+    return value;
+  }
+  notFound();
+}
+
+export function notFoundIfNull<T>(
+  value: T | null | undefined,
+): asserts value is T {
+  if (value === null) {
+    notFound();
+  }
+}

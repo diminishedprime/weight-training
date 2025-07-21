@@ -1,6 +1,6 @@
 "use server";
 
-import { getSupabaseClient, requireLoggedInUser } from "@/serverUtil";
+import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import React, { Suspense } from "react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Stack, Typography, Card, CardContent } from "@mui/material";
@@ -12,23 +12,17 @@ import { equipmentTypeUIString } from "@/uiStrings";
 const PersonalRecordsPage = async () => {
   const { userId } = await requireLoggedInUser("/personal-records");
 
-  const supabase = getSupabaseClient();
-
   // TODO - I think I may want to try some different visualization approaches.
   // Notably, I think being able to just see all exercises with the PRs as like
   // stars or something may be interesting. It'll also help to show how there's
   // consistent progression, even though the PRs are less frequent.
 
-  const { data: exerciseTypes, error: exerciseTypesError } = await supabase.rpc(
+  const exerciseTypes = await supabaseRPC(
     "get_personal_record_exercise_types",
     {
       p_user_id: userId,
     }
   );
-
-  if (exerciseTypesError) {
-    throw new Error("Error fetching exercise types with personal records");
-  }
 
   if (!exerciseTypes || exerciseTypes.length === 0) {
     return (

@@ -40,12 +40,11 @@ SELECT
     p_performed_at => '2023-01-01T10:00:00Z'::timestamptz
   );
 
--- Test 3: Verify PR was created with correct weight
 SELECT
   is (
     (
       SELECT
-        value
+        weight_value
       FROM
         public.get_personal_records_for_exercise_type (
           'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,
