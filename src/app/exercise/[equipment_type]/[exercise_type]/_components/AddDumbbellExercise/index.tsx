@@ -40,12 +40,12 @@ const useAddDumbbellExerciseAPI = (props: AddDumbbellExerciseProps) => {
 
   const defaults: DumbbellFormDraft = React.useMemo(() => {
     return {
-      targetWeight: 45,
-      actualWeight: 45,
+      targetWeight: 10,
+      actualWeight: 10,
       weightUnit: "pounds",
       roundingMode: RoundingMode.NEAREST,
       completionStatus: "completed",
-      reps: 5,
+      reps: 10,
       notes: "",
       percievedEffort: undefined,
       isWarmup: false,
