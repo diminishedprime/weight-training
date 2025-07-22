@@ -7,7 +7,7 @@ CREATE OR REPLACE FUNCTION public.skip_block_row (
 DECLARE
 BEGIN
   UPDATE exercises e
-  SET completion_status = 'not_completed',
+  SET completion_status = 'skipped',
       notes = COALESCE(p_notes, e.notes),
       performed_at = now()
   FROM exercise_block_exercises ebe
