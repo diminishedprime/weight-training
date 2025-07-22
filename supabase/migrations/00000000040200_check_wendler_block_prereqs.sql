@@ -28,7 +28,7 @@ DECLARE
   has_unit_mismatch BOOLEAN := FALSE;
 BEGIN
   -- Check if target max is set
-  SELECT value, unit INTO v_current_training_max, v_current_unit
+  SELECT weight_value, weight_unit INTO v_current_training_max, v_current_unit
     FROM public.get_target_max(p_user_id, p_exercise_type);
   IF v_current_training_max IS NULL OR v_current_unit IS NULL THEN
     has_no_target_max := TRUE;

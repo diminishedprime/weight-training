@@ -19,7 +19,7 @@ DECLARE
     v_increase_amount_value NUMERIC;
     v_increase_amount_unit weight_unit_enum;
 BEGIN
-    SELECT value, unit
+    SELECT weight_value, weight_unit
       INTO v_training_max_value, v_training_max_unit
       FROM public.get_target_max(p_user_id, p_exercise_type);
     IF v_training_max_value IS NULL OR v_training_max_unit IS NULL THEN
