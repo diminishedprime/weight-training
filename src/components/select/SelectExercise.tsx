@@ -1,14 +1,14 @@
 "use client";
-import React, { useMemo, useState } from "react";
-import { Autocomplete, TextField, Stack } from "@mui/material";
+import { EquipmentType, ExerciseType } from "@/common-types";
 import { Constants } from "@/database.types";
 import {
+  equipmentTypeUIString,
   exerciseTypeUIStringBrief,
   exerciseTypeUIStringLong,
-  equipmentTypeUIString,
 } from "@/uiStrings";
 import { equipmentForExercise, getExercisesByEquipment } from "@/util";
-import { EquipmentType, ExerciseType } from "@/common-types";
+import { Autocomplete, Stack, TextField } from "@mui/material";
+import React, { useMemo, useState } from "react";
 
 export interface SelectExerciseProps {
   initial_exercise: ExerciseType | null;
@@ -19,12 +19,12 @@ const useSelectExerciseAPI = (props: SelectExerciseProps) => {
   const { initial_exercise, onExerciseChange } = props;
 
   const [selectedExercise, setSelectedExercise] = useState<ExerciseType | null>(
-    initial_exercise ?? null
+    initial_exercise ?? null,
   );
   const [selectedEquipment, setSelectedEquipment] =
     useState<EquipmentType | null>(
       (initial_exercise !== null && equipmentForExercise(initial_exercise)) ||
-        null
+        null,
     );
 
   const availableExercises = useMemo(() => {

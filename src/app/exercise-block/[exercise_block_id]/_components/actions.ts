@@ -10,7 +10,7 @@ export const skipExercise = async (
   exerciseId: string,
   notes: string | null,
   path: string,
-  _formData: FormData
+  _formData: FormData,
 ) => {
   await supabaseRPC("skip_block_row", {
     p_user_id: userId,
@@ -27,7 +27,7 @@ export const failExercise = async (
   exerciseId: string,
   notes: string | null,
   path: string,
-  _formData: FormData
+  _formData: FormData,
 ) => {
   await supabaseRPC("fail_block_row", {
     p_user_id: userId,
@@ -44,7 +44,7 @@ export const finishExercise = async (
   exerciseId: string,
   notes: string | null,
   path: string,
-  _formData: FormData
+  _formData: FormData,
 ) => {
   await supabaseRPC("finish_block_row", {
     p_user_id: userId,

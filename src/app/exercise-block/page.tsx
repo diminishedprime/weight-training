@@ -1,6 +1,6 @@
-import React, { Suspense } from "react";
 import ExerciseBlockPage from "@/app/exercise-block/_page";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import React, { Suspense } from "react";
 
 interface SuspenseWrapperProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;

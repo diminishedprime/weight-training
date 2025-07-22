@@ -1,25 +1,25 @@
 "use client";
-import React from "react";
-import { useSearchParams } from "next/navigation";
-import { Stack, Typography } from "@mui/material";
-import { format } from "date-fns";
 import {
   ExercisesByTypeResultRows,
   ExerciseType,
   RoundingMode,
 } from "@/common-types";
-import DisplayWeight from "@/components/display/DisplayWeight";
-import DisplayTime from "@/components/display/DisplayTime";
 import DisplayBarbellThumbnail from "@/components/display/DisplayBarbellThumbnail";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
+import DisplayNotes from "@/components/display/DisplayNotes";
 import DisplayPercievedEffort from "@/components/display/DisplayPercievedEffort";
-import Link from "next/link";
+import DisplayTime from "@/components/display/DisplayTime";
+import DisplayWeight from "@/components/display/DisplayWeight";
+import Pagination from "@/components/Pagination";
 import {
   pathForBarbellExerciseEdit,
   pathForPaginatedEquipmentExercisePage,
 } from "@/constants";
-import DisplayNotes from "@/components/display/DisplayNotes";
-import Pagination from "@/components/Pagination";
+import { Stack, Typography } from "@mui/material";
+import { format } from "date-fns";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import React from "react";
 
 export interface BarbellExercisesTableProps {
   barbellExercises: NonNullable<ExercisesByTypeResultRows>;
@@ -90,7 +90,7 @@ const BarbellExercisesTable: React.FC<BarbellExercisesTableProps> = (props) => {
             "barbell",
             props.barbellExerciseType,
             pageNum,
-            pageNum === props.pageNum + 1 ? props.startExerciseId : undefined
+            pageNum === props.pageNum + 1 ? props.startExerciseId : undefined,
           )
         }
       />
@@ -106,7 +106,8 @@ const BarbellExercisesTable: React.FC<BarbellExercisesTableProps> = (props) => {
                 alignItems: "center",
                 gap: 2,
                 mb: 1,
-              }}>
+              }}
+            >
               <Typography variant="subtitle2" color="text.secondary">
                 Time
               </Typography>
@@ -126,7 +127,7 @@ const BarbellExercisesTable: React.FC<BarbellExercisesTableProps> = (props) => {
             {group.map((exercise) => {
               const editPath = pathForBarbellExerciseEdit(
                 exercise.exercise_type!,
-                exercise.exercise_id!
+                exercise.exercise_id!,
               );
               const params = new URLSearchParams();
               params.set("backTo", props.path);
@@ -141,7 +142,8 @@ const BarbellExercisesTable: React.FC<BarbellExercisesTableProps> = (props) => {
                       ...(api.flashId && exercise.exercise_id === api.flashId
                         ? { animation: "flash-bg 2.5s ease-in-out" }
                         : {}),
-                    }}>
+                    }}
+                  >
                     <Stack>
                       <DisplayTime performedAt={exercise.performed_at!} />
                     </Stack>
@@ -178,7 +180,8 @@ const BarbellExercisesTable: React.FC<BarbellExercisesTableProps> = (props) => {
                     <Stack>
                       <Typography
                         component={Link}
-                        href={`${editPath}?${params.toString()}`}>
+                        href={`${editPath}?${params.toString()}`}
+                      >
                         Edit
                       </Typography>
                     </Stack>

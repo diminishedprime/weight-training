@@ -1,14 +1,10 @@
 "use client";
-import { Button, Stack } from "@mui/material";
-import React from "react";
-import { useDebouncedCallback } from "use-debounce";
 import {
   addBarbellExercise,
   addBarbellFormDraft,
   deleteBarbellFormDraft,
   saveBarbellFormDraft,
 } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/AddBarbellExercise/actions";
-import EditBarbell from "@/components/edit/EditBarbell";
 import {
   CompletionStatus,
   ExerciseType,
@@ -16,12 +12,16 @@ import {
   RoundingMode,
   WeightUnit,
 } from "@/common-types";
-import SelectReps from "@/components/select/SelectReps";
+import EditBarbell from "@/components/edit/EditBarbell";
+import EditNotes from "@/components/edit/EditNotes";
 import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
 import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
+import SelectReps from "@/components/select/SelectReps";
 import SelectWarmup from "@/components/select/SelectWarmup";
 import { TestIds } from "@/test-ids";
-import EditNotes from "@/components/edit/EditNotes";
+import { Button, Stack } from "@mui/material";
+import React from "react";
+import { useDebouncedCallback } from "use-debounce";
 
 export interface BarbellFormDraft {
   actualWeight: number;
@@ -56,35 +56,35 @@ const useAddBarbellExerciseAPI = (props: AddBarbellExerciseProps) => {
   }, []);
 
   const [actualWeight, setActualWeight] = React.useState<number>(
-    initialDraft?.actualWeight ?? defaults.actualWeight
+    initialDraft?.actualWeight ?? defaults.actualWeight,
   );
   const [roundingMode] = React.useState<RoundingMode>(
-    initialDraft?.roundingMode ?? defaults.roundingMode
+    initialDraft?.roundingMode ?? defaults.roundingMode,
   );
   const [barWeight] = React.useState<number>(
-    initialDraft?.barWeight ?? defaults.barWeight
+    initialDraft?.barWeight ?? defaults.barWeight,
   );
   const [weightUnit] = React.useState<WeightUnit>(
-    initialDraft?.weightUnit ?? defaults.weightUnit
+    initialDraft?.weightUnit ?? defaults.weightUnit,
   );
   const [reps, setReps] = React.useState<number>(
-    initialDraft?.reps ?? defaults.reps
+    initialDraft?.reps ?? defaults.reps,
   );
   const [completionStatus, setCompletionStatus] =
     React.useState<CompletionStatus>(
-      initialDraft?.completionStatus ?? defaults.completionStatus
+      initialDraft?.completionStatus ?? defaults.completionStatus,
     );
   const [notes, setNotes] = React.useState<string | undefined>(
-    initialDraft?.notes ?? defaults.notes
+    initialDraft?.notes ?? defaults.notes,
   );
   const [percievedEffort, setPercievedEffort] = React.useState<
     PercievedEffort | undefined
   >(initialDraft?.percievedEffort ?? defaults.percievedEffort);
   const [isWarmup, setIsWarmup] = React.useState<boolean>(
-    initialDraft?.isWarmup ?? defaults.isWarmup
+    initialDraft?.isWarmup ?? defaults.isWarmup,
   );
   const [isAmrap, setIsAmrap] = React.useState<boolean>(
-    initialDraft?.isAmrap ?? defaults.isAmrap
+    initialDraft?.isAmrap ?? defaults.isAmrap,
   );
 
   // Sync the current state when the initial values change
@@ -124,7 +124,7 @@ const useAddBarbellExerciseAPI = (props: AddBarbellExerciseProps) => {
       percievedEffort,
       isWarmup,
       isAmrap,
-    ]
+    ],
   );
 
   const debouncedSave = useDebouncedCallback(
@@ -132,7 +132,7 @@ const useAddBarbellExerciseAPI = (props: AddBarbellExerciseProps) => {
       await saveBarbellFormDraft(userId, path, barbellFormDraft);
     },
     1000,
-    { trailing: true }
+    { trailing: true },
   );
 
   React.useEffect(() => {
@@ -205,13 +205,15 @@ const AddBarbellExercise: React.FC<AddBarbellExerciseProps> = (props) => {
           null,
           props.userId,
           props.path,
-          api.barbellFormDraft
-        )}>
+          api.barbellFormDraft,
+        )}
+      >
         <Button
           variant="contained"
           color="primary"
           type="submit"
-          data-testid={TestIds.AddExerciseButton}>
+          data-testid={TestIds.AddExerciseButton}
+        >
           Add Exercise
         </Button>
       </form>
@@ -242,7 +244,8 @@ const AddBarbellExercise: React.FC<AddBarbellExerciseProps> = (props) => {
           flexWrap="wrap"
           justifyContent="space-between"
           alignItems="flex-end"
-          useFlexGap>
+          useFlexGap
+        >
           <SelectCompletionStatus
             completionStatus={api.completionStatus}
             onCompletionStatusChange={(status: CompletionStatus) =>
@@ -269,14 +272,12 @@ const AddBarbellExercise: React.FC<AddBarbellExerciseProps> = (props) => {
         direction="row"
         flexWrap="wrap"
         useFlexGap
-        justifyContent="space-between">
+        justifyContent="space-between"
+      >
         <Stack direction="row" spacing={1}>
           <form
-            action={deleteBarbellFormDraft.bind(
-              null,
-              props.userId,
-              props.path
-            )}>
+            action={deleteBarbellFormDraft.bind(null, props.userId, props.path)}
+          >
             <Button variant="outlined" color="error" type="submit">
               Cancel
             </Button>
@@ -300,14 +301,16 @@ const AddBarbellExercise: React.FC<AddBarbellExerciseProps> = (props) => {
               api.isWarmup,
               api.weightUnit,
               props.path,
-              api.defaultBarbellFormDraft
+              api.defaultBarbellFormDraft,
             )}
-            onSubmit={api.handleAddBarbellLiftClick}>
+            onSubmit={api.handleAddBarbellLiftClick}
+          >
             <Button
               color="primary"
               variant="contained"
               type="submit"
-              data-testid={TestIds.AddBarbellLiftButton}>
+              data-testid={TestIds.AddBarbellLiftButton}
+            >
               Add
             </Button>
           </form>

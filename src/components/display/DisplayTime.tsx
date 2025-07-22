@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
+import React, { useEffect, useState } from "react";
 
 interface DisplayTimeProps {
   performedAt: string;

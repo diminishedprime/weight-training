@@ -1,5 +1,5 @@
-import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import UpdateUserPreferences from "@/app/preferences/_components/UpdateUserPreferences";
+import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 
 export default async function PreferencesPage() {
   const { userId } = await requireLoggedInUser("/preferences");

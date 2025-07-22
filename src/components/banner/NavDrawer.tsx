@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import HomeIcon from "@mui/icons-material/Home";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -8,9 +8,9 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
-import HomeIcon from "@mui/icons-material/Home";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+import * as React from "react";
 
 /**
  * Navigation item structure for the drawer menu

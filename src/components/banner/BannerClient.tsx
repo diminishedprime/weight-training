@@ -1,17 +1,17 @@
 "use client";
 
-import * as React from "react";
+import AuthenticatedUserView from "@/components/banner/AuthenticatedUserView";
+import NavDrawer from "@/components/banner/NavDrawer";
+import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import AuthenticatedUserView from "@/components/banner/AuthenticatedUserView";
 import CssBaseline from "@mui/material/CssBaseline";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import { User } from "next-auth";
-import NavDrawer from "@/components/banner/NavDrawer";
 import Link from "next/link";
+import * as React from "react";
 
 interface Props {
   user: User | undefined;
@@ -40,14 +40,16 @@ export default function BannerClient(props: Props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2 }}>
+            sx={{ mr: 2 }}
+          >
             <MenuIcon />
           </IconButton>
           <Typography
             variant="h6"
             component={Link}
             href="/"
-            sx={{ textDecoration: "none", color: "inherit" }}>
+            sx={{ textDecoration: "none", color: "inherit" }}
+          >
             Weight Training
           </Typography>
           <Box sx={{ flexGrow: 1 }} />

@@ -1,11 +1,11 @@
 "use client";
-import React from "react";
-import { Stack } from "@mui/material";
-import { Stack as ImmutableStack } from "immutable";
-import SelectActivePlates from "@/components/select/SelectActivePlates";
-import { minimalPlates } from "@/util";
 import { RoundingMode, WeightUnit } from "@/common-types";
 import DisplayBarbell from "@/components/display/DisplayBarbell";
+import SelectActivePlates from "@/components/select/SelectActivePlates";
+import { minimalPlates } from "@/util";
+import { Stack } from "@mui/material";
+import { Stack as ImmutableStack } from "immutable";
+import React from "react";
 
 export interface EditBarbellProps {
   targetWeightValue: number;
@@ -32,7 +32,7 @@ const useEditBarbellAPI = (props: EditBarbellProps) => {
 
   // Internal stack for undo history
   const [targetWeightHistory, setTargetWeightHistory] = React.useState(() =>
-    ImmutableStack<number>()
+    ImmutableStack<number>(),
   );
 
   // Calculate the actual weight: barWeight + sum of all plates (both sides)
@@ -40,7 +40,7 @@ const useEditBarbellAPI = (props: EditBarbellProps) => {
   const { plates: plateList, rounded } = minimalPlates(
     weightPerSide,
     props.availablePlates,
-    props.roundingMode
+    props.roundingMode,
   );
 
   const plateCounts = React.useMemo(() => {
@@ -56,7 +56,7 @@ const useEditBarbellAPI = (props: EditBarbellProps) => {
       setTargetWeightHistory((prev) => prev.push(targetWeight));
       onTargetWeightChange(targetWeight + increment * 2);
     },
-    [onTargetWeightChange, targetWeight]
+    [onTargetWeightChange, targetWeight],
   );
 
   const handleClear = React.useCallback(() => {
@@ -73,12 +73,12 @@ const useEditBarbellAPI = (props: EditBarbellProps) => {
 
   const undoDisabled = React.useMemo(
     () => targetWeightHistory.size === 0,
-    [targetWeightHistory]
+    [targetWeightHistory],
   );
 
   const clearDisabled = React.useMemo(
     () => targetWeight <= barWeight,
-    [targetWeight, barWeight]
+    [targetWeight, barWeight],
   );
 
   return {
@@ -117,7 +117,8 @@ const EditBarbell: React.FC<EditBarbellProps> = (props) => {
           flexWrap="wrap"
           useFlexGap
           gap={1}
-          alignItems="flex-end">
+          alignItems="flex-end"
+        >
           <SelectActivePlates
             availablePlates={props.availablePlates}
             activePlates={api.plateCounts}

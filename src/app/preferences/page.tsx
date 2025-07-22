@@ -1,8 +1,8 @@
 "use server";
 
-import React, { Suspense } from "react";
-import Breadcrumbs from "@/components/Breadcrumbs";
 import PreferencesPage from "@/app/preferences/_page";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import React, { Suspense } from "react";
 
 // TODO: when the user goes to /preferences from the top bar, we should keep
 // track of which page we were on so we can navigate back.

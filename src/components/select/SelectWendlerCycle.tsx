@@ -1,15 +1,15 @@
 "use client";
 
-import React from "react";
-import {
-  ToggleButton,
-  ToggleButtonGroup,
-  FormControl,
-  FormLabel,
-} from "@mui/material";
 import { WendlerCycleType } from "@/common-types";
 import { Constants } from "@/database.types";
 import { wendlerCycleUIString } from "@/uiStrings";
+import {
+  FormControl,
+  FormLabel,
+  ToggleButton,
+  ToggleButtonGroup,
+} from "@mui/material";
+import React from "react";
 
 export interface SelectWendlerCycleProps {
   cycleType: WendlerCycleType | null;
@@ -18,7 +18,7 @@ export interface SelectWendlerCycleProps {
 
 const useSelectWendlerCycleAPI = (props: SelectWendlerCycleProps) => {
   const [cycleType, setCycleType] = React.useState<WendlerCycleType | null>(
-    props.cycleType ?? null
+    props.cycleType ?? null,
   );
 
   const onCycleTypeChange = React.useCallback(
@@ -26,7 +26,7 @@ const useSelectWendlerCycleAPI = (props: SelectWendlerCycleProps) => {
       setCycleType(newValue);
       props.onCycleTypeChange(newValue ?? null);
     },
-    [props]
+    [props],
   );
 
   return {
@@ -47,13 +47,15 @@ const SelectWendlerCycle: React.FC<SelectWendlerCycleProps> = (props) => {
         exclusive
         onChange={(_e, val) => val && api.onCycleTypeChange(val)}
         size="small"
-        aria-label="Wendler Cycle">
+        aria-label="Wendler Cycle"
+      >
         {Constants.public.Enums.wendler_cycle_type_enum.map((cycle) => (
           <ToggleButton
             key={cycle}
             value={cycle}
             aria-label={wendlerCycleUIString(cycle)}
-            size="small">
+            size="small"
+          >
             {wendlerCycleUIString(cycle)}
           </ToggleButton>
         ))}

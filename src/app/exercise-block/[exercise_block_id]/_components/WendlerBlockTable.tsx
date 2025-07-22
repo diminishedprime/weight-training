@@ -1,8 +1,8 @@
 "use client";
 import * as React from "react";
 
-import { Stack, Typography } from "@mui/material";
-import { actualWeightForTarget } from "@/util";
+import WendlerBlockRowActive from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockRowActive";
+import WendlerBlockRowInactive from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockRowInactive";
 import {
   RoundingMode,
   type WendlerBlock,
@@ -14,8 +14,8 @@ import {
   weightUnitUIString,
   wendlerCycleUIString,
 } from "@/uiStrings";
-import WendlerBlockRowActive from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockRowActive";
-import WendlerBlockRowInactive from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockRowInactive";
+import { actualWeightForTarget } from "@/util";
+import { Stack, Typography } from "@mui/material";
 
 interface MetadataColumnProps {
   label: string;
@@ -68,11 +68,11 @@ const WendlerBlockTable: React.FC<WendlerBlockTableProps> = (props) => {
         row.actual_weight_value!,
         45,
         availablePlates,
-        RoundingMode.NEAREST
+        RoundingMode.NEAREST,
       ).actualWeight *
         row.reps! +
       acc,
-    0
+    0,
   );
 
   return (

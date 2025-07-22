@@ -1,21 +1,21 @@
 "use server";
 
-import { supabaseRPC } from "@/serverUtil";
-import { revalidatePath } from "next/cache";
-import { BarbellFormDraft } from ".";
-import { Json } from "@/database.types";
 import {
   CompletionStatus,
   ExerciseType,
   PercievedEffort,
   WeightUnit,
 } from "@/common-types";
+import { Json } from "@/database.types";
+import { supabaseRPC } from "@/serverUtil";
+import { revalidatePath } from "next/cache";
+import { BarbellFormDraft } from ".";
 
 const saveFormDraft = async (
   userId: string,
   path: string,
   barbellFormDraft: BarbellFormDraft,
-  revalidate: boolean
+  revalidate: boolean,
 ) => {
   await supabaseRPC("save_form_draft", {
     p_user_id: userId,
@@ -31,7 +31,7 @@ export const addBarbellFormDraft = async (
   userId: string,
   path: string,
   barbellFormDraft: BarbellFormDraft,
-  _formData: FormData
+  _formData: FormData,
 ) => {
   await saveFormDraft(userId, path, barbellFormDraft, true);
 };
@@ -39,7 +39,7 @@ export const addBarbellFormDraft = async (
 export const saveBarbellFormDraft = async (
   userId: string,
   path: string,
-  barbellFormDraft: BarbellFormDraft
+  barbellFormDraft: BarbellFormDraft,
 ) => {
   await saveFormDraft(userId, path, barbellFormDraft, false);
 };
@@ -47,7 +47,7 @@ export const saveBarbellFormDraft = async (
 export const deleteBarbellFormDraft = async (
   userId: string,
   path: string,
-  _formData: FormData
+  _formData: FormData,
 ) => {
   await supabaseRPC("clear_form_draft", {
     p_user_id: userId,
@@ -68,7 +68,7 @@ export const addBarbellExercise = async (
   isWarmup: boolean,
   weightUnit: WeightUnit,
   path: string,
-  defaultFormDraft: BarbellFormDraft
+  defaultFormDraft: BarbellFormDraft,
 ) => {
   await addBarbellFormDraft(userId, path, defaultFormDraft, new FormData());
   await supabaseRPC("create_exercise", {

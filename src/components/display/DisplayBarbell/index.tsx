@@ -1,9 +1,9 @@
 import { RoundingMode, WeightUnit } from "@/common-types";
-import { actualWeightForTarget, minimalPlatesForTargetWeight } from "@/util";
-import { Box } from "@mui/material";
-import DisplaySleeve from "@/components/display/DisplayBarbell/DisplaySleeve";
 import DisplayCollar from "@/components/display/DisplayBarbell/DisplayCollar";
 import DisplayInnerBar from "@/components/display/DisplayBarbell/DisplayInnerBar";
+import DisplaySleeve from "@/components/display/DisplayBarbell/DisplaySleeve";
+import { actualWeightForTarget, minimalPlatesForTargetWeight } from "@/util";
+import { Box } from "@mui/material";
 
 // Overall width of the barbell.
 export const BAR_WIDTH_MM = 2200;
@@ -119,7 +119,7 @@ export const MAX_DIAMETER_MM = Math.max(
   SLEEVE_DIAMETER_MM,
   COLLAR_DIAMETER_MM,
   INNER_BAR_DIAMETER_MM,
-  ...Object.values(PLATE_METADATA).map((p) => p.diameterMM)
+  ...Object.values(PLATE_METADATA).map((p) => p.diameterMM),
 );
 
 export interface DisplayBarbellProps {
@@ -141,13 +141,13 @@ const DisplayBarbell: React.FC<DisplayBarbellProps> = (props) => {
     props.targetWeightValue,
     props.barWeight,
     props.availablePlates,
-    props.roundingMode
+    props.roundingMode,
   );
   const { actualWeight } = actualWeightForTarget(
     props.targetWeightValue,
     props.barWeight,
     plates,
-    props.roundingMode
+    props.roundingMode,
   );
   return (
     <Box
@@ -156,7 +156,8 @@ const DisplayBarbell: React.FC<DisplayBarbellProps> = (props) => {
         aspectRatio: `${BAR_WIDTH_MM} / ${MAX_DIAMETER_MM}`,
         display: "flex",
         alignItems: "center",
-      }}>
+      }}
+    >
       <DisplaySleeve
         side="left"
         plates={plates}

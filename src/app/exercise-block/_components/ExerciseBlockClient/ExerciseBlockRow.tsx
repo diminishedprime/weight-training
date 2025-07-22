@@ -1,8 +1,8 @@
-import React, { useMemo } from "react";
-import { Paper, Stack, Typography } from "@mui/material";
 import { ExerciseBlock } from "@/common-types";
 import { uiWeight, wendlerCycleUIString } from "@/uiStrings";
+import { Paper, Stack, Typography } from "@mui/material";
 import Link from "next/link";
+import React, { useMemo } from "react";
 
 interface ExerciseBlockRowProps {
   block: ExerciseBlock;
@@ -28,7 +28,8 @@ const ExerciseBlockRow: React.FC<ExerciseBlockRowProps> = (props) => {
         <Typography
           variant="subtitle1"
           fontWeight={600}
-          data-testid="exercise-block-row-name">
+          data-testid="exercise-block-row-name"
+        >
           {props.block.name || "Untitled Block"}
         </Typography>
         <Typography variant="body2" color="textSecondary">
@@ -45,14 +46,14 @@ const ExerciseBlockRow: React.FC<ExerciseBlockRowProps> = (props) => {
               <Typography color="secondary" component="span">
                 {uiWeight(
                   props.block.training_max_value!,
-                  props.block.training_max_unit!
+                  props.block.training_max_unit!,
                 )}
               </Typography>{" "}
               an increase of{" "}
               <Typography color="secondary" component="span">
                 {uiWeight(
                   props.block.increase_amount_value!,
-                  props.block.increase_amount_unit!
+                  props.block.increase_amount_unit!,
                 )}
               </Typography>
             </Typography>
@@ -61,7 +62,8 @@ const ExerciseBlockRow: React.FC<ExerciseBlockRowProps> = (props) => {
         <Typography
           component={Link}
           href={`/exercise-block/${props.block.id}`}
-          sx={{ alignSelf: "flex-end" }}>
+          sx={{ alignSelf: "flex-end" }}
+        >
           Go to block
         </Typography>
       </Stack>

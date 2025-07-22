@@ -1,20 +1,20 @@
 "use client";
 
-import React from "react";
+import { PLATE_COLORS } from "@/constants";
+import { TestIds } from "@/test-ids";
+import { fractionWeightFormat } from "@/util";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import UndoIcon from "@mui/icons-material/Undo";
 import {
+  Badge,
   Button,
   ButtonGroup,
-  Badge,
   FormControl,
   FormLabel,
   IconButton,
   Stack,
 } from "@mui/material";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { PLATE_COLORS } from "@/constants";
-import { fractionWeightFormat } from "@/util";
-import UndoIcon from "@mui/icons-material/Undo";
-import { TestIds } from "@/test-ids";
+import React from "react";
 
 export interface SelectActivePlatesProps {
   availablePlates: number[];
@@ -42,7 +42,7 @@ const useSelectActivePlatesAPI = (props: SelectActivePlatesProps) => {
       setLocalActivePlates(newActivePlates);
       onAddPlate(plate);
     },
-    [localActivePlates, onAddPlate]
+    [localActivePlates, onAddPlate],
   );
 
   const localOnClear = React.useCallback(() => {
@@ -99,7 +99,8 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
           size="small"
           onClick={props.onUndo}
           aria-label="Undo weight change"
-          disabled={props.undoDisabled}>
+          disabled={props.undoDisabled}
+        >
           <UndoIcon />
         </IconButton>
         <ButtonGroup>
@@ -112,7 +113,8 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
                 sx={metadata?.sx}
                 data-testid={metadata?.testid}
                 badgeContent={count > 0 ? count : undefined}
-                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}>
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              >
                 <Button size="small" onClick={() => api.onAddPlate(plate)}>
                   {fractionWeightFormat(plate)}
                 </Button>
@@ -125,7 +127,8 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
           size="small"
           onClick={api.onClear}
           aria-label="Clear plates"
-          disabled={props.clearDisabled}>
+          disabled={props.clearDisabled}
+        >
           <DeleteOutlineIcon />
         </IconButton>
       </Stack>

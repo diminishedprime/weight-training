@@ -1,10 +1,10 @@
-import React from "react";
+import { WeightUnit } from "@/common-types";
+import DisplayDumbbell from "@/components/display/DisplayDumbbell";
+import { Button } from "@mui/material";
+import Autocomplete from "@mui/material/Autocomplete";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
-import DisplayDumbbell from "@/components/display/DisplayDumbbell";
-import Autocomplete from "@mui/material/Autocomplete";
-import { WeightUnit } from "@/common-types";
+import React from "react";
 
 export interface EditDumbbellProps {
   weightValue: number;
@@ -49,7 +49,7 @@ const useEditDumbellAPI = (props: EditDumbbellProps) => {
         onChange(val);
       }
     },
-    [onChange, availableWeights]
+    [onChange, availableWeights],
   );
 
   const handleInputChange = React.useCallback(
@@ -63,7 +63,7 @@ const useEditDumbellAPI = (props: EditDumbbellProps) => {
         onChange(val);
       }
     },
-    [onChange, availableWeights]
+    [onChange, availableWeights],
   );
 
   return {
@@ -86,7 +86,8 @@ const EditDumbbell: React.FC<EditDumbbellProps> = (props) => {
         flexDirection: "column",
         alignItems: "center",
         gap: 2,
-      }}>
+      }}
+    >
       <DisplayDumbbell
         weight={props.weightValue}
         weightUnit={props.weightUnit}
@@ -96,7 +97,8 @@ const EditDumbbell: React.FC<EditDumbbellProps> = (props) => {
           variant="outlined"
           color="secondary"
           onClick={api.handleBumpDown}
-          disabled={api.currentIdx <= 0}>
+          disabled={api.currentIdx <= 0}
+        >
           Down
         </Button>
         <Autocomplete
@@ -123,7 +125,8 @@ const EditDumbbell: React.FC<EditDumbbellProps> = (props) => {
         <Button
           variant="outlined"
           onClick={api.handleBumpUp}
-          disabled={api.currentIdx >= api.availableWeights.length - 1}>
+          disabled={api.currentIdx >= api.availableWeights.length - 1}
+        >
           Up
         </Button>
       </Box>

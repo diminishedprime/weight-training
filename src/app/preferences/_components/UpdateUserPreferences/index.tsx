@@ -1,18 +1,18 @@
 "use client";
 
-import React, { useCallback, useState, useMemo } from "react";
-import { Stack, TextField, Button, Typography } from "@mui/material";
 import { updateUserPreferences } from "@/app/preferences/_components/UpdateUserPreferences/actions";
 import { UserPreferences, WeightUnit } from "@/common-types";
-import SelectPlates from "@/components/select/SelectPlates";
 import SelectAvailableDumbbells from "@/components/select/SelectAvailableDumbbells";
-import { DEFAULT_VALUES } from "@/constants";
+import SelectPlates from "@/components/select/SelectPlates";
 import SelectWeightUnit from "@/components/select/SelectWeightUnit";
-import { nullableArrayEquals } from "@/util";
-import { useSearchParams } from "next/navigation";
-import { userPreferenceUIString } from "@/uiStrings";
+import { DEFAULT_VALUES } from "@/constants";
 import { useRequiredModifiableLabel } from "@/hooks";
 import { TestIds } from "@/test-ids";
+import { userPreferenceUIString } from "@/uiStrings";
+import { nullableArrayEquals } from "@/util";
+import { Button, Stack, TextField, Typography } from "@mui/material";
+import { useSearchParams } from "next/navigation";
+import React, { useCallback, useMemo, useState } from "react";
 
 type UpdateUserPreferencesProps = {
   userId: string;
@@ -27,7 +27,7 @@ const useUserPreferencesModified = (
   localPreferredWeightUnit: WeightUnit,
   localDefaultRestTime: string,
   localAvailablePlatesLbs: number[],
-  localAvailableDumbbellsLbs: number[]
+  localAvailableDumbbellsLbs: number[],
 ) => {
   const unitModified = React.useMemo(() => {
     return localPreferredWeightUnit !== preferred_weight_unit;
@@ -74,7 +74,7 @@ const useRequiredPreferences = (
   localPreferredWeightUnit: WeightUnit,
   localDefaultRestTime: string,
   localAvailablePlatesLbs: number[],
-  localAvailableDumbbellsLbs: number[]
+  localAvailableDumbbellsLbs: number[],
 ) => {
   const params = useSearchParams();
   const backTo = params.get("backTo");
@@ -139,10 +139,11 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
   } = props;
 
   const [localPreferredWeightUnit, setLocalPreferredWeightUnit] = useState(
-    preferred_weight_unit || DEFAULT_VALUES.PREFERRED_WEIGHT_UNIT
+    preferred_weight_unit || DEFAULT_VALUES.PREFERRED_WEIGHT_UNIT,
   );
   const [localDefaultRestTime, setLocalDefaultRestTime] = useState(
-    default_rest_time?.toString() ?? DEFAULT_VALUES.REST_TIME_SECONDS.toString()
+    default_rest_time?.toString() ??
+      DEFAULT_VALUES.REST_TIME_SECONDS.toString(),
   );
 
   const [localAvailablePlatesLbs, setLocalAvailablePlatesLbs] = useState<
@@ -162,7 +163,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     localPreferredWeightUnit,
     localDefaultRestTime,
     localAvailablePlatesLbs,
-    localAvailableDumbbellsLbs
+    localAvailableDumbbellsLbs,
   );
 
   const {
@@ -174,7 +175,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     localPreferredWeightUnit,
     localDefaultRestTime,
     localAvailablePlatesLbs,
-    localAvailableDumbbellsLbs
+    localAvailableDumbbellsLbs,
   );
 
   const canSave = useMemo(() => {
@@ -185,7 +186,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
   const restTimeLabel = useRequiredModifiableLabel(
     "Rest Time (seconds)",
     !!requiredPreferences?.includes("default_rest_time"),
-    modifications.restTimeModified
+    modifications.restTimeModified,
   );
 
   const handleWeightUnitChange = useCallback((unit: WeightUnit) => {
@@ -196,7 +197,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setLocalDefaultRestTime(event.target.value);
     },
-    []
+    [],
   );
 
   const handleAvailablePlatesChange = useCallback((plates: number[]) => {
@@ -207,7 +208,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     (dumbbells: number[]) => {
       setLocalAvailableDumbbellsLbs(dumbbells);
     },
-    []
+    [],
   );
 
   return {
@@ -230,7 +231,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
 };
 
 export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
-  props
+  props,
 ) => {
   const api = useUpdateUserPreferencesAPI(props);
 
@@ -243,9 +244,10 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
         api.defaultRestTime,
         api.availablePlatesLbs,
         api.availableDumbbellsLbs,
-        api.backTo
+        api.backTo,
       )}
-      data-testid="update-user-preferences-form">
+      data-testid="update-user-preferences-form"
+    >
       <Typography variant="h6" sx={{ mb: 2 }}>
         Update Preferences
       </Typography>
@@ -331,7 +333,8 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
         <Stack
           direction="row"
           justifyContent="space-between"
-          alignItems="center">
+          alignItems="center"
+        >
           <span>
             {api.preferencesModified && (
               <Typography variant="caption" color="text.secondary">
@@ -349,7 +352,8 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             variant="contained"
             size="small"
             data-testid={TestIds.Preferences_SavePreferencesButton}
-            disabled={!api.canSave}>
+            disabled={!api.canSave}
+          >
             Save
           </Button>
         </Stack>

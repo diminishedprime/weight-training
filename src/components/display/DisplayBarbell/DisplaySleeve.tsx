@@ -1,7 +1,11 @@
-import { Box } from "@mui/material";
-import { BAR_WIDTH_MM, SLEEVE_DIAMETER_MM, SLEEVE_WIDTH_MM } from ".";
 import DisplayPlate from "@/components/display/DisplayBarbell/DisplayPlate";
-import { metalGradient } from ".";
+import { Box } from "@mui/material";
+import {
+  BAR_WIDTH_MM,
+  metalGradient,
+  SLEEVE_DIAMETER_MM,
+  SLEEVE_WIDTH_MM,
+} from ".";
 
 interface DisplaySleeveProps {
   side: "left" | "right";
@@ -17,7 +21,8 @@ const DisplaySleeve: React.FC<DisplaySleeveProps> = (props) => {
         // TODO I THINK THIS SHOULD USE MAX DIAMETER
         aspectRatio: `${SLEEVE_WIDTH_MM} / ${SLEEVE_DIAMETER_MM}`,
         position: "relative",
-      }}>
+      }}
+    >
       <Box
         sx={{
           position: "absolute",
@@ -38,7 +43,8 @@ const DisplaySleeve: React.FC<DisplaySleeveProps> = (props) => {
           flexDirection: props.side === "right" ? "row" : "row-reverse",
           alignItems: "stretch",
           zIndex: 1,
-        }}>
+        }}
+      >
         {props.plates.map((weight, idx) => (
           <DisplayPlate
             key={idx}

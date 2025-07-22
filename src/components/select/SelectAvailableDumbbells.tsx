@@ -1,8 +1,11 @@
 "use client";
 
-import React from "react";
+import { WeightUnit } from "@/common-types";
+import { useRequiredModifiableLabel } from "@/hooks";
+import { weightUnitUIString } from "@/uiStrings";
 import { Chip, FormControl, FormLabel, Stack } from "@mui/material";
 import { Set as ImmutableSet } from "immutable";
+import React from "react";
 
 export interface SelectAvailableDumbbellsProps {
   initiallyAvailableDumbbells: number[];
@@ -13,12 +16,9 @@ export interface SelectAvailableDumbbellsProps {
   required?: boolean;
   onSelectedDumbbellsChange: (dumbbells: number[]) => void;
 }
-import { weightUnitUIString } from "@/uiStrings";
-import { WeightUnit } from "@/common-types";
-import { useRequiredModifiableLabel } from "@/hooks";
 
 const useSelectAvailableDumbbellsAPI = (
-  props: SelectAvailableDumbbellsProps
+  props: SelectAvailableDumbbellsProps,
 ) => {
   const {
     initiallySelectedDumbbells,
@@ -32,16 +32,16 @@ const useSelectAvailableDumbbellsAPI = (
 
   // TODO: eventually, we'll want the user to be able to provide custom sized dumbbells, and when we do, we'll use the set.
   const [localAvailableDumbbells] = React.useState(
-    ImmutableSet(initiallyAvailableDumbbells)
+    ImmutableSet(initiallyAvailableDumbbells),
   );
 
   const [localSelectedDumbbells, setLocalSelectedDumbbells] = React.useState(
-    () => ImmutableSet(initiallySelectedDumbbells ?? [])
+    () => ImmutableSet(initiallySelectedDumbbells ?? []),
   );
 
   const isSelected = React.useCallback(
     (weight: number) => localSelectedDumbbells.has(weight),
-    [localSelectedDumbbells]
+    [localSelectedDumbbells],
   );
 
   const onChipClick = React.useCallback(
@@ -52,13 +52,13 @@ const useSelectAvailableDumbbellsAPI = (
       setLocalSelectedDumbbells(updated);
       onSelectedDumbbellsChange(updated.toArray().sort((a, b) => b - a));
     },
-    [localSelectedDumbbells, onSelectedDumbbellsChange]
+    [localSelectedDumbbells, onSelectedDumbbellsChange],
   );
 
   const selectAll = React.useCallback(() => {
     setLocalSelectedDumbbells(localAvailableDumbbells);
     onSelectedDumbbellsChange(
-      localAvailableDumbbells.toArray().sort((a, b) => b - a)
+      localAvailableDumbbells.toArray().sort((a, b) => b - a),
     );
   }, [localAvailableDumbbells, onSelectedDumbbellsChange]);
 
@@ -71,18 +71,18 @@ const useSelectAvailableDumbbellsAPI = (
     () =>
       localAvailableDumbbells.size > 0 &&
       localAvailableDumbbells.isSubset(localSelectedDumbbells),
-    [localAvailableDumbbells, localSelectedDumbbells]
+    [localAvailableDumbbells, localSelectedDumbbells],
   );
 
   const noneSelected = React.useMemo(
     () => localAvailableDumbbells.size > 0 && localSelectedDumbbells.isEmpty(),
-    [localAvailableDumbbells, localSelectedDumbbells]
+    [localAvailableDumbbells, localSelectedDumbbells],
   );
 
   const localLabel = useRequiredModifiableLabel(
     label ?? "Available Dumbbells",
     !!required,
-    !!modified
+    !!modified,
   );
 
   return {
@@ -98,7 +98,7 @@ const useSelectAvailableDumbbellsAPI = (
 };
 
 const SelectAvailableDumbbells: React.FC<SelectAvailableDumbbellsProps> = (
-  props
+  props,
 ) => {
   const api = useSelectAvailableDumbbellsAPI(props);
 

@@ -1,6 +1,6 @@
 import type {
-  requireLoggedInUser as RealRequireLoggedInUser,
   getSession as RealGetSession,
+  requireLoggedInUser as RealRequireLoggedInUser,
 } from "@/serverUtil";
 
 /**

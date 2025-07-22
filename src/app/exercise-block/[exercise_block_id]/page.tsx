@@ -1,14 +1,14 @@
 "use server";
 
-import React, { Suspense } from "react";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import { Stack } from "@mui/material";
 import WendlerBlockTable from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockTable";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import {
   requireLoggedInUser,
   requirePreferences,
   supabaseRPC,
 } from "@/serverUtil";
+import { Stack } from "@mui/material";
+import React, { Suspense } from "react";
 
 type ExerciseBlockProps = {
   exercise_block_id: string;
@@ -18,7 +18,7 @@ const ExerciseBlock: React.FC<ExerciseBlockProps> = async ({
   exercise_block_id,
 }) => {
   const { userId } = await requireLoggedInUser(
-    `/exercise-block/${exercise_block_id}`
+    `/exercise-block/${exercise_block_id}`,
   );
 
   const [blockData, metadata, userPreferences] = await Promise.all([
@@ -33,7 +33,7 @@ const ExerciseBlock: React.FC<ExerciseBlockProps> = async ({
     await requirePreferences(
       userId,
       ["available_plates_lbs"],
-      `/exercise-block/${exercise_block_id}`
+      `/exercise-block/${exercise_block_id}`,
     ),
   ]);
 

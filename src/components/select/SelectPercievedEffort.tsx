@@ -1,14 +1,14 @@
+import { PercievedEffort } from "@/common-types";
+import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
 import {
+  FormControl,
+  FormLabel,
   ToggleButton,
   ToggleButtonGroup,
   Tooltip,
-  FormControl,
-  FormLabel,
 } from "@mui/material";
-import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
-import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
-import { PercievedEffort } from "@/common-types";
 import React from "react";
 
 interface SelectPercievedEffortProps {
@@ -26,7 +26,7 @@ const useSelectPercievedEffortAPI = (props: SelectPercievedEffortProps) => {
     (newValue: PercievedEffort | null) => {
       setLocalPercievedEffort(newValue);
     },
-    []
+    [],
   );
 
   React.useEffect(() => {
@@ -50,7 +50,8 @@ const SelectPercievedEffort = (props: SelectPercievedEffortProps) => {
         exclusive
         onChange={(_e, val) => val && api.onPercievedEffortChange(val)}
         size="small"
-        aria-label="Effort">
+        aria-label="Effort"
+      >
         <ToggleButton value="easy" aria-label="Easy">
           <Tooltip title="Easy">
             <SentimentVerySatisfiedIcon color="success" />

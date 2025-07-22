@@ -1,13 +1,13 @@
 "use client";
 
+import { ExerciseType, WeightUnit } from "@/common-types";
+import { setTargetMaxAction } from "@/components/SetTargetMax/actions";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 import { useCallback, useMemo, useState } from "react";
-import { setTargetMaxAction } from "@/components/SetTargetMax/actions";
-import { ExerciseType, WeightUnit } from "@/common-types";
 
 /**
  * Props for SetTargetMax component.
@@ -34,17 +34,17 @@ type SetTargetMaxProps = {
  */
 const useSetTargetMaxAPI = (props: SetTargetMaxProps) => {
   const [targetMaxValue, setTargetMaxValue] = useState<string>(
-    props.targetMaxValue ?? ""
+    props.targetMaxValue ?? "",
   );
   const [targetMaxUnit, setTargetMaxUnit] = useState<WeightUnit>(
-    props.targetMaxUnit ?? "pounds"
+    props.targetMaxUnit ?? "pounds",
   );
 
   const onValueChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setTargetMaxValue(e.target.value);
     },
-    []
+    [],
   );
 
   const onUnitChange = useCallback((e: SelectChangeEvent) => {
@@ -81,7 +81,7 @@ const useSetTargetMaxAPI = (props: SetTargetMaxProps) => {
         setTargetMaxValue((numericalOneRepMaxValue * 0.9).toFixed(2));
       }
     },
-    [numericalOneRepMaxValue]
+    [numericalOneRepMaxValue],
   );
 
   const percentHelperText = useMemo(() => {
@@ -136,8 +136,9 @@ const SetTargetMax: React.FC<SetTargetMaxProps> = (props) => {
         props.exerciseType,
         api.value,
         api.unit,
-        props.pathToRevalidate
-      )}>
+        props.pathToRevalidate,
+      )}
+    >
       <Stack spacing={1}>
         <Stack direction="row" spacing={1} useFlexGap alignItems="flex-start">
           <TextField
@@ -154,7 +155,8 @@ const SetTargetMax: React.FC<SetTargetMaxProps> = (props) => {
             value={api.unit}
             onChange={api.onUnitChange}
             displayEmpty
-            inputProps={{ "aria-label": "Unit" }}>
+            inputProps={{ "aria-label": "Unit" }}
+          >
             <MenuItem value="pounds">pounds</MenuItem>
             <MenuItem value="kilograms">kilograms</MenuItem>
           </Select>

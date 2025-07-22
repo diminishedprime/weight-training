@@ -1,8 +1,8 @@
 "use client";
 
+import ExerciseBlockRow from "@/app/exercise-block/_components/ExerciseBlockClient/ExerciseBlockRow";
 import { ExerciseBlocks } from "@/common-types";
 import { Stack, Typography } from "@mui/material";
-import ExerciseBlockRow from "@/app/exercise-block/_components/ExerciseBlockClient/ExerciseBlockRow";
 
 interface ExerciseBlockClientProps {
   exerciseBlocks: ExerciseBlocks;

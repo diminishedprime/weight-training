@@ -9,7 +9,8 @@ const DisplayBarbellThumbnail: React.FC<DisplayBarbellProps> = (props) => {
         display: "inline-block",
         verticalAlign: "middle",
         width: 80,
-      }}>
+      }}
+    >
       <DisplayBarbell {...props} />
     </span>
   );

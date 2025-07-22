@@ -1,10 +1,10 @@
+import { WeightUnit } from "@/common-types";
 import {
-  ToggleButton,
-  ToggleButtonGroup,
   FormControl,
   FormLabel,
+  ToggleButton,
+  ToggleButtonGroup,
 } from "@mui/material";
-import { WeightUnit } from "@/common-types";
 import React, { useMemo } from "react";
 
 interface SelectWeightUnitProps {
@@ -18,7 +18,7 @@ const useSelectWeightUnitAPI = (props: SelectWeightUnitProps) => {
   const { weightUnit, onWeightUnitChange, modified, label } = props;
 
   const [localWeightUnit, setLocalWeightUnit] = React.useState<WeightUnit>(
-    weightUnit ?? "pounds"
+    weightUnit ?? "pounds",
   );
 
   const localOnWeightUnitChange = React.useCallback((newValue: WeightUnit) => {
@@ -51,7 +51,8 @@ const SelectWeightUnit = (props: SelectWeightUnitProps) => {
         exclusive
         onChange={(_e, val) => val && api.onWeightUnitChange(val)}
         size="small"
-        aria-label="Weight Unit">
+        aria-label="Weight Unit"
+      >
         <ToggleButton value="pounds" aria-label="Pounds" size="small">
           lbs
         </ToggleButton>

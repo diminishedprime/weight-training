@@ -1,17 +1,17 @@
-import React, { Suspense } from "react";
-import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs";
+import BarbellExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/_page_barbell";
 import { EquipmentType, ExerciseType } from "@/common-types";
+import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs";
+import { FIRST_PAGE_NUM, pathForEquipmentExercisePage } from "@/constants";
+import { requireLoggedInUser } from "@/serverUtil";
+import { exerciseTypeUIStringBrief } from "@/uiStrings";
 import {
   EXERCISES_BY_EQUIPMENT,
   narrowEquipmentType,
   narrowExerciseType,
   narrowOrNotFound,
 } from "@/util";
-import BarbellExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/_page_barbell";
-import { exerciseTypeUIStringBrief } from "@/uiStrings";
-import { requireLoggedInUser } from "@/serverUtil";
-import { FIRST_PAGE_NUM, pathForEquipmentExercisePage } from "@/constants";
 import { Typography } from "@mui/material";
+import React, { Suspense } from "react";
 
 interface EquipmentExercisesData {
   [equipmentType: string]: ExercisesData;
@@ -35,12 +35,12 @@ const EQUIPMENT_EXERCISES_DATA = Object.entries(EXERCISES_BY_EQUIPMENT).reduce(
         [exercise]: {
           path: pathForEquipmentExercisePage(
             equipmentType as EquipmentType,
-            exercise as ExerciseType
+            exercise as ExerciseType,
           ),
           breadcrumbs: {
             pathname: pathForEquipmentExercisePage(
               equipmentType as EquipmentType,
-              exercise as ExerciseType
+              exercise as ExerciseType,
             ),
             labels: {
               [exercise]: exerciseTypeUIStringBrief(exercise as ExerciseType),
@@ -49,10 +49,10 @@ const EQUIPMENT_EXERCISES_DATA = Object.entries(EXERCISES_BY_EQUIPMENT).reduce(
           },
         },
       }),
-      {} as ExercisesData
+      {} as ExercisesData,
     ),
   }),
-  {} as EquipmentExercisesData
+  {} as EquipmentExercisesData,
 );
 
 interface EquipmentExercisePageSuspenseWrapperProps {
@@ -61,7 +61,7 @@ interface EquipmentExercisePageSuspenseWrapperProps {
 }
 
 export default async function EquipmentExercisePageSuspenseWrapper(
-  props: EquipmentExercisePageSuspenseWrapperProps
+  props: EquipmentExercisePageSuspenseWrapperProps,
 ) {
   const [
     {
@@ -73,13 +73,13 @@ export default async function EquipmentExercisePageSuspenseWrapper(
 
   const equipmentType = narrowOrNotFound(
     unnarrowedEquipmentType,
-    narrowEquipmentType
+    narrowEquipmentType,
   );
 
   // Ensure the exercise type is valid.
   const exerciseType = narrowOrNotFound(
     unnarrowedExerciseType,
-    narrowExerciseType
+    narrowExerciseType,
   );
 
   const exerciseData = EQUIPMENT_EXERCISES_DATA[equipmentType][exerciseType];

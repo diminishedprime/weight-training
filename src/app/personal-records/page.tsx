@@ -1,13 +1,13 @@
 "use server";
 
-import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
-import React, { Suspense } from "react";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import { Stack, Typography, Card, CardContent } from "@mui/material";
-import Link from "next/link";
-import { EXERCISES_BY_EQUIPMENT } from "@/util";
 import { EquipmentType } from "@/common-types";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { equipmentTypeUIString } from "@/uiStrings";
+import { EXERCISES_BY_EQUIPMENT } from "@/util";
+import { Card, CardContent, Stack, Typography } from "@mui/material";
+import Link from "next/link";
+import React, { Suspense } from "react";
 
 const PersonalRecordsPage = async () => {
   const { userId } = await requireLoggedInUser("/personal-records");
@@ -21,7 +21,7 @@ const PersonalRecordsPage = async () => {
     "get_personal_record_exercise_types",
     {
       p_user_id: userId,
-    }
+    },
   );
 
   if (!exerciseTypes || exerciseTypes.length === 0) {
@@ -54,11 +54,13 @@ const PersonalRecordsPage = async () => {
               <li key={exerciseType} style={{ marginBottom: "8px" }}>
                 <Link
                   href={`/personal-records/${exerciseType}`}
-                  style={{ textDecoration: "none", color: "inherit" }}>
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <Typography
                     component="span"
                     color="primary"
-                    sx={{ "&:hover": { textDecoration: "underline" } }}>
+                    sx={{ "&:hover": { textDecoration: "underline" } }}
+                  >
                     {exerciseType
                       .replace(/_/g, " ")
                       .replace(/\b\w/g, (l) => l.toUpperCase())}

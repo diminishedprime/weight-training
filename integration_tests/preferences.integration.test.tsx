@@ -1,12 +1,12 @@
-import { describe, it, vi, beforeEach, afterEach, expect } from "vitest";
-import { requireLoggedInUser, getSession } from "@/test/serverUtil";
-import { USER_ID_PREFERENCES } from "@/test/constants";
-import { render, screen, waitFor, act } from "@testing-library/react";
-import { TestIds } from "@/test-ids";
 import PreferencesPage from "@/app/preferences/_page";
-import { supabaseRPC } from "@/serverUtil";
 import { DEFAULT_VALUES } from "@/constants";
 import * as serverUtil from "@/serverUtil";
+import { supabaseRPC } from "@/serverUtil";
+import { TestIds } from "@/test-ids";
+import { USER_ID_PREFERENCES } from "@/test/constants";
+import { getSession, requireLoggedInUser } from "@/test/serverUtil";
+import { act, render, screen, waitFor } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const supabase = serverUtil.getSupabaseClient();
 

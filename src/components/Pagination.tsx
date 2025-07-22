@@ -5,8 +5,8 @@ import {
   Stack,
 } from "@mui/material";
 import useMUIPagination from "@mui/material/usePagination";
-import React from "react";
 import Link from "next/link";
+import React from "react";
 
 export interface PaginationWithHrefProps extends MUIPaginationProps {
   hrefFor?: (pageNum: number) => string;
@@ -25,20 +25,20 @@ const Pagination: React.FC<PaginationWithHrefProps> = ({
 
   // Split items into left, middle, right groups
   const leftItems = items.filter(
-    (item) => item.type === "first" || item.type === "previous"
+    (item) => item.type === "first" || item.type === "previous",
   );
   const rightItems = items.filter(
-    (item) => item.type === "next" || item.type === "last"
+    (item) => item.type === "next" || item.type === "last",
   );
   const middleItems = items.filter(
     (item) =>
       item.type === "page" ||
       item.type === "start-ellipsis" ||
-      item.type === "end-ellipsis"
+      item.type === "end-ellipsis",
   );
 
   const renderItem = (
-    item: ReturnType<typeof useMUIPagination>["items"][number]
+    item: ReturnType<typeof useMUIPagination>["items"][number],
   ) => {
     // For navigation buttons, use hrefFor if available and item.page is defined
     const navTypes = ["first", "previous", "next", "last", "page"];
@@ -69,7 +69,8 @@ const Pagination: React.FC<PaginationWithHrefProps> = ({
       direction="row"
       alignItems="center"
       justifyContent="space-between"
-      width="100%">
+      width="100%"
+    >
       <Stack direction="row" spacing={1}>
         {leftItems.map(renderItem)}
       </Stack>

@@ -1,34 +1,34 @@
+import { ExerciseType } from "@/common-types";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import DisplayWeight from "@/components/display/DisplayWeight";
 import { Constants } from "@/database.types";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
-import { notFound } from "next/navigation";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import { ExerciseType } from "@/common-types";
-import React, { Suspense } from "react";
 import { exerciseTypeUIStringLong } from "@/uiStrings";
 import {
+  Paper,
   Stack,
-  Typography,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
+  Typography,
 } from "@mui/material";
-import Link from "next/link";
 import { format, formatDistance, formatDistanceToNow } from "date-fns";
-import DisplayWeight from "@/components/display/DisplayWeight";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import React, { Suspense } from "react";
 
 type PersonalRecordsExerciseTypeProps = {
   exercise_type: ExerciseType;
 };
 
 const PersonalRecordsExerciseType = async (
-  props: PersonalRecordsExerciseTypeProps
+  props: PersonalRecordsExerciseTypeProps,
 ) => {
   const { userId } = await requireLoggedInUser(
-    `/personal-records/${props.exercise_type}`
+    `/personal-records/${props.exercise_type}`,
   );
 
   // TODO additional filtering based on querying for the record history. If a user
@@ -40,7 +40,7 @@ const PersonalRecordsExerciseType = async (
     {
       p_user_id: userId,
       p_exercise_type: props.exercise_type,
-    }
+    },
   );
 
   if (personalRecords === null || personalRecords.length === 0) {
@@ -73,7 +73,7 @@ const PersonalRecordsExerciseType = async (
 
       return acc;
     },
-    [] as Array<{ reps: number; records: typeof personalRecords }>
+    [] as Array<{ reps: number; records: typeof personalRecords }>,
   );
 
   return (
@@ -88,7 +88,8 @@ const PersonalRecordsExerciseType = async (
             direction="row"
             spacing={1}
             display="flex"
-            alignItems="baseline">
+            alignItems="baseline"
+          >
             <Typography variant="h6" color="primary">
               {reps} Rep{reps === 1 ? "" : "s"}
             </Typography>
@@ -148,7 +149,7 @@ const PersonalRecordsExerciseType = async (
                       {record.previous_recorded_at &&
                         formatDistance(
                           record.previous_recorded_at,
-                          record.recorded_at!
+                          record.recorded_at!,
                         )}
                     </TableCell>
                   </TableRow>
@@ -172,7 +173,7 @@ export default async function SuspenseWrapper(props: SuspenseWrapperProps) {
   // Ensure the exercise type is valid.
   if (
     Constants.public.Enums.exercise_type_enum.find(
-      (a) => a === unnarrowedExerciseType
+      (a) => a === unnarrowedExerciseType,
     ) === undefined
   ) {
     return notFound();

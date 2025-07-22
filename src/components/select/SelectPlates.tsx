@@ -1,16 +1,16 @@
 "use client";
 
-import React from "react";
+import { WeightUnit } from "@/common-types";
+import { useRequiredModifiableLabel } from "@/hooks";
+import { weightUnitUIString } from "@/uiStrings";
 import {
-  ToggleButton,
-  ToggleButtonGroup,
   FormControl,
   FormLabel,
+  ToggleButton,
+  ToggleButtonGroup,
 } from "@mui/material";
 import { Set as ImmutableSet } from "immutable";
-import { useRequiredModifiableLabel } from "@/hooks";
-import { WeightUnit } from "@/common-types";
-import { weightUnitUIString } from "@/uiStrings";
+import React from "react";
 
 export interface SelectPlatesProps {
   availablePlates: number[];
@@ -38,13 +38,13 @@ const useSelectPlatesAPI = (props: SelectPlatesProps) => {
   const [localAvailablePlates] = React.useState(availablePlates);
 
   const [selectedSet, setSelectedSet] = React.useState(() =>
-    ImmutableSet(initialSelectedPlates ?? [])
+    ImmutableSet(initialSelectedPlates ?? []),
   );
 
   const localLabel = useRequiredModifiableLabel(
     label ?? `Available Plates ${weightUnitUIString(unit).toUpperCase()}`,
     !!required,
-    !!modified
+    !!modified,
   );
 
   const localOnChange = React.useCallback(
@@ -52,12 +52,12 @@ const useSelectPlatesAPI = (props: SelectPlatesProps) => {
       setSelectedSet(ImmutableSet(plates));
       onSelectedPlatesChange(plates);
     },
-    [onSelectedPlatesChange]
+    [onSelectedPlatesChange],
   );
 
   const localSelectedPlates = React.useMemo(
     () => selectedSet.toArray().sort((a, b) => b - a),
-    [selectedSet]
+    [selectedSet],
   );
 
   return {
@@ -79,13 +79,15 @@ const SelectPlates: React.FC<SelectPlatesProps> = (props) => {
         value={api.selectedPlates}
         onChange={(_e, val) => api.onSelectedPlatesChange(val)}
         size="small"
-        aria-label="Available Plates">
+        aria-label="Available Plates"
+      >
         {api.availablePlates.map((plate) => (
           <ToggleButton
             key={plate}
             value={plate}
             aria-label={`${plate} lb plate`}
-            size="small">
+            size="small"
+          >
             {plate}
           </ToggleButton>
         ))}

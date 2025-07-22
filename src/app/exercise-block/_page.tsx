@@ -1,4 +1,3 @@
-import React from "react";
 import ExerciseBlockClient from "@/app/exercise-block/_components/ExerciseBlockClient";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 

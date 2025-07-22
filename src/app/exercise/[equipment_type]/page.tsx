@@ -1,4 +1,10 @@
+import { EquipmentType, ExerciseType } from "@/common-types";
 import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs";
+import {
+  pathForEquipmentExercisePage,
+  pathForEquipmentPage,
+} from "@/constants";
+import { exerciseTypeUIStringBrief } from "@/uiStrings";
 import {
   EXERCISES_BY_EQUIPMENT,
   narrowEquipmentType,
@@ -7,12 +13,6 @@ import {
 import { Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import React from "react";
-import { exerciseTypeUIStringBrief } from "@/uiStrings";
-import {
-  pathForEquipmentExercisePage,
-  pathForEquipmentPage,
-} from "@/constants";
-import { EquipmentType, ExerciseType } from "@/common-types";
 
 interface EquipmentTypeExercisesProps {
   params: Promise<{ equipment_type: string }>;
@@ -37,24 +37,24 @@ const EQUIPMENT_EXERCISES_DATA = Object.entries(EXERCISES_BY_EQUIPMENT).reduce(
       [equipmentType]: exercises.map((exercise) => ({
         href: pathForEquipmentExercisePage(
           equipmentType as EquipmentType,
-          exercise as ExerciseType
+          exercise as ExerciseType,
         ),
         linkText: exerciseTypeUIStringBrief(exercise as ExerciseType),
         key: `${equipmentType}-${exercise}`,
       })),
     };
   },
-  {} as EquipmentExercisesData
+  {} as EquipmentExercisesData,
 );
 
 export default async function EquipmentTypeExercisesPage(
-  props: EquipmentTypeExercisesProps
+  props: EquipmentTypeExercisesProps,
 ) {
   const { equipment_type: unnarrowedEquipmentType } = await props.params;
 
   const equipmentType = narrowOrNotFound(
     unnarrowedEquipmentType,
-    narrowEquipmentType
+    narrowEquipmentType,
   );
 
   const breadcrumbsProps: BreadcrumbsProps = {
@@ -70,7 +70,7 @@ export default async function EquipmentTypeExercisesPage(
             <Typography key={key} component={Link} href={href}>
               {linkText}
             </Typography>
-          )
+          ),
         )}
       </Stack>
     </React.Fragment>

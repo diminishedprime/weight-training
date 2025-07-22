@@ -20,9 +20,9 @@ export const wendlerCycleUIString = (
     // Stryker restore all
   }
 };
+import { UserPreferences, WeightUnit } from "@/common-types";
 import { Database } from "@/database.types";
 import { equipmentForExercise } from "@/util";
-import { UserPreferences, WeightUnit } from "@/common-types";
 
 type ExerciseType = Database["public"]["Enums"]["exercise_type_enum"];
 export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {

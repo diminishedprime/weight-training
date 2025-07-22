@@ -1,15 +1,15 @@
 import { CompletionStatus } from "@/common-types";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
-import SkipNextIcon from "@mui/icons-material/SkipNext";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
 
 interface DisplayCompletionStatusProps {
   completionStatus: CompletionStatus;
 }
 
 const DisplayCompletionStatus: React.FC<DisplayCompletionStatusProps> = (
-  props
+  props,
 ) => {
   switch (props.completionStatus) {
     case "completed":

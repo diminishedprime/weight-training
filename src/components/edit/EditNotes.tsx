@@ -1,6 +1,6 @@
 import { useRequiredModifiableLabel } from "@/hooks";
-import { TextField, IconButton } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
+import { IconButton, TextField } from "@mui/material";
 import React from "react";
 
 interface EditNotesProps {
@@ -44,7 +44,8 @@ const EditNotes: React.FC<EditNotesProps> = (props) => {
               disabled={!api.notes}
               // TODO: this my: -1 thing is a bit of a hack, I should see if
               // there's a better way to position this well.
-              sx={{ alignSelf: "flex-start", my: -1 }}>
+              sx={{ alignSelf: "flex-start", my: -1 }}
+            >
               <ClearIcon />
             </IconButton>
           ),

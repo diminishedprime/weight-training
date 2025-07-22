@@ -1,3 +1,5 @@
+import { WeightUnit } from "@/common-types";
+import DisplayWeight from "@/components/display/DisplayWeight";
 import { Box, Stack, Typography } from "@mui/material";
 import {
   BAR_WIDTH_MM,
@@ -5,8 +7,6 @@ import {
   INNER_BAR_WIDTH_MM,
   metalGradient,
 } from ".";
-import { WeightUnit } from "@/common-types";
-import DisplayWeight from "@/components/display/DisplayWeight";
 
 interface DisplayInnerBarProps {
   showWeight?: boolean;
@@ -37,7 +37,8 @@ const DisplayInnerBar: React.FC<DisplayInnerBarProps> = (props) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-      }}>
+      }}
+    >
       {showWeight && (
         <Typography
           sx={{
@@ -47,7 +48,8 @@ const DisplayInnerBar: React.FC<DisplayInnerBarProps> = (props) => {
             transform: "translate(-50%, -100%)",
             background: "rgba(255,255,255,0.7)",
           }}
-          data-testid="inner-bar-weight">
+          data-testid="inner-bar-weight"
+        >
           <DisplayWeight
             weightValue={actualWeightValue}
             weightUnit={weightUnit}
@@ -70,7 +72,8 @@ const DisplayInnerBar: React.FC<DisplayInnerBarProps> = (props) => {
             bottom: 0,
             transform: "translate(-50%, 100%)",
           }}
-          data-testid="inner-bar-target-weight">
+          data-testid="inner-bar-target-weight"
+        >
           <Typography color={differenceColor} variant="caption">
             <DisplayWeight
               variant="caption"

@@ -1,22 +1,22 @@
 "use client";
-import * as React from "react";
-import { Stack, TextField } from "@mui/material";
-import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
-import SelectReps from "@/components/select/SelectReps";
-import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
+import {
+  failExercise,
+  finishExercise,
+  skipExercise,
+} from "@/app/exercise-block/[exercise_block_id]/_components/actions";
+import WendlerBlockRow from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockRow";
 import {
   RoundingMode,
   type CompletionStatus,
   type PercievedEffort,
   type WendlerBlock,
 } from "@/common-types";
-import WendlerBlockRow from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockRow";
 import EditBarbell from "@/components/edit/EditBarbell";
-import {
-  finishExercise,
-  failExercise,
-  skipExercise,
-} from "@/app/exercise-block/[exercise_block_id]/_components/actions";
+import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
+import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
+import SelectReps from "@/components/select/SelectReps";
+import { Stack, TextField } from "@mui/material";
+import * as React from "react";
 
 interface WendlerBlockRowActiveProps {
   row: WendlerBlock[number];
@@ -38,7 +38,7 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
   const [percievedEffort, setPercievedEffort] =
     React.useState<PercievedEffort | null>(row.relative_effort ?? null);
   const [targetWeight, setTargetWeight] = React.useState<number>(
-    row.target_weight_value!
+    row.target_weight_value!,
   );
   const [editable, setEditable] = React.useState<boolean>(false);
 
@@ -54,7 +54,7 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
     (newStatus: CompletionStatus) => {
       setCompletionStatus(newStatus);
     },
-    []
+    [],
   );
 
   const onNotesChange = React.useCallback((newNotes: string) => {
@@ -65,7 +65,7 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
     (percievedEffort: PercievedEffort | null) => {
       setPercievedEffort(percievedEffort);
     },
-    []
+    [],
   );
 
   const onTargetWeightChange = React.useCallback((newWeight: number) => {
@@ -135,7 +135,8 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
           spacing={2}
           alignItems="center"
           justifyContent="center"
-          width="100%">
+          width="100%"
+        >
           <Stack alignItems="center" justifyContent="center">
             <SelectReps
               reps={api.reps}
@@ -174,7 +175,7 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
             row.block_id!,
             row.exercise_id!,
             api.notes,
-            api.path
+            api.path,
           )}
           boundFailAction={failExercise.bind(
             null,
@@ -182,7 +183,7 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
             row.block_id!,
             row.exercise_id!,
             api.notes,
-            api.path
+            api.path,
           )}
           boundFinishAction={finishExercise.bind(
             null,
@@ -190,7 +191,7 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
             row.block_id!,
             row.exercise_id!,
             api.notes,
-            api.path
+            api.path,
           )}
         />
       </Stack>

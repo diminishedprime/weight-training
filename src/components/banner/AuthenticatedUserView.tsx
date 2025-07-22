@@ -1,15 +1,15 @@
 "use client";
 
+import { handleSignOut } from "@/components/banner/actions";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import Typography from "@mui/material/Typography";
 import { User } from "next-auth";
-import { handleSignOut } from "@/components/banner/actions";
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 
 interface AuthenticatedUserViewProps {
   user: User;
@@ -34,11 +34,13 @@ export default function AuthenticatedUserView({
         sx={{ borderRadius: "50%", padding: 0, minWidth: 0 }}
         aria-controls={open ? "account-menu" : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}>
+        aria-expanded={open ? "true" : undefined}
+      >
         <Avatar
           src={user.image || undefined}
           alt={user.name || "User"}
-          sx={{ width: 32, height: 32 }}>
+          sx={{ width: 32, height: 32 }}
+        >
           {user.image === null &&
             user.name
               ?.split(" ")
@@ -54,12 +56,14 @@ export default function AuthenticatedUserView({
         onClose={handleClose}
         slotProps={{
           list: { "aria-labelledby": "basic-button" },
-        }}>
+        }}
+      >
         <Box sx={{ p: 1, display: "flex" }}>
           <Avatar
             src={user.image || undefined}
             alt={user.name || "User"}
-            sx={{ width: 56, height: 56, mb: 1 }}>
+            sx={{ width: 56, height: 56, mb: 1 }}
+          >
             {user.image === null &&
               user.name
                 ?.split(" ")
@@ -76,7 +80,8 @@ export default function AuthenticatedUserView({
           component={Link}
           href="/preferences"
           onClick={handleClose}
-          sx={{ justifyContent: "right" }}>
+          sx={{ justifyContent: "right" }}
+        >
           Preferences
         </MenuItem>
         <MenuItem
@@ -84,7 +89,8 @@ export default function AuthenticatedUserView({
             await handleSignOut();
             handleClose();
           }}
-          sx={{ justifyContent: "right", color: "error.main" }}>
+          sx={{ justifyContent: "right", color: "error.main" }}
+        >
           Sign out
         </MenuItem>
       </Menu>

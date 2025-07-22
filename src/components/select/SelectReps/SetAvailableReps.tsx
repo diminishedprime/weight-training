@@ -1,19 +1,19 @@
-import React from "react";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
-import Chip from "@mui/material/Chip";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
-import InputAdornment from "@mui/material/InputAdornment";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import SettingsIcon from "@mui/icons-material/Settings";
-import SendIcon from "@mui/icons-material/Send";
-import { Stack } from "@mui/material";
 import { useSetAvailableReps } from "@/components/select/SelectReps/useSetAvailableReps";
+import SendIcon from "@mui/icons-material/Send";
+import SettingsIcon from "@mui/icons-material/Settings";
+import { Stack } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Chip from "@mui/material/Chip";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import React from "react";
 
 const COMMON_REP_CHOICES = [
   { label: "Barbell", choices: [1, 3, 5] },
@@ -48,7 +48,8 @@ const SetAvailableReps: React.FC<SetAvailableRepsProps> = ({
                   sx={{ mr: 1 }}
                   variant="outlined"
                   onClick={() => api.setChoices(choices)}
-                  key={label}>
+                  key={label}
+                >
                   {label}
                 </Button>
               ))}
@@ -84,7 +85,8 @@ const SetAvailableReps: React.FC<SetAvailableRepsProps> = ({
                         edge="end"
                         aria-label="Add rep choice"
                         title="Add this rep value as a selectable button"
-                        color="primary">
+                        color="primary"
+                      >
                         <SendIcon />
                       </IconButton>
                     </InputAdornment>

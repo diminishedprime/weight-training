@@ -1,16 +1,16 @@
-import { ExerciseType } from "@/common-types";
-import React from "react";
-import BarbellExercisesTable from "@/app/exercise/[equipment_type]/[exercise_type]/_components/BarbellExercisesTable";
-import { requirePreferences, supabaseRPC } from "@/serverUtil";
-import { notFoundIfNull } from "@/util";
-import { Stack } from "@mui/material";
 import AddBarbellExercise, {
   BarbellFormDraft,
 } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/AddBarbellExercise";
+import BarbellExercisesTable from "@/app/exercise/[equipment_type]/[exercise_type]/_components/BarbellExercisesTable";
+import { ExerciseType } from "@/common-types";
 import { Json } from "@/database.types";
+import { requirePreferences, supabaseRPC } from "@/serverUtil";
+import { notFoundIfNull } from "@/util";
+import { Stack } from "@mui/material";
+import React from "react";
 
 export const conformsToBarbellFormDraft = (
-  value: Json | null
+  value: Json | null,
 ): BarbellFormDraft | null => {
   if (value === null) {
     return value;
@@ -30,7 +30,7 @@ export interface BarbellExercisePageProps {
 }
 
 const BarbellExercisePage: React.FC<BarbellExercisePageProps> = async (
-  props
+  props,
 ) => {
   const [
     {

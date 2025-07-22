@@ -22,7 +22,8 @@ const DisplayPlate: React.FC<PlateProps> = (props) => {
         alignSelf: "center",
         justifyContent: "center",
         ...measurements.sx,
-      }}>
+      }}
+    >
       {/** TODO: eventually, I want to support numbers here, but I can't figure
        * out how to calculate them? I may just need to do a useClient box or
        * something? */}

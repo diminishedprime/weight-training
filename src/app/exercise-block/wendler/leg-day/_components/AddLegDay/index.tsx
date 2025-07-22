@@ -1,14 +1,14 @@
 "use client";
 
-import React from "react";
-import Stack from "@mui/material/Stack";
+import { addLegDay } from "@/app/exercise-block/wendler/leg-day/_components/AddLegDay/actions";
 import { WendlerBlockPrereqs, WendlerMaxesData } from "@/common-types";
-import { Button } from "@mui/material";
+import SelectWendlerCycle from "@/components/select/SelectWendlerCycle";
+import SetTargetMax from "@/components/SetTargetMax";
 import { TestIds } from "@/test-ids";
 import AddIcon from "@mui/icons-material/Add";
-import SetTargetMax from "@/components/SetTargetMax";
-import { addLegDay } from "@/app/exercise-block/wendler/leg-day/_components/AddLegDay/actions";
-import SelectWendlerCycle from "@/components/select/SelectWendlerCycle";
+import { Button } from "@mui/material";
+import Stack from "@mui/material/Stack";
+import React from "react";
 
 interface AddLegDayProps {
   userId: string;
@@ -18,7 +18,7 @@ interface AddLegDayProps {
 }
 
 import { WendlerCycleType } from "@/common-types";
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 
 const useAddLegDayAPI = (_props: AddLegDayProps) => {
   const [cycle, setCycle] = useState<WendlerCycleType>("5");
@@ -55,8 +55,9 @@ const AddLegDay: React.FC<AddLegDayProps> = (props) => {
               null,
               props.userId,
               api.cycle,
-              props.pathToRevalidate
-            )}>
+              props.pathToRevalidate,
+            )}
+          >
             <Stack spacing={1}>
               <SelectWendlerCycle
                 cycleType={api.cycle}
@@ -67,7 +68,8 @@ const AddLegDay: React.FC<AddLegDayProps> = (props) => {
                 variant="contained"
                 color="primary"
                 startIcon={<AddIcon />}
-                data-testid={TestIds.addWendlerLegDayButton}>
+                data-testid={TestIds.addWendlerLegDayButton}
+              >
                 Add Leg Day
               </Button>
             </Stack>

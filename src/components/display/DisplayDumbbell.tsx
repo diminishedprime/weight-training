@@ -1,7 +1,7 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import { Database } from "@/database.types";
 import { metalGradient } from "@/components/display/DisplayBarbell";
+import { Database } from "@/database.types";
+import Box from "@mui/material/Box";
+import React from "react";
 
 // Dumbbell dimensions for aspect ratio calculation
 const TOTAL_WIDTH = 160;
@@ -54,7 +54,8 @@ const DumbbellBulb: React.FC<DumbbellBulbProps> = ({
         fontWeight: "bold",
         fontSize: `${fontSizePercent}%`,
         p: hideText ? "unset" : 1,
-      }}>
+      }}
+    >
       {!hideText && <>{weight}</>}
     </Box>
   );
@@ -85,7 +86,8 @@ const DisplayDumbbell: React.FC<DisplayDumbbellProps> = ({
         minWidth: 60,
         minHeight: 10,
         margin: "0 auto",
-      }}>
+      }}
+    >
       <DumbbellBulb
         weight={weight}
         widthPercent={bulbWidthPercent}

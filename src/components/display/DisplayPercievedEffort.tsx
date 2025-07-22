@@ -1,14 +1,14 @@
-import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
-import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
 import { type PercievedEffort } from "@/common-types";
+import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
 
 interface DisplayPercievedEffortProps {
   percievedEffort: PercievedEffort;
 }
 
 export const DisplayPercievedEffort: React.FC<DisplayPercievedEffortProps> = (
-  props
+  props,
 ) => {
   switch (props.percievedEffort) {
     case "easy":

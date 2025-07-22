@@ -1,7 +1,7 @@
-import React, { useMemo } from "react";
 import { ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
+import React, { useMemo } from "react";
 
 export interface SelectRepsProps {
   reps: number;
@@ -18,7 +18,7 @@ function useSelectRepsAPI(props: SelectRepsProps) {
   const { reps, onRepsChange, repChoices, wendlerReps } = props;
   const MIN_REPS = 1;
   const [localRepChoices, setLocalRepChoices] = React.useState<number[]>(
-    wendlerReps ? [1, 3, 5, 8] : repChoices || DEFAULT_REP_CHOICES
+    wendlerReps ? [1, 3, 5, 8] : repChoices || DEFAULT_REP_CHOICES,
   );
 
   const isDecrementDisabled = useMemo(() => reps <= MIN_REPS, [reps]);
@@ -34,7 +34,7 @@ function useSelectRepsAPI(props: SelectRepsProps) {
         onRepsChange(val);
       }
     },
-    [reps, onRepsChange, isDecrementDisabled]
+    [reps, onRepsChange, isDecrementDisabled],
   );
 
   const handleSetAvailableRepsClose = React.useCallback(
@@ -45,7 +45,7 @@ function useSelectRepsAPI(props: SelectRepsProps) {
         onRepsChange(newChoices[0]);
       }
     },
-    [reps, onRepsChange]
+    [reps, onRepsChange],
   );
 
   return {
@@ -85,12 +85,14 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
         onChange={api.handleToggleChange}
         size="small"
         aria-label="Select Reps"
-        sx={{ mb: 1 }}>
+        sx={{ mb: 1 }}
+      >
         <ToggleButton
           value="-"
           disabled={api.isDecrementDisabled}
           aria-label="decrement reps"
-          size="small">
+          size="small"
+        >
           -
         </ToggleButton>
         {api.choices.map((val) => (
@@ -98,7 +100,8 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
             key={val}
             value={val}
             aria-label={`reps ${val}`}
-            size="small">
+            size="small"
+          >
             {val}
           </ToggleButton>
         ))}

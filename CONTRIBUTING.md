@@ -57,7 +57,5 @@ the migrations), but it's definitely needed on the first run.
 
 ## Staging Setup
 
-[weight-training-nextjs-test]:
-  https://console.cloud.google.com/apis/credentials?inv=1&invt=AbyXSA&project=weight-training-nextjs-test
-[secret-manager]:
-  https://console.cloud.google.com/security/secret-manager/secret/oauth-secret-test/versions?inv=1&invt=AbyXSA&project=weight-training-nextjs-test
+[weight-training-nextjs-test]: https://console.cloud.google.com/apis/credentials?inv=1&invt=AbyXSA&project=weight-training-nextjs-test
+[secret-manager]: https://console.cloud.google.com/security/secret-manager/secret/oauth-secret-test/versions?inv=1&invt=AbyXSA&project=weight-training-nextjs-test

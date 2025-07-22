@@ -1,14 +1,14 @@
 "use client";
-import * as React from "react";
-import Link from "next/link";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import {
-  Breadcrumbs as MUIBreadcrumbs,
-  Typography,
+  IconButton,
   Menu,
   MenuItem,
-  IconButton,
+  Breadcrumbs as MUIBreadcrumbs,
+  Typography,
 } from "@mui/material";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import Link from "next/link";
+import * as React from "react";
 
 const toTitleCase = (str: string) =>
   str.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
@@ -28,7 +28,7 @@ export default function Breadcrumbs({
 }: BreadcrumbsProps) {
   const pathParts = pathname.split("/").filter(Boolean);
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
-    null
+    null,
   );
   const open = Boolean(anchorEl);
 
@@ -81,7 +81,8 @@ export default function Breadcrumbs({
         anchorEl={anchorEl}
         open={open}
         onClose={handleMenuClose}
-        aria-label="breadcrumb-menu">
+        aria-label="breadcrumb-menu"
+      >
         {middleParts.map((part, i) => {
           const idx = i + 1;
           const href = "/" + pathParts.slice(0, idx + 1).join("/");
@@ -99,7 +100,8 @@ export default function Breadcrumbs({
               key={href}
               component="a"
               href={href}
-              onClick={handleMenuClose}>
+              onClick={handleMenuClose}
+            >
               {label}
             </MenuItem>
           );
@@ -112,7 +114,8 @@ export default function Breadcrumbs({
           color="primary"
           size="small"
           aria-label="Show more breadcrumbs"
-          onClick={handleMenuClick}>
+          onClick={handleMenuClick}
+        >
           <MoreHorizIcon />
         </IconButton>
         {isLastNonLinkable ? (

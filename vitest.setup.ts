@@ -1,5 +1,5 @@
-import { vi } from "vitest";
 import "@testing-library/jest-dom/vitest";
+import { vi } from "vitest";
 
 // Patch console.warn globally to suppress noisy GoTrueClient warnings from Supabase during tests.
 // This is necessary because Supabase emits a warning when multiple GoTrueClient instances are created
@@ -25,7 +25,7 @@ console.error = (msg, ...args) => {
   if (
     typeof msg === "string" &&
     msg.includes(
-      "The current testing environment is not configured to support act("
+      "The current testing environment is not configured to support act(",
     )
   ) {
     return;

@@ -5,12 +5,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Essential Development Commands
 
 ### Core Development
+
 - `pnpm dev` - Start development server with Turbopack
 - `pnpm build` - Build production application
 - `pnpm lint` - Run ESLint
 - `pnpm format` - Format UI and SQL files
 
 ### Database Operations
+
 - `pnpm db:start` - Start local Supabase instance (required for development)
 - `pnpm db:reset` - Reset database and regenerate types
 - `pnpm db:gen-types` - Generate TypeScript types from schema
@@ -18,6 +20,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `pnpm db:test` - Run database function tests
 
 ### Testing
+
 - `pnpm test` - Run Vitest test suite
 - `pnpm test:watch` - Run tests in watch mode
 - `pnpm test:coverage` - Generate coverage report
@@ -26,6 +29,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Code Architecture
 
 ### Tech Stack
+
 - **Next.js 15** with App Router and React 19
 - **TypeScript** with strict type safety
 - **Supabase** PostgreSQL with RPC functions for business logic
@@ -34,6 +38,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Vitest** for testing with mutation testing support
 
 ### Key Files & Directories
+
 - `src/app/` - Next.js App Router pages and API routes
 - `src/components/` - Shared React components
 - `src/serverUtil.ts` - Server-side utilities and RPC helpers
@@ -43,6 +48,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `supabase/tests/` - Database function tests
 
 ### Database Pattern
+
 - **PostgreSQL stored procedures/RPC functions** handle all business logic
 - Type-safe database interactions via generated types and `supabaseRPC()` helper
 - Domain-driven schema with enums for data integrity
@@ -50,6 +56,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - All database objects must be well-commented
 
 ### Server Actions Pattern
+
 - Server actions colocated with components in `actions.ts` files
 - All actions marked with `"use server"` directive
 - Use `supabaseRPC()` helper from `serverUtil.ts` for database calls
@@ -57,6 +64,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Always revalidate affected paths with `revalidatePath()`
 
 ### Component Architecture
+
 - **API-style component logic**: Components with logic use a `use{ComponentName}API` hook
 - **Client vs Server components**: Client components marked with `"use client"`
 - **Page-specific components**: In `_components` directory within page folders
@@ -65,17 +73,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Type aliases**: Always create local aliases for database types
 
 ### Authentication & Authorization
+
 - Google OAuth via NextAuth.js
 - User data in `next_auth.users` table
 - Server-side auth validation via `requireLoggedInUser()`
 - User preferences validation via `requirePreferences()`
 
 ### Form Handling
+
 - MUI components with `component="form"` on `Stack`
 - Server actions called directly or with `.bind()` from client
 - Form drafts saved to database for persistence
 
 ### Testing Strategy
+
 - **Integration tests**: Focus on user flows, not isolated units
 - **Database tests**: Use PGTap for stored procedures
 - **Real implementations**: Avoid mocks except for external dependencies

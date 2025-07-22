@@ -1,9 +1,9 @@
-import * as React from "react";
-import { Typography, Stack } from "@mui/material";
 import WendlerBlockRow from "@/app/exercise-block/[exercise_block_id]/_components/WendlerBlockRow";
-import EditBarbell from "@/components/edit/EditBarbell";
 import { CompletionStatus, RoundingMode, WendlerBlock } from "@/common-types";
+import EditBarbell from "@/components/edit/EditBarbell";
+import { Stack, Typography } from "@mui/material";
 import Link from "next/link";
+import * as React from "react";
 
 export interface WendlerBlockRowInactiveProps {
   setName: string;
@@ -32,7 +32,7 @@ const useWendlerBlockRowInactiveAPI = (props: WendlerBlockRowInactiveProps) => {
 };
 
 const WendlerBlockRowInactive: React.FC<WendlerBlockRowInactiveProps> = (
-  props
+  props,
 ) => {
   const api = useWendlerBlockRowInactiveAPI(props);
   return (
@@ -44,7 +44,8 @@ const WendlerBlockRowInactive: React.FC<WendlerBlockRowInactiveProps> = (
           gridTemplateRows: "auto auto",
           gridTemplateColumns: "1fr 1fr 1fr 2fr",
           gap: 1,
-        }}>
+        }}
+      >
         <Stack sx={{ gridColumn: "1 / span 4", justifySelf: "center" }}>
           <EditBarbell
             targetWeightValue={
@@ -62,7 +63,8 @@ const WendlerBlockRowInactive: React.FC<WendlerBlockRowInactiveProps> = (
           direction="row"
           alignItems="center"
           justifyContent="center"
-          sx={{ gridColumn: "4 / span 1" }}>
+          sx={{ gridColumn: "4 / span 1" }}
+        >
           {(props.row.completion_status === "completed" ||
             props.row.completion_status === "failed" ||
             props.row.completion_status === "skipped") && (

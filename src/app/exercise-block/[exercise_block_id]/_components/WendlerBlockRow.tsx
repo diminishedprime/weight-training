@@ -1,5 +1,5 @@
-import * as React from "react";
 import { Stack, Typography } from "@mui/material";
+import * as React from "react";
 
 export interface WendlerBlockRowProps {
   // As in the name of the set. For example: "warmup 1" or "working set 1"
@@ -24,10 +24,12 @@ const WendlerBlockRow: React.FC<WendlerBlockRowProps> = ({
     }}
     direction="column"
     spacing={1}
-    data-testid="wendler-block-row">
+    data-testid="wendler-block-row"
+  >
     <Typography
       variant="subtitle2"
-      color={highlight ? "primary" : "text.secondary"}>
+      color={highlight ? "primary" : "text.secondary"}
+    >
       {setName}
     </Typography>
     {children}

@@ -13,7 +13,7 @@ export const setTargetMaxAction = async (
   targetMaxValue: string,
   targetMaxUnit: Database["public"]["Enums"]["weight_unit_enum"],
   pathToRevalidate: string | undefined,
-  _formData: FormData
+  _formData: FormData,
 ) => {
   const targetMax = Number(targetMaxValue);
   await supabaseRPC("set_target_max", {

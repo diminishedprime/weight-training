@@ -1,13 +1,13 @@
 "use server";
 
+import AddLegDay from "@/app/exercise-block/wendler/leg-day/_components/AddLegDay";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import React, { Suspense } from "react";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import AddLegDay from "@/app/exercise-block/wendler/leg-day/_components/AddLegDay";
 
 const WendlerPage = async () => {
   const { userId } = await requireLoggedInUser(
-    "/exercise-block/wendler/leg-day"
+    "/exercise-block/wendler/leg-day",
   );
   const [prereqData, wendlerMaxesData] = await Promise.all([
     supabaseRPC("check_wendler_block_prereqs", {

@@ -1,9 +1,9 @@
-import { createClient } from "@supabase/supabase-js";
-import { redirect } from "next/navigation";
-import { Session } from "next-auth";
-import { Database } from "@/database.types";
 import { auth } from "@/auth";
 import { RequiredNonNullable, UserPreferences } from "@/common-types";
+import { Database } from "@/database.types";
+import { createClient } from "@supabase/supabase-js";
+import { Session } from "next-auth";
+import { redirect } from "next/navigation";
 
 /**
  * Returns a Supabase client instance for server-side usage.

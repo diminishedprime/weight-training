@@ -1,5 +1,9 @@
 "use client";
 import {
+  cancelEdit,
+  saveChanges,
+} from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_components/EditBarbellExercise/actions";
+import {
   CompletionStatus,
   ExerciseForUser,
   PercievedEffort,
@@ -13,10 +17,6 @@ import SelectReps from "@/components/select/SelectReps";
 import SelectWarmup from "@/components/select/SelectWarmup";
 import { Button, Stack } from "@mui/material";
 import React from "react";
-import {
-  cancelEdit,
-  saveChanges,
-} from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_components/EditBarbellExercise/actions";
 
 interface EditBarbellExerciseProps {
   userId: string;
@@ -31,17 +31,17 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
   const [localTargetWeight, setLocalTargetWeight] = React.useState(
     props.exercise.actual_weight_value ??
       props.exercise.target_weight_value ??
-      0
+      0,
   );
   const [localReps, setLocalReps] = React.useState(props.exercise.reps ?? 5);
   const [completionStatus, setCompletionStatus] = React.useState(
-    props.exercise.completion_status!
+    props.exercise.completion_status!,
   );
   const [percievedEffort, setPercievedEffort] = React.useState(
-    props.exercise.relative_effort
+    props.exercise.relative_effort,
   );
   const [isWarmup, setIsWarmup] = React.useState(
-    props.exercise.warmup ?? false
+    props.exercise.warmup ?? false,
   );
   const [notes, setNotes] = React.useState(props.exercise.notes ?? undefined);
 
@@ -49,7 +49,7 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
     (newTargetWeight: number) => {
       setLocalTargetWeight(newTargetWeight);
     },
-    []
+    [],
   );
 
   const onLocalRepsChange = React.useCallback((newReps: number) => {
@@ -60,14 +60,14 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
     (status: CompletionStatus) => {
       setCompletionStatus(status);
     },
-    []
+    [],
   );
 
   const onLocalPercievedEffortChange = React.useCallback(
     (effort: PercievedEffort | null) => {
       setPercievedEffort(effort);
     },
-    []
+    [],
   );
 
   const onLocalWarmupChange = React.useCallback((warmup: boolean) => {
@@ -78,7 +78,7 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
     (newNotes: string | undefined) => {
       setNotes(newNotes);
     },
-    []
+    [],
   );
 
   const editedExercise: ExerciseForUser = React.useMemo(
@@ -99,7 +99,7 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
       percievedEffort,
       isWarmup,
       notes,
-    ]
+    ],
   );
 
   return {
@@ -144,7 +144,8 @@ const EditBarbellExercise: React.FC<EditBarbellExerciseProps> = (props) => {
         flexWrap="wrap"
         justifyContent="space-between"
         alignItems="flex-end"
-        useFlexGap>
+        useFlexGap
+      >
         <SelectCompletionStatus
           completionStatus={api.completionStatus}
           onCompletionStatusChange={(status: CompletionStatus) =>
@@ -168,7 +169,8 @@ const EditBarbellExercise: React.FC<EditBarbellExerciseProps> = (props) => {
         direction="row"
         flexWrap="wrap"
         useFlexGap
-        justifyContent="space-between">
+        justifyContent="space-between"
+      >
         {props.backTo && (
           <form action={cancelEdit.bind(null, props.backTo)}>
             <Button variant="outlined" type="submit" color="warning">
@@ -182,8 +184,9 @@ const EditBarbellExercise: React.FC<EditBarbellExerciseProps> = (props) => {
             props.userId,
             api.editedExercise,
             props.path,
-            props.backTo
-          )}>
+            props.backTo,
+          )}
+        >
           <Button variant="contained" type="submit" color="primary">
             Save
           </Button>

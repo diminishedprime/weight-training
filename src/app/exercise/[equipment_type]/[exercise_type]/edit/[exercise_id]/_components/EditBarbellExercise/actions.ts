@@ -13,7 +13,7 @@ export const saveChanges = async (
   userId: string,
   editedExercise: ExerciseForUser,
   path: string,
-  backTo: string | undefined
+  backTo: string | undefined,
 ) => {
   await supabaseRPC("update_exercise_for_user", {
     p_exercise_id: editedExercise.exercise_id!,

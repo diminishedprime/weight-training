@@ -1,7 +1,7 @@
-import { describe, it, vi, beforeEach, expect } from "vitest";
 import * as serverUtil from "@/serverUtil";
-import { requireLoggedInUser, getSession } from "@/test/serverUtil";
 import { USER_ID_LOGGED_IN } from "@/test/constants";
+import { getSession, requireLoggedInUser } from "@/test/serverUtil";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const supabase = serverUtil.getSupabaseClient();
 

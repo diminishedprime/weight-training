@@ -1,15 +1,15 @@
-import React, { Suspense } from "react";
+import BarbellExerciseEditPage from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_page_barbell";
 import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs";
+import { pathForEquipmentExerciseEdit } from "@/constants";
+import { requireLoggedInUser } from "@/serverUtil";
+import { equipmentTypeUIString, exerciseTypeUIStringBrief } from "@/uiStrings";
 import {
   narrowEquipmentType,
   narrowExerciseType,
   narrowOrNotFound,
 } from "@/util";
-import { equipmentTypeUIString, exerciseTypeUIStringBrief } from "@/uiStrings";
-import { requireLoggedInUser } from "@/serverUtil";
-import { pathForEquipmentExerciseEdit } from "@/constants";
-import BarbellExerciseEditPage from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_page_barbell";
 import { Typography } from "@mui/material";
+import React, { Suspense } from "react";
 
 interface EquipmentExerciseEditPageSuspenseWrapperProps {
   params: Promise<{
@@ -21,7 +21,7 @@ interface EquipmentExerciseEditPageSuspenseWrapperProps {
 }
 
 export default async function EquipmentExerciseEditPageSuspenseWrapper(
-  props: EquipmentExerciseEditPageSuspenseWrapperProps
+  props: EquipmentExerciseEditPageSuspenseWrapperProps,
 ) {
   const [
     {
@@ -34,18 +34,18 @@ export default async function EquipmentExerciseEditPageSuspenseWrapper(
 
   const equipmentType = narrowOrNotFound(
     unnarrowedEquipmentType,
-    narrowEquipmentType
+    narrowEquipmentType,
   );
 
   const exerciseType = narrowOrNotFound(
     unnarrowedExerciseType,
-    narrowExerciseType
+    narrowExerciseType,
   );
 
   const currentPath = pathForEquipmentExerciseEdit(
     equipmentType,
     exerciseType,
-    exercise_id
+    exercise_id,
   );
   const { userId } = await requireLoggedInUser(currentPath);
 
@@ -70,7 +70,7 @@ export default async function EquipmentExerciseEditPageSuspenseWrapper(
     pathname: pathForEquipmentExerciseEdit(
       equipmentType,
       exerciseType,
-      exercise_id
+      exercise_id,
     ),
     labels: {
       [equipmentType]: equipmentTypeUIString(equipmentType),

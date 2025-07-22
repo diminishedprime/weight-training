@@ -10,7 +10,7 @@ export async function addLegDay(
   cycleType: WendlerCycleType,
   // TODO - remove this prop since it's not needed afterall.
   _pathToRevalidate: string,
-  _: FormData
+  _: FormData,
 ) {
   const exerciseBlockId = await supabaseRPC("create_wendler_exercise_block", {
     p_user_id: userId,

@@ -1,17 +1,16 @@
-import { getExercisesByEquipment } from "@/util";
-import { describe, it, vi, beforeEach, expect } from "vitest";
-import * as serverUtil from "@/serverUtil";
-import { requireLoggedInUser, getSession } from "@/test/serverUtil";
-import { USER_ID_LOGGED_IN } from "@/test/constants";
-import { render, screen, waitFor, act } from "@testing-library/react";
 import BarbellExercisePage, {
   BarbellExercisePageProps,
 } from "@/app/exercise/[equipment_type]/[exercise_type]/_page_barbell";
-import { TestIds } from "@/test-ids";
 import { ExerciseType } from "@/common-types";
-import { afterEach } from "node:test";
 import { FIRST_PAGE_NUM, pathForBarbellExercisePage } from "@/constants";
-import { BarbellFormDraft } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/AddBarbellExercise";
+import * as serverUtil from "@/serverUtil";
+import { TestIds } from "@/test-ids";
+import { USER_ID_LOGGED_IN } from "@/test/constants";
+import { getSession, requireLoggedInUser } from "@/test/serverUtil";
+import { getExercisesByEquipment } from "@/util";
+import { act, render, screen, waitFor } from "@testing-library/react";
+import { afterEach } from "node:test";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const supabase = serverUtil.getSupabaseClient();
 

@@ -1,10 +1,10 @@
-import { Constants } from "@/database.types";
 import {
   EquipmentType,
   ExerciseType,
   RequiredNonNullable,
   RoundingMode,
 } from "@/common-types";
+import { Constants } from "@/database.types";
 import { notFound } from "next/navigation";
 
 /**

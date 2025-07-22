@@ -1,15 +1,15 @@
+import { CompletionStatus } from "@/common-types";
+import CancelIcon from "@mui/icons-material/Cancel";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
 import {
+  FormControl,
+  FormLabel,
   ToggleButton,
   ToggleButtonGroup,
   Tooltip,
-  FormControl,
-  FormLabel,
 } from "@mui/material";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
-import CancelIcon from "@mui/icons-material/Cancel";
-import SkipNextIcon from "@mui/icons-material/SkipNext";
-import { CompletionStatus } from "@/common-types";
 import React from "react";
 
 interface SelectCompletionStatusProps {
@@ -32,7 +32,7 @@ const useSelectCompletionStatusAPI = (props: SelectCompletionStatusProps) => {
     (newValue: CompletionStatus) => {
       setLocalCompletionStatus(newValue);
     },
-    []
+    [],
   );
 
   React.useEffect(() => {
@@ -47,14 +47,14 @@ const useSelectCompletionStatusAPI = (props: SelectCompletionStatusProps) => {
 
 // TODO: easy - update this to use the DisplayCompletionStatus component.
 const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
-  props
+  props,
 ) => {
   const api = useSelectCompletionStatusAPI(props);
 
   // Helper to conditionally wrap a ToggleButton in a form if a boundAction is provided
   const renderWithOptionalForm = (
     action: ((formData: FormData) => Promise<void>) | undefined,
-    button: React.ReactNode
+    button: React.ReactNode,
   ) => {
     if (action) {
       return <form action={action}>{button}</form>;
@@ -71,24 +71,27 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
         exclusive
         onChange={(_e, val) => val && api.onCompletionStatusChange(val)}
         size="small"
-        aria-label="Completion Status">
+        aria-label="Completion Status"
+      >
         {renderWithOptionalForm(
           props.boundFinishAction,
           <ToggleButton
             value="completed"
             aria-label="Completed"
             size="small"
-            type={props.boundFinishAction ? "submit" : "button"}>
+            type={props.boundFinishAction ? "submit" : "button"}
+          >
             <Tooltip title="Completed">
               <CheckCircleIcon color="success" />
             </Tooltip>
-          </ToggleButton>
+          </ToggleButton>,
         )}
         {props.notCompleted && (
           <ToggleButton
             value="not_completed"
             aria-label="Not Completed"
-            size="small">
+            size="small"
+          >
             <Tooltip title="Not Completed">
               <RadioButtonUncheckedIcon color="warning" />
             </Tooltip>
@@ -100,11 +103,12 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
             value="failed"
             aria-label="Failed"
             size="small"
-            type={props.boundFailAction ? "submit" : "button"}>
+            type={props.boundFailAction ? "submit" : "button"}
+          >
             <Tooltip title="Failed">
               <CancelIcon color="error" />
             </Tooltip>
-          </ToggleButton>
+          </ToggleButton>,
         )}
         {renderWithOptionalForm(
           props.boundSkipAction,
@@ -112,11 +116,12 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
             value="skipped"
             aria-label="Skipped"
             size="small"
-            type={props.boundSkipAction ? "submit" : "button"}>
+            type={props.boundSkipAction ? "submit" : "button"}
+          >
             <Tooltip title="Skipped">
               <SkipNextIcon color="secondary" />
             </Tooltip>
-          </ToggleButton>
+          </ToggleButton>,
         )}
       </ToggleButtonGroup>
     </FormControl>

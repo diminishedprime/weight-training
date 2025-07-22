@@ -1,9 +1,9 @@
 "use client";
+import { loginAction } from "@/app/login/actions";
+import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useSearchParams } from "next/navigation";
-import { loginAction } from "@/app/login/actions";
-import { Typography } from "@mui/material";
 import { Suspense } from "react";
 
 const LoginContent = () => {
