@@ -3,6 +3,7 @@ import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
 
+//TODO: Fix typo in Perceived
 interface DisplayPercievedEffortProps {
   percievedEffort: PercievedEffort;
 }

@@ -7,6 +7,7 @@
 export const TestIds = {
   AddExerciseButton: "add-exercise-button",
   AddBarbellLiftButton: "add-barbell-exercise",
+  AddDumbbellLiftButton: "add-dumbbell-exercise",
   AddExerciseCancelButton: "add-exercise-cancel-button",
   AddBarbellResetButton: "add-barbell-reset-button",
   ActivePlate: (plate: number) => `active-plate-${plate}`,
