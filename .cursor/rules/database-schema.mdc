@@ -1,0 +1,56 @@
+---
+globs: supabase/**/*.sql,src/database.types.ts,src/common-types.ts
+---
+# Database Schema & Migration Patterns
+
+## Migration Naming & Structure
+- Sequential naming: `000000000000XX_name.sql` format
+- Pure functions in [00000000000010_pure-functions.sql](mdc:supabase/migrations/00000000000010_pure-functions.sql)
+- Schemas defined in [00000000000020_schemas.sql](mdc:supabase/migrations/00000000000020_schemas.sql)
+- Authentication in [00000000000030_auth.sql](mdc:supabase/migrations/00000000000030_auth.sql)
+
+## Schema Organization
+- `public` - Main application tables and functions
+- `next_auth` - Authentication-related tables (users, sessions, accounts)
+- `_trigger` - Internal trigger functions (not exposed to generated types)
+
+## Core Tables & Types
+Key domain enums:
+- `exercise_type_enum` - All supported exercise types (barbell, dumbbell, machine, etc.)
+- `completion_status_enum` - Exercise completion states
+- `weight_unit_enum` - pounds/kilograms
+- `equipment_type_enum` - Equipment categories
+- `wendler_cycle_type_enum` - Wendler cycle types (5, 3, 1, deload)
+
+Core tables:
+- `exercises` - Individual exercise records with weights, reps, completion status
+- `exercise_block` - Groups of exercises (workouts)
+- `exercise_block_exercises` - Many-to-many relationship
+- `wendler_metadata` - Wendler 5/3/1 program specific data
+- `personal_record_history` - PR tracking with automatic triggers
+- `user_preferences` - User settings and equipment availability
+
+## Function Patterns
+- Use `CREATE OR REPLACE FUNCTION` with explicit parameter names (`p_` prefix)
+- Return custom types for complex data (e.g., `exercise_row_type`)
+- Business logic in stored procedures (e.g., `create_wendler_exercise_block`)
+- Validation functions (e.g., `check_wendler_block_prereqs`)
+
+## Type Generation
+- Run `pnpm db:gen-types` to update [src/database.types.ts](mdc:src/database.types.ts)
+- Create type aliases in [src/common-types.ts](mdc:src/common-types.ts) for readability
+- Use generated types via [Database["public"]["Functions"]["function_name"]["Returns"]](mdc:src/common-types.ts)
+
+## RPC Calls
+Use `supabaseRPC` helper from [src/serverUtil.ts](mdc:src/serverUtil.ts):
+```typescript
+const result = await supabaseRPC('function_name', { param: value });
+```
+
+## Documentation Requirements
+Every database object must include:
+- Purpose comment explaining what it does
+- Why comment explaining the rationale
+- Parameter descriptions for functions
+- Usage examples where helpful
+- See [DATABASE_STRATEGY.md](mdc:docs/DATABASE_STRATEGY.md) for full standards

@@ -1,0 +1,154 @@
+---
+globs: src/app/**/actions.ts,src/serverUtil.ts
+---
+# Server Actions & RPC Patterns
+
+## Server Actions Structure
+Actions are colocated with components in `actions.ts` files and marked with `"use server"`:
+
+```typescript
+"use server";
+import { supabaseRPC } from "@/serverUtil";
+import { revalidatePath } from "next/cache";
+
+export async function actionName(
+  userId: string,
+  pathToRevalidate: string,
+  // ... other params
+  formData: FormData // Always last parameter for form actions
+) {
+  // Validation and business logic
+  const result = await supabaseRPC('database_function_name', {
+    p_user_id: userId,
+    p_param: value
+  });
+  
+  // Revalidate affected paths
+  revalidatePath(pathToRevalidate);
+  
+  return result;
+}
+```
+
+## RPC Call Patterns
+Use `supabaseRPC` helper from [src/serverUtil.ts](mdc:src/serverUtil.ts):
+
+```typescript
+// Simple RPC call
+const exercises = await supabaseRPC('get_exercises_by_type_for_user', {
+  p_user_id: userId,
+  p_exercise_type: exerciseType
+});
+
+// RPC call with error handling
+try {
+  const result = await supabaseRPC('create_wendler_exercise_block', {
+    p_user_id: userId,
+    p_exercise_type: exerciseType,
+    p_cycle_type: cycleType,
+    p_block_name: blockName
+  });
+} catch (error) {
+  // Handle Supabase errors
+  throw new Error(`Failed to create block: ${error.message}`);
+}
+```
+
+## Authentication & Authorization
+Always validate user authentication in server actions:
+
+```typescript
+export async function protectedAction(data: FormData) {
+  const { userId } = await requireLoggedInUser('/current/path');
+  
+  // Action logic with authenticated user
+  const result = await supabaseRPC('function_name', {
+    p_user_id: userId
+  });
+  
+  return result;
+}
+```
+
+## User Preferences Pattern
+For actions requiring user preferences:
+
+```typescript
+export async function actionRequiringPreferences(data: FormData) {
+  const { userId } = await requireLoggedInUser('/current/path');
+  
+  const preferences = await requirePreferences(
+    userId,
+    ['preferred_weight_unit', 'available_plates_lbs'],
+    '/current/path'
+  );
+  
+  // Use preferences.preferred_weight_unit, etc.
+}
+```
+
+## Form Data Handling
+Extract and validate form data:
+
+```typescript
+export async function handleFormSubmission(formData: FormData) {
+  const weight = formData.get('weight')?.toString();
+  const reps = parseInt(formData.get('reps')?.toString() || '0');
+  
+  // Validate inputs
+  if (!weight || reps <= 0) {
+    throw new Error('Invalid form data');
+  }
+  
+  // Process with validated data
+}
+```
+
+## Path Revalidation
+Always revalidate affected paths after mutations:
+
+```typescript
+// Revalidate specific paths
+revalidatePath('/exercise/barbell_deadlift');
+revalidatePath('/exercise-block');
+
+// Revalidate with layout option
+revalidatePath('/exercise', 'layout');
+```
+
+## Error Handling
+Use [supabaseErrorUtil.ts](mdc:src/supabaseErrorUtil.ts) for consistent error handling:
+
+```typescript
+import { handleSupabaseError } from '@/supabaseErrorUtil';
+
+try {
+  const result = await supabaseRPC('function_name', params);
+  return result;
+} catch (error) {
+  throw handleSupabaseError(error, 'Custom error context');
+}
+```
+
+## Form Drafts
+Save and clear form state using database form drafts:
+
+```typescript
+// Save draft
+await supabaseRPC('save_form_draft', {
+  p_user_id: userId,
+  p_form_type: 'component/path/FormName',
+  p_form_data: JSON.stringify(formState)
+});
+
+// Clear draft on success
+await supabaseRPC('clear_form_draft', {
+  p_user_id: userId,
+  p_form_type: 'component/path/FormName'
+});
+```
+
+## Common Action Examples
+- [AddExercise actions](mdc:src/app/exercise/[exercise_type]/_components/AddExercise/actions.ts)
+- [UpdateUserPreferences actions](mdc:src/app/preferences/_components/UpdateUserPreferences/actions.ts)
+- [ExerciseBlock actions](mdc:src/app/exercise-block/_components/ExerciseBlockClient/actions.ts)
