@@ -34,7 +34,7 @@ const useSelectCompletionStatusAPI = (props: SelectCompletionStatusProps) => {
 
   React.useEffect(() => {
     onCompletionStatusChange(localCompletionStatus);
-  }, [localCompletionStatus, onCompletionStatusChange])
+  }, [localCompletionStatus, onCompletionStatusChange]);
 
   return {
     completionStatus: localCompletionStatus,
