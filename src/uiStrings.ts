@@ -243,6 +243,28 @@ export const equipmentTypeUIString = (
   }
 };
 
+export const perceivedEffortUIString = (
+  type: Database["public"]["Enums"]["perceived_effort_enum"],
+): string => {
+  switch (type) {
+    case "easy":
+      return "Easy";
+    case "okay":
+      return "Okay";
+    case "hard":
+      return "Hard";
+
+    // Stryker disable all
+    /* v8 ignore next 5 */
+    default: {
+      // This will cause a type error if a new enum value is added and not handled
+      const _exhaustiveCheck: never = type;
+      return _exhaustiveCheck;
+    }
+    // Stryker restore all
+  }
+};
+
 export const userPreferenceUIString = (
   preference: keyof UserPreferences,
 ): string => {
