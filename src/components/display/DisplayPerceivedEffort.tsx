@@ -1,17 +1,16 @@
-import { type PercievedEffort } from "@/common-types";
+import { type PerceivedEffort } from "@/common-types";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
 
-//TODO: Fix typo in Perceived
-interface DisplayPercievedEffortProps {
-  percievedEffort: PercievedEffort;
+interface DisplayPerceivedEffortProps {
+  perceivedEffort: PerceivedEffort;
 }
 
-export const DisplayPercievedEffort: React.FC<DisplayPercievedEffortProps> = (
+export const DisplayPerceivedEffort: React.FC<DisplayPerceivedEffortProps> = (
   props,
 ) => {
-  switch (props.percievedEffort) {
+  switch (props.perceivedEffort) {
     case "easy":
       return <SentimentVerySatisfiedIcon titleAccess="Easy" color="success" />;
     case "okay":
@@ -21,4 +20,4 @@ export const DisplayPercievedEffort: React.FC<DisplayPercievedEffortProps> = (
   }
 };
 
-export default DisplayPercievedEffort;
+export default DisplayPerceivedEffort;

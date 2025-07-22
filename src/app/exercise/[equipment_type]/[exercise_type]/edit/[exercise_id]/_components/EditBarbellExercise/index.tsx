@@ -6,13 +6,13 @@ import {
 import {
   CompletionStatus,
   ExerciseForUser,
-  PercievedEffort,
+  PerceivedEffort,
   RoundingMode,
 } from "@/common-types";
 import EditBarbell from "@/components/edit/EditBarbell";
 import EditNotes from "@/components/edit/EditNotes";
 import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
-import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
+import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
 import SelectWarmup from "@/components/select/SelectWarmup";
 import { Button, Stack } from "@mui/material";
@@ -37,7 +37,7 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
   const [completionStatus, setCompletionStatus] = React.useState(
     props.exercise.completion_status!,
   );
-  const [percievedEffort, setPercievedEffort] = React.useState(
+  const [perceivedEffort, setPerceivedEffort] = React.useState(
     props.exercise.perceived_effort,
   );
   const [isWarmup, setIsWarmup] = React.useState(
@@ -63,9 +63,9 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
     [],
   );
 
-  const onLocalPercievedEffortChange = React.useCallback(
-    (effort: PercievedEffort | null) => {
-      setPercievedEffort(effort);
+  const onLocalPerceivedEffortChange = React.useCallback(
+    (effort: PerceivedEffort | null) => {
+      setPerceivedEffort(effort);
     },
     [],
   );
@@ -87,7 +87,7 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
       actual_weight_value: localTargetWeight,
       reps: localReps,
       completion_status: completionStatus,
-      perceived_effort: percievedEffort ?? null,
+      perceived_effort: perceivedEffort ?? null,
       warmup: isWarmup,
       notes: notes ?? null,
     }),
@@ -96,7 +96,7 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
       localTargetWeight,
       localReps,
       completionStatus,
-      percievedEffort,
+      perceivedEffort,
       isWarmup,
       notes,
     ],
@@ -109,8 +109,8 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
     onRepsChange: onLocalRepsChange,
     completionStatus,
     setCompletionStatus: onLocalCompletionStatusChange,
-    percievedEffort,
-    onPercievedEffortChange: onLocalPercievedEffortChange,
+    perceivedEffort,
+    onPerceivedEffortChange: onLocalPerceivedEffortChange,
     isWarmup,
     onWarmupChange: onLocalWarmupChange,
     notes,
@@ -152,11 +152,11 @@ const EditBarbellExercise: React.FC<EditBarbellExerciseProps> = (props) => {
             api.setCompletionStatus(status)
           }
         />
-        <SelectPercievedEffort
+        <SelectPerceivedEffort
           // TODO: I should probably clean this up so it's just using
           // undefined everywhere.
-          percievedEffort={api.percievedEffort}
-          onPercievedEffortChange={api.onPercievedEffortChange}
+          perceivedEffort={api.perceivedEffort}
+          onPerceivedEffortChange={api.onPerceivedEffortChange}
         />
         <SelectWarmup
           isWarmup={api.isWarmup}

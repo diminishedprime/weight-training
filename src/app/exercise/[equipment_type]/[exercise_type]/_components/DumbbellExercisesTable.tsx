@@ -3,7 +3,7 @@ import { ExercisesByTypeResultRows, ExerciseType } from "@/common-types";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import DisplayDumbbell from "@/components/display/DisplayDumbbell";
 import DisplayNotes from "@/components/display/DisplayNotes";
-import DisplayPercievedEffort from "@/components/display/DisplayPercievedEffort";
+import DisplayPerceivedEffort from "@/components/display/DisplayPerceivedEffort";
 import DisplayTime from "@/components/display/DisplayTime";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import Pagination from "@/components/Pagination";
@@ -169,8 +169,8 @@ const DumbbellExercisesTable: React.FC<DumbbellExercisesTableProps> = (
                     </Stack>
                     <Stack>
                       {exercise.perceived_effort && (
-                        <DisplayPercievedEffort
-                          percievedEffort={exercise.perceived_effort}
+                        <DisplayPerceivedEffort
+                          perceivedEffort={exercise.perceived_effort}
                         />
                       )}
                     </Stack>

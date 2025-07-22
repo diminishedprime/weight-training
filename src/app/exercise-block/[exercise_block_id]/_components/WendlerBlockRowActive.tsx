@@ -8,12 +8,12 @@ import WendlerBlockRow from "@/app/exercise-block/[exercise_block_id]/_component
 import {
   RoundingMode,
   type CompletionStatus,
-  type PercievedEffort,
+  type PerceivedEffort,
   type WendlerBlock,
 } from "@/common-types";
 import EditBarbell from "@/components/edit/EditBarbell";
 import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
-import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
+import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
 import { Stack, TextField } from "@mui/material";
 import * as React from "react";
@@ -35,8 +35,8 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
   const [completionStatus, setCompletionStatus] =
     React.useState<CompletionStatus>(row.completion_status!);
   const [notes, setNotes] = React.useState<string>(row.notes || "");
-  const [percievedEffort, setPercievedEffort] =
-    React.useState<PercievedEffort | null>(row.perceived_effort ?? null);
+  const [perceivedEffort, setPerceivedEffort] =
+    React.useState<PerceivedEffort | null>(row.perceived_effort ?? null);
   const [targetWeight, setTargetWeight] = React.useState<number>(
     row.target_weight_value!,
   );
@@ -61,9 +61,9 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
     setNotes(newNotes);
   }, []);
 
-  const onPercievedEffortChange = React.useCallback(
-    (percievedEffort: PercievedEffort | null) => {
-      setPercievedEffort(percievedEffort);
+  const onPerceivedEffortChange = React.useCallback(
+    (perceivedEffort: PerceivedEffort | null) => {
+      setPerceivedEffort(perceivedEffort);
     },
     [],
   );
@@ -78,10 +78,10 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
       reps,
       completion_status: completionStatus,
       notes,
-      perceived_effort: percievedEffort,
+      perceived_effort: perceivedEffort,
       actual_weight_value: targetWeight,
     };
-  }, [row, reps, completionStatus, notes, percievedEffort, targetWeight]);
+  }, [row, reps, completionStatus, notes, perceivedEffort, targetWeight]);
 
   const path = React.useMemo(() => {
     return `/exercise-block/${block_id}/exercise/${exercise_id}`;
@@ -91,12 +91,12 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
     reps,
     completionStatus,
     notes,
-    perceivedEffort: percievedEffort,
+    perceivedEffort: perceivedEffort,
     targetWeight,
     onRepsChange,
     onCompletionStatusChange,
     onNotesChange,
-    onEffortChange: onPercievedEffortChange,
+    onEffortChange: onPerceivedEffortChange,
     onTargetWeightChange,
     modifiedRow,
     editable,
@@ -147,9 +147,9 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
             />
           </Stack>
           <Stack alignItems="center" justifyContent="center">
-            <SelectPercievedEffort
-              percievedEffort={api.perceivedEffort}
-              onPercievedEffortChange={api.onEffortChange}
+            <SelectPerceivedEffort
+              perceivedEffort={api.perceivedEffort}
+              onPerceivedEffortChange={api.onEffortChange}
             />
           </Stack>
         </Stack>

@@ -1,4 +1,4 @@
-import { PercievedEffort } from "@/common-types";
+import { PerceivedEffort } from "@/common-types";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
@@ -11,44 +11,44 @@ import {
 } from "@mui/material";
 import React from "react";
 
-interface SelectPercievedEffortProps {
-  percievedEffort: PercievedEffort | null;
-  onPercievedEffortChange: (effort: PercievedEffort | null) => void;
+interface SelectPerceivedEffortProps {
+  perceivedEffort: PerceivedEffort | null;
+  onPerceivedEffortChange: (effort: PerceivedEffort | null) => void;
 }
 
-const useSelectPercievedEffortAPI = (props: SelectPercievedEffortProps) => {
-  const { percievedEffort, onPercievedEffortChange } = props;
+const useSelectPerceivedEffortAPI = (props: SelectPerceivedEffortProps) => {
+  const { perceivedEffort, onPerceivedEffortChange } = props;
 
-  const [localPercievedEffort, setLocalPercievedEffort] =
-    React.useState<PercievedEffort | null>(percievedEffort ?? null);
+  const [localPerceivedEffort, setLocalPerceivedEffort] =
+    React.useState<PerceivedEffort | null>(perceivedEffort ?? null);
 
-  const localOnPercievedEffortChange = React.useCallback(
-    (newValue: PercievedEffort | null) => {
-      setLocalPercievedEffort(newValue);
+  const localOnPerceivedEffortChange = React.useCallback(
+    (newValue: PerceivedEffort | null) => {
+      setLocalPerceivedEffort(newValue);
     },
     [],
   );
 
   React.useEffect(() => {
-    onPercievedEffortChange(localPercievedEffort);
-  }, [localPercievedEffort, onPercievedEffortChange]);
+    onPerceivedEffortChange(localPerceivedEffort);
+  }, [localPerceivedEffort, onPerceivedEffortChange]);
 
   return {
-    percievedEffort: localPercievedEffort,
-    onPercievedEffortChange: localOnPercievedEffortChange,
+    perceivedEffort: localPerceivedEffort,
+    onPerceivedEffortChange: localOnPerceivedEffortChange,
   };
 };
 
-const SelectPercievedEffort = (props: SelectPercievedEffortProps) => {
-  const api = useSelectPercievedEffortAPI(props);
+const SelectPerceivedEffort = (props: SelectPerceivedEffortProps) => {
+  const api = useSelectPerceivedEffortAPI(props);
   return (
     <FormControl>
       <FormLabel>Percieved Effort</FormLabel>
       <ToggleButtonGroup
         color="primary"
-        value={api.percievedEffort}
+        value={api.perceivedEffort}
         exclusive
-        onChange={(_e, val) => val && api.onPercievedEffortChange(val)}
+        onChange={(_e, val) => val && api.onPerceivedEffortChange(val)}
         size="small"
         aria-label="Effort"
       >
@@ -72,4 +72,4 @@ const SelectPercievedEffort = (props: SelectPercievedEffortProps) => {
   );
 };
 
-export default SelectPercievedEffort;
+export default SelectPerceivedEffort;

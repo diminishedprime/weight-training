@@ -8,14 +8,14 @@ import {
 import {
   CompletionStatus,
   ExerciseType,
-  PercievedEffort,
+  PerceivedEffort,
   RoundingMode,
   WeightUnit,
 } from "@/common-types";
 import EditDumbbell from "@/components/edit/EditDumbbell";
 import EditNotes from "@/components/edit/EditNotes";
 import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
-import SelectPercievedEffort from "@/components/select/SelectPercievedEffort";
+import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
 import SelectWarmup from "@/components/select/SelectWarmup";
 import { TestIds } from "@/test-ids";
@@ -30,7 +30,7 @@ export interface DumbbellFormDraft {
   reps: number;
   completionStatus: CompletionStatus;
   notes: string | undefined;
-  percievedEffort: PercievedEffort | undefined;
+  perceivedEffort: PerceivedEffort | undefined;
   isWarmup: boolean;
   isAmrap: boolean;
 }
@@ -47,7 +47,7 @@ const useAddDumbbellExerciseAPI = (props: AddDumbbellExerciseProps) => {
       completionStatus: "completed",
       reps: 10,
       notes: "",
-      percievedEffort: undefined,
+      perceivedEffort: undefined,
       isWarmup: false,
       isAmrap: false,
     };
@@ -72,9 +72,9 @@ const useAddDumbbellExerciseAPI = (props: AddDumbbellExerciseProps) => {
   const [notes, setNotes] = React.useState<string | undefined>(
     initialDraft?.notes ?? defaults.notes,
   );
-  const [percievedEffort, setPercievedEffort] = React.useState<
-    PercievedEffort | undefined
-  >(initialDraft?.percievedEffort ?? defaults.percievedEffort);
+  const [perceivedEffort, setPerceivedEffort] = React.useState<
+    PerceivedEffort | undefined
+  >(initialDraft?.perceivedEffort ?? defaults.perceivedEffort);
   const [isWarmup, setIsWarmup] = React.useState<boolean>(
     initialDraft?.isWarmup ?? defaults.isWarmup,
   );
@@ -89,7 +89,7 @@ const useAddDumbbellExerciseAPI = (props: AddDumbbellExerciseProps) => {
       setReps(initialDraft.reps);
       setCompletionStatus(initialDraft.completionStatus);
       setNotes(initialDraft.notes);
-      setPercievedEffort(initialDraft.percievedEffort);
+      setPerceivedEffort(initialDraft.perceivedEffort);
       setIsWarmup(initialDraft.isWarmup);
       setIsAmrap(initialDraft.isAmrap);
     }
@@ -103,7 +103,7 @@ const useAddDumbbellExerciseAPI = (props: AddDumbbellExerciseProps) => {
       reps,
       completionStatus,
       notes,
-      percievedEffort,
+      perceivedEffort,
       isWarmup,
       isAmrap,
     }),
@@ -114,7 +114,7 @@ const useAddDumbbellExerciseAPI = (props: AddDumbbellExerciseProps) => {
       reps,
       completionStatus,
       notes,
-      percievedEffort,
+      perceivedEffort,
       isWarmup,
       isAmrap,
     ],
@@ -140,7 +140,7 @@ const useAddDumbbellExerciseAPI = (props: AddDumbbellExerciseProps) => {
     setReps(defaults.reps);
     setCompletionStatus(defaults.completionStatus);
     setNotes(defaults.notes);
-    setPercievedEffort(defaults.percievedEffort);
+    setPerceivedEffort(defaults.perceivedEffort);
     setIsWarmup(defaults.isWarmup);
     setIsAmrap(defaults.isAmrap);
   }, [defaults]);
@@ -168,8 +168,8 @@ const useAddDumbbellExerciseAPI = (props: AddDumbbellExerciseProps) => {
     setCompletionStatus,
     notes,
     setNotes,
-    percievedEffort,
-    setPercievedEffort,
+    perceivedEffort,
+    setPerceivedEffort,
     isWarmup,
     setIsWarmup,
     isAmrap,
@@ -240,12 +240,12 @@ const AddDumbbellExercise: React.FC<AddDumbbellExerciseProps> = (props) => {
               api.setCompletionStatus(status)
             }
           />
-          <SelectPercievedEffort
+          <SelectPerceivedEffort
             // TODO: I should probably clean this up so it's just using
             // undefined everywhere.
-            percievedEffort={api.percievedEffort ?? null}
-            onPercievedEffortChange={(effort: PercievedEffort | null) =>
-              api.setPercievedEffort(effort ?? undefined)
+            perceivedEffort={api.perceivedEffort ?? null}
+            onPerceivedEffortChange={(effort: PerceivedEffort | null) =>
+              api.setPerceivedEffort(effort ?? undefined)
             }
           />
           <SelectWarmup
@@ -289,7 +289,7 @@ const AddDumbbellExercise: React.FC<AddDumbbellExerciseProps> = (props) => {
               api.completionStatus,
               api.isAmrap,
               api.notes,
-              api.percievedEffort,
+              api.perceivedEffort,
               api.isWarmup,
               api.weightUnit,
               props.path,

@@ -3,7 +3,7 @@
 import {
   CompletionStatus,
   ExerciseType,
-  PercievedEffort,
+  PerceivedEffort,
   WeightUnit,
 } from "@/common-types";
 import { Json } from "@/database.types";
@@ -64,7 +64,7 @@ export const addDumbbellExercise = async (
   completionStatus: CompletionStatus,
   isAmrap: boolean,
   notes: string | undefined,
-  percievedEffort: PercievedEffort | undefined,
+  perceivedEffort: PerceivedEffort | undefined,
   isWarmup: boolean,
   weightUnit: WeightUnit,
   path: string,
@@ -84,7 +84,7 @@ export const addDumbbellExercise = async (
     p_is_amrap: isAmrap,
     // Coerce empty string to undefined for better db storage.
     p_notes: notes ?? undefined,
-    p_perceived_effort: percievedEffort,
+    p_perceived_effort: perceivedEffort,
     p_warmup: isWarmup,
     p_weight_unit: weightUnit,
     p_performed_at: new Date().toISOString(),

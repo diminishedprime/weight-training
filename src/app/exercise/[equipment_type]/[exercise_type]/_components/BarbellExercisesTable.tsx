@@ -7,7 +7,7 @@ import {
 import DisplayBarbellThumbnail from "@/components/display/DisplayBarbellThumbnail";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import DisplayNotes from "@/components/display/DisplayNotes";
-import DisplayPercievedEffort from "@/components/display/DisplayPercievedEffort";
+import DisplayPerceivedEffort from "@/components/display/DisplayPerceivedEffort";
 import DisplayTime from "@/components/display/DisplayTime";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import Pagination from "@/components/Pagination";
@@ -171,8 +171,8 @@ const BarbellExercisesTable: React.FC<BarbellExercisesTableProps> = (props) => {
                     </Stack>
                     <Stack>
                       {exercise.perceived_effort && (
-                        <DisplayPercievedEffort
-                          percievedEffort={exercise.perceived_effort}
+                        <DisplayPerceivedEffort
+                          perceivedEffort={exercise.perceived_effort}
                         />
                       )}
                     </Stack>
