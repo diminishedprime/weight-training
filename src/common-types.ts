@@ -7,7 +7,7 @@ export type CompletionStatus =
 export type WeightUnit = Database["public"]["Enums"]["weight_unit_enum"];
 export type EquipmentType = Database["public"]["Enums"]["equipment_type_enum"];
 export type PercievedEffort =
-  Database["public"]["Enums"]["relative_effort_enum"];
+  Database["public"]["Enums"]["perceived_effort_enum"];
 export type WendlerCycleType =
   Database["public"]["Enums"]["wendler_cycle_type_enum"];
 

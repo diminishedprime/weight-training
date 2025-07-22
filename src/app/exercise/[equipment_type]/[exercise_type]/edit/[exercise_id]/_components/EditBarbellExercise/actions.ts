@@ -25,7 +25,7 @@ export const saveChanges = async (
     p_completion_status: editedExercise.completion_status!,
     // TODO: we should support is_amprap in the barbell exercise rpc return type.
     // p_is_amrap: editedExercise.is_amrap ?? false,
-    p_relative_effort: editedExercise.relative_effort ?? undefined,
+    p_perceived_effort: editedExercise.perceived_effort ?? undefined,
     p_warmup: editedExercise.warmup ?? undefined,
     p_notes: editedExercise.notes ?? undefined,
     p_weight_unit: editedExercise.weight_unit!,

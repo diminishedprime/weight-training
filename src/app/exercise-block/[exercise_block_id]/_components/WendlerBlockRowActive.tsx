@@ -36,7 +36,7 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
     React.useState<CompletionStatus>(row.completion_status!);
   const [notes, setNotes] = React.useState<string>(row.notes || "");
   const [percievedEffort, setPercievedEffort] =
-    React.useState<PercievedEffort | null>(row.relative_effort ?? null);
+    React.useState<PercievedEffort | null>(row.perceived_effort ?? null);
   const [targetWeight, setTargetWeight] = React.useState<number>(
     row.target_weight_value!,
   );
@@ -78,7 +78,7 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
       reps,
       completion_status: completionStatus,
       notes,
-      relative_effort: percievedEffort,
+      perceived_effort: percievedEffort,
       actual_weight_value: targetWeight,
     };
   }, [row, reps, completionStatus, notes, percievedEffort, targetWeight]);
@@ -91,7 +91,7 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
     reps,
     completionStatus,
     notes,
-    relativeEffort: percievedEffort,
+    perceivedEffort: percievedEffort,
     targetWeight,
     onRepsChange,
     onCompletionStatusChange,
@@ -148,7 +148,7 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
           </Stack>
           <Stack alignItems="center" justifyContent="center">
             <SelectPercievedEffort
-              percievedEffort={api.relativeEffort}
+              percievedEffort={api.perceivedEffort}
               onPercievedEffortChange={api.onEffortChange}
             />
           </Stack>

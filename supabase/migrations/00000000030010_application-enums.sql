@@ -97,8 +97,8 @@ END$$;
 
 DO $$
 BEGIN
-  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'relative_effort_enum') THEN
-    CREATE TYPE public.relative_effort_enum AS ENUM (
+  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'perceived_effort_enum') THEN
+    CREATE TYPE public.perceived_effort_enum AS ENUM (
       'easy',
       'okay',
       'hard'

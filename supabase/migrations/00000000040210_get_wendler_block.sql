@@ -16,7 +16,7 @@ BEGIN
       is_amrap boolean,
       completion_status completion_status_enum,
       notes text,
-      relative_effort relative_effort_enum
+      perceived_effort perceived_effort_enum
     );
   END IF;
 END$$;
@@ -37,7 +37,7 @@ CREATE OR REPLACE FUNCTION public.get_wendler_block (p_block_id UUID, p_user_id 
     e.is_amrap,
     e.completion_status,
     e.notes,
-    e.relative_effort
+    e.perceived_effort
   FROM public.exercise_block_exercises ebe
   JOIN public.exercises e ON ebe.exercise_id = e.id
   JOIN public.exercise_block b ON ebe.block_id = b.id

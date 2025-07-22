@@ -4,7 +4,7 @@ CREATE OR REPLACE FUNCTION public.finish_block_row (
   p_exercise_id uuid,
   p_reps integer DEFAULT NULL,
   p_actual_weight_value numeric DEFAULT NULL,
-  p_relative_effort relative_effort_enum DEFAULT NULL,
+  p_perceived_effort perceived_effort_enum DEFAULT NULL,
   p_notes text DEFAULT NULL
 ) RETURNS void AS $$
 DECLARE
@@ -13,7 +13,7 @@ BEGIN
   SET completion_status = 'completed',
       reps = COALESCE(p_reps, e.reps),
       actual_weight_value = COALESCE(p_actual_weight_value, e.actual_weight_value),
-      relative_effort = COALESCE(p_relative_effort, e.relative_effort),
+      perceived_effort = COALESCE(p_perceived_effort, e.perceived_effort),
       notes = COALESCE(p_notes, e.notes),
       performed_at = now()
   FROM exercise_block_exercises ebe

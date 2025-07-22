@@ -84,7 +84,7 @@ export const addBarbellExercise = async (
     p_is_amrap: isAmrap,
     // Coerce empty string to undefined for better db storage.
     p_notes: notes ?? undefined,
-    p_relative_effort: percievedEffort,
+    p_perceived_effort: percievedEffort,
     p_warmup: isWarmup,
     p_weight_unit: weightUnit,
     p_performed_at: new Date().toISOString(),

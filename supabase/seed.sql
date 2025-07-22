@@ -93,7 +93,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -114,7 +114,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -135,7 +135,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -156,7 +156,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -177,7 +177,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -198,7 +198,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -219,7 +219,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -240,7 +240,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -261,7 +261,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -282,7 +282,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -303,7 +303,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -324,7 +324,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -345,7 +345,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -366,7 +366,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -387,7 +387,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -408,7 +408,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -429,7 +429,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -450,7 +450,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -471,7 +471,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -492,7 +492,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
@@ -513,7 +513,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
@@ -534,7 +534,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
@@ -555,7 +555,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
@@ -576,7 +576,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -597,7 +597,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -618,7 +618,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -639,7 +639,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -660,7 +660,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -681,7 +681,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -702,7 +702,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -723,7 +723,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -744,7 +744,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -765,7 +765,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -786,7 +786,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -807,7 +807,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -828,7 +828,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -849,7 +849,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -870,7 +870,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -891,7 +891,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -912,7 +912,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -933,7 +933,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -954,7 +954,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -975,7 +975,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -996,7 +996,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -1017,7 +1017,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -1038,7 +1038,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -1059,7 +1059,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -1080,7 +1080,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -1101,7 +1101,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -1122,7 +1122,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -1143,7 +1143,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -1164,7 +1164,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -1185,7 +1185,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -1206,7 +1206,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -1227,7 +1227,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -1248,7 +1248,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -1269,7 +1269,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -1290,7 +1290,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -1311,7 +1311,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -1332,7 +1332,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -1353,7 +1353,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -1374,7 +1374,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -1395,7 +1395,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -1416,7 +1416,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -1437,7 +1437,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -1458,7 +1458,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -1479,7 +1479,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -1500,7 +1500,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -1521,7 +1521,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -1542,7 +1542,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -1563,7 +1563,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -1584,7 +1584,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -1605,7 +1605,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -1626,7 +1626,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -1647,7 +1647,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -1668,7 +1668,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -1689,7 +1689,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -1710,7 +1710,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -1731,7 +1731,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -1752,7 +1752,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -1773,7 +1773,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -1794,7 +1794,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -1815,7 +1815,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -1836,7 +1836,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -1857,7 +1857,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -1878,7 +1878,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -1899,7 +1899,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -1920,7 +1920,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -1941,7 +1941,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -1962,7 +1962,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -1983,7 +1983,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -2004,7 +2004,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -2025,7 +2025,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -2046,7 +2046,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -2067,7 +2067,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -2088,7 +2088,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -2109,7 +2109,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -2130,7 +2130,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -2151,7 +2151,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -2172,7 +2172,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -2193,7 +2193,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -2214,7 +2214,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -2235,7 +2235,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
@@ -2256,7 +2256,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -2277,7 +2277,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -2298,7 +2298,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -2319,7 +2319,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -2340,7 +2340,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -2361,7 +2361,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -2382,7 +2382,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -2403,7 +2403,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -2424,7 +2424,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -2445,7 +2445,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -2466,7 +2466,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -2487,7 +2487,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -2508,7 +2508,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -2529,7 +2529,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -2550,7 +2550,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -2571,7 +2571,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -2592,7 +2592,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -2613,7 +2613,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -2634,7 +2634,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -2655,7 +2655,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -2676,7 +2676,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -2697,7 +2697,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -2718,7 +2718,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -2739,7 +2739,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -2760,7 +2760,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -2781,7 +2781,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -2802,7 +2802,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -2823,7 +2823,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -2844,7 +2844,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -2865,7 +2865,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -2886,7 +2886,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -2907,7 +2907,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -2928,7 +2928,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -2949,7 +2949,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -2970,7 +2970,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -2991,7 +2991,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3012,7 +3012,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3033,7 +3033,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3054,7 +3054,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3075,7 +3075,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3096,7 +3096,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3117,7 +3117,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3138,7 +3138,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3159,7 +3159,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3180,7 +3180,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3201,7 +3201,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3222,7 +3222,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
@@ -3243,7 +3243,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
@@ -3264,7 +3264,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
@@ -3285,7 +3285,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
@@ -3306,7 +3306,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
@@ -3327,7 +3327,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -3348,7 +3348,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -3369,7 +3369,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -3390,7 +3390,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -3411,7 +3411,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -3432,7 +3432,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -3453,7 +3453,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -3474,7 +3474,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -3495,7 +3495,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3516,7 +3516,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3537,7 +3537,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3558,7 +3558,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3579,7 +3579,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3600,7 +3600,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3621,7 +3621,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3642,7 +3642,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3663,7 +3663,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3684,7 +3684,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3705,7 +3705,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3726,7 +3726,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3747,7 +3747,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3768,7 +3768,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3789,7 +3789,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3810,7 +3810,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3831,7 +3831,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -3852,7 +3852,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3873,7 +3873,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3894,7 +3894,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3915,7 +3915,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3936,7 +3936,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3957,7 +3957,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3978,7 +3978,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -3999,7 +3999,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4020,7 +4020,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4041,7 +4041,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4062,7 +4062,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4083,7 +4083,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4104,7 +4104,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4125,7 +4125,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -4146,7 +4146,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -4167,7 +4167,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -4188,7 +4188,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -4209,7 +4209,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -4230,7 +4230,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -4251,7 +4251,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -4272,7 +4272,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -4293,7 +4293,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -4314,7 +4314,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -4335,7 +4335,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -4356,7 +4356,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -4377,7 +4377,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -4398,7 +4398,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -4419,7 +4419,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -4440,7 +4440,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -4461,7 +4461,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -4482,7 +4482,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -4503,7 +4503,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -4524,7 +4524,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -4545,7 +4545,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
@@ -4566,7 +4566,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
@@ -4587,7 +4587,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -4608,7 +4608,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -4629,7 +4629,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -4650,7 +4650,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
@@ -4671,7 +4671,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4692,7 +4692,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4713,7 +4713,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4734,7 +4734,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4755,7 +4755,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4776,7 +4776,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4797,7 +4797,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4818,7 +4818,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -4839,7 +4839,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -4860,7 +4860,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -4881,7 +4881,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -4902,7 +4902,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -4923,7 +4923,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -4944,7 +4944,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -4965,7 +4965,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -4986,7 +4986,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -5007,7 +5007,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -5028,7 +5028,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -5049,7 +5049,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -5070,7 +5070,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -5091,7 +5091,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -5112,7 +5112,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -5133,7 +5133,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -5154,7 +5154,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -5175,7 +5175,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -5196,7 +5196,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -5217,7 +5217,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -5238,7 +5238,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -5259,7 +5259,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -5280,7 +5280,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -5301,7 +5301,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -5322,7 +5322,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -5343,7 +5343,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -5364,7 +5364,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -5385,7 +5385,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -5406,7 +5406,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -5427,7 +5427,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -5448,7 +5448,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -5469,7 +5469,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -5490,7 +5490,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -5511,7 +5511,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -5532,7 +5532,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -5553,7 +5553,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -5574,7 +5574,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -5595,7 +5595,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -5616,7 +5616,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -5637,7 +5637,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
@@ -5658,7 +5658,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
@@ -5679,7 +5679,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
@@ -5700,7 +5700,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
@@ -5721,7 +5721,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -5742,7 +5742,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -5763,7 +5763,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -5784,7 +5784,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -5805,7 +5805,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -5826,7 +5826,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -5847,7 +5847,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -5868,7 +5868,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -5889,7 +5889,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -5910,7 +5910,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -5931,7 +5931,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -5952,7 +5952,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -5973,7 +5973,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -5994,7 +5994,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -6015,7 +6015,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -6036,7 +6036,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6057,7 +6057,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6078,7 +6078,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6099,7 +6099,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6120,7 +6120,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6141,7 +6141,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6162,7 +6162,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6183,7 +6183,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -6204,7 +6204,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -6225,7 +6225,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -6246,7 +6246,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -6267,7 +6267,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -6288,7 +6288,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -6309,7 +6309,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -6330,7 +6330,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -6351,7 +6351,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -6372,7 +6372,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -6393,7 +6393,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -6414,7 +6414,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -6435,7 +6435,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -6456,7 +6456,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -6477,7 +6477,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -6498,7 +6498,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -6519,7 +6519,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6540,7 +6540,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6561,7 +6561,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6582,7 +6582,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6603,7 +6603,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6624,7 +6624,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6645,7 +6645,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -6666,7 +6666,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -6687,7 +6687,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -6708,7 +6708,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -6729,7 +6729,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -6750,7 +6750,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -6771,7 +6771,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -6792,7 +6792,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -6813,7 +6813,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -6834,7 +6834,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -6855,7 +6855,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -6876,7 +6876,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6897,7 +6897,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6918,7 +6918,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6939,7 +6939,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6960,7 +6960,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -6981,7 +6981,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7002,7 +7002,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7023,7 +7023,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7044,7 +7044,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7065,7 +7065,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7086,7 +7086,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7107,7 +7107,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7128,7 +7128,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7149,7 +7149,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7170,7 +7170,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7191,7 +7191,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7212,7 +7212,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7233,7 +7233,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7254,7 +7254,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7275,7 +7275,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7296,7 +7296,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7317,7 +7317,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7338,7 +7338,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7359,7 +7359,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7380,7 +7380,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7401,7 +7401,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7422,7 +7422,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7443,7 +7443,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7464,7 +7464,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7485,7 +7485,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -7506,7 +7506,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7527,7 +7527,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7548,7 +7548,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7569,7 +7569,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7590,7 +7590,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7611,7 +7611,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7632,7 +7632,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7653,7 +7653,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7674,7 +7674,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -7695,7 +7695,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -7716,7 +7716,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -7737,7 +7737,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -7758,7 +7758,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -7779,7 +7779,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -7800,7 +7800,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -7821,7 +7821,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -7842,7 +7842,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -7863,7 +7863,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -7884,7 +7884,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -7905,7 +7905,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -7926,7 +7926,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -7947,7 +7947,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -7968,7 +7968,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -7989,7 +7989,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -8010,7 +8010,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -8031,7 +8031,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8052,7 +8052,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8073,7 +8073,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8094,7 +8094,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8115,7 +8115,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8136,7 +8136,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8157,7 +8157,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8178,7 +8178,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8199,7 +8199,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8220,7 +8220,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8241,7 +8241,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8262,7 +8262,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8283,7 +8283,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8304,7 +8304,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8325,7 +8325,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -8346,7 +8346,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -8367,7 +8367,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -8388,7 +8388,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -8409,7 +8409,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -8430,7 +8430,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -8451,7 +8451,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8472,7 +8472,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8493,7 +8493,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8514,7 +8514,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8535,7 +8535,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8556,7 +8556,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8577,7 +8577,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8598,7 +8598,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8619,7 +8619,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8640,7 +8640,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8661,7 +8661,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8682,7 +8682,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8703,7 +8703,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8724,7 +8724,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -8745,7 +8745,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8766,7 +8766,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8787,7 +8787,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8808,7 +8808,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8829,7 +8829,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8850,7 +8850,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8871,7 +8871,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -8892,7 +8892,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -8913,7 +8913,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -8934,7 +8934,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -8955,7 +8955,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -8976,7 +8976,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -8997,7 +8997,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -9018,7 +9018,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -9039,7 +9039,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9060,7 +9060,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9081,7 +9081,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9102,7 +9102,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9123,7 +9123,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9144,7 +9144,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9165,7 +9165,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9186,7 +9186,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9207,7 +9207,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -9228,7 +9228,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -9249,7 +9249,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -9270,7 +9270,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -9291,7 +9291,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -9312,7 +9312,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -9333,7 +9333,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -9354,7 +9354,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -9375,7 +9375,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -9396,7 +9396,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -9417,7 +9417,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -9438,7 +9438,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -9459,7 +9459,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -9480,7 +9480,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -9501,7 +9501,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -9522,7 +9522,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -9543,7 +9543,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -9564,7 +9564,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -9585,7 +9585,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -9606,7 +9606,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -9627,7 +9627,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -9648,7 +9648,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -9669,7 +9669,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -9690,7 +9690,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -9711,7 +9711,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -9732,7 +9732,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -9753,7 +9753,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -9774,7 +9774,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -9795,7 +9795,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -9816,7 +9816,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9837,7 +9837,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9858,7 +9858,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9879,7 +9879,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9900,7 +9900,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9921,7 +9921,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -9942,7 +9942,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -9963,7 +9963,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -9984,7 +9984,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10005,7 +10005,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10026,7 +10026,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10047,7 +10047,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10068,7 +10068,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10089,7 +10089,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -10110,7 +10110,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -10131,7 +10131,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -10152,7 +10152,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -10173,7 +10173,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -10194,7 +10194,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -10215,7 +10215,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -10236,7 +10236,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -10257,7 +10257,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10278,7 +10278,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10299,7 +10299,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10320,7 +10320,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10341,7 +10341,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10362,7 +10362,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10383,7 +10383,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10404,7 +10404,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -10425,7 +10425,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -10446,7 +10446,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -10467,7 +10467,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -10488,7 +10488,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -10509,7 +10509,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -10530,7 +10530,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -10551,7 +10551,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -10572,7 +10572,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -10593,7 +10593,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -10614,7 +10614,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -10635,7 +10635,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -10656,7 +10656,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -10677,7 +10677,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -10698,7 +10698,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -10719,7 +10719,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10740,7 +10740,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10761,7 +10761,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10782,7 +10782,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10803,7 +10803,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10824,7 +10824,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10845,7 +10845,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10866,7 +10866,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -10887,7 +10887,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -10908,7 +10908,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -10929,7 +10929,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -10950,7 +10950,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -10971,7 +10971,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -10992,7 +10992,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -11013,7 +11013,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -11034,7 +11034,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11055,7 +11055,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11076,7 +11076,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11097,7 +11097,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11118,7 +11118,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11139,7 +11139,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11160,7 +11160,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11181,7 +11181,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11202,7 +11202,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11223,7 +11223,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11244,7 +11244,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11265,7 +11265,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11286,7 +11286,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11307,7 +11307,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11328,7 +11328,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11349,7 +11349,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11370,7 +11370,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11391,7 +11391,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11412,7 +11412,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11433,7 +11433,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -11454,7 +11454,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -11475,7 +11475,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -11496,7 +11496,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -11517,7 +11517,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -11538,7 +11538,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -11559,7 +11559,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -11580,7 +11580,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -11601,7 +11601,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -11622,7 +11622,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -11643,7 +11643,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -11664,7 +11664,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -11685,7 +11685,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -11706,7 +11706,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -11727,7 +11727,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -11748,7 +11748,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -11769,7 +11769,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -11790,7 +11790,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -11811,7 +11811,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -11832,7 +11832,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -11853,7 +11853,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -11874,7 +11874,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -11895,7 +11895,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -11916,7 +11916,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -11937,7 +11937,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -11958,7 +11958,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -11979,7 +11979,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
@@ -12000,7 +12000,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12021,7 +12021,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12042,7 +12042,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12063,7 +12063,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12084,7 +12084,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12105,7 +12105,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12126,7 +12126,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12147,7 +12147,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12168,7 +12168,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12189,7 +12189,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12210,7 +12210,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12231,7 +12231,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12252,7 +12252,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12273,7 +12273,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12294,7 +12294,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -12315,7 +12315,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -12336,7 +12336,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -12357,7 +12357,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -12378,7 +12378,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -12399,7 +12399,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -12420,7 +12420,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -12441,7 +12441,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
@@ -12462,7 +12462,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -12483,7 +12483,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -12504,7 +12504,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -12525,7 +12525,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -12546,7 +12546,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -12567,7 +12567,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -12588,7 +12588,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -12609,7 +12609,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Squat'
   );
 
@@ -12630,7 +12630,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12651,7 +12651,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12672,7 +12672,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12693,7 +12693,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12714,7 +12714,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12735,7 +12735,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12756,7 +12756,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12777,7 +12777,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12798,7 +12798,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
@@ -12819,7 +12819,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -12840,7 +12840,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -12861,7 +12861,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -12882,7 +12882,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -12903,7 +12903,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -12924,7 +12924,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -12945,7 +12945,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
@@ -12978,7 +12978,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -12999,7 +12999,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -13020,7 +13020,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -13041,7 +13041,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -13062,7 +13062,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -13083,7 +13083,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -13104,7 +13104,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -13125,7 +13125,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -13146,7 +13146,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -13167,7 +13167,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -13188,7 +13188,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -13209,7 +13209,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -13230,7 +13230,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -13251,7 +13251,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -13272,7 +13272,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -13293,7 +13293,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -13314,7 +13314,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -13335,7 +13335,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -13356,7 +13356,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -13377,7 +13377,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -13398,7 +13398,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -13419,7 +13419,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -13440,7 +13440,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13461,7 +13461,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13482,7 +13482,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13503,7 +13503,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13524,7 +13524,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13545,7 +13545,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13566,7 +13566,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13587,7 +13587,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13608,7 +13608,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13629,7 +13629,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13650,7 +13650,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -13671,7 +13671,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -13692,7 +13692,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -13713,7 +13713,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -13734,7 +13734,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -13755,7 +13755,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -13776,7 +13776,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -13797,7 +13797,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13818,7 +13818,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13839,7 +13839,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13860,7 +13860,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13881,7 +13881,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13902,7 +13902,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13923,7 +13923,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13944,7 +13944,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13965,7 +13965,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -13986,7 +13986,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -14007,7 +14007,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14028,7 +14028,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14049,7 +14049,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14070,7 +14070,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14091,7 +14091,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14112,7 +14112,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14133,7 +14133,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14154,7 +14154,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14175,7 +14175,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14196,7 +14196,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -14217,7 +14217,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -14238,7 +14238,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -14259,7 +14259,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -14280,7 +14280,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -14301,7 +14301,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -14322,7 +14322,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -14343,7 +14343,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -14364,7 +14364,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -14385,7 +14385,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -14406,7 +14406,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -14427,7 +14427,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -14448,7 +14448,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -14469,7 +14469,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -14490,7 +14490,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -14511,7 +14511,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -14532,7 +14532,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -14553,7 +14553,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -14574,7 +14574,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -14595,7 +14595,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14616,7 +14616,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14637,7 +14637,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14658,7 +14658,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14679,7 +14679,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14700,7 +14700,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14721,7 +14721,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14742,7 +14742,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -14763,7 +14763,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -14784,7 +14784,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -14805,7 +14805,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -14826,7 +14826,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -14847,7 +14847,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -14868,7 +14868,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -14889,7 +14889,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -14910,7 +14910,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -14931,7 +14931,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14952,7 +14952,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14973,7 +14973,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -14994,7 +14994,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15015,7 +15015,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15036,7 +15036,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -15057,7 +15057,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -15078,7 +15078,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -15099,7 +15099,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -15120,7 +15120,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -15141,7 +15141,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -15162,7 +15162,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -15183,7 +15183,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15204,7 +15204,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15225,7 +15225,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15246,7 +15246,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15267,7 +15267,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15288,7 +15288,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15309,7 +15309,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15330,7 +15330,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -15351,7 +15351,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -15372,7 +15372,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -15393,7 +15393,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -15414,7 +15414,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -15435,7 +15435,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -15456,7 +15456,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -15477,7 +15477,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -15498,7 +15498,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -15519,7 +15519,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -15540,7 +15540,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -15561,7 +15561,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -15582,7 +15582,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -15603,7 +15603,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -15624,7 +15624,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -15645,7 +15645,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -15666,7 +15666,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -15687,7 +15687,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15708,7 +15708,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15729,7 +15729,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15750,7 +15750,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15771,7 +15771,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15792,7 +15792,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15813,7 +15813,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -15834,7 +15834,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -15855,7 +15855,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -15876,7 +15876,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -15897,7 +15897,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -15918,7 +15918,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -15939,7 +15939,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -15960,7 +15960,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -15981,7 +15981,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -16002,7 +16002,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -16023,7 +16023,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -16044,7 +16044,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -16065,7 +16065,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -16086,7 +16086,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -16107,7 +16107,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -16128,7 +16128,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -16149,7 +16149,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -16170,7 +16170,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -16191,7 +16191,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -16212,7 +16212,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16233,7 +16233,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16254,7 +16254,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16275,7 +16275,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16296,7 +16296,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16317,7 +16317,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -16338,7 +16338,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -16359,7 +16359,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -16380,7 +16380,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -16401,7 +16401,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -16422,7 +16422,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -16443,7 +16443,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -16464,7 +16464,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16485,7 +16485,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16506,7 +16506,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16527,7 +16527,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16548,7 +16548,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16569,7 +16569,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16590,7 +16590,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16611,7 +16611,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16632,7 +16632,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16653,7 +16653,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16674,7 +16674,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16695,7 +16695,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16716,7 +16716,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16737,7 +16737,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16758,7 +16758,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16779,7 +16779,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16800,7 +16800,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16821,7 +16821,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16842,7 +16842,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -16863,7 +16863,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -16884,7 +16884,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -16905,7 +16905,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16926,7 +16926,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16947,7 +16947,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16968,7 +16968,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -16989,7 +16989,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17010,7 +17010,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17031,7 +17031,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17052,7 +17052,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17073,7 +17073,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17094,7 +17094,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17115,7 +17115,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17136,7 +17136,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17157,7 +17157,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17178,7 +17178,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17199,7 +17199,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17220,7 +17220,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17241,7 +17241,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17262,7 +17262,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17283,7 +17283,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -17304,7 +17304,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -17325,7 +17325,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -17346,7 +17346,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -17367,7 +17367,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -17388,7 +17388,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -17409,7 +17409,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -17430,7 +17430,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -17451,7 +17451,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17472,7 +17472,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17493,7 +17493,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17514,7 +17514,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17535,7 +17535,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17556,7 +17556,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17577,7 +17577,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17598,7 +17598,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17619,7 +17619,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -17640,7 +17640,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17661,7 +17661,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17682,7 +17682,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17703,7 +17703,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17724,7 +17724,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17745,7 +17745,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -17766,7 +17766,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -17787,7 +17787,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -17808,7 +17808,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -17829,7 +17829,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -17850,7 +17850,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -17871,7 +17871,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -17892,7 +17892,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -17913,7 +17913,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -17934,7 +17934,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -17955,7 +17955,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -17976,7 +17976,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -17997,7 +17997,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18018,7 +18018,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18039,7 +18039,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18060,7 +18060,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18081,7 +18081,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18102,7 +18102,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18123,7 +18123,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18144,7 +18144,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18165,7 +18165,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18186,7 +18186,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18207,7 +18207,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18228,7 +18228,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18249,7 +18249,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18270,7 +18270,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18291,7 +18291,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18312,7 +18312,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18333,7 +18333,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18354,7 +18354,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18375,7 +18375,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18396,7 +18396,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18417,7 +18417,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18438,7 +18438,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18459,7 +18459,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18480,7 +18480,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18501,7 +18501,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18522,7 +18522,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18543,7 +18543,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18564,7 +18564,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -18585,7 +18585,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -18606,7 +18606,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -18627,7 +18627,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -18648,7 +18648,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -18669,7 +18669,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -18690,7 +18690,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -18711,7 +18711,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -18732,7 +18732,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -18753,7 +18753,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -18774,7 +18774,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -18795,7 +18795,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -18816,7 +18816,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -18837,7 +18837,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -18858,7 +18858,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -18879,7 +18879,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -18900,7 +18900,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -18921,7 +18921,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -18942,7 +18942,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18963,7 +18963,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -18984,7 +18984,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19005,7 +19005,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19026,7 +19026,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19047,7 +19047,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19068,7 +19068,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19089,7 +19089,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19110,7 +19110,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19131,7 +19131,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19152,7 +19152,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19173,7 +19173,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19194,7 +19194,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19215,7 +19215,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19236,7 +19236,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19257,7 +19257,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19278,7 +19278,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -19299,7 +19299,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -19320,7 +19320,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -19341,7 +19341,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -19362,7 +19362,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -19383,7 +19383,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -19404,7 +19404,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -19425,7 +19425,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -19446,7 +19446,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -19467,7 +19467,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -19488,7 +19488,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -19509,7 +19509,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -19530,7 +19530,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -19551,7 +19551,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -19572,7 +19572,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -19593,7 +19593,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -19614,7 +19614,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -19635,7 +19635,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -19656,7 +19656,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19677,7 +19677,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19698,7 +19698,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19719,7 +19719,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19740,7 +19740,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19761,7 +19761,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19782,7 +19782,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -19803,7 +19803,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19824,7 +19824,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19845,7 +19845,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19866,7 +19866,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19887,7 +19887,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19908,7 +19908,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19929,7 +19929,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19950,7 +19950,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19971,7 +19971,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -19992,7 +19992,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -20013,7 +20013,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -20034,7 +20034,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -20055,7 +20055,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -20076,7 +20076,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -20097,7 +20097,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -20118,7 +20118,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -20139,7 +20139,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20160,7 +20160,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20181,7 +20181,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20202,7 +20202,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20223,7 +20223,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20244,7 +20244,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20265,7 +20265,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20286,7 +20286,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -20307,7 +20307,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -20328,7 +20328,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -20349,7 +20349,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -20370,7 +20370,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -20391,7 +20391,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -20412,7 +20412,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -20433,7 +20433,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -20454,7 +20454,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -20475,7 +20475,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -20496,7 +20496,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -20517,7 +20517,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -20538,7 +20538,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -20559,7 +20559,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -20580,7 +20580,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -20601,7 +20601,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -20622,7 +20622,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -20643,7 +20643,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -20664,7 +20664,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -20685,7 +20685,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -20706,7 +20706,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -20727,7 +20727,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20748,7 +20748,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20769,7 +20769,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20790,7 +20790,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20811,7 +20811,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20832,7 +20832,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20853,7 +20853,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20874,7 +20874,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20895,7 +20895,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -20916,7 +20916,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -20937,7 +20937,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -20958,7 +20958,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -20979,7 +20979,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -21000,7 +21000,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -21021,7 +21021,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -21042,7 +21042,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "snatch"'
   );
 
@@ -21063,7 +21063,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "snatch"'
   );
 
@@ -21084,7 +21084,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "snatch"'
   );
 
@@ -21105,7 +21105,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "snatch"'
   );
 
@@ -21126,7 +21126,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "snatch"'
   );
 
@@ -21147,7 +21147,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21168,7 +21168,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21189,7 +21189,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21210,7 +21210,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21231,7 +21231,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21252,7 +21252,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21273,7 +21273,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21294,7 +21294,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21315,7 +21315,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21336,7 +21336,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21357,7 +21357,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21378,7 +21378,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -21399,7 +21399,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -21420,7 +21420,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -21441,7 +21441,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -21462,7 +21462,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -21483,7 +21483,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -21504,7 +21504,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -21525,7 +21525,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -21546,7 +21546,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -21567,7 +21567,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -21588,7 +21588,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -21609,7 +21609,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -21630,7 +21630,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -21651,7 +21651,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -21672,7 +21672,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -21693,7 +21693,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -21714,7 +21714,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -21735,7 +21735,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -21756,7 +21756,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21777,7 +21777,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21798,7 +21798,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21819,7 +21819,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21840,7 +21840,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21861,7 +21861,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21882,7 +21882,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -21903,7 +21903,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-row"'
   );
 
@@ -21924,7 +21924,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-row"'
   );
 
@@ -21945,7 +21945,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-row"'
   );
 
@@ -21966,7 +21966,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-row"'
   );
 
@@ -21987,7 +21987,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-row"'
   );
 
@@ -22008,7 +22008,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22029,7 +22029,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22050,7 +22050,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22071,7 +22071,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22092,7 +22092,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22113,7 +22113,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22134,7 +22134,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22155,7 +22155,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22176,7 +22176,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22197,7 +22197,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -22218,7 +22218,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -22239,7 +22239,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -22260,7 +22260,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -22281,7 +22281,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -22302,7 +22302,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -22323,7 +22323,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -22344,7 +22344,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -22365,7 +22365,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -22386,7 +22386,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -22407,7 +22407,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -22428,7 +22428,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -22449,7 +22449,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -22470,7 +22470,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -22491,7 +22491,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -22512,7 +22512,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -22533,7 +22533,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -22554,7 +22554,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -22575,7 +22575,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -22596,7 +22596,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -22617,7 +22617,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -22638,7 +22638,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -22659,7 +22659,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22680,7 +22680,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22701,7 +22701,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22722,7 +22722,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22743,7 +22743,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22764,7 +22764,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22785,7 +22785,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22806,7 +22806,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22827,7 +22827,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -22848,7 +22848,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -22869,7 +22869,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -22890,7 +22890,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -22911,7 +22911,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -22932,7 +22932,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -22953,7 +22953,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "romanian-deadlift"'
   );
 
@@ -22974,7 +22974,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "barbbell-row"'
   );
 
@@ -22995,7 +22995,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "incline-bench-press"'
   );
 
@@ -23016,7 +23016,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-preacher-curl"'
   );
 
@@ -23037,7 +23037,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-skull-crusher"'
   );
 
@@ -23058,7 +23058,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23079,7 +23079,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23100,7 +23100,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23121,7 +23121,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23142,7 +23142,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23163,7 +23163,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23184,7 +23184,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23205,7 +23205,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23226,7 +23226,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23247,7 +23247,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -23268,7 +23268,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -23289,7 +23289,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -23310,7 +23310,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -23331,7 +23331,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -23352,7 +23352,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -23373,7 +23373,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -23394,7 +23394,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -23415,7 +23415,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -23436,7 +23436,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -23457,7 +23457,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -23478,7 +23478,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -23499,7 +23499,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -23520,7 +23520,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
@@ -23541,7 +23541,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23562,7 +23562,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23583,7 +23583,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23604,7 +23604,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23625,7 +23625,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23646,7 +23646,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23667,7 +23667,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -23688,7 +23688,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23709,7 +23709,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23730,7 +23730,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23751,7 +23751,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23772,7 +23772,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23793,7 +23793,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23814,7 +23814,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23835,7 +23835,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23856,7 +23856,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23877,7 +23877,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23898,7 +23898,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23919,7 +23919,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23940,7 +23940,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23961,7 +23961,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -23982,7 +23982,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24003,7 +24003,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24024,7 +24024,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24045,7 +24045,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24066,7 +24066,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24087,7 +24087,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24108,7 +24108,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24129,7 +24129,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24150,7 +24150,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24171,7 +24171,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24192,7 +24192,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24213,7 +24213,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24234,7 +24234,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24255,7 +24255,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24276,7 +24276,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24297,7 +24297,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24318,7 +24318,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24339,7 +24339,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24360,7 +24360,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24381,7 +24381,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24402,7 +24402,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24423,7 +24423,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -24444,7 +24444,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -24465,7 +24465,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -24486,7 +24486,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -24507,7 +24507,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -24528,7 +24528,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -24549,7 +24549,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -24570,7 +24570,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -24591,7 +24591,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -24612,7 +24612,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -24633,7 +24633,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24654,7 +24654,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24675,7 +24675,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24696,7 +24696,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24717,7 +24717,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24738,7 +24738,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24759,7 +24759,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24780,7 +24780,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24801,7 +24801,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24822,7 +24822,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24843,7 +24843,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24864,7 +24864,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24885,7 +24885,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24906,7 +24906,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24927,7 +24927,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24948,7 +24948,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24969,7 +24969,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -24990,7 +24990,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -25011,7 +25011,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25032,7 +25032,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25053,7 +25053,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25074,7 +25074,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25095,7 +25095,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25116,7 +25116,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25137,7 +25137,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25158,7 +25158,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25179,7 +25179,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25200,7 +25200,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25221,7 +25221,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25242,7 +25242,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25263,7 +25263,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25284,7 +25284,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25305,7 +25305,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -25326,7 +25326,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -25347,7 +25347,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -25368,7 +25368,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -25389,7 +25389,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -25410,7 +25410,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -25431,7 +25431,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -25452,7 +25452,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -25473,7 +25473,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -25494,7 +25494,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -25515,7 +25515,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -25536,7 +25536,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25557,7 +25557,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25578,7 +25578,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25599,7 +25599,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25620,7 +25620,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25641,7 +25641,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25662,7 +25662,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25683,7 +25683,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25704,7 +25704,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25725,7 +25725,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25746,7 +25746,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25767,7 +25767,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25788,7 +25788,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25809,7 +25809,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25830,7 +25830,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25851,7 +25851,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25872,7 +25872,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25893,7 +25893,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25914,7 +25914,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -25935,7 +25935,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -25956,7 +25956,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -25977,7 +25977,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -25998,7 +25998,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -26019,7 +26019,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -26040,7 +26040,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -26061,7 +26061,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -26082,7 +26082,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -26103,7 +26103,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -26124,7 +26124,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -26145,7 +26145,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -26166,7 +26166,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26187,7 +26187,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26208,7 +26208,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26229,7 +26229,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26250,7 +26250,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26271,7 +26271,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26292,7 +26292,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26313,7 +26313,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26334,7 +26334,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26355,7 +26355,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26376,7 +26376,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26397,7 +26397,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26418,7 +26418,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26439,7 +26439,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26460,7 +26460,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26481,7 +26481,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26502,7 +26502,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26523,7 +26523,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -26544,7 +26544,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26565,7 +26565,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26586,7 +26586,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26607,7 +26607,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26628,7 +26628,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26649,7 +26649,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26670,7 +26670,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26691,7 +26691,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26712,7 +26712,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26733,7 +26733,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26754,7 +26754,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26775,7 +26775,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26796,7 +26796,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26817,7 +26817,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26838,7 +26838,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -26859,7 +26859,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -26880,7 +26880,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -26901,7 +26901,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -26922,7 +26922,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -26943,7 +26943,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -26964,7 +26964,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -26985,7 +26985,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27006,7 +27006,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27027,7 +27027,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27048,7 +27048,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27069,7 +27069,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27090,7 +27090,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27111,7 +27111,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27132,7 +27132,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27153,7 +27153,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27174,7 +27174,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27195,7 +27195,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27216,7 +27216,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27237,7 +27237,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27258,7 +27258,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27279,7 +27279,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27300,7 +27300,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27321,7 +27321,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27342,7 +27342,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27363,7 +27363,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27384,7 +27384,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27405,7 +27405,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27426,7 +27426,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27447,7 +27447,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27468,7 +27468,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27489,7 +27489,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27510,7 +27510,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27531,7 +27531,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27552,7 +27552,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -27573,7 +27573,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -27594,7 +27594,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -27615,7 +27615,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -27636,7 +27636,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -27657,7 +27657,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -27678,7 +27678,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -27699,7 +27699,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -27720,7 +27720,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -27741,7 +27741,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -27762,7 +27762,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -27783,7 +27783,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -27804,7 +27804,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -27825,7 +27825,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27846,7 +27846,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27867,7 +27867,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27888,7 +27888,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27909,7 +27909,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27930,7 +27930,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27951,7 +27951,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27972,7 +27972,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -27993,7 +27993,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -28014,7 +28014,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -28035,7 +28035,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -28056,7 +28056,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -28077,7 +28077,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -28098,7 +28098,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -28119,7 +28119,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -28140,7 +28140,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -28161,7 +28161,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -28182,7 +28182,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -28203,7 +28203,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -28224,7 +28224,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -28245,7 +28245,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -28266,7 +28266,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -28287,7 +28287,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28308,7 +28308,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28329,7 +28329,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28350,7 +28350,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28371,7 +28371,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28392,7 +28392,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28413,7 +28413,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28434,7 +28434,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28455,7 +28455,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28476,7 +28476,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28497,7 +28497,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28518,7 +28518,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28539,7 +28539,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28560,7 +28560,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28581,7 +28581,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28602,7 +28602,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28623,7 +28623,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28644,7 +28644,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -28665,7 +28665,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28686,7 +28686,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28707,7 +28707,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28728,7 +28728,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28749,7 +28749,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28770,7 +28770,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28791,7 +28791,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28812,7 +28812,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28833,7 +28833,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28854,7 +28854,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28875,7 +28875,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28896,7 +28896,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28917,7 +28917,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28938,7 +28938,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28959,7 +28959,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -28980,7 +28980,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -29001,7 +29001,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29022,7 +29022,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29043,7 +29043,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29064,7 +29064,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29085,7 +29085,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29106,7 +29106,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29127,7 +29127,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29148,7 +29148,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29169,7 +29169,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29190,7 +29190,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29211,7 +29211,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29232,7 +29232,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29253,7 +29253,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29274,7 +29274,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29295,7 +29295,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29316,7 +29316,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29337,7 +29337,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29358,7 +29358,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29379,7 +29379,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29400,7 +29400,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29421,7 +29421,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29442,7 +29442,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29463,7 +29463,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29484,7 +29484,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -29505,7 +29505,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -29526,7 +29526,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -29547,7 +29547,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -29568,7 +29568,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -29589,7 +29589,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -29610,7 +29610,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -29631,7 +29631,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -29652,7 +29652,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -29673,7 +29673,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -29694,7 +29694,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -29715,7 +29715,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29736,7 +29736,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29757,7 +29757,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29778,7 +29778,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29799,7 +29799,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29820,7 +29820,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29841,7 +29841,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29862,7 +29862,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29883,7 +29883,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29904,7 +29904,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29925,7 +29925,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -29946,7 +29946,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -29967,7 +29967,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -29988,7 +29988,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -30009,7 +30009,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -30030,7 +30030,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -30051,7 +30051,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -30072,7 +30072,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -30093,7 +30093,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -30114,7 +30114,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -30135,7 +30135,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -30156,7 +30156,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -30177,7 +30177,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -30198,7 +30198,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -30219,7 +30219,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -30240,7 +30240,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -30261,7 +30261,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -30282,7 +30282,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -30303,7 +30303,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -30324,7 +30324,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -30345,7 +30345,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -30366,7 +30366,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -30387,7 +30387,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -30408,7 +30408,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -30429,7 +30429,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
@@ -30450,7 +30450,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -30471,7 +30471,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -30492,7 +30492,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -30513,7 +30513,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -30534,7 +30534,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -30555,7 +30555,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -30576,7 +30576,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -30597,7 +30597,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -30618,7 +30618,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -30639,7 +30639,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -30660,7 +30660,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -30681,7 +30681,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -30702,7 +30702,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -30723,7 +30723,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -30744,7 +30744,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -30765,7 +30765,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -30786,7 +30786,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -30807,7 +30807,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -30828,7 +30828,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -30849,7 +30849,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -30870,7 +30870,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -30891,7 +30891,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -30912,7 +30912,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -30933,7 +30933,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -30954,7 +30954,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -30975,7 +30975,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -30996,7 +30996,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -31017,7 +31017,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -31038,7 +31038,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -31059,7 +31059,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -31080,7 +31080,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -31101,7 +31101,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -31122,7 +31122,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -31143,7 +31143,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -31164,7 +31164,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -31185,7 +31185,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -31206,7 +31206,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -31227,7 +31227,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -31248,7 +31248,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -31269,7 +31269,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -31290,7 +31290,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -31311,7 +31311,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -31332,7 +31332,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -31353,7 +31353,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -31374,7 +31374,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -31395,7 +31395,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -31416,7 +31416,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -31437,7 +31437,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -31458,7 +31458,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -31479,7 +31479,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -31500,7 +31500,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31521,7 +31521,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31542,7 +31542,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31563,7 +31563,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31584,7 +31584,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31605,7 +31605,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31626,7 +31626,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31647,7 +31647,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31668,7 +31668,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31689,7 +31689,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31710,7 +31710,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31731,7 +31731,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31752,7 +31752,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31773,7 +31773,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31794,7 +31794,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31815,7 +31815,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31836,7 +31836,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -31857,7 +31857,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -31878,7 +31878,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -31899,7 +31899,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -31920,7 +31920,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -31941,7 +31941,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -31962,7 +31962,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -31983,7 +31983,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -32004,7 +32004,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -32025,7 +32025,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -32046,7 +32046,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -32067,7 +32067,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -32088,7 +32088,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -32109,7 +32109,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -32130,7 +32130,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -32151,7 +32151,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -32172,7 +32172,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -32193,7 +32193,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -32214,7 +32214,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -32235,7 +32235,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -32256,7 +32256,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -32277,7 +32277,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -32298,7 +32298,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -32319,7 +32319,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -32340,7 +32340,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -32361,7 +32361,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -32382,7 +32382,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -32403,7 +32403,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -32424,7 +32424,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -32445,7 +32445,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -32466,7 +32466,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -32487,7 +32487,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -32508,7 +32508,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -32529,7 +32529,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -32550,7 +32550,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -32571,7 +32571,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -32592,7 +32592,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -32613,7 +32613,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32634,7 +32634,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32655,7 +32655,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32676,7 +32676,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32697,7 +32697,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32718,7 +32718,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32739,7 +32739,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32760,7 +32760,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32781,7 +32781,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32802,7 +32802,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32823,7 +32823,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32844,7 +32844,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32865,7 +32865,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32886,7 +32886,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32907,7 +32907,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32928,7 +32928,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32949,7 +32949,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32970,7 +32970,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -32991,7 +32991,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -33012,7 +33012,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -33033,7 +33033,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -33054,7 +33054,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -33075,7 +33075,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -33096,7 +33096,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -33117,7 +33117,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -33138,7 +33138,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -33159,7 +33159,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -33180,7 +33180,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -33201,7 +33201,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -33222,7 +33222,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -33243,7 +33243,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -33264,7 +33264,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -33285,7 +33285,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33306,7 +33306,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33327,7 +33327,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33348,7 +33348,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33369,7 +33369,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33390,7 +33390,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33411,7 +33411,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33432,7 +33432,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33453,7 +33453,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33474,7 +33474,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33495,7 +33495,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -33516,7 +33516,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -33537,7 +33537,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -33558,7 +33558,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -33579,7 +33579,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -33600,7 +33600,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -33621,7 +33621,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -33642,7 +33642,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -33663,7 +33663,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -33684,7 +33684,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -33705,7 +33705,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -33726,7 +33726,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -33747,7 +33747,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33768,7 +33768,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33789,7 +33789,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33810,7 +33810,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33831,7 +33831,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33852,7 +33852,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33873,7 +33873,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33894,7 +33894,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33915,7 +33915,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33936,7 +33936,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33957,7 +33957,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33978,7 +33978,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -33999,7 +33999,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -34020,7 +34020,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -34041,7 +34041,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -34062,7 +34062,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -34083,7 +34083,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -34104,7 +34104,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -34125,7 +34125,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -34146,7 +34146,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -34167,7 +34167,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -34188,7 +34188,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -34209,7 +34209,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -34230,7 +34230,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -34251,7 +34251,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -34272,7 +34272,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -34293,7 +34293,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -34314,7 +34314,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -34335,7 +34335,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -34356,7 +34356,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -34377,7 +34377,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -34398,7 +34398,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -34419,7 +34419,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -34440,7 +34440,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -34461,7 +34461,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -34482,7 +34482,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -34503,7 +34503,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -34524,7 +34524,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -34545,7 +34545,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -34566,7 +34566,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -34587,7 +34587,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -34608,7 +34608,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -34629,7 +34629,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -34650,7 +34650,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -34671,7 +34671,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -34692,7 +34692,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -34713,7 +34713,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -34734,7 +34734,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -34755,7 +34755,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -34776,7 +34776,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -34797,7 +34797,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -34818,7 +34818,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -34839,7 +34839,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -34860,7 +34860,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -34881,7 +34881,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -34902,7 +34902,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -34923,7 +34923,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -34944,7 +34944,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -34965,7 +34965,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -34986,7 +34986,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -35007,7 +35007,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -35028,7 +35028,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -35049,7 +35049,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -35070,7 +35070,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -35091,7 +35091,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -35112,7 +35112,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -35133,7 +35133,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -35154,7 +35154,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -35175,7 +35175,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -35196,7 +35196,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -35217,7 +35217,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -35238,7 +35238,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -35259,7 +35259,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -35280,7 +35280,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -35301,7 +35301,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -35322,7 +35322,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -35343,7 +35343,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -35364,7 +35364,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -35385,7 +35385,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -35406,7 +35406,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -35427,7 +35427,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -35448,7 +35448,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -35469,7 +35469,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -35490,7 +35490,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -35511,7 +35511,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -35532,7 +35532,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -35553,7 +35553,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -35574,7 +35574,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -35595,7 +35595,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -35616,7 +35616,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -35637,7 +35637,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -35658,7 +35658,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -35679,7 +35679,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -35700,7 +35700,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -35721,7 +35721,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -35742,7 +35742,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -35763,7 +35763,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -35784,7 +35784,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -35805,7 +35805,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -35826,7 +35826,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -35847,7 +35847,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -35868,7 +35868,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -35889,7 +35889,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -35910,7 +35910,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -35931,7 +35931,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -35952,7 +35952,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -35973,7 +35973,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -35994,7 +35994,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -36015,7 +36015,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -36036,7 +36036,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36057,7 +36057,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36078,7 +36078,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36099,7 +36099,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36120,7 +36120,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36141,7 +36141,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36162,7 +36162,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36183,7 +36183,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36204,7 +36204,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36225,7 +36225,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36246,7 +36246,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -36267,7 +36267,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -36288,7 +36288,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -36309,7 +36309,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -36330,7 +36330,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -36351,7 +36351,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -36372,7 +36372,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -36393,7 +36393,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -36414,7 +36414,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -36435,7 +36435,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -36456,7 +36456,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -36477,7 +36477,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -36498,7 +36498,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -36519,7 +36519,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -36540,7 +36540,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -36561,7 +36561,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -36582,7 +36582,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -36603,7 +36603,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -36624,7 +36624,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -36645,7 +36645,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -36666,7 +36666,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36687,7 +36687,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36708,7 +36708,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36729,7 +36729,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36750,7 +36750,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36771,7 +36771,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36792,7 +36792,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36813,7 +36813,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36834,7 +36834,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36855,7 +36855,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36876,7 +36876,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36897,7 +36897,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -36918,7 +36918,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise"'
   );
 
@@ -36939,7 +36939,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise"'
   );
 
@@ -36960,7 +36960,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise"'
   );
 
@@ -36981,7 +36981,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise"'
   );
 
@@ -37002,7 +37002,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise"'
   );
 
@@ -37023,7 +37023,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise"'
   );
 
@@ -37044,7 +37044,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise"'
   );
 
@@ -37065,7 +37065,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise"'
   );
 
@@ -37086,7 +37086,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise"'
   );
 
@@ -37107,7 +37107,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -37128,7 +37128,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -37149,7 +37149,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -37170,7 +37170,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -37191,7 +37191,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -37212,7 +37212,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -37233,7 +37233,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -37254,7 +37254,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -37275,7 +37275,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -37296,7 +37296,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -37317,7 +37317,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -37338,7 +37338,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -37359,7 +37359,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -37380,7 +37380,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -37401,7 +37401,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -37422,7 +37422,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -37443,7 +37443,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -37464,7 +37464,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -37485,7 +37485,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -37506,7 +37506,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -37527,7 +37527,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -37548,7 +37548,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -37569,7 +37569,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -37590,7 +37590,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -37611,7 +37611,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -37632,7 +37632,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -37653,7 +37653,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -37674,7 +37674,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -37695,7 +37695,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -37716,7 +37716,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -37737,7 +37737,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -37758,7 +37758,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -37779,7 +37779,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -37800,7 +37800,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -37821,7 +37821,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -37842,7 +37842,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -37863,7 +37863,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -37884,7 +37884,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -37905,7 +37905,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -37926,7 +37926,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -37947,7 +37947,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -37968,7 +37968,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -37989,7 +37989,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -38010,7 +38010,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -38031,7 +38031,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -38052,7 +38052,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -38073,7 +38073,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -38094,7 +38094,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -38115,7 +38115,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -38136,7 +38136,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -38157,7 +38157,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -38178,7 +38178,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -38199,7 +38199,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -38220,7 +38220,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -38241,7 +38241,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
@@ -38262,7 +38262,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
@@ -38283,7 +38283,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
@@ -38304,7 +38304,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
@@ -38325,7 +38325,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
@@ -38346,7 +38346,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
@@ -38367,7 +38367,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
@@ -38388,7 +38388,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
@@ -38409,7 +38409,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
@@ -38430,7 +38430,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -38451,7 +38451,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -38472,7 +38472,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -38493,7 +38493,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -38514,7 +38514,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -38535,7 +38535,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -38556,7 +38556,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -38577,7 +38577,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -38598,7 +38598,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -38619,7 +38619,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -38640,7 +38640,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -38661,7 +38661,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -38682,7 +38682,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -38703,7 +38703,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -38724,7 +38724,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -38745,7 +38745,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -38766,7 +38766,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -38787,7 +38787,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -38808,7 +38808,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -38829,7 +38829,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -38850,7 +38850,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -38871,7 +38871,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -38892,7 +38892,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -38913,7 +38913,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -38934,7 +38934,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -38955,7 +38955,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -38976,7 +38976,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -38997,7 +38997,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -39018,7 +39018,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -39039,7 +39039,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -39060,7 +39060,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -39081,7 +39081,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -39102,7 +39102,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -39123,7 +39123,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -39144,7 +39144,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -39165,7 +39165,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -39186,7 +39186,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -39207,7 +39207,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -39228,7 +39228,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -39249,7 +39249,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -39270,7 +39270,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -39291,7 +39291,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -39312,7 +39312,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -39333,7 +39333,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -39354,7 +39354,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -39375,7 +39375,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -39396,7 +39396,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -39417,7 +39417,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -39438,7 +39438,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -39459,7 +39459,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -39480,7 +39480,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -39501,7 +39501,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -39522,7 +39522,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -39543,7 +39543,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -39564,7 +39564,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -39585,7 +39585,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -39606,7 +39606,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -39627,7 +39627,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -39648,7 +39648,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -39669,7 +39669,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -39690,7 +39690,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -39711,7 +39711,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -39732,7 +39732,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -39753,7 +39753,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -39774,7 +39774,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -39795,7 +39795,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -39816,7 +39816,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -39837,7 +39837,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -39858,7 +39858,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -39879,7 +39879,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -39900,7 +39900,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -39921,7 +39921,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -39942,7 +39942,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -39963,7 +39963,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -39984,7 +39984,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -40005,7 +40005,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -40026,7 +40026,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -40047,7 +40047,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -40068,7 +40068,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -40089,7 +40089,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -40110,7 +40110,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -40131,7 +40131,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -40152,7 +40152,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -40173,7 +40173,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -40194,7 +40194,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -40215,7 +40215,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -40236,7 +40236,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -40257,7 +40257,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -40278,7 +40278,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -40299,7 +40299,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -40320,7 +40320,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -40341,7 +40341,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -40362,7 +40362,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -40383,7 +40383,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -40404,7 +40404,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -40425,7 +40425,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -40446,7 +40446,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -40467,7 +40467,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -40488,7 +40488,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -40509,7 +40509,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -40530,7 +40530,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -40551,7 +40551,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -40572,7 +40572,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -40593,7 +40593,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -40614,7 +40614,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -40635,7 +40635,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -40656,7 +40656,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -40677,7 +40677,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -40698,7 +40698,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -40719,7 +40719,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -40740,7 +40740,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -40761,7 +40761,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -40782,7 +40782,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -40803,7 +40803,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -40824,7 +40824,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -40845,7 +40845,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -40866,7 +40866,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -40887,7 +40887,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -40908,7 +40908,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -40929,7 +40929,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -40950,7 +40950,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -40971,7 +40971,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -40992,7 +40992,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -41013,7 +41013,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -41034,7 +41034,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -41055,7 +41055,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -41076,7 +41076,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -41097,7 +41097,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -41118,7 +41118,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -41139,7 +41139,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -41160,7 +41160,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -41181,7 +41181,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -41202,7 +41202,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -41223,7 +41223,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -41244,7 +41244,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -41265,7 +41265,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -41286,7 +41286,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -41307,7 +41307,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -41328,7 +41328,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -41349,7 +41349,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -41370,7 +41370,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -41391,7 +41391,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -41412,7 +41412,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -41433,7 +41433,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -41454,7 +41454,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -41475,7 +41475,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -41496,7 +41496,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -41517,7 +41517,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -41538,7 +41538,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -41559,7 +41559,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -41580,7 +41580,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -41601,7 +41601,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -41622,7 +41622,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -41643,7 +41643,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -41664,7 +41664,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -41685,7 +41685,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -41706,7 +41706,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -41727,7 +41727,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -41748,7 +41748,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -41769,7 +41769,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -41790,7 +41790,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -41811,7 +41811,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -41832,7 +41832,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -41853,7 +41853,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -41874,7 +41874,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -41895,7 +41895,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -41916,7 +41916,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -41937,7 +41937,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -41958,7 +41958,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -41979,7 +41979,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -42000,7 +42000,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -42021,7 +42021,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -42042,7 +42042,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -42063,7 +42063,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -42084,7 +42084,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -42105,7 +42105,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -42126,7 +42126,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -42147,7 +42147,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -42168,7 +42168,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -42189,7 +42189,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -42210,7 +42210,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -42231,7 +42231,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -42252,7 +42252,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -42273,7 +42273,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -42294,7 +42294,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -42315,7 +42315,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -42336,7 +42336,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -42357,7 +42357,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -42378,7 +42378,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -42399,7 +42399,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -42420,7 +42420,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -42441,7 +42441,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -42462,7 +42462,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -42483,7 +42483,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -42504,7 +42504,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -42525,7 +42525,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -42546,7 +42546,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -42567,7 +42567,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -42588,7 +42588,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -42609,7 +42609,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -42630,7 +42630,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -42651,7 +42651,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -42672,7 +42672,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -42693,7 +42693,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -42714,7 +42714,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -42735,7 +42735,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -42756,7 +42756,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -42777,7 +42777,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -42798,7 +42798,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -42819,7 +42819,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -42840,7 +42840,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -42861,7 +42861,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -42882,7 +42882,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -42903,7 +42903,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -42924,7 +42924,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -42945,7 +42945,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -42966,7 +42966,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -42987,7 +42987,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -43008,7 +43008,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -43029,7 +43029,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
@@ -43050,7 +43050,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43071,7 +43071,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43092,7 +43092,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43113,7 +43113,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43134,7 +43134,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43155,7 +43155,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43176,7 +43176,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43197,7 +43197,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43218,7 +43218,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43239,7 +43239,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43260,7 +43260,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -43281,7 +43281,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -43302,7 +43302,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -43323,7 +43323,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -43344,7 +43344,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -43365,7 +43365,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -43386,7 +43386,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -43407,7 +43407,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -43428,7 +43428,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -43449,7 +43449,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -43470,7 +43470,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -43491,7 +43491,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -43512,7 +43512,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43533,7 +43533,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43554,7 +43554,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43575,7 +43575,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43596,7 +43596,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43617,7 +43617,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43638,7 +43638,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43659,7 +43659,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43680,7 +43680,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43701,7 +43701,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43722,7 +43722,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43743,7 +43743,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -43764,7 +43764,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -43785,7 +43785,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -43806,7 +43806,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -43827,7 +43827,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -43848,7 +43848,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -43869,7 +43869,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -43890,7 +43890,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -43911,7 +43911,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -43932,7 +43932,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -43953,7 +43953,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -43974,7 +43974,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -43995,7 +43995,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -44016,7 +44016,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -44037,7 +44037,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -44058,7 +44058,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -44079,7 +44079,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -44100,7 +44100,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -44121,7 +44121,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -44142,7 +44142,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -44163,7 +44163,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -44184,7 +44184,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -44205,7 +44205,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -44226,7 +44226,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -44247,7 +44247,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -44268,7 +44268,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -44289,7 +44289,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -44310,7 +44310,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -44331,7 +44331,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -44352,7 +44352,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -44373,7 +44373,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -44394,7 +44394,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -44415,7 +44415,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -44436,7 +44436,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -44457,7 +44457,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -44478,7 +44478,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -44499,7 +44499,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -44520,7 +44520,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -44541,7 +44541,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -44562,7 +44562,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -44583,7 +44583,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -44604,7 +44604,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -44625,7 +44625,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -44646,7 +44646,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -44667,7 +44667,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -44688,7 +44688,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -44709,7 +44709,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -44730,7 +44730,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -44751,7 +44751,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -44772,7 +44772,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -44793,7 +44793,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -44814,7 +44814,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -44835,7 +44835,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -44856,7 +44856,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -44877,7 +44877,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -44898,7 +44898,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -44919,7 +44919,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -44940,7 +44940,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -44961,7 +44961,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -44982,7 +44982,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -45003,7 +45003,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -45024,7 +45024,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -45045,7 +45045,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -45066,7 +45066,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -45087,7 +45087,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -45108,7 +45108,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -45129,7 +45129,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -45150,7 +45150,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -45171,7 +45171,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -45192,7 +45192,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -45213,7 +45213,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -45234,7 +45234,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -45255,7 +45255,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -45276,7 +45276,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -45297,7 +45297,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -45318,7 +45318,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -45339,7 +45339,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -45360,7 +45360,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -45381,7 +45381,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -45402,7 +45402,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -45423,7 +45423,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -45444,7 +45444,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -45465,7 +45465,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -45486,7 +45486,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -45507,7 +45507,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -45528,7 +45528,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -45549,7 +45549,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -45570,7 +45570,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -45591,7 +45591,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -45612,7 +45612,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -45633,7 +45633,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -45654,7 +45654,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -45675,7 +45675,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -45696,7 +45696,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -45717,7 +45717,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -45738,7 +45738,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -45759,7 +45759,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -45780,7 +45780,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -45801,7 +45801,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -45822,7 +45822,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -45843,7 +45843,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -45864,7 +45864,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -45885,7 +45885,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -45906,7 +45906,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -45927,7 +45927,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -45948,7 +45948,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -45969,7 +45969,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -45990,7 +45990,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46011,7 +46011,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46032,7 +46032,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46053,7 +46053,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46074,7 +46074,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46095,7 +46095,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46116,7 +46116,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46137,7 +46137,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46158,7 +46158,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46179,7 +46179,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -46200,7 +46200,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -46221,7 +46221,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -46242,7 +46242,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -46263,7 +46263,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -46284,7 +46284,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -46305,7 +46305,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -46326,7 +46326,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -46347,7 +46347,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -46368,7 +46368,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -46389,7 +46389,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -46410,7 +46410,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -46431,7 +46431,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -46452,7 +46452,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -46473,7 +46473,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -46494,7 +46494,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -46515,7 +46515,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -46536,7 +46536,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -46557,7 +46557,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -46578,7 +46578,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -46599,7 +46599,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -46620,7 +46620,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46641,7 +46641,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46662,7 +46662,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46683,7 +46683,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46704,7 +46704,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46725,7 +46725,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46746,7 +46746,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46767,7 +46767,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46788,7 +46788,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46809,7 +46809,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -46830,7 +46830,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -46851,7 +46851,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -46872,7 +46872,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -46893,7 +46893,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -46914,7 +46914,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -46935,7 +46935,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -46956,7 +46956,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -46977,7 +46977,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -46998,7 +46998,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -47019,7 +47019,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -47040,7 +47040,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -47061,7 +47061,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -47082,7 +47082,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -47103,7 +47103,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -47124,7 +47124,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -47145,7 +47145,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -47166,7 +47166,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -47187,7 +47187,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -47208,7 +47208,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -47229,7 +47229,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -47250,7 +47250,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -47271,7 +47271,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -47292,7 +47292,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -47313,7 +47313,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -47334,7 +47334,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -47355,7 +47355,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -47376,7 +47376,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -47397,7 +47397,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -47418,7 +47418,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -47439,7 +47439,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -47460,7 +47460,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -47481,7 +47481,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -47502,7 +47502,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -47523,7 +47523,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -47544,7 +47544,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -47565,7 +47565,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -47586,7 +47586,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -47607,7 +47607,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -47628,7 +47628,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -47649,7 +47649,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -47670,7 +47670,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -47691,7 +47691,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -47712,7 +47712,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -47733,7 +47733,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -47754,7 +47754,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -47775,7 +47775,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -47796,7 +47796,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -47817,7 +47817,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -47838,7 +47838,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -47859,7 +47859,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -47880,7 +47880,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -47901,7 +47901,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -47922,7 +47922,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -47943,7 +47943,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -47964,7 +47964,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -47985,7 +47985,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -48006,7 +48006,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -48027,7 +48027,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -48048,7 +48048,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -48069,7 +48069,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -48090,7 +48090,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -48111,7 +48111,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -48132,7 +48132,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -48153,7 +48153,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -48174,7 +48174,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -48195,7 +48195,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -48216,7 +48216,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -48237,7 +48237,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -48258,7 +48258,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -48279,7 +48279,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -48300,7 +48300,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -48321,7 +48321,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -48342,7 +48342,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -48363,7 +48363,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -48384,7 +48384,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -48405,7 +48405,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -48426,7 +48426,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -48447,7 +48447,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -48468,7 +48468,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -48489,7 +48489,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -48510,7 +48510,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -48531,7 +48531,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -48552,7 +48552,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -48573,7 +48573,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -48594,7 +48594,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -48615,7 +48615,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -48636,7 +48636,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -48657,7 +48657,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -48678,7 +48678,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -48699,7 +48699,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -48720,7 +48720,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -48741,7 +48741,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -48762,7 +48762,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -48783,7 +48783,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -48804,7 +48804,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -48825,7 +48825,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -48846,7 +48846,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -48867,7 +48867,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -48888,7 +48888,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -48909,7 +48909,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -48930,7 +48930,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -48951,7 +48951,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -48972,7 +48972,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -48993,7 +48993,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -49014,7 +49014,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -49035,7 +49035,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -49056,7 +49056,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -49077,7 +49077,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -49098,7 +49098,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -49119,7 +49119,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -49140,7 +49140,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -49161,7 +49161,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -49182,7 +49182,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
@@ -49203,7 +49203,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -49224,7 +49224,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -49245,7 +49245,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -49266,7 +49266,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -49287,7 +49287,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -49308,7 +49308,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -49329,7 +49329,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -49350,7 +49350,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -49371,7 +49371,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -49392,7 +49392,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -49413,7 +49413,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -49434,7 +49434,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -49455,7 +49455,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -49476,7 +49476,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -49497,7 +49497,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -49518,7 +49518,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -49539,7 +49539,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -49560,7 +49560,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -49581,7 +49581,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -49602,7 +49602,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -49623,7 +49623,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -49644,7 +49644,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -49665,7 +49665,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -49686,7 +49686,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -49707,7 +49707,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -49728,7 +49728,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -49749,7 +49749,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -49770,7 +49770,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -49791,7 +49791,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -49812,7 +49812,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -49833,7 +49833,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -49854,7 +49854,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -49875,7 +49875,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -49896,7 +49896,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -49917,7 +49917,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -49938,7 +49938,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -49959,7 +49959,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -49980,7 +49980,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -50001,7 +50001,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -50022,7 +50022,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -50043,7 +50043,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -50064,7 +50064,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -50085,7 +50085,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -50106,7 +50106,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -50127,7 +50127,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -50148,7 +50148,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -50169,7 +50169,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -50190,7 +50190,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -50211,7 +50211,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -50232,7 +50232,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -50253,7 +50253,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -50274,7 +50274,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -50295,7 +50295,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -50316,7 +50316,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -50337,7 +50337,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -50358,7 +50358,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -50379,7 +50379,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -50400,7 +50400,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -50421,7 +50421,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -50442,7 +50442,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -50463,7 +50463,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -50484,7 +50484,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -50505,7 +50505,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -50526,7 +50526,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -50547,7 +50547,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -50568,7 +50568,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -50589,7 +50589,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -50610,7 +50610,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -50631,7 +50631,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -50652,7 +50652,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -50673,7 +50673,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -50694,7 +50694,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -50715,7 +50715,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -50736,7 +50736,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -50757,7 +50757,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -50778,7 +50778,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -50799,7 +50799,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -50820,7 +50820,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -50841,7 +50841,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -50862,7 +50862,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -50883,7 +50883,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -50904,7 +50904,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -50925,7 +50925,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -50946,7 +50946,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -50967,7 +50967,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -50988,7 +50988,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -51009,7 +51009,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -51030,7 +51030,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -51051,7 +51051,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -51072,7 +51072,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -51093,7 +51093,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -51114,7 +51114,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -51135,7 +51135,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -51156,7 +51156,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -51177,7 +51177,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -51198,7 +51198,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -51219,7 +51219,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -51240,7 +51240,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -51261,7 +51261,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -51282,7 +51282,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -51303,7 +51303,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -51324,7 +51324,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -51345,7 +51345,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -51366,7 +51366,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -51387,7 +51387,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -51408,7 +51408,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -51429,7 +51429,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -51450,7 +51450,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -51471,7 +51471,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -51492,7 +51492,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -51513,7 +51513,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -51534,7 +51534,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -51555,7 +51555,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -51576,7 +51576,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -51597,7 +51597,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -51618,7 +51618,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -51639,7 +51639,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -51660,7 +51660,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -51681,7 +51681,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -51702,7 +51702,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -51723,7 +51723,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -51744,7 +51744,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -51765,7 +51765,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -51786,7 +51786,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -51807,7 +51807,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -51828,7 +51828,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -51849,7 +51849,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -51870,7 +51870,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -51891,7 +51891,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -51912,7 +51912,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -51933,7 +51933,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -51954,7 +51954,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -51975,7 +51975,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -51996,7 +51996,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -52017,7 +52017,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -52038,7 +52038,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -52059,7 +52059,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -52080,7 +52080,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -52101,7 +52101,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -52122,7 +52122,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -52143,7 +52143,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -52164,7 +52164,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -52185,7 +52185,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52206,7 +52206,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52227,7 +52227,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52248,7 +52248,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52269,7 +52269,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52290,7 +52290,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52311,7 +52311,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52332,7 +52332,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52353,7 +52353,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52374,7 +52374,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52395,7 +52395,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -52416,7 +52416,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -52437,7 +52437,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -52458,7 +52458,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -52479,7 +52479,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -52500,7 +52500,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -52521,7 +52521,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -52542,7 +52542,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -52563,7 +52563,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -52584,7 +52584,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -52605,7 +52605,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -52626,7 +52626,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -52647,7 +52647,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -52668,7 +52668,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -52689,7 +52689,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -52710,7 +52710,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -52731,7 +52731,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -52752,7 +52752,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -52773,7 +52773,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -52794,7 +52794,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -52815,7 +52815,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -52836,7 +52836,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -52857,7 +52857,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -52878,7 +52878,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -52899,7 +52899,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52920,7 +52920,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52941,7 +52941,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52962,7 +52962,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -52983,7 +52983,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -53004,7 +53004,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -53025,7 +53025,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -53046,7 +53046,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -53067,7 +53067,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -53088,7 +53088,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -53109,7 +53109,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -53130,7 +53130,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -53151,7 +53151,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -53172,7 +53172,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -53193,7 +53193,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -53214,7 +53214,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -53235,7 +53235,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -53256,7 +53256,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -53277,7 +53277,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -53298,7 +53298,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -53319,7 +53319,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -53340,7 +53340,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -53361,7 +53361,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -53382,7 +53382,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -53403,7 +53403,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -53424,7 +53424,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -53445,7 +53445,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -53466,7 +53466,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -53487,7 +53487,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -53508,7 +53508,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -53529,7 +53529,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -53550,7 +53550,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -53571,7 +53571,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -53592,7 +53592,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -53613,7 +53613,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -53634,7 +53634,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -53655,7 +53655,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -53676,7 +53676,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -53697,7 +53697,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -53718,7 +53718,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -53739,7 +53739,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -53760,7 +53760,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -53781,7 +53781,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -53802,7 +53802,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -53823,7 +53823,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -53844,7 +53844,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -53865,7 +53865,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -53886,7 +53886,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -53907,7 +53907,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -53928,7 +53928,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -53949,7 +53949,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -53970,7 +53970,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -53991,7 +53991,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -54012,7 +54012,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -54033,7 +54033,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -54054,7 +54054,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -54075,7 +54075,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -54096,7 +54096,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -54117,7 +54117,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -54138,7 +54138,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -54159,7 +54159,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -54180,7 +54180,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -54201,7 +54201,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -54222,7 +54222,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -54243,7 +54243,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -54264,7 +54264,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -54285,7 +54285,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -54306,7 +54306,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -54327,7 +54327,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -54348,7 +54348,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -54369,7 +54369,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -54390,7 +54390,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -54411,7 +54411,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -54432,7 +54432,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -54453,7 +54453,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -54474,7 +54474,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
@@ -54495,7 +54495,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -54516,7 +54516,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -54537,7 +54537,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -54558,7 +54558,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -54579,7 +54579,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -54600,7 +54600,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -54621,7 +54621,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -54642,7 +54642,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -54663,7 +54663,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -54684,7 +54684,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -54705,7 +54705,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -54726,7 +54726,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -54747,7 +54747,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -54768,7 +54768,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -54789,7 +54789,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -54810,7 +54810,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -54831,7 +54831,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -54852,7 +54852,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -54873,7 +54873,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -54894,7 +54894,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -54915,7 +54915,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -54936,7 +54936,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -54957,7 +54957,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -54978,7 +54978,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -54999,7 +54999,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -55020,7 +55020,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -55041,7 +55041,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -55062,7 +55062,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -55083,7 +55083,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
@@ -55104,7 +55104,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -55125,7 +55125,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -55146,7 +55146,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -55167,7 +55167,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -55188,7 +55188,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -55209,7 +55209,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -55230,7 +55230,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -55251,7 +55251,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -55272,7 +55272,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -55293,7 +55293,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -55314,7 +55314,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -55335,7 +55335,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -55356,7 +55356,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -55377,7 +55377,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -55398,7 +55398,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -55419,7 +55419,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -55440,7 +55440,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -55461,7 +55461,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -55482,7 +55482,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -55503,7 +55503,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -55524,7 +55524,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
@@ -55545,7 +55545,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -55566,7 +55566,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -55587,7 +55587,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -55608,7 +55608,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -55629,7 +55629,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -55650,7 +55650,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -55671,7 +55671,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -55692,7 +55692,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -55713,7 +55713,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -55734,7 +55734,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -55755,7 +55755,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -55776,7 +55776,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -55797,7 +55797,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -55818,7 +55818,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -55839,7 +55839,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -55860,7 +55860,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -55881,7 +55881,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -55902,7 +55902,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -55923,7 +55923,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -55944,7 +55944,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -55965,7 +55965,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -55986,7 +55986,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -56007,7 +56007,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -56028,7 +56028,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -56049,7 +56049,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -56070,7 +56070,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -56091,7 +56091,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -56112,7 +56112,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -56133,7 +56133,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -56154,7 +56154,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -56175,7 +56175,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -56196,7 +56196,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -56217,7 +56217,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -56238,7 +56238,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -56259,7 +56259,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -56280,7 +56280,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -56301,7 +56301,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -56322,7 +56322,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -56343,7 +56343,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -56364,7 +56364,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -56385,7 +56385,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -56406,7 +56406,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -56427,7 +56427,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -56448,7 +56448,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -56469,7 +56469,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -56490,7 +56490,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -56511,7 +56511,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -56532,7 +56532,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -56553,7 +56553,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -56574,7 +56574,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -56595,7 +56595,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -56616,7 +56616,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -56637,7 +56637,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -56658,7 +56658,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -56679,7 +56679,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -56700,7 +56700,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -56721,7 +56721,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -56742,7 +56742,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -56763,7 +56763,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -56784,7 +56784,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -56805,7 +56805,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -56826,7 +56826,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -56847,7 +56847,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -56868,7 +56868,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -56889,7 +56889,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -56910,7 +56910,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -56931,7 +56931,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -56952,7 +56952,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -56973,7 +56973,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -56994,7 +56994,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -57015,7 +57015,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -57036,7 +57036,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -57057,7 +57057,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -57078,7 +57078,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -57099,7 +57099,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -57120,7 +57120,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -57141,7 +57141,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -57162,7 +57162,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -57183,7 +57183,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -57204,7 +57204,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -57225,7 +57225,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -57246,7 +57246,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -57267,7 +57267,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -57288,7 +57288,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -57309,7 +57309,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
@@ -57330,7 +57330,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -57351,7 +57351,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -57372,7 +57372,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -57393,7 +57393,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -57414,7 +57414,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -57435,7 +57435,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -57456,7 +57456,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -57477,7 +57477,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -57498,7 +57498,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -57519,7 +57519,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
@@ -57540,7 +57540,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -57561,7 +57561,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -57582,7 +57582,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -57603,7 +57603,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -57624,7 +57624,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -57645,7 +57645,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -57666,7 +57666,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -57687,7 +57687,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -57708,7 +57708,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -57729,7 +57729,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -57750,7 +57750,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -57771,7 +57771,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -57792,7 +57792,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -57813,7 +57813,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -57834,7 +57834,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -57855,7 +57855,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -57876,7 +57876,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -57897,7 +57897,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -57918,7 +57918,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -57939,7 +57939,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -57960,7 +57960,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "squat"'
   );
 
@@ -57981,7 +57981,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -58002,7 +58002,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -58023,7 +58023,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -58044,7 +58044,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -58065,7 +58065,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -58086,7 +58086,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -58107,7 +58107,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -58128,7 +58128,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -58149,7 +58149,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -58170,7 +58170,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -58191,7 +58191,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -58212,7 +58212,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -58233,7 +58233,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -58254,7 +58254,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -58275,7 +58275,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -58296,7 +58296,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -58317,7 +58317,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -58338,7 +58338,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
@@ -58359,7 +58359,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -58380,7 +58380,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
@@ -58401,7 +58401,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -58422,7 +58422,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -58443,7 +58443,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -58464,7 +58464,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -58485,7 +58485,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -58506,7 +58506,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -58527,7 +58527,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -58548,7 +58548,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -58569,7 +58569,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -58590,7 +58590,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
@@ -58611,7 +58611,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -58632,7 +58632,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -58653,7 +58653,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -58674,7 +58674,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -58695,7 +58695,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -58716,7 +58716,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -58737,7 +58737,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -58758,7 +58758,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -58779,7 +58779,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -58800,7 +58800,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -58821,7 +58821,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -58842,7 +58842,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
@@ -58863,7 +58863,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -58884,7 +58884,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -58905,7 +58905,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -58926,7 +58926,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -58947,7 +58947,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -58968,7 +58968,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -58989,7 +58989,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -59010,7 +59010,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -59031,7 +59031,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -59052,7 +59052,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -59073,7 +59073,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -59094,7 +59094,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
@@ -59115,7 +59115,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -59136,7 +59136,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -59157,7 +59157,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -59178,7 +59178,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -59199,7 +59199,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -59220,7 +59220,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -59241,7 +59241,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -59262,7 +59262,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -59283,7 +59283,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
@@ -59304,7 +59304,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -59325,7 +59325,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -59346,7 +59346,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -59367,7 +59367,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -59388,7 +59388,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -59409,7 +59409,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -59430,7 +59430,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -59451,7 +59451,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
@@ -59472,7 +59472,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -59493,7 +59493,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -59514,7 +59514,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -59535,7 +59535,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -59556,7 +59556,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -59577,7 +59577,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -59598,7 +59598,7 @@ SELECT
     p_warmup => true,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -59619,7 +59619,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -59640,7 +59640,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -59661,7 +59661,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -59682,7 +59682,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -59703,7 +59703,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
@@ -59724,7 +59724,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -59745,7 +59745,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -59766,7 +59766,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -59787,7 +59787,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -59808,7 +59808,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -59829,7 +59829,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -59850,7 +59850,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -59871,7 +59871,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -59892,7 +59892,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -59913,7 +59913,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
@@ -59934,7 +59934,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -59955,7 +59955,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -59976,7 +59976,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -59997,7 +59997,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -60018,7 +60018,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -60039,7 +60039,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -60060,7 +60060,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -60081,7 +60081,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
@@ -60102,7 +60102,7 @@ SELECT
     p_warmup => false,
     p_is_amrap => false,
     p_completion_status => 'completed'::completion_status_enum,
-    p_relative_effort => NULL::relative_effort_enum,
+    p_perceived_effort => NULL::perceived_effort_enum,
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 

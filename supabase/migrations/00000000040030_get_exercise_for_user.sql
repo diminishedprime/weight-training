@@ -14,7 +14,7 @@ BEGIN
       warmup boolean,
       completion_status completion_status_enum,
       notes text,
-      relative_effort relative_effort_enum
+      perceived_effort perceived_effort_enum
     );
   END IF;
 END$$;
@@ -36,7 +36,7 @@ BEGIN
         e.warmup,
         e.completion_status,
         e.notes,
-        e.relative_effort
+        e.perceived_effort
     INTO result
     FROM public.exercises e
     WHERE e.user_id = p_user_id

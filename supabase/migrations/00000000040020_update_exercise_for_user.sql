@@ -11,7 +11,7 @@ CREATE OR REPLACE FUNCTION public.update_exercise_for_user (
   p_is_amrap boolean DEFAULT false,
   p_completion_status completion_status_enum DEFAULT 'completed',
   p_notes text DEFAULT NULL,
-  p_relative_effort relative_effort_enum DEFAULT NULL
+  p_perceived_effort perceived_effort_enum DEFAULT NULL
 ) RETURNS void AS $$
 BEGIN
     UPDATE public.exercises
@@ -26,7 +26,7 @@ BEGIN
         is_amrap = p_is_amrap,
         completion_status = p_completion_status,
         notes = p_notes,
-        relative_effort = p_relative_effort
+        perceived_effort = p_perceived_effort
     WHERE id = p_exercise_id AND user_id = p_user_id;
 END;
 $$ LANGUAGE plpgsql;

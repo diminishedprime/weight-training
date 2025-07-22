@@ -154,10 +154,10 @@ export type Database = {
           insert_time: string;
           is_amrap: boolean;
           notes: string | null;
-          performed_at: string | null;
-          relative_effort:
-            | Database["public"]["Enums"]["relative_effort_enum"]
+          perceived_effort:
+            | Database["public"]["Enums"]["perceived_effort_enum"]
             | null;
+          performed_at: string | null;
           reps: number;
           target_weight_value: number;
           user_id: string;
@@ -174,10 +174,10 @@ export type Database = {
           insert_time?: string;
           is_amrap?: boolean;
           notes?: string | null;
-          performed_at?: string | null;
-          relative_effort?:
-            | Database["public"]["Enums"]["relative_effort_enum"]
+          perceived_effort?:
+            | Database["public"]["Enums"]["perceived_effort_enum"]
             | null;
+          performed_at?: string | null;
           reps: number;
           target_weight_value: number;
           user_id: string;
@@ -194,10 +194,10 @@ export type Database = {
           insert_time?: string;
           is_amrap?: boolean;
           notes?: string | null;
-          performed_at?: string | null;
-          relative_effort?:
-            | Database["public"]["Enums"]["relative_effort_enum"]
+          perceived_effort?:
+            | Database["public"]["Enums"]["perceived_effort_enum"]
             | null;
+          performed_at?: string | null;
           reps?: number;
           target_weight_value?: number;
           user_id?: string;
@@ -444,7 +444,7 @@ export type Database = {
           p_warmup?: boolean;
           p_is_amrap?: boolean;
           p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
-          p_relative_effort?: Database["public"]["Enums"]["relative_effort_enum"];
+          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
           p_notes?: string;
         };
         Returns: string;
@@ -476,7 +476,7 @@ export type Database = {
           p_exercise_id: string;
           p_reps?: number;
           p_actual_weight_value?: number;
-          p_relative_effort?: Database["public"]["Enums"]["relative_effort_enum"];
+          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
           p_notes?: string;
         };
         Returns: undefined;
@@ -640,7 +640,7 @@ export type Database = {
           p_is_amrap?: boolean;
           p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
           p_notes?: string;
-          p_relative_effort?: Database["public"]["Enums"]["relative_effort_enum"];
+          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
         };
         Returns: undefined;
       };
@@ -714,7 +714,7 @@ export type Database = {
         | "kettlebell_front_squat"
         | "kettlebell_row"
         | "plate_stack_calf_raise";
-      relative_effort_enum: "easy" | "okay" | "hard";
+      perceived_effort_enum: "easy" | "okay" | "hard";
       update_source_enum: "manual" | "system";
       weight_unit_enum: "pounds" | "kilograms";
       wendler_block_prereq_error_enum: "no_target_max" | "unit_mismatch";
@@ -762,8 +762,8 @@ export type Database = {
           | Database["public"]["Enums"]["completion_status_enum"]
           | null;
         notes: string | null;
-        relative_effort:
-          | Database["public"]["Enums"]["relative_effort_enum"]
+        perceived_effort:
+          | Database["public"]["Enums"]["perceived_effort_enum"]
           | null;
       };
       get_exercises_by_type_result: {
@@ -791,8 +791,8 @@ export type Database = {
           | Database["public"]["Enums"]["completion_status_enum"]
           | null;
         notes: string | null;
-        relative_effort:
-          | Database["public"]["Enums"]["relative_effort_enum"]
+        perceived_effort:
+          | Database["public"]["Enums"]["perceived_effort_enum"]
           | null;
         personal_record: boolean | null;
       };
@@ -850,8 +850,8 @@ export type Database = {
           | Database["public"]["Enums"]["completion_status_enum"]
           | null;
         notes: string | null;
-        relative_effort:
-          | Database["public"]["Enums"]["relative_effort_enum"]
+        perceived_effort:
+          | Database["public"]["Enums"]["perceived_effort_enum"]
           | null;
       };
       wendler_block_prereqs_row: {
@@ -1082,7 +1082,7 @@ export const Constants = {
         "kettlebell_row",
         "plate_stack_calf_raise",
       ],
-      relative_effort_enum: ["easy", "okay", "hard"],
+      perceived_effort_enum: ["easy", "okay", "hard"],
       update_source_enum: ["manual", "system"],
       weight_unit_enum: ["pounds", "kilograms"],
       wendler_block_prereq_error_enum: ["no_target_max", "unit_mismatch"],

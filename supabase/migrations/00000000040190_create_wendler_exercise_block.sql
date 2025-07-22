@@ -65,7 +65,7 @@ BEGIN
         p_warmup => TRUE::boolean,
         p_is_amrap => FALSE::boolean,
         p_completion_status => 'not_completed'::completion_status_enum,
-        p_relative_effort => NULL::relative_effort_enum,
+        p_perceived_effort => NULL::perceived_effort_enum,
         p_notes => NULL
     );
 
@@ -107,7 +107,7 @@ BEGIN
                 p_warmup => TRUE::boolean,
                 p_is_amrap => FALSE::boolean,
                 p_completion_status => 'not_completed'::completion_status_enum,
-                p_relative_effort => NULL::relative_effort_enum,
+                p_perceived_effort => NULL::perceived_effort_enum,
                 p_notes => NULL
             );
             INSERT INTO exercise_block_exercises (block_id, exercise_id, exercise_order)
@@ -147,7 +147,7 @@ BEGIN
                 p_warmup => FALSE::boolean,
                 p_is_amrap => (i = 3)::boolean,
                 p_completion_status => 'not_completed'::completion_status_enum,
-                p_relative_effort => NULL::relative_effort_enum,
+                p_perceived_effort => NULL::perceived_effort_enum,
                 p_notes => NULL
             );
             INSERT INTO exercise_block_exercises (block_id, exercise_id, exercise_order)

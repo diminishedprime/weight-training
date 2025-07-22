@@ -16,7 +16,7 @@ BEGIN
       warmup boolean,
       completion_status completion_status_enum,
       notes text,
-      relative_effort relative_effort_enum,
+      perceived_effort perceived_effort_enum,
       personal_record boolean
     );
   END IF;
@@ -60,7 +60,7 @@ BEGIN
             e.warmup::boolean,
             e.completion_status::completion_status_enum,
             e.notes::text,
-            e.relative_effort::relative_effort_enum,
+            e.perceived_effort::perceived_effort_enum,
             EXISTS (
                 SELECT 1
                 FROM public.personal_record_history prh

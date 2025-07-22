@@ -38,7 +38,7 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
     props.exercise.completion_status!,
   );
   const [percievedEffort, setPercievedEffort] = React.useState(
-    props.exercise.relative_effort,
+    props.exercise.perceived_effort,
   );
   const [isWarmup, setIsWarmup] = React.useState(
     props.exercise.warmup ?? false,
@@ -87,7 +87,7 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
       actual_weight_value: localTargetWeight,
       reps: localReps,
       completion_status: completionStatus,
-      relative_effort: percievedEffort ?? null,
+      perceived_effort: percievedEffort ?? null,
       warmup: isWarmup,
       notes: notes ?? null,
     }),

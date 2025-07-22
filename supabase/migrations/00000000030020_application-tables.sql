@@ -17,9 +17,7 @@ CREATE TABLE IF NOT EXISTS public.exercises (
   is_amrap boolean NOT NULL DEFAULT false,
   completion_status completion_status_enum NOT NULL DEFAULT 'not_completed',
   notes text NULL,
-  -- TODO: I'm calling this percievedEffort everywhere else, need to update the
-  -- db accordingly.
-  relative_effort relative_effort_enum NULL,
+  perceived_effort perceived_effort_enum NULL,
   CONSTRAINT exercises_id_pkey PRIMARY KEY (id)
   -- TODO: Re-enable this constraint once Steph & Matt exist in production database
   -- The constraint is temporarily disabled to allow seeding imported exercise data

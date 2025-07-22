@@ -170,9 +170,9 @@ const BarbellExercisesTable: React.FC<BarbellExercisesTableProps> = (props) => {
                       />
                     </Stack>
                     <Stack>
-                      {exercise.relative_effort && (
+                      {exercise.perceived_effort && (
                         <DisplayPercievedEffort
-                          percievedEffort={exercise.relative_effort}
+                          percievedEffort={exercise.perceived_effort}
                         />
                       )}
                     </Stack>
