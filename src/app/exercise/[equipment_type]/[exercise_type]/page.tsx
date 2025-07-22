@@ -1,4 +1,5 @@
 import BarbellExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/_page_barbell";
+import DumbbellExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/_page_dumbbell";
 import { EquipmentType, ExerciseType } from "@/common-types";
 import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs";
 import { FIRST_PAGE_NUM, pathForEquipmentExercisePage } from "@/constants";
@@ -100,6 +101,19 @@ export default async function EquipmentExercisePageSuspenseWrapper(
       EquipmentExercisePage = (
         <BarbellExercisePage
           barbellExerciseType={exerciseType}
+          path={exerciseData.path}
+          userId={userId}
+          pageNum={pageNum}
+          startExerciseId={
+            typeof startExerciseId === "string" ? startExerciseId : undefined
+          }
+        />
+      );
+      break;
+    case "dumbbell":
+      EquipmentExercisePage = (
+        <DumbbellExercisePage
+          dumbbellExerciseType={exerciseType}
           path={exerciseData.path}
           userId={userId}
           pageNum={pageNum}
