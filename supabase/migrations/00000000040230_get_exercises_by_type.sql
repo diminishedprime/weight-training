@@ -74,6 +74,7 @@ BEGIN
         FROM public.exercises e
         WHERE e.user_id = p_user_id
             AND e.exercise_type = p_exercise_type
+            AND e.performed_at IS NOT NULL
         ORDER BY e.performed_at DESC, e.id DESC
         LIMIT p_max_results OFFSET ((p_page_num - 1) * p_page_size)
     ) INTO result;

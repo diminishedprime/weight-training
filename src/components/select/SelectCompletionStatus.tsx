@@ -1,8 +1,5 @@
 import { CompletionStatus } from "@/common-types";
-import CancelIcon from "@mui/icons-material/Cancel";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
-import SkipNextIcon from "@mui/icons-material/SkipNext";
+import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import {
   FormControl,
   FormLabel,
@@ -45,7 +42,6 @@ const useSelectCompletionStatusAPI = (props: SelectCompletionStatusProps) => {
   };
 };
 
-// TODO: easy - update this to use the DisplayCompletionStatus component.
 const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
   props,
 ) => {
@@ -82,7 +78,7 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
             type={props.boundFinishAction ? "submit" : "button"}
           >
             <Tooltip title="Completed">
-              <CheckCircleIcon color="success" />
+              <DisplayCompletionStatus completionStatus="completed" />
             </Tooltip>
           </ToggleButton>,
         )}
@@ -93,7 +89,7 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
             size="small"
           >
             <Tooltip title="Not Completed">
-              <RadioButtonUncheckedIcon color="warning" />
+              <DisplayCompletionStatus completionStatus="not_completed" />
             </Tooltip>
           </ToggleButton>
         )}
@@ -106,7 +102,7 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
             type={props.boundFailAction ? "submit" : "button"}
           >
             <Tooltip title="Failed">
-              <CancelIcon color="error" />
+              <DisplayCompletionStatus completionStatus="failed" />
             </Tooltip>
           </ToggleButton>,
         )}
@@ -119,7 +115,7 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
             type={props.boundSkipAction ? "submit" : "button"}
           >
             <Tooltip title="Skipped">
-              <SkipNextIcon color="secondary" />
+              <DisplayCompletionStatus completionStatus="skipped" />
             </Tooltip>
           </ToggleButton>,
         )}

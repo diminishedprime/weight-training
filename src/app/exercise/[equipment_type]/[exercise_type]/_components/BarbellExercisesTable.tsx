@@ -68,6 +68,10 @@ export function useExercisesTableAPI(props: BarbellExercisesTableProps) {
       currentGroup = [exercise];
       currentIdx++;
     }
+    // Don't forget to add the last group
+    if (currentGroup.length > 0) {
+      groups.push(currentGroup);
+    }
     return groups;
   }, [barbellExercises]);
 
