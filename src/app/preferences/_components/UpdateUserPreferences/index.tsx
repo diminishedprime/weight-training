@@ -12,6 +12,7 @@ import { TestIds } from "@/test-ids";
 import { userPreferenceUIString } from "@/uiStrings";
 import { nullableArrayEquals } from "@/util";
 import { Button, Stack, TextField, Typography } from "@mui/material";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useCallback, useMemo, useState } from "react";
 
@@ -409,16 +410,32 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
               </Typography>
             )}
           </span>
-          <Button
-            type="submit"
-            variant="contained"
-            size="small"
-            data-testid={TestIds.Preferences_SavePreferencesButton}
-            disabled={!api.canSave}
-          >
-            Save
-          </Button>
         </Stack>
+      </Stack>
+      <Stack
+        direction="row"
+        spacing={1}
+        justifyContent={api.backTo ? "space-between" : "flex-end"}
+      >
+        {api.backTo && (
+          <Button
+            LinkComponent={Link}
+            href={api.backTo}
+            color="warning"
+            data-testid={TestIds.Preferences_CancelButton}
+          >
+            Cancel
+          </Button>
+        )}
+        <Button
+          type="submit"
+          variant="contained"
+          size="small"
+          data-testid={TestIds.Preferences_SavePreferencesButton}
+          disabled={!api.canSave}
+        >
+          Save
+        </Button>
       </Stack>
     </form>
   );

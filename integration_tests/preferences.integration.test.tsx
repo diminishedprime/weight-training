@@ -6,6 +6,7 @@ import { TestIds } from "@/test-ids";
 import { USER_ID } from "@/test/constants";
 import { getSession, requireLoggedInUser } from "@/test/serverUtil";
 import { act, render, screen, waitFor } from "@testing-library/react";
+import { useSearchParams } from "next/navigation";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const supabase = serverUtil.getSupabaseClient();
@@ -71,6 +72,35 @@ describe("User Journey: Update Preferences", () => {
         DEFAULT_VALUES.SELECTED_PLATES,
       );
       expect(preferences.default_rest_time).toEqual(120);
+    });
+  });
+});
+
+describe("User Journey: Can Navigate back if backTo is set", () => {
+  beforeEach(async () => {
+    // This any annoys me, but otherise I have to mock the entire module.
+    vi.mocked(useSearchParams as any).mockImplementation(() => ({
+      get: (key: string) =>
+        key === "backTo" ? "/exercise/barbell_deadlift" : null,
+      toString: () => "backTo=/exercise/barbell_deadlift",
+    }));
+  });
+
+  afterEach(() => {
+    vi.resetAllMocks();
+  });
+
+  it("should show a Cancel button that navigates to the backTo location if present", async () => {
+    let page = await PreferencesPage();
+    await act(async () => render(page));
+
+    await act(async () => {
+      // There should be a Cancel button
+      const cancelButton = await waitFor(() =>
+        screen.getByTestId(TestIds.Preferences_CancelButton),
+      );
+      const path = new URL((cancelButton as HTMLAnchorElement).href).pathname;
+      expect(path).toEqual("/exercise/barbell_deadlift");
     });
   });
 });
