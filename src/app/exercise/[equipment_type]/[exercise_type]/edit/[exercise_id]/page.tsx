@@ -1,6 +1,6 @@
-import BarbellExerciseEditPage from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_page_barbell";
+import EditEquipmentExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_components/EditEquipmentExercisePage";
 import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs";
-import { pathForEquipmentExerciseEdit } from "@/constants";
+import { PARAMS, pathForEquipmentExerciseEdit } from "@/constants";
 import { requireLoggedInUser } from "@/serverUtil";
 import { equipmentTypeUIString, exerciseTypeUIStringBrief } from "@/uiStrings";
 import {
@@ -8,10 +8,9 @@ import {
   narrowExerciseType,
   narrowOrNotFound,
 } from "@/util";
-import { Typography } from "@mui/material";
 import React, { Suspense } from "react";
 
-interface EquipmentExerciseEditPageSuspenseWrapperProps {
+interface Props {
   params: Promise<{
     equipment_type: string;
     exercise_type: string;
@@ -21,26 +20,15 @@ interface EquipmentExerciseEditPageSuspenseWrapperProps {
 }
 
 export default async function EquipmentExerciseEditPageSuspenseWrapper(
-  props: EquipmentExerciseEditPageSuspenseWrapperProps,
+  props: Props,
 ) {
-  const [
-    {
-      equipment_type: unnarrowedEquipmentType,
-      exercise_type: unnarrowedExerciseType,
-      exercise_id,
-    },
-    searchParams,
-  ] = await Promise.all([props.params, props.searchParams]);
+  const [params, searchParams] = await Promise.all([
+    props.params.then(narrowParams),
+    props.searchParams.then(parseSearchParams),
+  ]);
 
-  const equipmentType = narrowOrNotFound(
-    unnarrowedEquipmentType,
-    narrowEquipmentType,
-  );
-
-  const exerciseType = narrowOrNotFound(
-    unnarrowedExerciseType,
-    narrowExerciseType,
-  );
+  const { equipmentType, exerciseType, exercise_id } = params;
+  const { backTo } = searchParams;
 
   const currentPath = pathForEquipmentExerciseEdit(
     equipmentType,
@@ -49,29 +37,8 @@ export default async function EquipmentExerciseEditPageSuspenseWrapper(
   );
   const { userId } = await requireLoggedInUser(currentPath);
 
-  let EquipmentExerciseEditPage: React.JSX.Element;
-  switch (equipmentType) {
-    case "barbell":
-      EquipmentExerciseEditPage = (
-        <BarbellExerciseEditPage
-          barbellExerciseType={exerciseType}
-          path={currentPath}
-          userId={userId}
-          exerciseId={exercise_id}
-          backTo={searchParams.backTo?.toString() || undefined}
-        />
-      );
-      break;
-    default:
-      EquipmentExerciseEditPage = <Typography>Not yet implemented</Typography>;
-  }
-
   const breadcrumbsProps: BreadcrumbsProps = {
-    pathname: pathForEquipmentExerciseEdit(
-      equipmentType,
-      exerciseType,
-      exercise_id,
-    ),
+    pathname: currentPath,
     labels: {
       [equipmentType]: equipmentTypeUIString(equipmentType),
       [exerciseType]: exerciseTypeUIStringBrief(exerciseType),
@@ -84,8 +51,29 @@ export default async function EquipmentExerciseEditPageSuspenseWrapper(
     <React.Fragment>
       <Breadcrumbs {...breadcrumbsProps} />
       <Suspense fallback={<div>Loading...</div>}>
-        {EquipmentExerciseEditPage}
+        <EditEquipmentExercisePage
+          equipmentType={equipmentType}
+          exerciseType={exerciseType}
+          userId={userId}
+          exerciseId={exercise_id}
+          currentPath={currentPath}
+          backTo={backTo}
+        />
       </Suspense>
     </React.Fragment>
   );
 }
+
+const narrowParams = ({
+  equipment_type,
+  exercise_type,
+  ...rest
+}: Awaited<Props["params"]>) => ({
+  equipmentType: narrowOrNotFound(equipment_type, narrowEquipmentType),
+  exerciseType: narrowOrNotFound(exercise_type, narrowExerciseType),
+  ...rest,
+});
+
+const parseSearchParams = (searchParams: Awaited<Props["searchParams"]>) => ({
+  backTo: searchParams[PARAMS.BackTo]?.toString(),
+});

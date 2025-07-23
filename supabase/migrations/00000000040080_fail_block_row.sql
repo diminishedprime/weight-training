@@ -13,6 +13,7 @@ BEGIN
       reps = COALESCE(p_reps, e.reps),
       actual_weight_value = COALESCE(p_actual_weight_value, e.actual_weight_value),
       notes = COALESCE(p_notes, e.notes),
+      update_time = now(),
       performed_at = now()
   FROM exercise_block_exercises ebe
   JOIN exercise_block b ON ebe.block_id = b.id

@@ -26,7 +26,8 @@ BEGIN
         is_amrap = p_is_amrap,
         completion_status = p_completion_status,
         notes = p_notes,
-        perceived_effort = p_perceived_effort
+        perceived_effort = p_perceived_effort,
+        update_time = now()
     WHERE id = p_exercise_id AND user_id = p_user_id;
 END;
 $$ LANGUAGE plpgsql;

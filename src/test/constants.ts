@@ -19,6 +19,8 @@ export const USER_ID = {
   "add-wendler-block.integration.test.tsx":
     "00000000-0000-0000-0001-000000000002",
   "preferences.integration.test.tsx": "00000000-0000-0000-0001-000000000003",
+  "edit-dumbbell-exercise.integration.test.tsx":
+    "00000000-0000-0000-0001-000000000004",
 };
 
 const SET_OF_IDS = new Set(Object.values(USER_ID));

@@ -8,11 +8,13 @@ CREATE TABLE IF NOT EXISTS public.exercises (
   equipment_type equipment_type_enum NOT NULL DEFAULT 'barbell',
   performed_at timestamp with time zone NULL,
   insert_time timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
+  update_time timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
   insert_order bigint NOT NULL DEFAULT nextval('public.exercises_insert_order_seq'),
   actual_weight_value numeric NULL,
   target_weight_value numeric NOT NULL,
   weight_unit weight_unit_enum NOT NULL,
   reps integer NOT NULL,
+  -- TODO: rename this to is_warmup
   warmup boolean NOT NULL DEFAULT false,
   is_amrap boolean NOT NULL DEFAULT false,
   completion_status completion_status_enum NOT NULL DEFAULT 'not_completed',

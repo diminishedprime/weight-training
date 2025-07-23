@@ -75,7 +75,7 @@ const EquipmentExercisePage: React.FC<EquipmentExercisePageProps> = async (
         exercises={rows}
         equipmentType={props.equipmentType}
         exerciseType={props.exerciseType}
-        path={path}
+        currentPath={path}
         pageNum={props.pageNumber}
         pageCount={pageCount!}
       />

@@ -160,6 +160,7 @@ export type Database = {
           performed_at: string | null;
           reps: number;
           target_weight_value: number;
+          update_time: string;
           user_id: string;
           warmup: boolean;
           weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
@@ -180,6 +181,7 @@ export type Database = {
           performed_at?: string | null;
           reps: number;
           target_weight_value: number;
+          update_time?: string;
           user_id: string;
           warmup?: boolean;
           weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
@@ -200,6 +202,7 @@ export type Database = {
           performed_at?: string | null;
           reps?: number;
           target_weight_value?: number;
+          update_time?: string;
           user_id?: string;
           warmup?: boolean;
           weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
@@ -741,6 +744,7 @@ export type Database = {
         weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
         reps: number | null;
         warmup: boolean | null;
+        is_amrap: boolean | null;
         completion_status:
           | Database["public"]["Enums"]["completion_status_enum"]
           | null;

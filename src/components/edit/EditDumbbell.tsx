@@ -1,5 +1,6 @@
 import { WeightUnit } from "@/common-types";
 import DisplayDumbbell from "@/components/display/DisplayDumbbell";
+import { TestIds } from "@/test-ids";
 import { Button } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import Box from "@mui/material/Box";
@@ -16,9 +17,11 @@ export interface EditDumbbellProps {
 const useEditDumbellAPI = (props: EditDumbbellProps) => {
   const { weightValue: weight, onChange } = props;
 
-  const [availableWeights, setAvailableWeights] = React.useState(() => [
-    ...props.availableDumbbells,
-  ]);
+  const [availableWeights, setAvailableWeights] = React.useState(() => {
+    const copy = [...props.availableDumbbells];
+    copy.sort((a, b) => a - b);
+    return copy;
+  });
 
   const currentIdx = React.useMemo(() => {
     return availableWeights.findIndex((w) => w === weight);
@@ -94,6 +97,7 @@ const EditDumbbell: React.FC<EditDumbbellProps> = (props) => {
       />
       <Box sx={{ display: "flex", alignItems: "center", gap: 1, mt: 2 }}>
         <Button
+          data-testid={TestIds.EditDumbbellBumpDownButton}
           variant="outlined"
           color="secondary"
           onClick={api.handleBumpDown}
