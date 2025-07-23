@@ -1,0 +1,80 @@
+---
+globs: **/*.test.tsx,**/*.test.ts,integration_tests/**/*
+---
+# Testing Patterns
+
+## Testing Philosophy (per [TESTING_STRATEGY.md](mdc:docs/TESTING_STRATEGY.md))
+- **Flow-Based Integration Tests**: Test user journeys, not isolated components
+- **Minimal Mocks**: Only mock external dependencies (auth, database, network)
+- **Real Data**: Use real implementations for internal logic and UI interactions
+- **High Coverage**: Ensure all critical paths and edge cases are tested
+
+## Test Structure
+### Integration Tests
+Located in [integration_tests/](mdc:integration_tests/) directory:
+- [add-custom-exercise.integration.test.tsx](mdc:integration_tests/add-custom-exercise.integration.test.tsx)
+- [add-wendler-block.integration.test.tsx](mdc:integration_tests/add-wendler-block.integration.test.tsx)
+- [preferences.integration.test.tsx](mdc:integration_tests/preferences.integration.test.tsx)
+
+### Unit Tests
+- Database function tests in [supabase/tests/](mdc:supabase/tests/)
+- Component logic tests alongside components
+
+## Mock Patterns
+Only mock external dependencies:
+```typescript
+// Mock authentication
+vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
+  fakeServerUtil.requireLoggedInUser(USER_ID)
+);
+
+// Mock database RPC calls
+vi.spyOn(serverUtil, "supabaseRPC").mockImplementation(
+  async (functionName, params) => {
+    // Return test data
+  }
+);
+```
+
+## Test Utilities
+- [src/test/serverUtil.ts](mdc:src/test/serverUtil.ts) - Mock server utilities
+- [src/test/constants.ts](mdc:src/test/constants.ts) - Test constants and data
+- [src/test-ids.ts](mdc:src/test-ids.ts) - Centralized test ID constants
+
+## Testing Scripts
+- `pnpm test` - Run Vitest test suite
+- `pnpm test:watch` - Run tests in watch mode
+- `pnpm test:ui` - Run tests with Vitest UI
+- `pnpm test:coverage` - Generate coverage report
+- `pnpm test:mutation` - Run Stryker mutation testing
+- `pnpm db:test` - Run database function tests
+
+## Database Testing
+Database functions tested with real SQL:
+```sql
+-- Example test file: supabase/tests/10_round-to-nearest-5_test.sql
+BEGIN;
+SELECT plan(3);
+
+SELECT is(
+  public.round_to_nearest_5(23),
+  25::numeric,
+  'round_to_nearest_5 should round 23 to 25'
+);
+
+SELECT * FROM finish();
+ROLLBACK;
+```
+
+## Test Data & Setup
+- Use realistic test data that matches production patterns
+- Database tests use `BEGIN...ROLLBACK` for isolation
+- Integration tests reset state between tests
+- Test user IDs and exercise data defined in test constants
+
+## Assertions & Coverage
+- Test user-visible outcomes, not implementation details
+- Cover both happy paths and error conditions
+- Verify form submissions, navigation, and data persistence
+- Test accessibility and responsive behavior
+- Ensure no stderr output (warnings/errors) during test runs

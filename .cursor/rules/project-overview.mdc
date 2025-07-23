@@ -1,0 +1,55 @@
+---
+alwaysApply: true
+---
+# Weight Training App Project Overview
+
+## Tech Stack & Architecture
+This is a **Next.js 15** weight training application using:
+- **TypeScript** for type safety
+- **Supabase** PostgreSQL database with RPC functions
+- **NextAuth.js** (Auth.js) with Google OAuth and Supabase adapter
+- **Material UI (MUI)** for component library
+- **pnpm** as package manager
+- **Vitest** for testing with coverage and mutation testing
+- **Prettier** and **ESLint** for code formatting
+
+## Key Project Structure
+- [src/app/](mdc:src/app/) - Next.js App Router pages and API routes
+- [src/components/](mdc:src/components/) - Shared React components
+- [supabase/migrations/](mdc:supabase/migrations/) - Database schema migrations
+- [src/database.types.ts](mdc:src/database.types.ts) - Auto-generated Supabase types
+- [src/common-types.ts](mdc:src/common-types.ts) - Type aliases for database types
+- [docs/](mdc:docs/) - Strategy and documentation files
+
+## Database Pattern
+- Uses **PostgreSQL stored procedures/RPC functions** for business logic
+- Type-safe database interactions via generated types
+- Domain-driven schema with enums for data integrity
+- Migrations follow sequential naming: `000000000000XX_name.sql`
+- All database objects must be well-commented per [DATABASE_STRATEGY.md](mdc:docs/DATABASE_STRATEGY.md)
+
+## Authentication
+- Google OAuth via NextAuth.js
+- User data stored in `next_auth.users` table
+- Session management with Supabase adapter
+- Server-side auth validation via [src/serverUtil.ts](mdc:src/serverUtil.ts)
+
+## Available Scripts
+Key [package.json](mdc:package.json) scripts:
+- `pnpm dev` - Start development server with Turbopack
+- `pnpm db:start` - Start local Supabase instance
+- `pnpm db:reset` - Reset database and regenerate types
+- `pnpm db:gen-types` - Generate TypeScript types from schema
+- `pnpm test` - Run Vitest test suite
+- `pnpm test:coverage` - Run tests with coverage report
+- `pnpm test:mutation` - Run Stryker mutation testing
+- `pnpm format` - Format UI and SQL files
+- `pnpm db:new-migration` - Create new database migration
+
+## Core Domain
+Weight training app focused on:
+- Exercise tracking (barbell, dumbbell, machine, bodyweight)
+- Wendler 5/3/1 programming
+- Personal records and target max tracking
+- Exercise blocks and superblocks (workout organization)
+- User preferences (weight units, available equipment)
