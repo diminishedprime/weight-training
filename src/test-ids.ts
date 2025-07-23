@@ -1,5 +1,7 @@
 "use client";
 
+import { PerceivedEffort } from "@/common-types";
+
 /**
  * Test IDs for use in data-testid attributes throughout the app.
  * Use these to avoid accidental collisions and to keep test selectors consistent.
@@ -16,5 +18,9 @@ export const TestIds = {
   addWendlerLegDayButton: "add-wendler-leg-day-button",
   // PreferencesPage test IDs
   Preferences_SavePreferencesButton: "save-user-preferences-button",
-  // Add more test IDs here as needed
+  SelectRepsAMRAPToggle: "select-reps-amrap-toggle",
+  SelectRepsAdd: "select-reps-add-1",
+  PerceivedEffort: (effort: PerceivedEffort) => `perceived-effort-${effort}`,
+  WarmupToggle: "warmup-toggle",
+  NotesInput: "notes-input",
 } as const;

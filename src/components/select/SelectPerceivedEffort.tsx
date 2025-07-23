@@ -1,6 +1,7 @@
 import { PerceivedEffort } from "@/common-types";
 import DisplayPerceivedEffort from "@/components/display/DisplayPerceivedEffort";
 import { Constants } from "@/database.types";
+import { TestIds } from "@/test-ids";
 import { perceivedEffortUIString } from "@/uiStrings";
 import {
   FormControl,
@@ -54,6 +55,7 @@ const SelectPerceivedEffort = (props: SelectPerceivedEffortProps) => {
       >
         {Constants.public.Enums.perceived_effort_enum.map((effort) => (
           <ToggleButton
+            data-testid={TestIds.PerceivedEffort(effort)}
             key={effort}
             value={effort}
             aria-label={perceivedEffortUIString(effort)}

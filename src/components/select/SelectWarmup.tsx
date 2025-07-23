@@ -1,3 +1,4 @@
+import { TestIds } from "@/test-ids";
 import { Checkbox, FormControlLabel } from "@mui/material";
 import React from "react";
 
@@ -30,6 +31,7 @@ const SelectWarmup: React.FC<SelectWarmupProps> = (props) => {
     <FormControlLabel
       control={
         <Checkbox
+          data-testid={TestIds.WarmupToggle}
           checked={api.isWarmup}
           onChange={api.onToggle}
           color="primary"

@@ -45,13 +45,6 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
   );
   const [notes, setNotes] = React.useState(props.exercise.notes ?? "");
 
-  const onLocalTargetWeightChange = React.useCallback(
-    (newTargetWeight: number) => {
-      setLocalTargetWeight(newTargetWeight);
-    },
-    [],
-  );
-
   const onLocalRepsChange = React.useCallback((newReps: number) => {
     setLocalReps(newReps);
   }, []);
@@ -101,7 +94,7 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
 
   return {
     targetWeight: localTargetWeight,
-    onTargetWeightWeightChange: onLocalTargetWeightChange,
+    onTargetWeightWeightChange: setLocalTargetWeight,
     reps: localReps,
     onRepsChange: onLocalRepsChange,
     completionStatus,

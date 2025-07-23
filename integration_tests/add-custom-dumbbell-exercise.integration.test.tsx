@@ -4,7 +4,7 @@ import EquipmentExercisePage, {
 import { FIRST_PAGE_NUM, pathForEquipmentExercisePage } from "@/constants";
 import * as serverUtil from "@/serverUtil";
 import { TestIds } from "@/test-ids";
-import { USER_ID_LOGGED_IN } from "@/test/constants";
+import { USER_ID } from "@/test/constants";
 import { getSession, requireLoggedInUser } from "@/test/serverUtil";
 import { getExercisesByEquipment } from "@/util";
 import { act, render, screen, waitFor } from "@testing-library/react";
@@ -23,16 +23,22 @@ const exercisesByEquipment = getExercisesByEquipment();
 beforeEach(async () => {
   vi.restoreAllMocks();
   vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-    requireLoggedInUser(USER_ID_LOGGED_IN),
+    requireLoggedInUser(
+      USER_ID["add-custom-dumbbell-exercise.integration.test.tsx"],
+    ),
   );
   vi.spyOn(serverUtil, "getSession").mockImplementation(
-    getSession(USER_ID_LOGGED_IN),
+    getSession(USER_ID["add-custom-dumbbell-exercise.integration.test.tsx"]),
   );
-  await deleteRelevantRowsForUser(USER_ID_LOGGED_IN);
+  await deleteRelevantRowsForUser(
+    USER_ID["add-custom-dumbbell-exercise.integration.test.tsx"],
+  );
 });
 
 afterEach(async () => {
-  await deleteRelevantRowsForUser(USER_ID_LOGGED_IN);
+  await deleteRelevantRowsForUser(
+    USER_ID["add-custom-dumbbell-exercise.integration.test.tsx"],
+  );
 });
 
 // TODO: Consider a test for the "real" page that does fancy narrowing, etc.
@@ -40,7 +46,7 @@ afterEach(async () => {
 describe("User Journey: Add Custom Dumbbell Exercises", () => {
   it("should allow a logged in user to add a custom curl dumbbell exercise", async () => {
     const pageProps: EquipmentExercisePageProps = {
-      userId: USER_ID_LOGGED_IN,
+      userId: USER_ID["add-custom-dumbbell-exercise.integration.test.tsx"],
       equipmentType: "dumbbell",
       exerciseType: "dumbbell_bicep_curl",
       path: pathForEquipmentExercisePage("dumbbell", "dumbbell_bicep_curl"),
@@ -57,7 +63,10 @@ describe("User Journey: Add Custom Dumbbell Exercises", () => {
       const { data: initialCurls } = await supabase
         .from("exercises")
         .select("*")
-        .eq("user_id", USER_ID_LOGGED_IN)
+        .eq(
+          "user_id",
+          USER_ID["add-custom-dumbbell-exercise.integration.test.tsx"],
+        )
         .eq("exercise_type", "dumbbell_bicep_curl");
       expect(initialCurls?.length).toBe(0);
       const addExerciseButton = await waitFor(() =>
@@ -74,7 +83,10 @@ describe("User Journey: Add Custom Dumbbell Exercises", () => {
         const { data: drafts } = await supabase
           .from("form_drafts")
           .select("*")
-          .eq("user_id", USER_ID_LOGGED_IN);
+          .eq(
+            "user_id",
+            USER_ID["add-custom-dumbbell-exercise.integration.test.tsx"],
+          );
         expect(drafts?.length).toBeGreaterThan(0);
       });
       page = await EquipmentExercisePage(pageProps);
@@ -96,7 +108,10 @@ describe("User Journey: Add Custom Dumbbell Exercises", () => {
         const { data: lifts } = await supabase
           .from("exercises")
           .select("*")
-          .eq("user_id", USER_ID_LOGGED_IN)
+          .eq(
+            "user_id",
+            USER_ID["add-custom-dumbbell-exercise.integration.test.tsx"],
+          )
           .eq("exercise_type", "dumbbell_bicep_curl");
         expect(lifts?.length).toBe(1);
         expect(lifts![0].completion_status).toBe("completed");

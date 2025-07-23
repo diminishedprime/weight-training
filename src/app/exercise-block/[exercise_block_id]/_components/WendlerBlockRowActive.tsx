@@ -68,10 +68,6 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
     [],
   );
 
-  const onTargetWeightChange = React.useCallback((newWeight: number) => {
-    setTargetWeight(newWeight);
-  }, []);
-
   const modifiedRow = React.useMemo(() => {
     return {
       ...row,
@@ -97,7 +93,7 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
     onCompletionStatusChange,
     onNotesChange,
     onEffortChange: onPerceivedEffortChange,
-    onTargetWeightChange,
+    onTargetWeightChange: setTargetWeight,
     modifiedRow,
     editable,
     handleClickWeight,
