@@ -423,10 +423,6 @@ export type Database = {
         };
         Returns: Database["public"]["CompositeTypes"]["wendler_block_prereqs_row"];
       };
-      cleanup_expired_form_drafts: {
-        Args: Record<PropertyKey, never>;
-        Returns: number;
-      };
       clear_form_draft: {
         Args: { p_user_id: string; p_page_path: string };
         Returns: undefined;
@@ -552,18 +548,6 @@ export type Database = {
       get_wendler_metadata: {
         Args: { p_block_id: string; p_user_id: string };
         Returns: Database["public"]["CompositeTypes"]["wendler_metadata_row"];
-      };
-      normalize_bar_weight_pounds: {
-        Args: { p_weight: number };
-        Returns: number;
-      };
-      round_to_1_decimal: {
-        Args: { p_value: number };
-        Returns: number;
-      };
-      round_to_nearest_5: {
-        Args: { p_weight: number };
-        Returns: number;
       };
       save_form_draft: {
         Args: {

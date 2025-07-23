@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION public.update_personal_record_on_exercise_change () RETURNS TRIGGER AS $$
+CREATE OR REPLACE FUNCTION _trigger.update_personal_record_on_exercise_change () RETURNS TRIGGER AS $$
 DECLARE
   current_pr public.personal_record_row;
   one_rep_max_pr public.personal_record_row;
@@ -54,11 +54,11 @@ DROP TRIGGER IF EXISTS trg_update_personal_record_on_new_exercise ON public.exer
 
 CREATE TRIGGER trg_update_personal_record_on_new_exercise
 AFTER INSERT ON public.exercises FOR EACH ROW
-EXECUTE FUNCTION public.update_personal_record_on_exercise_change ();
+EXECUTE FUNCTION _trigger.update_personal_record_on_exercise_change ();
 
 DROP TRIGGER IF EXISTS trg_update_personal_record_on_exercise_update ON public.exercises;
 
 CREATE TRIGGER trg_update_personal_record_on_exercise_update
 AFTER
 UPDATE ON public.exercises FOR EACH ROW
-EXECUTE FUNCTION public.update_personal_record_on_exercise_change ();
+EXECUTE FUNCTION _trigger.update_personal_record_on_exercise_change ();

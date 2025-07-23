@@ -1,6 +1,4 @@
--- This function should probably be in a non-public namespace since I think we
--- want to use it as a scheduled job.
-CREATE OR REPLACE FUNCTION public.cleanup_expired_form_drafts () RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION _system.cleanup_expired_form_drafts () RETURNS integer AS $$
 DECLARE
   deleted_count integer;
 BEGIN

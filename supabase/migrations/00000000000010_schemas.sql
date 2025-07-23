@@ -51,3 +51,11 @@ GRANT USAGE ON SCHEMA _impl TO service_role;
 GRANT USAGE ON SCHEMA _impl TO anon;
 
 GRANT USAGE ON SCHEMA _impl TO authenticated;
+
+CREATE SCHEMA IF NOT EXISTS _system;
+
+GRANT USAGE ON SCHEMA _system TO service_role;
+
+GRANT USAGE ON SCHEMA _system TO anon;
+
+GRANT USAGE ON SCHEMA _system TO authenticated;
