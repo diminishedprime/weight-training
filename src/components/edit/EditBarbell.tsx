@@ -10,6 +10,7 @@ import React from "react";
 export interface EditBarbellProps {
   targetWeightValue: number;
   roundingMode: RoundingMode;
+  // TODO: rename to barbellWeightValue
   barWeight: number;
   onTargetWeightChange: (newTargetWeight: number) => void;
   weightUnit: WeightUnit;
@@ -104,6 +105,9 @@ const EditBarbell: React.FC<EditBarbellProps> = (props) => {
   return (
     <Stack display="flex" direction="column" alignItems="center" spacing={1}>
       <DisplayBarbell
+        showWeight
+        showDifference
+        showPlateNumbers
         weightUnit={props.weightUnit}
         targetWeightValue={props.targetWeightValue}
         barWeight={props.barWeight}

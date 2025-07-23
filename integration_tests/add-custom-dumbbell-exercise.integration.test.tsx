@@ -1,6 +1,6 @@
-import DumbbellExercisePage, {
-  DumbbellExercisePageProps,
-} from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page_dumbbell";
+import EquipmentExercisePage, {
+  EquipmentExercisePageProps,
+} from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page";
 import { FIRST_PAGE_NUM, pathForEquipmentExercisePage } from "@/constants";
 import * as serverUtil from "@/serverUtil";
 import { TestIds } from "@/test-ids";
@@ -39,7 +39,7 @@ afterEach(async () => {
 
 describe("User Journey: Add Custom Dumbbell Exercises", () => {
   it("should allow a logged in user to add a custom curl dumbbell exercise", async () => {
-    const pageProps: DumbbellExercisePageProps = {
+    const pageProps: EquipmentExercisePageProps = {
       userId: USER_ID_LOGGED_IN,
       equipmentType: "dumbbell",
       exerciseType: "dumbbell_bicep_curl",
@@ -48,7 +48,7 @@ describe("User Journey: Add Custom Dumbbell Exercises", () => {
     };
 
     // Initial render of the page.
-    let page = await DumbbellExercisePage(pageProps);
+    let page = await EquipmentExercisePage(pageProps);
     await act(async () => render(page));
 
     // Find and click the "Add Exercise" button. This will add a db form draft.
@@ -77,7 +77,7 @@ describe("User Journey: Add Custom Dumbbell Exercises", () => {
           .eq("user_id", USER_ID_LOGGED_IN);
         expect(drafts?.length).toBeGreaterThan(0);
       });
-      page = await DumbbellExercisePage(pageProps);
+      page = await EquipmentExercisePage(pageProps);
       await act(async () => render(page));
     });
 

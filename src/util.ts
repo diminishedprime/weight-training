@@ -384,3 +384,12 @@ export function notFoundIfNull<T>(
     notFound();
   }
 }
+
+export function throwIfNull<T>(
+  value: T | null | undefined,
+  createError: () => Error,
+): asserts value is T {
+  if (value === null || value === undefined) {
+    throw createError();
+  }
+}

@@ -43,7 +43,7 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
   const [isWarmup, setIsWarmup] = React.useState(
     props.exercise.warmup ?? false,
   );
-  const [notes, setNotes] = React.useState(props.exercise.notes ?? undefined);
+  const [notes, setNotes] = React.useState(props.exercise.notes ?? "");
 
   const onLocalTargetWeightChange = React.useCallback(
     (newTargetWeight: number) => {
@@ -74,12 +74,9 @@ const useEditBarbellExerciseAPI = (props: EditBarbellExerciseProps) => {
     setIsWarmup(warmup);
   }, []);
 
-  const onLocalNotesChange = React.useCallback(
-    (newNotes: string | undefined) => {
-      setNotes(newNotes);
-    },
-    [],
-  );
+  const onLocalNotesChange = React.useCallback((newNotes: string) => {
+    setNotes(newNotes);
+  }, []);
 
   const editedExercise: ExerciseForUser = React.useMemo(
     () => ({

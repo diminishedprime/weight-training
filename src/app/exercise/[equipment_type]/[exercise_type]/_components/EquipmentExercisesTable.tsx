@@ -143,6 +143,10 @@ const EquipmentExercisesTable: React.FC<EquipmentExercisesTableProps> = (
                       <DisplayTime performedAt={exercise.performed_at!} />
                     </Stack>
                     <Stack>
+                      {/**
+                       * TODO: I figured out a way to do this generically in
+                       * AddEquipmentExercise, do something similiar here.
+                       * */}
                       <DisplayWeight
                         weightValue={
                           exercise.actual_weight_value ??

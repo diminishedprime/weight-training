@@ -1,5 +1,4 @@
-import BarbellExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page_barbell";
-import DumbbellExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page_dumbbell";
+import EquipmentExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page";
 import { EquipmentType, ExerciseType } from "@/common-types";
 import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs";
 import { FIRST_PAGE_NUM, pathForEquipmentExercisePage } from "@/constants";
@@ -11,7 +10,6 @@ import {
   narrowExerciseType,
   narrowOrNotFound,
 } from "@/util";
-import { Typography } from "@mui/material";
 import React, { Suspense } from "react";
 
 interface EquipmentExercisePageSuspenseWrapperProps {
@@ -37,20 +35,18 @@ export default async function EquipmentExercisePageSuspenseWrapper(
   // do this as a separate call.
   const { userId } = await requireLoggedInUser(exerciseData.path);
 
-  // Dynamically get the right exercise page component based on the equipment.
-  const EquipmentExercisePage = getExercisePage(
-    userId,
-    equipmentType,
-    exerciseType,
-    exerciseData.path,
-    pageNum,
-  );
-
   return (
     <React.Fragment>
       <Breadcrumbs {...exerciseData.breadcrumbs} />
       <Suspense fallback={<div>Loading...</div>}>
-        {EquipmentExercisePage}
+        {/* {EquipmentExercisePage} */}
+        <EquipmentExercisePage
+          userId={userId}
+          equipmentType={equipmentType}
+          exerciseType={exerciseType}
+          path={exerciseData.path}
+          pageNumber={pageNum}
+        />
       </Suspense>
     </React.Fragment>
   );
@@ -121,36 +117,3 @@ const parseSearchParams = (
   pageNum: Number(searchParams.page_num) || FIRST_PAGE_NUM,
   startExerciseId: searchParams.start_exercise_id?.toString(),
 });
-
-const getExercisePage = (
-  userId: string,
-  equipmentType: EquipmentType,
-  exerciseType: ExerciseType,
-  path: string,
-  pageNumber: number,
-) => {
-  switch (equipmentType) {
-    case "barbell":
-      return (
-        <BarbellExercisePage
-          userId={userId}
-          equipmentType={equipmentType}
-          exerciseType={exerciseType}
-          path={path}
-          pageNumber={pageNumber}
-        />
-      );
-    case "dumbbell":
-      return (
-        <DumbbellExercisePage
-          userId={userId}
-          equipmentType={equipmentType}
-          exerciseType={exerciseType}
-          path={path}
-          pageNumber={pageNumber}
-        />
-      );
-    default:
-      return <Typography>Not yet implemented</Typography>;
-  }
-};

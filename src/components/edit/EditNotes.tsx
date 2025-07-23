@@ -4,8 +4,8 @@ import { IconButton, TextField } from "@mui/material";
 import React from "react";
 
 interface EditNotesProps {
-  notes: string | undefined;
-  onNotesChange: (notes: string | undefined) => void;
+  notes: string;
+  onNotesChange: (notes: string) => void;
   isRequired?: boolean;
   isModified?: boolean;
 }
