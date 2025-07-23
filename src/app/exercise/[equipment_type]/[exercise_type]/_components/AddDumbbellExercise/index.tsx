@@ -5,6 +5,7 @@ import {
   deleteDumbbellFormDraft,
   saveDumbbellFormDraft,
 } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/AddDumbbellExercise/actions";
+import { DumbbellFormDraft } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/common";
 import {
   CompletionStatus,
   ExerciseType,
@@ -22,18 +23,6 @@ import { TestIds } from "@/test-ids";
 import { Button, Stack } from "@mui/material";
 import React from "react";
 import { useDebouncedCallback } from "use-debounce";
-
-export interface DumbbellFormDraft {
-  actualWeight: number;
-  weightUnit: WeightUnit;
-  roundingMode: RoundingMode;
-  reps: number;
-  completionStatus: CompletionStatus;
-  notes: string | undefined;
-  perceivedEffort: PerceivedEffort | undefined;
-  isWarmup: boolean;
-  isAmrap: boolean;
-}
 
 const useAddDumbbellExerciseAPI = (props: AddDumbbellExerciseProps) => {
   const { initialDumbbellFormDraft: initialDraft, userId, path } = props;

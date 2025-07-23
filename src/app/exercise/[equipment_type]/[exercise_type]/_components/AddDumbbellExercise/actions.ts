@@ -1,5 +1,6 @@
 "use server";
 
+import { DumbbellFormDraft } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/common";
 import {
   CompletionStatus,
   ExerciseType,
@@ -9,7 +10,6 @@ import {
 import { Json } from "@/database.types";
 import { supabaseRPC } from "@/serverUtil";
 import { revalidatePath } from "next/cache";
-import { DumbbellFormDraft } from ".";
 
 const saveFormDraft = async (
   userId: string,

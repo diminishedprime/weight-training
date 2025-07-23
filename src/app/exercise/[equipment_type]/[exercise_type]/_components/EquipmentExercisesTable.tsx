@@ -1,14 +1,17 @@
 "use client";
-import { ExercisesByTypeResultRows, ExerciseType } from "@/common-types";
+import {
+  EquipmentType,
+  ExercisesByTypeResultRows,
+  ExerciseType,
+} from "@/common-types";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
-import DisplayDumbbell from "@/components/display/DisplayDumbbell";
 import DisplayNotes from "@/components/display/DisplayNotes";
 import DisplayPerceivedEffort from "@/components/display/DisplayPerceivedEffort";
 import DisplayTime from "@/components/display/DisplayTime";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import Pagination from "@/components/Pagination";
 import {
-  pathForEquipmentExerciseEdit,
+  pathForBarbellExerciseEdit,
   pathForPaginatedEquipmentExercisePage,
 } from "@/constants";
 import { Stack, Typography } from "@mui/material";
@@ -17,59 +20,50 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 
-export interface DumbbellExercisesTableProps {
-  dumbbellExercises: NonNullable<ExercisesByTypeResultRows>;
-  dumbbellExerciseType: ExerciseType;
-  availableDumbbells: number[];
+export interface EquipmentExercisesTableProps {
+  exercises: NonNullable<ExercisesByTypeResultRows>;
+  equipmentType: EquipmentType;
+  exerciseType: ExerciseType;
   path: string;
   pageNum: number;
   pageCount: number;
-  startExerciseId?: string;
 }
 
 function getDateString(performedAt: string) {
   return format(new Date(performedAt), "yyyy-MM-dd");
 }
 
-export function useExercisesTableAPI(props: DumbbellExercisesTableProps) {
-  const { dumbbellExercises } = props;
+export function useExercisesTableAPI(props: EquipmentExercisesTableProps) {
+  const { exercises } = props;
   const searchParams = useSearchParams();
   const flashId = searchParams.get("flash");
 
   const groupedByDay = React.useMemo(() => {
-    if (dumbbellExercises.length === 0) {
+    if (exercises.length === 0) {
       return [];
     }
+
     const groups: NonNullable<ExercisesByTypeResultRows>[number][][] = [];
-    let sanityIdx = 0;
-    let currentIdx = 0;
     let currentGroup: NonNullable<ExercisesByTypeResultRows>[number][] = [];
-    let currentDay = getDateString(dumbbellExercises[0].performed_at!);
-    while (currentIdx < dumbbellExercises.length) {
-      sanityIdx++;
-      if (sanityIdx > dumbbellExercises.length * 2) {
-        // Something has gone horribly wrong.
-        throw new Error("Infinite loop detected in grouping exercises by day.");
-      }
-      const exercise = dumbbellExercises[currentIdx];
+    let currentDay: string = getDateString(exercises[0].performed_at!);
+    exercises.forEach((exercise) => {
       const dateForExercise = getDateString(exercise.performed_at!);
       if (dateForExercise === currentDay) {
         currentGroup.push(exercise);
-        currentIdx++;
-        continue;
+      } else {
+        groups.push(currentGroup);
+        currentGroup = [exercise];
+        currentDay = dateForExercise;
       }
-      // At this point, we have a new day, update accordingly.
-      currentDay = dateForExercise;
-      groups.push(currentGroup);
-      currentGroup = [exercise];
-      currentIdx++;
-    }
-    // Don't forget to add the last group
-    if (currentGroup.length > 0) {
+    });
+    // If groups.length is 0, and currentGroup is not empty, everything was on
+    // the same day, so we want to push it in now.
+    if (groups.length === 0 && currentGroup.length > 0) {
       groups.push(currentGroup);
     }
+
     return groups;
-  }, [dumbbellExercises]);
+  }, [exercises]);
 
   return {
     flashId,
@@ -77,7 +71,7 @@ export function useExercisesTableAPI(props: DumbbellExercisesTableProps) {
   };
 }
 
-const DumbbellExercisesTable: React.FC<DumbbellExercisesTableProps> = (
+const EquipmentExercisesTable: React.FC<EquipmentExercisesTableProps> = (
   props,
 ) => {
   const api = useExercisesTableAPI(props);
@@ -89,10 +83,9 @@ const DumbbellExercisesTable: React.FC<DumbbellExercisesTableProps> = (
         count={props.pageCount}
         hrefFor={(pageNum) =>
           pathForPaginatedEquipmentExercisePage(
-            "dumbbell",
-            props.dumbbellExerciseType,
+            props.equipmentType,
+            props.exerciseType,
             pageNum,
-            pageNum === props.pageNum + 1 ? props.startExerciseId : undefined,
           )
         }
       />
@@ -127,8 +120,7 @@ const DumbbellExercisesTable: React.FC<DumbbellExercisesTableProps> = (
               </Typography>
             </Stack>
             {group.map((exercise) => {
-              const editPath = pathForEquipmentExerciseEdit(
-                "dumbbell",
+              const editPath = pathForBarbellExerciseEdit(
                 exercise.exercise_type!,
                 exercise.exercise_id!,
               );
@@ -158,13 +150,6 @@ const DumbbellExercisesTable: React.FC<DumbbellExercisesTableProps> = (
                         }
                         weightUnit={exercise.weight_unit!}
                         reps={exercise.reps ?? undefined}
-                      />
-                      <DisplayDumbbell
-                        weight={
-                          exercise.actual_weight_value ??
-                          exercise.target_weight_value!
-                        }
-                        weightUnit={exercise.weight_unit!}
                       />
                     </Stack>
                     <Stack>
@@ -199,9 +184,9 @@ const DumbbellExercisesTable: React.FC<DumbbellExercisesTableProps> = (
           </Stack>
         );
       })}
-      <Typography>{props.dumbbellExercises.length} Exercises</Typography>
+      <Typography>{props.exercises.length} Exercises</Typography>
     </Stack>
   );
 };
 
-export default DumbbellExercisesTable;
+export default EquipmentExercisesTable;

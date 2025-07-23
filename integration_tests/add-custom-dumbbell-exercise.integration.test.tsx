@@ -1,7 +1,6 @@
 import DumbbellExercisePage, {
   DumbbellExercisePageProps,
-} from "@/app/exercise/[equipment_type]/[exercise_type]/_page_dumbbell";
-import { ExerciseType } from "@/common-types";
+} from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page_dumbbell";
 import { FIRST_PAGE_NUM, pathForEquipmentExercisePage } from "@/constants";
 import * as serverUtil from "@/serverUtil";
 import { TestIds } from "@/test-ids";
@@ -41,10 +40,11 @@ afterEach(async () => {
 describe("User Journey: Add Custom Dumbbell Exercises", () => {
   it("should allow a logged in user to add a custom curl dumbbell exercise", async () => {
     const pageProps: DumbbellExercisePageProps = {
-      dumbbellExerciseType: "dumbbell_bicep_curl" as ExerciseType,
-      path: pathForEquipmentExercisePage("dumbbell", "dumbbell_bicep_curl"),
       userId: USER_ID_LOGGED_IN,
-      pageNum: FIRST_PAGE_NUM,
+      equipmentType: "dumbbell",
+      exerciseType: "dumbbell_bicep_curl",
+      path: pathForEquipmentExercisePage("dumbbell", "dumbbell_bicep_curl"),
+      pageNumber: FIRST_PAGE_NUM,
     };
 
     // Initial render of the page.

@@ -1,5 +1,5 @@
-import BarbellExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/_page_barbell";
-import DumbbellExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/_page_dumbbell";
+import BarbellExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page_barbell";
+import DumbbellExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page_dumbbell";
 import { EquipmentType, ExerciseType } from "@/common-types";
 import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs";
 import { FIRST_PAGE_NUM, pathForEquipmentExercisePage } from "@/constants";
@@ -13,6 +13,50 @@ import {
 } from "@/util";
 import { Typography } from "@mui/material";
 import React, { Suspense } from "react";
+
+interface EquipmentExercisePageSuspenseWrapperProps {
+  params: Promise<{ equipment_type: string; exercise_type: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export default async function EquipmentExercisePageSuspenseWrapper(
+  props: EquipmentExercisePageSuspenseWrapperProps,
+) {
+  const [params, searchParams] = await Promise.all([
+    props.params.then(narrowParams),
+    props.searchParams.then(parseSearchParams),
+  ]);
+
+  const { equipmentType, exerciseType } = params;
+  const { pageNum } = searchParams;
+
+  const exerciseData = EQUIPMENT_EXERCISES_DATA[equipmentType][exerciseType];
+
+  // This would be cleaner if next supported seeing the full slug in the url so
+  // we could do this as one of the Promise.alls, but it doesn't so we have to
+  // do this as a separate call.
+  const { userId } = await requireLoggedInUser(exerciseData.path);
+
+  // Dynamically get the right exercise page component based on the equipment.
+  const EquipmentExercisePage = getExercisePage(
+    userId,
+    equipmentType,
+    exerciseType,
+    exerciseData.path,
+    pageNum,
+  );
+
+  return (
+    <React.Fragment>
+      <Breadcrumbs {...exerciseData.breadcrumbs} />
+      <Suspense fallback={<div>Loading...</div>}>
+        {EquipmentExercisePage}
+      </Suspense>
+    </React.Fragment>
+  );
+}
+
+// Utility functions, etc.
 
 interface EquipmentExercisesData {
   [equipmentType: string]: ExercisesData;
@@ -56,83 +100,57 @@ const EQUIPMENT_EXERCISES_DATA = Object.entries(EXERCISES_BY_EQUIPMENT).reduce(
   {} as EquipmentExercisesData,
 );
 
-interface EquipmentExercisePageSuspenseWrapperProps {
-  params: Promise<{ equipment_type: string; exercise_type: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}
+// Function to narrow the equipment_type and exercise_type to make sure they are
+// valid, or return a 404 otherwise.
+const narrowParams = ({
+  equipment_type,
+  exercise_type,
+}: {
+  equipment_type: string;
+  exercise_type: string;
+}) => ({
+  equipmentType: narrowOrNotFound(equipment_type, narrowEquipmentType),
+  exerciseType: narrowOrNotFound(exercise_type, narrowExerciseType),
+});
 
-export default async function EquipmentExercisePageSuspenseWrapper(
-  props: EquipmentExercisePageSuspenseWrapperProps,
-) {
-  const [
-    {
-      equipment_type: unnarrowedEquipmentType,
-      exercise_type: unnarrowedExerciseType,
-    },
-    searchParams,
-  ] = await Promise.all([props.params, props.searchParams]);
+const parseSearchParams = (
+  searchParams: Awaited<
+    EquipmentExercisePageSuspenseWrapperProps["searchParams"]
+  >,
+) => ({
+  pageNum: Number(searchParams.page_num) || FIRST_PAGE_NUM,
+  startExerciseId: searchParams.start_exercise_id?.toString(),
+});
 
-  const equipmentType = narrowOrNotFound(
-    unnarrowedEquipmentType,
-    narrowEquipmentType,
-  );
-
-  // Ensure the exercise type is valid.
-  const exerciseType = narrowOrNotFound(
-    unnarrowedExerciseType,
-    narrowExerciseType,
-  );
-
-  const exerciseData = EQUIPMENT_EXERCISES_DATA[equipmentType][exerciseType];
-
-  const { userId } = await requireLoggedInUser(exerciseData.path);
-
-  // Parse new pagination params
-  const pageNumRaw = searchParams.page_num;
-  const startExerciseId = searchParams.start_exercise_id;
-  const pageNum = pageNumRaw ? Number(pageNumRaw) : FIRST_PAGE_NUM;
-  if (typeof startExerciseId !== "string" && !!startExerciseId) {
-    throw new Error("start_exercise_id must be a string");
-  }
-
-  let EquipmentExercisePage: React.JSX.Element;
+const getExercisePage = (
+  userId: string,
+  equipmentType: EquipmentType,
+  exerciseType: ExerciseType,
+  path: string,
+  pageNumber: number,
+) => {
   switch (equipmentType) {
     case "barbell":
-      EquipmentExercisePage = (
+      return (
         <BarbellExercisePage
-          barbellExerciseType={exerciseType}
-          path={exerciseData.path}
           userId={userId}
-          pageNum={pageNum}
-          startExerciseId={
-            typeof startExerciseId === "string" ? startExerciseId : undefined
-          }
+          equipmentType={equipmentType}
+          exerciseType={exerciseType}
+          path={path}
+          pageNumber={pageNumber}
         />
       );
-      break;
     case "dumbbell":
-      EquipmentExercisePage = (
+      return (
         <DumbbellExercisePage
-          dumbbellExerciseType={exerciseType}
-          path={exerciseData.path}
           userId={userId}
-          pageNum={pageNum}
-          startExerciseId={
-            typeof startExerciseId === "string" ? startExerciseId : undefined
-          }
+          equipmentType={equipmentType}
+          exerciseType={exerciseType}
+          path={path}
+          pageNumber={pageNumber}
         />
       );
-      break;
     default:
-      EquipmentExercisePage = <Typography>Not yet implemented</Typography>;
+      return <Typography>Not yet implemented</Typography>;
   }
-
-  return (
-    <React.Fragment>
-      <Breadcrumbs {...exerciseData.breadcrumbs} />
-      <Suspense fallback={<div>Loading...</div>}>
-        {EquipmentExercisePage}
-      </Suspense>
-    </React.Fragment>
-  );
-}
+};

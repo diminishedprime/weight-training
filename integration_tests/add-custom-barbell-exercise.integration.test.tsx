@@ -1,7 +1,6 @@
 import BarbellExercisePage, {
   BarbellExercisePageProps,
-} from "@/app/exercise/[equipment_type]/[exercise_type]/_page_barbell";
-import { ExerciseType } from "@/common-types";
+} from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page_barbell";
 import { FIRST_PAGE_NUM, pathForBarbellExercisePage } from "@/constants";
 import * as serverUtil from "@/serverUtil";
 import { TestIds } from "@/test-ids";
@@ -41,10 +40,11 @@ afterEach(async () => {
 describe("User Journey: Add Custom Barbell Exercises", () => {
   it("should allow a logged in user to add a custom deadlift barbell exercise", async () => {
     const pageProps: BarbellExercisePageProps = {
-      barbellExerciseType: "barbell_deadlift" as ExerciseType,
-      path: pathForBarbellExercisePage("barbell_deadlift"),
       userId: USER_ID_LOGGED_IN,
-      pageNum: FIRST_PAGE_NUM,
+      equipmentType: "barbell",
+      exerciseType: "barbell_deadlift",
+      path: pathForBarbellExercisePage("barbell_deadlift"),
+      pageNumber: FIRST_PAGE_NUM,
     };
 
     // Initial render of the page.

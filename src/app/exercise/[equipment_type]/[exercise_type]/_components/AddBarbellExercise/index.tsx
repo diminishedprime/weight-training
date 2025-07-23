@@ -5,6 +5,7 @@ import {
   deleteBarbellFormDraft,
   saveBarbellFormDraft,
 } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/AddBarbellExercise/actions";
+import { BarbellFormDraft } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/common";
 import {
   CompletionStatus,
   ExerciseType,
@@ -22,19 +23,6 @@ import { TestIds } from "@/test-ids";
 import { Button, Stack } from "@mui/material";
 import React from "react";
 import { useDebouncedCallback } from "use-debounce";
-
-export interface BarbellFormDraft {
-  actualWeight: number;
-  barWeight: number;
-  weightUnit: WeightUnit;
-  roundingMode: RoundingMode;
-  reps: number;
-  completionStatus: CompletionStatus;
-  notes: string | undefined;
-  perceivedEffort: PerceivedEffort | undefined;
-  isWarmup: boolean;
-  isAmrap: boolean;
-}
 
 const useAddBarbellExerciseAPI = (props: AddBarbellExerciseProps) => {
   const { initialBarbellFormDraft: initialDraft, userId, path } = props;

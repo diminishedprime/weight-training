@@ -490,7 +490,6 @@ export type Database = {
           p_user_id: string;
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           p_page_num: number;
-          p_start_exercise_id?: string;
         };
         Returns: Database["public"]["CompositeTypes"]["get_exercises_by_type_result"];
       };
@@ -754,8 +753,6 @@ export type Database = {
         rows:
           | Database["public"]["CompositeTypes"]["get_exercises_by_type_row"][]
           | null;
-        day_start_exercise_id: string | null;
-        page_size: number | null;
         page_count: number | null;
       };
       get_exercises_by_type_row: {

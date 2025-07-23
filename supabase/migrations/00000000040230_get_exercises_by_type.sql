@@ -20,31 +20,25 @@ BEGIN
       personal_record boolean
     );
   END IF;
-END$$;
-
-DO $$
-BEGIN
   IF NOT EXISTS (
     SELECT 1 FROM pg_type WHERE typname = 'get_exercises_by_type_result'
   ) THEN
     CREATE TYPE public.get_exercises_by_type_result AS (
       rows public.get_exercises_by_type_row[],
-      day_start_exercise_id uuid,
-      page_size integer,
       page_count integer
     );
   END IF;
 END$$;
 
-CREATE OR REPLACE FUNCTION _impl.i_get_exercises_by_type (
+CREATE OR REPLACE FUNCTION public.get_exercises_by_type (
   p_user_id uuid,
   p_exercise_type exercise_type_enum,
-  p_page_num integer,
-  p_page_size integer,
-  p_max_results integer
-) RETURNS public.get_exercises_by_type_row[] AS $$
+  p_page_num integer
+) RETURNS public.get_exercises_by_type_result AS $$
 DECLARE
-    result public.get_exercises_by_type_row[];
+    rows public.get_exercises_by_type_row[];
+    page_size integer := 30;
+    total_rows integer;
 BEGIN
     SELECT ARRAY(
         SELECT (
@@ -75,81 +69,16 @@ BEGIN
         WHERE e.user_id = p_user_id
             AND e.exercise_type = p_exercise_type
             AND e.performed_at IS NOT NULL
+            AND e.actual_weight_value IS NOT NULL
         ORDER BY e.performed_at DESC, e.id DESC
-        LIMIT p_max_results OFFSET ((p_page_num - 1) * p_page_size)
-    ) INTO result;
-    RETURN result;
-END;
-$$ LANGUAGE plpgsql STABLE;
+        LIMIT page_size OFFSET ((p_page_num - 1) * page_size)
+    ) INTO rows;
 
-CREATE OR REPLACE FUNCTION public.get_exercises_by_type (
-  p_user_id uuid,
-  p_exercise_type exercise_type_enum,
-  p_page_num integer,
-  p_start_exercise_id uuid DEFAULT NULL
-) RETURNS public.get_exercises_by_type_result AS $$
-DECLARE
-    after_rows public.get_exercises_by_type_row[];
-    before_rows public.get_exercises_by_type_row[] := ARRAY[]::public.get_exercises_by_type_row[];
-    next_page_start_exercise_id uuid := NULL;
-    all_rows public.get_exercises_by_type_row[] := ARRAY[]::public.get_exercises_by_type_row[];
-    page_size integer := 30;
-    max_results integer := page_size + 1;
-    start_idx integer;
-    total_rows integer;
-    page_count integer;
-BEGIN
-    after_rows := _impl.i_get_exercises_by_type(
-        p_user_id => p_user_id::uuid,
-        p_exercise_type => p_exercise_type::exercise_type_enum,
-        p_page_num => p_page_num::integer,
-        p_page_size => page_size,
-        p_max_results => max_results
-    );
-
-    IF array_length(after_rows, 1) = max_results THEN
-        IF date_trunc('day', after_rows[page_size].performed_at) = date_trunc('day', after_rows[max_results].performed_at) THEN
-            next_page_start_exercise_id := after_rows[max_results].exercise_id;
-        END IF;
-    END IF;
-
-    IF p_start_exercise_id IS NOT NULL THEN
-        before_rows := _impl.i_get_exercises_by_type(
-            p_user_id => p_user_id::uuid,
-            p_exercise_type => p_exercise_type::exercise_type_enum,
-            p_page_num => (p_page_num - 1)::integer,
-            p_page_size => page_size,
-            -- use page size to avoid an overlap with the last of "before_rows"
-            -- with the 1st of "after_rows"
-            p_max_results => page_size 
-        );
-        IF before_rows IS NOT NULL AND array_length(before_rows, 1) > 0 THEN
-            start_idx := array_position(ARRAY(SELECT r.exercise_id FROM unnest(before_rows) AS r), p_start_exercise_id);
-            IF start_idx IS NOT NULL THEN
-                before_rows := before_rows[start_idx:array_length(before_rows, 1)];
-            ELSE
-                before_rows := ARRAY[]::public.get_exercises_by_type_row[];
-            END IF;
-        END IF;
-    END IF;
-
-    all_rows := before_rows || after_rows;
-
-    SELECT COUNT(*) INTO total_rows FROM public.exercises e WHERE e.user_id = p_user_id AND e.exercise_type = p_exercise_type;
-    IF total_rows = 0 THEN
-        page_count := 0;
-    ELSE
-        page_count := CEIL(total_rows::numeric / page_size)::integer;
-        IF page_count < 1 THEN
-            page_count := 1;
-        END IF;
-    END IF;
+    SELECT CEIL(COUNT(*)::numeric / page_size)::integer INTO total_rows FROM public.exercises e WHERE e.user_id = p_user_id AND e.exercise_type = p_exercise_type;
 
     RETURN (
-        all_rows,
-        next_page_start_exercise_id,
-        page_size,
-        page_count
+        rows,
+        total_rows
     );
 END;
 $$ LANGUAGE plpgsql STABLE;

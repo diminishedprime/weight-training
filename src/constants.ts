@@ -54,9 +54,8 @@ export const pathForPaginatedEquipmentExercisePage = (
   equipmentType: EquipmentType,
   exerciseType: ExerciseType,
   pageNum: number,
-  startExerciseId?: string,
 ) => {
-  return `${pathForEquipmentExercisePage(equipmentType, exerciseType)}?page_num=${pageNum}${startExerciseId ? `&start_exercise_id=${startExerciseId}` : ""}`;
+  return `${pathForEquipmentExercisePage(equipmentType, exerciseType)}?page_num=${pageNum}}`;
 };
 
 export const pathForEquipmentExerciseEdit = (
