@@ -1,0 +1,43 @@
+#!/usr/bin/env zsh
+
+# Load nvm so Node and pnpm are available in this shell
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Format code
+pnpm run format
+
+# Check for changes after formatting
+if ! git diff --exit-code; then
+    echo "Formatting made changes. Please commit formatted code."
+    exit 1
+fi
+
+# Reset and migrate database
+pnpm run db:reset
+if [ $? -ne 0 ]; then
+    echo "Database reset/migration failed. Please fix errors before committing."
+    exit 1
+fi
+
+# Run UI Tests
+pnpm run test
+if [ $? -ne 0 ]; then
+    echo "Tests failed. Please fix errors before committing."
+    exit 1
+fi
+
+# Run database tests. They have to go after the UI because they change the seed
+# data.
+pnpm run db:test
+if [ $? -ne 0 ]; then
+    echo "Database tests failed. Please fix errors before committing."
+    exit 1
+fi
+
+# Build project
+pnpm run build
+if [ $? -ne 0 ]; then
+    echo "Build failed. Please fix errors before committing."
+    exit 1
+fi

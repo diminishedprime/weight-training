@@ -1,0 +1,36 @@
+import Banner from "@/components/banner";
+import { CssBaseline, Stack } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Weight Training",
+  description: "App to help you track your weight training.",
+};
+
+export default async function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body>
+        <AppRouterCacheProvider>
+          <CssBaseline />
+          <Banner />
+          <Stack
+            spacing={1}
+            sx={{
+              maxWidth: "800px",
+              mx: "auto",
+              px: 2,
+            }}
+          >
+            {children}
+          </Stack>
+        </AppRouterCacheProvider>
+      </body>
+    </html>
+  );
+}
