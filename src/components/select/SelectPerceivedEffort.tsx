@@ -40,6 +40,7 @@ const useSelectPerceivedEffortAPI = (props: SelectPerceivedEffortProps) => {
   };
 };
 
+// TODO: this should let you unselect an effort if you want.
 const SelectPerceivedEffort = (props: SelectPerceivedEffortProps) => {
   const api = useSelectPerceivedEffortAPI(props);
   return (

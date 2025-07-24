@@ -2,14 +2,15 @@
 - [ ] Users can add in a custom exercise.
   - [x] Users can add in a custom barbell exercise. [User Journey: Add Custom
         Exercise]
-  - [ ] Users can add in a custom dumbbell exercise.
+  - [x] Users can add in a custom dumbbell exercise.
   - [ ] Users can add in a custom bodyweight exercise.
-  - [ ] Users can add in a custom machine exercise.
+  - [x] Users can add in a custom machine exercise.
   - [ ] Users can add in a custom kettlebell exercise.
 - [ ] Users can edit an existing exercise.
-  - [ ] Users can edit an existing barbell exercise.
+  - [x] Users can edit an existing barbell exercise.
+  - [x] Users can edit an existing dumbbell exercise.
   - [ ] Users can edit a custom bodyweight exercise.
-  - [ ] Users can edit a custom machine exercise.
+  - [x] Users can edit a custom machine exercise.
   - [ ] Users can edit a custom kettlebell exercise.
 - [ ] Exercise Blocks
   - [ ] Users can add in a wendler superblock for leg day.
@@ -73,5 +74,18 @@
 - [ ] For existing exercises, there's a database RPC that can run in seed.sql
       that will try its best to "wendlize" lifts that map to what a wendler
       exercise looks like.
+- [ ] Create a \_system database function that does its best to try and "block"
+      exercises together based on some sort of threshold from the seeded data.
+- [ ] Get icons or gifs or images or something for all the exercises.
+- [ ] Support custom dark & light mode themes for the app.
+- [ ] there is a customed home page for the user that shows recent lifts or
+      superblocks or maybe PRs so they can easily see their progress. Maybe also
+      have in some huerstic based buttons that show up based on what they've
+      been doing.
+- [ ] Non Obvious controls have an info icon button that can be clicked to show
+      additional context. For example, the rep selector wolud explain what AMRAP
+      is.
+- [ ] There's a generic weight selector that has +- 5 and +-25 buttons so it's
+      really fast to choose weights.
 
 [User Journey: Add Custom Exercise]: ../integration_tests/add-custom-exercise.integration.test.tsx

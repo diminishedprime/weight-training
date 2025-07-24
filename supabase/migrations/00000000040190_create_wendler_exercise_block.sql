@@ -57,6 +57,10 @@ BEGIN
         p_user_id => p_user_id::uuid,
         p_exercise_type => p_exercise_type::exercise_type_enum,
         p_equipment_type => 'barbell'::equipment_type_enum,
+        -- TODO: this should use _sytem.normalize_bar_weight_pounds 
+        --
+        -- TODO: And really it shouldn't be normalizing at all since we're
+        -- fancy.
         p_target_weight_value => public.normalize_bar_weight_pounds(0)::numeric,
         p_actual_weight_value => NULL,
         p_reps => 8::integer,

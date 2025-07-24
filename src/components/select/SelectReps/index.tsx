@@ -15,7 +15,7 @@ export interface SelectRepsProps {
   repChoices?: number[];
   wendlerReps?: boolean;
   isAmrap?: boolean;
-  setIsAmrap?: (isAmrap: boolean) => void;
+  setIsAmrap?: React.Dispatch<React.SetStateAction<boolean>>;
   hideSettings?: boolean;
 }
 
@@ -83,8 +83,8 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
           color="secondary"
           value={props.isAmrap}
           exclusive
-          onChange={(_, newValue) => {
-            props.setIsAmrap?.(newValue);
+          onChange={() => {
+            props.setIsAmrap?.((old) => !old);
           }}
           size="small"
           aria-label="toggle AMRAP"

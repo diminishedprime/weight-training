@@ -1,44 +1,13 @@
 import { EditEquipmentExerciseProps } from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_components/EditEquipmentExercise";
 import { saveExerciseEdits } from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_components/EditEquipmentExercise/actions";
 import { GetExerciseResult, RoundingMode } from "@/common-types";
-import EditBarbell from "@/components/edit/EditBarbell";
-import EditDumbbell from "@/components/edit/EditDumbbell";
-import { throwIfNull } from "@/util";
-import { Typography } from "@mui/material";
 import { useCallback, useEffect, useMemo, useState } from "react";
-
-const useEditBarbellExerciseAPI = (_props: EditEquipmentExerciseProps) => {
-  // TODO Eventually we want barWeight to be from the db, but for now it's not
-  // saved anywhere.
-  const [barWeight] = useState(45);
-
-  const additionalFields = useMemo(
-    () => ({
-      barWeight,
-    }),
-    [barWeight],
-  );
-
-  return {
-    additionalFields,
-    barWeight,
-  };
-};
 
 export const useEditEquipmentExerciseAPI = (
   props: EditEquipmentExerciseProps,
 ) => {
-  const barbellAPI = useEditBarbellExerciseAPI(props);
-
-  const {
-    userId,
-    currentPath,
-    equipmentType,
-    exerciseType,
-    exercise,
-    backTo,
-    preferences: { available_plates_lbs, available_dumbbells_lbs },
-  } = props;
+  const { userId, currentPath, equipmentType, exerciseType, exercise, backTo } =
+    props;
 
   // TODO: I need to do mork thinking on how this should be handled.
   // Right now, target weight and actual weight are both used for slightly
@@ -66,6 +35,8 @@ export const useEditEquipmentExerciseAPI = (
   const [isWarmup, setIsWarmup] = useState<boolean>(exercise.warmup);
   const [isAMRAP, setIsAMRAP] = useState<boolean>(exercise.is_amrap);
   const [performedAt, setPerformedAt] = useState(exercise.performed_at);
+  // TODO: eventually this should also come from the db.
+  const [barWeight] = useState(45);
 
   // Sync the current state when the initial values change, this is needed
   // because we use revalidatePath and otherwise the state values would never
@@ -159,54 +130,6 @@ export const useEditEquipmentExerciseAPI = (
     [userId, editedExercise, backTo, currentPath],
   );
 
-  // TODO - this part is extremely duplicative of useAddEquipmentExerciseAPI, I
-  // think it'd be worthwhile to just create this whole thing as a managed
-  // hook/component.
-  const EquipmentWeightEditor = useMemo(() => {
-    switch (equipmentType) {
-      case "barbell":
-        throwIfNull(
-          available_plates_lbs,
-          () => new Error("Invalid Invariant: available_plates_lbs is null"),
-        );
-        return (
-          <EditBarbell
-            editing
-            // TODO next steps here.
-            targetWeightValue={weightValue}
-            onTargetWeightChange={setWeightValue}
-            roundingMode={roundingMode}
-            weightUnit={weightUnit}
-            availablePlates={available_plates_lbs}
-            barWeight={barbellAPI.barWeight}
-          />
-        );
-      case "dumbbell":
-        throwIfNull(
-          available_dumbbells_lbs,
-          () => new Error("Invalid Invariant: available_dumbbells_lbs is null"),
-        );
-        return (
-          <EditDumbbell
-            weightValue={weightValue}
-            onChange={setWeightValue}
-            weightUnit={weightUnit}
-            availableDumbbells={available_dumbbells_lbs}
-          />
-        );
-    }
-    return <Typography>TODO!</Typography>;
-  }, [
-    equipmentType,
-    weightValue,
-    barbellAPI,
-    setWeightValue,
-    roundingMode,
-    weightUnit,
-    available_plates_lbs,
-    available_dumbbells_lbs,
-  ]);
-
   return {
     resetCommonFields: resetFields,
     targetWeight: weightValue,
@@ -225,9 +148,9 @@ export const useEditEquipmentExerciseAPI = (
     setIsWarmup,
     isAmrap: isAMRAP,
     setIsAMRAP: setIsAMRAP,
-    EquipmentWeightEditor,
     boundSaveExerciseAction,
     saveDisabled,
     resetDisabled,
+    barWeight,
   };
 };
