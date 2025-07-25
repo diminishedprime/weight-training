@@ -53,6 +53,14 @@ const EquipmentExercisePage: React.FC<EquipmentExercisePageProps> = async (
         props.path,
       );
       break;
+    case "kettlebell":
+      formDraftPromise = getFormDraft(props, narrowDumbbellFormDraft);
+      requirePreferencesPromise = requirePreferences(
+        props.userId,
+        ["available_kettlebells_lbs"],
+        props.path,
+      );
+      break;
     default:
       throw new Error("unsupported equipment type");
   }

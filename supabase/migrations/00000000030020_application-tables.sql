@@ -95,6 +95,7 @@ CREATE TABLE IF NOT EXISTS public.user_preferences (
   default_rest_time integer DEFAULT 120,
   available_plates_lbs numeric[] DEFAULT ARRAY[]::numeric[],
   available_dumbbells_lbs numeric[] DEFAULT ARRAY[]::numeric[],
+  available_kettlebells_lbs numeric[] DEFAULT ARRAY[]::numeric[],
   created_at timestamp with time zone DEFAULT timezone ('utc', now()),
   updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
   CONSTRAINT user_preferences_pkey PRIMARY KEY (id),

@@ -3,6 +3,7 @@
 import { updateUserPreferences } from "@/app/preferences/_components/UpdateUserPreferences/actions";
 import { UserPreferences, WeightUnit } from "@/common-types";
 import SelectAvailableDumbbells from "@/components/select/SelectAvailableDumbbells";
+import SelectAvailableKettlebells from "@/components/select/SelectAvailableKettlebells";
 import SelectPlates from "@/components/select/SelectPlates";
 import SelectWeightUnit from "@/components/select/SelectWeightUnit";
 import { DEFAULT_VALUES } from "@/constants";
@@ -28,7 +29,12 @@ const useUserPreferencesModified = (
   localDefaultRestTime: string,
   localAvailablePlatesLbs: number[],
   localAvailableDumbbellsLbs: number[],
+  // TODO: update the rest of this to just use preferences for the initial
+  // values vs this local vs non local divide.
+  preferences: UserPreferences,
+  selectedKettlebells: number[],
 ) => {
+  const { available_kettlebells_lbs } = preferences;
   const unitModified = React.useMemo(() => {
     return localPreferredWeightUnit !== preferred_weight_unit;
   }, [localPreferredWeightUnit, preferred_weight_unit]);
@@ -52,20 +58,39 @@ const useUserPreferencesModified = (
     return false;
   }, [localAvailableDumbbellsLbs, available_dumbbells_lbs]);
 
+  const kettlebellsLBSModified = React.useMemo(() => {
+    if (!available_kettlebells_lbs) return true;
+    const a = (available_kettlebells_lbs || []).slice().sort((a, b) => a - b);
+    const b = (selectedKettlebells || []).slice().sort((a, b) => a - b);
+    if (a.length !== b.length) return true;
+    for (let i = 0; i < a.length; i++) {
+      if (a[i] !== b[i]) return true;
+    }
+    return false;
+  }, [selectedKettlebells, available_kettlebells_lbs]);
+
   const preferencesModified = React.useMemo(() => {
     return (
       unitModified ||
       restTimeModified ||
       platesLBSModified ||
-      dumbbellsLBSModified
+      dumbbellsLBSModified ||
+      kettlebellsLBSModified
     );
-  }, [unitModified, restTimeModified, platesLBSModified, dumbbellsLBSModified]);
+  }, [
+    unitModified,
+    restTimeModified,
+    platesLBSModified,
+    dumbbellsLBSModified,
+    kettlebellsLBSModified,
+  ]);
 
   return {
     unitModified,
     restTimeModified,
     platesLBSModified,
     dumbbellsLBSModified,
+    kettlebellsLBSModified,
     preferencesModified,
   };
 };
@@ -75,6 +100,7 @@ const useRequiredPreferences = (
   localDefaultRestTime: string,
   localAvailablePlatesLbs: number[],
   localAvailableDumbbellsLbs: number[],
+  availableKettlebellsLbs: number[],
 ) => {
   const params = useSearchParams();
   const backTo = params.get("backTo");
@@ -100,6 +126,8 @@ const useRequiredPreferences = (
           return (
             localAvailableDumbbellsLbs && localAvailableDumbbellsLbs.length > 0
           );
+        case "available_kettlebells_lbs":
+          return availableKettlebellsLbs && availableKettlebellsLbs.length > 0;
         default:
           return true;
       }
@@ -110,6 +138,7 @@ const useRequiredPreferences = (
     localDefaultRestTime,
     localAvailablePlatesLbs,
     localAvailableDumbbellsLbs,
+    availableKettlebellsLbs,
   ]);
 
   const requiredPreferencesMessage = useMemo(() => {
@@ -120,11 +149,16 @@ const useRequiredPreferences = (
     return `Please set the following required preferences to continue: ${friendlyNames.join(", ")}`;
   }, [requiredPreferences]);
 
+  const kettlebellsLBSRequired = useMemo(() => {
+    return requiredPreferences?.includes("available_kettlebells_lbs") ?? false;
+  }, [requiredPreferences]);
+
   return {
     backTo,
     requiredPreferences,
     requiredPreferencesSet,
     requiredPreferencesMessage,
+    kettlebellsLBSRequired,
   };
 };
 
@@ -135,7 +169,9 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
       default_rest_time,
       available_plates_lbs,
       available_dumbbells_lbs,
+      available_kettlebells_lbs,
     },
+    preferences,
   } = props;
 
   const [localPreferredWeightUnit, setLocalPreferredWeightUnit] = useState(
@@ -154,6 +190,13 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     number[]
   >(available_dumbbells_lbs ?? DEFAULT_VALUES.AVAILABLE_DUMBBELLS_LBS);
 
+  const [selectedKettlebells, setSelectedKettlebells] = useState<number[]>(
+    available_kettlebells_lbs ?? [],
+  );
+  const [availableKettlebellsLbs] = useState<number[]>(
+    DEFAULT_VALUES.AVAILABLE_KETTLEBELLS_LBS,
+  );
+
   // Use the new modification-tracking hook
   const modifications = useUserPreferencesModified(
     preferred_weight_unit ?? "pounds",
@@ -164,6 +207,8 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     localDefaultRestTime,
     localAvailablePlatesLbs,
     localAvailableDumbbellsLbs,
+    preferences,
+    selectedKettlebells,
   );
 
   const {
@@ -171,11 +216,13 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     requiredPreferences,
     requiredPreferencesSet,
     requiredPreferencesMessage,
+    kettlebellsLBSRequired,
   } = useRequiredPreferences(
     localPreferredWeightUnit,
     localDefaultRestTime,
     localAvailablePlatesLbs,
     localAvailableDumbbellsLbs,
+    availableKettlebellsLbs,
   );
 
   const canSave = useMemo(() => {
@@ -226,6 +273,10 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     handleRestTimeChange,
     handleAvailablePlatesChange,
     handleAvailableDumbbellsChange,
+    availableKettlebellsLbs,
+    kettlebellsLBSRequired,
+    selectedKettlebells,
+    setSelectedKettlebells,
     ...modifications,
   };
 };
@@ -244,6 +295,7 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
         api.defaultRestTime,
         api.availablePlatesLbs,
         api.availableDumbbellsLbs,
+        api.selectedKettlebells,
         api.backTo,
       )}
       data-testid="update-user-preferences-form"
@@ -329,6 +381,16 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             <br />
             (In the future you will be able to set preferences per gym.)
           </Typography>
+        </Stack>
+        <Stack spacing={1}>
+          <SelectAvailableKettlebells
+            availableKettlebells={api.availableKettlebellsLbs}
+            selectedKettlebells={api.selectedKettlebells}
+            setSelectedKettlebells={api.setSelectedKettlebells}
+            weightUnit={api.preferredWeightUnit}
+            required={api.kettlebellsLBSRequired}
+            modified={api.kettlebellsLBSModified}
+          />
         </Stack>
         <Stack
           direction="row"

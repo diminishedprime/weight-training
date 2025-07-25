@@ -12,21 +12,35 @@ import {
   ExerciseType,
   PerceivedEffort,
   RoundingMode,
+  UserPreferences,
   WeightUnit,
 } from "@/common-types";
 import { TestIds } from "@/test-ids";
+import { throwIfNull } from "@/util";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 
 const defaultWeightForExercise = (
   equipmentType: EquipmentType,
   _exerciseType: ExerciseType,
+  preferences: UserPreferences,
 ): number => {
   switch (equipmentType) {
     case "barbell":
+      // TODO: in the future, this should return the bar weight from the
+      // preferences.
       return 45;
     case "machine":
       return 45;
+    case "kettlebell":
+      throwIfNull(
+        preferences.available_kettlebells_lbs,
+        () =>
+          new Error(
+            "available_kettlebells_lbs is required for kettlebell equipment type",
+          ),
+      );
+      return preferences.available_kettlebells_lbs[0];
     default:
       return 10;
   }
@@ -90,12 +104,23 @@ export const useAddEquipmentExerciseAPI = (
   const barbellAPI = useAddBarbellExerciseAPI(props);
   const dumbbellAPI = useAddDumbbellExerciseAPI(props);
 
-  const { userId, path, equipmentType, exerciseType, initialDraft } = props;
+  const {
+    userId,
+    path,
+    equipmentType,
+    exerciseType,
+    initialDraft,
+    preferences,
+  } = props;
 
   const equipmentSpecificAPI = useMemo(
     () => ({
       ...(equipmentType === "barbell" ? barbellAPI : {}),
       ...(equipmentType === "dumbbell" ? dumbbellAPI : {}),
+      ...(equipmentType !== "barbell" &&
+        equipmentType !== "dumbbell" && {
+          addExerciseTestId: TestIds.AddEquipmentExerciseButton,
+        }),
     }),
     [equipmentType, barbellAPI, dumbbellAPI],
   );
@@ -107,7 +132,11 @@ export const useAddEquipmentExerciseAPI = (
 
   const defaults: CommonFormDraft = useMemo(
     () => ({
-      actualWeightValue: defaultWeightForExercise(equipmentType, exerciseType),
+      actualWeightValue: defaultWeightForExercise(
+        equipmentType,
+        exerciseType,
+        preferences,
+      ),
       roundingMode: RoundingMode.NEAREST,
       weightUnit: "pounds" as WeightUnit,
       equipmentType,
@@ -119,7 +148,7 @@ export const useAddEquipmentExerciseAPI = (
       isWarmup: false,
       isAMRAP: false,
     }),
-    [equipmentType, exerciseType],
+    [equipmentType, exerciseType, preferences],
   );
 
   const [actualWeightValue, setActualWeight] = useState<number>(
@@ -149,6 +178,9 @@ export const useAddEquipmentExerciseAPI = (
     initialDraft?.isAMRAP ?? defaults.isAMRAP,
   );
 
+  // TODO: I should abstract this out since it's re-used in
+  // useEditEquipmentExerciseAPI.ts, but also I should probably just refactor
+  // this whole thing since most of it _is_ reusable.
   const repChoices = useMemo(() => {
     switch (equipmentType) {
       case "barbell":
@@ -157,6 +189,8 @@ export const useAddEquipmentExerciseAPI = (
         return [5, 8, 10, 12];
       case "machine":
         return [8, 10, 12, 15];
+      case "kettlebell":
+        return [5, 8, 10, 12];
       default:
         return [1, 3, 5, 8, 10];
     }
@@ -255,6 +289,27 @@ export const useAddEquipmentExerciseAPI = (
     return initialDraft === null;
   }, [initialDraft]);
 
+  const resetDisabled = useMemo(() => {
+    return (
+      actualWeightValue === defaults.actualWeightValue &&
+      reps === defaults.reps &&
+      completionStatus === defaults.completionStatus &&
+      notes === (defaults.notes ?? "") &&
+      perceivedEffort === defaults.perceivedEffort &&
+      isWarmup === defaults.isWarmup &&
+      isAMRAP === defaults.isAMRAP
+    );
+  }, [
+    actualWeightValue,
+    reps,
+    completionStatus,
+    notes,
+    perceivedEffort,
+    isWarmup,
+    isAMRAP,
+    defaults,
+  ]);
+
   // TODO: This is important to make sure that when you do onSubmit, it cancels
   // any in-progress work to sync the draft to the DB, otherwise you may end up
   // with a race condition between the debounced save and the form reset.
@@ -310,5 +365,6 @@ export const useAddEquipmentExerciseAPI = (
     addExerciseTestId: equipmentSpecificAPI.addExerciseTestId,
     barWeight: equipmentSpecificAPI.barWeight,
     repChoices,
+    resetDisabled,
   };
 };

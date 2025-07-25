@@ -21,6 +21,8 @@ export const USER_ID = {
   "preferences.integration.test.tsx": "00000000-0000-0000-0001-000000000003",
   "edit-dumbbell-exercise.integration.test.tsx":
     "00000000-0000-0000-0001-000000000004",
+  "add-custom-kettlebell-exercise.integration.test.tsx":
+    "00000000-0000-0000-0001-000000000005",
 };
 
 const SET_OF_IDS = new Set(Object.values(USER_ID));

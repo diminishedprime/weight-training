@@ -107,7 +107,7 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
           aria-label="Select Reps"
         >
           <ToggleButton
-            data-testid={TestIds.RepDownButton}
+            data-testid={TestIds.RepsDownButton}
             value="-"
             disabled={api.isDecrementDisabled}
             aria-label="decrement reps"
@@ -126,7 +126,7 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
             </ToggleButton>
           ))}
           <ToggleButton
-            data-testid={TestIds.SelectRepsAdd}
+            data-testid={TestIds.RepsUpButton}
             value="+"
             aria-label="increment reps"
             size="small"
