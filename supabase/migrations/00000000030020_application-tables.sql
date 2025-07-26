@@ -1,15 +1,9 @@
--- This file has all the application tables that are needed for the database.
-CREATE SEQUENCE IF NOT EXISTS public.exercises_insert_order_seq;
-
 CREATE TABLE IF NOT EXISTS public.exercises (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
   exercise_type exercise_type_enum NOT NULL,
   equipment_type equipment_type_enum NOT NULL DEFAULT 'barbell',
   performed_at timestamp with time zone NULL,
-  insert_time timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
-  update_time timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
-  insert_order bigint NOT NULL DEFAULT nextval('public.exercises_insert_order_seq'),
   -- I think for doing actual vs target weight, I may want to do the join
   -- on a separate wendler-specific exercises table or something like that since
   -- so many exercises don't need a separation between actual and target weight?

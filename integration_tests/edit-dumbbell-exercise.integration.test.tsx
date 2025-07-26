@@ -62,8 +62,8 @@ afterEach(async () => {
 });
 
 describe("User Journey: Edit Dumbbell Exercises", () => {
-  it("should allow a logged in user to add a custom curl dumbbell exercise", async () => {
-    const insertTime = new Date().toISOString();
+  it("should allow a logged in user to edit a custom curl dumbbell exercise", async () => {
+    const performedAtTime = new Date().toISOString();
     const equipmentType = "dumbbell" as EquipmentType;
     const exerciseType = "dumbbell_bicep_curl" as ExerciseType;
     const exerciseId = await serverUtil.supabaseRPC("create_exercise", {
@@ -74,7 +74,7 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
       p_target_weight_value: 30,
       p_actual_weight_value: 30,
       p_reps: 8,
-      p_performed_at: insertTime,
+      p_performed_at: performedAtTime,
     });
 
     const pageProps: EditEquipmentExercisePageProps = {
@@ -150,7 +150,8 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
           .eq("id", exerciseId)
           .limit(1)
           .single();
-        expect(data?.update_time).not.toBe(insertTime);
+        // TODO - stopped here.
+        expect(data?.reps).not.toBe(8);
       });
     });
 

@@ -168,8 +168,6 @@ export type Database = {
           equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id: string;
-          insert_order: number;
-          insert_time: string;
           is_amrap: boolean;
           is_warmup: boolean;
           notes: string | null;
@@ -179,7 +177,6 @@ export type Database = {
           performed_at: string | null;
           reps: number;
           target_weight_value: number;
-          update_time: string;
           user_id: string;
           weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
         };
@@ -189,8 +186,6 @@ export type Database = {
           equipment_type?: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
-          insert_order?: number;
-          insert_time?: string;
           is_amrap?: boolean;
           is_warmup?: boolean;
           notes?: string | null;
@@ -200,7 +195,6 @@ export type Database = {
           performed_at?: string | null;
           reps: number;
           target_weight_value: number;
-          update_time?: string;
           user_id: string;
           weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
         };
@@ -210,8 +204,6 @@ export type Database = {
           equipment_type?: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
-          insert_order?: number;
-          insert_time?: string;
           is_amrap?: boolean;
           is_warmup?: boolean;
           notes?: string | null;
@@ -221,7 +213,6 @@ export type Database = {
           performed_at?: string | null;
           reps?: number;
           target_weight_value?: number;
-          update_time?: string;
           user_id?: string;
           weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
         };
