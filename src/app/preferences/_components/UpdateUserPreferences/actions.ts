@@ -11,6 +11,7 @@ export async function updateUserPreferences(
   defaultRestTime: string,
   availablePlates: number[],
   availableDumbbells: number[],
+  availableKettlebells: number[],
   backTo: string | null,
   _: FormData,
 ) {
@@ -24,6 +25,7 @@ export async function updateUserPreferences(
     p_default_rest_time: defaultRestTimeNum,
     p_available_plates_lbs: availablePlates,
     p_available_dumbbells_lbs: availableDumbbells,
+    p_available_kettlebells_lbs: availableKettlebells,
   });
   revalidatePath("/preferences");
   if (backTo) {

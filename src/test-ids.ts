@@ -10,16 +10,19 @@ export const TestIds = {
   AddExerciseButton: "add-exercise-button",
   AddBarbellLiftButton: "add-barbell-exercise",
   AddDumbbellLiftButton: "add-dumbbell-exercise",
+  // TODO: update the two above this to use this one as well.
+  AddEquipmentExerciseButton: "add-equipment-exercise-button",
   AddExerciseCancelButton: "add-exercise-cancel-button",
   AddBarbellResetButton: "add-barbell-reset-button",
-  RepDownButton: "rep-down-button",
+  RepsUpButton: "rep-up-button",
+  RepsDownButton: "rep-down-button",
   FirstBarbellRow: "add-barbell-first-row",
   // ExercisesTable test IDs
   addWendlerLegDayButton: "add-wendler-leg-day-button",
   // PreferencesPage test IDs
   Preferences_SavePreferencesButton: "save-user-preferences-button",
   SelectRepsAMRAPToggle: "select-reps-amrap-toggle",
-  SelectRepsAdd: "select-reps-add-1",
+  KettlebellPlus: "kettlebell-plus",
   WarmupToggle: "warmup-toggle",
   NotesInput: "notes-input",
   // Add more test IDs here as needed

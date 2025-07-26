@@ -6,6 +6,7 @@ import {
 } from "@/common-types";
 import EditBarbell from "@/components/edit/EditBarbell";
 import EditDumbbell from "@/components/edit/EditDumbbell";
+import EditKettlebell from "@/components/edit/EditKettlebell";
 import EditMachineStack from "@/components/edit/EditMachineStack";
 import { throwIfNull } from "@/util";
 
@@ -66,6 +67,24 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
           weightValue={props.weightValue}
           setWeightValue={props.setWeightValue}
           weightUnit={props.weightUnit}
+        />
+      );
+    case "kettlebell":
+      throwIfNull(
+        props.preferences.available_kettlebells_lbs,
+        () =>
+          new Error(
+            "available_kettlebells_lbs is required for kettlebell equipment type",
+          ),
+      );
+      return (
+        <EditKettlebell
+          weightValue={props.weightValue}
+          setWeightValue={props.setWeightValue}
+          weightUnit={props.weightUnit}
+          roundingMode={props.roundingMode}
+          availableKettlebells={props.preferences.available_kettlebells_lbs}
+          size={undefined}
         />
       );
     default:

@@ -1,5 +1,5 @@
 import Banner from "@/components/banner";
-import { CssBaseline, Stack } from "@mui/material";
+import { CssBaseline, Divider, Stack, Typography } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import type { Metadata } from "next";
 
@@ -18,16 +18,41 @@ export default async function RootLayout({
       <body>
         <AppRouterCacheProvider>
           <CssBaseline />
-          <Banner />
           <Stack
             spacing={1}
             sx={{
               maxWidth: "800px",
               mx: "auto",
-              px: 2,
+              minHeight: "100vh",
+              display: "flex",
+              flexDirection: "column",
             }}
           >
-            {children}
+            <Banner />
+            <Stack
+              spacing={1}
+              flexGrow={1}
+              sx={{
+                px: 2,
+                mb: 2,
+              }}
+            >
+              {children}
+            </Stack>
+            <Stack
+              component="footer"
+              spacing={1}
+              alignItems="center"
+              sx={{ p: 1 }}
+            >
+              <Divider flexItem variant="inset" />
+              <Typography>
+                <Typography component="span" color="primary">
+                  weight-training.app
+                </Typography>
+                , it&apos;s dot app
+              </Typography>
+            </Stack>
           </Stack>
         </AppRouterCacheProvider>
       </body>

@@ -322,6 +322,7 @@ export type Database = {
       user_preferences: {
         Row: {
           available_dumbbells_lbs: number[] | null;
+          available_kettlebells_lbs: number[] | null;
           available_plates_lbs: number[] | null;
           created_at: string | null;
           default_rest_time: number | null;
@@ -334,6 +335,7 @@ export type Database = {
         };
         Insert: {
           available_dumbbells_lbs?: number[] | null;
+          available_kettlebells_lbs?: number[] | null;
           available_plates_lbs?: number[] | null;
           created_at?: string | null;
           default_rest_time?: number | null;
@@ -346,6 +348,7 @@ export type Database = {
         };
         Update: {
           available_dumbbells_lbs?: number[] | null;
+          available_kettlebells_lbs?: number[] | null;
           available_plates_lbs?: number[] | null;
           created_at?: string | null;
           default_rest_time?: number | null;
@@ -600,6 +603,7 @@ export type Database = {
           p_default_rest_time: number;
           p_available_plates_lbs: number[];
           p_available_dumbbells_lbs: number[];
+          p_available_kettlebells_lbs: number[];
         };
         Returns: undefined;
       };
@@ -812,6 +816,7 @@ export type Database = {
         default_rest_time: number | null;
         available_plates_lbs: number[] | null;
         available_dumbbells_lbs: number[] | null;
+        available_kettlebells_lbs: number[] | null;
         user_id: string | null;
         created_at: string | null;
         updated_at: string | null;

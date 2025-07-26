@@ -50,7 +50,6 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
     <Stack
       direction={props.equipmentType === "machine" ? "row" : "column"}
       spacing={1}
-      alignItems="center"
     >
       <EquipmentWeightEditor
         equipmentType={props.equipmentType}
@@ -61,7 +60,7 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
         barWeight={api.barWeight}
         preferences={props.preferences}
       />
-      <Stack spacing={1} alignItems="center">
+      <Stack spacing={1} alignItems="space-between">
         <Stack spacing={1} alignItems="center">
           <SelectReps
             repChoices={api.repChoices}
@@ -115,6 +114,7 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
               variant="outlined"
               color="warning"
               onClick={api.resetCommonFields}
+              disabled={api.resetDisabled}
             >
               Reset
             </Button>

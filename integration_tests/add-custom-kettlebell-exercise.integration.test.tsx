@@ -1,7 +1,7 @@
 import EquipmentExercisePage, {
   EquipmentExercisePageProps,
 } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page";
-import { FIRST_PAGE_NUM, pathForBarbellExercisePage } from "@/constants";
+import { FIRST_PAGE_NUM, pathForEquipmentExercisePage } from "@/constants";
 import * as serverUtil from "@/serverUtil";
 import { TestIds } from "@/test-ids";
 import { USER_ID } from "@/test/constants";
@@ -27,58 +27,54 @@ beforeEach(async () => {
   vi.restoreAllMocks();
   vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
     requireLoggedInUser(
-      USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+      USER_ID["add-custom-kettlebell-exercise.integration.test.tsx"],
     ),
   );
   vi.spyOn(serverUtil, "getSession").mockImplementation(
-    getSession(USER_ID["add-custom-barbell-exercise.integration.test.tsx"]),
+    getSession(USER_ID["add-custom-kettlebell-exercise.integration.test.tsx"]),
   );
   await deleteRelevantRowsForUser(
-    USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+    USER_ID["add-custom-kettlebell-exercise.integration.test.tsx"],
   );
 });
 
 afterEach(async () => {
   await deleteRelevantRowsForUser(
-    USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+    USER_ID["add-custom-kettlebell-exercise.integration.test.tsx"],
   );
 });
 
-describe("User Journey: Add Custom Barbell Exercises", () => {
-  it("should allow a logged in user to add a custom deadlift barbell exercise", async () => {
+describe("User Journey: Add Custom Kettlebell Exercises", () => {
+  it("should allow a logged in user to add a custom kettlebell swing exercise", async () => {
     // Initial render of the page.
     let page = await EquipmentExercisePage(pageProps);
     await act(async () => render(page));
 
     // Find and click the "Add Exercise" button. This will add a db form draft.
     await act(async () => {
-      // Assert that there are no barbell deadlifts for this user.
-      const { data: initialDeadlifts } = await supabase
+      // Assert that there are no kettlebell swings for this user.
+      const { data } = await supabase
         .from("exercises")
         .select("*")
         .eq(
           "user_id",
-          USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+          USER_ID["add-custom-kettlebell-exercise.integration.test.tsx"],
         )
-        .eq("exercise_type", "barbell_deadlift");
-      expect(initialDeadlifts?.length).toBe(0);
+        .eq("exercise_type", "kettlebell_front_squat");
+      expect(data?.length).toBe(0);
       const addExerciseButton = await waitFor(() =>
         screen.getByTestId(TestIds.AddExerciseButton),
       );
       addExerciseButton.click();
 
-      // Wait for the form draft to exist in the DB before re-rendering. This is
-      // necessary because normally this would be handled by the UI since it would
-      // do a revalidate which would cause a refresh after the server action is
-      // done, but we can't "await" for that to happen since it's async and out of
-      // our control.
+      // Wait for the form draft to exist in the DB before re-rendering.
       await waitFor(async () => {
         const { data: drafts } = await supabase
           .from("form_drafts")
           .select("*")
           .eq(
             "user_id",
-            USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+            USER_ID["add-custom-kettlebell-exercise.integration.test.tsx"],
           );
         expect(drafts?.length).toBeGreaterThan(0);
       });
@@ -87,33 +83,31 @@ describe("User Journey: Add Custom Barbell Exercises", () => {
     });
 
     await act(async () => {
-      const addBarbellLiftButton = await waitFor(() =>
-        screen.getByTestId(TestIds.AddBarbellLiftButton),
+      const addExerciseButton = await waitFor(() =>
+        screen.getByTestId(TestIds.AddEquipmentExerciseButton),
       );
-      addBarbellLiftButton.click();
+      addExerciseButton.click();
 
-      // Wait for the new lift to exist in the DB before re-rendering. This is
-      // necessary because normally this would be handled by the UI since it would
-      // do a revalidate which would cause a refresh after the server action is
-      // done, but we can't "await" for that to happen since it's async and out of
-      // our control.
+      // Wait for the new lift to exist in the DB before re-rendering.
       await waitFor(async () => {
-        const { data: lifts } = await supabase
+        const { data: actualExercises } = await supabase
           .from("exercises")
           .select("*")
           .eq(
             "user_id",
-            USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+            USER_ID["add-custom-kettlebell-exercise.integration.test.tsx"],
           )
-          .eq("exercise_type", "barbell_deadlift");
-        expect(lifts?.length).toBe(1);
-        expect(lifts![0].completion_status).toBe("completed");
-        expect(lifts![0].reps).toBe(5);
-        expect(lifts![0].actual_weight_value).toBe(45);
+          .eq("exercise_type", "kettlebell_front_squat");
+        expect(actualExercises?.length).toBe(1);
+        const actualExercise = actualExercises![0];
+        const {
+          actual_weight_value: actualActualWeightValue,
+          completion_status: actualCompletionStatus,
+        } = actualExercise;
+        expect(actualActualWeightValue).toBe(18);
+        expect(actualCompletionStatus).toBe("completed");
       });
     });
-    // TODO: I'd like to assert something about the visual state of the page,
-    // but I can't get _anything_ to work, try this again sometime.
   });
 });
 
@@ -125,15 +119,15 @@ describe("User Journey: Can use components to edit from the default values", () 
 
     // Find and click the "Add Exercise" button. This will add a db form draft.
     await act(async () => {
-      const { data: initialDeadlifts } = await supabase
+      const { data } = await supabase
         .from("exercises")
         .select("*")
         .eq(
           "user_id",
-          USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+          USER_ID["add-custom-kettlebell-exercise.integration.test.tsx"],
         )
-        .eq("exercise_type", "barbell_deadlift");
-      expect(initialDeadlifts?.length).toBe(0);
+        .eq("exercise_type", "kettlebell_front_squat");
+      expect(data?.length).toBe(0);
       const addExerciseButton = await waitFor(() =>
         screen.getByTestId(TestIds.AddExerciseButton),
       );
@@ -146,7 +140,7 @@ describe("User Journey: Can use components to edit from the default values", () 
           .select("*")
           .eq(
             "user_id",
-            USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+            USER_ID["add-custom-kettlebell-exercise.integration.test.tsx"],
           );
         expect(drafts?.length).toBeGreaterThan(0);
       });
@@ -159,13 +153,9 @@ describe("User Journey: Can use components to edit from the default values", () 
       (
         await Promise.all([
           waitFor(() => screen.getByTestId(TestIds.SelectRepsAMRAPToggle)),
-          waitFor(() => screen.getByTestId(TestIds.RepsUpButton)),
-          waitFor(() => screen.getByTestId(TestIds.ActivePlate(45))),
-          waitFor(() => screen.getByTestId(TestIds.ActivePlate(25))),
-          waitFor(() => screen.getByTestId(TestIds.ActivePlate(10))),
-          waitFor(() => screen.getByTestId(TestIds.ActivePlate(5))),
-          waitFor(() => screen.getByTestId(TestIds.ActivePlate(2.5))),
-          waitFor(() => screen.getByTestId(TestIds.PerceivedEffort("hard"))),
+          waitFor(() => screen.getByTestId(TestIds.RepsDownButton)),
+          waitFor(() => screen.getByTestId(TestIds.KettlebellPlus)),
+          waitFor(() => screen.getByTestId(TestIds.PerceivedEffort("easy"))),
           waitFor(() => screen.getByTestId(TestIds.WarmupToggle)),
         ])
       ).map((e) => e.click());
@@ -174,10 +164,10 @@ describe("User Journey: Can use components to edit from the default values", () 
     });
 
     await act(async () => {
-      const addBarbellLiftButton = await waitFor(() =>
-        screen.getByTestId(TestIds.AddBarbellLiftButton),
+      const addExerciseButton = await waitFor(() =>
+        screen.getByTestId(TestIds.AddEquipmentExerciseButton),
       );
-      addBarbellLiftButton.click();
+      addExerciseButton.click();
 
       // Wait for the new lift to exist in the DB before re-rendering.
       await waitFor(async () => {
@@ -186,9 +176,9 @@ describe("User Journey: Can use components to edit from the default values", () 
           .select("*")
           .eq(
             "user_id",
-            USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+            USER_ID["add-custom-kettlebell-exercise.integration.test.tsx"],
           )
-          .eq("exercise_type", "barbell_deadlift");
+          .eq("exercise_type", "kettlebell_front_squat");
         expect(actualExercises?.length).toBe(1);
         const actualExercise = actualExercises![0];
         const {
@@ -200,11 +190,11 @@ describe("User Journey: Can use components to edit from the default values", () 
           warmup: actualIsWarmup,
           notes: actualNotes,
         } = actualExercise;
-        expect(actualReps).toBe(6);
+        expect(actualReps).toBe(9);
         expect(actualIsAmrap).toBe(true);
-        expect(actualActualWeightValue).toBe(220);
-        expect(actualTargetWeightValue).toBe(220);
-        expect(actualPerceivedEffort).toBe("hard");
+        expect(actualActualWeightValue).toBe(26);
+        expect(actualTargetWeightValue).toBe(26);
+        expect(actualPerceivedEffort).toBe("easy");
         expect(actualIsWarmup).toBe(true);
         expect(actualNotes).toBe("Test note");
       });
@@ -214,9 +204,9 @@ describe("User Journey: Can use components to edit from the default values", () 
 
 // Page props do not differ for any of the integration tests.
 const pageProps: EquipmentExercisePageProps = {
-  userId: USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
-  equipmentType: "barbell",
-  exerciseType: "barbell_deadlift",
-  path: pathForBarbellExercisePage("barbell_deadlift"),
+  userId: USER_ID["add-custom-kettlebell-exercise.integration.test.tsx"],
+  equipmentType: "kettlebell",
+  exerciseType: "kettlebell_front_squat",
+  path: pathForEquipmentExercisePage("kettlebell", "kettlebell_front_squat"),
   pageNumber: FIRST_PAGE_NUM,
 };
