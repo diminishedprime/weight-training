@@ -2,6 +2,7 @@ import EditEquipmentExercise from "@/app/exercise/[equipment_type]/[exercise_typ
 import { EquipmentType, ExerciseType, GetExerciseResult } from "@/common-types";
 import { pathForEquipmentExerciseEdit } from "@/constants";
 import { requirePreferences, supabaseRPC } from "@/serverUtil";
+import { notFoundIfNull } from "@/util";
 import { Typography } from "@mui/material";
 import React from "react";
 
@@ -22,6 +23,10 @@ const EditEquipmentExercisePage: React.FC<
     equipmentSpecificPreferences(props),
     getExercise(props),
   ]);
+
+  // the RPC won't return null but instead an object with all nulls for the
+  // values, check for that here.
+  notFoundIfNull(exercise.exercise_id);
 
   const path = pathForEquipmentExerciseEdit(
     equipmentType,
@@ -61,7 +66,7 @@ const equipmentSpecificPreferences = (
         currentPath,
       );
     default:
-      throw new Error("unsupported equipment type");
+      return requirePreferences(userId, [], currentPath);
   }
 };
 

@@ -14,11 +14,7 @@ import {
   RoundingMode,
   WeightUnit,
 } from "@/common-types";
-import EditBarbell from "@/components/edit/EditBarbell";
-import EditDumbbell from "@/components/edit/EditDumbbell";
 import { TestIds } from "@/test-ids";
-import { throwIfNull } from "@/util";
-import { Typography } from "@mui/material";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 
@@ -28,6 +24,8 @@ const defaultWeightForExercise = (
 ): number => {
   switch (equipmentType) {
     case "barbell":
+      return 45;
+    case "machine":
       return 45;
     default:
       return 10;
@@ -92,14 +90,7 @@ export const useAddEquipmentExerciseAPI = (
   const barbellAPI = useAddBarbellExerciseAPI(props);
   const dumbbellAPI = useAddDumbbellExerciseAPI(props);
 
-  const {
-    userId,
-    path,
-    equipmentType,
-    exerciseType,
-    initialDraft,
-    preferences: { available_plates_lbs, available_dumbbells_lbs },
-  } = props;
+  const { userId, path, equipmentType, exerciseType, initialDraft } = props;
 
   const equipmentSpecificAPI = useMemo(
     () => ({
@@ -157,6 +148,19 @@ export const useAddEquipmentExerciseAPI = (
   const [isAMRAP, setIsAMRAP] = useState<boolean>(
     initialDraft?.isAMRAP ?? defaults.isAMRAP,
   );
+
+  const repChoices = useMemo(() => {
+    switch (equipmentType) {
+      case "barbell":
+        return [1, 3, 5, 8];
+      case "dumbbell":
+        return [5, 8, 10, 12];
+      case "machine":
+        return [8, 10, 12, 15];
+      default:
+        return [1, 3, 5, 8, 10];
+    }
+  }, [equipmentType]);
 
   // Sync the current state when the initial values change, this is needed
   // because we use revalidatePath and otherwise the state values would never
@@ -278,50 +282,6 @@ export const useAddEquipmentExerciseAPI = (
     );
   }, [userId, path, withAdditionalFields, withAdditionalDefaults]);
 
-  const EquipmentWeightEditor = useMemo(() => {
-    switch (equipmentType) {
-      case "barbell":
-        throwIfNull(
-          available_plates_lbs,
-          () => new Error("Invalid Invariant: available_plates_lbs is null"),
-        );
-        return (
-          <EditBarbell
-            editing
-            targetWeightValue={actualWeightValue}
-            onTargetWeightChange={setActualWeight}
-            roundingMode={roundingMode}
-            weightUnit={weightUnit}
-            availablePlates={available_plates_lbs}
-            barWeight={barbellAPI.barWeight}
-          />
-        );
-      case "dumbbell":
-        throwIfNull(
-          available_dumbbells_lbs,
-          () => new Error("Invalid Invariant: available_dumbbells_lbs is null"),
-        );
-        return (
-          <EditDumbbell
-            weightValue={actualWeightValue}
-            onChange={setActualWeight}
-            weightUnit={weightUnit}
-            availableDumbbells={available_dumbbells_lbs}
-          />
-        );
-    }
-    return <Typography>TODO!</Typography>;
-  }, [
-    equipmentType,
-    actualWeightValue,
-    barbellAPI,
-    setActualWeight,
-    roundingMode,
-    weightUnit,
-    available_plates_lbs,
-    available_dumbbells_lbs,
-  ]);
-
   return {
     handleAddEquipmentExerciseClick,
     showAddEquipmentExerciseButton,
@@ -344,10 +304,11 @@ export const useAddEquipmentExerciseAPI = (
     isAmrap: isAMRAP,
     setIsAMRAP: setIsAMRAP,
     defaultBarbellFormDraft: defaults,
-    EquipmentWeightEditor,
     boundSaveFormDraftAction,
     boundAddEquipmentExerciseAction,
     boundClearEquipmentFormDraft,
     addExerciseTestId: equipmentSpecificAPI.addExerciseTestId,
+    barWeight: equipmentSpecificAPI.barWeight,
+    repChoices,
   };
 };

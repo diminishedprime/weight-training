@@ -44,6 +44,15 @@ const EquipmentExercisePage: React.FC<EquipmentExercisePageProps> = async (
         props.path,
       );
       break;
+    case "machine":
+      // I think teh narrowing stuff is unnecessary.
+      formDraftPromise = getFormDraft(props, narrowDumbbellFormDraft);
+      requirePreferencesPromise = requirePreferences(
+        props.userId,
+        [],
+        props.path,
+      );
+      break;
     default:
       throw new Error("unsupported equipment type");
   }
