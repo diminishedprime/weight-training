@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Left Plate 10 (smallest, furthest left) -->
+  <rect x="1" y="13" width="1.75" height="6" rx="0.5" fill="#b0b0b0"/>
+  <!-- Left Plate 25 -->
+  <rect x="3.25" y="12" width="2" height="8" rx="0.5" fill="#888"/>
+  <!-- Left Plate 45 (largest, closest to bar) -->
+  <rect x="5.75" y="12" width="3" height="8" rx="0.5" fill="#444"/>
+  <!-- Bar -->
+  <rect x="9.25" y="15" width="13.5" height="2" rx="0.5" fill="#222"/>
+  <!-- Right Plate 45 (largest, closest to bar) -->
+  <rect x="23.25" y="12" width="3" height="8" rx="0.5" fill="#444"/>
+  <!-- Right Plate 25 -->
+  <rect x="26.75" y="12" width="2" height="8" rx="0.5" fill="#888"/>
+  <!-- Right Plate 10 (smallest, furthest right) -->
+  <rect x="29.25" y="13" width="1.75" height="6" rx="0.5" fill="#b0b0b0"/>
+</svg>

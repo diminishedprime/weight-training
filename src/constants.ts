@@ -68,6 +68,14 @@ export const pathForPaginatedEquipmentExercisePage = (
   const search = `?${searchParams.toString()}`;
   return `${pathForEquipmentExercisePage(equipmentType, exerciseType)}${search}`;
 };
+const pathForExerciseBlocksPage = `/exercise-block`;
+
+export const pathForPaginatedExerciseBlocksPage = (pageNum: number) => {
+  const searchParams = new URLSearchParams();
+  searchParams.set(PARAMS.PageNum, pageNum.toString());
+  const search = `?${searchParams.toString()}`;
+  return `${pathForExerciseBlocksPage}${search}`;
+};
 
 export const pathForEquipmentExerciseEdit = (
   equipmentType: EquipmentType,

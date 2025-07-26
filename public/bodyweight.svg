@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+  <!-- Left diagonal bar (~30deg from horizontal) -->
+  <rect x="2.5" y="6.5" width="8.5" height="1" rx="0.4" fill="#444" transform="rotate(-30 2.5 6.5)"/>
+  <!-- Right diagonal bar (~30deg from horizontal) -->
+  <rect x="6" y="8.5" width="8.5" height="1" rx="0.4" fill="#444" transform="rotate(-30 6 8.5)"/>
+  <!-- Left bar legs (vertical, at outside edges) -->
+  <rect x="2.1" y="6.5" width="1" height="6" rx="0.3" fill="#444"/>
+  <rect x="9.6" y="2.2" width="1" height="6" rx="0.3" fill="#444"/>
+  <!-- Right bar legs (vertical, at outside edges) -->
+  <rect x="5.6" y="8.5" width="1" height="6" rx="0.3" fill="#444"/>
+  <rect x="13.1" y="4.2" width="1" height="6" rx="0.3" fill="#444"/>
+</svg>

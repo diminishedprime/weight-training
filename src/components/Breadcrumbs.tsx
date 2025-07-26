@@ -1,10 +1,14 @@
 "use client";
+import { EquipmentType } from "@/common-types";
+import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
+import { Constants } from "@/database.types";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import {
   IconButton,
   Menu,
   MenuItem,
   Breadcrumbs as MUIBreadcrumbs,
+  Link as MUILink,
   Typography,
 } from "@mui/material";
 import Link from "next/link";
@@ -15,7 +19,7 @@ const toTitleCase = (str: string) =>
 
 export interface BreadcrumbsProps {
   pathname: string;
-  labels?: Record<string, string>;
+  labels?: Record<string, string | React.JSX.Element>;
   nonLinkable?: string[];
 }
 
@@ -44,13 +48,24 @@ export default function Breadcrumbs({
   if (pathParts.length <= 4) {
     return (
       <MUIBreadcrumbs aria-label="breadcrumb" sx={{ my: 1, ml: 1 }}>
-        <Link href="/">Home</Link>
+        <MUILink component={Link} href="/">
+          Home
+        </MUILink>
         {pathParts.map((part, idx) => {
           const href = "/" + pathParts.slice(0, idx + 1).join("/");
-          const isLast = idx === pathParts.length - 1;
           const label = labels[part] || toTitleCase(part);
           const isNonLinkable = nonLinkable.includes(part);
-          if (isLast || isNonLinkable) {
+          const isEquipmentType =
+            Constants.public.Enums.equipment_type_enum.includes(
+              part as EquipmentType,
+            );
+          const icon = isEquipmentType ? (
+            <DisplayEquipmentThumbnail
+              equipmentType={part as EquipmentType}
+              size={32}
+            />
+          ) : null;
+          if (isNonLinkable) {
             return (
               <Typography color="text.primary" key={href}>
                 {label}
@@ -58,9 +73,16 @@ export default function Breadcrumbs({
             );
           }
           return (
-            <Link href={href} key={href}>
+            <MUILink
+              component={Link}
+              href={href}
+              key={href}
+              underline="hover"
+              sx={{ display: "flex", alignItems: "center", gap: 1 }}
+            >
+              {icon}
               {label}
-            </Link>
+            </MUILink>
           );
         })}
       </MUIBreadcrumbs>
@@ -90,9 +112,23 @@ export default function Breadcrumbs({
           const href = "/" + pathParts.slice(0, idx + 1).join("/");
           const label = labels[part] || toTitleCase(part);
           const isNonLinkable = nonLinkable.includes(part);
+          const isEquipmentType =
+            Constants.public.Enums.equipment_type_enum.includes(
+              part as EquipmentType,
+            );
+          const icon = isEquipmentType ? (
+            <DisplayEquipmentThumbnail
+              equipmentType={part as EquipmentType}
+              size={32}
+            />
+          ) : null;
           if (isNonLinkable) {
             return (
-              <MenuItem key={href} disabled>
+              <MenuItem
+                key={href}
+                disabled
+                sx={{ justifyContent: "flex-end", display: "flex" }}
+              >
                 {label}
               </MenuItem>
             );
@@ -103,8 +139,17 @@ export default function Breadcrumbs({
               component="a"
               href={href}
               onClick={handleMenuClose}
+              sx={{ justifyContent: "flex-end", display: "flex" }}
             >
-              {label}
+              <MUILink
+                component={Link}
+                href={href}
+                underline="none"
+                sx={{ display: "flex", alignItems: "center", gap: 1 }}
+              >
+                {icon}
+                {label}
+              </MUILink>
             </MenuItem>
           );
         })}

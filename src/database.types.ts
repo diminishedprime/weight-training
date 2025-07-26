@@ -12,31 +12,43 @@ export type Database = {
       exercise_block: {
         Row: {
           active_exercise_id: string | null;
+          completed_at: string | null;
           completion_status: Database["public"]["Enums"]["completion_status_enum"];
           created_at: string | null;
+          equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id: string;
           name: string | null;
           notes: string | null;
+          started_at: string | null;
           updated_at: string | null;
           user_id: string;
         };
         Insert: {
           active_exercise_id?: string | null;
+          completed_at?: string | null;
           completion_status?: Database["public"]["Enums"]["completion_status_enum"];
           created_at?: string | null;
+          equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
           name?: string | null;
           notes?: string | null;
+          started_at?: string | null;
           updated_at?: string | null;
           user_id: string;
         };
         Update: {
           active_exercise_id?: string | null;
+          completed_at?: string | null;
           completion_status?: Database["public"]["Enums"]["completion_status_enum"];
           created_at?: string | null;
+          equipment_type?: Database["public"]["Enums"]["equipment_type_enum"];
+          exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
           name?: string | null;
           notes?: string | null;
+          started_at?: string | null;
           updated_at?: string | null;
           user_id?: string;
         };
@@ -85,26 +97,32 @@ export type Database = {
       };
       exercise_superblock: {
         Row: {
+          completed_at: string | null;
           created_at: string | null;
           id: string;
           name: string | null;
           notes: string | null;
+          started_at: string | null;
           updated_at: string | null;
           user_id: string;
         };
         Insert: {
+          completed_at?: string | null;
           created_at?: string | null;
           id?: string;
           name?: string | null;
           notes?: string | null;
+          started_at?: string | null;
           updated_at?: string | null;
           user_id: string;
         };
         Update: {
+          completed_at?: string | null;
           created_at?: string | null;
           id?: string;
           name?: string | null;
           notes?: string | null;
+          started_at?: string | null;
           updated_at?: string | null;
           user_id?: string;
         };
@@ -483,9 +501,9 @@ export type Database = {
         };
         Returns: undefined;
       };
-      get_exercise_blocks_for_user: {
+      get_exercise_blocks: {
         Args: { p_user_id: string; p_page?: number };
-        Returns: Database["public"]["CompositeTypes"]["exercise_block_with_wendler_row"][];
+        Returns: Database["public"]["CompositeTypes"]["get_exercise_blocks_result"];
       };
       get_exercise_for_user: {
         Args: { p_user_id: string; p_exercise_id: string };
@@ -568,6 +586,7 @@ export type Database = {
           p_block_id: string;
           p_user_id: string;
           p_current_exercise_id: string;
+          p_completed_at: string;
         };
         Returns: undefined;
       };
@@ -717,6 +736,8 @@ export type Database = {
         name: string | null;
         notes: string | null;
         active_exercise_id: string | null;
+        started_at: string | null;
+        completed_at: string | null;
         created_at: string | null;
         updated_at: string | null;
         total_exercises: number | null;
@@ -734,6 +755,9 @@ export type Database = {
           | Database["public"]["Enums"]["wendler_cycle_type_enum"]
           | null;
         exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null;
+        equipment_type:
+          | Database["public"]["Enums"]["equipment_type_enum"]
+          | null;
       };
       exercise_row_type: {
         exercise_id: string | null;
@@ -756,6 +780,12 @@ export type Database = {
         perceived_effort:
           | Database["public"]["Enums"]["perceived_effort_enum"]
           | null;
+      };
+      get_exercise_blocks_result: {
+        blocks:
+          | Database["public"]["CompositeTypes"]["exercise_block_with_wendler_row"][]
+          | null;
+        page_count: number | null;
       };
       get_exercises_by_type_result: {
         rows:

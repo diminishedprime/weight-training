@@ -2,8 +2,9 @@
 
 import { EquipmentType } from "@/common-types";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
-import { equipmentTypeUIString } from "@/uiStrings";
+import { equipmentTypeUIString, exerciseTypeUIStringBrief } from "@/uiStrings";
 import { EXERCISES_BY_EQUIPMENT } from "@/util";
 import { Card, CardContent, Stack, Typography } from "@mui/material";
 import Link from "next/link";
@@ -46,7 +47,10 @@ const PersonalRecordsPage = async () => {
 
       {Object.entries(EXERCISES_BY_EQUIPMENT).map(([equipment, exercises]) => (
         <Stack key={equipment} spacing={1}>
-          <Typography variant="h6">
+          <Typography variant="h6" display="flex" alignItems="center" gap={1}>
+            <DisplayEquipmentThumbnail
+              equipmentType={equipment as EquipmentType}
+            />
             {equipmentTypeUIString(equipment as EquipmentType)}
           </Typography>
           <ul style={{ margin: 0, paddingLeft: "20px" }}>
@@ -61,9 +65,7 @@ const PersonalRecordsPage = async () => {
                     color="primary"
                     sx={{ "&:hover": { textDecoration: "underline" } }}
                   >
-                    {exerciseType
-                      .replace(/_/g, " ")
-                      .replace(/\b\w/g, (l) => l.toUpperCase())}
+                    {exerciseTypeUIStringBrief(exerciseType)}
                   </Typography>
                 </Link>
               </li>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Stack plates (4 total) -->
+  <rect x="4" y="22" width="24" height="5" rx="1" fill="#444"/>
+  <rect x="4" y="16" width="24" height="5" rx="1" fill="#444"/>
+  <rect x="4" y="10" width="24" height="5" rx="1" fill="#444"/>
+  <!-- Top plate (75% width, centered) -->
+  <rect x="8" y="4" width="16" height="5" rx="1" fill="#444"/>
+  <!-- Circles on each plate -->
+  <circle cx="16" cy="24.5" r="1" fill="#222"/>
+  <circle cx="16" cy="18.5" r="1" fill="#222"/>
+  <circle cx="16" cy="12.5" r="1" fill="#222"/>
+  <circle cx="16" cy="6.5" r="1" fill="#222"/>
+</svg>
