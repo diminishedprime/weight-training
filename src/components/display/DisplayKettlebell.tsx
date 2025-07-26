@@ -9,6 +9,7 @@ interface DisplayKettlebellProps {
   size: number | undefined;
   selected?: boolean;
   onClick?: () => void;
+  hideNumber?: boolean;
 }
 
 const DisplayKettlebell: React.FC<DisplayKettlebellProps> = (props) => {
@@ -92,21 +93,23 @@ const DisplayKettlebell: React.FC<DisplayKettlebellProps> = (props) => {
           />
         </g>
       </svg>
-      <div
-        style={{
-          position: "absolute",
-          left: "50%",
-          top: "70%",
-          transform: "translate(-50%, -50%)",
-          pointerEvents: "none",
-          textAlign: "center",
-          width: "100%",
-          fontSize: "0.3em",
-          fontWeight: "bold",
-        }}
-      >
-        <DisplayWeight {...props} />
-      </div>
+      {!props.hideNumber && (
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "70%",
+            transform: "translate(-50%, -50%)",
+            pointerEvents: "none",
+            textAlign: "center",
+            width: "100%",
+            fontSize: "0.3em",
+            fontWeight: "bold",
+          }}
+        >
+          <DisplayWeight {...props} />
+        </div>
+      )}
     </div>
   );
 };

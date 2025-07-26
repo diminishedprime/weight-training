@@ -1,9 +1,14 @@
 import { ExerciseType } from "@/common-types";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import { Constants } from "@/database.types";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
-import { exerciseTypeUIStringLong } from "@/uiStrings";
+import {
+  exerciseTypeUIStringBrief,
+  exerciseTypeUIStringLong,
+} from "@/uiStrings";
+import { equipmentForExercise } from "@/util";
 import {
   Paper,
   Stack,
@@ -79,7 +84,7 @@ const PersonalRecordsExerciseType = async (
   return (
     <Stack spacing={2} data-testid="personal-records-exercise-type">
       <Typography variant="h4">
-        {exerciseTypeUIStringLong(props.exercise_type)} Personal Records
+        {exerciseTypeUIStringBrief(props.exercise_type)} Personal Records
       </Typography>
 
       {repGroups.map(({ reps, records }) => (
@@ -186,7 +191,16 @@ export default async function SuspenseWrapper(props: SuspenseWrapperProps) {
     <React.Fragment>
       <Breadcrumbs
         pathname={`/personal-records/${exerciseType}`}
-        labels={{ [exerciseType]: exerciseTypeUIStringLong(exerciseType) }}
+        labels={{
+          [exerciseType]: (
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <DisplayEquipmentThumbnail
+                equipmentType={equipmentForExercise(exerciseType)}
+              />
+              {exerciseTypeUIStringBrief(exerciseType)}
+            </Stack>
+          ),
+        }}
       />
       <Suspense fallback={<div>Loading personal records...</div>}>
         <PersonalRecordsExerciseType exercise_type={exerciseType} />

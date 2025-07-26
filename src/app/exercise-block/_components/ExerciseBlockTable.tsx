@@ -1,11 +1,15 @@
 "use client";
 
-import ExerciseBlockRow from "@/app/exercise-block/_components/ExerciseBlockClient/ExerciseBlockRow";
+import ExerciseBlockRow from "@/app/exercise-block/_components/ExerciseBlockRow";
 import { ExerciseBlocks } from "@/common-types";
+import Pagination from "@/components/Pagination";
+import { pathForPaginatedExerciseBlocksPage } from "@/constants";
 import { Stack, Typography } from "@mui/material";
 
 interface ExerciseBlockClientProps {
-  exerciseBlocks: ExerciseBlocks;
+  blocks: NonNullable<ExerciseBlocks>;
+  pageCount: number;
+  currentPageNum: number;
 }
 
 const useExerciseBlockClientAPI = (_props: ExerciseBlockClientProps) => {
@@ -15,7 +19,7 @@ const useExerciseBlockClientAPI = (_props: ExerciseBlockClientProps) => {
 const ExerciseBlockClient: React.FC<ExerciseBlockClientProps> = (props) => {
   const _api = useExerciseBlockClientAPI(props);
 
-  if (props.exerciseBlocks.length === 0) {
+  if (props.blocks.length === 0) {
     return (
       <Stack>
         <Typography variant="body1" color="textSecondary">
@@ -27,9 +31,19 @@ const ExerciseBlockClient: React.FC<ExerciseBlockClientProps> = (props) => {
 
   return (
     <Stack spacing={1}>
-      {props.exerciseBlocks.map((block) => (
+      <Pagination
+        page={props.currentPageNum}
+        count={props.pageCount}
+        hrefFor={(pageNum) => pathForPaginatedExerciseBlocksPage(pageNum)}
+      />
+      {props.blocks.map((block) => (
         <ExerciseBlockRow key={block.id} block={block} />
       ))}
+      <Pagination
+        page={props.currentPageNum}
+        count={props.pageCount}
+        hrefFor={(pageNum) => pathForPaginatedExerciseBlocksPage(pageNum)}
+      />
     </Stack>
   );
 };

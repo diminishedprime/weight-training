@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Left Plate -->
+  <rect x="1" y="6" width="6" height="20" rx="0.5" fill="#666"/>
+  <!-- Handle -->
+  <rect x="8" y="14" width="16" height="4" rx="0.25" fill="#444"/>
+  <!-- Right Plate -->
+  <rect x="25" y="6" width="6" height="20" rx="0.5" fill="#666"/>
+</svg>

@@ -1,5 +1,6 @@
 import { EquipmentType, ExerciseType } from "@/common-types";
 import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs";
+import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
 import {
   pathForEquipmentExercisePage,
   pathForEquipmentPage,
@@ -67,7 +68,15 @@ export default async function EquipmentTypeExercisesPage(
       <Stack spacing={1}>
         {EQUIPMENT_EXERCISES_DATA[equipmentType].map(
           ({ href, linkText, key }) => (
-            <Typography key={key} component={Link} href={href}>
+            <Typography
+              key={key}
+              component={Link}
+              href={href}
+              sx={{ display: "flex", alignItems: "center", gap: 1 }}
+            >
+              <DisplayEquipmentThumbnail
+                equipmentType={equipmentType as EquipmentType}
+              />
               {linkText}
             </Typography>
           ),

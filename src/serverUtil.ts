@@ -1,5 +1,6 @@
 import { auth } from "@/auth";
 import { RequiredNonNullable, UserPreferences } from "@/common-types";
+import { FIRST_PAGE_NUM } from "@/constants";
 import { Database } from "@/database.types";
 import { createClient } from "@supabase/supabase-js";
 import { Session } from "next-auth";
@@ -127,4 +128,40 @@ export const supabaseRPC = async <
     throw new Error(errorMsg);
   }
   return data as Return;
+};
+
+interface SearchParams {
+  [key: string]: string | string[] | undefined;
+}
+
+type PossibleParsers = (searchParams: SearchParams) => Record<string, unknown>;
+
+type JoinedParsers<ActualParser extends readonly PossibleParsers[]> =
+  ActualParser extends readonly [
+    infer First extends PossibleParsers,
+    ...infer Rest extends PossibleParsers[],
+  ]
+    ? ReturnType<First> & JoinedParsers<Rest>
+    : object;
+
+export const parseSearchParams = async <
+  ActualParsers extends readonly PossibleParsers[],
+>(
+  searchParamsPromise: Promise<SearchParams>,
+  ...paramParsers: readonly [...ActualParsers]
+): Promise<JoinedParsers<ActualParsers>> => {
+  const searchParams = await searchParamsPromise;
+  const parsedParams = paramParsers.reduce(
+    (acc, parser) => ({ ...acc, ...parser(searchParams) }),
+    {},
+  );
+  return parsedParams as JoinedParsers<ActualParsers>;
+};
+
+// Add new search param parsers here as needed, they should take a SearchParams
+// and return an object with the friendly key, and parsed value.
+export const SEARCH_PARSERS = {
+  PAGE_NUM: (searchParams: SearchParams) => ({
+    pageNum: Number(searchParams.page_num) || FIRST_PAGE_NUM,
+  }),
 };

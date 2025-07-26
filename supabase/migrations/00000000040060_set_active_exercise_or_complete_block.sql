@@ -1,7 +1,8 @@
 CREATE OR REPLACE FUNCTION public.set_active_exercise_or_complete_block (
   p_block_id uuid,
   p_user_id uuid,
-  p_current_exercise_id uuid
+  p_current_exercise_id uuid,
+  p_completed_at timestamptz
 ) RETURNS void AS $$
 DECLARE
   v_next_exercise_id uuid;
@@ -13,7 +14,9 @@ BEGIN
     WHERE id = p_block_id AND user_id = p_user_id;
   ELSE
     UPDATE exercise_block
-    SET active_exercise_id = NULL, completion_status = 'completed'
+    SET active_exercise_id = NULL,
+        completion_status = 'completed',
+        completed_at = p_completed_at
     WHERE id = p_block_id AND user_id = p_user_id;
   END IF;
 END;

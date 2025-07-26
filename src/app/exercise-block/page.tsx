@@ -1,14 +1,19 @@
-import ExerciseBlockPage from "@/app/exercise-block/_page";
+import PageExerciseBlock from "@/app/exercise-block/_components/PageExerciseBlock";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { parseSearchParams, SEARCH_PARSERS } from "@/serverUtil";
 import React, { Suspense } from "react";
 
-interface SuspenseWrapperProps {
+interface ExerciseBlockSuspenseWrapperProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default async function SuspenseWrapper(props: SuspenseWrapperProps) {
-  const searchParams = await props.searchParams;
-  const page = Number(searchParams.page) || 1;
+export default async function ExerciseBlockSuspenseWrapper(
+  props: ExerciseBlockSuspenseWrapperProps,
+) {
+  const { pageNum } = await parseSearchParams(
+    props.searchParams,
+    SEARCH_PARSERS.PAGE_NUM,
+  );
   return (
     <React.Fragment>
       <Breadcrumbs
@@ -16,7 +21,7 @@ export default async function SuspenseWrapper(props: SuspenseWrapperProps) {
         labels={{ "/exercise-block": "Exercise Block" }}
       />
       <Suspense fallback={<div>Loading...</div>}>
-        <ExerciseBlockPage page={page} />
+        <PageExerciseBlock pageNum={pageNum} />
       </Suspense>
     </React.Fragment>
   );
