@@ -10,6 +10,17 @@ CREATE TABLE IF NOT EXISTS public.exercises (
   insert_time timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
   update_time timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
   insert_order bigint NOT NULL DEFAULT nextval('public.exercises_insert_order_seq'),
+  -- I think for doing actual vs target weight, I may want to do the join
+  -- on a separate wendler-specific exercises table or something like that since
+  -- so many exercises don't need a separation between actual and target weight?
+  --
+  -- I guess it's not really specifically a wendler thing, but anything that may
+  -- come from a block that tries to do fractional weight based on some other
+  -- value.
+  --
+  -- That being the case, maybe it's that there's some join tables that exist
+  -- when the block itself is trying to calculate a weight based on some
+  -- fractions?
   actual_weight_value numeric NULL,
   target_weight_value numeric NOT NULL,
   weight_unit weight_unit_enum NOT NULL,
