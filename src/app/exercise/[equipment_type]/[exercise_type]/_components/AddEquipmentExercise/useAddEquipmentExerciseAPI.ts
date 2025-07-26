@@ -77,7 +77,10 @@ const useAddBarbellExerciseAPI = (props: AddEquipmentExerciseProps) => {
     [],
   );
 
-  const addExerciseTestId = useMemo(() => TestIds.AddBarbellLiftButton, []);
+  const addExerciseTestId = useMemo(
+    () => TestIds.AddEquipmentExerciseButton,
+    [],
+  );
 
   return {
     additionalFields,
@@ -93,7 +96,10 @@ const useAddDumbbellExerciseAPI = (_props: AddEquipmentExerciseProps) => {
 
   const additionalFields = useMemo(() => ({}), []);
 
-  const addExerciseTestId = useMemo(() => TestIds.AddDumbbellLiftButton, []);
+  const addExerciseTestId = useMemo(
+    () => TestIds.AddEquipmentExerciseButton,
+    [],
+  );
 
   return { additionalFields, defaults, addExerciseTestId };
 };

@@ -88,7 +88,7 @@ describe("User Journey: Add Custom Barbell Exercises", () => {
 
     await act(async () => {
       const addBarbellLiftButton = await waitFor(() =>
-        screen.getByTestId(TestIds.AddBarbellLiftButton),
+        screen.getByTestId(TestIds.AddEquipmentExerciseButton),
       );
       addBarbellLiftButton.click();
 
@@ -175,7 +175,7 @@ describe("User Journey: Can use components to edit from the default values", () 
 
     await act(async () => {
       const addBarbellLiftButton = await waitFor(() =>
-        screen.getByTestId(TestIds.AddBarbellLiftButton),
+        screen.getByTestId(TestIds.AddEquipmentExerciseButton),
       );
       addBarbellLiftButton.click();
 

@@ -8,9 +8,6 @@ import { CompletionStatus, PerceivedEffort } from "@/common-types";
  */
 export const TestIds = {
   AddExerciseButton: "add-exercise-button",
-  AddBarbellLiftButton: "add-barbell-exercise",
-  AddDumbbellLiftButton: "add-dumbbell-exercise",
-  // TODO: update the two above this to use this one as well.
   AddEquipmentExerciseButton: "add-equipment-exercise-button",
   AddExerciseCancelButton: "add-exercise-cancel-button",
   AddBarbellResetButton: "add-barbell-reset-button",
