@@ -57,7 +57,7 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
         weightUnit={api.weightUnit}
         setWeightValue={api.setActualWeight}
         roundingMode={api.roundingMode}
-        barWeight={api.barWeight}
+        barWeightValue={api.barWeightValue}
         preferences={props.preferences}
       />
       <Stack spacing={1} alignItems="space-between">

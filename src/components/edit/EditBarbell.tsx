@@ -10,8 +10,7 @@ import React from "react";
 export interface EditBarbellProps {
   targetWeightValue: number;
   roundingMode: RoundingMode;
-  // TODO: rename to barbellWeightValue
-  barWeight: number;
+  barWeightValue: number;
   onTargetWeightChange: React.Dispatch<React.SetStateAction<number>>;
   weightUnit: WeightUnit;
   availablePlates: number[];
@@ -27,7 +26,7 @@ const useEditBarbellAPI = (props: EditBarbellProps) => {
   // Sync weightInput string when actual weight changes externally
   const {
     targetWeightValue: targetWeight,
-    barWeight,
+    barWeightValue,
     onTargetWeightChange,
   } = props;
 
@@ -36,8 +35,8 @@ const useEditBarbellAPI = (props: EditBarbellProps) => {
     ImmutableStack<number>(),
   );
 
-  // Calculate the actual weight: barWeight + sum of all plates (both sides)
-  const weightPerSide = (targetWeight - barWeight) / 2;
+  // Calculate the actual weight: barWeightValue + sum of all plates (both sides)
+  const weightPerSide = (targetWeight - barWeightValue) / 2;
   const { plates: plateList, rounded } = minimalPlates(
     weightPerSide,
     props.availablePlates,
@@ -62,8 +61,8 @@ const useEditBarbellAPI = (props: EditBarbellProps) => {
 
   const handleClear = React.useCallback(() => {
     setTargetWeightHistory((prev) => prev.push(targetWeight));
-    onTargetWeightChange(barWeight);
-  }, [onTargetWeightChange, barWeight, targetWeight]);
+    onTargetWeightChange(barWeightValue);
+  }, [onTargetWeightChange, barWeightValue, targetWeight]);
 
   // Undo handler
   const handleUndo = React.useCallback(() => {
@@ -78,8 +77,8 @@ const useEditBarbellAPI = (props: EditBarbellProps) => {
   );
 
   const clearDisabled = React.useMemo(
-    () => targetWeight <= barWeight,
-    [targetWeight, barWeight],
+    () => targetWeight <= barWeightValue,
+    [targetWeight, barWeightValue],
   );
 
   return {
@@ -110,7 +109,7 @@ const EditBarbell: React.FC<EditBarbellProps> = (props) => {
         showPlateNumbers
         weightUnit={props.weightUnit}
         targetWeightValue={props.targetWeightValue}
-        barWeight={props.barWeight}
+        barWeightValue={props.barWeightValue}
         availablePlates={props.availablePlates}
         roundingMode={props.roundingMode}
       />

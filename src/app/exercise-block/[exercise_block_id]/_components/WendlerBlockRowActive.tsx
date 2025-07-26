@@ -116,7 +116,7 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
         <Stack alignItems="center" width="100%">
           <EditBarbell
             targetWeightValue={api.targetWeight}
-            barWeight={45}
+            barWeightValue={45}
             availablePlates={props.availablePlates}
             weightUnit={row.weight_unit!}
             onTargetWeightChange={api.onTargetWeightChange}

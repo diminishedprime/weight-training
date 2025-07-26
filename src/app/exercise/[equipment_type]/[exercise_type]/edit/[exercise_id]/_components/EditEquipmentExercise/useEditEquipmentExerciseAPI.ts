@@ -36,7 +36,7 @@ export const useEditEquipmentExerciseAPI = (
   const [isAMRAP, setIsAMRAP] = useState<boolean>(exercise.is_amrap);
   const [performedAt, setPerformedAt] = useState(exercise.performed_at);
   // TODO: eventually this should also come from the db.
-  const [barWeight] = useState(45);
+  const [barWeightValue] = useState(45);
 
   // Sync the current state when the initial values change, this is needed
   // because we use revalidatePath and otherwise the state values would never
@@ -151,6 +151,6 @@ export const useEditEquipmentExerciseAPI = (
     boundSaveExerciseAction,
     saveDisabled,
     resetDisabled,
-    barWeight,
+    barWeightValue,
   };
 };

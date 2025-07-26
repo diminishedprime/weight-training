@@ -61,18 +61,18 @@ const defaultRepsForExercise = (
 const useAddBarbellExerciseAPI = (props: AddEquipmentExerciseProps) => {
   const defaults = useMemo(
     () => ({
-      barWeight: 45,
+      barWeightValue: 45,
     }),
     [],
   );
 
-  const [barWeight, setBarWeight] = useState(
-    props.initialDraft?.barWeight ?? defaults.barWeight,
+  const [barWeightValue, setBarWeightValue] = useState(
+    props.initialDraft?.barWeightValue ?? defaults.barWeightValue,
   );
 
   const additionalFields = useMemo(
     () => ({
-      barWeight: 45, // TODO: this should be dynamic based on the equipment type.
+      barWeightValue: 45, // TODO: this should be dynamic based on the equipment type.
     }),
     [],
   );
@@ -85,8 +85,8 @@ const useAddBarbellExerciseAPI = (props: AddEquipmentExerciseProps) => {
   return {
     additionalFields,
     defaults,
-    barWeight,
-    setBarWeight,
+    barWeightValue,
+    setBarWeight: setBarWeightValue,
     addExerciseTestId,
   };
 };
@@ -369,7 +369,7 @@ export const useAddEquipmentExerciseAPI = (
     boundAddEquipmentExerciseAction,
     boundClearEquipmentFormDraft,
     addExerciseTestId: equipmentSpecificAPI.addExerciseTestId,
-    barWeight: equipmentSpecificAPI.barWeight,
+    barWeightValue: equipmentSpecificAPI.barWeightValue,
     repChoices,
     resetDisabled,
   };
