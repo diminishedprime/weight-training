@@ -362,7 +362,7 @@ export const useAddEquipmentExerciseAPI = (
     setPerceivedEffort,
     isWarmup,
     setIsWarmup,
-    isAmrap: isAMRAP,
+    isAMRAP,
     setIsAMRAP: setIsAMRAP,
     defaultBarbellFormDraft: defaults,
     boundSaveFormDraftAction,

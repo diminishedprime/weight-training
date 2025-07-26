@@ -146,7 +146,7 @@ export const useEditEquipmentExerciseAPI = (
     setPerceivedEffort,
     isWarmup,
     setIsWarmup,
-    isAmrap: isAMRAP,
+    isAMRAP,
     setIsAMRAP: setIsAMRAP,
     boundSaveExerciseAction,
     saveDisabled,

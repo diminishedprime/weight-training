@@ -164,7 +164,7 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
       const {
         actual_weight_value: actualActualWeightValue,
         reps: actualReps,
-        is_amrap: actualIsAmrap,
+        is_amrap: actualIsAMRAP,
         notes: actualNotes,
         completion_status: actualCompletionStatus,
         perceived_effort: actualPerceivedEffort,
@@ -174,7 +174,7 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
       expect(actualActualWeightValue).toBe(20);
       expect(actualTargetWeightValue).toBe(20);
       expect(actualReps).toBe(7);
-      expect(actualIsAmrap).toBe(true);
+      expect(actualIsAMRAP).toBe(true);
       expect(actualNotes).toBe("here are some excellent notes.");
       expect(actualCompletionStatus).toBe("failed");
       expect(actualPerceivedEffort).toBe("okay");

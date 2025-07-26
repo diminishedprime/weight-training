@@ -138,7 +138,7 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
               reps={api.reps}
               onRepsChange={api.onRepsChange}
               wendlerReps
-              isAmrap={props.isLastRow}
+              isAMRAP={props.isLastRow}
               hideSettings
             />
           </Stack>

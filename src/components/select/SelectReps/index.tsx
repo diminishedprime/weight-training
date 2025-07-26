@@ -14,8 +14,8 @@ export interface SelectRepsProps {
   onRepsChange: (reps: number) => void;
   repChoices?: number[];
   wendlerReps?: boolean;
-  isAmrap?: boolean;
-  setIsAmrap?: React.Dispatch<React.SetStateAction<boolean>>;
+  isAMRAP?: boolean;
+  setIsAMRAP?: React.Dispatch<React.SetStateAction<boolean>>;
   hideSettings?: boolean;
 }
 
@@ -72,7 +72,7 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
     <FormControl>
       <FormLabel sx={{ display: "flex", alignItems: "center", gap: 1 }}>
         Reps: {props.reps}
-        {props.isAmrap && (
+        {props.isAMRAP && (
           <Typography variant="body2" color="secondary">
             (AMRAP)
           </Typography>
@@ -81,10 +81,10 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
         <ToggleButtonGroup
           color="secondary"
-          value={props.isAmrap}
+          value={props.isAMRAP}
           exclusive
           onChange={() => {
-            props.setIsAmrap?.((old) => !old);
+            props.setIsAMRAP?.((old) => !old);
           }}
           size="small"
           aria-label="toggle AMRAP"

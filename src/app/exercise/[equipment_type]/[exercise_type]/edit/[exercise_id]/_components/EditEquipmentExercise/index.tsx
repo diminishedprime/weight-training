@@ -49,8 +49,8 @@ const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
           <SelectReps
             reps={api.reps}
             onRepsChange={(reps: number) => api.setReps(reps)}
-            setIsAmrap={api.setIsAMRAP}
-            isAmrap={api.isAmrap}
+            setIsAMRAP={api.setIsAMRAP}
+            isAMRAP={api.isAMRAP}
           />
           <Stack
             direction="row"
