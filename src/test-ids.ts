@@ -25,6 +25,7 @@ export const TestIds = {
   KettlebellPlus: "kettlebell-plus",
   WarmupToggle: "warmup-toggle",
   NotesInput: "notes-input",
+  Preferences_CancelButton: "cancel-user-preferences-button",
   // Add more test IDs here as needed
   EditEquipmentCancelButton: "edit-equipment-cancel-button",
   EditEquipmentResetButton: "edit-equipment-reset-button",
