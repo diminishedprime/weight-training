@@ -20,7 +20,7 @@ export const TestIds = {
   Preferences_SavePreferencesButton: "save-user-preferences-button",
   SelectRepsAMRAPToggle: "select-reps-amrap-toggle",
   KettlebellPlus: "kettlebell-plus",
-  WarmupToggle: "warmup-toggle",
+  IsWarmupToggle: "is-warmup-toggle",
   NotesInput: "notes-input",
   Preferences_CancelButton: "cancel-user-preferences-button",
   // Add more test IDs here as needed

@@ -14,8 +14,7 @@ CREATE TABLE IF NOT EXISTS public.exercises (
   target_weight_value numeric NOT NULL,
   weight_unit weight_unit_enum NOT NULL,
   reps integer NOT NULL,
-  -- TODO: rename this to is_warmup
-  warmup boolean NOT NULL DEFAULT false,
+  is_warmup boolean NOT NULL DEFAULT false,
   is_amrap boolean NOT NULL DEFAULT false,
   completion_status completion_status_enum NOT NULL DEFAULT 'not_completed',
   notes text NULL,

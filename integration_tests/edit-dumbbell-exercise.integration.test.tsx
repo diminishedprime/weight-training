@@ -124,7 +124,7 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
         waitFor(() => screen.getByTestId(TestIds.RepsDownButton)),
         waitFor(() => screen.getByTestId(TestIds.SelectRepsAMRAPToggle)),
         waitFor(() => screen.getByTestId(TestIds.CompletionStatus("failed"))),
-        waitFor(() => screen.getByTestId(TestIds.WarmupToggle)),
+        waitFor(() => screen.getByTestId(TestIds.IsWarmupToggle)),
       ]);
       elements.map((e) => e.click());
 
@@ -168,7 +168,7 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
         completion_status: actualCompletionStatus,
         perceived_effort: actualPerceivedEffort,
         target_weight_value: actualTargetWeightValue,
-        warmup: actualWarmup,
+        is_warmup: actualIsWarmup,
       } = actual;
       expect(actualActualWeightValue).toBe(20);
       expect(actualTargetWeightValue).toBe(20);
@@ -177,7 +177,7 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
       expect(actualNotes).toBe("here are some excellent notes.");
       expect(actualCompletionStatus).toBe("failed");
       expect(actualPerceivedEffort).toBe("okay");
-      expect(actualWarmup).toBe(true);
+      expect(actualIsWarmup).toBe(true);
     });
   });
 });

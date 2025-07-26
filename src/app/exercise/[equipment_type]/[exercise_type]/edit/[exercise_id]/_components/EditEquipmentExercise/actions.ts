@@ -19,7 +19,7 @@ export const saveExerciseEdits = async (
     p_reps: editedExercise.reps,
     p_completion_status: editedExercise.completion_status,
     p_perceived_effort: editedExercise.perceived_effort ?? undefined,
-    p_warmup: editedExercise.warmup,
+    p_is_warmup: editedExercise.is_warmup,
     p_is_amrap: editedExercise.is_amrap,
     p_notes: editedExercise.notes || undefined,
     p_performed_at: editedExercise.performed_at ?? undefined,

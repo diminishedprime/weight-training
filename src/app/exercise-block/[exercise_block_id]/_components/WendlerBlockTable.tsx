@@ -57,7 +57,7 @@ const WendlerBlockTable: React.FC<WendlerBlockTableProps> = (props) => {
   if (!block || block.length === 0) {
     return <Typography>No exercises found for this block.</Typography>;
   }
-  let warmupCount = 0;
+  let isWarmupCount = 0;
   let workingSetCount = 0;
 
   // TODO: this is another instance where the bar is just hardcoded to 45 lbs
@@ -103,9 +103,9 @@ const WendlerBlockTable: React.FC<WendlerBlockTableProps> = (props) => {
       </Stack>
       {block.map((row, idx) => {
         let setName;
-        if (row.warmup) {
-          warmupCount++;
-          setName = `Warmup ${warmupCount}`;
+        if (row.is_warmup) {
+          isWarmupCount++;
+          setName = `Warmup ${isWarmupCount}`;
         } else {
           workingSetCount++;
           setName = `Working Set ${workingSetCount}`;

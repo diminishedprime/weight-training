@@ -74,7 +74,7 @@ export const addEquipmentExercise = async <
     // Coerce empty string to undefined for better db storage.
     p_notes: equipmentFormDraft.notes ?? undefined,
     p_perceived_effort: equipmentFormDraft.perceivedEffort ?? undefined,
-    p_warmup: equipmentFormDraft.isWarmup,
+    p_is_warmup: equipmentFormDraft.isWarmup,
     p_weight_unit: equipmentFormDraft.weightUnit,
     p_performed_at: new Date().toISOString(),
   });

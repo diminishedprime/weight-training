@@ -32,7 +32,7 @@ export const useEditEquipmentExerciseAPI = (
   const [perceivedEffort, setPerceivedEffort] = useState(
     exercise.perceived_effort,
   );
-  const [isWarmup, setIsWarmup] = useState<boolean>(exercise.warmup);
+  const [isWarmup, setIsWarmup] = useState<boolean>(exercise.is_warmup);
   const [isAMRAP, setIsAMRAP] = useState<boolean>(exercise.is_amrap);
   const [performedAt, setPerformedAt] = useState(exercise.performed_at);
   // TODO: eventually this should also come from the db.
@@ -50,7 +50,7 @@ export const useEditEquipmentExerciseAPI = (
       setCompletionStatus(exercise.completion_status);
       setNotes(exercise.notes ?? "");
       setPerceivedEffort(exercise.perceived_effort);
-      setIsWarmup(exercise.warmup);
+      setIsWarmup(exercise.is_warmup);
       setIsAMRAP(exercise.is_amrap);
       setPerformedAt(exercise.performed_at);
       setWeightUnit(exercise.weight_unit);
@@ -65,7 +65,7 @@ export const useEditEquipmentExerciseAPI = (
     setCompletionStatus(exercise.completion_status);
     setNotes(exercise.notes ?? "");
     setPerceivedEffort(exercise.perceived_effort);
-    setIsWarmup(exercise.warmup);
+    setIsWarmup(exercise.is_warmup);
     setIsAMRAP(exercise.is_amrap);
     setPerformedAt(exercise.performed_at);
     setWeightUnit(exercise.weight_unit);
@@ -81,7 +81,7 @@ export const useEditEquipmentExerciseAPI = (
       reps,
       completion_status: completionStatus,
       perceived_effort: perceivedEffort,
-      warmup: isWarmup,
+      is_warmup: isWarmup,
       is_amrap: isAMRAP,
       notes: notes || null,
       exercise_type: exerciseType,
