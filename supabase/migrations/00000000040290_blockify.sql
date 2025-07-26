@@ -48,12 +48,12 @@ BEGIN
     block_order integer
   ) ON COMMIT DROP;
 
-  -- Cursor to select all exercises for the user, ordered by performed_at, insert_time, insert_order
+  -- Cursor to select all exercises for the user, ordered by performed_at
   FOR v_rec IN
     SELECT * FROM public.exercises
     WHERE user_id = p_user_id
       AND performed_at IS NOT NULL
-    ORDER BY exercise_type, performed_at, insert_time, insert_order
+    ORDER BY exercise_type, performed_at
   LOOP
     -- Try to find an open block for this exercise_type within time_gap
     SELECT tmp_open_blocks.block_id, tmp_open_blocks.last_performed_at, tmp_open_blocks.block_order

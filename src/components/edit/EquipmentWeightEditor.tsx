@@ -17,15 +17,16 @@ interface EquipmentWeightEditorProps {
   setWeightValue: React.Dispatch<React.SetStateAction<number>>;
   roundingMode: RoundingMode;
   preferences: UserPreferences;
-  barWeight: number | undefined;
+  barWeightValue: number | undefined;
 }
 
 const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
   switch (props.equipmentType) {
     case "barbell":
       throwIfNull(
-        props.barWeight,
-        () => new Error("barWeight is required for barbell equipment type"),
+        props.barWeightValue,
+        () =>
+          new Error("barWeightValue is required for barbell equipment type"),
       );
       throwIfNull(
         props.preferences.available_plates_lbs,
@@ -42,7 +43,7 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
           roundingMode={props.roundingMode}
           weightUnit={props.weightUnit}
           availablePlates={props.preferences.available_plates_lbs}
-          barWeight={props.barWeight}
+          barWeightValue={props.barWeightValue}
         />
       );
     case "dumbbell":

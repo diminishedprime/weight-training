@@ -10,7 +10,6 @@ BEGIN
   UPDATE exercises e
   SET completion_status = 'skipped',
       notes = COALESCE(p_notes, e.notes),
-      update_time = v_performed_at,
       performed_at = v_performed_at
   FROM exercise_block_exercises ebe
   JOIN exercise_block b ON ebe.block_id = b.id

@@ -162,14 +162,14 @@ export function minimalPlates(
 }
 
 // Convenience function to make it easier to call minimalPlates from the UI
-// where in practice, we have a barWeight and a targetWeight.
+// where in practice, we have a barWeightValue and a targetWeight.
 export function minimalPlatesForTargetWeight(
   targetWeight: number,
-  barWeight: number,
+  barWeightValue: number,
   availablePlates: number[],
   roundingMode: RoundingMode,
 ): { plates: number[]; rounded: boolean } {
-  const minusBar = targetWeight - barWeight;
+  const minusBar = targetWeight - barWeightValue;
   const platesForOneSideWeight = minusBar / 2;
   const platesForOneSide = minimalPlates(
     platesForOneSideWeight,
@@ -185,19 +185,19 @@ const sum = (a: number, b: number) => a + b;
 // targetWeight based on availablePlates and bar weight.
 export function actualWeightForTarget(
   targetWeight: number,
-  barWeight: number,
+  barWeightValue: number,
   availablePlates: number[],
   roundingMode: RoundingMode,
 ): { actualWeight: number; rounded: boolean } {
   const platesForOneSide = minimalPlatesForTargetWeight(
     targetWeight,
-    barWeight,
+    barWeightValue,
     availablePlates,
     roundingMode,
   );
   const platesforOneSideWeight = platesForOneSide.plates.reduce(sum, 0);
   const totalPlatesWeight = platesforOneSideWeight * 2;
-  const actualWeight = barWeight + totalPlatesWeight;
+  const actualWeight = barWeightValue + totalPlatesWeight;
   return { actualWeight, rounded: platesForOneSide.rounded };
 }
 

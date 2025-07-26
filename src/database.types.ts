@@ -168,9 +168,8 @@ export type Database = {
           equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id: string;
-          insert_order: number;
-          insert_time: string;
           is_amrap: boolean;
+          is_warmup: boolean;
           notes: string | null;
           perceived_effort:
             | Database["public"]["Enums"]["perceived_effort_enum"]
@@ -178,9 +177,7 @@ export type Database = {
           performed_at: string | null;
           reps: number;
           target_weight_value: number;
-          update_time: string;
           user_id: string;
-          warmup: boolean;
           weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
         };
         Insert: {
@@ -189,9 +186,8 @@ export type Database = {
           equipment_type?: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
-          insert_order?: number;
-          insert_time?: string;
           is_amrap?: boolean;
+          is_warmup?: boolean;
           notes?: string | null;
           perceived_effort?:
             | Database["public"]["Enums"]["perceived_effort_enum"]
@@ -199,9 +195,7 @@ export type Database = {
           performed_at?: string | null;
           reps: number;
           target_weight_value: number;
-          update_time?: string;
           user_id: string;
-          warmup?: boolean;
           weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
         };
         Update: {
@@ -210,9 +204,8 @@ export type Database = {
           equipment_type?: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
-          insert_order?: number;
-          insert_time?: string;
           is_amrap?: boolean;
+          is_warmup?: boolean;
           notes?: string | null;
           perceived_effort?:
             | Database["public"]["Enums"]["perceived_effort_enum"]
@@ -220,9 +213,7 @@ export type Database = {
           performed_at?: string | null;
           reps?: number;
           target_weight_value?: number;
-          update_time?: string;
           user_id?: string;
-          warmup?: boolean;
           weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
         };
         Relationships: [];
@@ -461,7 +452,7 @@ export type Database = {
           p_actual_weight_value?: number;
           p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
           p_performed_at?: string;
-          p_warmup?: boolean;
+          p_is_warmup?: boolean;
           p_is_amrap?: boolean;
           p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
           p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
@@ -501,13 +492,13 @@ export type Database = {
         };
         Returns: undefined;
       };
+      get_exercise: {
+        Args: { p_user_id: string; p_exercise_id: string };
+        Returns: Database["public"]["CompositeTypes"]["exercise_row_type"];
+      };
       get_exercise_blocks: {
         Args: { p_user_id: string; p_page?: number };
         Returns: Database["public"]["CompositeTypes"]["get_exercise_blocks_result"];
-      };
-      get_exercise_for_user: {
-        Args: { p_user_id: string; p_exercise_id: string };
-        Returns: Database["public"]["CompositeTypes"]["exercise_row_type"];
       };
       get_exercises_by_type: {
         Args: {
@@ -645,7 +636,7 @@ export type Database = {
           p_actual_weight_value?: number;
           p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
           p_performed_at?: string;
-          p_warmup?: boolean;
+          p_is_warmup?: boolean;
           p_is_amrap?: boolean;
           p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
           p_notes?: string;
@@ -771,7 +762,7 @@ export type Database = {
         target_weight_value: number | null;
         weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
         reps: number | null;
-        warmup: boolean | null;
+        is_warmup: boolean | null;
         is_amrap: boolean | null;
         completion_status:
           | Database["public"]["Enums"]["completion_status_enum"]
@@ -805,7 +796,7 @@ export type Database = {
         target_weight_value: number | null;
         weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
         reps: number | null;
-        warmup: boolean | null;
+        is_warmup: boolean | null;
         completion_status:
           | Database["public"]["Enums"]["completion_status_enum"]
           | null;
@@ -864,7 +855,7 @@ export type Database = {
         target_weight_value: number | null;
         weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
         reps: number | null;
-        warmup: boolean | null;
+        is_warmup: boolean | null;
         is_amrap: boolean | null;
         completion_status:
           | Database["public"]["Enums"]["completion_status_enum"]

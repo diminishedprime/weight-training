@@ -62,8 +62,8 @@ afterEach(async () => {
 });
 
 describe("User Journey: Edit Dumbbell Exercises", () => {
-  it("should allow a logged in user to add a custom curl dumbbell exercise", async () => {
-    const insertTime = new Date().toISOString();
+  it("should allow a logged in user to edit a custom curl dumbbell exercise", async () => {
+    const performedAtTime = new Date().toISOString();
     const equipmentType = "dumbbell" as EquipmentType;
     const exerciseType = "dumbbell_bicep_curl" as ExerciseType;
     const exerciseId = await serverUtil.supabaseRPC("create_exercise", {
@@ -74,7 +74,7 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
       p_target_weight_value: 30,
       p_actual_weight_value: 30,
       p_reps: 8,
-      p_performed_at: insertTime,
+      p_performed_at: performedAtTime,
     });
 
     const pageProps: EditEquipmentExercisePageProps = {
@@ -124,7 +124,7 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
         waitFor(() => screen.getByTestId(TestIds.RepsDownButton)),
         waitFor(() => screen.getByTestId(TestIds.SelectRepsAMRAPToggle)),
         waitFor(() => screen.getByTestId(TestIds.CompletionStatus("failed"))),
-        waitFor(() => screen.getByTestId(TestIds.WarmupToggle)),
+        waitFor(() => screen.getByTestId(TestIds.IsWarmupToggle)),
       ]);
       elements.map((e) => e.click());
 
@@ -150,34 +150,35 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
           .eq("id", exerciseId)
           .limit(1)
           .single();
-        expect(data?.update_time).not.toBe(insertTime);
+        // TODO - stopped here.
+        expect(data?.reps).not.toBe(8);
       });
     });
 
     // Now that we can be sure the edit went through, verify all of the other fields at once.
     await act(async () => {
-      const actual = await serverUtil.supabaseRPC("get_exercise_for_user", {
+      const actual = await serverUtil.supabaseRPC("get_exercise", {
         p_user_id: USER_ID["edit-dumbbell-exercise.integration.test.tsx"],
         p_exercise_id: exerciseId,
       });
       const {
         actual_weight_value: actualActualWeightValue,
         reps: actualReps,
-        is_amrap: actualIsAmrap,
+        is_amrap: actualIsAMRAP,
         notes: actualNotes,
         completion_status: actualCompletionStatus,
         perceived_effort: actualPerceivedEffort,
         target_weight_value: actualTargetWeightValue,
-        warmup: actualWarmup,
+        is_warmup: actualIsWarmup,
       } = actual;
       expect(actualActualWeightValue).toBe(20);
       expect(actualTargetWeightValue).toBe(20);
       expect(actualReps).toBe(7);
-      expect(actualIsAmrap).toBe(true);
+      expect(actualIsAMRAP).toBe(true);
       expect(actualNotes).toBe("here are some excellent notes.");
       expect(actualCompletionStatus).toBe("failed");
       expect(actualPerceivedEffort).toBe("okay");
-      expect(actualWarmup).toBe(true);
+      expect(actualIsWarmup).toBe(true);
     });
   });
 });

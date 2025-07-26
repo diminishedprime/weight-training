@@ -2,7 +2,6 @@ import { Stack, Typography } from "@mui/material";
 import * as React from "react";
 
 export interface WendlerBlockRowProps {
-  // As in the name of the set. For example: "warmup 1" or "working set 1"
   setName: string;
   children: React.ReactNode;
   highlight?: boolean;

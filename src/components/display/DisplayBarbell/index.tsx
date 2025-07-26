@@ -125,7 +125,7 @@ export const MAX_DIAMETER_MM = Math.max(
 export interface DisplayBarbellProps {
   weightUnit: WeightUnit;
   targetWeightValue: number;
-  barWeight: number;
+  barWeightValue: number;
   roundingMode: RoundingMode;
   availablePlates: number[];
   showPlateNumbers?: boolean;
@@ -139,13 +139,13 @@ export const metalGradient =
 const DisplayBarbell: React.FC<DisplayBarbellProps> = (props) => {
   const { plates } = minimalPlatesForTargetWeight(
     props.targetWeightValue,
-    props.barWeight,
+    props.barWeightValue,
     props.availablePlates,
     props.roundingMode,
   );
   const { actualWeight } = actualWeightForTarget(
     props.targetWeightValue,
-    props.barWeight,
+    props.barWeightValue,
     plates,
     props.roundingMode,
   );

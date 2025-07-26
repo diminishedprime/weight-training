@@ -8,9 +8,6 @@ import { CompletionStatus, PerceivedEffort } from "@/common-types";
  */
 export const TestIds = {
   AddExerciseButton: "add-exercise-button",
-  AddBarbellLiftButton: "add-barbell-exercise",
-  AddDumbbellLiftButton: "add-dumbbell-exercise",
-  // TODO: update the two above this to use this one as well.
   AddEquipmentExerciseButton: "add-equipment-exercise-button",
   AddExerciseCancelButton: "add-exercise-cancel-button",
   AddBarbellResetButton: "add-barbell-reset-button",
@@ -23,7 +20,7 @@ export const TestIds = {
   Preferences_SavePreferencesButton: "save-user-preferences-button",
   SelectRepsAMRAPToggle: "select-reps-amrap-toggle",
   KettlebellPlus: "kettlebell-plus",
-  WarmupToggle: "warmup-toggle",
+  IsWarmupToggle: "is-warmup-toggle",
   NotesInput: "notes-input",
   Preferences_CancelButton: "cancel-user-preferences-button",
   // Add more test IDs here as needed

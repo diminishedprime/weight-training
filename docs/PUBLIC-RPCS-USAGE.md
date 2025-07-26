@@ -15,8 +15,8 @@ though if you have a good reason to do so, you can ignore this report changing.
 - create_wendler_exercise_block
 - fail_block_row
 - finish_block_row
+- get_exercise
 - get_exercise_blocks
-- get_exercise_for_user
 - get_exercises_by_type
 - get_form_draft
 - get_personal_record_exercise_types

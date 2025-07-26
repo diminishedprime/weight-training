@@ -31,7 +31,7 @@ const SelectWarmup: React.FC<SelectWarmupProps> = (props) => {
     <FormControlLabel
       control={
         <Checkbox
-          data-testid={TestIds.WarmupToggle}
+          data-testid={TestIds.IsWarmupToggle}
           checked={api.isWarmup}
           onChange={api.onToggle}
           color="primary"

@@ -73,7 +73,7 @@ const equipmentSpecificPreferences = (
 const getExercise = async (props: EditEquipmentExercisePageProps) => {
   const { userId, exerciseId } = props;
 
-  const exercise = await supabaseRPC("get_exercise_for_user", {
+  const exercise = await supabaseRPC("get_exercise", {
     p_user_id: userId,
     p_exercise_id: exerciseId,
   });

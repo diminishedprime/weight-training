@@ -88,7 +88,7 @@ describe("User Journey: Add Custom Barbell Exercises", () => {
 
     await act(async () => {
       const addBarbellLiftButton = await waitFor(() =>
-        screen.getByTestId(TestIds.AddBarbellLiftButton),
+        screen.getByTestId(TestIds.AddEquipmentExerciseButton),
       );
       addBarbellLiftButton.click();
 
@@ -166,7 +166,7 @@ describe("User Journey: Can use components to edit from the default values", () 
           waitFor(() => screen.getByTestId(TestIds.ActivePlate(5))),
           waitFor(() => screen.getByTestId(TestIds.ActivePlate(2.5))),
           waitFor(() => screen.getByTestId(TestIds.PerceivedEffort("hard"))),
-          waitFor(() => screen.getByTestId(TestIds.WarmupToggle)),
+          waitFor(() => screen.getByTestId(TestIds.IsWarmupToggle)),
         ])
       ).map((e) => e.click());
       const notes = await waitFor(() => screen.getByTestId(TestIds.NotesInput));
@@ -175,7 +175,7 @@ describe("User Journey: Can use components to edit from the default values", () 
 
     await act(async () => {
       const addBarbellLiftButton = await waitFor(() =>
-        screen.getByTestId(TestIds.AddBarbellLiftButton),
+        screen.getByTestId(TestIds.AddEquipmentExerciseButton),
       );
       addBarbellLiftButton.click();
 
@@ -193,15 +193,15 @@ describe("User Journey: Can use components to edit from the default values", () 
         const actualExercise = actualExercises![0];
         const {
           reps: actualReps,
-          is_amrap: actualIsAmrap,
+          is_amrap: actualIsAMRAP,
           actual_weight_value: actualActualWeightValue,
           target_weight_value: actualTargetWeightValue,
           perceived_effort: actualPerceivedEffort,
-          warmup: actualIsWarmup,
+          is_warmup: actualIsWarmup,
           notes: actualNotes,
         } = actualExercise;
         expect(actualReps).toBe(6);
-        expect(actualIsAmrap).toBe(true);
+        expect(actualIsAMRAP).toBe(true);
         expect(actualActualWeightValue).toBe(220);
         expect(actualTargetWeightValue).toBe(220);
         expect(actualPerceivedEffort).toBe("hard");

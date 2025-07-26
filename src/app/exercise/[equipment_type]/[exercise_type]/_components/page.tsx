@@ -169,7 +169,7 @@ export const narrowDumbbellFormDraft = (formDraft: Json | null) => {
 
 export interface BarbellFormDraft extends CommonFormDraft {
   _barbellMarker: "barbellFormDraft";
-  barWeight: number;
+  barWeightValue: number;
 }
 
 export const narrowBarbellFormDraft = (formDraft: Json | null) => {

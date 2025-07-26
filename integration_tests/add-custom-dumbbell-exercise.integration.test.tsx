@@ -95,7 +95,7 @@ describe("User Journey: Add Custom Dumbbell Exercises", () => {
 
     await act(async () => {
       const addDumbbellLiftButton = await waitFor(() =>
-        screen.getByTestId(TestIds.AddDumbbellLiftButton),
+        screen.getByTestId(TestIds.AddEquipmentExerciseButton),
       );
       addDumbbellLiftButton.click();
 

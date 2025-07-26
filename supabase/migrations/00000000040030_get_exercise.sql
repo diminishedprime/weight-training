@@ -11,7 +11,7 @@ BEGIN
       target_weight_value numeric,
       weight_unit weight_unit_enum,
       reps integer,
-      warmup boolean,
+      is_warmup boolean,
       is_amrap boolean,
       completion_status completion_status_enum,
       notes text,
@@ -20,9 +20,7 @@ BEGIN
   END IF;
 END$$;
 
--- TODO: rename this to get_exercise the "for_user" is extremely implied because
--- of how this whole thing works.
-CREATE OR REPLACE FUNCTION public.get_exercise_for_user (p_user_id uuid, p_exercise_id uuid) RETURNS exercise_row_type AS $$
+CREATE OR REPLACE FUNCTION public.get_exercise (p_user_id uuid, p_exercise_id uuid) RETURNS exercise_row_type AS $$
 DECLARE
     result exercise_row_type;
 BEGIN
@@ -36,7 +34,7 @@ BEGIN
         e.target_weight_value,
         e.weight_unit,
         e.reps,
-        e.warmup,
+        e.is_warmup,
         e.is_amrap,
         e.completion_status,
         e.notes,

@@ -42,15 +42,15 @@ const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
         setWeightValue={api.setTargetWeight}
         roundingMode={api.roundingMode}
         preferences={props.preferences}
-        barWeight={api.barWeight}
+        barWeightValue={api.barWeightValue}
       />
       <Stack spacing={1}>
         <Stack spacing={1} alignItems="center">
           <SelectReps
             reps={api.reps}
             onRepsChange={(reps: number) => api.setReps(reps)}
-            setIsAmrap={api.setIsAMRAP}
-            isAmrap={api.isAmrap}
+            setIsAMRAP={api.setIsAMRAP}
+            isAMRAP={api.isAMRAP}
           />
           <Stack
             direction="row"

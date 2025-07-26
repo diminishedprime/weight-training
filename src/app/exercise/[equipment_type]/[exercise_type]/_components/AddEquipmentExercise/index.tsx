@@ -57,7 +57,7 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
         weightUnit={api.weightUnit}
         setWeightValue={api.setActualWeight}
         roundingMode={api.roundingMode}
-        barWeight={api.barWeight}
+        barWeightValue={api.barWeightValue}
         preferences={props.preferences}
       />
       <Stack spacing={1} alignItems="space-between">
@@ -66,9 +66,8 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
             repChoices={api.repChoices}
             reps={api.reps}
             onRepsChange={(reps: number) => api.setReps(reps)}
-            isAmrap={api.isAmrap}
-            // TODO: cleanup for later, rename Amrap to AMRAP
-            setIsAmrap={api.setIsAMRAP}
+            isAMRAP={api.isAMRAP}
+            setIsAMRAP={api.setIsAMRAP}
           />
           <Stack
             direction="row"

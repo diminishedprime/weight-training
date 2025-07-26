@@ -116,7 +116,7 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
         <Stack alignItems="center" width="100%">
           <EditBarbell
             targetWeightValue={api.targetWeight}
-            barWeight={45}
+            barWeightValue={45}
             availablePlates={props.availablePlates}
             weightUnit={row.weight_unit!}
             onTargetWeightChange={api.onTargetWeightChange}
@@ -138,7 +138,7 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
               reps={api.reps}
               onRepsChange={api.onRepsChange}
               wendlerReps
-              isAmrap={props.isLastRow}
+              isAMRAP={props.isLastRow}
               hideSettings
             />
           </Stack>

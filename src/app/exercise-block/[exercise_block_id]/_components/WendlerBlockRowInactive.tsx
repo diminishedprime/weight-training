@@ -51,7 +51,7 @@ const WendlerBlockRowInactive: React.FC<WendlerBlockRowInactiveProps> = (
             targetWeightValue={
               props.row.actual_weight_value ?? props.row.target_weight_value!
             }
-            barWeight={45}
+            barWeightValue={45}
             availablePlates={props.availablePlates}
             weightUnit={props.row.weight_unit!}
             onTargetWeightChange={() => {}}

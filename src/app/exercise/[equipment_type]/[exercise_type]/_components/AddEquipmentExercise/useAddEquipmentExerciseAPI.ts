@@ -61,29 +61,32 @@ const defaultRepsForExercise = (
 const useAddBarbellExerciseAPI = (props: AddEquipmentExerciseProps) => {
   const defaults = useMemo(
     () => ({
-      barWeight: 45,
+      barWeightValue: 45,
     }),
     [],
   );
 
-  const [barWeight, setBarWeight] = useState(
-    props.initialDraft?.barWeight ?? defaults.barWeight,
+  const [barWeightValue, setBarWeightValue] = useState(
+    props.initialDraft?.barWeightValue ?? defaults.barWeightValue,
   );
 
   const additionalFields = useMemo(
     () => ({
-      barWeight: 45, // TODO: this should be dynamic based on the equipment type.
+      barWeightValue: 45, // TODO: this should be dynamic based on the equipment type.
     }),
     [],
   );
 
-  const addExerciseTestId = useMemo(() => TestIds.AddBarbellLiftButton, []);
+  const addExerciseTestId = useMemo(
+    () => TestIds.AddEquipmentExerciseButton,
+    [],
+  );
 
   return {
     additionalFields,
     defaults,
-    barWeight,
-    setBarWeight,
+    barWeightValue,
+    setBarWeight: setBarWeightValue,
     addExerciseTestId,
   };
 };
@@ -93,7 +96,10 @@ const useAddDumbbellExerciseAPI = (_props: AddEquipmentExerciseProps) => {
 
   const additionalFields = useMemo(() => ({}), []);
 
-  const addExerciseTestId = useMemo(() => TestIds.AddDumbbellLiftButton, []);
+  const addExerciseTestId = useMemo(
+    () => TestIds.AddEquipmentExerciseButton,
+    [],
+  );
 
   return { additionalFields, defaults, addExerciseTestId };
 };
@@ -356,14 +362,14 @@ export const useAddEquipmentExerciseAPI = (
     setPerceivedEffort,
     isWarmup,
     setIsWarmup,
-    isAmrap: isAMRAP,
+    isAMRAP,
     setIsAMRAP: setIsAMRAP,
     defaultBarbellFormDraft: defaults,
     boundSaveFormDraftAction,
     boundAddEquipmentExerciseAction,
     boundClearEquipmentFormDraft,
     addExerciseTestId: equipmentSpecificAPI.addExerciseTestId,
-    barWeight: equipmentSpecificAPI.barWeight,
+    barWeightValue: equipmentSpecificAPI.barWeightValue,
     repChoices,
     resetDisabled,
   };

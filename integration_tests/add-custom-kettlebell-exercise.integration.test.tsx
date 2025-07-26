@@ -156,7 +156,7 @@ describe("User Journey: Can use components to edit from the default values", () 
           waitFor(() => screen.getByTestId(TestIds.RepsDownButton)),
           waitFor(() => screen.getByTestId(TestIds.KettlebellPlus)),
           waitFor(() => screen.getByTestId(TestIds.PerceivedEffort("easy"))),
-          waitFor(() => screen.getByTestId(TestIds.WarmupToggle)),
+          waitFor(() => screen.getByTestId(TestIds.IsWarmupToggle)),
         ])
       ).map((e) => e.click());
       const notes = await waitFor(() => screen.getByTestId(TestIds.NotesInput));
@@ -183,15 +183,15 @@ describe("User Journey: Can use components to edit from the default values", () 
         const actualExercise = actualExercises![0];
         const {
           reps: actualReps,
-          is_amrap: actualIsAmrap,
+          is_amrap: actualIsAMRAP,
           actual_weight_value: actualActualWeightValue,
           target_weight_value: actualTargetWeightValue,
           perceived_effort: actualPerceivedEffort,
-          warmup: actualIsWarmup,
+          is_warmup: actualIsWarmup,
           notes: actualNotes,
         } = actualExercise;
         expect(actualReps).toBe(9);
-        expect(actualIsAmrap).toBe(true);
+        expect(actualIsAMRAP).toBe(true);
         expect(actualActualWeightValue).toBe(26);
         expect(actualTargetWeightValue).toBe(26);
         expect(actualPerceivedEffort).toBe("easy");
