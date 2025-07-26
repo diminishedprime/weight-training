@@ -23,7 +23,7 @@ const SelectAvailableKettlebells: React.FC<SelectAvailableKettlebellsProps> = (
       Math.min(...props.availableKettlebells),
       Math.max(...props.availableKettlebells),
     ])
-    .range([6, 9]);
+    .range([9, 12]);
   return (
     <FormControl>
       <FormLabel>{api.label}</FormLabel>
