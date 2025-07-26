@@ -39,6 +39,8 @@ export default function Breadcrumbs({
     setAnchorEl(null);
   };
 
+  // TODO: (easy) we should always show the second to last, and last because
+  // otherwise it's annoying to go up exactly one level.
   if (pathParts.length <= 4) {
     return (
       <MUIBreadcrumbs aria-label="breadcrumb" sx={{ my: 1, ml: 1 }}>

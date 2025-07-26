@@ -11,7 +11,7 @@ import DisplayTime from "@/components/display/DisplayTime";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import Pagination from "@/components/Pagination";
 import {
-  pathForBarbellExerciseEdit,
+  pathForEquipmentExerciseEdit,
   pathForPaginatedEquipmentExercisePage,
 } from "@/constants";
 import { Stack, Typography } from "@mui/material";
@@ -24,7 +24,7 @@ export interface EquipmentExercisesTableProps {
   exercises: NonNullable<ExercisesByTypeResultRows>;
   equipmentType: EquipmentType;
   exerciseType: ExerciseType;
-  path: string;
+  currentPath: string;
   pageNum: number;
   pageCount: number;
 }
@@ -120,12 +120,12 @@ const EquipmentExercisesTable: React.FC<EquipmentExercisesTableProps> = (
               </Typography>
             </Stack>
             {group.map((exercise) => {
-              const editPath = pathForBarbellExerciseEdit(
+              const editPath = pathForEquipmentExerciseEdit(
+                exercise.equipment_type!,
                 exercise.exercise_type!,
                 exercise.exercise_id!,
+                props.currentPath,
               );
-              const params = new URLSearchParams();
-              params.set("backTo", props.path);
               return (
                 <React.Fragment key={exercise.exercise_id}>
                   <Stack
@@ -169,10 +169,7 @@ const EquipmentExercisesTable: React.FC<EquipmentExercisesTableProps> = (
                       />
                     </Stack>
                     <Stack>
-                      <Typography
-                        component={Link}
-                        href={`${editPath}?${params.toString()}`}
-                      >
+                      <Typography component={Link} href={`${editPath}`}>
                         Edit
                       </Typography>
                     </Stack>

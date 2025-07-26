@@ -4,6 +4,11 @@ export const DEFAULT_BAR_WEIGHT = 45; // lbs
 export const ALL_PLATES = [55, 45, 35, 25, 10, 5, 2.5];
 export const DEFAULT_PLATE_SIZES = [45, 25, 10, 5, 2.5];
 
+export const PARAMS = {
+  BackTo: "back_to",
+  PageNum: "page_num",
+};
+
 export const PLATE_COLORS: Record<number, { bg: string; fg: string }> = {
   45: { bg: "red", fg: "white" },
   35: { bg: "blue", fg: "white" },
@@ -55,15 +60,26 @@ export const pathForPaginatedEquipmentExercisePage = (
   exerciseType: ExerciseType,
   pageNum: number,
 ) => {
-  return `${pathForEquipmentExercisePage(equipmentType, exerciseType)}?page_num=${pageNum}}`;
+  const searchParams = new URLSearchParams();
+  searchParams.set(PARAMS.PageNum, pageNum.toString());
+  const search = `?${searchParams.toString()}`;
+  return `${pathForEquipmentExercisePage(equipmentType, exerciseType)}${search}`;
 };
 
 export const pathForEquipmentExerciseEdit = (
   equipmentType: EquipmentType,
   exerciseType: ExerciseType,
   exerciseId: string,
-) =>
-  `${pathForEquipmentExercisePage(equipmentType, exerciseType)}/edit/${exerciseId}`;
+  backTo?: string,
+) => {
+  const searchParams = new URLSearchParams();
+  if (backTo) {
+    searchParams.set(PARAMS.BackTo, backTo);
+  }
+  const searchParamsString = searchParams.toString();
+  const search = searchParamsString ? `?${searchParamsString}` : "";
+  return `${pathForEquipmentExercisePage(equipmentType, exerciseType)}/edit/${exerciseId}${search}`;
+};
 
 export const pathForBarbellExercisePage = (barbell_exercise_type: string) =>
   `/exercise/barbell/${barbell_exercise_type}`;

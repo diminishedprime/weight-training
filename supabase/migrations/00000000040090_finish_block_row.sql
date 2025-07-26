@@ -15,6 +15,7 @@ BEGIN
       actual_weight_value = COALESCE(p_actual_weight_value, e.actual_weight_value),
       perceived_effort = COALESCE(p_perceived_effort, e.perceived_effort),
       notes = COALESCE(p_notes, e.notes),
+      update_time = now(),
       performed_at = now()
   FROM exercise_block_exercises ebe
   JOIN exercise_block b ON ebe.block_id = b.id

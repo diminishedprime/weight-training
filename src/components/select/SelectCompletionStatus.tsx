@@ -1,5 +1,6 @@
 import { CompletionStatus } from "@/common-types";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
+import { TestIds } from "@/test-ids";
 import {
   FormControl,
   FormLabel,
@@ -72,6 +73,7 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
         {renderWithOptionalForm(
           props.boundFinishAction,
           <ToggleButton
+            data-testid={TestIds.CompletionStatus("completed")}
             value="completed"
             aria-label="Completed"
             size="small"
@@ -84,6 +86,7 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
         )}
         {props.notCompleted && (
           <ToggleButton
+            data-testid={TestIds.CompletionStatus("not_completed")}
             value="not_completed"
             aria-label="Not Completed"
             size="small"
@@ -96,6 +99,7 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
         {renderWithOptionalForm(
           props.boundFailAction,
           <ToggleButton
+            data-testid={TestIds.CompletionStatus("failed")}
             value="failed"
             aria-label="Failed"
             size="small"
@@ -109,6 +113,7 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
         {renderWithOptionalForm(
           props.boundSkipAction,
           <ToggleButton
+            data-testid={TestIds.CompletionStatus("skipped")}
             value="skipped"
             aria-label="Skipped"
             size="small"

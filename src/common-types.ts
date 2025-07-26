@@ -19,6 +19,19 @@ export type ExercisesByTypeResultRows = ExercisesByTypeResult["rows"];
 export type ExerciseForUser =
   Database["public"]["Functions"]["get_exercise_for_user"]["Returns"];
 
+export type GetExerciseResult = RequiredNonNullable<
+  NonNullable<ExerciseForUser>,
+  | "exercise_id"
+  | "target_weight_value"
+  | "weight_unit"
+  | "completion_status"
+  | "reps"
+  | "equipment_type"
+  | "exercise_type"
+  | "warmup"
+  | "is_amrap"
+>;
+
 export type WendlerBlockPrereqs =
   Database["public"]["Functions"]["check_wendler_block_prereqs"]["Returns"];
 export type WendlerMaxesData =

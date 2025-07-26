@@ -1,6 +1,6 @@
 "use client";
 
-import { PerceivedEffort } from "@/common-types";
+import { CompletionStatus, PerceivedEffort } from "@/common-types";
 
 /**
  * Test IDs for use in data-testid attributes throughout the app.
@@ -12,7 +12,7 @@ export const TestIds = {
   AddDumbbellLiftButton: "add-dumbbell-exercise",
   AddExerciseCancelButton: "add-exercise-cancel-button",
   AddBarbellResetButton: "add-barbell-reset-button",
-  ActivePlate: (plate: number) => `active-plate-${plate}`,
+  RepDownButton: "rep-down-button",
   FirstBarbellRow: "add-barbell-first-row",
   // ExercisesTable test IDs
   addWendlerLegDayButton: "add-wendler-leg-day-button",
@@ -20,7 +20,15 @@ export const TestIds = {
   Preferences_SavePreferencesButton: "save-user-preferences-button",
   SelectRepsAMRAPToggle: "select-reps-amrap-toggle",
   SelectRepsAdd: "select-reps-add-1",
-  PerceivedEffort: (effort: PerceivedEffort) => `perceived-effort-${effort}`,
   WarmupToggle: "warmup-toggle",
   NotesInput: "notes-input",
+  // Add more test IDs here as needed
+  EditEquipmentCancelButton: "edit-equipment-cancel-button",
+  EditEquipmentResetButton: "edit-equipment-reset-button",
+  EditEquipmentSaveButton: "edit-equipment-save-button",
+  EditDumbbellBumpDownButton: "edit-dumbbell-bump-down-button",
+  ActivePlate: (plate: number) => `active-plate-${plate}`,
+  PerceivedEffort: (effort: PerceivedEffort) => `perceived-effort-${effort}`,
+  CompletionStatus: (completionStatus: CompletionStatus) =>
+    `completion-status-${completionStatus}`,
 } as const;

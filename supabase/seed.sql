@@ -65,6 +65,13 @@ SELECT
     p_create_preferences => true
   );
 
+SELECT
+  _system.create_test_user (
+    p_email => 'edit-dumbbell-exercise.integration.test.tsx',
+    p_id => '00000000-0000-0000-0001-000000000004'::uuid,
+    p_create_preferences => true
+  );
+
 -- Note: Matt & Steph users are NOT created here - they will be created automatically
 -- when they sign up through NextAuth, thanks to the get_deterministic_uuid() function
 -- and trigger in the auth migration.
