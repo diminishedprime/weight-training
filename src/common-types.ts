@@ -17,7 +17,7 @@ export type ExercisesByTypeResult =
 export type ExercisesByTypeResultRows = ExercisesByTypeResult["rows"];
 
 export type ExerciseForUser =
-  Database["public"]["Functions"]["get_exercise_for_user"]["Returns"];
+  Database["public"]["Functions"]["get_exercise"]["Returns"];
 
 export type GetExerciseResult = RequiredNonNullable<
   NonNullable<ExerciseForUser>,

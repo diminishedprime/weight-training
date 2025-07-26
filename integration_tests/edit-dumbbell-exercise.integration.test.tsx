@@ -156,7 +156,7 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
 
     // Now that we can be sure the edit went through, verify all of the other fields at once.
     await act(async () => {
-      const actual = await serverUtil.supabaseRPC("get_exercise_for_user", {
+      const actual = await serverUtil.supabaseRPC("get_exercise", {
         p_user_id: USER_ID["edit-dumbbell-exercise.integration.test.tsx"],
         p_exercise_id: exerciseId,
       });

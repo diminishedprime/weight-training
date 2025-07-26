@@ -20,9 +20,7 @@ BEGIN
   END IF;
 END$$;
 
--- TODO: rename this to get_exercise the "for_user" is extremely implied because
--- of how this whole thing works.
-CREATE OR REPLACE FUNCTION public.get_exercise_for_user (p_user_id uuid, p_exercise_id uuid) RETURNS exercise_row_type AS $$
+CREATE OR REPLACE FUNCTION public.get_exercise (p_user_id uuid, p_exercise_id uuid) RETURNS exercise_row_type AS $$
 DECLARE
     result exercise_row_type;
 BEGIN

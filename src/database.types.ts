@@ -501,13 +501,13 @@ export type Database = {
         };
         Returns: undefined;
       };
+      get_exercise: {
+        Args: { p_user_id: string; p_exercise_id: string };
+        Returns: Database["public"]["CompositeTypes"]["exercise_row_type"];
+      };
       get_exercise_blocks: {
         Args: { p_user_id: string; p_page?: number };
         Returns: Database["public"]["CompositeTypes"]["get_exercise_blocks_result"];
-      };
-      get_exercise_for_user: {
-        Args: { p_user_id: string; p_exercise_id: string };
-        Returns: Database["public"]["CompositeTypes"]["exercise_row_type"];
       };
       get_exercises_by_type: {
         Args: {
