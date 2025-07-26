@@ -111,11 +111,14 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
               <Badge
                 key={plate}
                 sx={metadata?.sx}
-                data-testid={metadata?.testid}
                 badgeContent={count > 0 ? count : undefined}
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
               >
-                <Button size="small" onClick={() => api.onAddPlate(plate)}>
+                <Button
+                  data-testid={metadata?.testid}
+                  size="small"
+                  onClick={() => api.onAddPlate(plate)}
+                >
                   {fractionWeightFormat(plate)}
                 </Button>
               </Badge>

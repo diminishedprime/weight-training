@@ -4,10 +4,15 @@ import EquipmentExercisePage, {
 import { FIRST_PAGE_NUM, pathForBarbellExercisePage } from "@/constants";
 import * as serverUtil from "@/serverUtil";
 import { TestIds } from "@/test-ids";
-import { USER_ID_LOGGED_IN } from "@/test/constants";
+import { USER_ID } from "@/test/constants";
 import { getSession, requireLoggedInUser } from "@/test/serverUtil";
-import { getExercisesByEquipment } from "@/util";
-import { act, render, screen, waitFor } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import { afterEach } from "node:test";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -18,35 +23,29 @@ const deleteRelevantRowsForUser = async (userId: string) => {
   await supabase.from("form_drafts").delete().eq("user_id", userId);
 };
 
-const exercisesByEquipment = getExercisesByEquipment();
-
 beforeEach(async () => {
   vi.restoreAllMocks();
   vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-    requireLoggedInUser(USER_ID_LOGGED_IN),
+    requireLoggedInUser(
+      USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+    ),
   );
   vi.spyOn(serverUtil, "getSession").mockImplementation(
-    getSession(USER_ID_LOGGED_IN),
+    getSession(USER_ID["add-custom-barbell-exercise.integration.test.tsx"]),
   );
-  await deleteRelevantRowsForUser(USER_ID_LOGGED_IN);
+  await deleteRelevantRowsForUser(
+    USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+  );
 });
 
 afterEach(async () => {
-  await deleteRelevantRowsForUser(USER_ID_LOGGED_IN);
+  await deleteRelevantRowsForUser(
+    USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+  );
 });
-
-// TODO: Consider a test for the "real" page that does fancy narrowing, etc.
 
 describe("User Journey: Add Custom Barbell Exercises", () => {
   it("should allow a logged in user to add a custom deadlift barbell exercise", async () => {
-    const pageProps: EquipmentExercisePageProps = {
-      userId: USER_ID_LOGGED_IN,
-      equipmentType: "barbell",
-      exerciseType: "barbell_deadlift",
-      path: pathForBarbellExercisePage("barbell_deadlift"),
-      pageNumber: FIRST_PAGE_NUM,
-    };
-
     // Initial render of the page.
     let page = await EquipmentExercisePage(pageProps);
     await act(async () => render(page));
@@ -57,7 +56,10 @@ describe("User Journey: Add Custom Barbell Exercises", () => {
       const { data: initialDeadlifts } = await supabase
         .from("exercises")
         .select("*")
-        .eq("user_id", USER_ID_LOGGED_IN)
+        .eq(
+          "user_id",
+          USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+        )
         .eq("exercise_type", "barbell_deadlift");
       expect(initialDeadlifts?.length).toBe(0);
       const addExerciseButton = await waitFor(() =>
@@ -74,7 +76,10 @@ describe("User Journey: Add Custom Barbell Exercises", () => {
         const { data: drafts } = await supabase
           .from("form_drafts")
           .select("*")
-          .eq("user_id", USER_ID_LOGGED_IN);
+          .eq(
+            "user_id",
+            USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+          );
         expect(drafts?.length).toBeGreaterThan(0);
       });
       page = await EquipmentExercisePage(pageProps);
@@ -96,7 +101,10 @@ describe("User Journey: Add Custom Barbell Exercises", () => {
         const { data: lifts } = await supabase
           .from("exercises")
           .select("*")
-          .eq("user_id", USER_ID_LOGGED_IN)
+          .eq(
+            "user_id",
+            USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+          )
           .eq("exercise_type", "barbell_deadlift");
         expect(lifts?.length).toBe(1);
         expect(lifts![0].completion_status).toBe("completed");
@@ -108,3 +116,107 @@ describe("User Journey: Add Custom Barbell Exercises", () => {
     // but I can't get _anything_ to work, try this again sometime.
   });
 });
+
+describe("User Journey: Can use components to edit from the default values", () => {
+  it("should allow a logged in user to modify every field in the UI", async () => {
+    // Initial render of the page.
+    let page = await EquipmentExercisePage(pageProps);
+    await act(async () => render(page));
+
+    // Find and click the "Add Exercise" button. This will add a db form draft.
+    await act(async () => {
+      const { data: initialDeadlifts } = await supabase
+        .from("exercises")
+        .select("*")
+        .eq(
+          "user_id",
+          USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+        )
+        .eq("exercise_type", "barbell_deadlift");
+      expect(initialDeadlifts?.length).toBe(0);
+      const addExerciseButton = await waitFor(() =>
+        screen.getByTestId(TestIds.AddExerciseButton),
+      );
+      addExerciseButton.click();
+
+      // Wait for a form draft to exist before re-rendering.
+      await waitFor(async () => {
+        const { data: drafts } = await supabase
+          .from("form_drafts")
+          .select("*")
+          .eq(
+            "user_id",
+            USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+          );
+        expect(drafts?.length).toBeGreaterThan(0);
+      });
+      page = await EquipmentExercisePage(pageProps);
+      await act(async () => render(page));
+    });
+
+    // Find the select reps component and click the AMRAP toggle
+    await act(async () => {
+      (
+        await Promise.all([
+          waitFor(() => screen.getByTestId(TestIds.SelectRepsAMRAPToggle)),
+          waitFor(() => screen.getByTestId(TestIds.SelectRepsAdd)),
+          waitFor(() => screen.getByTestId(TestIds.ActivePlate(45))),
+          waitFor(() => screen.getByTestId(TestIds.ActivePlate(25))),
+          waitFor(() => screen.getByTestId(TestIds.ActivePlate(10))),
+          waitFor(() => screen.getByTestId(TestIds.ActivePlate(5))),
+          waitFor(() => screen.getByTestId(TestIds.ActivePlate(2.5))),
+          waitFor(() => screen.getByTestId(TestIds.PerceivedEffort("hard"))),
+          waitFor(() => screen.getByTestId(TestIds.WarmupToggle)),
+        ])
+      ).map((e) => e.click());
+      const notes = await waitFor(() => screen.getByTestId(TestIds.NotesInput));
+      fireEvent.change(notes, { target: { value: "Test note" } });
+    });
+
+    await act(async () => {
+      const addBarbellLiftButton = await waitFor(() =>
+        screen.getByTestId(TestIds.AddBarbellLiftButton),
+      );
+      addBarbellLiftButton.click();
+
+      // Wait for the new lift to exist in the DB before re-rendering.
+      await waitFor(async () => {
+        const { data: actualExercises } = await supabase
+          .from("exercises")
+          .select("*")
+          .eq(
+            "user_id",
+            USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+          )
+          .eq("exercise_type", "barbell_deadlift");
+        expect(actualExercises?.length).toBe(1);
+        const actualExercise = actualExercises![0];
+        const {
+          reps: actualReps,
+          is_amrap: actualIsAmrap,
+          actual_weight_value: actualActualWeightValue,
+          target_weight_value: actualTargetWeightValue,
+          perceived_effort: actualPerceivedEffort,
+          warmup: actualIsWarmup,
+          notes: actualNotes,
+        } = actualExercise;
+        expect(actualReps).toBe(6);
+        expect(actualIsAmrap).toBe(true);
+        expect(actualActualWeightValue).toBe(220);
+        expect(actualTargetWeightValue).toBe(220);
+        expect(actualPerceivedEffort).toBe("hard");
+        expect(actualIsWarmup).toBe(true);
+        expect(actualNotes).toBe("Test note");
+      });
+    });
+  });
+});
+
+// Page props do not differ for any of the integration tests.
+const pageProps: EquipmentExercisePageProps = {
+  userId: USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
+  equipmentType: "barbell",
+  exerciseType: "barbell_deadlift",
+  path: pathForBarbellExercisePage("barbell_deadlift"),
+  pageNumber: FIRST_PAGE_NUM,
+};

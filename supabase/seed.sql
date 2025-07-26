@@ -1,79 +1,69 @@
 -- Start test seed data.
--- Example seed user for testing
-INSERT INTO
-  next_auth.users (id, name, email, "emailVerified", image)
-VALUES
-  (
-    '00000000-0000-0000-0000-000000000001',
-    'Test User',
-    'testuser@example.com',
-    NOW(),
-    'https://example.com/avatar.png'
-  )
-ON CONFLICT (id) DO NOTHING;
-
--- Insert user metadata for the test user. This is needed so we don't always
--- redirect within the unit tests which isn't really supported since it has to
--- throw to redirect.
 SELECT
-  public.set_user_preferences (
-    p_user_id => '00000000-0000-0000-0000-000000000001'::uuid,
-    p_preferred_weight_unit => 'pounds'::weight_unit_enum,
-    p_default_rest_time => 120,
-    p_available_plates_lbs => ARRAY[45, 35, 25, 10, 5, 2.5]::numeric[],
-    p_available_dumbbells_lbs => ARRAY[50, 40, 30, 20, 10]::numeric[]
+  _system.create_test_user (
+    p_email => 'testuser@example.com',
+    p_id => '00000000-0000-0000-0000-000000000001'::uuid,
+    p_create_preferences => true
   );
 
 -- Additional seed user for update_user_personal_record tests
-INSERT INTO
-  next_auth.users (id, name, email, "emailVerified", image)
-VALUES
-  (
-    '00000000-0000-0000-0000-000000000002',
-    'PR Test User',
-    'personal_record_test@example.com',
-    NOW(),
-    'https://example.com/avatar2.png'
-  )
-ON CONFLICT (id) DO NOTHING;
+SELECT
+  _system.create_test_user (
+    p_email => 'personal_record_test@example.com',
+    p_id => '00000000-0000-0000-0000-000000000002'::uuid,
+    p_create_preferences => true
+  );
 
 -- Fully seeded user for integration/analytics tests
-INSERT INTO
-  next_auth.users (id, name, email, "emailVerified", image)
-VALUES
-  (
-    '00000000-0000-0000-0000-000000000003',
-    'Fully Seeded User',
-    'fullyseeded@example.com',
-    NOW(),
-    'https://example.com/avatar3.png'
-  )
-ON CONFLICT (id) DO NOTHING;
+SELECT
+  _system.create_test_user (
+    p_email => 'fullyseeded@example.com',
+    p_id => '00000000-0000-0000-0000-000000000003'::uuid,
+    p_create_preferences => true
+  );
 
 -- Additional seed user for update_user_personal_record tests
-INSERT INTO
-  next_auth.users (id, name, email, "emailVerified", image)
-VALUES
-  (
-    '00000000-0000-0000-0000-000000000004',
-    'User Preferences Test User',
-    'user_preferences_test@example.com',
-    NOW(),
-    'https://example.com/avatar4.png'
-  )
-ON CONFLICT (id) DO NOTHING;
+SELECT
+  _system.create_test_user (
+    p_email => 'user_preferences_test@example.com',
+    p_id => '00000000-0000-0000-0000-000000000004'::uuid,
+    p_create_preferences => true
+  );
 
-INSERT INTO
-  next_auth.users (id, name, email, "emailVerified", image)
-VALUES
-  (
-    'aaaaaaaa-bbbb-cccc-dddd-000000000001',
-    'Personal Record User 1',
-    'personal_record_user_1@example.com',
-    now(),
-    'https://example.com/avatar1.png'
-  )
-ON CONFLICT (id) DO NOTHING;
+SELECT
+  _system.create_test_user (
+    p_email => 'personal_record_user_1@example.com',
+    p_id => 'aaaaaaaa-bbbb-cccc-dddd-000000000001'::uuid,
+    p_create_preferences => true
+  );
+
+SELECT
+  _system.create_test_user (
+    p_email => 'add-custom-barbell-exercise.integration.test.tsx',
+    p_id => '00000000-0000-0000-0001-000000000000'::uuid,
+    p_create_preferences => true
+  );
+
+SELECT
+  _system.create_test_user (
+    p_email => 'add-custom-dumbbell-exercise.integration.test.tsx',
+    p_id => '00000000-0000-0000-0001-000000000001'::uuid,
+    p_create_preferences => true
+  );
+
+SELECT
+  _system.create_test_user (
+    p_email => 'add-wendler-block.integration.test.tsx',
+    p_id => '00000000-0000-0000-0001-000000000002'::uuid,
+    p_create_preferences => true
+  );
+
+SELECT
+  _system.create_test_user (
+    p_email => 'preferences.integration.test.tsx',
+    p_id => '00000000-0000-0000-0001-000000000003'::uuid,
+    p_create_preferences => true
+  );
 
 -- Note: Matt & Steph users are NOT created here - they will be created automatically
 -- when they sign up through NextAuth, thanks to the get_deterministic_uuid() function

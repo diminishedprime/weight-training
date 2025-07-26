@@ -50,8 +50,9 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
         <SelectReps
           reps={api.reps}
           onRepsChange={(reps: number) => api.setReps(reps)}
-          // TODO: re-update this to properly support amrap.
           isAmrap={api.isAmrap}
+          // TODO: cleanup for later, rename Amrap to AMRAP
+          setIsAmrap={api.setIsAMRAP}
         />
         <Stack
           direction="row"

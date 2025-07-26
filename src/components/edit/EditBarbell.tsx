@@ -12,7 +12,7 @@ export interface EditBarbellProps {
   roundingMode: RoundingMode;
   // TODO: rename to barbellWeightValue
   barWeight: number;
-  onTargetWeightChange: (newTargetWeight: number) => void;
+  onTargetWeightChange: React.Dispatch<React.SetStateAction<number>>;
   weightUnit: WeightUnit;
   availablePlates: number[];
   editing?: boolean;
@@ -55,7 +55,7 @@ const useEditBarbellAPI = (props: EditBarbellProps) => {
   const handleAdd = React.useCallback(
     (increment: number) => {
       setTargetWeightHistory((prev) => prev.push(targetWeight));
-      onTargetWeightChange(targetWeight + increment * 2);
+      onTargetWeightChange((prevWeight) => prevWeight + increment * 2);
     },
     [onTargetWeightChange, targetWeight],
   );

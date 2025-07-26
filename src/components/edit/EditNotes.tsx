@@ -1,4 +1,5 @@
 import { useRequiredModifiableLabel } from "@/hooks";
+import { TestIds } from "@/test-ids";
 import ClearIcon from "@mui/icons-material/Clear";
 import { IconButton, TextField } from "@mui/material";
 import React from "react";
@@ -34,6 +35,9 @@ const EditNotes: React.FC<EditNotesProps> = (props) => {
       onChange={(e) => api.onNotesChange(e.target.value)}
       required={props.isRequired}
       slotProps={{
+        htmlInput: {
+          "data-testid": TestIds.NotesInput,
+        },
         input: {
           endAdornment: (
             <IconButton

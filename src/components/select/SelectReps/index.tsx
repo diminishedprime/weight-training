@@ -1,4 +1,10 @@
-import { ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
+import { TestIds } from "@/test-ids";
+import {
+  Stack,
+  ToggleButton,
+  ToggleButtonGroup,
+  Typography,
+} from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import React, { useMemo } from "react";
@@ -9,6 +15,7 @@ export interface SelectRepsProps {
   repChoices?: number[];
   wendlerReps?: boolean;
   isAmrap?: boolean;
+  setIsAmrap?: (isAmrap: boolean) => void;
   hideSettings?: boolean;
 }
 
@@ -58,13 +65,6 @@ function useSelectRepsAPI(props: SelectRepsProps) {
   };
 }
 
-// TODO - Consider updating this where the current rep choice always has a
-// button, even if it's not in the choices. It doesn't need to stay, but it'll
-// make it easier to see what the current rep number is.
-//
-// Thinking about this more, it may be annoying because it may cause the UI to
-// bump around?
-
 const SelectReps: React.FC<SelectRepsProps> = (props) => {
   const api = useSelectRepsAPI(props);
 
@@ -73,42 +73,67 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
       <FormLabel sx={{ display: "flex", alignItems: "center", gap: 1 }}>
         Reps: {props.reps}
         {props.isAmrap && (
-          <Typography variant="body2" color="primary">
+          <Typography variant="body2" color="secondary">
             (AMRAP)
           </Typography>
         )}
       </FormLabel>
-      <ToggleButtonGroup
-        color="primary"
-        value={props.reps}
-        exclusive
-        onChange={api.handleToggleChange}
-        size="small"
-        aria-label="Select Reps"
-        sx={{ mb: 1 }}
-      >
-        <ToggleButton
-          value="-"
-          disabled={api.isDecrementDisabled}
-          aria-label="decrement reps"
+      <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+        <ToggleButtonGroup
+          color="secondary"
+          value={props.isAmrap}
+          exclusive
+          onChange={(_, newValue) => {
+            props.setIsAmrap?.(newValue);
+          }}
           size="small"
+          aria-label="toggle AMRAP"
         >
-          -
-        </ToggleButton>
-        {api.choices.map((val) => (
           <ToggleButton
-            key={val}
-            value={val}
-            aria-label={`reps ${val}`}
+            size="small"
+            value={true}
+            aria-label="toggle AMRAP"
+            data-testid={TestIds.SelectRepsAMRAPToggle}
+          >
+            AMRAP
+          </ToggleButton>
+        </ToggleButtonGroup>
+        <ToggleButtonGroup
+          color="primary"
+          value={props.reps}
+          exclusive
+          onChange={api.handleToggleChange}
+          size="small"
+          aria-label="Select Reps"
+        >
+          <ToggleButton
+            value="-"
+            disabled={api.isDecrementDisabled}
+            aria-label="decrement reps"
             size="small"
           >
-            {val}
+            -
           </ToggleButton>
-        ))}
-        <ToggleButton value="+" aria-label="increment reps" size="small">
-          +
-        </ToggleButton>
-      </ToggleButtonGroup>
+          {api.choices.map((val) => (
+            <ToggleButton
+              key={val}
+              value={val}
+              aria-label={`reps ${val}`}
+              size="small"
+            >
+              {val}
+            </ToggleButton>
+          ))}
+          <ToggleButton
+            data-testid={TestIds.SelectRepsAdd}
+            value="+"
+            aria-label="increment reps"
+            size="small"
+          >
+            +
+          </ToggleButton>
+        </ToggleButtonGroup>
+      </Stack>
     </FormControl>
   );
 };

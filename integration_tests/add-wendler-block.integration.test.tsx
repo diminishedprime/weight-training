@@ -1,5 +1,5 @@
 import * as serverUtil from "@/serverUtil";
-import { USER_ID_LOGGED_IN } from "@/test/constants";
+import { USER_ID } from "@/test/constants";
 import { getSession, requireLoggedInUser } from "@/test/serverUtil";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -12,12 +12,14 @@ const deleteAllExercisesForUser = async (userId: string) => {
 beforeEach(async () => {
   vi.restoreAllMocks();
   vi.spyOn(serverUtil, "requireLoggedInUser").mockImplementation(
-    requireLoggedInUser(USER_ID_LOGGED_IN),
+    requireLoggedInUser(USER_ID["add-wendler-block.integration.test.tsx"]),
   );
   vi.spyOn(serverUtil, "getSession").mockImplementation(
-    getSession(USER_ID_LOGGED_IN),
+    getSession(USER_ID["add-wendler-block.integration.test.tsx"]),
   );
-  await deleteAllExercisesForUser(USER_ID_LOGGED_IN);
+  await deleteAllExercisesForUser(
+    USER_ID["add-wendler-block.integration.test.tsx"],
+  );
 });
 
 // TODO - actually add in some tests here.
