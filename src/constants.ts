@@ -78,6 +78,29 @@ export const pathForPaginatedExerciseBlocksPage = (pageNum: number) => {
   return `${pathForExerciseBlocksPage}${search}`;
 };
 
+export const pathForBlock = (blockId: string) =>
+  `${pathForExerciseBlocksPage}/${blockId}`;
+
+const pathForSuperblocksPage = `/superblocks`;
+
+const pathForPaginatedSuperblocksPage = (pageNum: number) => {
+  const searchParams = new URLSearchParams();
+  searchParams.set(PARAMS.PageNum, pageNum.toString());
+  const search = `?${searchParams.toString()}`;
+  return `${pathForSuperblocksPage}${search}`;
+};
+
+// TODO: refactor everything to use the PATHS object and also turn constants.ts
+// into /constants/index.ts and have a separate paths.ts file that does this
+// stuff. As a part of that, also remove the export const for the paths/paths
+// helper functions.
+export const PATHS = {
+  Superblocks: pathForSuperblocksPage,
+  PaginatedSuperblocks: pathForPaginatedSuperblocksPage,
+  SuperblocksById: (superblockId: string) =>
+    `${pathForSuperblocksPage}/${superblockId}`,
+} as const;
+
 export const pathForEquipmentExerciseEdit = (
   equipmentType: EquipmentType,
   exerciseType: ExerciseType,

@@ -3,6 +3,9 @@ import { format } from "date-fns";
 
 interface DisplayTimeProps {
   timestamp: string;
+  row?: boolean;
+  noDate?: boolean;
+  noTime?: boolean;
 }
 
 const DisplayTime: React.FC<DisplayTimeProps> = (props) => {
@@ -10,13 +13,20 @@ const DisplayTime: React.FC<DisplayTimeProps> = (props) => {
   const dateString = format(date, "MM/dd/yyyy");
   const timeString = format(date, "h:mm a");
   return (
-    <Stack>
-      <Typography component="span" color="primary" sx={{ p: 0, m: 0 }}>
-        {dateString}
-      </Typography>
-      <Typography component="span" color="secondary" sx={{ p: 0, m: 0 }}>
-        {timeString}
-      </Typography>
+    <Stack
+      direction={props.row ? "row" : undefined}
+      spacing={props.row ? 1 : undefined}
+    >
+      {!props.noDate && (
+        <Typography component="span" color="primary" sx={{ p: 0, m: 0 }}>
+          {dateString}
+        </Typography>
+      )}
+      {!props.noTime && (
+        <Typography component="span" color="secondary" sx={{ p: 0, m: 0 }}>
+          {timeString}
+        </Typography>
+      )}
     </Stack>
   );
 };

@@ -21,6 +21,7 @@ though if you have a good reason to do so, you can ignore this report changing.
 - get_form_draft
 - get_personal_record_exercise_types
 - get_personal_records_for_exercise_type
+- get_superblocks
 - get_user_preferences
 - get_wendler_block
 - get_wendler_maxes

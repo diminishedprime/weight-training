@@ -1,4 +1,5 @@
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { PATHS } from "@/constants";
 import { Button, Stack } from "@mui/material";
 import Link from "next/link";
 
@@ -22,6 +23,14 @@ export default function Home() {
           color="primary"
         >
           Exercise Blocks
+        </Button>
+        <Button
+          component={Link}
+          href={PATHS.Superblocks}
+          variant="contained"
+          color="primary"
+        >
+          Superblocks
         </Button>
         <Button
           component={Link}
