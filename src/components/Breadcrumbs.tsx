@@ -21,6 +21,9 @@ export interface BreadcrumbsProps {
   pathname: string;
   labels?: Record<string, string | React.JSX.Element>;
   nonLinkable?: string[];
+  // TODO: refactor, update everywhere in the UI to use truncate instead of the
+  // manual proccessing it's doing with label.
+  truncate?: string[];
 }
 
 // TODO: This could really stand to be refactored. There's a lot of duplication,
@@ -29,6 +32,7 @@ export default function Breadcrumbs({
   pathname,
   labels = {},
   nonLinkable = [],
+  truncate = [],
 }: BreadcrumbsProps) {
   const pathParts = pathname.split("/").filter(Boolean);
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
@@ -54,6 +58,10 @@ export default function Breadcrumbs({
         {pathParts.map((part, idx) => {
           const href = "/" + pathParts.slice(0, idx + 1).join("/");
           const label = labels[part] || toTitleCase(part);
+          const truncated =
+            truncate.includes(part) && typeof label === "string"
+              ? `(${label.slice(0, 8)})`
+              : label;
           const isNonLinkable = nonLinkable.includes(part);
           const isEquipmentType =
             Constants.public.Enums.equipment_type_enum.includes(
@@ -68,7 +76,7 @@ export default function Breadcrumbs({
           if (isNonLinkable) {
             return (
               <Typography color="text.primary" key={href}>
-                {label}
+                {truncated}
               </Typography>
             );
           }
@@ -81,7 +89,7 @@ export default function Breadcrumbs({
               sx={{ display: "flex", alignItems: "center", gap: 1 }}
             >
               {icon}
-              {label}
+              {truncated}
             </MUILink>
           );
         })}

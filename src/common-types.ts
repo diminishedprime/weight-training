@@ -65,3 +65,7 @@ export enum RoundingMode {
 export type RequiredNonNullable<T, K extends keyof T> = T & {
   [P in K]-?: NonNullable<T[P]>;
 };
+
+export type SuperblocksRow = NonNullable<
+  Database["public"]["Functions"]["get_superblocks"]["Returns"]["superblocks"]
+>[number];

@@ -537,6 +537,10 @@ export type Database = {
         };
         Returns: Database["public"]["CompositeTypes"]["personal_record_history_row"][];
       };
+      get_superblocks: {
+        Args: { p_user_id: string; p_page_num: number };
+        Returns: Database["public"]["CompositeTypes"]["get_superblocks_result"];
+      };
       get_target_max: {
         Args: {
           p_user_id: string;
@@ -721,6 +725,10 @@ export type Database = {
       wendler_cycle_type_enum: "5" | "3" | "1" | "deload";
     };
     CompositeTypes: {
+      block_detail_row: {
+        id: string | null;
+        exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null;
+      };
       exercise_block_with_wendler_row: {
         id: string | null;
         user_id: string | null;
@@ -806,6 +814,12 @@ export type Database = {
           | null;
         personal_record: boolean | null;
       };
+      get_superblocks_result: {
+        superblocks:
+          | Database["public"]["CompositeTypes"]["superblock_row"][]
+          | null;
+        page_count: number | null;
+      };
       personal_record_history_row: {
         id: string | null;
         weight_value: number | null;
@@ -824,6 +838,18 @@ export type Database = {
         reps: number | null;
         recorded_at: string | null;
         exercise_id: string | null;
+      };
+      superblock_row: {
+        id: string | null;
+        user_id: string | null;
+        name: string | null;
+        notes: string | null;
+        started_at: string | null;
+        completed_at: string | null;
+        block_details:
+          | Database["public"]["CompositeTypes"]["block_detail_row"][]
+          | null;
+        training_volume: number | null;
       };
       target_max_row: {
         weight_value: number | null;
