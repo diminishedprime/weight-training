@@ -28,8 +28,13 @@ export const TestIds = {
   EditEquipmentResetButton: "edit-equipment-reset-button",
   EditEquipmentSaveButton: "edit-equipment-save-button",
   EditDumbbellBumpDownButton: "edit-dumbbell-bump-down-button",
+  ClearActivePlatesButton: "clear-active-plates-button",
   ActivePlate: (plate: number) => `active-plate-${plate}`,
   PerceivedEffort: (effort: PerceivedEffort) => `perceived-effort-${effort}`,
   CompletionStatus: (completionStatus: CompletionStatus) =>
     `completion-status-${completionStatus}`,
+  EditWeightAdd: (weight: number) => `edit-weight-add-${weight}`,
+  EditWeightSubtract: (weight: number) => `edit-weight-subtract-${weight}`,
+  EditWeightInput: "edit-weight-input",
+  EditWeightClearButton: "edit-weight-clear-button",
 } as const;

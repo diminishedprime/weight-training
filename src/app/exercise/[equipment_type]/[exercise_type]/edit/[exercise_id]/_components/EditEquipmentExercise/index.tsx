@@ -48,7 +48,7 @@ const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
         <Stack spacing={1} alignItems="center">
           <SelectReps
             reps={api.reps}
-            onRepsChange={(reps: number) => api.setReps(reps)}
+            setReps={api.setReps}
             setIsAMRAP={api.setIsAMRAP}
             isAMRAP={api.isAMRAP}
           />

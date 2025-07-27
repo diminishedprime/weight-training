@@ -101,7 +101,7 @@ const useRequiredPreferences = (
   localDefaultRestTime: string,
   localAvailablePlatesLbs: number[],
   localAvailableDumbbellsLbs: number[],
-  availableKettlebellsLbs: number[],
+  selectedKettlebells: number[],
 ) => {
   const params = useSearchParams();
   const backTo = params.get("backTo");
@@ -128,7 +128,7 @@ const useRequiredPreferences = (
             localAvailableDumbbellsLbs && localAvailableDumbbellsLbs.length > 0
           );
         case "available_kettlebells_lbs":
-          return availableKettlebellsLbs && availableKettlebellsLbs.length > 0;
+          return selectedKettlebells && selectedKettlebells.length > 0;
         default:
           return true;
       }
@@ -139,7 +139,7 @@ const useRequiredPreferences = (
     localDefaultRestTime,
     localAvailablePlatesLbs,
     localAvailableDumbbellsLbs,
-    availableKettlebellsLbs,
+    selectedKettlebells,
   ]);
 
   const requiredPreferencesMessage = useMemo(() => {
@@ -192,7 +192,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
   >(available_dumbbells_lbs ?? DEFAULT_VALUES.AVAILABLE_DUMBBELLS_LBS);
 
   const [selectedKettlebells, setSelectedKettlebells] = useState<number[]>(
-    available_kettlebells_lbs ?? [],
+    available_kettlebells_lbs ?? DEFAULT_VALUES.AVAILABLE_KETTLEBELLS_LBS,
   );
   const [availableKettlebellsLbs] = useState<number[]>(
     DEFAULT_VALUES.AVAILABLE_KETTLEBELLS_LBS,
@@ -223,7 +223,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     localDefaultRestTime,
     localAvailablePlatesLbs,
     localAvailableDumbbellsLbs,
-    availableKettlebellsLbs,
+    selectedKettlebells,
   );
 
   const canSave = useMemo(() => {
@@ -259,6 +259,10 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     [],
   );
 
+  const cancelDisabled = useMemo(() => {
+    return requiredPreferences === null;
+  }, [requiredPreferences]);
+
   return {
     preferredWeightUnit: localPreferredWeightUnit,
     defaultRestTime: localDefaultRestTime,
@@ -278,6 +282,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     kettlebellsLBSRequired,
     selectedKettlebells,
     setSelectedKettlebells,
+    cancelDisabled,
     ...modifications,
   };
 };
@@ -423,6 +428,7 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             href={api.backTo}
             color="warning"
             data-testid={TestIds.Preferences_CancelButton}
+            disabled={api.cancelDisabled}
           >
             Cancel
           </Button>

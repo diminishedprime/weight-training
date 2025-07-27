@@ -31,7 +31,7 @@ const defaultWeightForExercise = (
       // preferences.
       return 45;
     case "machine":
-      return 45;
+      return 20;
     case "kettlebell":
       throwIfNull(
         preferences.available_kettlebells_lbs,
@@ -41,8 +41,23 @@ const defaultWeightForExercise = (
           ),
       );
       return preferences.available_kettlebells_lbs[0];
-    default:
-      return 10;
+    case "dumbbell":
+      throwIfNull(
+        preferences.available_dumbbells_lbs,
+        () =>
+          new Error(
+            "available_dumbbells_lbs is required for dumbbell equipment type",
+          ),
+      );
+      return preferences.available_dumbbells_lbs[0];
+    case "bodyweight":
+      return 0;
+    case "plate_stack":
+      return 0;
+    default: {
+      const _exhaustiveCheck: never = equipmentType;
+      return _exhaustiveCheck;
+    }
   }
 };
 
@@ -53,8 +68,20 @@ const defaultRepsForExercise = (
   switch (equipmentType) {
     case "barbell":
       return 5;
-    default:
+    case "machine":
       return 10;
+    case "kettlebell":
+      return 5;
+    case "dumbbell":
+      return 10;
+    case "bodyweight":
+      return 5;
+    case "plate_stack":
+      return 10;
+    default: {
+      const _exhaustiveCheck: never = equipmentType;
+      return _exhaustiveCheck;
+    }
   }
 };
 

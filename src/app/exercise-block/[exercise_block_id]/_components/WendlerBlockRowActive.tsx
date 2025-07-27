@@ -46,10 +46,6 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
     setEditable((old) => !old);
   }, []);
 
-  const onRepsChange = React.useCallback((newReps: number) => {
-    setReps(newReps);
-  }, []);
-
   const onCompletionStatusChange = React.useCallback(
     (newStatus: CompletionStatus) => {
       setCompletionStatus(newStatus);
@@ -89,7 +85,7 @@ const useWendlerBlockRowActiveAPI = (props: WendlerBlockRowActiveProps) => {
     notes,
     perceivedEffort: perceivedEffort,
     targetWeight,
-    onRepsChange,
+    setReps,
     onCompletionStatusChange,
     onNotesChange,
     onEffortChange: onPerceivedEffortChange,
@@ -136,7 +132,7 @@ const WendlerBlockRowActive: React.FC<WendlerBlockRowActiveProps> = (props) => {
           <Stack alignItems="center" justifyContent="center">
             <SelectReps
               reps={api.reps}
-              onRepsChange={api.onRepsChange}
+              setReps={api.setReps}
               wendlerReps
               isAMRAP={props.isLastRow}
               hideSettings

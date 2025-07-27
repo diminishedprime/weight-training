@@ -65,7 +65,7 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
           <SelectReps
             repChoices={api.repChoices}
             reps={api.reps}
-            onRepsChange={(reps: number) => api.setReps(reps)}
+            setReps={api.setReps}
             isAMRAP={api.isAMRAP}
             setIsAMRAP={api.setIsAMRAP}
           />

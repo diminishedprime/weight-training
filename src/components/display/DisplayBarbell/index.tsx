@@ -67,7 +67,7 @@ export const PLATE_METADATA: Record<
     diameterMM: 450,
     sx: {
       backgroundColor: "yellow",
-      color: "white",
+      color: "black",
       borderRadius: "1px",
       border: ".3px solid black",
     },
