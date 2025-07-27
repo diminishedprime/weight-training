@@ -1,20 +1,19 @@
 import SuperblocksClient from "@/app/superblocks/_components/SuperblocksClient";
 import { RequiredNonNullable, SuperblocksRow } from "@/common-types";
+import { PATHS } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { notFoundIfNull } from "@/util";
 import React from "react";
 
-interface ExerciseSuperblockPageProps {
+interface PageSuperblocksProps {
   pageNum: number;
 }
 
 // TODO: if this pattern sticks, then refactor the others pages to be named
 //
 // _components/_page_ComponentName.tsx
-export default async function PageExerciseSuperblockPage(
-  props: ExerciseSuperblockPageProps,
-) {
-  const { userId } = await requireLoggedInUser("/superblocks");
+export default async function PageSuperblocks(props: PageSuperblocksProps) {
+  const { userId } = await requireLoggedInUser(PATHS.Superblocks);
   const { superblocks, pageCount } = await getSuperblocks(
     userId,
     props.pageNum,
