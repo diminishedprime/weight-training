@@ -116,10 +116,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -136,10 +132,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -158,10 +150,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -178,10 +166,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -200,10 +184,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -220,10 +200,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -242,10 +218,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -262,10 +234,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -284,10 +252,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -304,10 +268,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -326,10 +286,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
@@ -346,10 +302,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -368,10 +320,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
@@ -388,10 +336,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -410,10 +354,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -430,10 +370,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -452,10 +388,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -472,10 +404,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -494,10 +422,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_row'::exercise_type_enum,
@@ -514,10 +438,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -536,10 +456,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_row'::exercise_type_enum,
@@ -556,10 +472,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -578,10 +490,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_row'::exercise_type_enum,
@@ -598,10 +506,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -620,10 +524,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_row'::exercise_type_enum,
@@ -640,10 +540,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -662,10 +558,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -682,10 +574,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -704,10 +592,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -724,10 +608,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -746,10 +626,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -766,10 +642,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -788,10 +660,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -808,10 +676,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -830,10 +694,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
@@ -850,10 +710,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -872,10 +728,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -892,10 +744,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -914,10 +762,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -934,10 +778,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -956,10 +796,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
@@ -976,10 +812,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -998,10 +830,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
@@ -1018,10 +846,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1040,10 +864,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
@@ -1060,10 +880,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1082,10 +898,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
@@ -1102,10 +914,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1124,10 +932,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -1144,10 +948,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1166,10 +966,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -1186,10 +982,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1208,10 +1000,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_row'::exercise_type_enum,
@@ -1228,10 +1016,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1250,10 +1034,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_row'::exercise_type_enum,
@@ -1270,10 +1050,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1292,10 +1068,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -1312,10 +1084,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1334,10 +1102,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -1354,10 +1118,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1376,10 +1136,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -1396,10 +1152,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1418,10 +1170,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -1438,10 +1186,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1460,10 +1204,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -1480,10 +1220,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1502,10 +1238,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
@@ -1522,10 +1254,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1544,10 +1272,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -1564,10 +1288,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1586,10 +1306,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
@@ -1606,10 +1322,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1628,10 +1340,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
@@ -1648,10 +1356,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1670,10 +1374,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -1690,10 +1390,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1712,10 +1408,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -1732,10 +1424,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1754,10 +1442,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -1774,10 +1458,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1796,10 +1476,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -1816,10 +1492,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1838,10 +1510,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_row'::exercise_type_enum,
@@ -1858,10 +1526,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1880,10 +1544,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_row'::exercise_type_enum,
@@ -1900,10 +1560,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1922,10 +1578,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -1942,10 +1594,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -1964,10 +1612,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
@@ -1984,10 +1628,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2006,10 +1646,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
@@ -2026,10 +1662,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2048,10 +1680,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
@@ -2068,10 +1696,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2090,10 +1714,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_cable_triceps_pushdown'::exercise_type_enum,
@@ -2110,10 +1730,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Tricep Rope Pushdown'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2132,10 +1748,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
@@ -2152,10 +1764,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2174,10 +1782,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -2194,10 +1798,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2216,10 +1816,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
@@ -2236,10 +1832,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2258,10 +1850,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -2278,10 +1866,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2300,10 +1884,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -2320,10 +1900,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2342,10 +1918,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -2362,10 +1934,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2384,10 +1952,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -2404,10 +1968,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2426,10 +1986,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -2446,10 +2002,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2468,10 +2020,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -2488,10 +2036,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2510,10 +2054,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -2530,10 +2070,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2552,10 +2088,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -2572,10 +2104,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2594,10 +2122,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -2614,10 +2138,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2636,10 +2156,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -2656,10 +2172,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2678,10 +2190,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -2698,10 +2206,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2720,10 +2224,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -2740,10 +2240,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2762,10 +2258,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -2782,10 +2274,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2804,10 +2292,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -2824,10 +2308,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2846,10 +2326,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -2866,10 +2342,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2888,10 +2360,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -2908,10 +2376,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2930,10 +2394,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -2950,10 +2410,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -2972,10 +2428,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -2992,10 +2444,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3014,10 +2462,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -3034,10 +2478,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3056,10 +2496,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -3076,10 +2512,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3098,10 +2530,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -3118,10 +2546,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3140,10 +2564,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -3160,10 +2580,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3182,10 +2598,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -3202,10 +2614,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3224,10 +2632,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_row'::exercise_type_enum,
@@ -3244,10 +2648,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3266,10 +2666,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_row'::exercise_type_enum,
@@ -3286,10 +2682,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3308,10 +2700,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_row'::exercise_type_enum,
@@ -3328,10 +2716,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3350,10 +2734,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -3370,10 +2750,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3392,10 +2768,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -3412,10 +2784,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3434,10 +2802,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -3454,10 +2818,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3476,10 +2836,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -3496,10 +2852,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3518,10 +2870,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -3538,10 +2886,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3560,10 +2904,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -3580,10 +2920,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3602,10 +2938,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -3622,10 +2954,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3644,10 +2972,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -3664,10 +2988,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3686,10 +3006,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -3706,10 +3022,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3728,10 +3040,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -3748,10 +3056,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3770,10 +3074,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -3790,10 +3090,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3812,10 +3108,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -3832,10 +3124,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3854,10 +3142,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -3874,10 +3158,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3896,10 +3176,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -3916,10 +3192,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3938,10 +3210,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -3958,10 +3226,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -3980,10 +3244,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -4000,10 +3260,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4022,10 +3278,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -4042,10 +3294,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4064,10 +3312,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -4084,10 +3328,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4106,10 +3346,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -4126,10 +3362,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4148,10 +3380,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -4168,10 +3396,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4190,10 +3414,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -4210,10 +3430,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4232,10 +3448,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -4252,10 +3464,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4274,10 +3482,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -4294,10 +3498,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4316,10 +3516,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -4336,10 +3532,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4358,10 +3550,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -4378,10 +3566,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4400,10 +3584,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -4420,10 +3600,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4442,10 +3618,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
@@ -4462,10 +3634,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4484,10 +3652,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
@@ -4504,10 +3668,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4526,10 +3686,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
@@ -4546,10 +3702,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Lateral Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4568,10 +3720,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_front_raise'::exercise_type_enum,
@@ -4588,10 +3736,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Front Raise'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4610,10 +3754,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_row'::exercise_type_enum,
@@ -4630,10 +3770,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4652,10 +3788,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_row'::exercise_type_enum,
@@ -4672,10 +3804,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Dumbbell Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4694,10 +3822,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -4714,10 +3838,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4736,10 +3856,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -4756,10 +3872,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4778,10 +3890,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -4798,10 +3906,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4820,10 +3924,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -4840,10 +3940,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4862,10 +3958,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -4882,10 +3974,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4904,10 +3992,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -4924,10 +4008,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4946,10 +4026,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -4966,10 +4042,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -4988,10 +4060,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -5008,10 +4076,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5030,10 +4094,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -5050,10 +4110,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5072,10 +4128,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -5092,10 +4144,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5114,10 +4162,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -5134,10 +4178,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5156,10 +4196,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -5176,10 +4212,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5198,10 +4230,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -5218,10 +4246,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5240,10 +4264,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -5260,10 +4280,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5282,10 +4298,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -5302,10 +4314,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5324,10 +4332,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -5344,10 +4348,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5366,10 +4366,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -5386,10 +4382,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5408,10 +4400,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -5428,10 +4416,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5450,10 +4434,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -5470,10 +4450,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5492,10 +4468,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -5512,10 +4484,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5534,10 +4502,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -5554,10 +4518,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5576,10 +4536,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -5596,10 +4552,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5618,10 +4570,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -5638,10 +4586,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5660,10 +4604,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_row'::exercise_type_enum,
@@ -5680,10 +4620,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5702,10 +4638,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_row'::exercise_type_enum,
@@ -5722,10 +4654,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bent Over Row'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5744,10 +4672,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -5764,10 +4688,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5786,10 +4706,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -5806,10 +4722,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5828,10 +4740,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -5848,10 +4756,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5870,10 +4774,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -5890,10 +4790,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5912,10 +4808,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -5932,10 +4824,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5954,10 +4842,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -5974,10 +4858,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -5996,10 +4876,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -6016,10 +4892,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6038,10 +4910,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -6058,10 +4926,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6080,10 +4944,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -6100,10 +4960,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6122,10 +4978,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -6142,10 +4994,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6164,10 +5012,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -6184,10 +5028,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6206,10 +5046,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -6226,10 +5062,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6248,10 +5080,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -6268,10 +5096,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6290,10 +5114,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -6310,10 +5130,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6332,10 +5148,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -6352,10 +5164,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6374,10 +5182,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -6394,10 +5198,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6416,10 +5216,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -6436,10 +5232,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6458,10 +5250,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -6478,10 +5266,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6500,10 +5284,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -6520,10 +5300,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6542,10 +5318,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -6562,10 +5334,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6584,10 +5352,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -6604,10 +5368,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6626,10 +5386,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -6646,10 +5402,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6668,10 +5420,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -6688,10 +5436,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6710,10 +5454,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -6730,10 +5470,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6752,10 +5488,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -6772,10 +5504,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6794,10 +5522,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -6814,10 +5538,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6836,10 +5556,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -6856,10 +5572,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6878,10 +5590,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -6898,10 +5606,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6920,10 +5624,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -6940,10 +5640,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -6962,10 +5658,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -6982,10 +5674,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7004,10 +5692,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -7024,10 +5708,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7046,10 +5726,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -7066,10 +5742,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7088,10 +5760,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -7108,10 +5776,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7130,10 +5794,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -7150,10 +5810,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7172,10 +5828,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -7192,10 +5844,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7214,10 +5862,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -7234,10 +5878,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7256,10 +5896,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -7276,10 +5912,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7298,10 +5930,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -7318,10 +5946,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7340,10 +5964,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -7360,10 +5980,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7382,10 +5998,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -7402,10 +6014,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7424,10 +6032,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -7444,10 +6048,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7466,10 +6066,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -7486,10 +6082,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7508,10 +6100,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -7528,10 +6116,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7550,10 +6134,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -7570,10 +6150,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7592,10 +6168,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -7612,10 +6184,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7634,10 +6202,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -7654,10 +6218,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7676,10 +6236,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -7696,10 +6252,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7718,10 +6270,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -7738,10 +6286,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7760,10 +6304,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -7780,10 +6320,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7802,10 +6338,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -7822,10 +6354,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7844,10 +6372,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -7864,10 +6388,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7886,10 +6406,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -7906,10 +6422,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7928,10 +6440,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -7948,10 +6456,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -7970,10 +6474,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -7990,10 +6490,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8012,10 +6508,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -8032,10 +6524,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8054,10 +6542,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -8074,10 +6558,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8096,10 +6576,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -8116,10 +6592,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8138,10 +6610,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -8158,10 +6626,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8180,10 +6644,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -8200,10 +6660,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8222,10 +6678,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -8242,10 +6694,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8264,10 +6712,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -8284,10 +6728,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8306,10 +6746,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -8326,10 +6762,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8348,10 +6780,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -8368,10 +6796,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8390,10 +6814,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -8410,10 +6830,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8432,10 +6848,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -8452,10 +6864,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8474,10 +6882,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -8494,10 +6898,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8516,10 +6916,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -8536,10 +6932,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8558,10 +6950,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -8578,10 +6966,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8600,10 +6984,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -8620,10 +7000,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8642,10 +7018,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -8662,10 +7034,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8684,10 +7052,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -8704,10 +7068,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8726,10 +7086,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -8746,10 +7102,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8768,10 +7120,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -8788,10 +7136,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8810,10 +7154,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -8830,10 +7170,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8852,10 +7188,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -8872,10 +7204,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8894,10 +7222,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -8914,10 +7238,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8936,10 +7256,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -8956,10 +7272,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -8978,10 +7290,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -8998,10 +7306,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9020,10 +7324,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -9040,10 +7340,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9062,10 +7358,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -9082,10 +7374,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9104,10 +7392,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -9124,10 +7408,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9146,10 +7426,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -9166,10 +7442,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9188,10 +7460,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -9208,10 +7476,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9230,10 +7494,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -9250,10 +7510,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9272,10 +7528,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -9292,10 +7544,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9314,10 +7562,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -9334,10 +7578,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9356,10 +7596,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -9376,10 +7612,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9398,10 +7630,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -9418,10 +7646,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9440,10 +7664,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -9460,10 +7680,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9482,10 +7698,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -9502,10 +7714,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9524,10 +7732,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -9544,10 +7748,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9566,10 +7766,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -9586,10 +7782,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9608,10 +7800,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -9628,10 +7816,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9650,10 +7834,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -9670,10 +7850,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9692,10 +7868,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -9712,10 +7884,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9734,10 +7902,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -9754,10 +7918,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9776,10 +7936,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -9796,10 +7952,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9818,10 +7970,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -9838,10 +7986,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9860,10 +8004,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -9880,10 +8020,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9902,10 +8038,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -9922,10 +8054,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9944,10 +8072,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -9964,10 +8088,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -9986,10 +8106,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -10006,10 +8122,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10028,10 +8140,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -10048,10 +8156,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10070,10 +8174,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -10090,10 +8190,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10112,10 +8208,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -10132,10 +8224,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10154,10 +8242,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -10174,10 +8258,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10196,10 +8276,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -10216,10 +8292,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10238,10 +8310,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -10258,10 +8326,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10280,10 +8344,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -10300,10 +8360,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10322,10 +8378,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -10342,10 +8394,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10364,10 +8412,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -10384,10 +8428,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10406,10 +8446,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -10426,10 +8462,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10448,10 +8480,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -10468,10 +8496,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10490,10 +8514,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -10510,10 +8530,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10532,10 +8548,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -10552,10 +8564,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10574,10 +8582,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -10594,10 +8598,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10616,10 +8616,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -10636,10 +8632,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10658,10 +8650,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -10678,10 +8666,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10700,10 +8684,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -10720,10 +8700,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10742,10 +8718,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -10762,10 +8734,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10784,10 +8752,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -10804,10 +8768,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10826,10 +8786,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -10846,10 +8802,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10868,10 +8820,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -10888,10 +8836,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10910,10 +8854,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -10930,10 +8870,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10952,10 +8888,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -10972,10 +8904,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -10994,10 +8922,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -11014,10 +8938,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11036,10 +8956,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -11056,10 +8972,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11078,10 +8990,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -11098,10 +9006,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11120,10 +9024,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -11140,10 +9040,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11162,10 +9058,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -11182,10 +9074,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11204,10 +9092,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -11224,10 +9108,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11246,10 +9126,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -11266,10 +9142,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11288,10 +9160,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -11308,10 +9176,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11330,10 +9194,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -11350,10 +9210,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11372,10 +9228,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -11392,10 +9244,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11414,10 +9262,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -11434,10 +9278,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11456,10 +9296,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -11476,10 +9312,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11498,10 +9330,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -11518,10 +9346,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11540,10 +9364,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -11560,10 +9380,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11582,10 +9398,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -11602,10 +9414,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11624,10 +9432,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -11644,10 +9448,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11666,10 +9466,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -11686,10 +9482,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11708,10 +9500,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -11728,10 +9516,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11750,10 +9534,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -11770,10 +9550,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11792,10 +9568,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -11812,10 +9584,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11834,10 +9602,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -11854,10 +9618,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11876,10 +9636,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -11896,10 +9652,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11918,10 +9670,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -11938,10 +9686,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -11960,10 +9704,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -11980,10 +9720,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Front Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12002,10 +9738,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -12022,10 +9754,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12044,10 +9772,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -12064,10 +9788,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12086,10 +9806,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -12106,10 +9822,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12128,10 +9840,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -12148,10 +9856,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12170,10 +9874,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -12190,10 +9890,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12212,10 +9908,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -12232,10 +9924,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12254,10 +9942,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -12274,10 +9958,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12296,10 +9976,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -12316,10 +9992,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12338,10 +10010,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -12358,10 +10026,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12380,10 +10044,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -12400,10 +10060,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12422,10 +10078,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -12442,10 +10094,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Bench Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12464,10 +10112,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -12484,10 +10128,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12506,10 +10146,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -12526,10 +10162,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12548,10 +10180,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -12568,10 +10196,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12590,10 +10214,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -12610,10 +10230,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Squat'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12632,10 +10248,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -12652,10 +10264,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12674,10 +10282,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -12694,10 +10298,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12716,10 +10316,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -12736,10 +10332,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12758,10 +10350,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -12778,10 +10366,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12800,10 +10384,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -12820,10 +10400,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Deadlift'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12842,10 +10418,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -12862,10 +10434,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12884,10 +10452,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -12904,10 +10468,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -12926,10 +10486,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -12947,10 +10503,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -12967,10 +10519,6 @@ SELECT
     p_notes => 'imported from strength-level csv: Shoulder Press'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay
 -- END OF STRENGTH-LEVEL CSV DATA FOR MATTHEWJHAMRICK --
 -- START OF IMPORTED EXERCISE DATA --
 -- ========================================================================== --
@@ -13001,10 +10549,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -13021,10 +10565,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13043,10 +10583,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -13063,10 +10599,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13085,10 +10617,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -13105,10 +10633,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13127,10 +10651,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -13147,10 +10667,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13169,10 +10685,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -13189,10 +10701,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13211,10 +10719,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -13231,10 +10735,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13253,10 +10753,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -13273,10 +10769,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13295,10 +10787,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -13315,10 +10803,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13337,10 +10821,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -13357,10 +10837,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13379,10 +10855,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -13399,10 +10871,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13421,10 +10889,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -13441,10 +10905,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13463,10 +10923,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -13483,10 +10939,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13505,10 +10957,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -13525,10 +10973,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13547,10 +10991,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -13567,10 +11007,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13589,10 +11025,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -13609,10 +11041,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13631,10 +11059,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -13651,10 +11075,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13673,10 +11093,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -13693,10 +11109,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13715,10 +11127,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -13735,10 +11143,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13757,10 +11161,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -13777,10 +11177,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13799,10 +11195,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -13819,10 +11211,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13841,10 +11229,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -13861,10 +11245,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13883,10 +11263,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -13903,10 +11279,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13925,10 +11297,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -13945,10 +11313,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -13967,10 +11331,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -13987,10 +11347,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14009,10 +11365,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -14029,10 +11381,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14051,10 +11399,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -14071,10 +11415,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14093,10 +11433,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -14113,10 +11449,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14135,10 +11467,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -14155,10 +11483,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14177,10 +11501,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -14197,10 +11517,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14219,10 +11535,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -14239,10 +11551,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14261,10 +11569,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -14281,10 +11585,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14303,10 +11603,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -14323,10 +11619,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14345,10 +11637,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -14365,10 +11653,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14387,10 +11671,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -14407,10 +11687,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14429,10 +11705,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -14449,10 +11721,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14471,10 +11739,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -14491,10 +11755,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14513,10 +11773,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -14533,10 +11789,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14555,10 +11807,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -14575,10 +11823,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14597,10 +11841,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -14617,10 +11857,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14639,10 +11875,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -14659,10 +11891,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14681,10 +11909,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -14701,10 +11925,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14723,10 +11943,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -14743,10 +11959,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14765,10 +11977,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -14785,10 +11993,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14807,10 +12011,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -14827,10 +12027,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14849,10 +12045,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -14869,10 +12061,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14891,10 +12079,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -14911,10 +12095,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14933,10 +12113,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -14953,10 +12129,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -14975,10 +12147,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -14995,10 +12163,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15017,10 +12181,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -15037,10 +12197,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15059,10 +12215,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -15079,10 +12231,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15101,10 +12249,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -15121,10 +12265,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15143,10 +12283,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -15163,10 +12299,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15185,10 +12317,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -15205,10 +12333,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15227,10 +12351,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -15247,10 +12367,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15269,10 +12385,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -15289,10 +12401,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15311,10 +12419,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -15331,10 +12435,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15353,10 +12453,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -15373,10 +12469,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15395,10 +12487,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -15415,10 +12503,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15437,10 +12521,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -15457,10 +12537,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15479,10 +12555,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -15499,10 +12571,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15521,10 +12589,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -15541,10 +12605,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15563,10 +12623,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -15583,10 +12639,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15605,10 +12657,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -15625,10 +12673,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15647,10 +12691,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -15667,10 +12707,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15689,10 +12725,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -15709,10 +12741,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15731,10 +12759,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -15751,10 +12775,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15773,10 +12793,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -15793,10 +12809,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15815,10 +12827,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -15835,10 +12843,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15857,10 +12861,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -15877,10 +12877,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15899,10 +12895,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -15919,10 +12911,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15941,10 +12929,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -15961,10 +12945,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -15983,10 +12963,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -16003,10 +12979,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16025,10 +12997,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -16045,10 +13013,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16067,10 +13031,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -16087,10 +13047,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16109,10 +13065,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -16129,10 +13081,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16151,10 +13099,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -16171,10 +13115,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16193,10 +13133,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -16213,10 +13149,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16235,10 +13167,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -16255,10 +13183,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16277,10 +13201,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -16297,10 +13217,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16319,10 +13235,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -16339,10 +13251,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16361,10 +13269,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -16381,10 +13285,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16403,10 +13303,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -16423,10 +13319,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16445,10 +13337,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -16465,10 +13353,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16487,10 +13371,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -16507,10 +13387,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16529,10 +13405,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -16549,10 +13421,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16571,10 +13439,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -16591,10 +13455,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16613,10 +13473,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -16633,10 +13489,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16655,10 +13507,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -16675,10 +13523,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16697,10 +13541,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -16717,10 +13557,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16739,10 +13575,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -16759,10 +13591,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16781,10 +13609,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -16801,10 +13625,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16823,10 +13643,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -16843,10 +13659,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16865,10 +13677,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -16885,10 +13693,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16907,10 +13711,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -16927,10 +13727,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16949,10 +13745,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -16969,10 +13761,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -16991,10 +13779,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -17011,10 +13795,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17033,10 +13813,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -17053,10 +13829,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17075,10 +13847,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -17095,10 +13863,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17117,10 +13881,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -17137,10 +13897,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17159,10 +13915,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -17179,10 +13931,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17201,10 +13949,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -17221,10 +13965,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17243,10 +13983,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -17263,10 +13999,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17285,10 +14017,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -17305,10 +14033,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17327,10 +14051,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -17347,10 +14067,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17369,10 +14085,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -17389,10 +14101,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17411,10 +14119,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -17431,10 +14135,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17453,10 +14153,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -17473,10 +14169,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17495,10 +14187,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -17515,10 +14203,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17537,10 +14221,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -17557,10 +14237,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17579,10 +14255,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -17599,10 +14271,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17621,10 +14289,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -17641,10 +14305,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17663,10 +14323,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -17683,10 +14339,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17705,10 +14357,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -17725,10 +14373,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17747,10 +14391,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -17767,10 +14407,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17789,10 +14425,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -17809,10 +14441,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17831,10 +14459,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -17851,10 +14475,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17873,10 +14493,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -17893,10 +14509,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17915,10 +14527,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -17935,10 +14543,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17957,10 +14561,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -17977,10 +14577,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -17999,10 +14595,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -18019,10 +14611,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18041,10 +14629,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -18061,10 +14645,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18083,10 +14663,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -18103,10 +14679,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18125,10 +14697,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -18145,10 +14713,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18167,10 +14731,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -18187,10 +14747,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18209,10 +14765,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -18229,10 +14781,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18251,10 +14799,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -18271,10 +14815,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18293,10 +14833,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -18313,10 +14849,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18335,10 +14867,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -18355,10 +14883,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18377,10 +14901,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -18397,10 +14917,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18419,10 +14935,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -18439,10 +14951,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18461,10 +14969,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -18481,10 +14985,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18503,10 +15003,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -18523,10 +15019,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18545,10 +15037,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -18565,10 +15053,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18587,10 +15071,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -18607,10 +15087,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18629,10 +15105,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -18649,10 +15121,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18671,10 +15139,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -18691,10 +15155,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18713,10 +15173,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -18733,10 +15189,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18755,10 +15207,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -18775,10 +15223,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18797,10 +15241,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -18817,10 +15257,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18839,10 +15275,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -18859,10 +15291,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18881,10 +15309,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -18901,10 +15325,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18923,10 +15343,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -18943,10 +15359,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -18965,10 +15377,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -18985,10 +15393,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19007,10 +15411,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -19027,10 +15427,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19049,10 +15445,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -19069,10 +15461,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19091,10 +15479,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -19111,10 +15495,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19133,10 +15513,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -19153,10 +15529,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19175,10 +15547,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -19195,10 +15563,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19217,10 +15581,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -19237,10 +15597,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19259,10 +15615,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -19279,10 +15631,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19301,10 +15649,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -19321,10 +15665,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19343,10 +15683,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -19363,10 +15699,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19385,10 +15717,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -19405,10 +15733,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19427,10 +15751,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -19447,10 +15767,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19469,10 +15785,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -19489,10 +15801,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19511,10 +15819,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -19531,10 +15835,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19553,10 +15853,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -19573,10 +15869,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19595,10 +15887,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -19615,10 +15903,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19637,10 +15921,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -19657,10 +15937,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19679,10 +15955,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -19699,10 +15971,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19721,10 +15989,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -19741,10 +16005,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19763,10 +16023,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -19783,10 +16039,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19805,10 +16057,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -19825,10 +16073,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19847,10 +16091,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -19867,10 +16107,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19889,10 +16125,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -19909,10 +16141,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19931,10 +16159,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -19951,10 +16175,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -19973,10 +16193,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -19993,10 +16209,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20015,10 +16227,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -20035,10 +16243,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20057,10 +16261,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -20077,10 +16277,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20099,10 +16295,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -20119,10 +16311,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20141,10 +16329,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -20161,10 +16345,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20183,10 +16363,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -20203,10 +16379,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20225,10 +16397,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -20245,10 +16413,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20267,10 +16431,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -20287,10 +16447,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20309,10 +16465,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -20329,10 +16481,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20351,10 +16499,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -20371,10 +16515,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20393,10 +16533,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -20413,10 +16549,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20435,10 +16567,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -20455,10 +16583,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20477,10 +16601,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -20497,10 +16617,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20519,10 +16635,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -20539,10 +16651,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20561,10 +16669,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -20581,10 +16685,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20603,10 +16703,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -20623,10 +16719,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20645,10 +16737,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -20665,10 +16753,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20687,10 +16771,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -20707,10 +16787,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20729,10 +16805,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -20749,10 +16821,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20771,10 +16839,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -20791,10 +16855,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20813,10 +16873,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -20833,10 +16889,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20855,10 +16907,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -20875,10 +16923,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20897,10 +16941,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -20917,10 +16957,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20939,10 +16975,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -20959,10 +16991,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -20981,10 +17009,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -21001,10 +17025,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21023,10 +17043,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -21043,10 +17059,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21065,10 +17077,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_snatch'::exercise_type_enum,
@@ -21085,10 +17093,6 @@ SELECT
     p_notes => 'imported from firestore data: "snatch"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21107,10 +17111,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_snatch'::exercise_type_enum,
@@ -21127,10 +17127,6 @@ SELECT
     p_notes => 'imported from firestore data: "snatch"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21149,10 +17145,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -21169,10 +17161,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21191,10 +17179,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -21211,10 +17195,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21233,10 +17213,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -21253,10 +17229,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21275,10 +17247,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -21295,10 +17263,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21317,10 +17281,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -21337,10 +17297,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21359,10 +17315,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -21379,10 +17331,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21401,10 +17349,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -21421,10 +17365,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21443,10 +17383,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -21463,10 +17399,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21485,10 +17417,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -21505,10 +17433,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21527,10 +17451,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -21547,10 +17467,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21569,10 +17485,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -21589,10 +17501,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21611,10 +17519,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -21631,10 +17535,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21653,10 +17553,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -21673,10 +17569,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21695,10 +17587,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -21715,10 +17603,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21737,10 +17621,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -21757,10 +17637,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21779,10 +17655,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -21799,10 +17671,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21821,10 +17689,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -21841,10 +17705,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21863,10 +17723,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -21883,10 +17739,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21905,10 +17757,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_row'::exercise_type_enum,
@@ -21925,10 +17773,6 @@ SELECT
     p_notes => 'imported from firestore data: "dumbbell-row"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21947,10 +17791,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_row'::exercise_type_enum,
@@ -21967,10 +17807,6 @@ SELECT
     p_notes => 'imported from firestore data: "dumbbell-row"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -21989,10 +17825,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_row'::exercise_type_enum,
@@ -22009,10 +17841,6 @@ SELECT
     p_notes => 'imported from firestore data: "dumbbell-row"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22031,10 +17859,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -22051,10 +17875,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22073,10 +17893,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -22093,10 +17909,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22115,10 +17927,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -22135,10 +17943,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22157,10 +17961,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -22177,10 +17977,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22199,10 +17995,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_fly'::exercise_type_enum,
@@ -22219,10 +18011,6 @@ SELECT
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22241,10 +18029,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_fly'::exercise_type_enum,
@@ -22261,10 +18045,6 @@ SELECT
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22283,10 +18063,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_fly'::exercise_type_enum,
@@ -22303,10 +18079,6 @@ SELECT
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22325,10 +18097,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -22345,10 +18113,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22367,10 +18131,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -22387,10 +18147,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22409,10 +18165,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -22429,10 +18181,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22451,10 +18199,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -22471,10 +18215,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22493,10 +18233,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -22513,10 +18249,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22535,10 +18267,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -22555,10 +18283,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22577,10 +18301,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -22597,10 +18317,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22619,10 +18335,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -22639,10 +18351,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22661,10 +18369,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -22681,10 +18385,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22703,10 +18403,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -22723,10 +18419,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22745,10 +18437,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -22765,10 +18453,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22787,10 +18471,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -22807,10 +18487,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22829,10 +18505,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -22849,10 +18521,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22871,10 +18539,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_fly'::exercise_type_enum,
@@ -22891,10 +18555,6 @@ SELECT
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22913,10 +18573,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_fly'::exercise_type_enum,
@@ -22933,10 +18589,6 @@ SELECT
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22955,10 +18607,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_romanian_deadlift'::exercise_type_enum,
@@ -22975,10 +18623,6 @@ SELECT
     p_notes => 'imported from firestore data: "romanian-deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -22997,10 +18641,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_incline_bench_press'::exercise_type_enum,
@@ -23017,10 +18657,6 @@ SELECT
     p_notes => 'imported from firestore data: "incline-bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23039,10 +18675,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_skull_crusher'::exercise_type_enum,
@@ -23059,10 +18691,6 @@ SELECT
     p_notes => 'imported from firestore data: "dumbbell-skull-crusher"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23081,10 +18709,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -23101,10 +18725,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23123,10 +18743,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -23143,10 +18759,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23165,10 +18777,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -23185,10 +18793,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23207,10 +18811,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -23227,10 +18827,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23249,10 +18845,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -23269,10 +18861,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23291,10 +18879,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -23311,10 +18895,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23333,10 +18913,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -23353,10 +18929,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23375,10 +18947,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -23395,10 +18963,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23417,10 +18981,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -23437,10 +18997,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23459,10 +19015,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_fly'::exercise_type_enum,
@@ -23479,10 +19031,6 @@ SELECT
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23501,10 +19049,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_fly'::exercise_type_enum,
@@ -23521,10 +19065,6 @@ SELECT
     p_notes => 'imported from firestore data: "dumbbell-fly"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23543,10 +19083,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -23563,10 +19099,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23585,10 +19117,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -23605,10 +19133,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23627,10 +19151,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -23647,10 +19167,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23669,10 +19185,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -23689,10 +19201,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -23711,10 +19219,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -23731,10 +19235,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -23753,10 +19253,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -23773,10 +19269,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -23795,10 +19287,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -23815,10 +19303,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -23837,10 +19321,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -23857,10 +19337,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -23879,10 +19355,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -23899,10 +19371,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -23921,10 +19389,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -23941,10 +19405,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -23963,10 +19423,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -23983,10 +19439,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -24005,10 +19457,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -24025,10 +19473,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -24047,10 +19491,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -24067,10 +19507,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24089,10 +19525,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -24109,10 +19541,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24131,10 +19559,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -24151,10 +19575,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24173,10 +19593,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -24193,10 +19609,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24215,10 +19627,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -24235,10 +19643,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24257,10 +19661,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -24277,10 +19677,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24299,10 +19695,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -24319,10 +19711,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24341,10 +19729,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -24361,10 +19745,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24383,10 +19763,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -24403,10 +19779,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24425,10 +19797,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -24445,10 +19813,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24467,10 +19831,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -24487,10 +19847,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24509,10 +19865,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -24529,10 +19881,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24551,10 +19899,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -24571,10 +19915,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24593,10 +19933,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -24613,10 +19949,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -24635,10 +19967,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -24655,10 +19983,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -24677,10 +20001,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -24697,10 +20017,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -24719,10 +20035,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -24739,10 +20051,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -24761,10 +20069,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -24781,10 +20085,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -24803,10 +20103,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -24823,10 +20119,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -24845,10 +20137,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -24865,10 +20153,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -24887,10 +20171,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -24907,10 +20187,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -24929,10 +20205,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -24949,10 +20221,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -24971,10 +20239,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -24991,10 +20255,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -25013,10 +20273,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -25033,10 +20289,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25055,10 +20307,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -25075,10 +20323,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25097,10 +20341,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -25117,10 +20357,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25139,10 +20375,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -25159,10 +20391,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25181,10 +20409,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -25201,10 +20425,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25223,10 +20443,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -25243,10 +20459,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25265,10 +20477,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -25285,10 +20493,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25307,10 +20511,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -25327,10 +20527,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -25349,10 +20545,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -25369,10 +20561,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -25391,10 +20579,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -25411,10 +20595,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -25433,10 +20613,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -25453,10 +20629,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25475,10 +20647,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -25495,10 +20663,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25517,10 +20681,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -25537,10 +20697,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25559,10 +20715,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -25579,10 +20731,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25601,10 +20749,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -25621,10 +20765,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25643,10 +20783,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -25663,10 +20799,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25685,10 +20817,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -25705,10 +20833,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -25727,10 +20851,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -25747,10 +20867,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25769,10 +20885,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -25789,10 +20901,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25811,10 +20919,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -25831,10 +20935,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -25853,10 +20953,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -25873,10 +20969,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -25895,10 +20987,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -25915,10 +21003,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -25937,10 +21021,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -25957,10 +21037,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -25979,10 +21055,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -25999,10 +21071,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26021,10 +21089,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -26041,10 +21105,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26063,10 +21123,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -26083,10 +21139,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26105,10 +21157,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -26125,10 +21173,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -26147,10 +21191,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -26167,10 +21207,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -26189,10 +21225,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -26209,10 +21241,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -26231,10 +21259,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -26251,10 +21275,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26273,10 +21293,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -26293,10 +21309,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -26315,10 +21327,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -26335,10 +21343,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -26357,10 +21361,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -26377,10 +21377,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -26399,10 +21395,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -26419,10 +21411,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26441,10 +21429,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -26461,10 +21445,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -26483,10 +21463,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -26503,10 +21479,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26525,10 +21497,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -26545,10 +21513,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26567,10 +21531,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -26587,10 +21547,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26609,10 +21565,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -26629,10 +21581,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26651,10 +21599,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -26671,10 +21615,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26693,10 +21633,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -26713,10 +21649,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26735,10 +21667,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -26755,10 +21683,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26777,10 +21701,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -26797,10 +21717,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26819,10 +21735,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -26839,10 +21751,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -26861,10 +21769,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -26881,10 +21785,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -26903,10 +21803,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -26923,10 +21819,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -26945,10 +21837,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -26965,10 +21853,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -26987,10 +21871,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -27007,10 +21887,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -27029,10 +21905,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -27049,10 +21921,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -27071,10 +21939,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -27091,10 +21955,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -27113,10 +21973,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -27133,10 +21989,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -27155,10 +22007,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -27175,10 +22023,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -27197,10 +22041,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -27217,10 +22057,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -27239,10 +22075,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -27259,10 +22091,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -27281,10 +22109,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -27301,10 +22125,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -27323,10 +22143,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -27343,10 +22159,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -27365,10 +22177,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -27385,10 +22193,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -27407,10 +22211,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -27427,10 +22227,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -27449,10 +22245,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -27469,10 +22261,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -27491,10 +22279,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -27511,10 +22295,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -27533,10 +22313,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -27553,10 +22329,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -27575,10 +22347,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -27595,10 +22363,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -27617,10 +22381,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -27637,10 +22397,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -27659,10 +22415,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -27679,10 +22431,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -27701,10 +22449,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -27721,10 +22465,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -27743,10 +22483,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -27763,10 +22499,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -27785,10 +22517,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -27805,10 +22533,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -27827,10 +22551,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -27847,10 +22567,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -27869,10 +22585,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -27889,10 +22601,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -27911,10 +22619,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -27931,10 +22635,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -27953,10 +22653,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -27973,10 +22669,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -27995,10 +22687,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -28015,10 +22703,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -28037,10 +22721,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -28057,10 +22737,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28079,10 +22755,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -28099,10 +22771,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28121,10 +22789,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -28141,10 +22805,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -28163,10 +22823,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -28183,10 +22839,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -28205,10 +22857,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -28225,10 +22873,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28247,10 +22891,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -28267,10 +22907,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28289,10 +22925,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -28309,10 +22941,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28331,10 +22959,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -28351,10 +22975,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28373,10 +22993,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -28393,10 +23009,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28415,10 +23027,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -28435,10 +23043,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28457,10 +23061,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -28477,10 +23077,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -28499,10 +23095,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -28519,10 +23111,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28541,10 +23129,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -28561,10 +23145,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28583,10 +23163,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -28603,10 +23179,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28625,10 +23197,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -28645,10 +23213,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28667,10 +23231,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -28687,10 +23247,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28709,10 +23265,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -28729,10 +23281,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28751,10 +23299,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -28771,10 +23315,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -28793,10 +23333,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -28813,10 +23349,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28835,10 +23367,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -28855,10 +23383,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28877,10 +23401,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -28897,10 +23417,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28919,10 +23435,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -28939,10 +23451,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -28961,10 +23469,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -28981,10 +23485,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29003,10 +23503,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -29023,10 +23519,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29045,10 +23537,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -29065,10 +23553,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29087,10 +23571,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -29107,10 +23587,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29129,10 +23605,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -29149,10 +23621,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29171,10 +23639,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -29191,10 +23655,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29213,10 +23673,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -29233,10 +23689,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29255,10 +23707,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -29275,10 +23723,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29297,10 +23741,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -29317,10 +23757,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29339,10 +23775,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -29359,10 +23791,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29381,10 +23809,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -29401,10 +23825,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29423,10 +23843,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -29443,10 +23859,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29465,10 +23877,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -29485,10 +23893,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29507,10 +23911,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -29527,10 +23927,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -29549,10 +23945,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -29569,10 +23961,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29591,10 +23979,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -29611,10 +23995,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29633,10 +24013,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -29653,10 +24029,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29675,10 +24047,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -29695,10 +24063,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29717,10 +24081,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -29737,10 +24097,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29759,10 +24115,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -29779,10 +24131,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -29801,10 +24149,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -29821,10 +24165,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -29843,10 +24183,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -29863,10 +24199,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -29885,10 +24217,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -29905,10 +24233,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -29927,10 +24251,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -29947,10 +24267,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -29969,10 +24285,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -29989,10 +24301,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30011,10 +24319,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -30031,10 +24335,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30053,10 +24353,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -30073,10 +24369,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30095,10 +24387,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -30115,10 +24403,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30137,10 +24421,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -30157,10 +24437,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30179,10 +24455,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -30199,10 +24471,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30221,10 +24489,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -30241,10 +24505,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30263,10 +24523,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -30283,10 +24539,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30305,10 +24557,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -30325,10 +24573,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30347,10 +24591,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -30367,10 +24607,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30389,10 +24625,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -30409,10 +24641,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30431,10 +24659,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_inner_thigh'::exercise_type_enum,
@@ -30451,10 +24675,6 @@ SELECT
     p_notes => 'imported from firestore data: "adduction-inner-thigh-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -30473,10 +24693,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -30493,10 +24709,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -30515,10 +24727,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -30535,10 +24743,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -30557,10 +24761,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -30577,10 +24777,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -30599,10 +24795,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -30619,10 +24811,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -30641,10 +24829,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -30661,10 +24845,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30683,10 +24863,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -30703,10 +24879,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30725,10 +24897,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -30745,10 +24913,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30767,10 +24931,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -30787,10 +24947,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30809,10 +24965,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -30829,10 +24981,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30851,10 +24999,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -30871,10 +25015,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30893,10 +25033,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -30913,10 +25049,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30935,10 +25067,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -30955,10 +25083,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -30977,10 +25101,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -30997,10 +25117,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -31019,10 +25135,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -31039,10 +25151,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -31061,10 +25169,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -31081,10 +25185,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31103,10 +25203,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -31123,10 +25219,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31145,10 +25237,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -31165,10 +25253,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -31187,10 +25271,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -31207,10 +25287,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31229,10 +25305,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -31249,10 +25321,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -31271,10 +25339,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -31291,10 +25355,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -31313,10 +25373,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -31333,10 +25389,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -31355,10 +25407,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -31375,10 +25423,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -31397,10 +25441,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -31417,10 +25457,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -31439,10 +25475,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -31459,10 +25491,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -31481,10 +25509,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -31501,10 +25525,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31523,10 +25543,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -31543,10 +25559,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31565,10 +25577,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -31585,10 +25593,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31607,10 +25611,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -31627,10 +25627,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31649,10 +25645,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -31669,10 +25661,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31691,10 +25679,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -31711,10 +25695,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31733,10 +25713,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -31753,10 +25729,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31775,10 +25747,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -31795,10 +25763,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31817,10 +25781,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -31837,10 +25797,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31859,10 +25815,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -31879,10 +25831,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31901,10 +25849,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -31921,10 +25865,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31943,10 +25883,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -31963,10 +25899,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -31985,10 +25917,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -32005,10 +25933,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32027,10 +25951,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -32047,10 +25967,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32069,10 +25985,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -32089,10 +26001,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32111,10 +26019,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -32131,10 +26035,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32153,10 +26053,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -32173,10 +26069,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32195,10 +26087,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -32215,10 +26103,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -32237,10 +26121,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -32257,10 +26137,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -32279,10 +26155,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -32299,10 +26171,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -32321,10 +26189,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -32341,10 +26205,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -32363,10 +26223,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -32383,10 +26239,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -32405,10 +26257,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -32425,10 +26273,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -32447,10 +26291,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -32467,10 +26307,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -32489,10 +26325,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -32509,10 +26341,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -32531,10 +26359,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -32551,10 +26375,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -32573,10 +26393,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -32593,10 +26409,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -32615,10 +26427,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -32635,10 +26443,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32657,10 +26461,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -32677,10 +26477,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32699,10 +26495,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -32719,10 +26511,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32741,10 +26529,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -32761,10 +26545,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32783,10 +26563,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -32803,10 +26579,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32825,10 +26597,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -32845,10 +26613,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32867,10 +26631,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -32887,10 +26647,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32909,10 +26665,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -32929,10 +26681,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32951,10 +26699,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -32971,10 +26715,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -32993,10 +26733,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -33013,10 +26749,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -33035,10 +26767,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -33055,10 +26783,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33077,10 +26801,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -33097,10 +26817,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33119,10 +26835,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -33139,10 +26851,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33161,10 +26869,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -33181,10 +26885,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33203,10 +26903,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -33223,10 +26919,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33245,10 +26937,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -33265,10 +26953,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -33287,10 +26971,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -33307,10 +26987,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33329,10 +27005,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -33349,10 +27021,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33371,10 +27039,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -33391,10 +27055,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33413,10 +27073,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -33433,10 +27089,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33455,10 +27107,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -33475,10 +27123,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33497,10 +27141,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -33517,10 +27157,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -33539,10 +27175,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -33559,10 +27191,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -33581,10 +27209,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -33601,10 +27225,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33623,10 +27243,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -33643,10 +27259,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33665,10 +27277,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -33685,10 +27293,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -33707,10 +27311,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -33727,10 +27327,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33749,10 +27345,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -33769,10 +27361,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -33791,10 +27379,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -33811,10 +27395,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -33833,10 +27413,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -33853,10 +27429,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33875,10 +27447,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -33895,10 +27463,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -33917,10 +27481,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -33937,10 +27497,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -33959,10 +27515,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -33979,10 +27531,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -34001,10 +27549,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -34021,10 +27565,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34043,10 +27583,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -34063,10 +27599,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -34085,10 +27617,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -34105,10 +27633,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34127,10 +27651,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -34147,10 +27667,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34169,10 +27685,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -34189,10 +27701,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34211,10 +27719,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -34231,10 +27735,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34253,10 +27753,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -34273,10 +27769,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34295,10 +27787,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -34315,10 +27803,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34337,10 +27821,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -34357,10 +27837,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34379,10 +27855,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -34399,10 +27871,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34421,10 +27889,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -34441,10 +27905,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34463,10 +27923,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -34483,10 +27939,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34505,10 +27957,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -34525,10 +27973,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34547,10 +27991,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -34567,10 +28007,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34589,10 +28025,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -34609,10 +28041,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34631,10 +28059,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -34651,10 +28075,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -34673,10 +28093,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -34693,10 +28109,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34715,10 +28127,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -34735,10 +28143,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34757,10 +28161,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -34777,10 +28177,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -34799,10 +28195,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -34819,10 +28211,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -34841,10 +28229,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -34861,10 +28245,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -34883,10 +28263,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -34903,10 +28279,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -34925,10 +28297,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -34945,10 +28313,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -34967,10 +28331,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -34987,10 +28347,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -35009,10 +28365,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -35029,10 +28381,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35051,10 +28399,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -35071,10 +28415,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -35093,10 +28433,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -35113,10 +28449,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -35135,10 +28467,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -35155,10 +28483,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -35177,10 +28501,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -35197,10 +28517,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -35219,10 +28535,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -35239,10 +28551,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35261,10 +28569,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -35281,10 +28585,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35303,10 +28603,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -35323,10 +28619,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35345,10 +28637,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -35365,10 +28653,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35387,10 +28671,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -35407,10 +28687,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35429,10 +28705,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -35449,10 +28721,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35471,10 +28739,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -35491,10 +28755,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -35513,10 +28773,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -35533,10 +28789,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -35555,10 +28807,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -35575,10 +28823,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -35597,10 +28841,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -35617,10 +28857,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35639,10 +28875,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -35659,10 +28891,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -35681,10 +28909,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -35701,10 +28925,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35723,10 +28943,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -35743,10 +28959,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35765,10 +28977,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -35785,10 +28993,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35807,10 +29011,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -35827,10 +29027,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35849,10 +29045,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -35869,10 +29061,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35891,10 +29079,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -35911,10 +29095,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35933,10 +29113,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -35953,10 +29129,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -35975,10 +29147,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -35995,10 +29163,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36017,10 +29181,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -36037,10 +29197,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36059,10 +29215,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -36079,10 +29231,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36101,10 +29249,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -36121,10 +29265,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36143,10 +29283,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -36163,10 +29299,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36185,10 +29317,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -36205,10 +29333,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36227,10 +29351,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -36247,10 +29367,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36269,10 +29385,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -36289,10 +29401,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36311,10 +29419,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -36331,10 +29435,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36353,10 +29453,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -36373,10 +29469,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -36395,10 +29487,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -36415,10 +29503,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -36437,10 +29521,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -36457,10 +29537,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36479,10 +29555,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -36499,10 +29571,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36521,10 +29589,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -36541,10 +29605,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -36563,10 +29623,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -36583,10 +29639,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36605,10 +29657,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -36625,10 +29673,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -36647,10 +29691,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -36667,10 +29707,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36689,10 +29725,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -36709,10 +29741,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36731,10 +29759,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -36751,10 +29775,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36773,10 +29793,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -36793,10 +29809,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -36815,10 +29827,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -36835,10 +29843,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36857,10 +29861,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -36877,10 +29877,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -36899,10 +29895,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -36919,10 +29911,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36941,10 +29929,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
@@ -36961,10 +29945,6 @@ SELECT
     p_notes => 'imported from firestore data: "lateral-raise"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -36983,10 +29963,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
@@ -37003,10 +29979,6 @@ SELECT
     p_notes => 'imported from firestore data: "lateral-raise"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -37025,10 +29997,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
@@ -37045,10 +30013,6 @@ SELECT
     p_notes => 'imported from firestore data: "lateral-raise"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -37067,10 +30031,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'dumbbell_lateral_raise'::exercise_type_enum,
@@ -37087,10 +30047,6 @@ SELECT
     p_notes => 'imported from firestore data: "lateral-raise"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -37109,10 +30065,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -37129,10 +30081,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -37151,10 +30099,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -37171,10 +30115,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -37193,10 +30133,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -37213,10 +30149,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -37235,10 +30167,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -37255,10 +30183,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -37277,10 +30201,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -37297,10 +30217,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -37319,10 +30235,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -37339,10 +30251,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -37361,10 +30269,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -37381,10 +30285,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -37403,10 +30303,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -37423,10 +30319,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -37445,10 +30337,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -37465,10 +30353,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -37487,10 +30371,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -37507,10 +30387,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -37529,10 +30405,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -37549,10 +30421,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -37571,10 +30439,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -37591,10 +30455,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -37613,10 +30473,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -37633,10 +30489,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -37655,10 +30507,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -37675,10 +30523,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -37697,10 +30541,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -37717,10 +30557,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -37739,10 +30575,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -37759,10 +30591,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -37781,10 +30609,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -37801,10 +30625,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -37823,10 +30643,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -37843,10 +30659,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -37865,10 +30677,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -37885,10 +30693,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -37907,10 +30711,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -37927,10 +30727,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -37949,10 +30745,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -37969,10 +30761,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -37991,10 +30779,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -38011,10 +30795,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -38033,10 +30813,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_converging_shoulder_press'::exercise_type_enum,
@@ -38053,10 +30829,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -38075,10 +30847,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_shoulder_press'::exercise_type_enum,
@@ -38095,10 +30863,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38117,10 +30881,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_shoulder_press'::exercise_type_enum,
@@ -38137,10 +30897,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38159,10 +30915,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_shoulder_press'::exercise_type_enum,
@@ -38179,10 +30931,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38201,10 +30949,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_shoulder_press'::exercise_type_enum,
@@ -38221,10 +30965,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-shoulder-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38243,10 +30983,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_lateral_raise'::exercise_type_enum,
@@ -38263,10 +30999,6 @@ SELECT
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -38285,10 +31017,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_lateral_raise'::exercise_type_enum,
@@ -38305,10 +31033,6 @@ SELECT
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38327,10 +31051,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_lateral_raise'::exercise_type_enum,
@@ -38347,10 +31067,6 @@ SELECT
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -38369,10 +31085,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_lateral_raise'::exercise_type_enum,
@@ -38389,10 +31101,6 @@ SELECT
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -38411,10 +31119,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_lateral_raise'::exercise_type_enum,
@@ -38431,10 +31135,6 @@ SELECT
     p_notes => 'imported from firestore data: "lateral-raise-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38453,10 +31153,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -38473,10 +31169,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38495,10 +31187,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -38515,10 +31203,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38537,10 +31221,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -38557,10 +31237,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -38579,10 +31255,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -38599,10 +31271,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -38621,10 +31289,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -38641,10 +31305,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -38663,10 +31323,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -38683,10 +31339,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38705,10 +31357,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -38725,10 +31373,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38747,10 +31391,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -38767,10 +31407,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38789,10 +31425,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -38809,10 +31441,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38831,10 +31459,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -38851,10 +31475,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38873,10 +31493,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -38893,10 +31509,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38915,10 +31527,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -38935,10 +31543,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -38957,10 +31561,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -38977,10 +31577,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -38999,10 +31595,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -39019,10 +31611,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -39041,10 +31629,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -39061,10 +31645,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -39083,10 +31663,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -39103,10 +31679,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -39125,10 +31697,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -39145,10 +31713,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -39167,10 +31731,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -39187,10 +31747,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -39209,10 +31765,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -39229,10 +31781,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -39251,10 +31799,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -39271,10 +31815,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -39293,10 +31833,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -39313,10 +31849,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -39335,10 +31867,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -39355,10 +31883,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -39377,10 +31901,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -39397,10 +31917,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -39419,10 +31935,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -39439,10 +31951,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -39461,10 +31969,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -39481,10 +31985,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -39503,10 +32003,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -39523,10 +32019,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -39545,10 +32037,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -39565,10 +32053,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -39587,10 +32071,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -39607,10 +32087,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -39629,10 +32105,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -39649,10 +32121,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -39671,10 +32139,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -39691,10 +32155,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -39713,10 +32173,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -39733,10 +32189,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -39755,10 +32207,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -39775,10 +32223,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -39797,10 +32241,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -39817,10 +32257,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -39839,10 +32275,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -39859,10 +32291,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -39881,10 +32309,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -39901,10 +32325,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -39923,10 +32343,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -39943,10 +32359,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -39965,10 +32377,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -39985,10 +32393,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -40007,10 +32411,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -40027,10 +32427,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -40049,10 +32445,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -40069,10 +32461,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -40091,10 +32479,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -40111,10 +32495,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40133,10 +32513,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -40153,10 +32529,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40175,10 +32547,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -40195,10 +32563,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40217,10 +32581,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -40237,10 +32597,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40259,10 +32615,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -40279,10 +32631,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40301,10 +32649,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -40321,10 +32665,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40343,10 +32683,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -40363,10 +32699,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40385,10 +32717,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -40405,10 +32733,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40427,10 +32751,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -40447,10 +32767,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40469,10 +32785,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -40489,10 +32801,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -40511,10 +32819,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -40531,10 +32835,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -40553,10 +32853,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -40573,10 +32869,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40595,10 +32887,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -40615,10 +32903,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40637,10 +32921,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -40657,10 +32937,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40679,10 +32955,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -40699,10 +32971,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40721,10 +32989,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -40741,10 +33005,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40763,10 +33023,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -40783,10 +33039,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -40805,10 +33057,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -40825,10 +33073,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -40847,10 +33091,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -40867,10 +33107,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -40889,10 +33125,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -40909,10 +33141,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -40931,10 +33159,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -40951,10 +33175,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -40973,10 +33193,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -40993,10 +33209,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -41015,10 +33227,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -41035,10 +33243,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -41057,10 +33261,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -41077,10 +33277,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -41099,10 +33295,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -41119,10 +33311,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -41141,10 +33329,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -41161,10 +33345,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41183,10 +33363,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -41203,10 +33379,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -41225,10 +33397,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -41245,10 +33413,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41267,10 +33431,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -41287,10 +33447,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -41309,10 +33465,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -41329,10 +33481,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41351,10 +33499,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -41371,10 +33515,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41393,10 +33533,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -41413,10 +33549,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41435,10 +33567,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -41455,10 +33583,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41477,10 +33601,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -41497,10 +33617,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41519,10 +33635,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -41539,10 +33651,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41561,10 +33669,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -41581,10 +33685,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41603,10 +33703,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -41623,10 +33719,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41645,10 +33737,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -41665,10 +33753,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41687,10 +33771,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -41707,10 +33787,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41729,10 +33805,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -41749,10 +33821,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -41771,10 +33839,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -41791,10 +33855,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -41813,10 +33873,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -41833,10 +33889,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -41855,10 +33907,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -41875,10 +33923,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41897,10 +33941,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -41917,10 +33957,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41939,10 +33975,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -41959,10 +33991,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -41981,10 +34009,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -42001,10 +34025,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -42023,10 +34043,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -42043,10 +34059,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42065,10 +34077,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -42085,10 +34093,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42107,10 +34111,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -42127,10 +34127,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42149,10 +34145,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -42169,10 +34161,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42191,10 +34179,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -42211,10 +34195,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -42233,10 +34213,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -42253,10 +34229,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42275,10 +34247,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -42295,10 +34263,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42317,10 +34281,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -42337,10 +34297,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42359,10 +34315,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -42379,10 +34331,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42401,10 +34349,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -42421,10 +34365,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42443,10 +34383,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -42463,10 +34399,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42485,10 +34417,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -42505,10 +34433,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42527,10 +34451,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -42547,10 +34467,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42569,10 +34485,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -42589,10 +34501,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -42611,10 +34519,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -42631,10 +34535,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42653,10 +34553,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -42673,10 +34569,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42695,10 +34587,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -42715,10 +34603,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -42737,10 +34621,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -42757,10 +34637,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -42779,10 +34655,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -42799,10 +34671,6 @@ SELECT
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -42821,10 +34689,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -42841,10 +34705,6 @@ SELECT
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -42863,10 +34723,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -42883,10 +34739,6 @@ SELECT
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -42905,10 +34757,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -42925,10 +34773,6 @@ SELECT
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -42947,10 +34791,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -42967,10 +34807,6 @@ SELECT
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -42989,10 +34825,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -43009,10 +34841,6 @@ SELECT
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -43031,10 +34859,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -43051,10 +34875,6 @@ SELECT
     p_notes => 'imported from firestore data: "biceps-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -43073,10 +34893,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -43093,10 +34909,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -43115,10 +34927,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -43135,10 +34943,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43157,10 +34961,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -43177,10 +34977,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43199,10 +34995,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -43219,10 +35011,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43241,10 +35029,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -43261,10 +35045,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -43283,10 +35063,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -43303,10 +35079,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -43325,10 +35097,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -43345,10 +35113,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -43367,10 +35131,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -43387,10 +35147,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -43409,10 +35165,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -43429,10 +35181,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -43451,10 +35199,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -43471,10 +35215,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -43493,10 +35233,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -43513,10 +35249,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43535,10 +35267,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -43555,10 +35283,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43577,10 +35301,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -43597,10 +35317,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43619,10 +35335,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -43639,10 +35351,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43661,10 +35369,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -43681,10 +35385,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43703,10 +35403,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -43723,10 +35419,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43745,10 +35437,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -43765,10 +35453,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43787,10 +35471,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -43807,10 +35487,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43829,10 +35505,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -43849,10 +35521,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43871,10 +35539,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -43891,10 +35555,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43913,10 +35573,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -43933,10 +35589,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43955,10 +35607,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -43975,10 +35623,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -43997,10 +35641,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -44017,10 +35657,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -44039,10 +35675,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -44059,10 +35691,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -44081,10 +35709,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -44101,10 +35725,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -44123,10 +35743,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -44143,10 +35759,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -44165,10 +35777,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -44185,10 +35793,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -44207,10 +35811,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -44227,10 +35827,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -44249,10 +35845,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -44269,10 +35861,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -44291,10 +35879,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -44311,10 +35895,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -44333,10 +35913,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -44353,10 +35929,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -44375,10 +35947,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -44395,10 +35963,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -44417,10 +35981,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -44437,10 +35997,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -44459,10 +36015,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -44479,10 +36031,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -44501,10 +36049,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -44521,10 +36065,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -44543,10 +36083,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -44563,10 +36099,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -44585,10 +36117,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -44605,10 +36133,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -44627,10 +36151,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -44647,10 +36167,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -44669,10 +36185,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -44689,10 +36201,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -44711,10 +36219,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -44731,10 +36235,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -44753,10 +36253,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -44773,10 +36269,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -44795,10 +36287,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -44815,10 +36303,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -44837,10 +36321,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -44857,10 +36337,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -44879,10 +36355,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -44899,10 +36371,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -44921,10 +36389,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -44941,10 +36405,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -44963,10 +36423,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -44983,10 +36439,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45005,10 +36457,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -45025,10 +36473,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45047,10 +36491,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -45067,10 +36507,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45089,10 +36525,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -45109,10 +36541,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45131,10 +36559,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -45151,10 +36575,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45173,10 +36593,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -45193,10 +36609,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45215,10 +36627,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -45235,10 +36643,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -45257,10 +36661,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -45277,10 +36677,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -45299,10 +36695,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -45319,10 +36711,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -45341,10 +36729,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -45361,10 +36745,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -45383,10 +36763,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -45403,10 +36779,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -45425,10 +36797,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -45445,10 +36813,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -45467,10 +36831,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -45487,10 +36847,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45509,10 +36865,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -45529,10 +36881,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45551,10 +36899,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -45571,10 +36915,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -45593,10 +36933,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -45613,10 +36949,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45635,10 +36967,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -45655,10 +36983,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45677,10 +37001,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -45697,10 +37017,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45719,10 +37035,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -45739,10 +37051,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45761,10 +37069,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -45781,10 +37085,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45803,10 +37103,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -45823,10 +37119,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45845,10 +37137,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -45865,10 +37153,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -45887,10 +37171,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -45907,10 +37187,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45929,10 +37205,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -45949,10 +37221,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -45971,10 +37239,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -45991,10 +37255,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -46013,10 +37273,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -46033,10 +37289,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -46055,10 +37307,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -46075,10 +37323,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -46097,10 +37341,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -46117,10 +37357,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -46139,10 +37375,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -46159,10 +37391,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -46181,10 +37409,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -46201,10 +37425,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -46223,10 +37443,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -46243,10 +37459,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -46265,10 +37477,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -46285,10 +37493,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -46307,10 +37511,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -46327,10 +37527,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -46349,10 +37545,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -46369,10 +37561,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -46391,10 +37579,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -46411,10 +37595,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -46433,10 +37613,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -46453,10 +37629,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -46475,10 +37647,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -46495,10 +37663,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -46517,10 +37681,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -46537,10 +37697,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -46559,10 +37715,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -46579,10 +37731,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -46601,10 +37749,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -46621,10 +37765,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -46643,10 +37783,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -46663,10 +37799,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -46685,10 +37817,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -46705,10 +37833,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -46727,10 +37851,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -46747,10 +37867,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -46769,10 +37885,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -46789,10 +37901,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -46811,10 +37919,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -46831,10 +37935,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -46853,10 +37953,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -46873,10 +37969,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -46895,10 +37987,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -46915,10 +38003,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -46937,10 +38021,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -46957,10 +38037,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -46979,10 +38055,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -46999,10 +38071,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -47021,10 +38089,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -47041,10 +38105,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -47063,10 +38123,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -47083,10 +38139,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47105,10 +38157,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -47125,10 +38173,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47147,10 +38191,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -47167,10 +38207,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47189,10 +38225,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -47209,10 +38241,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47231,10 +38259,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -47251,10 +38275,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -47273,10 +38293,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -47293,10 +38309,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -47315,10 +38327,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -47335,10 +38343,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -47357,10 +38361,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -47377,10 +38377,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47399,10 +38395,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -47419,10 +38411,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47441,10 +38429,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -47461,10 +38445,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -47483,10 +38463,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -47503,10 +38479,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -47525,10 +38497,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -47545,10 +38513,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -47567,10 +38531,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -47587,10 +38547,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47609,10 +38565,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -47629,10 +38581,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47651,10 +38599,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -47671,10 +38615,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47693,10 +38633,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -47713,10 +38649,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -47735,10 +38667,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -47755,10 +38683,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47777,10 +38701,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -47797,10 +38717,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47819,10 +38735,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -47839,10 +38751,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47861,10 +38769,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -47881,10 +38785,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47903,10 +38803,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -47923,10 +38819,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -47945,10 +38837,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -47965,10 +38853,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -47987,10 +38871,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -48007,10 +38887,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -48029,10 +38905,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -48049,10 +38921,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -48071,10 +38939,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -48091,10 +38955,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -48113,10 +38973,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -48133,10 +38989,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -48155,10 +39007,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -48175,10 +39023,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -48197,10 +39041,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -48217,10 +39057,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -48239,10 +39075,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -48259,10 +39091,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -48281,10 +39109,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -48301,10 +39125,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -48323,10 +39143,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -48343,10 +39159,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -48365,10 +39177,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -48385,10 +39193,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -48407,10 +39211,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -48427,10 +39227,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -48449,10 +39245,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -48469,10 +39261,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -48491,10 +39279,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -48511,10 +39295,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -48533,10 +39313,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -48553,10 +39329,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -48575,10 +39347,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -48595,10 +39363,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -48617,10 +39381,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -48637,10 +39397,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -48659,10 +39415,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -48679,10 +39431,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -48701,10 +39449,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -48721,10 +39465,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -48743,10 +39483,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -48763,10 +39499,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -48785,10 +39517,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -48805,10 +39533,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -48827,10 +39551,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -48847,10 +39567,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -48869,10 +39585,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -48889,10 +39601,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -48911,10 +39619,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -48931,10 +39635,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -48953,10 +39653,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -48973,10 +39669,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -48995,10 +39687,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -49015,10 +39703,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49037,10 +39721,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -49057,10 +39737,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49079,10 +39755,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -49099,10 +39771,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49121,10 +39789,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -49141,10 +39805,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49163,10 +39823,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -49183,10 +39839,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49205,10 +39857,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -49225,10 +39873,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49247,10 +39891,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -49267,10 +39907,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49289,10 +39925,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -49309,10 +39941,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49331,10 +39959,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -49351,10 +39975,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49373,10 +39993,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -49393,10 +40009,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49415,10 +40027,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -49435,10 +40043,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -49457,10 +40061,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -49477,10 +40077,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49499,10 +40095,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -49519,10 +40111,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49541,10 +40129,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -49561,10 +40145,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49583,10 +40163,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -49603,10 +40179,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -49625,10 +40197,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -49645,10 +40213,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -49667,10 +40231,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -49687,10 +40247,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -49709,10 +40265,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -49729,10 +40281,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49751,10 +40299,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -49771,10 +40315,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49793,10 +40333,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -49813,10 +40349,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49835,10 +40367,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -49855,10 +40383,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49877,10 +40401,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -49897,10 +40417,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49919,10 +40435,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -49939,10 +40451,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -49961,10 +40469,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -49981,10 +40485,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -50003,10 +40503,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -50023,10 +40519,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -50045,10 +40537,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -50065,10 +40553,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -50087,10 +40571,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -50107,10 +40587,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -50129,10 +40605,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -50149,10 +40621,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -50171,10 +40639,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -50191,10 +40655,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50213,10 +40673,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -50233,10 +40689,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50255,10 +40707,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -50275,10 +40723,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50297,10 +40741,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -50317,10 +40757,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50339,10 +40775,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -50359,10 +40791,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50381,10 +40809,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -50401,10 +40825,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50423,10 +40843,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -50443,10 +40859,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50465,10 +40877,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -50485,10 +40893,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50507,10 +40911,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -50527,10 +40927,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50549,10 +40945,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -50569,10 +40961,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -50591,10 +40979,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -50611,10 +40995,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -50633,10 +41013,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -50653,10 +41029,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -50675,10 +41047,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -50695,10 +41063,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -50717,10 +41081,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -50737,10 +41097,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -50759,10 +41115,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -50779,10 +41131,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50801,10 +41149,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -50821,10 +41165,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50843,10 +41183,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -50863,10 +41199,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50885,10 +41217,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -50905,10 +41233,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50927,10 +41251,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -50947,10 +41267,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -50969,10 +41285,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -50989,10 +41301,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -51011,10 +41319,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -51031,10 +41335,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -51053,10 +41353,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -51073,10 +41369,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -51095,10 +41387,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -51115,10 +41403,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -51137,10 +41421,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -51157,10 +41437,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -51179,10 +41455,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -51199,10 +41471,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -51221,10 +41489,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -51241,10 +41505,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -51263,10 +41523,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -51283,10 +41539,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -51305,10 +41557,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -51325,10 +41573,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -51347,10 +41591,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -51367,10 +41607,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -51389,10 +41625,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -51409,10 +41641,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -51431,10 +41659,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -51451,10 +41675,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -51473,10 +41693,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -51493,10 +41709,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -51515,10 +41727,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -51535,10 +41743,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -51557,10 +41761,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -51577,10 +41777,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -51599,10 +41795,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -51619,10 +41811,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -51641,10 +41829,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -51661,10 +41845,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -51683,10 +41863,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -51703,10 +41879,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -51725,10 +41897,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -51745,10 +41913,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -51767,10 +41931,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -51787,10 +41947,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -51809,10 +41965,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -51829,10 +41981,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -51851,10 +41999,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -51871,10 +42015,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -51893,10 +42033,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -51913,10 +42049,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -51935,10 +42067,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -51955,10 +42083,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -51977,10 +42101,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -51997,10 +42117,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -52019,10 +42135,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -52039,10 +42151,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52061,10 +42169,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -52081,10 +42185,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52103,10 +42203,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -52123,10 +42219,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52145,10 +42237,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -52165,10 +42253,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -52187,10 +42271,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -52207,10 +42287,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -52229,10 +42305,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -52249,10 +42321,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -52271,10 +42339,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -52291,10 +42355,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -52313,10 +42373,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -52333,10 +42389,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -52355,10 +42407,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -52375,10 +42423,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -52397,10 +42441,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -52417,10 +42457,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52439,10 +42475,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -52459,10 +42491,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52481,10 +42509,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -52501,10 +42525,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -52523,10 +42543,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -52543,10 +42559,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52565,10 +42577,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -52585,10 +42593,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52607,10 +42611,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -52627,10 +42627,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52649,10 +42645,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -52669,10 +42661,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52691,10 +42679,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -52711,10 +42695,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -52733,10 +42713,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -52753,10 +42729,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52775,10 +42747,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -52795,10 +42763,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52817,10 +42781,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -52837,10 +42797,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52859,10 +42815,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -52879,10 +42831,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52901,10 +42849,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -52921,10 +42865,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52943,10 +42883,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -52963,10 +42899,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -52985,10 +42917,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -53005,10 +42933,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -53027,10 +42951,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -53047,10 +42967,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -53069,10 +42985,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -53089,10 +43001,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -53111,10 +43019,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -53131,10 +43035,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -53153,10 +43053,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -53173,10 +43069,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -53195,10 +43087,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -53215,10 +43103,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -53237,10 +43121,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -53257,10 +43137,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -53279,10 +43155,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -53299,10 +43171,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -53321,10 +43189,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -53341,10 +43205,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53363,10 +43223,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -53383,10 +43239,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53405,10 +43257,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -53425,10 +43273,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53447,10 +43291,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -53467,10 +43307,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53489,10 +43325,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -53509,10 +43341,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53531,10 +43359,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -53551,10 +43375,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53573,10 +43393,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -53593,10 +43409,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53615,10 +43427,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -53635,10 +43443,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53657,10 +43461,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -53677,10 +43477,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53699,10 +43495,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -53719,10 +43511,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53741,10 +43529,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -53761,10 +43545,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53783,10 +43563,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -53803,10 +43579,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53825,10 +43597,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -53845,10 +43613,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53867,10 +43631,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -53887,10 +43647,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -53909,10 +43665,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -53929,10 +43681,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -53951,10 +43699,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -53971,10 +43715,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -53993,10 +43733,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -54013,10 +43749,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54035,10 +43767,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -54055,10 +43783,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54077,10 +43801,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -54097,10 +43817,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54119,10 +43835,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -54139,10 +43851,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54161,10 +43869,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -54181,10 +43885,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54203,10 +43903,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -54223,10 +43919,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54245,10 +43937,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -54265,10 +43953,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -54287,10 +43971,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -54307,10 +43987,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54329,10 +44005,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -54349,10 +44021,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54371,10 +44039,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -54391,10 +44055,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -54413,10 +44073,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -54433,10 +44089,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -54455,10 +44107,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_back_extension'::exercise_type_enum,
@@ -54475,10 +44123,6 @@ SELECT
     p_notes => 'imported from firestore data: "back-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -54497,10 +44141,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -54517,10 +44157,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54539,10 +44175,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -54559,10 +44191,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54581,10 +44209,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -54601,10 +44225,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54623,10 +44243,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -54643,10 +44259,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54665,10 +44277,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -54685,10 +44293,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54707,10 +44311,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -54727,10 +44327,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -54749,10 +44345,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -54769,10 +44361,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -54791,10 +44379,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -54811,10 +44395,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54833,10 +44413,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -54853,10 +44429,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54875,10 +44447,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -54895,10 +44463,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54917,10 +44481,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -54937,10 +44497,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -54959,10 +44515,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -54979,10 +44531,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55001,10 +44549,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -55021,10 +44565,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55043,10 +44583,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -55063,10 +44599,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55085,10 +44617,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_front_squat'::exercise_type_enum,
@@ -55105,10 +44633,6 @@ SELECT
     p_notes => 'imported from firestore data: "front-squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55127,10 +44651,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -55147,10 +44667,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55169,10 +44685,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -55189,10 +44701,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55211,10 +44719,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -55231,10 +44735,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -55253,10 +44753,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -55273,10 +44769,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55295,10 +44787,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -55315,10 +44803,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55337,10 +44821,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -55357,10 +44837,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55379,10 +44855,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -55399,10 +44871,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55421,10 +44889,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -55441,10 +44905,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -55463,10 +44923,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -55483,10 +44939,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55505,10 +44957,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_press'::exercise_type_enum,
@@ -55525,10 +44973,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55547,10 +44991,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -55567,10 +45007,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -55589,10 +45025,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -55609,10 +45041,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -55631,10 +45059,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -55651,10 +45075,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55673,10 +45093,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -55693,10 +45109,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -55715,10 +45127,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -55735,10 +45143,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55757,10 +45161,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -55777,10 +45177,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55799,10 +45195,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -55819,10 +45211,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55841,10 +45229,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -55861,10 +45245,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55883,10 +45263,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -55903,10 +45279,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55925,10 +45297,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -55945,10 +45313,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -55967,10 +45331,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -55987,10 +45347,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56009,10 +45365,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -56029,10 +45381,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56051,10 +45399,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -56071,10 +45415,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -56093,10 +45433,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -56113,10 +45449,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56135,10 +45467,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -56155,10 +45483,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -56177,10 +45501,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -56197,10 +45517,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -56219,10 +45535,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -56239,10 +45551,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56261,10 +45569,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -56281,10 +45585,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56303,10 +45603,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -56323,10 +45619,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56345,10 +45637,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -56365,10 +45653,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56387,10 +45671,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -56407,10 +45687,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56429,10 +45705,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -56449,10 +45721,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56471,10 +45739,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -56491,10 +45755,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56513,10 +45773,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -56533,10 +45789,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56555,10 +45807,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -56575,10 +45823,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56597,10 +45841,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -56617,10 +45857,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -56639,10 +45875,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -56659,10 +45891,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -56681,10 +45909,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -56701,10 +45925,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -56723,10 +45943,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -56743,10 +45959,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -56765,10 +45977,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -56785,10 +45993,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -56807,10 +46011,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -56827,10 +46027,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -56849,10 +46045,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -56869,10 +46061,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56891,10 +46079,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -56911,10 +46095,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56933,10 +46113,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -56953,10 +46129,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -56975,10 +46147,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -56995,10 +46163,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -57017,10 +46181,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -57037,10 +46197,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -57059,10 +46215,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -57079,10 +46231,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -57101,10 +46249,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -57121,10 +46265,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57143,10 +46283,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -57163,10 +46299,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57185,10 +46317,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -57205,10 +46333,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57227,10 +46351,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -57247,10 +46367,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57269,10 +46385,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -57289,10 +46401,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57311,10 +46419,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -57331,10 +46435,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -57353,10 +46453,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -57373,10 +46469,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -57395,10 +46487,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -57415,10 +46503,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -57437,10 +46521,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -57457,10 +46537,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -57479,10 +46555,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -57499,10 +46571,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -57521,10 +46589,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -57541,10 +46605,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57563,10 +46623,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -57583,10 +46639,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57605,10 +46657,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -57625,10 +46673,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57647,10 +46691,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -57667,10 +46707,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57689,10 +46725,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -57709,10 +46741,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57731,10 +46759,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -57751,10 +46775,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57773,10 +46793,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -57793,10 +46809,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57815,10 +46827,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -57835,10 +46843,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57857,10 +46861,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -57877,10 +46877,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57899,10 +46895,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -57919,10 +46911,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57941,10 +46929,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -57961,10 +46945,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -57983,10 +46963,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -58003,10 +46979,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58025,10 +46997,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -58045,10 +47013,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58067,10 +47031,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -58087,10 +47047,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58109,10 +47065,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -58129,10 +47081,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58151,10 +47099,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -58171,10 +47115,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -58193,10 +47133,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -58213,10 +47149,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58235,10 +47167,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_seated_leg_curl'::exercise_type_enum,
@@ -58255,10 +47183,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -58277,10 +47201,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -58297,10 +47217,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -58319,10 +47235,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -58339,10 +47251,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -58361,10 +47269,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_leg_extension'::exercise_type_enum,
@@ -58381,10 +47285,6 @@ SELECT
     p_notes => 'imported from firestore data: "leg-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58403,10 +47303,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -58423,10 +47319,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -58445,10 +47337,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -58465,10 +47353,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -58487,10 +47371,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -58507,10 +47387,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58529,10 +47405,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -58549,10 +47421,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58571,10 +47439,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -58591,10 +47455,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58613,10 +47473,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -58633,10 +47489,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58655,10 +47507,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -58675,10 +47523,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58697,10 +47541,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -58717,10 +47557,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58739,10 +47575,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -58759,10 +47591,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58781,10 +47609,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -58801,10 +47625,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58823,10 +47643,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -58843,10 +47659,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58865,10 +47677,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -58885,10 +47693,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -58907,10 +47711,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -58927,10 +47727,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -58949,10 +47745,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -58969,10 +47761,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -58991,10 +47779,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -59011,10 +47795,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59033,10 +47813,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -59053,10 +47829,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59075,10 +47847,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -59095,10 +47863,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59117,10 +47881,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -59137,10 +47897,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59159,10 +47915,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -59179,10 +47931,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59201,10 +47949,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -59221,10 +47965,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59243,10 +47983,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -59263,10 +47999,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59285,10 +48017,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -59305,10 +48033,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59327,10 +48051,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -59347,10 +48067,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59369,10 +48085,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -59389,10 +48101,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59411,10 +48119,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -59431,10 +48135,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59453,10 +48153,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -59473,10 +48169,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59495,10 +48187,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -59515,10 +48203,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -59537,10 +48221,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -59557,10 +48237,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -59579,10 +48255,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -59599,10 +48271,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -59621,10 +48289,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -59641,10 +48305,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -59663,10 +48323,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -59683,10 +48339,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59705,10 +48357,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -59725,10 +48373,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59747,10 +48391,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -59767,10 +48407,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59789,10 +48425,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -59809,10 +48441,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59831,10 +48459,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -59851,10 +48475,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59873,10 +48493,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -59893,10 +48509,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -59915,10 +48527,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_diverging_low_row'::exercise_type_enum,
@@ -59935,10 +48543,6 @@ SELECT
     p_notes => 'imported from firestore data: "diverging-low-row-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -59957,10 +48561,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -59977,10 +48577,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -59999,10 +48595,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -60019,10 +48611,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -60041,10 +48629,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -60061,10 +48645,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -60083,10 +48663,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -60103,10 +48679,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -60125,10 +48697,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -60145,10 +48713,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -60167,10 +48731,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -60187,10 +48747,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -60209,10 +48765,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -60229,10 +48781,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -60251,10 +48799,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -60271,10 +48815,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -60293,10 +48833,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -60313,10 +48849,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -60335,10 +48867,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_back_squat'::exercise_type_enum,
@@ -60355,10 +48883,6 @@ SELECT
     p_notes => 'imported from firestore data: "squat"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -60377,10 +48901,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -60397,10 +48917,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -60419,10 +48935,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -60439,10 +48951,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -60461,10 +48969,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -60481,10 +48985,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -60503,10 +49003,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -60523,10 +49019,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -60545,10 +49037,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -60565,10 +49053,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -60587,10 +49071,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -60607,10 +49087,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -60629,10 +49105,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -60649,10 +49121,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -60671,10 +49139,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -60691,10 +49155,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -60713,10 +49173,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -60733,10 +49189,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -60755,10 +49207,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'plate_stack_calf_raise'::exercise_type_enum,
@@ -60775,10 +49223,6 @@ SELECT
     p_notes => 'imported from firestore data: "seated-calf-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -60797,10 +49241,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -60817,10 +49257,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -60839,10 +49275,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -60859,10 +49291,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -60881,10 +49309,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -60901,10 +49325,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -60923,10 +49343,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -60943,10 +49359,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -60965,10 +49377,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -60985,10 +49393,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -61007,10 +49411,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_bench_press'::exercise_type_enum,
@@ -61027,10 +49427,6 @@ SELECT
     p_notes => 'imported from firestore data: "bench-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61049,10 +49445,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -61069,10 +49461,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61091,10 +49479,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -61111,10 +49495,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -61133,10 +49513,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -61153,10 +49529,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -61175,10 +49547,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -61195,10 +49563,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61217,10 +49581,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -61237,10 +49597,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61259,10 +49615,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_overhead_press'::exercise_type_enum,
@@ -61279,10 +49631,6 @@ SELECT
     p_notes => 'imported from firestore data: "overhead-press"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61301,10 +49649,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -61321,10 +49665,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61343,10 +49683,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_triceps_extension'::exercise_type_enum,
@@ -61363,10 +49699,6 @@ SELECT
     p_notes => 'imported from firestore data: "arm-extension-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61385,10 +49717,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -61405,10 +49733,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61427,10 +49751,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -61447,10 +49767,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61469,10 +49785,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_converging_chest_press'::exercise_type_enum,
@@ -61489,10 +49801,6 @@ SELECT
     p_notes => 'imported from firestore data: "converging-chest-press-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61511,10 +49819,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -61531,10 +49835,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61553,10 +49853,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -61573,10 +49869,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61595,10 +49887,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -61615,10 +49903,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61637,10 +49921,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -61657,10 +49937,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61679,10 +49955,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -61699,10 +49971,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61721,10 +49989,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -61741,10 +50005,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -61763,10 +50023,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -61783,10 +50039,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -61805,10 +50057,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'barbell_deadlift'::exercise_type_enum,
@@ -61825,10 +50073,6 @@ SELECT
     p_notes => 'imported from firestore data: "deadlift"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61847,10 +50091,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -61867,10 +50107,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61889,10 +50125,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -61909,10 +50141,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61931,10 +50159,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -61951,10 +50175,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -61973,10 +50193,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -61993,10 +50209,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -62015,10 +50227,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_biceps_curl'::exercise_type_enum,
@@ -62035,10 +50243,6 @@ SELECT
     p_notes => 'imported from firestore data: "bicep-curl-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -62057,10 +50261,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -62077,10 +50277,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -62099,10 +50295,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -62119,10 +50311,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -62141,10 +50329,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -62161,10 +50345,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -62183,10 +50363,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -62203,10 +50379,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
@@ -62225,10 +50397,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
     p_exercise_type => 'machine_diverging_lat_pulldown'::exercise_type_enum,
@@ -62245,10 +50413,6 @@ SELECT
     p_notes => 'imported from firestore data: "lat-pull-down-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -62267,10 +50431,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -62287,10 +50447,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -62309,10 +50465,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -62329,10 +50481,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -62351,10 +50499,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -62371,10 +50515,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -62393,10 +50533,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -62413,10 +50549,6 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 SELECT
   public.create_exercise (
     p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b'::uuid,
@@ -62435,10 +50567,6 @@ SELECT
   );
 
 SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
-SELECT
   public.create_exercise (
     p_user_id => 'd6e4a8a4-a0c1-4760-9512-a569473fe162'::uuid,
     p_exercise_type => 'machine_abdominal'::exercise_type_enum,
@@ -62455,8 +50583,11 @@ SELECT
     p_notes => 'imported from firestore data: "abdominal-machine"'
   );
 
-SELECT
-  pg_sleep(0.0001);
-
--- 0.1ms delay to ensure trigger sequencing
 -- END OF IMPORTED EXERCISE DATA --
+-- SELECT
+--   _system.blockify ('97097295-6eb1-4824-8bfa-8984cf9bea6b');
+-- TODO: I'd like to run blockify automatically, but it has an issue with a
+-- foreign key constraint and I don't know if I want to turn all of those off or
+-- not.
+SELECT
+  _system.cleanup_prs ('97097295-6eb1-4824-8bfa-8984cf9bea6b');
