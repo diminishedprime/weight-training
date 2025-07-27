@@ -11,7 +11,7 @@ import React, { useMemo } from "react";
 
 export interface SelectRepsProps {
   reps: number;
-  onRepsChange: (reps: number) => void;
+  setReps: React.Dispatch<React.SetStateAction<number>>;
   repChoices?: number[];
   wendlerReps?: boolean;
   isAMRAP?: boolean;
@@ -20,50 +20,6 @@ export interface SelectRepsProps {
 }
 
 const DEFAULT_REP_CHOICES = [1, 3, 5, 8, 10, 12, 15];
-
-function useSelectRepsAPI(props: SelectRepsProps) {
-  const { reps, onRepsChange, repChoices, wendlerReps } = props;
-  const MIN_REPS = 1;
-  const [localRepChoices, setLocalRepChoices] = React.useState<number[]>(
-    wendlerReps ? [1, 3, 5, 8] : repChoices || DEFAULT_REP_CHOICES,
-  );
-
-  const isDecrementDisabled = useMemo(() => reps <= MIN_REPS, [reps]);
-
-  const handleToggleChange = React.useCallback(
-    (_e: React.MouseEvent<HTMLElement> | null, val: number | string | null) => {
-      if (!val) return;
-      if (val === "-" && !isDecrementDisabled) {
-        onRepsChange(reps - 1);
-      } else if (val === "+") {
-        onRepsChange(reps + 1);
-      } else if (typeof val === "number") {
-        onRepsChange(val);
-      }
-    },
-    [reps, onRepsChange, isDecrementDisabled],
-  );
-
-  const handleSetAvailableRepsClose = React.useCallback(
-    (newChoices: number[]) => {
-      setLocalRepChoices(newChoices);
-      // Snap to a valid rep if current is not in new choices
-      if (!newChoices.includes(reps) && newChoices.length > 0) {
-        onRepsChange(newChoices[0]);
-      }
-    },
-    [reps, onRepsChange],
-  );
-
-  return {
-    choices: localRepChoices,
-    setChoices: setLocalRepChoices,
-    handleToggleChange,
-    handleSetAvailableRepsClose,
-    MIN_REPS,
-    isDecrementDisabled,
-  };
-}
 
 const SelectReps: React.FC<SelectRepsProps> = (props) => {
   const api = useSelectRepsAPI(props);
@@ -140,3 +96,48 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
 };
 
 export default SelectReps;
+
+const useSelectRepsAPI = (props: SelectRepsProps) => {
+  const { reps, setReps, repChoices, wendlerReps } = props;
+
+  const MIN_REPS = 1;
+  const [localRepChoices, setLocalRepChoices] = React.useState<number[]>(
+    wendlerReps ? [1, 3, 5, 8] : repChoices || DEFAULT_REP_CHOICES,
+  );
+
+  const isDecrementDisabled = useMemo(() => reps <= MIN_REPS, [reps]);
+
+  const handleToggleChange = React.useCallback(
+    (_e: React.MouseEvent<HTMLElement> | null, val: number | string | null) => {
+      if (!val) return;
+      if (val === "-" && !isDecrementDisabled) {
+        setReps((reps) => reps - 1);
+      } else if (val === "+") {
+        setReps((reps) => reps + 1);
+      } else if (typeof val === "number") {
+        setReps((_reps) => val);
+      }
+    },
+    [setReps, isDecrementDisabled],
+  );
+
+  const handleSetAvailableRepsClose = React.useCallback(
+    (newChoices: number[]) => {
+      setLocalRepChoices(newChoices);
+      // Snap to a valid rep if current is not in new choices
+      if (!newChoices.includes(reps) && newChoices.length > 0) {
+        setReps(newChoices[0]);
+      }
+    },
+    [reps, setReps],
+  );
+
+  return {
+    choices: localRepChoices,
+    setChoices: setLocalRepChoices,
+    handleToggleChange,
+    handleSetAvailableRepsClose,
+    MIN_REPS,
+    isDecrementDisabled,
+  };
+};

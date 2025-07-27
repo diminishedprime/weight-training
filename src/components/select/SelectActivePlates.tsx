@@ -87,8 +87,8 @@ const useSelectActivePlatesAPI = (props: SelectActivePlatesProps) => {
 const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
   const api = useSelectActivePlatesAPI(props);
 
-  // TODO consider making this a togglegroup thing instead of a button group. It
-  // may look okay that way?
+  // TODO: consider making this a togglegroup thing instead of a button group.
+  // It may look okay that way?
 
   return (
     <FormControl>
@@ -126,6 +126,7 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
           })}
         </ButtonGroup>
         <IconButton
+          data-testid={TestIds.ClearActivePlatesButton}
           color="error"
           size="small"
           onClick={api.onClear}

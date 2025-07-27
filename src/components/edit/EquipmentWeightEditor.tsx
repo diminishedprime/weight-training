@@ -8,7 +8,10 @@ import EditBarbell from "@/components/edit/EditBarbell";
 import EditDumbbell from "@/components/edit/EditDumbbell";
 import EditKettlebell from "@/components/edit/EditKettlebell";
 import EditMachineStack from "@/components/edit/EditMachineStack";
+import EditPlateStack from "@/components/edit/EditPlateStack";
+import EditWeight from "@/components/edit/EditWeight";
 import { throwIfNull } from "@/util";
+import { Stack, Typography } from "@mui/material";
 
 interface EquipmentWeightEditorProps {
   equipmentType: EquipmentType;
@@ -88,8 +91,38 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
           size={undefined}
         />
       );
-    default:
-      return <div>Unsupported Equipment Type</div>;
+    case "plate_stack":
+      throwIfNull(
+        props.preferences.available_plates_lbs,
+        () =>
+          new Error(
+            "available_plates_lbs is required for plate_stack equipment type",
+          ),
+      );
+      return (
+        <EditPlateStack
+          weightValue={props.weightValue}
+          setWeightValue={props.setWeightValue}
+          weightUnit={props.weightUnit}
+          availablePlates={props.preferences.available_plates_lbs}
+        />
+      );
+    case "bodyweight":
+      // TODO: consider making EditWeight support proper labels instead of doing
+      // it custom, here.
+      return (
+        <Stack spacing={1} alignItems="center">
+          <Typography>Added Weight</Typography>
+          <EditWeight
+            weightValue={props.weightValue}
+            setWeightValue={props.setWeightValue}
+          />
+        </Stack>
+      );
+    default: {
+      const _exhaustiveCheck: never = props.equipmentType;
+      return _exhaustiveCheck;
+    }
   }
 };
 

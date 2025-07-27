@@ -61,7 +61,24 @@ const EquipmentExercisePage: React.FC<EquipmentExercisePageProps> = async (
         props.path,
       );
       break;
+    case "plate_stack":
+      formDraftPromise = getFormDraft(props, narrowDumbbellFormDraft);
+      requirePreferencesPromise = requirePreferences(
+        props.userId,
+        ["available_plates_lbs"],
+        props.path,
+      );
+      break;
+    case "bodyweight":
+      formDraftPromise = getFormDraft(props, narrowDumbbellFormDraft);
+      requirePreferencesPromise = requirePreferences(
+        props.userId,
+        [],
+        props.path,
+      );
+      break;
     default:
+      // TODO use the never typescript thing here
       throw new Error("unsupported equipment type");
   }
   const [exercisesResult, formDraft, preferences] = await Promise.all([

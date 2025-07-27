@@ -13,7 +13,7 @@ BEGIN
       p_preferred_weight_unit => 'pounds',
       p_default_rest_time => 120,
       p_available_plates_lbs => ARRAY[45, 35, 25, 10, 5, 2.5]::numeric[],
-      p_available_dumbbells_lbs => ARRAY[50, 40, 30, 20, 10]::numeric[],
+      p_available_dumbbells_lbs => ARRAY[10, 20, 30, 40, 50]::numeric[],
       p_available_kettlebells_lbs => ARRAY[18, 26, 35, 44, 53]::numeric[]
     );
   END IF;
