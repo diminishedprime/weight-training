@@ -295,14 +295,12 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Wrapper function for multi-step blockify process
-CREATE OR REPLACE FUNCTION _system.blockify (p_user_id uuid) RETURNS void AS $$
-DECLARE
-  v_block_note text := 'created by _blockify';
+-- Wrapper function for multi-step blockify process, now accepts a note argument
+CREATE OR REPLACE FUNCTION _system.blockify (p_user_id uuid, p_block_note text) RETURNS void AS $$
 BEGIN
-  PERFORM _impl.blockify_create_blocks(p_user_id, v_block_note);
-  PERFORM _impl.blockify_cleanup_small_blocks(p_user_id, v_block_note);
-  PERFORM _impl.blockify_set_completed_at(p_user_id, v_block_note);
-  PERFORM _impl.blockify_name_blocks(p_user_id, v_block_note);
+  PERFORM _impl.blockify_create_blocks(p_user_id, p_block_note);
+  PERFORM _impl.blockify_cleanup_small_blocks(p_user_id, p_block_note);
+  PERFORM _impl.blockify_set_completed_at(p_user_id, p_block_note);
+  PERFORM _impl.blockify_name_blocks(p_user_id, p_block_note);
 END;
 $$ LANGUAGE plpgsql;
