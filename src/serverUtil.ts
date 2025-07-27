@@ -66,17 +66,18 @@ export async function requirePreferences<K extends keyof UserPreferences>(
     const value = data[key];
     if (value === null || value === undefined) {
       missingKeys.push(key);
-    }
-    switch (key) {
-      case "available_kettlebells_lbs":
-      case "available_plates_lbs":
-      case "available_dumbbells_lbs":
-        if (!Array.isArray(value) || value.length === 0) {
-          missingKeys.push(key);
-        }
-        break;
-      default:
-        break;
+    } else {
+      switch (key) {
+        case "available_kettlebells_lbs":
+        case "available_plates_lbs":
+        case "available_dumbbells_lbs":
+          if (!Array.isArray(value) || value.length === 0) {
+            missingKeys.push(key);
+          }
+          break;
+        default:
+          break;
+      }
     }
   }
 

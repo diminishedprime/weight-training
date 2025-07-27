@@ -2,6 +2,7 @@ import { WeightUnit } from "@/common-types";
 import {
   FormControl,
   FormLabel,
+  Stack,
   ToggleButton,
   ToggleButtonGroup,
 } from "@mui/material";
@@ -12,6 +13,8 @@ interface SelectWeightUnitProps {
   onWeightUnitChange: (unit: WeightUnit) => void;
   modified?: boolean;
   label?: string;
+  labelAdornment?: React.JSX.Element;
+  disabled?: boolean;
 }
 
 const useSelectWeightUnitAPI = (props: SelectWeightUnitProps) => {
@@ -44,8 +47,14 @@ const SelectWeightUnit = (props: SelectWeightUnitProps) => {
   const api = useSelectWeightUnitAPI(props);
   return (
     <FormControl>
-      <FormLabel>{api.label}</FormLabel>
+      <FormLabel>
+        <Stack spacing={1} direction="row" alignItems={"center"}>
+          {api.label}
+          {props.labelAdornment}
+        </Stack>
+      </FormLabel>
       <ToggleButtonGroup
+        disabled={props.disabled}
         color="primary"
         value={api.weightUnit}
         exclusive

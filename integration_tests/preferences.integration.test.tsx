@@ -66,7 +66,7 @@ describe("User Journey: Update Preferences", () => {
         p_user_id: USER_ID["preferences.integration.test.tsx"],
       });
       expect(preferences.available_dumbbells_lbs).toEqual(
-        DEFAULT_VALUES.AVAILABLE_DUMBBELLS_LBS,
+        DEFAULT_VALUES.COMMON_DUMBBELLS_LBS,
       );
       expect(preferences.available_plates_lbs).toEqual(
         DEFAULT_VALUES.SELECTED_PLATES,
