@@ -6,6 +6,7 @@ import { weightUnitUIString } from "@/uiStrings";
 import {
   FormControl,
   FormLabel,
+  Stack,
   ToggleButton,
   ToggleButtonGroup,
 } from "@mui/material";
@@ -20,6 +21,7 @@ export interface SelectPlatesProps {
   modified?: boolean;
   required?: boolean;
   onSelectedPlatesChange: (plates: number[]) => void;
+  labelAdornment?: React.JSX.Element;
 }
 
 const useSelectPlatesAPI = (props: SelectPlatesProps) => {
@@ -73,7 +75,12 @@ const SelectPlates: React.FC<SelectPlatesProps> = (props) => {
 
   return (
     <FormControl>
-      <FormLabel>{api.label}</FormLabel>
+      <FormLabel>
+        <Stack spacing={1} direction="row" alignItems={"center"}>
+          {api.label}
+          {props.labelAdornment}
+        </Stack>
+      </FormLabel>
       <ToggleButtonGroup
         color="primary"
         value={api.selectedPlates}

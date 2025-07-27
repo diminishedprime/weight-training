@@ -11,7 +11,14 @@ import { useRequiredModifiableLabel } from "@/hooks";
 import { TestIds } from "@/test-ids";
 import { userPreferenceUIString } from "@/uiStrings";
 import { nullableArrayEquals } from "@/util";
-import { Button, Stack, TextField, Typography } from "@mui/material";
+import InfoIconOutlined from "@mui/icons-material/InfoOutlined";
+import {
+  Button,
+  IconButton,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useCallback, useMemo, useState } from "react";
@@ -154,12 +161,17 @@ const useRequiredPreferences = (
     return requiredPreferences?.includes("available_kettlebells_lbs") ?? false;
   }, [requiredPreferences]);
 
+  const availablePlatesLbsRequired = useMemo(() => {
+    return requiredPreferences?.includes("available_plates_lbs") ?? false;
+  }, [requiredPreferences]);
+
   return {
     backTo,
     requiredPreferences,
     requiredPreferencesSet,
     requiredPreferencesMessage,
     kettlebellsLBSRequired,
+    availablePlatesLbsRequired,
   };
 };
 
@@ -189,7 +201,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
 
   const [localAvailableDumbbellsLbs, setLocalAvailableDumbbellsLbs] = useState<
     number[]
-  >(available_dumbbells_lbs ?? DEFAULT_VALUES.AVAILABLE_DUMBBELLS_LBS);
+  >(available_dumbbells_lbs ?? DEFAULT_VALUES.COMMON_DUMBBELLS_LBS);
 
   const [selectedKettlebells, setSelectedKettlebells] = useState<number[]>(
     available_kettlebells_lbs ?? DEFAULT_VALUES.AVAILABLE_KETTLEBELLS_LBS,
@@ -218,6 +230,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     requiredPreferencesSet,
     requiredPreferencesMessage,
     kettlebellsLBSRequired,
+    availablePlatesLbsRequired,
   } = useRequiredPreferences(
     localPreferredWeightUnit,
     localDefaultRestTime,
@@ -232,7 +245,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
 
   // TODO: create a useModifidableLabel hook to handle this logic.
   const restTimeLabel = useRequiredModifiableLabel(
-    "Rest Time (seconds)",
+    "Rest Time (Seconds)",
     !!requiredPreferences?.includes("default_rest_time"),
     modifications.restTimeModified,
   );
@@ -263,7 +276,36 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     return requiredPreferences === null;
   }, [requiredPreferences]);
 
+  const [showWeightUnitHelp, setShowWeightUnitHelp] = useState(false);
+  const toggleWeightUnitHelp = useCallback(() => {
+    setShowWeightUnitHelp((prev) => !prev);
+  }, [setShowWeightUnitHelp]);
+
+  const [showRestTimeHelp, setShowRestTimeHelp] = useState(false);
+  const toggleRestTimeHelp = useCallback(() => {
+    setShowRestTimeHelp((prev) => !prev);
+  }, [setShowRestTimeHelp]);
+
+  const [showAvailablePlatesHelp, setShowAvailablePlatesHelp] = useState(false);
+  const toggleAvailablePlatesHelp = useCallback(() => {
+    setShowAvailablePlatesHelp((prev) => !prev);
+  }, [setShowAvailablePlatesHelp]);
+
+  const [showAvailableDumbbellsHelp, setShowAvailableDumbbellsHelp] =
+    useState(false);
+  const toggleAvailableDumbbellsHelp = useCallback(() => {
+    setShowAvailableDumbbellsHelp((prev) => !prev);
+  }, [setShowAvailableDumbbellsHelp]);
+
   return {
+    showAvailableDumbbellsHelp,
+    toggleAvailableDumbbellsHelp,
+    showAvailablePlatesHelp,
+    toggleAvailablePlatesHelp,
+    showWeightUnitHelp,
+    toggleWeightUnitHelp,
+    showRestTimeHelp,
+    toggleRestTimeHelp,
     preferredWeightUnit: localPreferredWeightUnit,
     defaultRestTime: localDefaultRestTime,
     availablePlatesLbs: localAvailablePlatesLbs,
@@ -284,6 +326,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     setSelectedKettlebells,
     cancelDisabled,
     ...modifications,
+    availablePlatesLbsRequired,
   };
 };
 
@@ -293,60 +336,60 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
   const api = useUpdateUserPreferencesAPI(props);
 
   return (
-    <form
-      action={updateUserPreferences.bind(
-        null,
-        props.userId,
-        api.preferredWeightUnit,
-        api.defaultRestTime,
-        api.availablePlatesLbs,
-        api.availableDumbbellsLbs,
-        api.selectedKettlebells,
-        api.backTo,
-      )}
-      data-testid="update-user-preferences-form"
-    >
+    <Stack spacing={1} flexGrow={1}>
       <Typography variant="h6" sx={{ mb: 2 }}>
         Update Preferences
       </Typography>
       {api.requiredPreferencesMessage && (
-        <Typography variant="body2" color="primary" sx={{ mb: 2 }}>
+        <Typography variant="body2" color="primary" sx={{ mb: 1 }}>
           {api.requiredPreferencesMessage}
         </Typography>
       )}
-      <Stack spacing={2}>
-        <Stack spacing={1}>
+      <Stack spacing={1} flexGrow={1}>
+        <Stack spacing={1} sx={{ pb: 1.5 }}>
           <SelectWeightUnit
             modified={api.unitModified}
             weightUnit={api.preferredWeightUnit}
             onWeightUnitChange={api.handleWeightUnitChange}
+            disabled
+            labelAdornment={
+              <IconButton
+                size="small"
+                color="primary"
+                onClick={api.toggleWeightUnitHelp}
+              >
+                <InfoIconOutlined />
+              </IconButton>
+            }
           />
-          <Typography variant="caption" color="text.secondary">
-            The default weight unit that will be used for all exercises.
-            {api.requiredPreferences?.includes("preferred_weight_unit") && (
-              <strong> * Required</strong>
-            )}
-            <br />
-            (Don&apos;t change this to kilograms yet because the app is not
-            really ready for that lol)
-          </Typography>
+          {api.showWeightUnitHelp && (
+            <Typography variant="caption" color="text.secondary">
+              The default weight unit that will be used for all exercises.
+            </Typography>
+          )}
         </Stack>
         <Stack spacing={1}>
-          <TextField
-            label={api.restTimeLabel}
-            name="default_rest_time"
-            value={api.defaultRestTime}
-            onChange={api.handleRestTimeChange}
-            size="small"
-            fullWidth
-            required={api.requiredPreferences?.includes("default_rest_time")}
-          />
-          <Typography variant="caption" color="text.secondary">
-            The rest time that will be used to indicate when you&apos;re ready
-            for the next set.
-            <br />
-            (In the future, this will be able to be set per-exercise.)
-          </Typography>
+          <Stack spacing={1} direction="row" alignItems="center">
+            <TextField
+              label={api.restTimeLabel}
+              name="default_rest_time"
+              value={api.defaultRestTime}
+              onChange={api.handleRestTimeChange}
+              size="small"
+              required={api.requiredPreferences?.includes("default_rest_time")}
+            />
+            <IconButton onClick={api.toggleRestTimeHelp} color="primary">
+              <InfoIconOutlined />
+            </IconButton>
+          </Stack>
+          {api.showRestTimeHelp && (
+            <Typography variant="caption" color="text.secondary">
+              The rest time that will be used to indicate when you&apos;re ready
+              for the next set.
+              <br />
+              (In the future, this will be able to be set per-exercise.)
+            </Typography>
+          )}
         </Stack>
         <Stack spacing={1}>
           <SelectPlates
@@ -354,23 +397,36 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             // Intentionally hard-coded. When we want to support kg, we'll add
             // an additional control similiar to this one.
             unit="pounds"
+            required={api.availablePlatesLbsRequired}
             availablePlates={DEFAULT_VALUES.AVAILABLE_PLATES_LBS}
             initialSelectedPlates={api.availablePlatesLbs}
             onSelectedPlatesChange={api.handleAvailablePlatesChange}
+            labelAdornment={
+              <IconButton
+                size="small"
+                color="primary"
+                onClick={api.toggleAvailablePlatesHelp}
+              >
+                <InfoIconOutlined />
+              </IconButton>
+            }
           />
-          <Typography variant="caption" color="text.secondary">
-            The plates that are available in your gym. i.e. Some gyms have 55s,
-            or 100s, and some folks bother with small change plates.
-            {api.requiredPreferences?.includes("available_plates_lbs") && (
-              <strong> * Required</strong>
-            )}
-            <br />
-            (In the future you will be able to set preferences per gym.)
-            <br />
-            (Also in the future, you can set the number of available plates
-            which can help with weight calculations if you need to like double
-            up on 35s to meet a given weight.)
-          </Typography>
+          {api.showAvailablePlatesHelp && (
+            <Stack spacing={0.5}>
+              <Typography variant="caption" color="text.secondary">
+                The plates that are available in your gym. i.e. Some gyms have
+                55s, or 100s, and some folks bother with small change plates.
+              </Typography>
+              <Typography variant="caption" color="text.secondary">
+                In the future you will be able to set preferences per gym.
+              </Typography>
+              <Typography variant="caption" color="text.secondary">
+                Also in the future, you can set the number of available plates
+                which can help with weight calculations if you need to like
+                double up on 35s to meet a given weight.
+              </Typography>
+            </Stack>
+          )}
         </Stack>
         <Stack spacing={1}>
           <SelectAvailableDumbbells
@@ -379,14 +435,25 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             initiallySelectedDumbbells={api.availableDumbbellsLbs}
             unit={api.preferredWeightUnit}
             onSelectedDumbbellsChange={api.handleAvailableDumbbellsChange}
+            labelAdornment={
+              <IconButton
+                size="small"
+                color="primary"
+                onClick={api.toggleAvailableDumbbellsHelp}
+              >
+                <InfoIconOutlined />
+              </IconButton>
+            }
           />
-          <Typography variant="caption" color="text.secondary">
-            The dumbbells that are available in your gym. Some gyms have 100s,
-            some only go up to 50, and some have odd increments.
-            {/* TODO: Add required indicator and per-gym note when supported */}
-            <br />
-            (In the future you will be able to set preferences per gym.)
-          </Typography>
+          {api.showAvailableDumbbellsHelp && (
+            <Typography variant="caption" color="text.secondary">
+              The dumbbells that are available in your gym. Some gyms have 100s,
+              some only go up to 50, and some have odd increments.
+              {/* TODO: Add required indicator and per-gym note when supported */}
+              <br />
+              (In the future you will be able to set preferences per gym.)
+            </Typography>
+          )}
         </Stack>
         <Stack spacing={1}>
           <SelectAvailableKettlebells
@@ -433,17 +500,31 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             Cancel
           </Button>
         )}
-        <Button
-          type="submit"
-          variant="contained"
-          size="small"
-          data-testid={TestIds.Preferences_SavePreferencesButton}
-          disabled={!api.canSave}
+        <form
+          action={updateUserPreferences.bind(
+            null,
+            props.userId,
+            api.preferredWeightUnit,
+            api.defaultRestTime,
+            api.availablePlatesLbs,
+            api.availableDumbbellsLbs,
+            api.selectedKettlebells,
+            api.backTo,
+          )}
+          data-testid="update-user-preferences-form"
         >
-          Save
-        </Button>
+          <Button
+            type="submit"
+            variant="contained"
+            size="small"
+            data-testid={TestIds.Preferences_SavePreferencesButton}
+            disabled={!api.canSave}
+          >
+            Save
+          </Button>
+        </form>
       </Stack>
-    </form>
+    </Stack>
   );
 };
 

@@ -15,6 +15,7 @@ export interface SelectAvailableDumbbellsProps {
   modified?: boolean;
   required?: boolean;
   onSelectedDumbbellsChange: (dumbbells: number[]) => void;
+  labelAdornment?: React.JSX.Element;
 }
 
 const useSelectAvailableDumbbellsAPI = (
@@ -105,8 +106,9 @@ const SelectAvailableDumbbells: React.FC<SelectAvailableDumbbellsProps> = (
   return (
     <FormControl>
       <FormLabel>
-        <Stack direction="row" alignItems="center" gap={1}>
+        <Stack spacing={1} direction="row" alignItems="center">
           <span>{api.label}</span>
+          {props.labelAdornment}
           <Chip
             label="All"
             size="small"

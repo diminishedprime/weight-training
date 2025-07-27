@@ -87,7 +87,6 @@ const useEditPlateStackAPI = (props: EditPlateStackProps) => {
 
   const undoAddPlate = useCallback(() => {
     const previousPlate = history.peek();
-    console.log("Undoing last plate", previousPlate);
     if (previousPlate === undefined) {
       return;
     }
