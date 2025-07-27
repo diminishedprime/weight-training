@@ -50584,10 +50584,26 @@ SELECT
   );
 
 -- END OF IMPORTED EXERCISE DATA --
--- SELECT
---   _system.blockify ('97097295-6eb1-4824-8bfa-8984cf9bea6b');
--- TODO: I'd like to run blockify automatically, but it has an issue with a
--- foreign key constraint and I don't know if I want to turn all of those off or
--- not.
+ALTER TABLE public.exercise_block
+DROP CONSTRAINT exercise_block_user_id_fkey;
+
+ALTER TABLE public.exercise_superblock
+DROP CONSTRAINT exercise_superblock_user_id_fkey;
+
+SELECT
+  _system.super_blockify ('97097295-6eb1-4824-8bfa-8984cf9bea6b');
+
+-- TODO: this is hacky but what I have for now.
+--
+-- We want to be able to turn these on, but since I need to use nextauth I can't
+-- do anything until matt & steph login for the first time.
+-- 
+-- TODO: Can I just have myself login, then copy the data so I can re-run it and
+-- jsut have no valid sessions?
+--
+-- ALTER TABLE public.exercise_superblock
+-- ADD CONSTRAINT exercise_superblock_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users (id);
+-- ALTER TABLE public.exercise_block
+-- ADD CONSTRAINT exercise_block_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users (id);
 SELECT
   _system.cleanup_prs ('97097295-6eb1-4824-8bfa-8984cf9bea6b');
