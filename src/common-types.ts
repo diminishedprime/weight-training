@@ -69,3 +69,35 @@ export type RequiredNonNullable<T, K extends keyof T> = T & {
 export type SuperblocksRow = NonNullable<
   Database["public"]["Functions"]["get_superblocks"]["Returns"]["superblocks"]
 >[number];
+
+type Superblock = NonNullable<
+  Database["public"]["Functions"]["get_superblock"]["Returns"]
+>;
+type SuperblockBlocks = NonNullable<Superblock["blocks"]>;
+type SuperblockBlocksRow = SuperblockBlocks[number];
+type SuperblocksBlocksRowExercisesRow = NonNullable<
+  SuperblockBlocksRow["exercises"]
+>[number];
+
+export type NarrowedSuperblock = RequiredNonNullable<
+  Omit<Superblock, "blocks"> & {
+    blocks: RequiredNonNullable<
+      Omit<SuperblockBlocksRow, "exercises"> & {
+        exercises: RequiredNonNullable<
+          SuperblocksBlocksRowExercisesRow,
+          | "id"
+          | "exercise_type"
+          | "equipment_type"
+          | "target_weight_value"
+          | "weight_unit"
+          | "reps"
+          | "is_warmup"
+          | "is_amrap"
+          | "completion_status"
+        >[];
+      },
+      "id" | "exercises" | "exercise_type" | "equipment_type"
+    >[];
+  },
+  "id"
+>;

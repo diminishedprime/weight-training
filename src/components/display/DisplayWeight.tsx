@@ -8,6 +8,7 @@ interface DisplayWeightProps {
   weightValue: number;
   weightUnit: WeightUnit;
   reps?: number;
+  repsAMRAP?: boolean;
   variant?: TypographyProps["variant"];
   sx?: TypographyProps["sx"];
   hideUnit?: boolean;
@@ -36,6 +37,7 @@ const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
           <span> x </span>
           <span style={{ color: theme.palette.secondary.main }}>
             {props.reps}
+            {props.repsAMRAP ? " (AMRAP)" : ""}
           </span>
         </>
       )}

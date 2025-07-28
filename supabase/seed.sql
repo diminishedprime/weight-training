@@ -50590,6 +50590,9 @@ DROP CONSTRAINT exercise_block_user_id_fkey;
 ALTER TABLE public.exercise_superblock
 DROP CONSTRAINT exercise_superblock_user_id_fkey;
 
+ALTER TABLE public.wendler_metadata
+DROP CONSTRAINT wendler_metadata_user_id_fkey;
+
 SELECT
   _system.super_blockify ('97097295-6eb1-4824-8bfa-8984cf9bea6b');
 

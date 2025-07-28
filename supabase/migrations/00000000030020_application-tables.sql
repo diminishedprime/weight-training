@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS public.exercise_superblock (
   notes text NULL,
   started_at timestamp with time zone NULL,
   completed_at timestamp with time zone NULL,
+  -- TODO: here and throughout, remove created_at and updated_at
   created_at timestamp with time zone DEFAULT timezone ('utc', now()),
   updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
   CONSTRAINT exercise_superblock_pkey PRIMARY KEY (id),
@@ -80,6 +81,30 @@ CREATE TABLE IF NOT EXISTS public.exercise_superblock_blocks (
   CONSTRAINT fk_block FOREIGN KEY (block_id) REFERENCES public.exercise_block (id) ON DELETE CASCADE
 );
 
+-- TODO: Found a bug now that I'm actually using this table, it shouldn't be
+-- mapped to one block_id, but instead it should be mapped to up to 4, one for
+-- 1s, one for 3s, one for 5s, and one for deload.
+-- 
+-- Actually, it's a bit more complicated than that. The training_max &
+-- increase_amount, and exercise_type tie to all 4, but the cycle type itself
+-- ties to the block. ALso exercise_type is not necessary because it's joinable
+-- from any of the block-ids.
+--
+-- I think I can do what I want with a junction table that maps wendler_metadata
+-- to blocks and includes the cycle_type, then remove the cycle_type (and
+-- exercise_type) from this table
+--
+-- Thinking a bit more, I think I want to be leveraging this for UI in general,
+-- it'd be nice to be able to see all the wendler supercycles (i.e. grouping of
+-- 5 3 1 deload) and to create a new one. This would be a good spot to inculde a
+-- button for "leg day", etc. in the "missing" cycles for a supercycle.
+--
+-- Better yet, we could even have a supercycle grouping table that includes the
+-- other exercise_types, since when doing wendler, you're really doing 5 3 1
+-- deload for 4 different exercise types at once.
+--
+-- I'll need to think more on exactly how I want to do this, but I think I'm
+-- onto something here.
 CREATE TABLE IF NOT EXISTS public.wendler_metadata (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   block_id uuid NOT NULL,
