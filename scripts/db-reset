@@ -1,0 +1,38 @@
+#!/bin/bash
+
+notify=false
+sound=false
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+    --notify)
+        notify=true
+        shift
+        ;;
+    --sound)
+        sound=true
+        shift
+        ;;
+    *)
+        shift
+        ;;
+    esac
+done
+
+pnpm run db:start && supabase db reset && pnpm run db:gen-types && pnpm run format && pnpm run db:check-unused
+status=$?
+
+if [ "$notify" = true ]; then
+    if [ "$status" -eq 0 ]; then
+        msg="db:reset finished successfully"
+    else
+        msg="db:reset failed"
+    fi
+    if [ "$sound" = true ]; then
+        ./scripts/notify-on-finish --message "$msg" --title "DB Reset" --sound
+    else
+        ./scripts/notify-on-finish --message "$msg" --title "DB Reset"
+    fi
+fi
+
+exit $status

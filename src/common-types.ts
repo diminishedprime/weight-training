@@ -78,11 +78,24 @@ type SuperblockBlocksRow = SuperblockBlocks[number];
 type SuperblocksBlocksRowExercisesRow = NonNullable<
   SuperblockBlocksRow["exercises"]
 >[number];
+type SuperblocksWendlerDetailsRow = NonNullable<
+  SuperblockBlocksRow["wendler_details"]
+>;
 
 export type NarrowedSuperblock = RequiredNonNullable<
   Omit<Superblock, "blocks"> & {
     blocks: RequiredNonNullable<
-      Omit<SuperblockBlocksRow, "exercises"> & {
+      Omit<SuperblockBlocksRow, "exercises" | "wendler_details"> & {
+        wendler_details: RequiredNonNullable<
+          SuperblocksWendlerDetailsRow,
+          | "movement_id"
+          | "cycle_type"
+          | "training_max_value"
+          | "weight_unit"
+          | "exercise_type"
+          | "increase_amount_value"
+          | "wendler_program_id"
+        > | null;
         exercises: RequiredNonNullable<
           SuperblocksBlocksRowExercisesRow,
           | "id"

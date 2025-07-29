@@ -62,15 +62,13 @@ export default async function PageSuperblocksById(
             </Stack>
             {block.wendler_details && (
               <Stack spacing={1}>
-                {block.wendler_details.training_max_value && (
-                  <Typography component="span">
-                    Target Max:{" "}
-                    <DisplayWeight
-                      weightValue={block.wendler_details.training_max_value}
-                      weightUnit={block.wendler_details.training_max_unit!}
-                    />
-                  </Typography>
-                )}
+                <Typography component="span">
+                  Target Max:{" "}
+                  <DisplayWeight
+                    weightValue={block.wendler_details.training_max_value}
+                    weightUnit={block.wendler_details.weight_unit}
+                  />
+                </Typography>
               </Stack>
             )}
             <Stack spacing={1}>

@@ -426,6 +426,101 @@ export type Database = {
           },
         ];
       };
+      wendler_program: {
+        Row: {
+          id: string;
+          name: string;
+          started_at: string | null;
+          user_id: string;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          started_at?: string | null;
+          user_id: string;
+        };
+        Update: {
+          id?: string;
+          name?: string;
+          started_at?: string | null;
+          user_id?: string;
+        };
+        Relationships: [];
+      };
+      wendler_program_movement: {
+        Row: {
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          id: string;
+          increase_amount_value: number;
+          training_max_value: number;
+          user_id: string;
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          wendler_program_id: string;
+        };
+        Insert: {
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          id?: string;
+          increase_amount_value: number;
+          training_max_value: number;
+          user_id: string;
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          wendler_program_id: string;
+        };
+        Update: {
+          exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
+          id?: string;
+          increase_amount_value?: number;
+          training_max_value?: number;
+          user_id?: string;
+          weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
+          wendler_program_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "fk_wendler_program";
+            columns: ["wendler_program_id"];
+            isOneToOne: false;
+            referencedRelation: "wendler_program";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      wendler_program_movement_block: {
+        Row: {
+          block_id: string;
+          cycle_type: Database["public"]["Enums"]["wendler_cycle_type_enum"];
+          id: string;
+          movement_id: string;
+        };
+        Insert: {
+          block_id: string;
+          cycle_type: Database["public"]["Enums"]["wendler_cycle_type_enum"];
+          id?: string;
+          movement_id: string;
+        };
+        Update: {
+          block_id?: string;
+          cycle_type?: Database["public"]["Enums"]["wendler_cycle_type_enum"];
+          id?: string;
+          movement_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "fk_block";
+            columns: ["block_id"];
+            isOneToOne: false;
+            referencedRelation: "exercise_block";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "fk_movement";
+            columns: ["movement_id"];
+            isOneToOne: false;
+            referencedRelation: "wendler_program_movement";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
     };
     Views: {
       [_ in never]: never;
@@ -891,15 +986,11 @@ export type Database = {
         next_performed_at: string | null;
       };
       s_wendler_details: {
-        id: string | null;
+        movement_id: string | null;
+        wendler_program_id: string | null;
         training_max_value: number | null;
-        training_max_unit:
-          | Database["public"]["Enums"]["weight_unit_enum"]
-          | null;
         increase_amount_value: number | null;
-        increase_amount_unit:
-          | Database["public"]["Enums"]["weight_unit_enum"]
-          | null;
+        weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
         cycle_type:
           | Database["public"]["Enums"]["wendler_cycle_type_enum"]
           | null;

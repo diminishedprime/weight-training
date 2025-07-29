@@ -50593,8 +50593,20 @@ DROP CONSTRAINT exercise_superblock_user_id_fkey;
 ALTER TABLE public.wendler_metadata
 DROP CONSTRAINT wendler_metadata_user_id_fkey;
 
+ALTER TABLE public.wendler_program
+DROP CONSTRAINT wendler_program_user_id_fkey;
+
+ALTER TABLE public.wendler_program_movement
+DROP CONSTRAINT wendler_program_movement_user_id_fkey;
+
 SELECT
   _system.super_blockify ('97097295-6eb1-4824-8bfa-8984cf9bea6b');
+
+SELECT
+  _system.cleanup_wendler ();
+
+SELECT
+  _system.cleanup_wendler_2 ();
 
 -- TODO: this is hacky but what I have for now.
 --

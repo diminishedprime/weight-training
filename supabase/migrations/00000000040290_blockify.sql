@@ -24,91 +24,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION _impl.cleanup_wendler_blocks (p_user_id uuid, p_block_note text) RETURNS void AS $$
-DECLARE
-  v_block RECORD;
-  v_avg_weight numeric;
-  v_lift_avg_weight numeric;
-  v_threshold numeric := 0.85; -- 85% of lift avg is considered deload
-  v_main_lifts exercise_type_enum[] := ARRAY[
-    'barbell_deadlift',
-    'barbell_back_squat',
-    'barbell_bench_press',
-    'barbell_overhead_press'
-  ];
-  v_lift exercise_type_enum;
-BEGIN
-  FOREACH v_lift IN ARRAY v_main_lifts LOOP
-    -- Calculate average working set weight for this lift type across all blocks
-    SELECT avg(e.actual_weight_value) INTO v_lift_avg_weight
-    FROM public.exercise_block eb2
-      JOIN public.wendler_metadata wm2 ON wm2.block_id = eb2.id
-      JOIN public.exercise_block_exercises ebe2 ON ebe2.block_id = eb2.id
-      JOIN public.exercises e ON ebe2.exercise_id = e.id
-    WHERE eb2.user_id = p_user_id
-      AND eb2.notes = p_block_note
-      AND wm2.cycle_type = '5'
-      AND eb2.exercise_type = v_lift
-      AND e.is_warmup = false
-      AND e.actual_weight_value IS NOT NULL;
-
-    -- For each block of this lift type
-    FOR v_block IN
-      SELECT eb.id
-      FROM public.exercise_block eb
-        JOIN public.wendler_metadata wm ON wm.block_id = eb.id
-      WHERE eb.user_id = p_user_id
-        AND eb.notes = p_block_note
-        AND wm.cycle_type = '5'
-        AND eb.exercise_type = v_lift
-    LOOP
-      -- Calculate average working set weight for this block
-      SELECT avg(e.actual_weight_value) INTO v_avg_weight
-      FROM public.exercise_block_exercises ebe
-        JOIN public.exercises e ON ebe.exercise_id = e.id
-      WHERE ebe.block_id = v_block.id
-        AND e.is_warmup = false
-        AND e.actual_weight_value IS NOT NULL;
-
-      IF v_avg_weight IS NOT NULL AND v_lift_avg_weight IS NOT NULL AND v_avg_weight < v_lift_avg_weight * v_threshold THEN
-        -- Update cycle_type to 'deload'
-        UPDATE public.wendler_metadata SET cycle_type = 'deload' WHERE block_id = v_block.id;
-      END IF;
-    END LOOP;
-  END LOOP;
-  -- Update increase_amount_value and increase_amount_unit for each main lift
-  FOREACH v_lift IN ARRAY v_main_lifts LOOP
-    WITH ordered_blocks AS (
-      SELECT
-        wm.block_id,
-        e.target_weight_value,
-        LAG(e.target_weight_value) OVER (ORDER BY eb.started_at) AS prev_target_weight_value
-      FROM public.wendler_metadata wm
-      JOIN public.exercise_block eb ON wm.block_id = eb.id
-      JOIN LATERAL (
-        SELECT e.*
-        FROM public.exercise_block_exercises ebe
-        JOIN public.exercises e ON ebe.exercise_id = e.id
-        WHERE ebe.block_id = eb.id
-        ORDER BY ebe.exercise_order DESC
-        LIMIT 1
-      ) e ON TRUE
-      WHERE wm.user_id = p_user_id
-        AND eb.notes = p_block_note
-        AND wm.cycle_type = '5'
-        AND eb.exercise_type = v_lift
-      ORDER BY eb.started_at
-    )
-    UPDATE public.wendler_metadata wm
-    SET increase_amount_value = ordered_blocks.target_weight_value - ordered_blocks.prev_target_weight_value,
-        increase_amount_unit = 'pounds'
-    FROM ordered_blocks
-    WHERE wm.block_id = ordered_blocks.block_id
-      AND ordered_blocks.prev_target_weight_value IS NOT NULL;
-  END LOOP;
-END;
-$$ LANGUAGE plpgsql;
-
 CREATE OR REPLACE FUNCTION _impl.blockify_create_blocks (p_user_id uuid, p_block_note text) RETURNS void AS $$
 DECLARE
   v_rec RECORD;
@@ -202,8 +117,6 @@ DECLARE
   v_exercise_type exercise_type_enum;
   v_last_performed_at timestamptz;
   v_after_2025 boolean;
-  v_last_target_weight numeric;
-  v_training_max numeric;
 BEGIN
   FOR v_block IN
     SELECT eb.id
@@ -284,22 +197,6 @@ BEGIN
       ) THEN
         v_name := 'Wendler 5s';
         UPDATE public.exercise_block SET name = v_name WHERE id = v_block.id;
-        -- Set is_amrap=true for last exercise in block
-        UPDATE public.exercises SET is_amrap = true
-        WHERE id = (SELECT exercise_id FROM tmp_block_sets WHERE idx = v_set_count);
-        -- Set cycle_type for Wendler 5s
-        SELECT target_weight_value INTO v_last_target_weight
-        FROM public.exercises e
-        JOIN tmp_block_sets tbs ON tbs.exercise_id = e.id
-        WHERE tbs.idx = v_set_count;
-        IF v_last_target_weight IS NOT NULL THEN
-          v_training_max := round(v_last_target_weight / 0.85 / 5) * 5;
-        ELSE
-          v_training_max := 0;
-        END IF;
-        INSERT INTO public.wendler_metadata (block_id, user_id, cycle_type, exercise_type, training_max_value, training_max_unit)
-        SELECT v_block.id, p_user_id, '5', v_exercise_type, v_training_max, 'pounds'
-        WHERE NOT EXISTS (SELECT 1 FROM public.wendler_metadata WHERE block_id = v_block.id);
         DROP TABLE tmp_block_sets;
         CONTINUE;
       END IF;
@@ -321,22 +218,6 @@ BEGIN
       ) = 1) THEN
         v_name := 'Wendler 3s';
         UPDATE public.exercise_block SET name = v_name WHERE id = v_block.id;
-        -- Set is_amrap=true for last exercise in block
-        UPDATE public.exercises SET is_amrap = true
-        WHERE id = (SELECT exercise_id FROM tmp_block_sets WHERE idx = v_set_count);
-        -- Set cycle_type for Wendler 3s
-        SELECT target_weight_value INTO v_last_target_weight
-        FROM public.exercises e
-        JOIN tmp_block_sets tbs ON tbs.exercise_id = e.id
-        WHERE tbs.idx = v_set_count;
-        IF v_last_target_weight IS NOT NULL THEN
-          v_training_max := round(v_last_target_weight / 0.9 / 5) * 5;
-        ELSE
-          v_training_max := 0;
-        END IF;
-        INSERT INTO public.wendler_metadata (block_id, user_id, cycle_type, exercise_type, training_max_value, training_max_unit)
-        SELECT v_block.id, p_user_id, '3', v_exercise_type, v_training_max, 'pounds'
-        WHERE NOT EXISTS (SELECT 1 FROM public.wendler_metadata WHERE block_id = v_block.id);
         DROP TABLE tmp_block_sets;
         CONTINUE;
       END IF;
@@ -351,22 +232,6 @@ BEGIN
     ) >= 1 THEN
       v_name := 'Wendler 1s';
       UPDATE public.exercise_block SET name = v_name WHERE id = v_block.id;
-      -- Set is_amrap=true for last exercise in block
-      UPDATE public.exercises SET is_amrap = true
-      WHERE id = (SELECT exercise_id FROM tmp_block_sets WHERE idx = v_set_count);
-      -- Set cycle_type for Wendler 1s
-      SELECT target_weight_value INTO v_last_target_weight
-      FROM public.exercises e
-      JOIN tmp_block_sets tbs ON tbs.exercise_id = e.id
-      WHERE tbs.idx = v_set_count;
-      IF v_last_target_weight IS NOT NULL THEN
-        v_training_max := round(v_last_target_weight / 0.95 / 5) * 5;
-      ELSE
-        v_training_max := 0;
-      END IF;
-      INSERT INTO public.wendler_metadata (block_id, user_id, cycle_type, exercise_type, training_max_value, training_max_unit)
-      SELECT v_block.id, p_user_id, '1', v_exercise_type, v_training_max, 'pounds'
-      WHERE NOT EXISTS (SELECT 1 FROM public.wendler_metadata WHERE block_id = v_block.id);
       DROP TABLE tmp_block_sets;
       CONTINUE;
     END IF;
@@ -410,6 +275,5 @@ BEGIN
   PERFORM _impl.blockify_cleanup_small_blocks(p_user_id, p_block_note);
   PERFORM _impl.blockify_set_completed_at(p_user_id, p_block_note);
   PERFORM _impl.blockify_name_blocks(p_user_id, p_block_note);
-  PERFORM _impl.cleanup_wendler_blocks(p_user_id, p_block_note);
 END;
 $$ LANGUAGE plpgsql;
