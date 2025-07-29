@@ -85,6 +85,7 @@ CREATE TABLE IF NOT EXISTS public.wendler_program (
   id uuid PRIMARY KEY DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
   name text NOT NULL,
+  notes text NULL,
   started_at timestamptz NULL,
   CONSTRAINT wendler_program_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
 );

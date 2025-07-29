@@ -99,3 +99,45 @@ export type NarrowedSuperblock = RequiredNonNullable<
   },
   "id"
 >;
+
+// get_wendler_programs
+
+type GetWendlerProgramsResult =
+  Database["public"]["Functions"]["get_wendler_programs"]["Returns"];
+type WendlerPrograms = NonNullable<GetWendlerProgramsResult["programs"]>;
+type WendlerProgram = NonNullable<WendlerPrograms>[number];
+type Movements = NonNullable<WendlerProgram["movements"]>;
+type Movement = NonNullable<Movements[number]>;
+type MovementBlocks = NonNullable<Movement["blocks"]>;
+type MovementBlock = NonNullable<MovementBlocks[number]>;
+type RNNMovementBlock = RequiredNonNullable<
+  MovementBlock,
+  | "id"
+  | "equipment_type"
+  | "exercise_type"
+  | "cycle_type"
+  | "heaviest_weight_value"
+>;
+type NNMovement = RequiredNonNullable<
+  Omit<Movement, "blocks"> & {
+    blocks: RNNMovementBlock[];
+  },
+  | "id"
+  | "exercise_type"
+  | "training_max_value"
+  | "increase_amount_value"
+  | "weight_unit"
+>;
+export type RNNProgram = RequiredNonNullable<
+  Omit<WendlerProgram, "movements"> & {
+    movements: NNMovement[];
+  },
+  "id" | "user_id" | "name"
+>;
+
+export type RNNGetWendlerProgramsResult = RequiredNonNullable<
+  Omit<GetWendlerProgramsResult, "programs"> & {
+    programs: RNNProgram[];
+  },
+  "page_count"
+>;

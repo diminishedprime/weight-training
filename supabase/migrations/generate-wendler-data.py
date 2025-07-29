@@ -111,7 +111,7 @@ with open(SQL_PATH, "w") as f:
 
     # Insert programs
     for pid, name in programs.items():
-        f.write(f"    INSERT INTO public.wendler_program (id, user_id, name, started_at) VALUES ('{program_uuids[pid]}', '{USER_ID}', '{name}', NULL);\n")
+        f.write(f"    INSERT INTO public.wendler_program (id, user_id, name, started_at, notes) VALUES ('{program_uuids[pid]}', '{USER_ID}', '{name}', NULL, 'created by _system.cleanup_wendler()');\n")
 
     # Insert movements
     for (pid, etype), meta in movements.items():

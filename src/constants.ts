@@ -90,6 +90,15 @@ const pathForPaginatedSuperblocksPage = (pageNum: number) => {
   return `${pathForSuperblocksPage}${search}`;
 };
 
+const pathForProgramsPage = "/programs";
+
+const pathForPaginatedProgramsPage = (pageNum: number) => {
+  const searchParams = new URLSearchParams();
+  searchParams.set(PARAMS.PageNum, pageNum.toString());
+  const search = `?${searchParams.toString()}`;
+  return `${pathForProgramsPage}${search}`;
+};
+
 // TODO: refactor everything to use the PATHS object and also turn constants.ts
 // into /constants/index.ts and have a separate paths.ts file that does this
 // stuff. As a part of that, also remove the export const for the paths/paths
@@ -99,6 +108,8 @@ export const PATHS = {
   PaginatedSuperblocks: pathForPaginatedSuperblocksPage,
   SuperblocksById: (superblockId: string) =>
     `${pathForSuperblocksPage}/${superblockId}`,
+  Programs: pathForProgramsPage,
+  PaginatedPrograms: pathForPaginatedProgramsPage,
 } as const;
 
 export const pathForEquipmentExerciseEdit = (

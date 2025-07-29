@@ -107,5 +107,24 @@ BEGIN
             WHERE id = v_rec_inner.v_movement_id AND user_id = v_user_id;
         END LOOP;
     END LOOP;
+
+    -- For each wendler_program, set started_at to the earliest started_at of any block connected to it
+    FOR v_rec IN (
+        SELECT wp.id AS program_id
+        FROM public.wendler_program wp
+        WHERE wp.user_id = v_user_id
+    ) LOOP
+        -- Find the earliest started_at from blocks connected to this program
+        UPDATE public.wendler_program
+        SET started_at = sub.min_started_at
+        FROM (
+            SELECT MIN(eb.started_at) AS min_started_at
+            FROM public.wendler_program_movement wpm
+            JOIN public.wendler_program_movement_block wpm_block ON wpm.id = wpm_block.movement_id
+            JOIN public.exercise_block eb ON wpm_block.block_id = eb.id
+            WHERE wpm.wendler_program_id = v_rec.program_id AND eb.started_at IS NOT NULL
+        ) sub
+        WHERE public.wendler_program.id = v_rec.program_id AND sub.min_started_at IS NOT NULL;
+    END LOOP;
 END;
 $$ LANGUAGE plpgsql;
