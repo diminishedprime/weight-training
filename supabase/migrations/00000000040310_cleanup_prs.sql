@@ -2,7 +2,7 @@ CREATE OR REPLACE FUNCTION _system.cleanup_prs (p_user_id uuid) RETURNS void AS 
 DECLARE
   v_rec RECORD;
   v_r integer;
-  v_pr public.personal_record_row;
+  v_pr _system.personal_record_row;
 BEGIN
   -- Clear out the user's personal_record_history before replaying PR logic
   DELETE FROM public.personal_record_history WHERE user_id = p_user_id;
@@ -16,9 +16,9 @@ BEGIN
   LOOP
     -- For each rep count from this set down to 1
     FOR v_r IN REVERSE v_rec.reps..1 LOOP
-      v_pr := get_personal_record(v_rec.user_id, v_rec.exercise_type, v_r);
+      v_pr := _system.get_personal_record(v_rec.user_id, v_rec.exercise_type, v_r);
       IF v_pr.weight_value IS NULL OR v_rec.actual_weight_value > v_pr.weight_value THEN
-        PERFORM set_personal_record(
+        PERFORM _system.set_personal_record(
           p_user_id => v_rec.user_id::uuid,
           p_exercise_type => v_rec.exercise_type::exercise_type_enum,
           p_weight_value => v_rec.actual_weight_value::numeric,

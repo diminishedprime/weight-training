@@ -1,7 +1,7 @@
 DO $$
 BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'personal_record_row') THEN
-    CREATE TYPE public.personal_record_row AS (
+    CREATE TYPE _system.personal_record_row AS (
       weight_value numeric,
       weight_unit weight_unit_enum,
       reps integer,
@@ -11,13 +11,13 @@ BEGIN
   END IF;
 END$$;
 
-CREATE OR REPLACE FUNCTION public.get_personal_record (
+CREATE OR REPLACE FUNCTION _system.get_personal_record (
   p_user_id uuid,
   p_exercise_type exercise_type_enum,
   p_reps integer
-) RETURNS personal_record_row AS $$
+) RETURNS _system.personal_record_row AS $$
 DECLARE
-  result personal_record_row;
+  result _system.personal_record_row;
 BEGIN
   SELECT h.weight_value, h.weight_unit, h.reps, h.recorded_at, h.exercise_id
     INTO result

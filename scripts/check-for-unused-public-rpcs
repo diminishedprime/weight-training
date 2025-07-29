@@ -40,9 +40,13 @@ done <"$ALL_FUNCS_FILE"
     echo
     echo "## Not Used"
     echo
-    for f in "${NOT_USED_FUNCS[@]}"; do
-        echo "- [ ] $f"
-    done
+    if [ ${#NOT_USED_FUNCS[@]} -eq 0 ]; then
+        echo "_All public RPCs are used in code._"
+    else
+        for f in "${NOT_USED_FUNCS[@]}"; do
+            echo "- [ ] $f"
+        done
+    fi
 } >"$OUTPUT_FILE"
 
 # 4. Clean up

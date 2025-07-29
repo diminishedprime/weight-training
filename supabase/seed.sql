@@ -50590,9 +50590,6 @@ DROP CONSTRAINT exercise_block_user_id_fkey;
 ALTER TABLE public.exercise_superblock
 DROP CONSTRAINT exercise_superblock_user_id_fkey;
 
-ALTER TABLE public.wendler_metadata
-DROP CONSTRAINT wendler_metadata_user_id_fkey;
-
 ALTER TABLE public.wendler_program
 DROP CONSTRAINT wendler_program_user_id_fkey;
 
