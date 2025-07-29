@@ -20,6 +20,7 @@ BEGIN
       SET completed_at = v_last_performed_at
       WHERE id = v_block_id;
   END LOOP;
+
 END;
 $$ LANGUAGE plpgsql;
 
@@ -113,7 +114,7 @@ DECLARE
   v_block RECORD;
   v_set_count integer;
   v_name text;
-  v_exercise_type text;
+  v_exercise_type exercise_type_enum;
   v_last_performed_at timestamptz;
   v_after_2025 boolean;
 BEGIN
@@ -177,13 +178,14 @@ BEGIN
       CONTINUE;
     END IF;
 
+
     IF v_after_2025 AND (
       SELECT reps FROM tmp_block_sets WHERE idx = v_set_count-2
     ) = 5 AND (
       SELECT reps FROM tmp_block_sets WHERE idx = v_set_count-1
     ) = 5 AND (
       SELECT reps FROM tmp_block_sets WHERE idx = v_set_count
-    ) > 5 THEN
+    ) >= 5 THEN
       IF NOT (
         v_set_count >= 5 AND (
           SELECT count(*) FROM tmp_block_sets
@@ -206,7 +208,7 @@ BEGIN
       SELECT reps FROM tmp_block_sets WHERE idx = v_set_count-1
     ) = 3 AND (
       SELECT reps FROM tmp_block_sets WHERE idx = v_set_count
-    ) > 3 THEN
+    ) >= 3 THEN
       IF NOT ((
         SELECT count(*) FROM tmp_block_sets
         WHERE idx BETWEEN v_set_count-2 AND v_set_count AND reps = 3
@@ -227,7 +229,7 @@ BEGIN
       SELECT reps FROM tmp_block_sets WHERE idx = v_set_count-1
     ) = 3 AND (
       SELECT reps FROM tmp_block_sets WHERE idx = v_set_count
-    ) > 1 THEN
+    ) >= 1 THEN
       v_name := 'Wendler 1s';
       UPDATE public.exercise_block SET name = v_name WHERE id = v_block.id;
       DROP TABLE tmp_block_sets;

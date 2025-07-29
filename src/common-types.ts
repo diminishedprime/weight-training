@@ -32,23 +32,8 @@ export type GetExerciseResult = RequiredNonNullable<
   | "is_amrap"
 >;
 
-export type WendlerBlockPrereqs =
-  Database["public"]["Functions"]["check_wendler_block_prereqs"]["Returns"];
-export type WendlerMaxesData =
-  Database["public"]["Functions"]["get_wendler_maxes"]["Returns"];
-export type WendlerBlock =
-  Database["public"]["Functions"]["get_wendler_block"]["Returns"];
-export type WendlerMetadata =
-  Database["public"]["Functions"]["get_wendler_metadata"]["Returns"];
-
 export type UserPreferences =
   Database["public"]["Functions"]["get_user_preferences"]["Returns"];
-
-export type PersonalRecordExerciseTypes =
-  Database["public"]["Functions"]["get_personal_record_exercise_types"]["Returns"];
-
-export type PersonalRecordHistory =
-  Database["public"]["Functions"]["get_personal_records_for_exercise_type"]["Returns"];
 
 export type ExerciseBlocks =
   Database["public"]["Functions"]["get_exercise_blocks"]["Returns"]["blocks"];
@@ -69,3 +54,48 @@ export type RequiredNonNullable<T, K extends keyof T> = T & {
 export type SuperblocksRow = NonNullable<
   Database["public"]["Functions"]["get_superblocks"]["Returns"]["superblocks"]
 >[number];
+
+type Superblock = NonNullable<
+  Database["public"]["Functions"]["get_superblock"]["Returns"]
+>;
+type SuperblockBlocks = NonNullable<Superblock["blocks"]>;
+type SuperblockBlocksRow = SuperblockBlocks[number];
+type SuperblocksBlocksRowExercisesRow = NonNullable<
+  SuperblockBlocksRow["exercises"]
+>[number];
+type SuperblocksWendlerDetailsRow = NonNullable<
+  SuperblockBlocksRow["wendler_details"]
+>;
+
+export type NarrowedSuperblock = RequiredNonNullable<
+  Omit<Superblock, "blocks"> & {
+    blocks: RequiredNonNullable<
+      Omit<SuperblockBlocksRow, "exercises" | "wendler_details"> & {
+        wendler_details: RequiredNonNullable<
+          SuperblocksWendlerDetailsRow,
+          | "movement_id"
+          | "cycle_type"
+          | "training_max_value"
+          | "weight_unit"
+          | "exercise_type"
+          | "increase_amount_value"
+          | "wendler_program_id"
+        > | null;
+        exercises: RequiredNonNullable<
+          SuperblocksBlocksRowExercisesRow,
+          | "id"
+          | "exercise_type"
+          | "equipment_type"
+          | "target_weight_value"
+          | "weight_unit"
+          | "reps"
+          | "is_warmup"
+          | "is_amrap"
+          | "completion_status"
+        >[];
+      },
+      "id" | "exercises" | "exercise_type" | "equipment_type"
+    >[];
+  },
+  "id"
+>;

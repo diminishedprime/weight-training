@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION public.set_personal_record (
+CREATE OR REPLACE FUNCTION _system.set_personal_record (
   p_user_id uuid,
   p_exercise_type exercise_type_enum,
   p_weight_value numeric,

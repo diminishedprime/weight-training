@@ -9,33 +9,22 @@ though if you have a good reason to do so, you can ignore this report changing.
 
 ## Used
 
-- check_wendler_block_prereqs
 - clear_form_draft
 - create_exercise
-- create_wendler_exercise_block
-- fail_block_row
-- finish_block_row
 - get_exercise
 - get_exercise_blocks
 - get_exercises_by_type
 - get_form_draft
 - get_personal_record_exercise_types
 - get_personal_records_for_exercise_type
+- get_superblock
 - get_superblocks
 - get_user_preferences
-- get_wendler_block
-- get_wendler_maxes
-- get_wendler_metadata
 - save_form_draft
 - set_target_max
 - set_user_preferences
-- skip_block_row
 - update_exercise_for_user
 
 ## Not Used
 
-- [ ] get_next_exercise_in_block
-- [ ] get_personal_record
-- [ ] get_target_max
-- [ ] set_active_exercise_or_complete_block
-- [ ] set_personal_record
+_All public RPCs are used in code._

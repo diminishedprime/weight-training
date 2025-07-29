@@ -5,7 +5,7 @@ import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayTimeSince from "@/components/display/DisplayTimeSince";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import Link from "@/components/Link";
-import { pathForBlock } from "@/constants";
+import { pathForBlock, PATHS } from "@/constants";
 import { exerciseTypeUIStringBrief } from "@/uiStrings";
 import { Paper, Stack, Typography } from "@mui/material";
 import { useFormatter } from "next-intl";
@@ -19,7 +19,12 @@ const SuperblocksRow: React.FC<SuperblocksRowProps> = (props) => {
   return (
     <Stack spacing={1} component={Paper} sx={{ m: 0, p: 1 }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <Typography variant="h6">
+        <Typography
+          variant="h6"
+          component={Link}
+          href={PATHS.SuperblocksById(props.superblock.id)}
+          underline="hover"
+        >
           {props.superblock.name || "No name"}
           {" Superblock"}
         </Typography>

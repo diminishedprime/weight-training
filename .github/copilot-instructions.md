@@ -55,3 +55,11 @@ standards:
 - If a change breaks tests, discuss options before proceeding.
 
 For details, see the full strategy docs in `/docs`
+
+## Misc
+
+When asked to reset the database, run the following command:
+
+```bash
+pnpm run db:reset --notify --sound
+```

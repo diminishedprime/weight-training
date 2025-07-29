@@ -1,16 +1,16 @@
 CREATE OR REPLACE FUNCTION _trigger.update_personal_record_on_exercise_change () RETURNS TRIGGER AS $$
 DECLARE
-  current_pr public.personal_record_row;
-  one_rep_max_pr public.personal_record_row;
+  current_pr _system.personal_record_row;
+  one_rep_max_pr _system.personal_record_row;
   r integer;
-  pr public.personal_record_row;
+  pr _system.personal_record_row;
 BEGIN
   IF TG_OP = 'INSERT' THEN
     IF NEW.completion_status = 'completed' THEN
       FOR r IN REVERSE NEW.reps..1 LOOP
-        pr := get_personal_record(NEW.user_id, NEW.exercise_type, r);
+        pr := _system.get_personal_record(NEW.user_id, NEW.exercise_type, r);
         IF pr.weight_value IS NULL OR NEW.actual_weight_value > pr.weight_value THEN
-          PERFORM set_personal_record(
+          PERFORM _system.set_personal_record(
             p_user_id => NEW.user_id::uuid,
             p_exercise_type => NEW.exercise_type::exercise_type_enum,
             p_weight_value => NEW.actual_weight_value::numeric,
@@ -29,9 +29,9 @@ BEGIN
        AND (OLD.completion_status IS DISTINCT FROM 'completed')
        AND NEW.exercise_type = OLD.exercise_type THEN
       FOR r IN REVERSE NEW.reps..1 LOOP
-        pr := get_personal_record(NEW.user_id, NEW.exercise_type, r);
+        pr := _system.get_personal_record(NEW.user_id, NEW.exercise_type, r);
         IF pr.weight_value IS NULL OR NEW.actual_weight_value > pr.weight_value THEN
-          PERFORM set_personal_record(
+          PERFORM _system.set_personal_record(
             p_user_id => NEW.user_id::uuid,
             p_exercise_type => NEW.exercise_type::exercise_type_enum,
             p_weight_value => NEW.actual_weight_value::numeric,

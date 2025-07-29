@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS public.exercise_superblock (
   notes text NULL,
   started_at timestamp with time zone NULL,
   completed_at timestamp with time zone NULL,
+  -- TODO: here and throughout, remove created_at and updated_at
   created_at timestamp with time zone DEFAULT timezone ('utc', now()),
   updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
   CONSTRAINT exercise_superblock_pkey PRIMARY KEY (id),
@@ -80,22 +81,35 @@ CREATE TABLE IF NOT EXISTS public.exercise_superblock_blocks (
   CONSTRAINT fk_block FOREIGN KEY (block_id) REFERENCES public.exercise_block (id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS public.wendler_metadata (
-  id uuid NOT NULL DEFAULT uuid_generate_v4 (),
-  block_id uuid NOT NULL,
+CREATE TABLE IF NOT EXISTS public.wendler_program (
+  id uuid PRIMARY KEY DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
-  training_max_value numeric NOT NULL,
-  training_max_unit weight_unit_enum NOT NULL,
-  increase_amount_value numeric NULL,
-  increase_amount_unit weight_unit_enum NULL,
-  cycle_type wendler_cycle_type_enum NOT NULL,
+  name text NOT NULL,
+  started_at timestamptz NULL,
+  CONSTRAINT wendler_program_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
+);
+
+-- Table for Movements within a Wendler Program
+CREATE TABLE IF NOT EXISTS public.wendler_program_movement (
+  id uuid PRIMARY KEY DEFAULT uuid_generate_v4 (),
+  wendler_program_id uuid NOT NULL,
+  user_id uuid NOT NULL,
   exercise_type exercise_type_enum NOT NULL,
-  created_at timestamp with time zone DEFAULT timezone ('utc', now()),
-  updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
-  CONSTRAINT wendler_metadata_pkey PRIMARY KEY (id),
-  CONSTRAINT wendler_metadata_block_id_fkey FOREIGN KEY (block_id) REFERENCES public.exercise_block (id) ON DELETE CASCADE,
-  CONSTRAINT wendler_metadata_block_id_unique UNIQUE (block_id),
-  CONSTRAINT wendler_metadata_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
+  training_max_value numeric NOT NULL,
+  increase_amount_value numeric NOT NULL,
+  weight_unit weight_unit_enum NOT NULL,
+  CONSTRAINT fk_wendler_program FOREIGN KEY (wendler_program_id) REFERENCES public.wendler_program (id) ON DELETE CASCADE,
+  CONSTRAINT wendler_program_movement_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
+);
+
+-- Table for Blocks within a Movement (one per cycle type)
+CREATE TABLE IF NOT EXISTS public.wendler_program_movement_block (
+  id uuid PRIMARY KEY DEFAULT uuid_generate_v4 (),
+  movement_id uuid NOT NULL,
+  block_id uuid NOT NULL,
+  cycle_type wendler_cycle_type_enum NOT NULL,
+  CONSTRAINT fk_movement FOREIGN KEY (movement_id) REFERENCES public.wendler_program_movement (id) ON DELETE CASCADE,
+  CONSTRAINT fk_block FOREIGN KEY (block_id) REFERENCES public.exercise_block (id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS public.user_preferences (
