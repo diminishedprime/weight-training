@@ -13,6 +13,8 @@ interface DisplayWeightProps {
   sx?: TypographyProps["sx"];
   hideUnit?: boolean;
   valueColor?: string;
+  startAdornment?: React.ReactNode | string;
+  endAdornment?: React.ReactNode | string;
 }
 const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
   const theme = useTheme();
@@ -27,7 +29,12 @@ const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
   });
 
   return (
-    <Typography component="span" variant={props.variant} sx={props.sx}>
+    <Typography
+      component="span"
+      variant={props.variant}
+      sx={{ display: "flex", alignItems: "center", ...props.sx }}
+    >
+      {props.startAdornment}
       <span style={{ color: props.valueColor || theme.palette.primary.main }}>
         {formattedWeight}{" "}
         {!props.hideUnit && weightUnitUIString(props.weightUnit)}
@@ -41,6 +48,7 @@ const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
           </span>
         </>
       )}
+      {props.endAdornment}
     </Typography>
   );
 };

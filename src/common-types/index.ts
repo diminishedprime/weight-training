@@ -99,3 +99,10 @@ export type NarrowedSuperblock = RequiredNonNullable<
   },
   "id"
 >;
+
+export type { GetWendlerProgramResult } from "@/common-types/get-wendler-program";
+export type {
+  GetWendlerProgramsResult,
+  ProgramOverview,
+  ProgramOverviews,
+} from "@/common-types/get-wendler-programs";

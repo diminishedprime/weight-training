@@ -6,6 +6,7 @@ import SelectAvailableDumbbells from "@/components/select/SelectAvailableDumbbel
 import SelectAvailableKettlebells from "@/components/select/SelectAvailableKettlebells";
 import SelectPlates from "@/components/select/SelectPlates";
 import SelectWeightUnit from "@/components/select/SelectWeightUnit";
+import TODO from "@/components/TODO";
 import { DEFAULT_VALUES } from "@/constants";
 import { useRequiredModifiableLabel } from "@/hooks";
 import { TestIds } from "@/test-ids";
@@ -367,6 +368,7 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
               The default weight unit that will be used for all exercises.
             </Typography>
           )}
+          <TODO>Currently this isn't remotely supported</TODO>
         </Stack>
         <Stack spacing={1}>
           <Stack spacing={1} direction="row" alignItems="center">
@@ -390,6 +392,14 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
               (In the future, this will be able to be set per-exercise.)
             </Typography>
           )}
+          <TODO>
+            It'd be nice if there were some like chips or something here to pick
+            common values.
+          </TODO>
+          <TODO>
+            We should also support custom rest times per equipment type, and
+            also per exercise type (most specific wins)
+          </TODO>
         </Stack>
         <Stack spacing={1}>
           <SelectPlates
@@ -427,6 +437,7 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
               </Typography>
             </Stack>
           )}
+          <TODO>I'd like to support adding custom plate sizes here.</TODO>
         </Stack>
         <Stack spacing={1}>
           <SelectAvailableDumbbells
@@ -454,6 +465,10 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
               (In the future you will be able to set preferences per gym.)
             </Typography>
           )}
+          <TODO>
+            This UI could use a bit of love. I think doing something cute like
+            the kettlebells would be nice.
+          </TODO>
         </Stack>
         <Stack spacing={1}>
           <SelectAvailableKettlebells
@@ -464,6 +479,7 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             required={api.kettlebellsLBSRequired}
             modified={api.kettlebellsLBSModified}
           />
+          <TODO>This isn't spaced right for some reason.</TODO>
         </Stack>
         <Stack
           direction="row"
