@@ -29,12 +29,12 @@ export const AVAILABLE_DUMBBELLS: Array<number> = [
   85, 90, 95, 100,
 ];
 
-export const WENDLER_EXERCISE_TYPES: ExerciseType[] = [
-  "barbell_overhead_press",
-  "barbell_bench_press",
+export const WENDLER_EXERCISE_TYPES = [
   "barbell_back_squat",
+  "barbell_bench_press",
+  "barbell_overhead_press",
   "barbell_deadlift",
-];
+] as const;
 
 const AVAILABLE_KETTLEBELLS_LBS = [18, 26, 35, 44, 53];
 
@@ -102,6 +102,8 @@ const pathForPaginatedProgramsPage = (pageNum: number) => {
 const pathForProgramById = (programId: string) =>
   `${pathForProgramsPage}/${programId}`;
 
+const pathForProgramsAddPage = `${pathForProgramsPage}/add`;
+
 // TODO: refactor everything to use the PATHS object and also turn constants.ts
 // into /constants/index.ts and have a separate paths.ts file that does this
 // stuff. As a part of that, also remove the export const for the paths/paths
@@ -114,6 +116,7 @@ export const PATHS = {
   Programs: pathForProgramsPage,
   PaginatedPrograms: pathForPaginatedProgramsPage,
   ProgramById: pathForProgramById,
+  Programs_Add: pathForProgramsAddPage,
 } as const;
 
 export const pathForEquipmentExerciseEdit = (

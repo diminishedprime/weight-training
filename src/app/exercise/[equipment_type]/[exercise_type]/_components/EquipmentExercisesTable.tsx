@@ -9,14 +9,15 @@ import DisplayNotes from "@/components/display/DisplayNotes";
 import DisplayPerceivedEffort from "@/components/display/DisplayPerceivedEffort";
 import DisplayTime from "@/components/display/DisplayTime";
 import DisplayWeight from "@/components/display/DisplayWeight";
+import LabeledValue from "@/components/LabeledValue";
+import Link from "@/components/Link";
 import Pagination from "@/components/Pagination";
 import {
   pathForEquipmentExerciseEdit,
   pathForPaginatedEquipmentExercisePage,
 } from "@/constants";
-import { Stack, Typography } from "@mui/material";
+import { Button, Chip, Paper, Stack, Typography } from "@mui/material";
 import { format } from "date-fns";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 
@@ -94,31 +95,6 @@ const EquipmentExercisesTable: React.FC<EquipmentExercisesTableProps> = (
         return (
           <Stack key={`${group[0]?.exercise_id}-${idx}`}>
             <Typography variant="h5">{date}</Typography>
-            <Stack
-              sx={{
-                display: "grid",
-                gridTemplateColumns: "2fr 2fr 1fr 1fr 1fr",
-                alignItems: "center",
-                gap: 2,
-                mb: 1,
-              }}
-            >
-              <Typography variant="subtitle2" color="text.secondary">
-                Time
-              </Typography>
-              <Typography variant="subtitle2" color="text.secondary">
-                Weight
-              </Typography>
-              <Typography variant="subtitle2" color="text.secondary">
-                Effort
-              </Typography>
-              <Typography variant="subtitle2" color="text.secondary">
-                Status
-              </Typography>
-              <Typography variant="subtitle2" color="text.secondary">
-                Edit
-              </Typography>
-            </Stack>
             {group.map((exercise) => {
               const editPath = pathForEquipmentExerciseEdit(
                 exercise.equipment_type!,
@@ -128,51 +104,61 @@ const EquipmentExercisesTable: React.FC<EquipmentExercisesTableProps> = (
               );
               return (
                 <React.Fragment key={exercise.exercise_id}>
-                  <Stack
-                    sx={{
-                      display: "grid",
-                      gridTemplateColumns: "2fr 2fr 1fr 1fr 1fr",
-                      alignItems: "center",
-                      gap: 2,
-                      ...(api.flashId && exercise.exercise_id === api.flashId
-                        ? { animation: "flash-bg 2.5s ease-in-out" }
-                        : {}),
-                    }}
-                  >
-                    <Stack>
-                      <DisplayTime performedAt={exercise.performed_at!} />
-                    </Stack>
-                    <Stack>
-                      {/**
-                       * TODO: I figured out a way to do this generically in
-                       * AddEquipmentExercise, do something similiar here.
-                       * */}
-                      <DisplayWeight
-                        weightValue={
-                          exercise.actual_weight_value ??
-                          exercise.target_weight_value!
-                        }
-                        weightUnit={exercise.weight_unit!}
-                        reps={exercise.reps ?? undefined}
+                  <Stack component={Paper} sx={{ p: 0.5, m: 0.5 }}>
+                    {exercise.personal_record && (
+                      <Chip
+                        sx={{ alignSelf: "start", m: 1 }}
+                        size="small"
+                        color="success"
+                        label={"PR!"}
                       />
-                    </Stack>
-                    <Stack>
-                      {exercise.perceived_effort && (
-                        <DisplayPerceivedEffort
-                          perceivedEffort={exercise.perceived_effort}
+                    )}
+                    <Stack
+                      sx={{
+                        display: "grid",
+                        gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+                        ...(api.flashId && exercise.exercise_id === api.flashId
+                          ? { animation: "flash-bg 2.5s ease-in-out" }
+                          : {}),
+                      }}
+                    >
+                      <LabeledValue label="Time">
+                        <DisplayTime performedAt={exercise.performed_at!} />
+                      </LabeledValue>
+                      <LabeledValue label="Weight">
+                        <DisplayWeight
+                          weightValue={
+                            exercise.actual_weight_value ??
+                            exercise.target_weight_value!
+                          }
+                          weightUnit={exercise.weight_unit!}
                         />
-                      )}
+                      </LabeledValue>
+                      <LabeledValue label="Reps">
+                        {exercise.reps}
+                        {exercise.is_amrap}
+                      </LabeledValue>
+                      <LabeledValue label="Effort">
+                        {exercise.perceived_effort && (
+                          <DisplayPerceivedEffort
+                            perceivedEffort={exercise.perceived_effort}
+                          />
+                        )}
+                      </LabeledValue>
+                      <LabeledValue label="Status">
+                        <DisplayCompletionStatus
+                          completionStatus={exercise.completion_status!}
+                        />
+                      </LabeledValue>
                     </Stack>
-                    <Stack>
-                      <DisplayCompletionStatus
-                        completionStatus={exercise.completion_status!}
-                      />
-                    </Stack>
-                    <Stack>
-                      <Typography component={Link} href={`${editPath}`}>
-                        Edit
-                      </Typography>
-                    </Stack>
+                    <Button
+                      sx={{ alignSelf: "start" }}
+                      component={Link}
+                      href={`${editPath}`}
+                      underline="hover"
+                    >
+                      Edit
+                    </Button>
                   </Stack>
                   {exercise.notes && (
                     <Stack gridColumn="1 / -1" sx={{ mt: 0.5 }}>
@@ -185,7 +171,17 @@ const EquipmentExercisesTable: React.FC<EquipmentExercisesTableProps> = (
           </Stack>
         );
       })}
-      <Typography>{props.exercises.length} Exercises</Typography>
+      <Pagination
+        page={props.pageNum}
+        count={props.pageCount}
+        hrefFor={(pageNum) =>
+          pathForPaginatedEquipmentExercisePage(
+            props.equipmentType,
+            props.exerciseType,
+            pageNum,
+          )
+        }
+      />
     </Stack>
   );
 };

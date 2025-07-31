@@ -1,3 +1,4 @@
+import TODO from "@/components/TODO";
 import { TestIds } from "@/test-ids";
 import {
   Stack,
@@ -26,6 +27,7 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
 
   return (
     <FormControl>
+      <TODO easy>the (AMRAP) text isn't centered.</TODO>
       <FormLabel sx={{ display: "flex", alignItems: "center", gap: 1 }}>
         Reps: {props.reps}
         {props.isAMRAP && (

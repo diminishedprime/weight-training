@@ -3,6 +3,7 @@
 import { EquipmentType } from "@/common-types";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
+import TODO from "@/components/TODO";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { equipmentTypeUIString, exerciseTypeUIStringBrief } from "@/uiStrings";
 import { EXERCISES_BY_EQUIPMENT } from "@/util";
@@ -12,11 +13,6 @@ import React, { Suspense } from "react";
 
 const PersonalRecordsPage = async () => {
   const { userId } = await requireLoggedInUser("/personal-records");
-
-  // TODO - I think I may want to try some different visualization approaches.
-  // Notably, I think being able to just see all exercises with the PRs as like
-  // stars or something may be interesting. It'll also help to show how there's
-  // consistent progression, even though the PRs are less frequent.
 
   const exerciseTypes = await supabaseRPC(
     "get_personal_record_exercise_types",
@@ -44,7 +40,12 @@ const PersonalRecordsPage = async () => {
   return (
     <Stack spacing={3} data-testid="personal-records-page">
       <Typography variant="h4">Personal Records</Typography>
-
+      <TODO>
+        I think I may want to try some different visualization approaches.
+        Notably, I think being able to just see all exercises with the PRs as
+        like stars or something may be interesting. It'll also help to show how
+        there's consistent progression, even though the PRs are less frequent.
+      </TODO>
       {Object.entries(EXERCISES_BY_EQUIPMENT).map(([equipment, exercises]) => (
         <Stack key={equipment} spacing={1}>
           <Typography variant="h6" display="flex" alignItems="center" gap={1}>

@@ -9,8 +9,10 @@ though if you have a good reason to do so, you can ignore this report changing.
 
 ## Used
 
+- add_wendler_program
 - clear_form_draft
 - create_exercise
+- get_add_program_info
 - get_exercise
 - get_exercise_blocks
 - get_exercises_by_type

@@ -244,7 +244,6 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     return modifications.preferencesModified && requiredPreferencesSet;
   }, [modifications.preferencesModified, requiredPreferencesSet]);
 
-  // TODO: create a useModifidableLabel hook to handle this logic.
   const restTimeLabel = useRequiredModifiableLabel(
     "Rest Time (Seconds)",
     !!requiredPreferences?.includes("default_rest_time"),
@@ -460,11 +459,15 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             <Typography variant="caption" color="text.secondary">
               The dumbbells that are available in your gym. Some gyms have 100s,
               some only go up to 50, and some have odd increments.
-              {/* TODO: Add required indicator and per-gym note when supported */}
               <br />
               (In the future you will be able to set preferences per gym.)
             </Typography>
           )}
+          <TODO>Add required indicator support for dumbbells</TODO>
+          <TODO>
+            Update preferences to support multiple gyms. Update the DB to tie
+            everything to a default gym.
+          </TODO>
           <TODO>
             This UI could use a bit of love. I think doing something cute like
             the kettlebells would be nice.

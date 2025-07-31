@@ -17,6 +17,7 @@ BEGIN
       completion_status completion_status_enum,
       notes text,
       perceived_effort perceived_effort_enum,
+      is_amrap boolean,
       personal_record boolean
     );
   END IF;
@@ -55,6 +56,7 @@ BEGIN
             e.completion_status::completion_status_enum,
             e.notes::text,
             e.perceived_effort::perceived_effort_enum,
+            e.is_amrap::boolean,
             EXISTS (
                 SELECT 1
                 FROM public.personal_record_history prh
