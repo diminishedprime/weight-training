@@ -170,10 +170,18 @@ export const parseSearchParams = async <
   return parsedParams as JoinedParsers<ActualParsers>;
 };
 
+const PARAM_KEYS = {
+  PageNum: "page_num",
+  Editable: "editable",
+} as const;
+
 // Add new search param parsers here as needed, they should take a SearchParams
 // and return an object with the friendly key, and parsed value.
 export const SEARCH_PARSERS = {
   PAGE_NUM: (searchParams: SearchParams) => ({
-    pageNum: Number(searchParams.page_num) || FIRST_PAGE_NUM,
+    pageNum: Number(searchParams[PARAM_KEYS.PageNum]) || FIRST_PAGE_NUM,
+  }),
+  EDITABLE: (searchParams: SearchParams) => ({
+    editable: searchParams[PARAM_KEYS.Editable] === "true",
   }),
 };

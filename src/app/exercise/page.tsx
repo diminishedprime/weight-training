@@ -1,5 +1,6 @@
 import Breadcrumbs from "@/components/Breadcrumbs";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
+import TODO from "@/components/TODO";
 import { pathForEquipmentPage } from "@/constants";
 import { Constants } from "@/database.types";
 import { requireLoggedInUser } from "@/serverUtil";
@@ -33,6 +34,10 @@ export default async function ExercisePage() {
             {linkText}
           </Typography>
         ))}
+        <TODO>
+          I want to get some professionally done SVGs instead of these silly
+          ones I made myself.
+        </TODO>
       </Stack>
     </>
   );

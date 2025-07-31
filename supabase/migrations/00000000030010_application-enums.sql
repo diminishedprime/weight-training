@@ -4,13 +4,13 @@ BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'exercise_type_enum') THEN
     CREATE TYPE public.exercise_type_enum AS ENUM (
       -- Barbell Exercises
+      'barbell_back_squat',
+      'barbell_bench_press',
+      'barbell_overhead_press',
       'barbell_deadlift',
       'barbell_romanian_deadlift',
-      'barbell_back_squat',
       'barbell_front_squat',
-      'barbell_bench_press',
       'barbell_incline_bench_press',
-      'barbell_overhead_press',
       'barbell_row',
       'barbell_hip_thrust',
       'barbell_single_leg_squat',

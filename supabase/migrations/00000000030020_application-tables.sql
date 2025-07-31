@@ -86,33 +86,36 @@ CREATE TABLE IF NOT EXISTS public.wendler_program (
   user_id uuid NOT NULL,
   name text NOT NULL,
   notes text NULL,
-  started_at timestamptz NULL,
   CONSTRAINT wendler_program_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
 );
 
--- Table for Movements within a Wendler Program
-CREATE TABLE IF NOT EXISTS public.wendler_program_movement (
+-- Table for Cycles within a Wendler Program
+CREATE TABLE IF NOT EXISTS public.wendler_program_cycle (
   id uuid PRIMARY KEY DEFAULT uuid_generate_v4 (),
   wendler_program_id uuid NOT NULL,
+  user_id uuid NOT NULL,
+  cycle_type wendler_cycle_type_enum NOT NULL,
+  CONSTRAINT fk_wendler_program FOREIGN KEY (wendler_program_id) REFERENCES public.wendler_program (id) ON DELETE CASCADE,
+  CONSTRAINT wendler_program_cycle_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
+);
+
+-- Table for Movements within a Cycle
+CREATE TABLE IF NOT EXISTS public.wendler_program_cycle_movement (
+  id uuid PRIMARY KEY DEFAULT uuid_generate_v4 (),
+  wendler_program_cycle_id uuid NOT NULL,
   user_id uuid NOT NULL,
   exercise_type exercise_type_enum NOT NULL,
   training_max_value numeric NOT NULL,
   increase_amount_value numeric NOT NULL,
   weight_unit weight_unit_enum NOT NULL,
-  CONSTRAINT fk_wendler_program FOREIGN KEY (wendler_program_id) REFERENCES public.wendler_program (id) ON DELETE CASCADE,
-  CONSTRAINT wendler_program_movement_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
-);
-
--- Table for Blocks within a Movement (one per cycle type)
-CREATE TABLE IF NOT EXISTS public.wendler_program_movement_block (
-  id uuid PRIMARY KEY DEFAULT uuid_generate_v4 (),
-  movement_id uuid NOT NULL,
   block_id uuid NOT NULL,
-  cycle_type wendler_cycle_type_enum NOT NULL,
-  CONSTRAINT fk_movement FOREIGN KEY (movement_id) REFERENCES public.wendler_program_movement (id) ON DELETE CASCADE,
+  CONSTRAINT fk_wendler_program_cycle FOREIGN KEY (wendler_program_cycle_id) REFERENCES public.wendler_program_cycle (id) ON DELETE CASCADE,
+  CONSTRAINT wendler_program_cycle_movement_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
   CONSTRAINT fk_block FOREIGN KEY (block_id) REFERENCES public.exercise_block (id) ON DELETE CASCADE
 );
 
+-- Table for Blocks within a Movement
+-- Removed: Each movement now has exactly one block via block_id
 CREATE TABLE IF NOT EXISTS public.user_preferences (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,

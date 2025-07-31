@@ -20,6 +20,7 @@ though if you have a good reason to do so, you can ignore this report changing.
 - get_superblock
 - get_superblocks
 - get_user_preferences
+- get_wendler_program
 - get_wendler_programs
 - save_form_draft
 - set_target_max

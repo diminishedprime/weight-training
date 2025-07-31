@@ -1,6 +1,7 @@
 import { EquipmentType, ExerciseType } from "@/common-types";
 import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
+import TODO from "@/components/TODO";
 import {
   pathForEquipmentExercisePage,
   pathForEquipmentPage,
@@ -81,6 +82,9 @@ export default async function EquipmentTypeExercisesPage(
             </Typography>
           ),
         )}
+        <TODO>
+          I'd like to get SVGs here too, but idk if that's quite as feasable...
+        </TODO>
       </Stack>
     </React.Fragment>
   );

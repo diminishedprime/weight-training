@@ -1,86 +1,62 @@
-import { RNNProgram } from "@/common-types";
+import { type ProgramOverview as ProgramOverviewType } from "@/common-types";
 import DisplayDate from "@/components/display/DisplayDate";
-import DisplayWeight from "@/components/display/DisplayWeight";
+import Link from "@/components/Link";
+import { PATHS } from "@/constants";
 import { exerciseTypeUIStringBrief, wendlerCycleUIString } from "@/uiStrings";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import DragArrowIcon from "@mui/icons-material/DragHandle";
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import CheckIcon from "@mui/icons-material/Check";
+import { Stack, Typography } from "@mui/material";
 import React from "react";
 
 interface ProgramOverviewProps {
-  program: RNNProgram;
+  program: ProgramOverviewType;
 }
 
-const ProgramOverview: React.FC<ProgramOverviewProps> = (props) => {
+const ProgramOverviewType: React.FC<ProgramOverviewProps> = (props) => {
   return (
     <Stack spacing={1}>
-      <Typography variant="h6">
+      <Typography
+        variant="h6"
+        component={Link}
+        href={PATHS.ProgramById(props.program.id)}
+        underline="hover"
+        sx={{ pb: 0 }}
+      >
         {props.program.name}
-        {props.program.started_at && (
-          <DisplayDate
-            timestamp={props.program.started_at}
-            noTime
-          ></DisplayDate>
-        )}
       </Typography>
+      <Stack direction="row" spacing={1} alignItems={"center"}>
+        {props.program.started_at && (
+          <DisplayDate timestamp={props.program.started_at} noTime />
+        )}
+        <Typography>
+          {props.program.started_at && props.program.completed_at && " - "}
+        </Typography>
+        {props.program.completed_at && (
+          <DisplayDate timestamp={props.program.completed_at} noTime />
+        )}
+      </Stack>
       {props.program.notes && (
         <Typography variant="body2" color="textSecondary">
           {props.program.notes}
         </Typography>
       )}
       <Stack spacing={0}>
-        {props.program.movements.map((movement) => (
-          <React.Fragment key={movement.id}>
-            <Stack spacing={1} mb={0.5}>
-              <Stack spacing={1} direction="row" justifyContent="space-between">
-                <Typography variant="h6" fontSize="1.1rem">
-                  {exerciseTypeUIStringBrief(movement.exercise_type)}
-                </Typography>
-                <DisplayWeight
-                  startAdornment={"target max\u00A0"}
-                  sx={{ fontWeight: "regular" }}
-                  weightValue={movement.training_max_value}
-                  weightUnit={movement.weight_unit}
-                />
-                <DisplayWeight
-                  startAdornment={"change\u00A0"}
-                  weightValue={movement.increase_amount_value}
-                  weightUnit={movement.weight_unit}
-                  endAdornment={
-                    movement.increase_amount_value > 0 ? (
-                      <ArrowUpwardIcon fontSize="small" />
-                    ) : movement.increase_amount_value === 0 ? (
-                      <DragArrowIcon fontSize="small" />
-                    ) : (
-                      <ArrowDownwardIcon fontSize="small" />
-                    )
-                  }
-                />
-              </Stack>
-              <Box
-                sx={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(4, 1fr)",
-                  gap: 1,
-                  alignItems: "center",
-                }}
-              >
-                {movement.blocks.map((block) => (
-                  <Stack key={block.id} spacing={0}>
+        {props.program.cycles.map((cycle) => (
+          <React.Fragment key={cycle.id}>
+            <Stack spacing={0.5} mb={0.5}>
+              <Typography variant="h6" fontSize="1.1rem">
+                {wendlerCycleUIString(cycle.cycle_type)}
+              </Typography>
+              <Stack direction="row" justifyContent="space-between">
+                {cycle.movements.map((movement) => (
+                  <Stack key={movement.id} spacing={0.5}>
                     <Typography variant="body1">
-                      {wendlerCycleUIString(block.cycle_type)}
+                      {exerciseTypeUIStringBrief(movement.exercise_type)}
                     </Typography>
-                    <DisplayWeight
-                      valueColor="unset"
-                      weightUnit={movement.weight_unit}
-                      weightValue={block.heaviest_weight_value}
-                    />
+                    {movement.completed_at && <CheckIcon />}
                   </Stack>
                 ))}
-              </Box>
+              </Stack>
             </Stack>
-            <Divider sx={{ mb: 1.5 }} />
           </React.Fragment>
         ))}
       </Stack>
@@ -88,4 +64,4 @@ const ProgramOverview: React.FC<ProgramOverviewProps> = (props) => {
   );
 };
 
-export default ProgramOverview;
+export default ProgramOverviewType;

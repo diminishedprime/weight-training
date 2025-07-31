@@ -99,6 +99,9 @@ const pathForPaginatedProgramsPage = (pageNum: number) => {
   return `${pathForProgramsPage}${search}`;
 };
 
+const pathForProgramById = (programId: string) =>
+  `${pathForProgramsPage}/${programId}`;
+
 // TODO: refactor everything to use the PATHS object and also turn constants.ts
 // into /constants/index.ts and have a separate paths.ts file that does this
 // stuff. As a part of that, also remove the export const for the paths/paths
@@ -110,6 +113,7 @@ export const PATHS = {
     `${pathForSuperblocksPage}/${superblockId}`,
   Programs: pathForProgramsPage,
   PaginatedPrograms: pathForPaginatedProgramsPage,
+  ProgramById: pathForProgramById,
 } as const;
 
 export const pathForEquipmentExerciseEdit = (

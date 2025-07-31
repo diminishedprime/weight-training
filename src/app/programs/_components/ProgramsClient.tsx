@@ -1,6 +1,6 @@
 "use client";
 import Programs from "@/app/programs/_components/Programs";
-import { RNNProgram } from "@/common-types";
+import { ProgramOverviews } from "@/common-types";
 import Pagination from "@/components/Pagination";
 import { PATHS } from "@/constants";
 import { Stack } from "@mui/material";
@@ -8,7 +8,7 @@ import { Stack } from "@mui/material";
 interface ProgramsClientProps {
   currentPageNum: number;
   pageCount: number;
-  programs: RNNProgram[];
+  programOverviews: ProgramOverviews;
 }
 
 const ProgramsClient: React.FC<ProgramsClientProps> = (props) => {
@@ -20,7 +20,7 @@ const ProgramsClient: React.FC<ProgramsClientProps> = (props) => {
           count={props.pageCount}
           hrefFor={(pageNum) => PATHS.PaginatedPrograms(pageNum)}
         />
-        <Programs programs={props.programs} />
+        <Programs programOverviews={props.programOverviews} />
       </Stack>
       <Pagination
         page={props.currentPageNum}

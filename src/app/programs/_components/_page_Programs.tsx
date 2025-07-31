@@ -1,5 +1,5 @@
 import ProgramsClient from "@/app/programs/_components/ProgramsClient";
-import { RNNGetWendlerProgramsResult } from "@/common-types";
+import { GetWendlerProgramsResult } from "@/common-types";
 import { PATHS } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 
@@ -17,7 +17,7 @@ export default async function PagePrograms(props: PageProgramsProps) {
   return (
     <ProgramsClient
       pageCount={page_count}
-      programs={programs}
+      programOverviews={programs}
       currentPageNum={props.currentPageNum}
     />
   );
@@ -28,5 +28,5 @@ const getWendlerPrograms = async (userId: string, pageNum: number) => {
     p_user_id: userId,
     p_page_num: pageNum,
   });
-  return programs as RNNGetWendlerProgramsResult;
+  return programs as GetWendlerProgramsResult;
 };
