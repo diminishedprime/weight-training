@@ -85,6 +85,7 @@ export default async function EquipmentTypeExercisesPage(
         <TODO>
           I'd like to get SVGs here too, but idk if that's quite as feasable...
         </TODO>
+        <TODO easy>Remove this todo.</TODO>
       </Stack>
     </React.Fragment>
   );

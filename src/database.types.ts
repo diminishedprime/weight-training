@@ -473,6 +473,20 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      add_wendler_program: {
+        Args: {
+          p_user_id: string;
+          p_squat_target_max: number;
+          p_deadlift_target_max: number;
+          p_overhead_press_target_max: number;
+          p_bench_press_target_max: number;
+          p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          p_include_deload: boolean;
+          p_program_name: string;
+          p_notes?: string;
+        };
+        Returns: string;
+      };
       clear_form_draft: {
         Args: { p_user_id: string; p_page_path: string };
         Returns: undefined;
@@ -494,6 +508,10 @@ export type Database = {
           p_notes?: string;
         };
         Returns: string;
+      };
+      get_add_program_info: {
+        Args: { p_user_id: string };
+        Returns: Database["public"]["CompositeTypes"]["get_add_program_info_result"];
       };
       get_exercise: {
         Args: { p_user_id: string; p_exercise_id: string };
@@ -729,6 +747,15 @@ export type Database = {
           | Database["public"]["Enums"]["perceived_effort_enum"]
           | null;
       };
+      get_add_program_info_result: {
+        user_id: string | null;
+        squat_target_max: number | null;
+        bench_press_target_max: number | null;
+        deadlift_target_max: number | null;
+        overhead_press_target_max: number | null;
+        program_name: string | null;
+        old_data_warning: string | null;
+      };
       get_exercise_blocks_result: {
         blocks:
           | Database["public"]["CompositeTypes"]["exercise_block_with_wendler_row"][]
@@ -761,6 +788,7 @@ export type Database = {
         perceived_effort:
           | Database["public"]["Enums"]["perceived_effort_enum"]
           | null;
+        is_amrap: boolean | null;
         personal_record: boolean | null;
       };
       get_superblock_result: {

@@ -68,6 +68,9 @@ importers:
       use-debounce:
         specifier: ^10.0.5
         version: 10.0.5(react@19.1.0)
+      zod:
+        specifier: ^4.0.14
+        version: 4.0.14
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -4131,6 +4134,9 @@ packages:
 
   zod@3.24.3:
     resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
+
+  zod@4.0.14:
+    resolution: {integrity: sha512-nGFJTnJN6cM2v9kXL+SOBq3AtjQby3Mv5ySGFof5UGRHrRioSJ5iG680cYNjE/yWk671nROcpPj4hAS8nyLhSw==}
 
 snapshots:
 
@@ -8373,3 +8379,5 @@ snapshots:
       zod: 3.24.3
 
   zod@3.24.3: {}
+
+  zod@4.0.14: {}

@@ -77,9 +77,10 @@ const EquipmentExercisePage: React.FC<EquipmentExercisePageProps> = async (
         props.path,
       );
       break;
-    default:
-      // TODO use the never typescript thing here
-      throw new Error("unsupported equipment type");
+    default: {
+      const _exhaustiveCheck: never = props.equipmentType;
+      return _exhaustiveCheck;
+    }
   }
   const [exercisesResult, formDraft, preferences] = await Promise.all([
     getExercisesByType(props),

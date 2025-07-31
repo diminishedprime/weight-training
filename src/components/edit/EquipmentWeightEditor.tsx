@@ -114,6 +114,10 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
         <Stack spacing={1} alignItems="center">
           <Typography>Added Weight</Typography>
           <EditWeight
+            add5
+            add25
+            sub5
+            sub25
             weightValue={props.weightValue}
             setWeightValue={props.setWeightValue}
           />

@@ -32,7 +32,13 @@ const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
     <Typography
       component="span"
       variant={props.variant}
-      sx={{ display: "flex", alignItems: "center", ...props.sx }}
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        ...props.sx,
+      }}
     >
       {props.startAdornment}
       <span style={{ color: props.valueColor || theme.palette.primary.main }}>
@@ -41,7 +47,7 @@ const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
       </span>
       {props.reps && (
         <>
-          <span> x </span>
+          <span>&nbsp;x&nbsp;</span>
           <span style={{ color: theme.palette.secondary.main }}>
             {props.reps}
             {props.repsAMRAP ? " (AMRAP)" : ""}

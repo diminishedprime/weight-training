@@ -52056,6 +52056,10 @@ SELECT
 SELECT
   _system.cleanup_wendler_2 ();
 
+UPDATE public.exercises
+SET
+  notes = NULL;
+
 -- TODO: this is hacky but what I have for now.
 --
 -- We want to be able to turn these on, but since I need to use nextauth I can't

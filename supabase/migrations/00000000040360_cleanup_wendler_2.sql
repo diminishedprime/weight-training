@@ -27,13 +27,20 @@ BEGIN
         WHERE wpcm.user_id = v_user_id
     ) LOOP
         v_target_max_arr := ARRAY[]::numeric[];
-        -- For this movement, collect all COALESCE(actual_weight_value, target_weight_value) for exercises in blocks for this program/exercise_type
+        -- For this movement, collect only the last (highest exercise_order) COALESCE(actual_weight_value, target_weight_value) for each block for this program/exercise_type
         FOR v_rec_inner IN (
             SELECT COALESCE(e.actual_weight_value, e.target_weight_value) AS base_weight, wpc.cycle_type
             FROM public.wendler_program_cycle_movement wpcm2
             JOIN public.exercise_block eb ON wpcm2.block_id = eb.id
-            JOIN public.exercise_block_exercises ebe ON eb.id = ebe.block_id
-            JOIN public.exercises e ON ebe.exercise_id = e.id
+            JOIN LATERAL (
+                SELECT ebe2.exercise_id, ebe2.exercise_order
+                FROM public.exercise_block_exercises ebe2
+                JOIN public.exercises e2 ON ebe2.exercise_id = e2.id
+                WHERE ebe2.block_id = eb.id AND e2.user_id = v_user_id
+                ORDER BY ebe2.exercise_order DESC
+                LIMIT 1
+            ) last_ex ON TRUE
+            JOIN public.exercises e ON last_ex.exercise_id = e.id
             JOIN public.wendler_program_cycle wpc ON wpcm2.wendler_program_cycle_id = wpc.id
             WHERE wpcm2.user_id = v_user_id
               AND wpc.wendler_program_id = v_rec.wendler_program_id
