@@ -1,3 +1,4 @@
+"use client";
 import InfoIcon from "@mui/icons-material/InfoOutlined";
 import {
   Button,

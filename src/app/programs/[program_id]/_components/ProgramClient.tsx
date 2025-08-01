@@ -4,9 +4,12 @@ import { GetWendlerProgramResult } from "@/common-types";
 import DisplayDate from "@/components/display/DisplayDate";
 import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayWeight from "@/components/display/DisplayWeight";
+import LabeledValue from "@/components/LabeledValue";
 import TODO from "@/components/TODO";
+import { PATHS } from "@/constants";
 import { exerciseTypeUIStringBrief, wendlerCycleUIString } from "@/uiStrings";
 import {
+  Button,
   LinearProgress,
   Stack,
   Step,
@@ -110,26 +113,40 @@ const ProgramClient: React.FC<ProgramClientProps> = (props) => {
               </Stack>
             </StepButton>
             <StepContent>
-              <Stack spacing={1} direction="row">
-                Training Max:{" "}
-                <DisplayWeight
-                  weightValue={movement.training_max_value}
-                  weightUnit={movement.weight_unit}
-                />
+              <Stack
+                direction="row"
+                spacing={1}
+                justifyContent={"space-between"}
+              >
+                <Stack direction="row" spacing={1}>
+                  <LabeledValue label="Training Max">
+                    <DisplayWeight
+                      weightValue={movement.training_max_value}
+                      weightUnit={movement.weight_unit}
+                    />
+                  </LabeledValue>
+                  <LabeledValue label="Heaviest Weight">
+                    <DisplayWeight
+                      weightValue={movement.heaviest_weight_value}
+                      weightUnit={movement.weight_unit}
+                    />
+                  </LabeledValue>
+                </Stack>
+                {movement.superblock_id && (
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    href={PATHS.SuperblocksById(movement.superblock_id)}
+                    sx={{
+                      justifySelf: "flex-end",
+                      alignSelf: "flex-end",
+                    }}
+                  >
+                    Superblock
+                  </Button>
+                )}
               </Stack>
-              <Stack spacing={1} direction="row">
-                Heaviest Weight:{" "}
-                <DisplayWeight
-                  weightValue={movement.heaviest_weight_value}
-                  weightUnit={movement.weight_unit}
-                />
-              </Stack>
-              <TODO>
-                keep on updating this part. I think this is where I should offer
-                some basic info, but make it easy to link to the
-                superblock/block to actually do the workout.
-              </TODO>
-              <TODO>I could also show like the preview of the workout.</TODO>
+              <TODO>Add in a preview of the block.</TODO>
             </StepContent>
           </Step>
         ))}
@@ -157,21 +174,9 @@ const useProgramClient = (props: ProgramClientProps) => {
     },
   );
 
-  const onActiveCycleChange = useCallback(
-    (fn: (old: number) => number) => {
-      setActiveCycleIdx((old) => {
-        const nu = fn(old);
-        setActiveMovementIdx((_) => {
-          const idx = cycles[nu].movements.findIndex(
-            (m) => m.completed_at === null,
-          );
-          return idx === -1 ? 0 : idx;
-        });
-        return nu;
-      });
-    },
-    [cycles],
-  );
+  const onActiveCycleChange = useCallback((fn: (old: number) => number) => {
+    setActiveCycleIdx(fn);
+  }, []);
 
   const movement = useMemo(
     () => cycle.movements[activeMovementIdx],

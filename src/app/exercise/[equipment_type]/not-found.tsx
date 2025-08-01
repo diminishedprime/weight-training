@@ -1,6 +1,6 @@
+import Link from "@/components/Link";
 import { PATHS } from "@/constants";
 import { Typography } from "@mui/material";
-import Link from "next/link";
 import React from "react";
 
 export default function NotFound() {
@@ -10,9 +10,10 @@ export default function NotFound() {
         Not Found
       </Typography>
       <Typography>
-        Sorry, the page you are looking for does not exist.
+        The equipment type you are looking for does not exist or has been
+        deleted.
       </Typography>
-      <Link href={PATHS.Home}>Go Home</Link>
+      <Link href={PATHS.Exercise}>Go to Exercises</Link>
     </React.Fragment>
   );
 }

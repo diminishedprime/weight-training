@@ -1,6 +1,6 @@
+import Link from "@/components/Link";
 import { PATHS } from "@/constants";
 import { Typography } from "@mui/material";
-import Link from "next/link";
 import React from "react";
 
 export default function NotFound() {
@@ -10,8 +10,9 @@ export default function NotFound() {
         Not Found
       </Typography>
       <Typography>
-        Sorry, the page you are looking for does not exist.
+        The program you are looking for does not exist or has been deleted.
       </Typography>
+      <Link href={PATHS.Programs}>Go to Programs</Link>
       <Link href={PATHS.Home}>Go Home</Link>
     </React.Fragment>
   );

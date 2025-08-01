@@ -150,8 +150,15 @@ BEGIN
                       AND exercise_type = v_exercise_type
                 ) THEN
                     RAISE NOTICE 'Creating exercise_block for user_id: %, exercise_type: %', v_user_id, v_exercise_type;
-                    INSERT INTO public.exercise_block (user_id, exercise_type, equipment_type, completion_status)
-                    VALUES (v_user_id, v_exercise_type, 'barbell', 'not_completed')
+                    -- TODO: this should also create a corresponding superblock.
+                    INSERT INTO public.exercise_block (user_id, exercise_type, equipment_type, completion_status, name)
+                    VALUES (
+                        v_user_id, 
+                        v_exercise_type, 
+                        'barbell', 
+                        'not_completed', 
+                        'Wendler ' || _system.exercise_type_ui_string_brief(v_exercise_type) || ' ' || v_cycle.cycle_type::text
+                        )
                     RETURNING id INTO v_block_id;
 
                     RAISE NOTICE 'Attempting to insert wendler_program_cycle_movement: cycle_id=%, user_id=%, exercise_type=%, block_id=%', v_cycle.id, v_user_id, v_exercise_type, v_block_id;

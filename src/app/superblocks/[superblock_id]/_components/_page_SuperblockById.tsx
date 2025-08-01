@@ -7,11 +7,14 @@ import DisplayDate from "@/components/display/DisplayDate";
 import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
 import DisplayWeight from "@/components/display/DisplayWeight";
+import LabeledValue from "@/components/LabeledValue";
+import TODO from "@/components/TODO";
 import { PATHS } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { exerciseTypeUIStringBrief } from "@/uiStrings";
 import { notFoundIfNull } from "@/util";
 import { Box, Stack, Typography } from "@mui/material";
+import React from "react";
 
 interface PageSuperblocksByIdProps {
   superblockId: string;
@@ -27,6 +30,7 @@ export default async function PageSuperblocksById(
   const superblock = await getSuperblock(userId, superblockId);
   return (
     <Stack spacing={1}>
+      <TODO>Add a way to add blocks to an existing superblock.</TODO>
       <Typography variant="h5" display="flex" alignItems={"center"} gap={1}>
         {superblock.name || "Superblock"}
         {superblock.started_at && (
@@ -48,8 +52,35 @@ export default async function PageSuperblocksById(
           <Stack key={block.id} spacing={1}>
             <Typography variant="h6" display="flex" alignItems="center" gap={1}>
               <DisplayEquipmentThumbnail equipmentType={block.equipment_type} />
-              {block.name} ({exerciseTypeUIStringBrief(block.exercise_type)})
+              {block.name}
             </Typography>
+            <Stack direction="row" spacing={1}>
+              <LabeledValue label="Exercise">
+                {exerciseTypeUIStringBrief(block.exercise_type)}
+              </LabeledValue>
+              {block.wendler_details && (
+                <React.Fragment>
+                  <LabeledValue label="Target Max">
+                    <DisplayWeight
+                      weightValue={block.wendler_details.training_max_value}
+                      weightUnit={block.wendler_details.weight_unit}
+                    />
+                  </LabeledValue>
+                  <LabeledValue label="Change">
+                    <DisplayWeight
+                      weightValue={block.wendler_details.increase_amount_value}
+                      weightUnit={block.wendler_details.weight_unit}
+                    />
+                  </LabeledValue>
+                </React.Fragment>
+              )}
+            </Stack>
+
+            <TODO>
+              The increase_amount value seems to be calculating instead of just
+              returning from the same row. Either that or my change value is
+              like _wayyy_ off.
+            </TODO>
             <Stack direction="row" spacing={1} justifyContent="space-between">
               {block.started_at && block.completed_at && (
                 <DisplayDuration
@@ -60,17 +91,6 @@ export default async function PageSuperblocksById(
               )}
               <Typography variant="caption">{block.notes}</Typography>
             </Stack>
-            {block.wendler_details && (
-              <Stack spacing={1}>
-                <Typography component="span">
-                  Target Max:{" "}
-                  <DisplayWeight
-                    weightValue={block.wendler_details.training_max_value}
-                    weightUnit={block.wendler_details.weight_unit}
-                  />
-                </Typography>
-              </Stack>
-            )}
             <Stack spacing={1}>
               <Box
                 sx={{

@@ -1,5 +1,6 @@
 import SuperblocksClient from "@/app/superblocks/_components/SuperblocksClient";
 import { RequiredNonNullable, SuperblocksRow } from "@/common-types";
+import TODO from "@/components/TODO";
 import { PATHS } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { notFoundIfNull } from "@/util";
@@ -21,6 +22,14 @@ export default async function PageSuperblocks(props: PageSuperblocksProps) {
 
   return (
     <React.Fragment>
+      <TODO>
+        We should show the "non-started" superblocks here, first. This means
+        mostly just to not exclude the ones without as started_at date.
+        <br />
+        <br />
+        In general, though, we may need to add "completion_status" to the
+        programs, cycles, and movements...
+      </TODO>
       <SuperblocksClient
         currentPageNum={props.pageNum}
         pageCount={pageCount}

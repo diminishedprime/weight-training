@@ -64,7 +64,7 @@ BEGIN
       v_block_id := uuid_generate_v4();
       v_block_order := 1;
       INSERT INTO public.exercise_block (id, user_id, name, notes, exercise_type, equipment_type, started_at, created_at, updated_at)
-        VALUES (v_block_id, p_user_id, NULL, p_block_note, v_rec.exercise_type, v_rec.equipment_type, v_rec.performed_at, timezone('utc', now()), timezone('utc', now()));
+        VALUES (v_block_id, p_user_id, _system.exercise_type_ui_string_brief(v_rec.exercise_type), p_block_note, v_rec.exercise_type, v_rec.equipment_type, v_rec.performed_at, timezone('utc', now()), timezone('utc', now()));
       INSERT INTO tmp_open_blocks (exercise_type, block_id, last_performed_at, block_order)
         VALUES (v_rec.exercise_type, v_block_id, v_rec.performed_at, v_block_order);
     ELSE
