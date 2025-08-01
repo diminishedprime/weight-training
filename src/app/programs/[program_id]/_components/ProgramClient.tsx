@@ -159,16 +159,7 @@ const useProgramClient = (props: ProgramClientProps) => {
 
   const onActiveCycleChange = useCallback(
     (fn: (old: number) => number) => {
-      setActiveCycleIdx((old) => {
-        const nu = fn(old);
-        setActiveMovementIdx((_) => {
-          const idx = cycles[nu].movements.findIndex(
-            (m) => m.completed_at === null,
-          );
-          return idx === -1 ? 0 : idx;
-        });
-        return nu;
-      });
+      setActiveCycleIdx(fn);
     },
     [cycles],
   );
