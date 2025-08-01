@@ -37,4 +37,6 @@ export const TestIds = {
   EditWeightSubtract: (weight: number) => `edit-weight-subtract-${weight}`,
   EditWeightInput: "edit-weight-input",
   EditWeightClearButton: "edit-weight-clear-button",
+  Programs_Add_ProgramNameInput: "programs-add-program-name-input",
+  Programs_Add_AddProgram: "programs-add-add-program",
 } as const;

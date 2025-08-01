@@ -27,6 +27,7 @@ export const USER_ID = {
     "00000000-0000-0000-0001-000000000006",
   "add-equipment-exercise/bodyweight.integration.test.tsx":
     "00000000-0000-0000-0001-000000000007",
+  "add-program.integration.test.tsx": "00000000-0000-0000-0001-000000000008",
 };
 
 const SET_OF_IDS = new Set(Object.values(USER_ID));

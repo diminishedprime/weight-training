@@ -5,6 +5,7 @@ import { ExerciseType, GetAddProgramInfoResult } from "@/common-types";
 import EditWeight from "@/components/edit/EditWeight";
 import LabeledValue from "@/components/LabeledValue";
 import TODO from "@/components/TODO";
+import { TestIds } from "@/test-ids";
 import { exerciseTypeUIStringBrief, weightUnitUIString } from "@/uiStrings";
 import IconPlus from "@mui/icons-material/Add";
 import {
@@ -41,6 +42,13 @@ const ProgramsAddClient: React.FC<ProgramsAddClientProps> = (props) => {
           size="small"
           value={api.programName}
           onChange={(e) => api.setProgramName((_) => e.target.value)}
+          slotProps={{
+            // TODO: easy, all of the other form inputs should do this, I think
+            // I'm using deprecated inputProps for that.
+            htmlInput: {
+              "data-testid": TestIds.Programs_Add_ProgramNameInput,
+            },
+          }}
         />
       </LabeledValue>
 
@@ -146,7 +154,12 @@ const ProgramsAddClient: React.FC<ProgramsAddClientProps> = (props) => {
       </LabeledValue>
       <Stack sx={{ justifyContent: "end", alignItems: "end" }}>
         <form action={api.boundAddProgramAction}>
-          <Fab variant="extended" color="primary" type="submit">
+          <Fab
+            variant="extended"
+            color="primary"
+            type="submit"
+            data-testid={TestIds.Programs_Add_AddProgram}
+          >
             <IconPlus sx={{ mr: 1 }} />
             Add
           </Fab>
