@@ -1,5 +1,6 @@
 "use client";
 
+import { signOut } from "@/components/banner/actions";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -32,7 +33,7 @@ const useAuthenticatedUserViewAPI = (props: AuthenticatedUserViewProps) => {
   }, []);
 
   const handleSignOut = useCallback(async () => {
-    await handleSignOut();
+    await signOut();
     setAnchorEl(null);
   }, []);
 

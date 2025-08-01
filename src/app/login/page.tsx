@@ -1,5 +1,6 @@
 "use client";
 import { loginAction } from "@/app/login/actions";
+import TODO from "@/components/TODO";
 import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -37,6 +38,7 @@ export default function LoginPage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <LoginContent />
+      <TODO>Support other login-providers.</TODO>
     </Suspense>
   );
 }

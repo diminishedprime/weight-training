@@ -20,13 +20,15 @@ BEGIN
   END IF;
   IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 's_wendler_details') THEN
     CREATE TYPE public.s_wendler_details AS (
-      movement_id uuid,
-      wendler_program_id uuid,
+      id uuid,
+      wendler_program_cycle_id uuid,
+      user_id uuid,
+      exercise_type exercise_type_enum,
       training_max_value numeric,
       increase_amount_value numeric,
       weight_unit weight_unit_enum,
-      cycle_type wendler_cycle_type_enum,
-      exercise_type exercise_type_enum
+      block_id uuid,
+      cycle_type wendler_cycle_type_enum
     );
   END IF;
   IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 's_block_row') THEN
@@ -100,17 +102,19 @@ BEGIN
         ),
         (
           SELECT ROW(
-            wpm.id,
-            wpm.wendler_program_id,
-            wpm.training_max_value,
-            wpm.increase_amount_value,
-            wpm.weight_unit,
-            wpmb.cycle_type,
-            wpm.exercise_type
+            wpcm.id,
+            wpcm.wendler_program_cycle_id,
+            wpcm.user_id,
+            wpcm.exercise_type,
+            wpcm.training_max_value,
+            wpcm.increase_amount_value,
+            wpcm.weight_unit,
+            wpcm.block_id,
+            wpc.cycle_type
           )::public.s_wendler_details
-          FROM public.wendler_program_movement_block wpmb
-          JOIN public.wendler_program_movement wpm ON wpmb.movement_id = wpm.id
-          WHERE wpmb.block_id = eb.id AND wpm.user_id = p_user_id
+          FROM public.wendler_program_cycle_movement wpcm
+          JOIN public.wendler_program_cycle wpc ON wpc.id = wpcm.wendler_program_cycle_id
+          WHERE wpcm.block_id = eb.id AND wpcm.user_id = p_user_id
           LIMIT 1
         )
       )::public.s_block_row

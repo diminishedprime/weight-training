@@ -73,12 +73,14 @@ BEGIN
     user_id,
     exercise_type,
     equipment_type,
-    completion_status
+    completion_status,
+    name
   ) VALUES (
     p_user_id::uuid,
     p_exercise_type::exercise_type_enum,
     'barbell'::equipment_type_enum,
-    'not_completed'::completion_status_enum
+    'not_completed'::completion_status_enum,
+    'Wendler ' || _system.exercise_type_ui_string_brief(p_exercise_type) || ' ' || p_cycle_type::text
   ) RETURNING id INTO v_block_id;
 
   -- Set warmup multiplicands based on cycle type

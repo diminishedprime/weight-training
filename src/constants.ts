@@ -109,6 +109,8 @@ const pathForProgramsAddPage = `${pathForProgramsPage}/add`;
 // stuff. As a part of that, also remove the export const for the paths/paths
 // helper functions.
 export const PATHS = {
+  Home: "/",
+  Exercise: "/exercise",
   Superblocks: pathForSuperblocksPage,
   PaginatedSuperblocks: pathForPaginatedSuperblocksPage,
   SuperblocksById: (superblockId: string) =>

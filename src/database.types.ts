@@ -18,7 +18,7 @@ export type Database = {
           equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id: string;
-          name: string | null;
+          name: string;
           notes: string | null;
           started_at: string | null;
           updated_at: string | null;
@@ -32,7 +32,7 @@ export type Database = {
           equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
-          name?: string | null;
+          name: string;
           notes?: string | null;
           started_at?: string | null;
           updated_at?: string | null;
@@ -46,7 +46,7 @@ export type Database = {
           equipment_type?: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
-          name?: string | null;
+          name?: string;
           notes?: string | null;
           started_at?: string | null;
           updated_at?: string | null;
@@ -902,15 +902,17 @@ export type Database = {
         next_performed_at: string | null;
       };
       s_wendler_details: {
-        movement_id: string | null;
-        wendler_program_id: string | null;
+        id: string | null;
+        wendler_program_cycle_id: string | null;
+        user_id: string | null;
+        exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null;
         training_max_value: number | null;
         increase_amount_value: number | null;
         weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
+        block_id: string | null;
         cycle_type:
           | Database["public"]["Enums"]["wendler_cycle_type_enum"]
           | null;
-        exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null;
       };
       superblock_row: {
         id: string | null;

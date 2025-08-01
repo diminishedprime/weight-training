@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS public.exercises (
 CREATE TABLE IF NOT EXISTS public.exercise_block (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
-  name text NULL,
+  name text NOT NULL,
   notes text NULL,
   exercise_type exercise_type_enum NOT NULL,
   equipment_type equipment_type_enum NOT NULL,

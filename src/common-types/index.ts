@@ -73,13 +73,13 @@ export type NarrowedSuperblock = RequiredNonNullable<
       Omit<SuperblockBlocksRow, "exercises" | "wendler_details"> & {
         wendler_details: RequiredNonNullable<
           SuperblocksWendlerDetailsRow,
-          | "movement_id"
+          | "id"
           | "cycle_type"
           | "training_max_value"
           | "weight_unit"
           | "exercise_type"
           | "increase_amount_value"
-          | "wendler_program_id"
+          | "wendler_program_cycle_id"
         > | null;
         exercises: RequiredNonNullable<
           SuperblocksBlocksRowExercisesRow,
