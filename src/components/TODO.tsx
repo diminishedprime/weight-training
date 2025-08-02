@@ -1,11 +1,12 @@
 "use client";
 
 import { Paper, Typography, useTheme } from "@mui/material";
-import { green } from "@mui/material/colors";
+import { green, purple } from "@mui/material/colors";
 
 interface TODOProps {
   children: React.ReactNode;
   easy?: boolean;
+  done?: boolean;
 }
 
 // Change this to true if the TODOs are getting in your way.
@@ -17,21 +18,26 @@ const TODO: React.FC<TODOProps> = (props) => {
     return null; // Hide all TODOs globally
   }
   const isEasy = !!props.easy;
+  const isDone = !!props.done;
   return (
     <Paper
       sx={{
         p: 1,
         m: 1,
-        backgroundColor: isEasy ? green[50] : theme.palette.grey[100],
+        backgroundColor: isDone
+          ? green[50]
+          : isEasy
+            ? purple[50]
+            : theme.palette.grey[100],
       }}
     >
       <Typography fontFamily="monospace" variant="subtitle2">
         <Typography
           component="span"
-          color={isEasy ? "success.main" : "error"}
+          color={isDone ? "success.main" : isEasy ? "secondary.main" : "error"}
           sx={{ mr: 1 }}
         >
-          TODO
+          {isDone ? "Done!" : "TODO"}
           {props.easy ? " (easy)" : ""}
         </Typography>
         {props.children}

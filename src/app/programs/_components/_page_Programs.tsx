@@ -9,7 +9,7 @@ interface PageProgramsProps {
 export default async function PagePrograms(props: PageProgramsProps) {
   const { userId } = await requireLoggedInUser(PATHS.Programs);
 
-  const { page_count, programs } = await getWendlerPrograms(
+  const { page_count, program_overviews } = await getWendlerPrograms(
     userId,
     props.currentPageNum,
   );
@@ -17,16 +17,16 @@ export default async function PagePrograms(props: PageProgramsProps) {
   return (
     <ProgramsClient
       pageCount={page_count}
-      programOverviews={programs}
+      programOverviews={program_overviews}
       currentPageNum={props.currentPageNum}
     />
   );
 }
 
 const getWendlerPrograms = async (userId: string, pageNum: number) => {
-  const programs = await supabaseRPC("get_wendler_programs", {
+  const programOverviews = await supabaseRPC("get_wendler_program_overviews", {
     p_user_id: userId,
     p_page_num: pageNum,
   });
-  return programs as GetWendlerProgramsResult;
+  return programOverviews as GetWendlerProgramsResult;
 };

@@ -1,3 +1,4 @@
+"use server";
 import ProgramsAddClient from "@/app/programs/add/_components/ProgramsAddClient";
 import { GetAddProgramInfoResult } from "@/common-types";
 import { PATHS } from "@/constants";
@@ -8,7 +9,7 @@ import { z } from "zod";
 export default async function PageProgramsAdd() {
   const { userId } = await requireLoggedInUser(PATHS.Programs_Add);
   const [formDraft, getAddProgramInfoResult] = await Promise.all([
-    getFormDraftF(userId),
+    getProgramsAddFormDraft(userId),
     getAddProgramInfoResultF(userId),
   ]);
 
@@ -34,7 +35,9 @@ const FormDraftSchema = z.object({
 
 export type ProgramsAddFormDraft = z.infer<typeof FormDraftSchema> | null;
 
-const getFormDraftF = async (userId: string): Promise<ProgramsAddFormDraft> => {
+export const getProgramsAddFormDraft = async (
+  userId: string,
+): Promise<ProgramsAddFormDraft> => {
   const formDraftRaw = await supabaseRPC("get_form_draft", {
     p_user_id: userId,
     p_page_path: PATHS.Programs_Add,

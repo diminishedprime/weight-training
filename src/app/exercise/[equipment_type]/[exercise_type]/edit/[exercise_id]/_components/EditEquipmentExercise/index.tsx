@@ -1,7 +1,6 @@
 "use client";
 import { useEditEquipmentExerciseAPI } from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_components/EditEquipmentExercise/useEditEquipmentExerciseAPI";
 import {
-  CompletionStatus,
   EquipmentType,
   ExerciseType,
   GetExerciseResult,
@@ -37,12 +36,13 @@ const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
     >
       <EquipmentWeightEditor
         equipmentType={props.equipmentType}
-        weightValue={api.targetWeight}
+        targetWeightValue={api.targetWeightValue}
         weightUnit={api.weightUnit}
-        setWeightValue={api.setTargetWeight}
+        setActualWeightValue={api.setActualWeightValue}
         roundingMode={api.roundingMode}
         preferences={props.preferences}
         barWeightValue={api.barWeightValue}
+        actualWeightValue={api.actualWeightValue}
       />
       <Stack spacing={1}>
         <Stack spacing={1} alignItems="center">
@@ -62,9 +62,7 @@ const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
           >
             <SelectCompletionStatus
               completionStatus={api.completionStatus}
-              onCompletionStatusChange={(status: CompletionStatus) =>
-                api.setCompletionStatus(status)
-              }
+              setCompletionStatus={api.setCompletionStatus}
             />
             <SelectPerceivedEffort
               perceivedEffort={api.perceivedEffort}

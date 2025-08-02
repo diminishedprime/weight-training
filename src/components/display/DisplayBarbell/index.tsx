@@ -2,7 +2,7 @@ import { RoundingMode, WeightUnit } from "@/common-types";
 import DisplayCollar from "@/components/display/DisplayBarbell/DisplayCollar";
 import DisplayInnerBar from "@/components/display/DisplayBarbell/DisplayInnerBar";
 import DisplaySleeve from "@/components/display/DisplayBarbell/DisplaySleeve";
-import { actualWeightForTarget, minimalPlatesForTargetWeight } from "@/util";
+import { minimalPlatesForTargetWeight } from "@/util";
 import { Box } from "@mui/material";
 
 // Overall width of the barbell.
@@ -125,6 +125,7 @@ export const MAX_DIAMETER_MM = Math.max(
 export interface DisplayBarbellProps {
   weightUnit: WeightUnit;
   targetWeightValue: number;
+  actualWeightValue: number | undefined;
   barWeightValue: number;
   roundingMode: RoundingMode;
   availablePlates: number[];
@@ -141,12 +142,6 @@ const DisplayBarbell: React.FC<DisplayBarbellProps> = (props) => {
     props.targetWeightValue,
     props.barWeightValue,
     props.availablePlates,
-    props.roundingMode,
-  );
-  const { actualWeight } = actualWeightForTarget(
-    props.targetWeightValue,
-    props.barWeightValue,
-    plates,
     props.roundingMode,
   );
   return (
@@ -167,9 +162,11 @@ const DisplayBarbell: React.FC<DisplayBarbellProps> = (props) => {
       <DisplayInnerBar
         weightUnit={props.weightUnit}
         showWeight={props.showWeight}
-        actualWeightValue={actualWeight}
+        actualWeightValue={props.actualWeightValue}
         targetWeightValue={props.targetWeightValue}
         showDifference={props.showDifference}
+        availablePlates={props.availablePlates}
+        roundingMode={props.roundingMode}
       />
       <DisplayCollar side="right" />
       <DisplaySleeve

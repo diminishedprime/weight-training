@@ -55,7 +55,8 @@ CREATE OR REPLACE FUNCTION _impl.add_block (
   p_cycle_type public.wendler_cycle_type_enum,
   p_training_max_value numeric,
   p_weight_unit weight_unit_enum,
-  p_increase_amount_value numeric
+  p_increase_amount_value numeric,
+  p_movement_max_id uuid
 ) RETURNS uuid AS $$
 DECLARE
   v_block_id uuid;
@@ -79,7 +80,7 @@ BEGIN
     p_user_id::uuid,
     p_exercise_type::exercise_type_enum,
     'barbell'::equipment_type_enum,
-    'not_completed'::completion_status_enum,
+    'not_started'::completion_status_enum,
     'Wendler ' || _system.exercise_type_ui_string_brief(p_exercise_type) || ' ' || p_cycle_type::text
   ) RETURNING id INTO v_block_id;
 
@@ -147,22 +148,19 @@ BEGIN
     v_block_order := v_block_order + 1;
   END LOOP;
 
+  -- Insert into wendler_program_cycle_movement (remove non-existent columns)
   INSERT INTO public.wendler_program_cycle_movement (
     wendler_program_cycle_id,
     user_id,
     exercise_type,
-    training_max_value,
-    increase_amount_value,
-    weight_unit,
-    block_id
+    block_id,
+    movement_max_id
   ) VALUES (
     p_cycle_id,
     p_user_id,
     p_exercise_type,
-    p_training_max_value,
-    p_increase_amount_value,
-    p_weight_unit,
-    v_block_id
+    v_block_id,
+    p_movement_max_id
   );
   RETURN v_block_id;
 END $$ LANGUAGE plpgsql VOLATILE;
@@ -173,25 +171,15 @@ CREATE OR REPLACE FUNCTION _impl.add_movement (
   p_cycle_type public.wendler_cycle_type_enum,
   p_movement_type exercise_type_enum,
   p_training_max_value numeric,
+  p_increase numeric,
+  p_movement_max_id uuid,
   p_weight_unit weight_unit_enum
 ) RETURNS void AS $$
 DECLARE
-  v_increase_amount_value numeric;
   v_block_id uuid;
   v_superblock_id uuid;
   v_superblock_name text;
 BEGIN
-  SELECT COALESCE(
-    (
-      SELECT wpcm.training_max_value
-      FROM public.wendler_program_cycle_movement wpcm
-      JOIN public.exercise_block eb ON wpcm.block_id = eb.id
-      WHERE wpcm.user_id = p_user_id::uuid
-        AND wpcm.exercise_type = p_movement_type::exercise_type_enum
-      ORDER BY eb.started_at DESC NULLS LAST
-      LIMIT 1
-    ), p_training_max_value::numeric
-  ) INTO v_increase_amount_value;
 
   v_block_id := _impl.add_block(
     p_user_id => p_user_id::uuid,
@@ -200,7 +188,8 @@ BEGIN
     p_cycle_type => p_cycle_type::public.wendler_cycle_type_enum,
     p_training_max_value => p_training_max_value::numeric,
     p_weight_unit => p_weight_unit::weight_unit_enum,
-    p_increase_amount_value => v_increase_amount_value
+    p_increase_amount_value => p_increase::numeric,
+    p_movement_max_id => p_movement_max_id::uuid
   );
 
   -- Determine superblock name based on movement type
@@ -215,10 +204,12 @@ BEGIN
   -- Create a superblock for this block
   INSERT INTO public.exercise_superblock (
     user_id,
-    name
+    name,
+    completion_status
   ) VALUES (
     p_user_id::uuid,
-    v_superblock_name
+    v_superblock_name,
+    'not_started'::completion_status_enum
   ) RETURNING id INTO v_superblock_id;
 
   -- Associate the block with the superblock
@@ -233,6 +224,29 @@ BEGIN
   );
 END $$ LANGUAGE plpgsql VOLATILE;
 
+CREATE OR REPLACE FUNCTION _impl.create_movement_max (
+  p_user_id uuid,
+  p_target_max_value numeric,
+  p_increase_amount_value numeric,
+  p_weight_unit weight_unit_enum
+) RETURNS uuid as $$
+DECLARE
+  v_id uuid;
+BEGIN
+  INSERT INTO public.wendler_movement_max (
+    user_id,
+    target_max_value,
+    increase_amount_value,
+    weight_unit
+  ) VALUES (
+    p_user_id::uuid,
+    p_target_max_value::numeric,
+    p_increase_amount_value::numeric,
+    p_weight_unit::weight_unit_enum
+  ) RETURNING id INTO v_id;
+  RETURN v_id;
+END $$ LANGUAGE plpgsql VOLATILE;
+
 CREATE OR REPLACE FUNCTION _impl.add_cycle (
   p_user_id uuid,
   p_program_id uuid,
@@ -241,10 +255,18 @@ CREATE OR REPLACE FUNCTION _impl.add_cycle (
   p_deadlift_target_max numeric,
   p_overhead_press_target_max numeric,
   p_bench_press_target_max numeric,
+  p_squat_increase numeric,
+  p_deadlift_increase numeric,
+  p_overhead_press_increase numeric,
+  p_bench_press_increase numeric,
   p_weight_unit weight_unit_enum
 ) RETURNS void AS $$
 DECLARE
   v_cycle_id uuid;
+  v_squat_movement_max_id uuid;
+  v_deadlift_movement_max_id uuid;
+  v_overhead_press_movement_max_id uuid;
+  v_bench_press_movement_max_id uuid;
 BEGIN
 
   INSERT INTO public.wendler_program_cycle (
@@ -257,36 +279,72 @@ BEGIN
     p_cycle_type::public.wendler_cycle_type_enum
   ) RETURNING id INTO v_cycle_id;
 
+SELECT _impl.create_movement_max(
+      p_user_id => p_user_id::uuid,
+      p_target_max_value => p_squat_target_max::numeric,
+      p_increase_amount_value => p_squat_increase::numeric,
+      p_weight_unit => p_weight_unit::weight_unit_enum
+    ) INTO v_squat_movement_max_id;
+
   PERFORM _impl.add_movement(
     p_user_id => p_user_id::uuid,
     p_cycle_id => v_cycle_id::uuid,
     p_cycle_type => p_cycle_type::public.wendler_cycle_type_enum,
     p_movement_type => 'barbell_back_squat'::exercise_type_enum,
     p_training_max_value => p_squat_target_max::numeric,
+    p_increase => p_squat_increase::numeric,
+    p_movement_max_id => v_squat_movement_max_id::uuid,
     p_weight_unit => p_weight_unit::weight_unit_enum
   );
+
+  SELECT _impl.create_movement_max(
+      p_user_id => p_user_id::uuid,
+      p_target_max_value => p_deadlift_target_max::numeric,
+      p_increase_amount_value => p_deadlift_increase::numeric,
+      p_weight_unit => p_weight_unit::weight_unit_enum
+    ) INTO v_deadlift_movement_max_id;
   PERFORM _impl.add_movement(
     p_user_id => p_user_id::uuid,
     p_cycle_id => v_cycle_id::uuid,
     p_cycle_type => p_cycle_type::public.wendler_cycle_type_enum,
     p_movement_type => 'barbell_deadlift'::exercise_type_enum,
     p_training_max_value => p_deadlift_target_max::numeric,
+    p_increase => p_deadlift_increase::numeric,
+    p_movement_max_id => v_deadlift_movement_max_id::uuid,
     p_weight_unit => p_weight_unit::weight_unit_enum
   );
+
+  SELECT _impl.create_movement_max(
+      p_user_id => p_user_id::uuid,
+      p_target_max_value => p_overhead_press_target_max::numeric,
+      p_increase_amount_value => p_overhead_press_increase::numeric,
+      p_weight_unit => p_weight_unit::weight_unit_enum
+    ) INTO v_overhead_press_movement_max_id;
   PERFORM _impl.add_movement(
     p_user_id => p_user_id::uuid,
     p_cycle_id => v_cycle_id::uuid,
     p_cycle_type => p_cycle_type::public.wendler_cycle_type_enum,
     p_movement_type => 'barbell_overhead_press'::exercise_type_enum,
     p_training_max_value => p_overhead_press_target_max::numeric,
+    p_increase => p_overhead_press_increase::numeric,
+    p_movement_max_id => v_overhead_press_movement_max_id::uuid,
     p_weight_unit => p_weight_unit::weight_unit_enum
   );
+
+  SELECT _impl.create_movement_max(
+      p_user_id => p_user_id::uuid,
+      p_target_max_value => p_bench_press_target_max::numeric,
+      p_increase_amount_value => p_bench_press_increase::numeric,
+      p_weight_unit => p_weight_unit::weight_unit_enum
+    ) INTO v_bench_press_movement_max_id;
   PERFORM _impl.add_movement(
     p_user_id => p_user_id::uuid,
     p_cycle_id => v_cycle_id::uuid,
     p_cycle_type => p_cycle_type::public.wendler_cycle_type_enum,
     p_movement_type => 'barbell_bench_press'::exercise_type_enum,
     p_training_max_value => p_bench_press_target_max::numeric,
+    p_increase => p_bench_press_increase::numeric,
+    p_movement_max_id => v_bench_press_movement_max_id::uuid,
     p_weight_unit => p_weight_unit::weight_unit_enum
   );
 END;
@@ -294,27 +352,41 @@ $$ LANGUAGE plpgsql VOLATILE;
 
 CREATE OR REPLACE FUNCTION public.add_wendler_program (
   p_user_id uuid,
+  -- target maxes
   p_squat_target_max numeric,
   p_deadlift_target_max numeric,
   p_overhead_press_target_max numeric,
   p_bench_press_target_max numeric,
+  -- increases
+  p_squat_increase numeric,
+  p_deadlift_increase numeric,
+  p_overhead_press_increase numeric,
+  p_bench_press_increase numeric,
   p_weight_unit weight_unit_enum,
   p_include_deload boolean,
   p_program_name text,
   p_notes text DEFAULT NULL
 ) RETURNS uuid AS $$
+
 DECLARE
   v_program_id uuid;
+  v_next_program_order integer;
 BEGIN
+  -- Get the next program_order for this user
+  SELECT COALESCE(MAX(program_order), 0) + 1 INTO v_next_program_order
+  FROM public.wendler_program
+  WHERE user_id = p_user_id;
 
   INSERT INTO public.wendler_program (
     user_id,
     name,
-    notes
+    notes,
+    program_order
   ) VALUES (
     p_user_id::uuid,
     p_program_name::text,
-    p_notes::text
+    p_notes::text,
+    v_next_program_order
   ) RETURNING id INTO v_program_id;
 
   PERFORM _impl.add_cycle(
@@ -325,6 +397,10 @@ BEGIN
     p_deadlift_target_max => p_deadlift_target_max::numeric,
     p_overhead_press_target_max => p_overhead_press_target_max::numeric,
     p_bench_press_target_max => p_bench_press_target_max::numeric,
+    p_squat_increase => p_squat_increase::numeric,
+    p_deadlift_increase => p_deadlift_increase::numeric,
+    p_overhead_press_increase => p_overhead_press_increase::numeric,
+    p_bench_press_increase => p_bench_press_increase::numeric,
     p_weight_unit => p_weight_unit::weight_unit_enum
   );
 
@@ -335,6 +411,10 @@ BEGIN
     p_squat_target_max => p_squat_target_max::numeric,
     p_deadlift_target_max => p_deadlift_target_max::numeric,
     p_overhead_press_target_max => p_overhead_press_target_max::numeric,
+    p_squat_increase => p_squat_increase::numeric,
+    p_deadlift_increase => p_deadlift_increase::numeric,
+    p_overhead_press_increase => p_overhead_press_increase::numeric,
+    p_bench_press_increase => p_bench_press_increase::numeric,
     p_bench_press_target_max => p_bench_press_target_max::numeric,
     p_weight_unit => p_weight_unit::weight_unit_enum
   );
@@ -347,6 +427,10 @@ BEGIN
     p_deadlift_target_max => p_deadlift_target_max::numeric,
     p_overhead_press_target_max => p_overhead_press_target_max::numeric,
     p_bench_press_target_max => p_bench_press_target_max::numeric,
+    p_squat_increase => p_squat_increase::numeric,
+    p_deadlift_increase => p_deadlift_increase::numeric,
+    p_overhead_press_increase => p_overhead_press_increase::numeric,
+    p_bench_press_increase => p_bench_press_increase::numeric,
     p_weight_unit => p_weight_unit::weight_unit_enum
   );
 
@@ -359,6 +443,10 @@ BEGIN
       p_deadlift_target_max => p_deadlift_target_max::numeric,
       p_overhead_press_target_max => p_overhead_press_target_max::numeric,
       p_bench_press_target_max => p_bench_press_target_max::numeric,
+      p_squat_increase => p_squat_increase::numeric,
+      p_deadlift_increase => p_deadlift_increase::numeric,
+      p_overhead_press_increase => p_overhead_press_increase::numeric,
+      p_bench_press_increase => p_bench_press_increase::numeric,
       p_weight_unit => p_weight_unit::weight_unit_enum
     );
   END IF;

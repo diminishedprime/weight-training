@@ -12,42 +12,17 @@ import React from "react";
 
 interface SelectCompletionStatusProps {
   completionStatus: CompletionStatus;
-  onCompletionStatusChange: (status: CompletionStatus) => void;
-  notCompleted?: true;
+  setCompletionStatus: React.Dispatch<React.SetStateAction<CompletionStatus>>;
+  notStarted?: true;
   customLabel?: string;
   boundFinishAction?: (formData: FormData) => Promise<void>;
   boundSkipAction?: (formData: FormData) => Promise<void>;
   boundFailAction?: (formData: FormData) => Promise<void>;
 }
 
-const useSelectCompletionStatusAPI = (props: SelectCompletionStatusProps) => {
-  const { completionStatus, onCompletionStatusChange } = props;
-
-  const [localCompletionStatus, setLocalCompletionStatus] =
-    React.useState<CompletionStatus>(completionStatus);
-
-  const localOnCompletionStatusChange = React.useCallback(
-    (newValue: CompletionStatus) => {
-      setLocalCompletionStatus(newValue);
-    },
-    [],
-  );
-
-  React.useEffect(() => {
-    onCompletionStatusChange(localCompletionStatus);
-  }, [localCompletionStatus, onCompletionStatusChange]);
-
-  return {
-    completionStatus: localCompletionStatus,
-    onCompletionStatusChange: localOnCompletionStatusChange,
-  };
-};
-
 const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
   props,
 ) => {
-  const api = useSelectCompletionStatusAPI(props);
-
   // Helper to conditionally wrap a ToggleButton in a form if a boundAction is provided
   const renderWithOptionalForm = (
     action: ((formData: FormData) => Promise<void>) | undefined,
@@ -64,9 +39,9 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
       <FormLabel>{props.customLabel || "Completion Status"}</FormLabel>
       <ToggleButtonGroup
         color="primary"
-        value={api.completionStatus}
+        value={props.completionStatus}
         exclusive
-        onChange={(_e, val) => val && api.onCompletionStatusChange(val)}
+        onChange={(_e, val) => val && props.setCompletionStatus(val)}
         size="small"
         aria-label="Completion Status"
       >
@@ -84,15 +59,15 @@ const SelectCompletionStatus: React.FC<SelectCompletionStatusProps> = (
             </Tooltip>
           </ToggleButton>,
         )}
-        {props.notCompleted && (
+        {props.notStarted && (
           <ToggleButton
-            data-testid={TestIds.CompletionStatus("not_completed")}
+            data-testid={TestIds.CompletionStatus("not_started")}
             value="not_completed"
-            aria-label="Not Completed"
+            aria-label="Not Starte"
             size="small"
           >
-            <Tooltip title="Not Completed">
-              <DisplayCompletionStatus completionStatus="not_completed" />
+            <Tooltip title="Not Started">
+              <DisplayCompletionStatus completionStatus="not_started" />
             </Tooltip>
           </ToggleButton>
         )}

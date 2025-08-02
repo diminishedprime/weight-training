@@ -197,12 +197,14 @@ export const completionStatusUIString = (
   switch (status) {
     case "completed":
       return "Completed";
-    case "not_completed":
-      return "Not Completed";
+    case "not_started":
+      return "Not Started";
     case "failed":
       return "Failed";
     case "skipped":
       return "Skipped";
+    case "in_progress":
+      return "In Progress";
 
     // Stryker disable all
     /* v8 ignore next 5 */
@@ -282,11 +284,6 @@ export const userPreferenceUIString = (
     // These probably shouldn't be mapped to, but that's okay.
     case "user_id":
       return "User ID";
-    case "created_at":
-      return "Created At";
-    case "updated_at":
-      return "Updated At";
-
     // Stryker disable all
     /* v8 ignore next 5 */
     default: {

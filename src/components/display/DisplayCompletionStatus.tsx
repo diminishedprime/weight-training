@@ -18,7 +18,7 @@ const DisplayCompletionStatus: React.FC<DisplayCompletionStatusProps> = (
       return <CancelIcon color="error" />;
     case "skipped":
       return <SkipNextIcon color="secondary" />;
-    case "not_completed":
+    case "not_started":
       return <RadioButtonUncheckedIcon color="warning" />;
     default:
       return <span>Unknown Status</span>;

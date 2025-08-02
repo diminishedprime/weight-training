@@ -14,42 +14,36 @@ export type Database = {
           active_exercise_id: string | null;
           completed_at: string | null;
           completion_status: Database["public"]["Enums"]["completion_status_enum"];
-          created_at: string | null;
           equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id: string;
           name: string;
           notes: string | null;
           started_at: string | null;
-          updated_at: string | null;
           user_id: string;
         };
         Insert: {
           active_exercise_id?: string | null;
           completed_at?: string | null;
           completion_status?: Database["public"]["Enums"]["completion_status_enum"];
-          created_at?: string | null;
           equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
           name: string;
           notes?: string | null;
           started_at?: string | null;
-          updated_at?: string | null;
           user_id: string;
         };
         Update: {
           active_exercise_id?: string | null;
           completed_at?: string | null;
           completion_status?: Database["public"]["Enums"]["completion_status_enum"];
-          created_at?: string | null;
           equipment_type?: Database["public"]["Enums"]["equipment_type_enum"];
           exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
           name?: string;
           notes?: string | null;
           started_at?: string | null;
-          updated_at?: string | null;
           user_id?: string;
         };
         Relationships: [
@@ -97,33 +91,33 @@ export type Database = {
       };
       exercise_superblock: {
         Row: {
+          active_block_id: string | null;
           completed_at: string | null;
-          created_at: string | null;
+          completion_status: Database["public"]["Enums"]["completion_status_enum"];
           id: string;
           name: string | null;
           notes: string | null;
           started_at: string | null;
-          updated_at: string | null;
           user_id: string;
         };
         Insert: {
+          active_block_id?: string | null;
           completed_at?: string | null;
-          created_at?: string | null;
+          completion_status: Database["public"]["Enums"]["completion_status_enum"];
           id?: string;
           name?: string | null;
           notes?: string | null;
           started_at?: string | null;
-          updated_at?: string | null;
           user_id: string;
         };
         Update: {
+          active_block_id?: string | null;
           completed_at?: string | null;
-          created_at?: string | null;
+          completion_status?: Database["public"]["Enums"]["completion_status_enum"];
           id?: string;
           name?: string | null;
           notes?: string | null;
           started_at?: string | null;
-          updated_at?: string | null;
           user_id?: string;
         };
         Relationships: [];
@@ -220,30 +214,24 @@ export type Database = {
       };
       form_drafts: {
         Row: {
-          created_at: string;
           expires_at: string;
           form_data: Json;
           id: string;
           page_path: string;
-          updated_at: string;
           user_id: string;
         };
         Insert: {
-          created_at?: string;
           expires_at?: string;
           form_data: Json;
           id?: string;
           page_path: string;
-          updated_at?: string;
           user_id: string;
         };
         Update: {
-          created_at?: string;
           expires_at?: string;
           form_data?: Json;
           id?: string;
           page_path?: string;
-          updated_at?: string;
           user_id?: string;
         };
         Relationships: [];
@@ -333,80 +321,113 @@ export type Database = {
           available_dumbbells_lbs: number[] | null;
           available_kettlebells_lbs: number[] | null;
           available_plates_lbs: number[] | null;
-          created_at: string | null;
           default_rest_time: number | null;
           id: string;
           preferred_weight_unit:
             | Database["public"]["Enums"]["weight_unit_enum"]
             | null;
-          updated_at: string | null;
           user_id: string;
         };
         Insert: {
           available_dumbbells_lbs?: number[] | null;
           available_kettlebells_lbs?: number[] | null;
           available_plates_lbs?: number[] | null;
-          created_at?: string | null;
           default_rest_time?: number | null;
           id?: string;
           preferred_weight_unit?:
             | Database["public"]["Enums"]["weight_unit_enum"]
             | null;
-          updated_at?: string | null;
           user_id: string;
         };
         Update: {
           available_dumbbells_lbs?: number[] | null;
           available_kettlebells_lbs?: number[] | null;
           available_plates_lbs?: number[] | null;
-          created_at?: string | null;
           default_rest_time?: number | null;
           id?: string;
           preferred_weight_unit?:
             | Database["public"]["Enums"]["weight_unit_enum"]
             | null;
-          updated_at?: string | null;
           user_id?: string;
+        };
+        Relationships: [];
+      };
+      wendler_movement_max: {
+        Row: {
+          id: string;
+          increase_amount_value: number;
+          target_max_value: number;
+          user_id: string;
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+        };
+        Insert: {
+          id?: string;
+          increase_amount_value: number;
+          target_max_value: number;
+          user_id: string;
+          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+        };
+        Update: {
+          id?: string;
+          increase_amount_value?: number;
+          target_max_value?: number;
+          user_id?: string;
+          weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
         };
         Relationships: [];
       };
       wendler_program: {
         Row: {
+          completed_at: string | null;
           id: string;
           name: string;
           notes: string | null;
+          program_order: number;
+          started_at: string | null;
           user_id: string;
         };
         Insert: {
+          completed_at?: string | null;
           id?: string;
           name: string;
           notes?: string | null;
+          program_order: number;
+          started_at?: string | null;
           user_id: string;
         };
         Update: {
+          completed_at?: string | null;
           id?: string;
           name?: string;
           notes?: string | null;
+          program_order?: number;
+          started_at?: string | null;
           user_id?: string;
         };
         Relationships: [];
       };
       wendler_program_cycle: {
         Row: {
+          completed_at: string | null;
           cycle_type: Database["public"]["Enums"]["wendler_cycle_type_enum"];
           id: string;
+          started_at: string | null;
           user_id: string;
           wendler_program_id: string;
         };
         Insert: {
+          completed_at?: string | null;
           cycle_type: Database["public"]["Enums"]["wendler_cycle_type_enum"];
           id?: string;
+          started_at?: string | null;
           user_id: string;
           wendler_program_id: string;
         };
         Update: {
+          completed_at?: string | null;
           cycle_type?: Database["public"]["Enums"]["wendler_cycle_type_enum"];
           id?: string;
+          started_at?: string | null;
           user_id?: string;
           wendler_program_id?: string;
         };
@@ -423,32 +444,32 @@ export type Database = {
       wendler_program_cycle_movement: {
         Row: {
           block_id: string;
+          completed_at: string | null;
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id: string;
-          increase_amount_value: number;
-          training_max_value: number;
+          movement_max_id: string;
+          started_at: string | null;
           user_id: string;
-          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
           wendler_program_cycle_id: string;
         };
         Insert: {
           block_id: string;
+          completed_at?: string | null;
           exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
-          increase_amount_value: number;
-          training_max_value: number;
+          movement_max_id: string;
+          started_at?: string | null;
           user_id: string;
-          weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
           wendler_program_cycle_id: string;
         };
         Update: {
           block_id?: string;
+          completed_at?: string | null;
           exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
           id?: string;
-          increase_amount_value?: number;
-          training_max_value?: number;
+          movement_max_id?: string;
+          started_at?: string | null;
           user_id?: string;
-          weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
           wendler_program_cycle_id?: string;
         };
         Relationships: [
@@ -457,6 +478,13 @@ export type Database = {
             columns: ["block_id"];
             isOneToOne: false;
             referencedRelation: "exercise_block";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "fk_movement_max";
+            columns: ["movement_max_id"];
+            isOneToOne: false;
+            referencedRelation: "wendler_movement_max";
             referencedColumns: ["id"];
           },
           {
@@ -480,6 +508,10 @@ export type Database = {
           p_deadlift_target_max: number;
           p_overhead_press_target_max: number;
           p_bench_press_target_max: number;
+          p_squat_increase: number;
+          p_deadlift_increase: number;
+          p_overhead_press_increase: number;
+          p_bench_press_increase: number;
           p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
           p_include_deload: boolean;
           p_program_name: string;
@@ -509,6 +541,21 @@ export type Database = {
         };
         Returns: string;
       };
+      finish_exercise: {
+        Args: {
+          p_user_id: string;
+          p_superblock_id: string;
+          p_block_id: string;
+          p_exercise_id: string;
+          p_actual_weight_value: number;
+          p_reps: number;
+          p_is_warmup: boolean;
+          p_is_amrap: boolean;
+          p_notes?: string;
+          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
+        };
+        Returns: Database["public"]["CompositeTypes"]["get_perform_superblock_result"];
+      };
       get_add_program_info: {
         Args: { p_user_id: string };
         Returns: Database["public"]["CompositeTypes"]["get_add_program_info_result"];
@@ -532,6 +579,10 @@ export type Database = {
       get_form_draft: {
         Args: { p_user_id: string; p_page_path: string };
         Returns: Json;
+      };
+      get_perform_superblock: {
+        Args: { p_user_id: string; p_superblock_id: string };
+        Returns: Database["public"]["CompositeTypes"]["get_perform_superblock_result"];
       };
       get_personal_record_exercise_types: {
         Args: { p_user_id: string };
@@ -562,9 +613,9 @@ export type Database = {
         Args: { p_user_id: string; p_program_id: string };
         Returns: Database["public"]["CompositeTypes"]["get_wendler_program_result"];
       };
-      get_wendler_programs: {
+      get_wendler_program_overviews: {
         Args: { p_user_id: string; p_page_num: number };
-        Returns: Database["public"]["CompositeTypes"]["get_wendler_programs_result"];
+        Returns: Database["public"]["CompositeTypes"]["get_wendler_program_overviews_result"];
       };
       save_form_draft: {
         Args: {
@@ -574,6 +625,14 @@ export type Database = {
           p_ttl_days?: number;
         };
         Returns: undefined;
+      };
+      set_active_block: {
+        Args: {
+          p_user_id: string;
+          p_superblock_id: string;
+          p_block_id: string;
+        };
+        Returns: Database["public"]["CompositeTypes"]["set_active_block_result"];
       };
       set_target_max: {
         Args: {
@@ -619,7 +678,8 @@ export type Database = {
     Enums: {
       completion_status_enum:
         | "completed"
-        | "not_completed"
+        | "not_started"
+        | "in_progress"
         | "failed"
         | "skipped";
       equipment_type_enum:
@@ -704,8 +764,6 @@ export type Database = {
         active_exercise_id: string | null;
         started_at: string | null;
         completed_at: string | null;
-        created_at: string | null;
-        updated_at: string | null;
         total_exercises: number | null;
         current_exercise_index: number | null;
         wendler_id: string | null;
@@ -791,6 +849,15 @@ export type Database = {
         is_amrap: boolean | null;
         personal_record: boolean | null;
       };
+      get_perform_superblock_result: {
+        id: string | null;
+        name: string | null;
+        notes: string | null;
+        started_at: string | null;
+        completed_at: string | null;
+        active_block_id: string | null;
+        blocks: Database["public"]["CompositeTypes"]["p_block_row"][] | null;
+      };
       get_superblock_result: {
         id: string | null;
         name: string | null;
@@ -805,6 +872,12 @@ export type Database = {
           | null;
         page_count: number | null;
       };
+      get_wendler_program_overviews_result: {
+        program_overviews:
+          | Database["public"]["CompositeTypes"]["wendler_program_overview"][]
+          | null;
+        page_count: number | null;
+      };
       get_wendler_program_result: {
         id: string | null;
         user_id: string | null;
@@ -816,11 +889,45 @@ export type Database = {
           | Database["public"]["CompositeTypes"]["p_wendler_cycle_row"][]
           | null;
       };
-      get_wendler_programs_result: {
-        programs:
-          | Database["public"]["CompositeTypes"]["wendler_program_row"][]
+      p_block_row: {
+        id: string | null;
+        name: string | null;
+        notes: string | null;
+        started_at: string | null;
+        completed_at: string | null;
+        exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null;
+        equipment_type:
+          | Database["public"]["Enums"]["equipment_type_enum"]
           | null;
-        page_count: number | null;
+        active_exercise_id: string | null;
+        exercises:
+          | Database["public"]["CompositeTypes"]["p_exercise_row"][]
+          | null;
+        wendler_details:
+          | Database["public"]["CompositeTypes"]["p_wendler_details"]
+          | null;
+      };
+      p_exercise_row: {
+        id: string | null;
+        exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null;
+        equipment_type:
+          | Database["public"]["Enums"]["equipment_type_enum"]
+          | null;
+        actual_weight_value: number | null;
+        target_weight_value: number | null;
+        weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
+        reps: number | null;
+        is_warmup: boolean | null;
+        is_amrap: boolean | null;
+        completion_status:
+          | Database["public"]["Enums"]["completion_status_enum"]
+          | null;
+        notes: string | null;
+        perceived_effort:
+          | Database["public"]["Enums"]["perceived_effort_enum"]
+          | null;
+        performed_at: string | null;
+        next_performed_at: string | null;
       };
       p_wendler_cycle_row: {
         id: string | null;
@@ -831,6 +938,19 @@ export type Database = {
         completed_at: string | null;
         movements:
           | Database["public"]["CompositeTypes"]["p_wendler_movement_row"][]
+          | null;
+      };
+      p_wendler_details: {
+        id: string | null;
+        wendler_program_cycle_id: string | null;
+        user_id: string | null;
+        exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null;
+        training_max_value: number | null;
+        increase_amount_value: number | null;
+        weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
+        block_id: string | null;
+        cycle_type:
+          | Database["public"]["Enums"]["wendler_cycle_type_enum"]
           | null;
       };
       p_wendler_movement_row: {
@@ -914,6 +1034,13 @@ export type Database = {
           | Database["public"]["Enums"]["wendler_cycle_type_enum"]
           | null;
       };
+      set_active_block_result: {
+        active_block_id: string | null;
+        active_exercise_id: string | null;
+        superblock:
+          | Database["public"]["CompositeTypes"]["get_perform_superblock_result"]
+          | null;
+      };
       superblock_row: {
         id: string | null;
         user_id: string | null;
@@ -935,46 +1062,23 @@ export type Database = {
         available_dumbbells_lbs: number[] | null;
         available_kettlebells_lbs: number[] | null;
         user_id: string | null;
-        created_at: string | null;
-        updated_at: string | null;
       };
-      wendler_cycle_row: {
+      wendler_movement_overview: {
         id: string | null;
-        cycle_type:
-          | Database["public"]["Enums"]["wendler_cycle_type_enum"]
-          | null;
-        started_at: string | null;
-        completed_at: string | null;
-        movements:
-          | Database["public"]["CompositeTypes"]["wendler_movement_row"][]
-          | null;
-      };
-      wendler_movement_row: {
-        id: string | null;
-        exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null;
         training_max_value: number | null;
         increase_amount_value: number | null;
+        exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null;
         weight_unit: Database["public"]["Enums"]["weight_unit_enum"] | null;
-        block_id: string | null;
-        superblock_id: string | null;
-        equipment_type:
-          | Database["public"]["Enums"]["equipment_type_enum"]
-          | null;
-        started_at: string | null;
-        completed_at: string | null;
-        notes: string | null;
-        heaviest_weight_value: number | null;
-        reps_of_last_set: number | null;
       };
-      wendler_program_row: {
+      wendler_program_overview: {
         id: string | null;
         user_id: string | null;
         name: string | null;
         started_at: string | null;
         completed_at: string | null;
         notes: string | null;
-        cycles:
-          | Database["public"]["CompositeTypes"]["wendler_cycle_row"][]
+        movement_overviews:
+          | Database["public"]["CompositeTypes"]["wendler_movement_overview"][]
           | null;
       };
     };
@@ -1091,7 +1195,8 @@ export const Constants = {
     Enums: {
       completion_status_enum: [
         "completed",
-        "not_completed",
+        "not_started",
+        "in_progress",
         "failed",
         "skipped",
       ],

@@ -1,10 +1,18 @@
 "use client";
-import { ProgramsAddFormDraft } from "@/app/programs/add/_components/_page_ProgramsAdd";
-import { addProgram } from "@/app/programs/add/_components/actions";
+import {
+  getProgramsAddFormDraft,
+  ProgramsAddFormDraft,
+} from "@/app/programs/add/_components/_page_ProgramsAdd";
+import {
+  addProgram,
+  saveFormDraft,
+} from "@/app/programs/add/_components/actions";
 import { ExerciseType, GetAddProgramInfoResult } from "@/common-types";
+import DisplayWeightChange from "@/components/display/DisplayWeightChange";
 import EditWeight from "@/components/edit/EditWeight";
 import LabeledValue from "@/components/LabeledValue";
 import TODO from "@/components/TODO";
+import { PATHS } from "@/constants";
 import { TestIds } from "@/test-ids";
 import { exerciseTypeUIStringBrief, weightUnitUIString } from "@/uiStrings";
 import IconPlus from "@mui/icons-material/Add";
@@ -16,9 +24,9 @@ import {
   ToggleButton,
   ToggleButtonGroup,
   Typography,
-  TypographyProps,
 } from "@mui/material";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
+import { useDebouncedCallback } from "use-debounce";
 
 interface ProgramsAddClientProps {
   userId: string;
@@ -166,19 +174,13 @@ const ProgramsAddClient: React.FC<ProgramsAddClientProps> = (props) => {
         </form>
       </Stack>
       <TODO>
-        Create the necessary RPCs so this thing can actually try to create a new
-        program, and then go to it.
+        Add some heuristics based on the perceived effort of the working sets
+        and let the user know about that so it's easier to make an informed
+        decision.
       </TODO>
-      <TODO>
-        Actually persist the form to the DB every ~1 second with a tail end
-        debounce.
-      </TODO>
-      <TODO>Props: {JSON.stringify(props, null, 2)}</TODO>
-      <TODO>Form Draft: {JSON.stringify(props.formDraft, null, 2)}</TODO>
-      <TODO>
-        Eventually, we should also do some hueristics based on the perceived
-        effort of the working sets and let the user know about that so it's
-        easier to make an informed decision.
+      <TODO easy>
+        Pull out the hook into its own file (or maybe even files) so it's easier
+        to read/understand
       </TODO>
     </Stack>
   );
@@ -193,30 +195,50 @@ const useProgramsAddClientAPI = (props: ProgramsAddClientProps) => {
       deadlift_target_max,
       overhead_press_target_max,
     },
+    formDraft: initialServerFormDraft,
   } = props;
 
+  const [serverFormDraft, setServerFormDraft] =
+    React.useState<ProgramsAddFormDraft>(initialServerFormDraft);
+
   const [programName, setProgramName] = React.useState(
-    props.formDraft?.programName ?? props.getAddProgramInfoResult.program_name,
+    initialServerFormDraft?.programName ??
+      props.getAddProgramInfoResult.program_name,
   );
 
   const [squatTargetMax, setSquatTargetMax] = React.useState(
-    props.formDraft?.targetMax.squatTargetMax ??
+    initialServerFormDraft?.targetMax.squatTargetMax ??
       props.getAddProgramInfoResult.squat_target_max,
   );
   const [benchTargetMax, setBenchTargetMax] = React.useState(
-    props.formDraft?.targetMax.benchTargetMax ??
+    initialServerFormDraft?.targetMax.benchTargetMax ??
       props.getAddProgramInfoResult.bench_press_target_max,
   );
   const [deadliftTargetMax, setDeadliftTargetMax] = React.useState(
-    props.formDraft?.targetMax.deadliftTargetMax ??
+    initialServerFormDraft?.targetMax.deadliftTargetMax ??
       props.getAddProgramInfoResult.deadlift_target_max,
   );
   const [overheadPressTargetMax, setOverheadPressTargetMax] = React.useState(
-    props.formDraft?.targetMax.overheadPressTargetMax ??
+    initialServerFormDraft?.targetMax.overheadPressTargetMax ??
       props.getAddProgramInfoResult.overhead_press_target_max,
   );
 
-  const [deload, setDeload] = React.useState(props.formDraft?.deload ?? true);
+  const [deload, setDeload] = React.useState(
+    initialServerFormDraft?.deload ?? true,
+  );
+
+  const squatIncrease = useMemo(() => {
+    return squatTargetMax - squat_target_max;
+  }, [squatTargetMax, squat_target_max]);
+  const deadliftIncrease = useMemo(() => {
+    return deadliftTargetMax - deadlift_target_max;
+  }, [deadliftTargetMax, deadlift_target_max]);
+  const overheadPressIncrease = useMemo(() => {
+    return overheadPressTargetMax - overhead_press_target_max;
+  }, [overheadPressTargetMax, overhead_press_target_max]);
+  const benchPressIncrease = useMemo(() => {
+    return benchTargetMax - bench_press_target_max;
+  }, [benchTargetMax, bench_press_target_max]);
 
   const setStandardBump = React.useCallback(() => {
     setOverheadPressTargetMax((_) => overhead_press_target_max + 5);
@@ -286,6 +308,10 @@ const useProgramsAddClientAPI = (props: ProgramsAddClientProps) => {
       deadliftTargetMax,
       overheadPressTargetMax,
       benchTargetMax,
+      squatIncrease,
+      deadliftIncrease,
+      overheadPressIncrease,
+      benchPressIncrease,
       "pounds",
       deload,
       programName,
@@ -298,9 +324,82 @@ const useProgramsAddClientAPI = (props: ProgramsAddClientProps) => {
     benchTargetMax,
     deload,
     programName,
+    squatIncrease,
+    deadliftIncrease,
+    overheadPressIncrease,
+    benchPressIncrease,
   ]);
 
+  const localFormDraft: ProgramsAddFormDraft = useMemo(
+    () => ({
+      targetMax: {
+        benchTargetMax,
+        deadliftTargetMax,
+        overheadPressTargetMax,
+        squatTargetMax,
+      },
+      deload,
+      programName,
+    }),
+    [
+      benchTargetMax,
+      deadliftTargetMax,
+      overheadPressTargetMax,
+      squatTargetMax,
+      deload,
+      programName,
+    ],
+  );
+  const formDraftModified = useMemo(() => {
+    if (!serverFormDraft) {
+      return true;
+    }
+
+    if (localFormDraft.deload !== serverFormDraft.deload) {
+      return true;
+    }
+
+    if (localFormDraft.programName !== serverFormDraft.programName) {
+      return true;
+    }
+
+    const [{ targetMax: targetMaxLocal }, { targetMax: targetMaxSaved }] = [
+      localFormDraft,
+      serverFormDraft,
+    ];
+    for (const key of Object.keys(targetMaxLocal)) {
+      if (
+        targetMaxLocal[key as keyof typeof targetMaxLocal] !==
+        targetMaxSaved[key as keyof typeof targetMaxSaved]
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }, [localFormDraft, serverFormDraft]);
+
+  const debouncedSaveFormDraft = useDebouncedCallback(
+    async (userId: string, formDraft: ProgramsAddFormDraft) => {
+      await saveFormDraft(userId, PATHS.Programs_Add, formDraft);
+      const updatedFormDraft = await getProgramsAddFormDraft(userId);
+      setServerFormDraft(updatedFormDraft);
+    },
+    1000,
+    { trailing: true },
+  );
+
+  useEffect(() => {
+    if (!formDraftModified) {
+      return;
+    }
+    debouncedSaveFormDraft(userId, localFormDraft);
+    return () => {
+      debouncedSaveFormDraft.cancel();
+    };
+  }, [userId, localFormDraft, formDraftModified, debouncedSaveFormDraft]);
+
   return {
+    serverFormDraft,
     boundAddProgramAction,
     programName,
     setProgramName,
@@ -332,18 +431,6 @@ interface TargetMaxProps {
   setNewTargetMax: React.Dispatch<React.SetStateAction<number>>;
 }
 const TargetMax: React.FC<TargetMaxProps> = (props) => {
-  const difference = props.newTargetMax - props.currentTargetMax;
-  const differenceSign = difference > 0 ? "+" : "";
-  const warningThreshold = props.ten ? 10 : 5;
-  const errorThreshold = props.ten ? 15 : 10;
-  const differenceColor: TypographyProps["color"] =
-    difference === 0
-      ? "warning"
-      : difference > errorThreshold
-        ? "error"
-        : difference > warningThreshold
-          ? "warning"
-          : "success";
   return (
     <LabeledValue
       label={`${exerciseTypeUIStringBrief(props.exerciseType)}: ${props.currentTargetMax} ${weightUnitUIString("pounds")}`}
@@ -363,10 +450,11 @@ const TargetMax: React.FC<TargetMaxProps> = (props) => {
           setWeightValue={props.setNewTargetMax}
         />
         <Stack flex={1} direction="row" justifyContent="center">
-          <Typography color={differenceColor}>
-            {differenceSign}
-            {Math.abs(difference)} {weightUnitUIString("pounds")}
-          </Typography>
+          <DisplayWeightChange
+            warningWeightThreshold={props.ten ? 10 : props.five ? 5 : undefined}
+            errorWeightThreshold={props.ten ? 15 : props.five ? 10 : undefined}
+            changeValue={props.newTargetMax - props.currentTargetMax}
+          />
         </Stack>
       </Stack>
     </LabeledValue>

@@ -21,7 +21,8 @@ CREATE TABLE IF NOT EXISTS public.exercises (
   reps integer NOT NULL,
   is_warmup boolean NOT NULL DEFAULT false,
   is_amrap boolean NOT NULL DEFAULT false,
-  completion_status completion_status_enum NOT NULL DEFAULT 'not_completed',
+  -- TODO: remove the default value after launch when I'm not in a hurry.
+  completion_status completion_status_enum NOT NULL DEFAULT 'not_started',
   notes text NULL,
   perceived_effort perceived_effort_enum NULL,
   CONSTRAINT exercises_id_pkey PRIMARY KEY (id)
@@ -34,16 +35,16 @@ CREATE TABLE IF NOT EXISTS public.exercises (
 CREATE TABLE IF NOT EXISTS public.exercise_block (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
+  -- TODO: make this non-null
   name text NOT NULL,
   notes text NULL,
   exercise_type exercise_type_enum NOT NULL,
   equipment_type equipment_type_enum NOT NULL,
   active_exercise_id uuid NULL,
-  completion_status completion_status_enum NOT NULL DEFAULT 'not_completed',
+  -- TODO: remove not_started as a default after launch when I'm not in a hurry.
+  completion_status completion_status_enum NOT NULL DEFAULT 'not_started',
   started_at timestamp with time zone NULL,
   completed_at timestamp with time zone NULL,
-  created_at timestamp with time zone DEFAULT timezone ('utc', now()),
-  updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
   CONSTRAINT exercise_block_pkey PRIMARY KEY (id),
   CONSTRAINT exercise_block_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
   CONSTRAINT exercise_block_active_exercise_id_fkey FOREIGN KEY (active_exercise_id) REFERENCES public.exercises (id) ON DELETE SET NULL
@@ -61,13 +62,14 @@ CREATE TABLE IF NOT EXISTS public.exercise_block_exercises (
 CREATE TABLE IF NOT EXISTS public.exercise_superblock (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
+  -- TODO: make this non-null
   name text NULL,
+  -- TODO: actually use this.
+  active_block_id uuid NULL,
   notes text NULL,
   started_at timestamp with time zone NULL,
   completed_at timestamp with time zone NULL,
-  -- TODO: here and throughout, remove created_at and updated_at
-  created_at timestamp with time zone DEFAULT timezone ('utc', now()),
-  updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
+  completion_status completion_status_enum NOT NULL,
   CONSTRAINT exercise_superblock_pkey PRIMARY KEY (id),
   CONSTRAINT exercise_superblock_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
 );
@@ -86,7 +88,11 @@ CREATE TABLE IF NOT EXISTS public.wendler_program (
   user_id uuid NOT NULL,
   name text NOT NULL,
   notes text NULL,
-  CONSTRAINT wendler_program_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
+  program_order integer NOT NULL,
+  started_at timestamp with time zone NULL,
+  completed_at timestamp with time zone NULL,
+  CONSTRAINT wendler_program_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
+  CONSTRAINT wendler_program_user_program_order_unique UNIQUE (user_id, program_order)
 );
 
 -- Table for Cycles within a Wendler Program
@@ -95,8 +101,20 @@ CREATE TABLE IF NOT EXISTS public.wendler_program_cycle (
   wendler_program_id uuid NOT NULL,
   user_id uuid NOT NULL,
   cycle_type wendler_cycle_type_enum NOT NULL,
+  started_at timestamp with time zone NULL,
+  completed_at timestamp with time zone NULL,
   CONSTRAINT fk_wendler_program FOREIGN KEY (wendler_program_id) REFERENCES public.wendler_program (id) ON DELETE CASCADE,
   CONSTRAINT wendler_program_cycle_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
+);
+
+-- Normalized table for movement max/increase per cycle
+CREATE TABLE IF NOT EXISTS public.wendler_movement_max (
+  id uuid PRIMARY KEY DEFAULT uuid_generate_v4 (),
+  user_id uuid NOT NULL,
+  target_max_value numeric NOT NULL,
+  increase_amount_value numeric NOT NULL,
+  weight_unit weight_unit_enum NOT NULL,
+  CONSTRAINT wendler_movement_max_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE
 );
 
 -- Table for Movements within a Cycle
@@ -105,13 +123,14 @@ CREATE TABLE IF NOT EXISTS public.wendler_program_cycle_movement (
   wendler_program_cycle_id uuid NOT NULL,
   user_id uuid NOT NULL,
   exercise_type exercise_type_enum NOT NULL,
-  training_max_value numeric NOT NULL,
-  increase_amount_value numeric NOT NULL,
-  weight_unit weight_unit_enum NOT NULL,
   block_id uuid NOT NULL,
+  movement_max_id uuid NOT NULL,
+  started_at timestamp with time zone NULL,
+  completed_at timestamp with time zone NULL,
   CONSTRAINT fk_wendler_program_cycle FOREIGN KEY (wendler_program_cycle_id) REFERENCES public.wendler_program_cycle (id) ON DELETE CASCADE,
   CONSTRAINT wendler_program_cycle_movement_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
-  CONSTRAINT fk_block FOREIGN KEY (block_id) REFERENCES public.exercise_block (id) ON DELETE CASCADE
+  CONSTRAINT fk_block FOREIGN KEY (block_id) REFERENCES public.exercise_block (id) ON DELETE CASCADE,
+  CONSTRAINT fk_movement_max FOREIGN KEY (movement_max_id) REFERENCES public.wendler_movement_max (id) ON DELETE SET NULL
 );
 
 -- Table for Blocks within a Movement
@@ -124,8 +143,6 @@ CREATE TABLE IF NOT EXISTS public.user_preferences (
   available_plates_lbs numeric[] DEFAULT ARRAY[]::numeric[],
   available_dumbbells_lbs numeric[] DEFAULT ARRAY[]::numeric[],
   available_kettlebells_lbs numeric[] DEFAULT ARRAY[]::numeric[],
-  created_at timestamp with time zone DEFAULT timezone ('utc', now()),
-  updated_at timestamp with time zone DEFAULT timezone ('utc', now()),
   CONSTRAINT user_preferences_pkey PRIMARY KEY (id),
   CONSTRAINT user_preferences_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,
   CONSTRAINT user_preferences_user_unique UNIQUE (user_id)
@@ -166,8 +183,6 @@ CREATE TABLE IF NOT EXISTS public.form_drafts (
   user_id uuid NOT NULL,
   page_path text NOT NULL,
   form_data jsonb NOT NULL,
-  created_at timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
-  updated_at timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()),
   expires_at timestamp with time zone NOT NULL DEFAULT timezone ('utc', now()) + INTERVAL '7 days',
   CONSTRAINT form_drafts_pkey PRIMARY KEY (id),
   CONSTRAINT form_drafts_user_id_fkey FOREIGN KEY (user_id) REFERENCES next_auth.users (id) ON DELETE CASCADE,

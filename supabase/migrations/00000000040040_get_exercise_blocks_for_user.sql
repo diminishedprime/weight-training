@@ -9,8 +9,6 @@ BEGIN
       active_exercise_id uuid,
       started_at timestamptz,
       completed_at timestamptz,
-      created_at timestamptz,
-      updated_at timestamptz,
       total_exercises integer,
       current_exercise_index integer,
       -- Wendler metadata fields (nullable)
@@ -48,8 +46,6 @@ BEGIN
       exercise_block.active_exercise_id,
       exercise_block.started_at,
       exercise_block.completed_at,
-      exercise_block.created_at,
-      exercise_block.updated_at,
       (
         SELECT COUNT(*)::integer
         FROM exercise_block_exercises
@@ -74,7 +70,7 @@ BEGIN
     LEFT JOIN wendler_metadata ON wendler_metadata.block_id = exercise_block.id
     WHERE exercise_block.user_id = p_user_id
       AND exercise_block.started_at IS NOT NULL
-    ORDER BY exercise_block.started_at DESC, exercise_block.created_at DESC, exercise_block.id DESC
+    ORDER BY exercise_block.started_at DESC, exercise_block.id DESC
     LIMIT v_limit OFFSET v_offset
   ) INTO v_blocks;
 

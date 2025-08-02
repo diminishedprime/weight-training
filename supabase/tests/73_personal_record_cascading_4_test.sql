@@ -21,7 +21,7 @@ SELECT
     p_target_weight_value => 200::numeric,
     p_reps => 1::integer,
     p_performed_at => '2023-01-01T10:00:00Z'::timestamptz,
-    p_completion_status => 'not_completed'::completion_status_enum
+    p_completion_status => 'not_started'::completion_status_enum
   );
 
 SELECT

@@ -1,7 +1,7 @@
 "use client";
 import { WeightUnit } from "@/common-types";
 import { weightUnitUIString } from "@/uiStrings";
-import { Typography, TypographyProps, useTheme } from "@mui/material";
+import { Typography, TypographyProps } from "@mui/material";
 import React from "react";
 
 interface DisplayWeightProps {
@@ -12,12 +12,11 @@ interface DisplayWeightProps {
   variant?: TypographyProps["variant"];
   sx?: TypographyProps["sx"];
   hideUnit?: boolean;
-  valueColor?: string;
+  valueColor?: TypographyProps["color"];
   startAdornment?: React.ReactNode | string;
   endAdornment?: React.ReactNode | string;
 }
 const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
-  const theme = useTheme();
   const { weightValue } = props;
 
   const oneDecimal = Math.floor(weightValue) === weightValue;
@@ -41,17 +40,17 @@ const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
       }}
     >
       {props.startAdornment}
-      <span style={{ color: props.valueColor || theme.palette.primary.main }}>
+      <Typography component="span" color={props.valueColor || "primary"}>
         {formattedWeight}{" "}
         {!props.hideUnit && weightUnitUIString(props.weightUnit)}
-      </span>
+      </Typography>
       {props.reps && (
         <>
           <span>&nbsp;x&nbsp;</span>
-          <span style={{ color: theme.palette.secondary.main }}>
+          <Typography component="span" color="secondary">
             {props.reps}
             {props.repsAMRAP ? " (AMRAP)" : ""}
-          </span>
+          </Typography>
         </>
       )}
       {props.endAdornment}

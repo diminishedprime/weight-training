@@ -40,6 +40,7 @@ export async function requireLoggedInUser(
 //
 // The user preferences page is set up such that it will redirect the user back
 // to the original page once those values are saved onSubmit
+export type UserPreferencesKeys = keyof UserPreferences;
 export async function requirePreferences<K extends keyof UserPreferences>(
   userId: string,
   requiredKeys: K[],

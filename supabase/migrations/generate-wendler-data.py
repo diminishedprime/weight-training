@@ -88,6 +88,7 @@ programs = {}
 cycles = {}
 movements = {}
 blocks = []
+block_uuids = {}
 
 for dt, entry in mapping.items():
     pid = entry["program_id"]
@@ -102,6 +103,7 @@ for dt, entry in mapping.items():
         "exercise_type": etype,
         "datetime": dt
     })
+    block_uuids[(pid, ctype, etype, dt)] = str(uuid.uuid4())
 
 # Generate UUIDs for programs, cycles, and movements
 program_uuids = {pid: str(uuid.uuid4()) for pid in programs}
@@ -113,14 +115,20 @@ with open(SQL_PATH, "w") as f:
     f.write("-- DO NOT EDIT MANUALLY\n\n")
     f.write("CREATE OR REPLACE FUNCTION _system.cleanup_wendler() RETURNS void AS $$\n")
     f.write("BEGIN\n")
-
     for pid, name in programs.items():
-        f.write(f"    INSERT INTO public.wendler_program (id, user_id, name, notes) VALUES ('{program_uuids[pid]}', '{USER_ID}', '{name}', 'created by _system.cleanup_wendler()');\n")
-
+        program_order = int(pid)
+        f.write(f"    INSERT INTO public.wendler_program (id, user_id, name, notes, program_order) VALUES ('{program_uuids[pid]}', '{USER_ID}', '{name}', 'created by _system.cleanup_wendler()', {program_order});\n")
     for (pid, ctype) in cycles:
         ctype_sql = "deload" if ctype == "d" else ctype
         f.write(f"    INSERT INTO public.wendler_program_cycle (id, wendler_program_id, user_id, cycle_type) VALUES ('{cycle_uuids[(pid, ctype)]}', '{program_uuids[pid]}', '{USER_ID}', '{ctype_sql}');\n")
-
+    unique_movement_max = {}
+    movement_max_uuids = {}
+    for (pid, ctype, etype), meta in movements.items():
+        key = (pid, etype)
+        if key not in unique_movement_max:
+            unique_movement_max[key] = meta
+            movement_max_uuids[key] = str(uuid.uuid4())
+            f.write(f"    INSERT INTO public.wendler_movement_max (id, user_id, target_max_value, increase_amount_value, weight_unit) VALUES ('{movement_max_uuids[key]}', '{USER_ID}', {meta['training_max']}, {meta['increase']}, '{meta['unit']}');\n")
     for (pid, ctype, etype), meta in movements.items():
         block_dt = None
         for block in blocks:
@@ -129,6 +137,7 @@ with open(SQL_PATH, "w") as f:
                 break
         if block_dt is None:
             raise Exception(f"No block found for movement: {pid}, {ctype}, {etype}")
-        f.write(f"    INSERT INTO public.wendler_program_cycle_movement (id, wendler_program_cycle_id, user_id, exercise_type, training_max_value, increase_amount_value, weight_unit, block_id) VALUES ('{movement_uuids[(pid, ctype, etype)]}', '{cycle_uuids[(pid, ctype)]}', '{USER_ID}', '{etype}', {meta['training_max']}, {meta['increase']}, '{meta['unit']}', (SELECT id FROM public.exercise_block WHERE user_id = '{USER_ID}' AND exercise_type = '{etype}' AND started_at = '{block_dt}'));\n")
-
+        movement_max_id = movement_max_uuids[(pid, etype)]
+        # Use a sub-select for block_id based on performed_at
+        f.write(f"    INSERT INTO public.wendler_program_cycle_movement (id, wendler_program_cycle_id, user_id, exercise_type, movement_max_id, block_id) VALUES ('{movement_uuids[(pid, ctype, etype)]}', '{cycle_uuids[(pid, ctype)]}', '{USER_ID}', '{etype}', '{movement_max_id}', (SELECT id FROM public.exercise_block WHERE user_id = '{USER_ID}' AND exercise_type = '{etype}' AND started_at = '{block_dt}'));\n")
     f.write("END;\n$$ LANGUAGE plpgsql;\n")

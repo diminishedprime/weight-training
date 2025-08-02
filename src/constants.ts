@@ -103,6 +103,8 @@ const pathForProgramById = (programId: string) =>
   `${pathForProgramsPage}/${programId}`;
 
 const pathForProgramsAddPage = `${pathForProgramsPage}/add`;
+const superblocks_id_perform_path = (superblockId: string) =>
+  `${pathForSuperblocksPage}/${superblockId}/perform`;
 
 // TODO: refactor everything to use the PATHS object and also turn constants.ts
 // into /constants/index.ts and have a separate paths.ts file that does this
@@ -115,6 +117,7 @@ export const PATHS = {
   PaginatedSuperblocks: pathForPaginatedSuperblocksPage,
   SuperblocksById: (superblockId: string) =>
     `${pathForSuperblocksPage}/${superblockId}`,
+  Superblocks_Id_Perform: superblocks_id_perform_path,
   Programs: pathForProgramsPage,
   PaginatedPrograms: pathForPaginatedProgramsPage,
   ProgramById: pathForProgramById,

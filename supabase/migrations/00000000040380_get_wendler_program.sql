@@ -43,53 +43,24 @@ BEGIN
     wp.id,
     wp.user_id,
     wp.name,
-    (
-      SELECT MIN(eb.started_at)
-      FROM public.wendler_program_cycle wpc
-      JOIN public.wendler_program_cycle_movement wpcm ON wpc.id = wpcm.wendler_program_cycle_id
-      JOIN public.exercise_block eb ON wpcm.block_id = eb.id
-      WHERE wpc.wendler_program_id = wp.id AND eb.started_at IS NOT NULL
-    ),
-    -- Program completed_at: latest completed_at of all blocks, but only if all blocks have completed_at
-    (
-      SELECT CASE WHEN COUNT(*) FILTER (WHERE eb.completed_at IS NULL) = 0 AND COUNT(*) > 0
-        THEN MAX(eb.completed_at)
-        ELSE NULL END
-      FROM public.wendler_program_cycle wpc
-      JOIN public.wendler_program_cycle_movement wpcm ON wpc.id = wpcm.wendler_program_cycle_id
-      JOIN public.exercise_block eb ON wpcm.block_id = eb.id
-      WHERE wpc.wendler_program_id = wp.id
-    ),
+    wp.started_at,
+    wp.completed_at,
     wp.notes,
     (
       SELECT ARRAY(
         SELECT ROW(
           wpc.id,
           wpc.cycle_type,
-          -- Cycle started_at: earliest started_at of any block connected to any movement in this cycle
-          (
-            SELECT MIN(eb.started_at)
-            FROM public.wendler_program_cycle_movement wpcm
-            JOIN public.exercise_block eb ON wpcm.block_id = eb.id
-            WHERE wpcm.wendler_program_cycle_id = wpc.id AND eb.started_at IS NOT NULL
-          ),
-          -- Cycle completed_at: latest completed_at of all blocks, but only if all blocks have completed_at
-          (
-            SELECT CASE WHEN COUNT(*) FILTER (WHERE eb.completed_at IS NULL) = 0 AND COUNT(*) > 0
-              THEN MAX(eb.completed_at)
-              ELSE NULL END
-            FROM public.wendler_program_cycle_movement wpcm
-            JOIN public.exercise_block eb ON wpcm.block_id = eb.id
-            WHERE wpcm.wendler_program_cycle_id = wpc.id
-          ),
+          wpc.started_at,
+          wpc.completed_at,
           (
             SELECT ARRAY(
               SELECT ROW(
                 wpcm.id,
                 wpcm.exercise_type,
-                wpcm.training_max_value,
-                wpcm.increase_amount_value,
-                wpcm.weight_unit,
+                wmm.target_max_value,
+                wmm.increase_amount_value,
+                wmm.weight_unit,
                 wpcm.block_id,
                 (
                   SELECT esb.superblock_id
@@ -117,6 +88,7 @@ BEGIN
               FROM public.wendler_program_cycle_movement wpcm
               JOIN public.exercise_block eb ON wpcm.block_id = eb.id
               LEFT JOIN public.exercise_superblock_blocks esb ON eb.id = esb.block_id
+              JOIN public.wendler_movement_max wmm ON wpcm.movement_max_id = wmm.id
               WHERE wpcm.wendler_program_cycle_id = wpc.id
               ORDER BY wpcm.exercise_type
             )
@@ -124,12 +96,7 @@ BEGIN
         )::public.p_wendler_cycle_row
         FROM public.wendler_program_cycle wpc
         WHERE wpc.wendler_program_id = wp.id
-        ORDER BY (
-          SELECT MIN(eb.started_at)
-          FROM public.wendler_program_cycle_movement wpcm
-          JOIN public.exercise_block eb ON wpcm.block_id = eb.id
-          WHERE wpcm.wendler_program_cycle_id = wpc.id AND eb.started_at IS NOT NULL
-        ) ASC NULLS LAST
+        ORDER BY wpc.started_at ASC NULLS LAST
       )
     )
   INTO v_program

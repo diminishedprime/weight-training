@@ -1,3 +1,4 @@
+"use client";
 import { Link as MUILink, LinkProps as MUILinkProps } from "@mui/material";
 import NextLink from "next/link";
 

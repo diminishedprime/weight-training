@@ -52054,14 +52054,42 @@ DROP CONSTRAINT wendler_program_cycle_movement_user_id_fkey;
 ALTER TABLE public.wendler_program_cycle
 DROP CONSTRAINT wendler_program_cycle_user_id_fkey;
 
+ALTER TABLE public.wendler_movement_max
+DROP CONSTRAINT wendler_movement_max_user_id_fkey;
+
+ALTER TABLE public.exercise_superblock
+ALTER COLUMN completion_status
+DROP NOT NULL;
+
 SELECT
   _system.super_blockify ('97097295-6eb1-4824-8bfa-8984cf9bea6b');
+
+ALTER TABLE public.exercise_superblock
+ALTER COLUMN completion_status
+SET NOT NULL;
 
 SELECT
   _system.cleanup_wendler ();
 
 SELECT
   _system.cleanup_wendler_2 ();
+
+SELECT
+  public.add_wendler_program (
+    p_user_id => '97097295-6eb1-4824-8bfa-8984cf9bea6b',
+    p_squat_target_max => 390,
+    p_deadlift_target_max => 485,
+    p_overhead_press_target_max => 160,
+    p_bench_press_target_max => 265,
+    p_squat_increase => 10,
+    p_deadlift_increase => 10,
+    p_overhead_press_increase => 5,
+    p_bench_press_increase => 5,
+    p_weight_unit => 'pounds'::weight_unit_enum,
+    p_include_deload => TRUE,
+    p_program_name => 'Wendler Program 4',
+    p_notes => NULL
+  );
 
 UPDATE public.exercises
 SET
