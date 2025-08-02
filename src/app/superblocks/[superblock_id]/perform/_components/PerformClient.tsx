@@ -11,9 +11,13 @@ import {
   PerceivedEffort,
   UserPreferences,
 } from "@/common-types";
+import Link from "@/components/Link";
 import TODO from "@/components/TODO";
+import { PATHS } from "@/constants";
+import EditIcon from "@mui/icons-material/Edit";
 import {
   Button,
+  IconButton,
   Stack,
   Step,
   StepButton,
@@ -33,7 +37,16 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
   const api = usePerformClientAPI(props);
   return (
     <Stack spacing={1}>
-      <Typography variant="h5">{api.superblock.name}</Typography>
+      <Typography variant="h5">
+        {api.superblock.name}
+
+        <IconButton
+          component={Link}
+          href={PATHS.Superblocks_Id_Edit(props.initialSuperblock.id)}
+        >
+          <EditIcon />
+        </IconButton>
+      </Typography>
       <Stepper orientation="vertical" nonLinear activeStep={api.activeBlockIdx}>
         {api.superblock.blocks.map((block, idx) => (
           <Step key={block.id} completed={block.completed_at !== null}>
@@ -49,6 +62,10 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
             </StepButton>
             <StepContent>
               <Stack spacing={1}>
+                <TODO>
+                  Set the active block to the first uncompleted block after a
+                  block is completed.
+                </TODO>
                 <TODO>Include the wendler detail data right around here.</TODO>
                 <TODO>Include the start-time here once it's set</TODO>
                 <TODO>Include the end-time here once it's set</TODO>

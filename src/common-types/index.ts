@@ -100,6 +100,7 @@ export type NarrowedSuperblock = RequiredNonNullable<
   "id" | "name"
 >;
 
+export type * from "@/common-types/enums";
 export type * from "@/common-types/get-add-program-info";
 export type * from "@/common-types/get-perform-superblock";
 export type * from "@/common-types/get-wendler-program";

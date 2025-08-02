@@ -1,11 +1,12 @@
 import { WeightUnit } from "@/common-types";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import { Button, Radio, Stack, SxProps, Typography } from "@mui/material";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 interface EditMachineStackProps {
-  weightValue: number;
-  setWeightValue: React.Dispatch<React.SetStateAction<number>>;
+  actualWeightValue: number | undefined;
+  setActualWeightValue: React.Dispatch<React.SetStateAction<number>>;
+  targetWeightValue: number;
   weightUnit: WeightUnit;
 }
 
@@ -17,7 +18,7 @@ const EditMachineStack: React.FC<EditMachineStackProps> = (props) => {
         variant="h6"
         sx={{ mb: 0 }}
         weightUnit={props.weightUnit}
-        weightValue={props.weightValue}
+        weightValue={props.actualWeightValue ?? props.targetWeightValue}
       />
       <Stack alignItems="center">
         <StackPlate
@@ -112,6 +113,15 @@ const stacksForWeight = (maxWeight: number, plateWeights: number) => {
   return stack;
 };
 
+const nearestWeight = (stack: number[], bump: number, target: number) => {
+  const possibleWeights = stack.flatMap((v) => [v, v + bump]);
+  possibleWeights.sort((a, b) => a - b);
+  // We can find the last valid weight that is less than or equal to the target
+  const weight = possibleWeights.findLast((v) => v <= target);
+  // If no valid weight is found, return the first possible weight
+  return weight ? weight : possibleWeights[0];
+};
+
 // TODO: make it where you can continue to bump up past the max weight, but when
 // doing so it will change the max weight and adjust the number of plates
 // accordingly.
@@ -124,7 +134,11 @@ const stacksForWeight = (maxWeight: number, plateWeights: number) => {
 // preferences, they probably should be done per exerciseType and there should
 // probably be a default for each one based on real-world gyms.
 const useEditMachineStackAPI = (props: EditMachineStackProps) => {
-  const { weightValue, setWeightValue } = props;
+  const {
+    actualWeightValue,
+    setActualWeightValue: parentSetActualWeightValue,
+    targetWeightValue,
+  } = props;
   const [bump] = useState(5);
   const [stackPlateWeightValue] = useState(10);
   const [maxWeightValue] = useState(200);
@@ -134,48 +148,81 @@ const useEditMachineStackAPI = (props: EditMachineStackProps) => {
     [maxWeightValue, stackPlateWeightValue],
   );
 
+  // This was a pretty good way to handle this, I should do this for the other ones.
+  const [resolvedWeight, setResolvedWeight] = useState(
+    actualWeightValue ?? nearestWeight(stack, bump, targetWeightValue),
+  );
+
+  useEffect(() => {
+    if (actualWeightValue === undefined) {
+      parentSetActualWeightValue(resolvedWeight);
+    }
+  }, [resolvedWeight, actualWeightValue, parentSetActualWeightValue]);
+
+  const setActualWeightValue: React.Dispatch<React.SetStateAction<number>> =
+    useCallback((f) => {
+      if (typeof f === "function") {
+        setResolvedWeight((prev) => {
+          const newValue = f(prev);
+          parentSetActualWeightValue(newValue);
+          return newValue;
+        });
+      } else {
+        setResolvedWeight(f);
+        parentSetActualWeightValue(f);
+      }
+    }, []);
+
+  useEffect(() => {
+    if (actualWeightValue === null && targetWeightValue != null) {
+      setActualWeightValue((_) =>
+        nearestWeight(stack, bump, targetWeightValue),
+      );
+    }
+  }, [actualWeightValue, targetWeightValue, setActualWeightValue, stack, bump]);
+
   const selectedPlate = useMemo(
     () =>
-      weightValue % stackPlateWeightValue === 0
-        ? weightValue
-        : weightValue - bump,
-    [weightValue, stackPlateWeightValue, bump],
+      resolvedWeight % stackPlateWeightValue === 0
+        ? resolvedWeight
+        : resolvedWeight - bump,
+    [resolvedWeight, stackPlateWeightValue, bump],
   );
 
   const isBumpActive = useMemo(
-    () => weightValue - selectedPlate === bump,
-    [weightValue, selectedPlate, bump],
+    () => resolvedWeight - selectedPlate === bump,
+    [resolvedWeight, selectedPlate, bump],
   );
 
   const onBumpChange = useCallback(
     (checked: boolean) => {
-      setWeightValue((prev) => (checked ? prev + bump : prev - bump));
+      setActualWeightValue((prev) => (checked ? prev + bump : prev - bump));
     },
-    [bump, setWeightValue],
+    [bump, setActualWeightValue],
   );
 
   const onStackPlateChange = useCallback(
     (plateValue: number, checked: boolean) => {
       if (checked) {
-        setWeightValue(isBumpActive ? plateValue + bump : plateValue);
+        setActualWeightValue(isBumpActive ? plateValue + bump : plateValue);
       }
     },
-    [setWeightValue, isBumpActive, bump],
+    [setActualWeightValue, isBumpActive, bump],
   );
 
   const onIncrement = useCallback(() => {
-    setWeightValue((prev) => {
+    setActualWeightValue((prev) => {
       const next = prev + bump;
       return next > maxWeightValue ? maxWeightValue : next;
     });
-  }, [bump, setWeightValue, maxWeightValue]);
+  }, [bump, setActualWeightValue, maxWeightValue]);
 
   const onDecrement = useCallback(() => {
-    setWeightValue((prev) => {
+    setActualWeightValue((prev) => {
       const next = prev - bump;
       return next < 0 ? 0 : next;
     });
-  }, [bump, setWeightValue]);
+  }, [bump, setActualWeightValue]);
 
   return {
     stack,

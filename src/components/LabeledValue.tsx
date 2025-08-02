@@ -1,4 +1,6 @@
 "use client";
+// TODO: easy I should be able to make this a server component, but I'd just need to
+// make the help-text specific parts be a client component.
 import InfoIcon from "@mui/icons-material/InfoOutlined";
 import {
   Button,
@@ -23,6 +25,8 @@ interface LabeledValueProps {
 }
 
 const LabeledValue: React.FC<LabeledValueProps> = (props) => {
+  // TODO:  I may want to make where the help shows configurable. Right now it's
+  // always the bottom.
   const api = useLabeledValueAPI(props);
   return (
     <Stack
@@ -31,8 +35,8 @@ const LabeledValue: React.FC<LabeledValueProps> = (props) => {
       width={props.width || undefined}
     >
       <Typography
-        variant={props.labelVariant || "caption"}
-        color={props.labelColor || "text.secondary"}
+        variant={props.labelVariant || "body2"}
+        color={props.labelColor || "text.primary"}
         gutterBottom={props.gutterBottom}
       >
         {props.label}
@@ -42,6 +46,7 @@ const LabeledValue: React.FC<LabeledValueProps> = (props) => {
           </IconButton>
         )}
       </Typography>
+      {props.children}
       {props.help && api.showHelp && (
         <Stack>
           <Typography variant="caption" color="text.secondary" sx={{ flex: 1 }}>
@@ -56,7 +61,6 @@ const LabeledValue: React.FC<LabeledValueProps> = (props) => {
           </Button>
         </Stack>
       )}
-      {props.children}
     </Stack>
   );
 };

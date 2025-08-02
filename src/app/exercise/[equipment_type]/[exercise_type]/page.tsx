@@ -1,11 +1,9 @@
 import EquipmentExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page";
-import { EquipmentType, ExerciseType } from "@/common-types";
-import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { FIRST_PAGE_NUM, pathForEquipmentExercisePage } from "@/constants";
 import { requireLoggedInUser } from "@/serverUtil";
-import { exerciseTypeUIStringBrief } from "@/uiStrings";
+import { equipmentTypeUIString, exerciseTypeUIStringBrief } from "@/uiStrings";
 import {
-  EXERCISES_BY_EQUIPMENT,
   narrowEquipmentType,
   narrowExerciseType,
   narrowOrNotFound,
@@ -28,23 +26,26 @@ export default async function EquipmentExercisePageSuspenseWrapper(
   const { equipmentType, exerciseType } = params;
   const { pageNum } = searchParams;
 
-  const exerciseData = EQUIPMENT_EXERCISES_DATA[equipmentType][exerciseType];
+  const path = pathForEquipmentExercisePage(equipmentType, exerciseType);
 
-  // This would be cleaner if next supported seeing the full slug in the url so
-  // we could do this as one of the Promise.alls, but it doesn't so we have to
-  // do this as a separate call.
-  const { userId } = await requireLoggedInUser(exerciseData.path);
+  const { userId } = await requireLoggedInUser(path);
 
   return (
     <React.Fragment>
-      <Breadcrumbs {...exerciseData.breadcrumbs} />
+      <Breadcrumbs
+        pathname={path}
+        labels={{
+          [equipmentType]: equipmentTypeUIString(equipmentType),
+          [exerciseType]: exerciseTypeUIStringBrief(exerciseType),
+        }}
+      />
       <Suspense fallback={<div>Loading...</div>}>
         {/* {EquipmentExercisePage} */}
         <EquipmentExercisePage
           userId={userId}
           equipmentType={equipmentType}
           exerciseType={exerciseType}
-          path={exerciseData.path}
+          path={path}
           pageNumber={pageNum}
         />
       </Suspense>
@@ -53,48 +54,6 @@ export default async function EquipmentExercisePageSuspenseWrapper(
 }
 
 // Utility functions, etc.
-
-interface EquipmentExercisesData {
-  [equipmentType: string]: ExercisesData;
-}
-
-interface ExercisesData {
-  [exerciseType: string]: ExerciseData;
-}
-
-interface ExerciseData {
-  breadcrumbs: BreadcrumbsProps;
-  path: string;
-}
-
-const EQUIPMENT_EXERCISES_DATA = Object.entries(EXERCISES_BY_EQUIPMENT).reduce(
-  (acc, [equipmentType, exercises]) => ({
-    ...acc,
-    [equipmentType]: exercises.reduce(
-      (acc, exercise) => ({
-        ...acc,
-        [exercise]: {
-          path: pathForEquipmentExercisePage(
-            equipmentType as EquipmentType,
-            exercise as ExerciseType,
-          ),
-          breadcrumbs: {
-            pathname: pathForEquipmentExercisePage(
-              equipmentType as EquipmentType,
-              exercise as ExerciseType,
-            ),
-            labels: {
-              [exercise]: exerciseTypeUIStringBrief(exercise as ExerciseType),
-            },
-            nonLinkable: [],
-          },
-        },
-      }),
-      {} as ExercisesData,
-    ),
-  }),
-  {} as EquipmentExercisesData,
-);
 
 // Function to narrow the equipment_type and exercise_type to make sure they are
 // valid, or return a 404 otherwise.

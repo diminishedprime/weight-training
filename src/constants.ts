@@ -1,4 +1,11 @@
-import { EquipmentType, ExerciseType, WeightUnit } from "@/common-types";
+import {
+  EquipmentType,
+  ExerciseType,
+  ProgramDayType,
+  WeightUnit,
+} from "@/common-types";
+import { Constants } from "@/database.types";
+import { Map as ImmutableMap, Set as ImmutableSet } from "immutable";
 
 export const DEFAULT_BAR_WEIGHT = 45; // lbs
 export const ALL_PLATES = [55, 45, 35, 25, 10, 5, 2.5];
@@ -55,9 +62,9 @@ export const pathForEquipmentPage = (equipmentType: EquipmentType) =>
   `/exercise/${equipmentType}`;
 
 export const pathForEquipmentExercisePage = (
-  eqipmentType: EquipmentType,
+  equipmentType: EquipmentType,
   exerciseType: ExerciseType,
-) => `${pathForEquipmentPage(eqipmentType)}/${exerciseType}`;
+) => `${pathForEquipmentPage(equipmentType)}/${exerciseType}`;
 
 export const pathForPaginatedEquipmentExercisePage = (
   equipmentType: EquipmentType,
@@ -106,18 +113,26 @@ const pathForProgramsAddPage = `${pathForProgramsPage}/add`;
 const superblocks_id_perform_path = (superblockId: string) =>
   `${pathForSuperblocksPage}/${superblockId}/perform`;
 
+const superblocks_id_edit_path = (superblockId: string) =>
+  `${pathForSuperblocksPage}/${superblockId}/edit`;
+
 // TODO: refactor everything to use the PATHS object and also turn constants.ts
 // into /constants/index.ts and have a separate paths.ts file that does this
 // stuff. As a part of that, also remove the export const for the paths/paths
 // helper functions.
+// TODO: also consider if there's a way to reduce bundle size  by exporting
+// these values more directly instead of the whole object? Likely not
+// worth-while but idk.
 export const PATHS = {
   Home: "/",
   Exercise: "/exercise",
   Superblocks: pathForSuperblocksPage,
   PaginatedSuperblocks: pathForPaginatedSuperblocksPage,
+  // TODO: easy rename this path.
   SuperblocksById: (superblockId: string) =>
     `${pathForSuperblocksPage}/${superblockId}`,
   Superblocks_Id_Perform: superblocks_id_perform_path,
+  Superblocks_Id_Edit: superblocks_id_edit_path,
   Programs: pathForProgramsPage,
   PaginatedPrograms: pathForPaginatedProgramsPage,
   ProgramById: pathForProgramById,
@@ -147,3 +162,114 @@ export const pathForBarbellExerciseEdit = (
   exerciseId: string,
 ) => `/exercise/barbell/${barbell_exercise_type}/edit/${exerciseId}`;
 export const FIRST_PAGE_NUM = 1;
+
+const dayTypesForExercise = (
+  exercise: ExerciseType,
+): ImmutableSet<ProgramDayType> => {
+  switch (exercise) {
+    case "barbell_romanian_deadlift":
+    case "barbell_deadlift":
+    case "barbell_row":
+    case "barbell_snatch":
+    case "dumbbell_row":
+    case "dumbbell_bicep_curl":
+    case "dumbbell_hammer_curl":
+    case "dumbbell_wrist_curl":
+    case "dumbbell_preacher_curl":
+    case "kettlebell_row":
+    case "bodyweight_pullup":
+    case "bodyweight_chinup":
+    case "machine_diverging_lat_pulldown":
+    case "machine_diverging_low_row":
+    case "machine_back_extension":
+    case "machine_biceps_curl":
+    case "machine_rear_delt":
+    case "machine_assissted_chinup":
+    case "machine_assissted_pullup":
+      return ImmutableSet(["pull"]);
+
+    case "barbell_front_squat":
+    case "barbell_back_squat":
+    case "barbell_single_leg_squat":
+    case "dumbbell_split_squat":
+    case "kettlebell_front_squat":
+    case "machine_leg_extension":
+    case "machine_seated_leg_curl":
+    case "machine_leg_press":
+    case "machine_inner_thigh":
+    case "machine_outer_thigh":
+    case "plate_stack_calf_raise":
+      return ImmutableSet(["legs"]);
+
+    case "barbell_incline_bench_press":
+    case "barbell_bench_press":
+    case "barbell_hip_thrust":
+    case "dumbbell_bench_press":
+    case "dumbbell_incline_bench_press":
+    case "dumbbell_lateral_raise":
+    case "dumbbell_skull_crusher":
+    case "bodyweight_pushup":
+    case "bodyweight_dip":
+    case "machine_converging_chest_press":
+    case "machine_triceps_extension":
+    // IDK
+    case "machine_pec_fly":
+    case "machine_assissted_dip":
+    case "machine_cable_triceps_pushdown":
+      return ImmutableSet(["push"]);
+
+    case "barbell_overhead_press":
+    case "dumbbell_overhead_press":
+    case "dumbbell_fly":
+    // IDK
+    case "dumbbell_front_raise":
+    case "dumbbell_shoulder_press":
+    case "machine_converging_shoulder_press":
+    case "machine_lateral_raise":
+      return ImmutableSet(["shoulders"]);
+
+    case "barbell_clean_and_jerk":
+      return ImmutableSet(["pull", "push", "shoulders"]);
+
+    // IDK
+    case "bodyweight_situp":
+    case "kettlebell_swings":
+    case "machine_abdominal":
+      return ImmutableSet();
+
+    default:
+      const _exhaustiveCheck: never = exercise; // This is to satisfy TypeScript that this is exhaustive.
+      return _exhaustiveCheck;
+  }
+};
+
+const exercisesForDayType = (
+  dayType: ProgramDayType,
+): ImmutableSet<ExerciseType> =>
+  ImmutableSet(
+    Constants.public.Enums.exercise_type_enum.filter((e) =>
+      dayTypesForExercise(e).has(dayType),
+    ),
+  );
+
+export const EXERCISES_FOR_DAY_TYPE: ImmutableMap<
+  ProgramDayType,
+  ImmutableSet<ExerciseType>
+> = Constants.public.Enums.program_day_types_enum.reduce(
+  (acc, dayType) => acc.set(dayType, exercisesForDayType(dayType)),
+  ImmutableMap<ProgramDayType, ImmutableSet<ExerciseType>>(),
+);
+
+export const DAY_TYPES_FOR_EXERCISE: ImmutableMap<
+  ExerciseType,
+  ImmutableSet<ProgramDayType>
+> = Constants.public.Enums.exercise_type_enum.reduce(
+  (acc, exercise) => acc.set(exercise, dayTypesForExercise(exercise)),
+  ImmutableMap<ExerciseType, ImmutableSet<ProgramDayType>>(),
+);
+
+export const EXERCISE_TYPES = ImmutableSet(
+  Constants.public.Enums.exercise_type_enum,
+);
+export const EQUIPMENT_TYPES = Constants.public.Enums.equipment_type_enum;
+export const PROGRAM_DAY_TYPES = Constants.public.Enums.program_day_types_enum;

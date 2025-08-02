@@ -148,3 +148,15 @@ BEGIN
     );
   END IF;
 END$$;
+
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'program_day_types_enum') THEN
+    CREATE TYPE public.program_day_types_enum AS ENUM (
+      'push', 
+      'pull', 
+      'legs', 
+      'shoulders'
+    );
+  END IF;
+END$$;

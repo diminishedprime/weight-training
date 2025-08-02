@@ -71,8 +71,9 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
     case "machine":
       return (
         <EditMachineStack
-          weightValue={props.targetWeightValue}
-          setWeightValue={props.setActualWeightValue}
+          targetWeightValue={props.targetWeightValue}
+          actualWeightValue={props.actualWeightValue}
+          setActualWeightValue={props.setActualWeightValue}
           weightUnit={props.weightUnit}
         />
       );

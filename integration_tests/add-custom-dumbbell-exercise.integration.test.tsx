@@ -6,7 +6,6 @@ import * as serverUtil from "@/serverUtil";
 import { TestIds } from "@/test-ids";
 import { USER_ID } from "@/test/constants";
 import { getSession, requireLoggedInUser } from "@/test/serverUtil";
-import { getExercisesByEquipment } from "@/util";
 import { act, render, screen, waitFor } from "@testing-library/react";
 import { afterEach } from "node:test";
 import { beforeEach, describe, expect, it, vi } from "vitest";
@@ -17,8 +16,6 @@ const deleteRelevantRowsForUser = async (userId: string) => {
   await supabase.from("exercises").delete().eq("user_id", userId);
   await supabase.from("form_drafts").delete().eq("user_id", userId);
 };
-
-const exercisesByEquipment = getExercisesByEquipment();
 
 beforeEach(async () => {
   vi.restoreAllMocks();

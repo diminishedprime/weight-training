@@ -1,6 +1,6 @@
 import React from "react";
 
-const useRequiredLabel = (labelText: string, isRequired: boolean) => {
+export const useRequiredLabel = (labelText: string, isRequired: boolean) => {
   return React.useMemo(() => {
     return `${labelText}${isRequired ? " (required)" : ""}`;
   }, [labelText, isRequired]);
