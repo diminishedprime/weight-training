@@ -95,7 +95,7 @@ export type Database = {
           completed_at: string | null;
           completion_status: Database["public"]["Enums"]["completion_status_enum"];
           id: string;
-          name: string | null;
+          name: string;
           notes: string | null;
           started_at: string | null;
           user_id: string;
@@ -105,7 +105,7 @@ export type Database = {
           completed_at?: string | null;
           completion_status: Database["public"]["Enums"]["completion_status_enum"];
           id?: string;
-          name?: string | null;
+          name: string;
           notes?: string | null;
           started_at?: string | null;
           user_id: string;
@@ -115,7 +115,7 @@ export type Database = {
           completed_at?: string | null;
           completion_status?: Database["public"]["Enums"]["completion_status_enum"];
           id?: string;
-          name?: string | null;
+          name?: string;
           notes?: string | null;
           started_at?: string | null;
           user_id?: string;

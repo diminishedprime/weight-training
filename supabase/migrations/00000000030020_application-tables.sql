@@ -62,9 +62,7 @@ CREATE TABLE IF NOT EXISTS public.exercise_block_exercises (
 CREATE TABLE IF NOT EXISTS public.exercise_superblock (
   id uuid NOT NULL DEFAULT uuid_generate_v4 (),
   user_id uuid NOT NULL,
-  -- TODO: make this non-null
-  name text NULL,
-  -- TODO: actually use this.
+  name text NOT NULL,
   active_block_id uuid NULL,
   notes text NULL,
   started_at timestamp with time zone NULL,

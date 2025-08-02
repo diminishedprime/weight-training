@@ -21,7 +21,7 @@ import {
   Stepper,
   Typography,
 } from "@mui/material";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 interface PerformClientProps {
   userId: string;
@@ -33,6 +33,7 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
   const api = usePerformClientAPI(props);
   return (
     <Stack spacing={1}>
+      <Typography variant="h5">{api.superblock.name}</Typography>
       <Stepper orientation="vertical" nonLinear activeStep={api.activeBlockIdx}>
         {api.superblock.blocks.map((block, idx) => (
           <Step key={block.id} completed={block.completed_at !== null}>
@@ -92,12 +93,12 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
 export default PerformClient;
 
 const usePerformClientAPI = (props: PerformClientProps) => {
-  const {
-    userId,
-    initialSuperblock,
-    initialSuperblock: { blocks },
-  } = props;
+  const { userId, initialSuperblock } = props;
   const [superblock, setSuperblock] = useState(initialSuperblock);
+
+  const blocks = useMemo(() => superblock.blocks, [superblock.blocks]);
+
+  // TODO - handle active by use-Memo-ing the current block and exercise.
   const [activeBlockIdx, setActiveBlockIdx] = useState(
     initialSuperblock.active_block_id
       ? initialSuperblock.blocks.findIndex(
@@ -158,7 +159,33 @@ const usePerformClientAPI = (props: PerformClientProps) => {
     [superblock.id, userId],
   );
 
+  const [hasSquat, hasDeadlift, hasBenchPress, hasOverheadPress] = useMemo(
+    () =>
+      [
+        superblock.blocks.some(
+          (block) => block.exercise_type === "barbell_back_squat",
+        ),
+        superblock.blocks.some(
+          (block) => block.exercise_type === "barbell_deadlift",
+        ),
+        superblock.blocks.some(
+          (block) => block.exercise_type === "barbell_bench_press",
+        ),
+        superblock.blocks.some(
+          (block) => block.exercise_type === "barbell_overhead_press",
+        ),
+      ] as const,
+    [superblock.blocks],
+  );
+
   return {
+    dayDetails: {
+      hasSquat,
+      hasDeadlift,
+      hasBenchPress,
+      hasOverheadPress,
+      bothPresses: hasBenchPress && hasOverheadPress,
+    },
     superblock,
     finishExercise,
     activeBlockIdx,

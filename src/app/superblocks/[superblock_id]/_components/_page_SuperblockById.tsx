@@ -11,24 +11,19 @@ import LabeledValue from "@/components/LabeledValue";
 import Link from "@/components/Link";
 import TODO from "@/components/TODO";
 import { PATHS } from "@/constants";
-import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { exerciseTypeUIStringBrief } from "@/uiStrings";
-import { notFoundIfNull } from "@/util";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
 
 interface PageSuperblocksByIdProps {
-  superblockId: string;
+  userId: string;
+  superblock: NarrowedSuperblock;
 }
 
 export default async function PageSuperblocksById(
   props: PageSuperblocksByIdProps,
 ) {
-  const { superblockId } = props;
-  const { userId } = await requireLoggedInUser(
-    PATHS.SuperblocksById(superblockId),
-  );
-  const superblock = await getSuperblock(userId, superblockId);
+  const { superblock } = props;
   return (
     <Stack spacing={1}>
       <Stack direction="row" spacing={1} justifyContent="space-between">
@@ -182,12 +177,3 @@ export type NarrowedSuperblocksRow = RequiredNonNullable<
   | "block_details"
   | "training_volume"
 >;
-
-const getSuperblock = async (userId: string, superblockId: string) => {
-  const result = await supabaseRPC("get_superblock", {
-    p_user_id: userId,
-    p_superblock_id: superblockId,
-  });
-  notFoundIfNull(result.id);
-  return result as NarrowedSuperblock;
-};

@@ -97,7 +97,7 @@ export type NarrowedSuperblock = RequiredNonNullable<
       "id" | "exercises" | "exercise_type" | "equipment_type"
     >[];
   },
-  "id"
+  "id" | "name"
 >;
 
 export type * from "@/common-types/get-add-program-info";
