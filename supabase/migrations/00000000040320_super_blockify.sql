@@ -45,7 +45,7 @@ BEGIN
       v_open_superblock_id := uuid_generate_v4();
       v_superblock_order := 1;
       INSERT INTO public.exercise_superblock (id, user_id, name, notes, started_at, completion_status)
-        VALUES (v_open_superblock_id, p_user_id, NULL, p_superblock_note, v_block.started_at, 'completed');
+        VALUES (v_open_superblock_id, p_user_id, 'Superblock', p_superblock_note, v_block.started_at, 'completed');
       INSERT INTO public.exercise_superblock_blocks (superblock_id, block_id, superblock_order)
         VALUES (v_open_superblock_id, v_block.id, v_superblock_order);
       IF v_block.completed_at IS NOT NULL THEN

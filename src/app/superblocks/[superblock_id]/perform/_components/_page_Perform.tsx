@@ -1,24 +1,17 @@
 import PerformClient from "@/app/superblocks/[superblock_id]/perform/_components/PerformClient";
 import { GetPerformSuperblockResult } from "@/common-types";
 import { PATHS } from "@/constants";
-import {
-  requirePreferences,
-  supabaseRPC,
-  type UserPreferencesKeys,
-} from "@/serverUtil";
+import { requirePreferences, type UserPreferencesKeys } from "@/serverUtil";
 import React from "react";
 
 interface PagePerformProps {
   userId: string;
-  superblockId: string;
+  superblock: GetPerformSuperblockResult;
 }
 export default async function PagePerform(props: PagePerformProps) {
-  const superblock = await getPerformSuperblock(
-    props.userId,
-    props.superblockId,
-  );
   // TODO: (easy) this should be cleaned up, or at least moved to a
   // helper-function in this file.
+  const { superblock } = props;
   const requiredPreferencesKeys = superblock.blocks
     .map((block) => {
       if (block.exercises.length === 0) {
@@ -42,7 +35,7 @@ export default async function PagePerform(props: PagePerformProps) {
   const preferences = await requirePreferences(
     props.userId,
     requiredPreferencesKeys,
-    PATHS.Superblocks_Id_Perform(props.superblockId),
+    PATHS.Superblocks_Id_Perform(superblock.id),
   );
 
   return (
@@ -55,11 +48,3 @@ export default async function PagePerform(props: PagePerformProps) {
     </React.Fragment>
   );
 }
-
-const getPerformSuperblock = async (userId: string, superblockId: string) => {
-  const superblock = await supabaseRPC("get_perform_superblock", {
-    p_user_id: userId,
-    p_superblock_id: superblockId,
-  });
-  return superblock as GetPerformSuperblockResult;
-};
