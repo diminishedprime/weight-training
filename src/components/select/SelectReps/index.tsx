@@ -13,10 +13,12 @@ import React, { useMemo } from "react";
 export interface SelectRepsProps {
   reps: number;
   setReps: React.Dispatch<React.SetStateAction<number>>;
+  // TODO: this doesn't seem to work.
   repChoices?: number[];
   wendlerReps?: boolean;
   isAMRAP?: boolean;
   setIsAMRAP?: React.Dispatch<React.SetStateAction<boolean>>;
+  hideAMRAP?: boolean;
   hideSettings?: boolean;
 }
 
@@ -37,25 +39,27 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
         )}
       </FormLabel>
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-        <ToggleButtonGroup
-          color="secondary"
-          value={props.isAMRAP}
-          exclusive
-          onChange={() => {
-            props.setIsAMRAP?.((old) => !old);
-          }}
-          size="small"
-          aria-label="toggle AMRAP"
-        >
-          <ToggleButton
+        {!props.hideAMRAP && (
+          <ToggleButtonGroup
+            color="secondary"
+            value={props.isAMRAP}
+            exclusive
+            onChange={() => {
+              props.setIsAMRAP?.((old) => !old);
+            }}
             size="small"
-            value={true}
             aria-label="toggle AMRAP"
-            data-testid={TestIds.SelectRepsAMRAPToggle}
           >
-            AMRAP
-          </ToggleButton>
-        </ToggleButtonGroup>
+            <ToggleButton
+              size="small"
+              value={true}
+              aria-label="toggle AMRAP"
+              data-testid={TestIds.SelectRepsAMRAPToggle}
+            >
+              AMRAP
+            </ToggleButton>
+          </ToggleButtonGroup>
+        )}
         <ToggleButtonGroup
           color="primary"
           value={props.reps}

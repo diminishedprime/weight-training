@@ -12,7 +12,8 @@ import Link from "@/components/Link";
 import TODO from "@/components/TODO";
 import { PATHS } from "@/constants";
 import { exerciseTypeUIStringBrief } from "@/uiStrings";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
 import React from "react";
 
 interface PageSuperblocksByIdProps {
@@ -28,10 +29,16 @@ export default async function PageSuperblocksById(
     <Stack spacing={1}>
       <Stack direction="row" spacing={1} justifyContent="space-between">
         <Typography variant="h5" display="flex" alignItems={"center"} gap={1}>
-          {superblock.name || "Superblock"}
+          {superblock.name}
           {superblock.started_at && (
             <DisplayDate timestamp={superblock.started_at} noTime />
           )}
+          <IconButton
+            component={Link}
+            href={PATHS.Superblocks_Id_Edit(superblock.id)}
+          >
+            <EditIcon />
+          </IconButton>
         </Typography>
         <Button
           component={Link}

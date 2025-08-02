@@ -4,7 +4,9 @@ import {
   RequiredNonNullable,
   RoundingMode,
 } from "@/common-types";
+import { EXERCISE_TYPES } from "@/constants";
 import { Constants } from "@/database.types";
+import { Map as ImmutableMap, Set as ImmutableSet } from "immutable";
 import { notFound } from "next/navigation";
 
 /**
@@ -107,6 +109,14 @@ export function equipmentForExercise(
   }
 }
 
+export const EQUIPMENT_FOR_EXERCISE: ImmutableMap<ExerciseType, EquipmentType> =
+  ImmutableMap(
+    Constants.public.Enums.exercise_type_enum.map((exerciseType) => [
+      exerciseType,
+      equipmentForExercise(exerciseType),
+    ]),
+  );
+
 const roundingFunction = (
   roundingMode: RoundingMode,
   nearest: number,
@@ -201,35 +211,25 @@ export function actualWeightForTarget(
   return { actualWeight, rounded: platesForOneSide.rounded };
 }
 
-export const getExercisesByEquipment = (): Record<
-  EquipmentType,
-  ExerciseType[]
-> => {
-  const exercisesByEquipment = {} as Record<EquipmentType, ExerciseType[]>;
-
-  for (const equipment of Constants.public.Enums.equipment_type_enum) {
-    exercisesByEquipment[equipment] = [];
-  }
-
-  for (const exercise of Constants.public.Enums.exercise_type_enum) {
-    const equipment = equipmentForExercise(exercise);
-    if (exercisesByEquipment[equipment]) {
-      exercisesByEquipment[equipment].push(exercise);
+export const EXERCISES_BY_EQUIPMENT = EXERCISE_TYPES.reduce(
+  (acc, exerciseType) => {
+    const equipmentType = EQUIPMENT_FOR_EXERCISE.get(exerciseType);
+    if (equipmentType) {
+      return acc.set(
+        equipmentType,
+        (acc.get(equipmentType) || ImmutableSet()).add(exerciseType),
+      );
     }
-  }
+    return acc;
+  },
+  ImmutableMap() as ImmutableMap<EquipmentType, ImmutableSet<ExerciseType>>,
+);
+export const BARBELL_EXERCISES = EXERCISES_BY_EQUIPMENT.get("barbell");
 
-  return exercisesByEquipment;
-};
-
-export const EXERCISES_BY_EQUIPMENT = getExercisesByEquipment();
-export const BARBELL_EXERCISES = EXERCISES_BY_EQUIPMENT["barbell"];
-
-/**
- * Pre-computed Set of valid barbell form draft paths for O(1) lookup.
- * Generated from the barbell exercises in EXERCISES_BY_EQUIPMENT.
- */
 export const VALID_BARBELL_FORM_DRAFT_PATHS = new Set(
-  EXERCISES_BY_EQUIPMENT["barbell"].map((exercise) => `/exercise/${exercise}`),
+  EXERCISES_BY_EQUIPMENT.get("barbell", ImmutableSet()).map(
+    (exercise) => `/exercise/${exercise}`,
+  ),
 );
 
 export type SortableEquipment = Record<EquipmentType, number>;

@@ -46,7 +46,7 @@ const PersonalRecordsPage = async () => {
         like stars or something may be interesting. It'll also help to show how
         there's consistent progression, even though the PRs are less frequent.
       </TODO>
-      {Object.entries(EXERCISES_BY_EQUIPMENT).map(([equipment, exercises]) => (
+      {EXERCISES_BY_EQUIPMENT.entrySeq().map(([equipment, exercises]) => (
         <Stack key={equipment} spacing={1}>
           <Typography variant="h6" display="flex" alignItems="center" gap={1}>
             <DisplayEquipmentThumbnail

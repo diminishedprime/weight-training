@@ -20,7 +20,7 @@ export const wendlerCycleUIString = (
     // Stryker restore all
   }
 };
-import { UserPreferences, WeightUnit } from "@/common-types";
+import { ProgramDayType, UserPreferences, WeightUnit } from "@/common-types";
 import { Database } from "@/database.types";
 import { equipmentForExercise } from "@/util";
 
@@ -297,4 +297,20 @@ export const userPreferenceUIString = (
 
 export const uiWeight = (value: number, unit: WeightUnit): string => {
   return `${value}${weightUnitUIString(unit)}`;
+};
+
+export const programDayTypeUIString = (type: ProgramDayType): string => {
+  switch (type) {
+    case "legs":
+      return "Legs";
+    case "push":
+      return "Push";
+    case "pull":
+      return "Pull";
+    case "shoulders":
+      return "Shoulders";
+    default:
+      const _exhaustiveCheck: never = type;
+      return _exhaustiveCheck;
+  }
 };

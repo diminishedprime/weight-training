@@ -9,6 +9,7 @@ interface SuperblocksByIdSuspenseWrapperProps {
   params: Promise<{ superblock_id: string }>;
 }
 
+// TODO: easy this is named wrong lol.
 export default async function SuperblocksByIdSuspenseWrapper(
   props: SuperblocksByIdSuspenseWrapperProps,
 ) {

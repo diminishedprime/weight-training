@@ -501,6 +501,20 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      add_block_to_superblock: {
+        Args: {
+          p_user_id: string;
+          p_superblock_id: string;
+          p_name: string;
+          p_equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          p_sets: number;
+          p_reps: number;
+          p_weight_value: number;
+          p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+        };
+        Returns: undefined;
+      };
       add_wendler_program: {
         Args: {
           p_user_id: string;
@@ -746,6 +760,7 @@ export type Database = {
         | "kettlebell_row"
         | "plate_stack_calf_raise";
       perceived_effort_enum: "easy" | "okay" | "hard";
+      program_day_types_enum: "push" | "pull" | "legs" | "shoulders";
       update_source_enum: "manual" | "system";
       weight_unit_enum: "pounds" | "kilograms";
       wendler_block_prereq_error_enum: "no_target_max" | "unit_mismatch";
@@ -1266,6 +1281,7 @@ export const Constants = {
         "plate_stack_calf_raise",
       ],
       perceived_effort_enum: ["easy", "okay", "hard"],
+      program_day_types_enum: ["push", "pull", "legs", "shoulders"],
       update_source_enum: ["manual", "system"],
       weight_unit_enum: ["pounds", "kilograms"],
       wendler_block_prereq_error_enum: ["no_target_max", "unit_mismatch"],

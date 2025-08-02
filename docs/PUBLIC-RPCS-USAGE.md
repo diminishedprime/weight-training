@@ -34,4 +34,4 @@ though if you have a good reason to do so, you can ignore this report changing.
 
 ## Not Used
 
-_All public RPCs are used in code._
+- [ ] add_block_to_superblock
