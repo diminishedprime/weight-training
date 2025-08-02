@@ -2,6 +2,7 @@ import { ExerciseType } from "@/common-types";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
 import DisplayWeight from "@/components/display/DisplayWeight";
+import TODO from "@/components/TODO";
 import { Constants } from "@/database.types";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import {
@@ -98,6 +99,7 @@ const PersonalRecordsExerciseType = async (
             <Typography variant="h6" color="primary">
               {reps} Rep{reps === 1 ? "" : "s"}
             </Typography>
+
             <Typography>
               <Typography component="span">
                 Last record (
@@ -114,6 +116,11 @@ const PersonalRecordsExerciseType = async (
                   addSuffix: true,
                 })}
               </Typography>
+
+              <TODO>
+                The formatting is all broken, probably just use a LabeledValue
+                here.
+              </TODO>
             </Typography>
           </Stack>
           <TableContainer component={Paper}>

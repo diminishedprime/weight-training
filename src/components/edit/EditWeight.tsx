@@ -220,7 +220,7 @@ const useEditWeightAPI = (props: EditWeightProps) => {
 
   const clearDisabled = useMemo(() => {
     if (clearValue !== undefined) {
-      return weightValue <= clearValue;
+      return weightValue === clearValue;
     }
     return weightValue <= 0;
   }, [weightValue, clearValue]);

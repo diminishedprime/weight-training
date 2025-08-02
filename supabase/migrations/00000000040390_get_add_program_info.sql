@@ -22,6 +22,8 @@ DECLARE
   v_bench numeric := 0;
   v_deadlift numeric := 0;
   v_ohp numeric := 0;
+  -- TODO: Update this logic once we actually have completed_at in the relevant
+  -- tables.
   v_old_data_warning timestamptz := NULL;
   v_program_count integer := 0;
   v_program_name text := NULL;
@@ -29,68 +31,44 @@ BEGIN
   -- Count total number of programs for the user
   SELECT COUNT(*) INTO v_program_count FROM public.wendler_program WHERE user_id = p_user_id;
   v_program_name := 'Wendler Program ' || (v_program_count + 1);
-  SELECT wp.id INTO v_program_id
-  FROM public.wendler_program wp
-  LEFT JOIN LATERAL (
-    SELECT MIN(eb.started_at) AS started_at
-    FROM public.wendler_program_cycle wpc
-    JOIN public.wendler_program_cycle_movement wpcm ON wpc.id = wpcm.wendler_program_cycle_id
-    JOIN public.exercise_block eb ON wpcm.block_id = eb.id
-    WHERE wpc.wendler_program_id = wp.id AND eb.started_at IS NOT NULL
-  ) prog_start ON TRUE
-  WHERE wp.user_id = p_user_id
-  ORDER BY prog_start.started_at DESC NULLS LAST
+
+
+  -- Use program_order to find the most recent program
+  SELECT id INTO v_program_id
+  FROM public.wendler_program
+  WHERE user_id = p_user_id
+  ORDER BY program_order DESC, id DESC
   LIMIT 1;
 
   IF v_program_id IS NOT NULL THEN
-    -- Find most recent cycle for that program (by id desc as fallback)
-    SELECT id, (
-      SELECT MIN(eb.started_at)
-      FROM public.wendler_program_cycle_movement wpcm
-      JOIN public.exercise_block eb ON wpcm.block_id = eb.id
-      WHERE wpcm.wendler_program_cycle_id = wpc.id AND eb.started_at IS NOT NULL
-    ) AS started_at
-    INTO v_cycle_id, v_cycle_started_at
+    -- For each main lift, get a target_max_value of the right exercise_type
+    SELECT wmm.target_max_value INTO v_squat
     FROM public.wendler_program_cycle wpc
-    WHERE wendler_program_id = v_program_id AND user_id = p_user_id
-    ORDER BY id DESC
+    JOIN public.wendler_program_cycle_movement wpcm ON wpc.id = wpcm.wendler_program_cycle_id
+    JOIN public.wendler_movement_max wmm ON wpcm.movement_max_id = wmm.id
+    WHERE wpc.wendler_program_id = v_program_id AND wpc.user_id = p_user_id AND wpcm.exercise_type = 'barbell_back_squat'
     LIMIT 1;
 
-    IF v_cycle_id IS NOT NULL THEN
-      -- For each main lift, get the most recent training_max_value by block's started_at
-      SELECT wpcm.training_max_value INTO v_squat
-      FROM public.wendler_program_cycle_movement wpcm
-      JOIN public.exercise_block eb ON wpcm.block_id = eb.id
-      WHERE wpcm.wendler_program_cycle_id = v_cycle_id AND wpcm.user_id = p_user_id AND wpcm.exercise_type = 'barbell_back_squat'
-      ORDER BY eb.started_at DESC NULLS LAST
-      LIMIT 1;
+    SELECT wmm.target_max_value INTO v_bench
+    FROM public.wendler_program_cycle wpc
+    JOIN public.wendler_program_cycle_movement wpcm ON wpc.id = wpcm.wendler_program_cycle_id
+    JOIN public.wendler_movement_max wmm ON wpcm.movement_max_id = wmm.id
+    WHERE wpc.wendler_program_id = v_program_id AND wpc.user_id = p_user_id AND wpcm.exercise_type = 'barbell_bench_press'
+    LIMIT 1;
 
-      SELECT wpcm.training_max_value INTO v_bench
-      FROM public.wendler_program_cycle_movement wpcm
-      JOIN public.exercise_block eb ON wpcm.block_id = eb.id
-      WHERE wpcm.wendler_program_cycle_id = v_cycle_id AND wpcm.user_id = p_user_id AND wpcm.exercise_type = 'barbell_bench_press'
-      ORDER BY eb.started_at DESC NULLS LAST
-      LIMIT 1;
+    SELECT wmm.target_max_value INTO v_deadlift
+    FROM public.wendler_program_cycle wpc
+    JOIN public.wendler_program_cycle_movement wpcm ON wpc.id = wpcm.wendler_program_cycle_id
+    JOIN public.wendler_movement_max wmm ON wpcm.movement_max_id = wmm.id
+    WHERE wpc.wendler_program_id = v_program_id AND wpc.user_id = p_user_id AND wpcm.exercise_type = 'barbell_deadlift'
+    LIMIT 1;
 
-      SELECT wpcm.training_max_value INTO v_deadlift
-      FROM public.wendler_program_cycle_movement wpcm
-      JOIN public.exercise_block eb ON wpcm.block_id = eb.id
-      WHERE wpcm.wendler_program_cycle_id = v_cycle_id AND wpcm.user_id = p_user_id AND wpcm.exercise_type = 'barbell_deadlift'
-      ORDER BY eb.started_at DESC NULLS LAST
-      LIMIT 1;
-
-      SELECT wpcm.training_max_value INTO v_ohp
-      FROM public.wendler_program_cycle_movement wpcm
-      JOIN public.exercise_block eb ON wpcm.block_id = eb.id
-      WHERE wpcm.wendler_program_cycle_id = v_cycle_id AND wpcm.user_id = p_user_id AND wpcm.exercise_type = 'barbell_overhead_press'
-      ORDER BY eb.started_at DESC NULLS LAST
-      LIMIT 1;
-
-      -- Set old_data_warning if cycle started_at is more than 6 months ago
-      IF v_cycle_started_at IS NOT NULL AND v_cycle_started_at < (now() - INTERVAL '6 months') THEN
-        v_old_data_warning := v_cycle_started_at;
-      END IF;
-    END IF;
+    SELECT wmm.target_max_value INTO v_ohp
+    FROM public.wendler_program_cycle wpc
+    JOIN public.wendler_program_cycle_movement wpcm ON wpc.id = wpcm.wendler_program_cycle_id
+    JOIN public.wendler_movement_max wmm ON wpcm.movement_max_id = wmm.id
+    WHERE wpc.wendler_program_id = v_program_id AND wpc.user_id = p_user_id AND wpcm.exercise_type = 'barbell_overhead_press'
+    LIMIT 1;
   END IF;
 
   RETURN (

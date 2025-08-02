@@ -8,12 +8,13 @@ import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import LabeledValue from "@/components/LabeledValue";
+import Link from "@/components/Link";
 import TODO from "@/components/TODO";
 import { PATHS } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { exerciseTypeUIStringBrief } from "@/uiStrings";
 import { notFoundIfNull } from "@/util";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
 
 interface PageSuperblocksByIdProps {
@@ -30,14 +31,23 @@ export default async function PageSuperblocksById(
   const superblock = await getSuperblock(userId, superblockId);
   return (
     <Stack spacing={1}>
-      <TODO>Add a way to add blocks to an existing superblock.</TODO>
-      <Typography variant="h5" display="flex" alignItems={"center"} gap={1}>
-        {superblock.name || "Superblock"}
-        {superblock.started_at && (
-          <DisplayDate timestamp={superblock.started_at} noTime />
-        )}
-      </Typography>
-
+      <Stack direction="row" spacing={1} justifyContent="space-between">
+        <Typography variant="h5" display="flex" alignItems={"center"} gap={1}>
+          {superblock.name || "Superblock"}
+          {superblock.started_at && (
+            <DisplayDate timestamp={superblock.started_at} noTime />
+          )}
+        </Typography>
+        <Button
+          component={Link}
+          variant="contained"
+          color="primary"
+          href={PATHS.Superblocks_Id_Perform(superblock.id)}
+          sx={{ justifySelf: "flex-end" }}
+        >
+          Let's a go
+        </Button>
+      </Stack>
       <Stack direction="row" spacing={1} justifyContent="space-between">
         {superblock.started_at && superblock.completed_at && (
           <DisplayDuration
@@ -75,12 +85,6 @@ export default async function PageSuperblocksById(
                 </React.Fragment>
               )}
             </Stack>
-
-            <TODO>
-              The increase_amount value seems to be calculating instead of just
-              returning from the same row. Either that or my change value is
-              like _wayyy_ off.
-            </TODO>
             <Stack direction="row" spacing={1} justifyContent="space-between">
               {block.started_at && block.completed_at && (
                 <DisplayDuration
@@ -156,6 +160,9 @@ export default async function PageSuperblocksById(
           </Stack>
         ))}
       </Stack>
+      <TODO>
+        Clean up this preview to be card based like the other parts of the ui.
+      </TODO>
     </Stack>
   );
 }

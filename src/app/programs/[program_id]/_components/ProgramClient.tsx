@@ -4,6 +4,7 @@ import { GetWendlerProgramResult } from "@/common-types";
 import DisplayDate from "@/components/display/DisplayDate";
 import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayWeight from "@/components/display/DisplayWeight";
+import DisplayWeightChange from "@/components/display/DisplayWeightChange";
 import LabeledValue from "@/components/LabeledValue";
 import TODO from "@/components/TODO";
 import { PATHS } from "@/constants";
@@ -119,16 +120,21 @@ const ProgramClient: React.FC<ProgramClientProps> = (props) => {
                 justifyContent={"space-between"}
               >
                 <Stack direction="row" spacing={1}>
-                  <LabeledValue label="Training Max">
+                  <LabeledValue label="Heaviest Weight" alignItems={"center"}>
+                    <DisplayWeight
+                      weightValue={movement.heaviest_weight_value}
+                      weightUnit={movement.weight_unit}
+                    />
+                  </LabeledValue>
+                  <LabeledValue label="Training Max" alignItems={"center"}>
                     <DisplayWeight
                       weightValue={movement.training_max_value}
                       weightUnit={movement.weight_unit}
                     />
                   </LabeledValue>
-                  <LabeledValue label="Heaviest Weight">
-                    <DisplayWeight
-                      weightValue={movement.heaviest_weight_value}
-                      weightUnit={movement.weight_unit}
+                  <LabeledValue label="Change" alignItems={"center"}>
+                    <DisplayWeightChange
+                      changeValue={movement.increase_amount_value}
                     />
                   </LabeledValue>
                 </Stack>
@@ -151,6 +157,7 @@ const ProgramClient: React.FC<ProgramClientProps> = (props) => {
           </Step>
         ))}
       </Stepper>
+      <TODO>Add user preferences for order of movements in wendler</TODO>
     </Stack>
   );
 };

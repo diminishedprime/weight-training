@@ -15,12 +15,14 @@ import { Stack, Typography } from "@mui/material";
 
 interface EquipmentWeightEditorProps {
   equipmentType: EquipmentType;
-  weightValue: number;
+  targetWeightValue: number;
+  actualWeightValue: number | undefined;
   weightUnit: WeightUnit;
-  setWeightValue: React.Dispatch<React.SetStateAction<number>>;
+  setActualWeightValue: React.Dispatch<React.SetStateAction<number>>;
   roundingMode: RoundingMode;
   preferences: UserPreferences;
   barWeightValue: number | undefined;
+  editing?: boolean;
 }
 
 const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
@@ -40,9 +42,10 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       );
       return (
         <EditBarbell
-          editing
-          targetWeightValue={props.weightValue}
-          onTargetWeightChange={props.setWeightValue}
+          editing={props.editing}
+          targetWeightValue={props.targetWeightValue}
+          actualWeightValue={props.actualWeightValue}
+          setActualWeightValue={props.setActualWeightValue}
           roundingMode={props.roundingMode}
           weightUnit={props.weightUnit}
           availablePlates={props.preferences.available_plates_lbs}
@@ -59,8 +62,8 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       );
       return (
         <EditDumbbell
-          weightValue={props.weightValue}
-          onChange={props.setWeightValue}
+          weightValue={props.targetWeightValue}
+          onChange={props.setActualWeightValue}
           weightUnit={props.weightUnit}
           availableDumbbells={props.preferences.available_dumbbells_lbs}
         />
@@ -68,8 +71,8 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
     case "machine":
       return (
         <EditMachineStack
-          weightValue={props.weightValue}
-          setWeightValue={props.setWeightValue}
+          weightValue={props.targetWeightValue}
+          setWeightValue={props.setActualWeightValue}
           weightUnit={props.weightUnit}
         />
       );
@@ -83,8 +86,8 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       );
       return (
         <EditKettlebell
-          weightValue={props.weightValue}
-          setWeightValue={props.setWeightValue}
+          weightValue={props.targetWeightValue}
+          setWeightValue={props.setActualWeightValue}
           weightUnit={props.weightUnit}
           roundingMode={props.roundingMode}
           availableKettlebells={props.preferences.available_kettlebells_lbs}
@@ -101,8 +104,8 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       );
       return (
         <EditPlateStack
-          weightValue={props.weightValue}
-          setWeightValue={props.setWeightValue}
+          weightValue={props.targetWeightValue}
+          setWeightValue={props.setActualWeightValue}
           weightUnit={props.weightUnit}
           availablePlates={props.preferences.available_plates_lbs}
         />
@@ -118,8 +121,8 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
             add25
             sub5
             sub25
-            weightValue={props.weightValue}
-            setWeightValue={props.setWeightValue}
+            weightValue={props.targetWeightValue}
+            setWeightValue={props.setActualWeightValue}
           />
         </Stack>
       );

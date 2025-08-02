@@ -1,11 +1,6 @@
 "use client";
 import { useAddEquipmentExerciseAPI } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/AddEquipmentExercise/useAddEquipmentExerciseAPI";
-import {
-  CompletionStatus,
-  EquipmentType,
-  ExerciseType,
-  UserPreferences,
-} from "@/common-types";
+import { EquipmentType, ExerciseType, UserPreferences } from "@/common-types";
 import EditNotes from "@/components/edit/EditNotes";
 import EquipmentWeightEditor from "@/components/edit/EquipmentWeightEditor";
 import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
@@ -53,12 +48,14 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
     >
       <EquipmentWeightEditor
         equipmentType={props.equipmentType}
-        weightValue={api.actualWeight}
+        targetWeightValue={api.actualWeight}
         weightUnit={api.weightUnit}
-        setWeightValue={api.setActualWeight}
+        setActualWeightValue={api.setActualWeight}
         roundingMode={api.roundingMode}
         barWeightValue={api.barWeightValue}
         preferences={props.preferences}
+        actualWeightValue={api.actualWeight}
+        editing={true}
       />
       <Stack spacing={1} alignItems="space-between">
         <Stack spacing={1} alignItems="center">
@@ -79,9 +76,7 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
           >
             <SelectCompletionStatus
               completionStatus={api.completionStatus}
-              onCompletionStatusChange={(status: CompletionStatus) =>
-                api.setCompletionStatus(status)
-              }
+              setCompletionStatus={api.setCompletionStatus}
             />
             <SelectPerceivedEffort
               // TODO: I should probably clean this up so it's just using

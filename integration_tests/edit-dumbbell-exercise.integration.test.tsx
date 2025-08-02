@@ -172,7 +172,7 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
         is_warmup: actualIsWarmup,
       } = actual;
       expect(actualActualWeightValue).toBe(20);
-      expect(actualTargetWeightValue).toBe(20);
+      expect(actualTargetWeightValue).toBe(30);
       expect(actualReps).toBe(7);
       expect(actualIsAMRAP).toBe(true);
       expect(actualNotes).toBe("here are some excellent notes.");

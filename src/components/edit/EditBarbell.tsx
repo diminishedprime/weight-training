@@ -2,16 +2,18 @@
 import { RoundingMode, WeightUnit } from "@/common-types";
 import DisplayBarbell from "@/components/display/DisplayBarbell";
 import SelectActivePlates from "@/components/select/SelectActivePlates";
+import TODO from "@/components/TODO";
 import { minimalPlates } from "@/util";
 import { Stack } from "@mui/material";
 import { Stack as ImmutableStack } from "immutable";
-import React from "react";
+import React, { useEffect } from "react";
 
 export interface EditBarbellProps {
   targetWeightValue: number;
+  actualWeightValue: number | undefined;
+  setActualWeightValue: React.Dispatch<React.SetStateAction<number>>;
   roundingMode: RoundingMode;
   barWeightValue: number;
-  onTargetWeightChange: React.Dispatch<React.SetStateAction<number>>;
   weightUnit: WeightUnit;
   availablePlates: number[];
   editing?: boolean;
@@ -27,21 +29,26 @@ const useEditBarbellAPI = (props: EditBarbellProps) => {
   const {
     targetWeightValue: targetWeight,
     barWeightValue,
-    onTargetWeightChange,
+    setActualWeightValue,
+    actualWeightValue,
+    availablePlates,
+    roundingMode,
   } = props;
-
-  // Internal stack for undo history
-  const [targetWeightHistory, setTargetWeightHistory] = React.useState(() =>
-    ImmutableStack<number>(),
-  );
 
   // Calculate the actual weight: barWeightValue + sum of all plates (both sides)
   const weightPerSide = (targetWeight - barWeightValue) / 2;
   const { plates: plateList, rounded } = minimalPlates(
     weightPerSide,
-    props.availablePlates,
-    props.roundingMode,
+    availablePlates,
+    roundingMode,
   );
+
+  useEffect(() => {
+    if (actualWeightValue === undefined) {
+      const sumPlates = plateList.reduce((acc, p) => acc + p, 0);
+      setActualWeightValue(barWeightValue + 2 * sumPlates);
+    }
+  }, [actualWeightValue, barWeightValue, plateList, setActualWeightValue]);
 
   const plateCounts = React.useMemo(() => {
     const counts: { [key: number]: number } = {};
@@ -51,29 +58,41 @@ const useEditBarbellAPI = (props: EditBarbellProps) => {
     return counts;
   }, [plateList]);
 
+  const [actualWeightHistory, setActualWeightHistory] = React.useState(() =>
+    ImmutableStack<number>(),
+  );
+
   const handleAdd = React.useCallback(
     (increment: number) => {
-      setTargetWeightHistory((prev) => prev.push(targetWeight));
-      onTargetWeightChange((prevWeight) => prevWeight + increment * 2);
+      setActualWeightHistory((prev) =>
+        prev.push(
+          actualWeightValue === undefined ? barWeightValue : actualWeightValue,
+        ),
+      );
+      setActualWeightValue((prevWeight) => prevWeight + increment * 2);
     },
-    [onTargetWeightChange, targetWeight],
+    [setActualWeightValue, actualWeightValue, barWeightValue],
   );
 
   const handleClear = React.useCallback(() => {
-    setTargetWeightHistory((prev) => prev.push(targetWeight));
-    onTargetWeightChange(barWeightValue);
-  }, [onTargetWeightChange, barWeightValue, targetWeight]);
+    setActualWeightHistory((prev) =>
+      prev.push(
+        actualWeightValue === undefined ? barWeightValue : actualWeightValue,
+      ),
+    );
+    setActualWeightValue(barWeightValue);
+  }, [setActualWeightValue, barWeightValue, actualWeightValue]);
 
   // Undo handler
   const handleUndo = React.useCallback(() => {
-    const previousWeight = targetWeightHistory.peek();
-    onTargetWeightChange(previousWeight!);
-    setTargetWeightHistory(targetWeightHistory.pop());
-  }, [targetWeightHistory, setTargetWeightHistory, onTargetWeightChange]);
+    const previousWeight = actualWeightHistory.peek();
+    setActualWeightValue(previousWeight!);
+    setActualWeightHistory(actualWeightHistory.pop());
+  }, [actualWeightHistory, setActualWeightHistory, setActualWeightValue]);
 
   const undoDisabled = React.useMemo(
-    () => targetWeightHistory.size === 0,
-    [targetWeightHistory],
+    () => actualWeightHistory.size === 0,
+    [actualWeightHistory],
   );
 
   const clearDisabled = React.useMemo(
@@ -95,20 +114,20 @@ const useEditBarbellAPI = (props: EditBarbellProps) => {
 const EditBarbell: React.FC<EditBarbellProps> = (props) => {
   const api = useEditBarbellAPI(props);
 
-  // TODO this has an issue where it moves when you make it editable, but it's
-  // probably something that will be fixed if I can move away from all the
-  // weirdness of the useRef stuff.
-
   // TODO: This should probably be a form control with a label at some point.
-
   return (
     <Stack display="flex" direction="column" alignItems="center" spacing={1}>
+      <TODO>
+        The trash can should set the weight back to the target weight (or maybe
+        the resetValue?) if a resetValue prop is provided.
+      </TODO>
       <DisplayBarbell
         showWeight
         showDifference
         showPlateNumbers
         weightUnit={props.weightUnit}
         targetWeightValue={props.targetWeightValue}
+        actualWeightValue={props.actualWeightValue}
         barWeightValue={props.barWeightValue}
         availablePlates={props.availablePlates}
         roundingMode={props.roundingMode}

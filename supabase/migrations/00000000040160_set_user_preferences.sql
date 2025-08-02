@@ -14,7 +14,6 @@ BEGIN
           default_rest_time = EXCLUDED.default_rest_time,
           available_plates_lbs = EXCLUDED.available_plates_lbs,
           available_dumbbells_lbs = EXCLUDED.available_dumbbells_lbs,
-          available_kettlebells_lbs = EXCLUDED.available_kettlebells_lbs,
-          updated_at = timezone('utc', now());
+          available_kettlebells_lbs = EXCLUDED.available_kettlebells_lbs;
 END;
 $$ LANGUAGE plpgsql;

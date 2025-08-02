@@ -14,7 +14,6 @@ BEGIN
     )
     ON CONFLICT (user_id, page_path) DO UPDATE
       SET form_data = EXCLUDED.form_data,
-          updated_at = timezone('utc', now()),
           expires_at = timezone('utc', now()) + (p_ttl_days || ' days')::interval;
 END;
 $$ LANGUAGE plpgsql;

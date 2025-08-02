@@ -74,7 +74,8 @@ BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'completion_status_enum') THEN
     CREATE TYPE public.completion_status_enum AS ENUM (
       'completed',
-      'not_completed',
+      'not_started',
+      'in_progress',
       'failed',
       'skipped'
     );

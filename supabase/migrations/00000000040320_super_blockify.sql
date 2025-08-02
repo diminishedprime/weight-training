@@ -39,13 +39,13 @@ BEGIN
     ELSE
       IF v_open_superblock_id IS NOT NULL THEN
         IF v_open_superblock_last_completed_at IS NOT NULL THEN
-          UPDATE public.exercise_superblock SET completed_at = v_open_superblock_last_completed_at WHERE id = v_open_superblock_id;
+          UPDATE public.exercise_superblock SET completed_at = v_open_superblock_last_completed_at, completion_status = 'completed' WHERE id = v_open_superblock_id;
         END IF;
       END IF;
       v_open_superblock_id := uuid_generate_v4();
       v_superblock_order := 1;
-      INSERT INTO public.exercise_superblock (id, user_id, name, notes, started_at, created_at, updated_at)
-        VALUES (v_open_superblock_id, p_user_id, NULL, p_superblock_note, v_block.started_at, timezone('utc', now()), timezone('utc', now()));
+      INSERT INTO public.exercise_superblock (id, user_id, name, notes, started_at, completion_status)
+        VALUES (v_open_superblock_id, p_user_id, NULL, p_superblock_note, v_block.started_at, 'completed');
       INSERT INTO public.exercise_superblock_blocks (superblock_id, block_id, superblock_order)
         VALUES (v_open_superblock_id, v_block.id, v_superblock_order);
       IF v_block.completed_at IS NOT NULL THEN
@@ -57,7 +57,7 @@ BEGIN
   END LOOP;
 
   IF v_open_superblock_id IS NOT NULL AND v_open_superblock_last_completed_at IS NOT NULL THEN
-    UPDATE public.exercise_superblock SET completed_at = v_open_superblock_last_completed_at WHERE id = v_open_superblock_id;
+    UPDATE public.exercise_superblock SET completed_at = v_open_superblock_last_completed_at, completion_status = 'completed' WHERE id = v_open_superblock_id;
   END IF;
 END;
 $$ LANGUAGE plpgsql;

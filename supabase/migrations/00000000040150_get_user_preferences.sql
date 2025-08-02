@@ -7,9 +7,7 @@ BEGIN
       available_plates_lbs numeric[],
       available_dumbbells_lbs numeric[],
       available_kettlebells_lbs numeric[],
-      user_id uuid,
-      created_at timestamptz,
-      updated_at timestamptz
+      user_id uuid
     );
   END IF;
 END$$;
@@ -18,7 +16,7 @@ CREATE OR REPLACE FUNCTION public.get_user_preferences (p_user_id uuid) RETURNS 
 DECLARE
   result user_preferences_row;
 BEGIN
-  SELECT preferred_weight_unit, default_rest_time, available_plates_lbs, available_dumbbells_lbs, available_kettlebells_lbs, user_id, created_at, updated_at
+  SELECT preferred_weight_unit, default_rest_time, available_plates_lbs, available_dumbbells_lbs, available_kettlebells_lbs, user_id
     INTO result
     FROM public.user_preferences
     WHERE user_id = p_user_id;

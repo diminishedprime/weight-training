@@ -9,15 +9,27 @@ export const useEditEquipmentExerciseAPI = (
   const { userId, currentPath, equipmentType, exerciseType, exercise, backTo } =
     props;
 
-  // TODO: I need to do mork thinking on how this should be handled.
-  // Right now, target weight and actual weight are both used for slightly
-  // different things, and it may make more sense to handle them separately on
-  // the edit. For now, I'm first trying to find actual weight, and then using
-  // target_weight_value which must be set as the backup. That way, it's at
-  // least possible to edit a not-started exercise.
-  const [weightValue, setWeightValue] = useState<number>(
-    exercise.actual_weight_value ?? exercise.target_weight_value,
+  const [actualWeightValue, localSetActualWeightValue] = useState(
+    exercise.actual_weight_value ?? undefined,
   );
+  const setActualWeightValue: React.Dispatch<React.SetStateAction<number>> =
+    useCallback(
+      (value) => {
+        if (typeof value === "function") {
+          localSetActualWeightValue((prev) => {
+            if (prev === undefined) {
+              throw new Error(
+                "Invalid invariant: prev must not be undefined when using function to set actualWeightValue.",
+              );
+            }
+            return value(prev!);
+          });
+        } else {
+          localSetActualWeightValue(value);
+        }
+      },
+      [localSetActualWeightValue],
+    );
   //   // TODO: eventually roundingMode should be on the db, but it isn't, yet.
   //   const [roundingMode] = useState<RoundingMode>(
   //     exercise.roundingMode
@@ -43,7 +55,7 @@ export const useEditEquipmentExerciseAPI = (
   // update when the initialDraft changes on the server.
   useEffect(() => {
     if (exercise) {
-      setWeightValue(
+      setActualWeightValue(
         exercise.actual_weight_value ?? exercise.target_weight_value,
       );
       setReps(exercise.reps);
@@ -55,12 +67,10 @@ export const useEditEquipmentExerciseAPI = (
       setPerformedAt(exercise.performed_at);
       setWeightUnit(exercise.weight_unit);
     }
-  }, [exercise]);
+  }, [exercise, setActualWeightValue]);
 
   const resetFields = useCallback(() => {
-    setWeightValue(
-      exercise.actual_weight_value ?? exercise.target_weight_value,
-    );
+    localSetActualWeightValue(exercise.actual_weight_value ?? undefined);
     setReps(exercise.reps);
     setCompletionStatus(exercise.completion_status);
     setNotes(exercise.notes ?? "");
@@ -75,8 +85,8 @@ export const useEditEquipmentExerciseAPI = (
     () => ({
       user_id: userId,
       exercise_id: exercise.exercise_id,
-      target_weight_value: weightValue,
-      actual_weight_value: weightValue, // TODO: eventually this should be separate.
+      target_weight_value: exercise.target_weight_value,
+      actual_weight_value: actualWeightValue ?? null,
       weight_unit: weightUnit,
       reps,
       completion_status: completionStatus,
@@ -91,7 +101,7 @@ export const useEditEquipmentExerciseAPI = (
     [
       userId,
       exercise,
-      weightValue,
+      actualWeightValue,
       weightUnit,
       reps,
       completionStatus,
@@ -132,8 +142,9 @@ export const useEditEquipmentExerciseAPI = (
 
   return {
     resetCommonFields: resetFields,
-    targetWeight: weightValue,
-    setTargetWeight: setWeightValue,
+    targetWeightValue: exercise.target_weight_value,
+    actualWeightValue,
+    setActualWeightValue,
     roundingMode,
     weightUnit,
     reps,

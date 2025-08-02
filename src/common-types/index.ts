@@ -100,10 +100,8 @@ export type NarrowedSuperblock = RequiredNonNullable<
   "id"
 >;
 
-export type { GetAddProgramInfoResult } from "@/common-types/get-add-program-info";
-export type { GetWendlerProgramResult } from "@/common-types/get-wendler-program";
-export type {
-  GetWendlerProgramsResult,
-  ProgramOverview,
-  ProgramOverviews,
-} from "@/common-types/get-wendler-programs";
+export type * from "@/common-types/get-add-program-info";
+export type * from "@/common-types/get-perform-superblock";
+export type * from "@/common-types/get-wendler-program";
+export type * from "@/common-types/get-wendler-program-overviews";
+export type * from "@/common-types/manage-active-superblock";
