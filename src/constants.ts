@@ -235,7 +235,9 @@ const dayTypesForExercise = (
     case "bodyweight_situp":
     case "kettlebell_swings":
     case "machine_abdominal":
-      return ImmutableSet();
+      // TODO: This just makes these show up everywhere which isn't quite right,
+      // but should be close enough.
+      return ImmutableSet(["pull", "push", "shoulders", "legs"]);
 
     default:
       const _exhaustiveCheck: never = exercise; // This is to satisfy TypeScript that this is exhaustive.
