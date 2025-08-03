@@ -57,9 +57,8 @@ export function useExercisesTableAPI(props: EquipmentExercisesTableProps) {
         currentDay = dateForExercise;
       }
     });
-    // If groups.length is 0, and currentGroup is not empty, everything was on
-    // the same day, so we want to push it in now.
-    if (groups.length === 0 && currentGroup.length > 0) {
+    // Always push the last group if it has any entries
+    if (currentGroup.length > 0) {
       groups.push(currentGroup);
     }
 
