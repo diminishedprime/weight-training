@@ -93,54 +93,76 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
         nonLinear
         activeStep={api.selectedBlockIdx}
       >
-        {api.superblock.blocks.map((block, idx) => (
-          <Step key={block.id} completed={block.completed_at !== null}>
-            <StepButton onClick={() => api.setSelectedBlockIdx(idx)}>
-              <Stack spacing={1} direction="row" alignItems="center">
-                <Typography
-                  fontWeight={api.selectedBlockIdx === idx ? "bold" : "inherit"}
-                  fontSize="inherit"
-                >
-                  {block.name}
-                </Typography>
-              </Stack>
-            </StepButton>
-            <StepContent>
-              <Stack spacing={1} sx={{ ml: -1, mr: -1 }}>
-                <TODO>
-                  There should be a way to add additional exercises to an
-                  on-going block. For example, adding extra warmups or
-                  cooldowns.
-                </TODO>
-                <TODO>Include the wendler detail data right around here.</TODO>
-                <TODO>Include the start-time here once it's set</TODO>
-                <TODO>Include the end-time here once it's set</TODO>
-                <TODO>Include the duration here once both are set.</TODO>
-                <Stack useFlexGap>
-                  {block.exercises.map((exercise) =>
-                    api.activeExercise?.id === exercise.id ? (
-                      <ActiveExerciseRow
-                        key={exercise.id}
-                        exercise={exercise}
-                        preferences={props.preferences}
-                        blockId={block.id}
-                        finishExercise={api.finishExercise}
-                        failExercise={api.failExercise}
-                        skipExercise={api.skipExercise}
-                      />
-                    ) : (
-                      <ExerciseRow
-                        key={exercise.id}
-                        exercise={exercise}
-                        preferences={props.preferences}
-                      />
-                    ),
-                  )}
+        {api.superblock.blocks.map((block, idx) => {
+          const warmupSetNames = block.exercises
+            .filter((e) => e.is_warmup)
+            .map((e, idx) => ({ [e.id]: `Warmup ${idx + 1}` }));
+          const workingSetNames = block.exercises
+            .filter((e) => !e.is_warmup)
+            .map((e, idx) => ({ [e.id]: `Working Set ${idx + 1}` }));
+          const setName = [...warmupSetNames, ...workingSetNames].reduce(
+            (acc, curr) => ({ ...acc, ...curr }),
+            {},
+          );
+          return (
+            <Step key={block.id} completed={block.completed_at !== null}>
+              <StepButton onClick={() => api.setSelectedBlockIdx(idx)}>
+                <Stack spacing={1} direction="row" alignItems="center">
+                  <Typography
+                    fontWeight={
+                      api.selectedBlockIdx === idx ? "bold" : "inherit"
+                    }
+                    fontSize="inherit"
+                  >
+                    {block.name}
+                  </Typography>
                 </Stack>
-              </Stack>
-            </StepContent>
-          </Step>
-        ))}
+              </StepButton>
+              <StepContent>
+                <Stack spacing={1} sx={{ ml: -1, mr: -1 }}>
+                  <TODO>
+                    There should be a way to add additional exercises to an
+                    on-going block. For example, adding extra warmups or
+                    cooldowns.
+                  </TODO>
+                  <TODO>
+                    Include the wendler detail data right around here.
+                  </TODO>
+                  <TODO>Include the start-time here once it's set</TODO>
+                  <TODO>Include the end-time here once it's set</TODO>
+                  <TODO>Include the duration here once both are set.</TODO>
+                  <Stack useFlexGap>
+                    {block.exercises.map((exercise, idx) => {
+                      return api.activeExercise?.id === exercise.id ? (
+                        <ActiveExerciseRow
+                          key={exercise.id}
+                          exercise={exercise}
+                          preferences={props.preferences}
+                          blockId={block.id}
+                          finishExercise={api.finishExercise}
+                          failExercise={api.failExercise}
+                          skipExercise={api.skipExercise}
+                          setName={
+                            idx === block.exercises.length - 1
+                              ? "Ultima series optima"
+                              : setName[exercise.id] || ""
+                          }
+                        />
+                      ) : (
+                        <ExerciseRow
+                          key={exercise.id}
+                          exercise={exercise}
+                          preferences={props.preferences}
+                          setName={setName[exercise.id] || ""}
+                        />
+                      );
+                    })}
+                  </Stack>
+                </Stack>
+              </StepContent>
+            </Step>
+          );
+        })}
       </Stepper>
       <TODO>Add in a "add block" form thingy here.</TODO>
     </Stack>

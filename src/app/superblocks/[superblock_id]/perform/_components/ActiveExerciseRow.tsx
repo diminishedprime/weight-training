@@ -13,7 +13,7 @@ import LabeledValue from "@/components/LabeledValue";
 import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
 import EditIcon from "@mui/icons-material/Edit";
-import { Button, IconButton, Paper, Stack } from "@mui/material";
+import { Button, Paper, Stack, Typography } from "@mui/material";
 import { useCallback, useState } from "react";
 
 interface ActiveExerciseRowProps {
@@ -23,6 +23,7 @@ interface ActiveExerciseRowProps {
   failExercise: PerformFailExercise;
   skipExercise: PerformSkipExercise;
   preferences: UserPreferences;
+  setName: string;
 }
 
 const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
@@ -30,18 +31,34 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
   return (
     <Stack component={Paper} sx={{ my: 1, p: 0.5 }} spacing={1}>
       <Stack
-        sx={{ position: "relative" }}
+        direction="row"
+        flex={1}
+        spacing={1}
+        alignItems="space-between"
+        justifyContent={"space-between"}
+      >
+        <Button
+          variant="outlined"
+          size="small"
+          color="warning"
+          onClick={() => api.setModifying((o) => !o)}
+          startIcon={<EditIcon />}
+        >
+          Edit
+        </Button>
+        <Typography variant="body1">{props.setName}</Typography>
+      </Stack>
+      <Stack
+        direction="row"
         alignItems="center"
         justifyContent="center"
-        direction="row"
         spacing={1}
       >
-        <IconButton
-          sx={{ position: "absolute", left: 0, top: 0 }}
-          onClick={() => api.setModifying(!api.modifying)}
-        >
-          <EditIcon />
-        </IconButton>
+        {!api.modifying && !props.exercise.is_amrap && (
+          <LabeledValue label="Reps" alignItems="center">
+            {props.exercise.reps}
+          </LabeledValue>
+        )}
         {props.exercise.last_performed_at && (
           <LabeledValue label="Rest" alignItems="center">
             <DisplayStopwatch
@@ -81,11 +98,6 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
             wendler3s={props.exercise.reps === 3}
             wendler5s={props.exercise.reps === 5}
           />
-        )}
-        {!api.modifying && !props.exercise.is_amrap && (
-          <LabeledValue label="Reps" alignItems="center">
-            {props.exercise.reps}
-          </LabeledValue>
         )}
         <SelectPerceivedEffort
           perceivedEffort={api.perceivedEffort}
