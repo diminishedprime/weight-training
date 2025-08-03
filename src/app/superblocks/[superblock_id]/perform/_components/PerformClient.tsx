@@ -29,7 +29,7 @@ import {
   Stepper,
   Typography,
 } from "@mui/material";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 
 interface PerformClientProps {
   userId: string;
@@ -106,7 +106,11 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
           );
           return (
             <Step key={block.id} completed={block.completed_at !== null}>
-              <StepButton onClick={() => api.setSelectedBlockIdx(idx)}>
+              <StepButton
+                onClick={() =>
+                  api.setSelectedBlockIdx((old) => (old === idx ? -1 : idx))
+                }
+              >
                 <Stack spacing={1} direction="row" alignItems="center">
                   <Typography
                     fontWeight={
@@ -176,31 +180,7 @@ const usePerformClientAPI = (props: PerformClientProps) => {
   const [superblock, setSuperblock] = useState(initialSuperblock);
   const { id: superblockId } = superblock;
 
-  const [selectedBlockIdx, setSelectedBlockIdx] = useState(() => {
-    const activeBlockId = initialSuperblock.active_block_id;
-    return initialSuperblock.blocks.findIndex((b) => b.id === activeBlockId);
-  });
-
-  useEffect(() => {
-    const activeBlockId = superblock.active_block_id;
-    const activeBlockIdx = superblock.blocks.findIndex(
-      (b) => b.id === activeBlockId,
-    );
-    setSelectedBlockIdx(activeBlockIdx);
-  }, [superblock]);
-
-  const activeBlock = useMemo(
-    () => superblock.blocks.find((b) => b.id === superblock.active_block_id),
-    [superblock],
-  );
-
-  const activeExercise = useMemo(() => {
-    if (!activeBlock) {
-      return null;
-    }
-    const activeExerciseId = activeBlock.active_exercise_id;
-    return activeBlock.exercises.find((e) => e.id === activeExerciseId);
-  }, [activeBlock]);
+  const [selectedBlockIdx, setSelectedBlockIdx] = useState(-1);
 
   const finishExercise = useCallback(
     async (
@@ -226,6 +206,15 @@ const usePerformClientAPI = (props: PerformClientProps) => {
         perceivedEffort,
       );
       setSuperblock(result);
+      // If the block we were on was just completed, unselect any blocks.
+      setSelectedBlockIdx((old) => {
+        const oldFinished =
+          result.blocks[old]?.completion_status === "completed";
+        if (oldFinished) {
+          return -1;
+        }
+        return old;
+      });
     },
     [superblockId, userId],
   );
@@ -278,7 +267,5 @@ const usePerformClientAPI = (props: PerformClientProps) => {
     superblock,
     selectedBlockIdx,
     setSelectedBlockIdx,
-    activeBlock,
-    activeExercise,
   };
 };
