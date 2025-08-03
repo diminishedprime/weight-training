@@ -1,10 +1,6 @@
 "use client";
 import { EquipmentType, ExerciseType, ProgramDayType } from "@/common-types";
-import {
-  EQUIPMENT_TYPES,
-  EXERCISES_FOR_DAY_TYPE,
-  PROGRAM_DAY_TYPES,
-} from "@/constants";
+import { EQUIPMENT_TYPES, EXERCISES_FOR_DAY_TYPE } from "@/constants";
 import { Constants } from "@/database.types";
 import {
   equipmentTypeUIString,
@@ -47,9 +43,16 @@ const SelectExercise: React.FC<SelectExerciseProps> = (props) => {
         <Chip
           sx={{ ml: 1 }}
           label="All"
-          color={api.selectAllDisabled ? "default" : "primary"}
+          color="primary"
+          variant="outlined"
           onClick={api.selectAllProgramDayTypes}
-          disabled={api.selectAllDisabled}
+        />
+        <Chip
+          sx={{ ml: 1 }}
+          label="None"
+          color="error"
+          variant="outlined"
+          onClick={api.selectNoneProgramDayTypes}
         />
       </Stack>
       <Stack spacing={1.25}>
@@ -94,9 +97,8 @@ const useSelectExerciseAPI = (props: SelectExerciseProps) => {
       (exercise !== null && equipmentForExercise(exercise)) || null,
     );
 
-  const [selectedProgramDayTypes, setSelectedProgramDayTypes] = useState<
-    ImmutableSet<ProgramDayType>
-  >(ImmutableSet(PROGRAM_DAY_TYPES));
+  const [selectedProgramDayTypes, setSelectedProgramDayTypes] =
+    useState<ImmutableSet<ProgramDayType>>(ImmutableSet());
 
   const exercisesForSelectedDayTypes = useMemo(
     () =>
@@ -151,15 +153,12 @@ const useSelectExerciseAPI = (props: SelectExerciseProps) => {
     );
   }, []);
 
-  const selectAllDisabled = useMemo(() => {
-    return (
-      selectedProgramDayTypes.size ===
-      Constants.public.Enums.program_day_types_enum.length
-    );
-  }, [selectedProgramDayTypes]);
+  const selectNoneProgramDayTypes = useCallback(() => {
+    setSelectedProgramDayTypes(ImmutableSet());
+  }, []);
 
   return {
-    selectAllDisabled,
+    selectNoneProgramDayTypes,
     selectAllProgramDayTypes,
     onChipClick,
     selectedProgramDayTypes,

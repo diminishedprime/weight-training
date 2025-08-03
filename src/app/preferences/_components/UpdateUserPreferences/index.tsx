@@ -370,6 +370,10 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
           <TODO>Currently this isn't remotely supported</TODO>
         </Stack>
         <Stack spacing={1}>
+          <TODO>
+            Switch everything over that has help to use the new LabeledValue
+            thing.
+          </TODO>
           <Stack spacing={1} direction="row" alignItems="center">
             <TextField
               label={api.restTimeLabel}

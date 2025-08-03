@@ -116,9 +116,8 @@ const ProgramsAddClient: React.FC<ProgramsAddClientProps> = (props) => {
         <Stack direction="row" spacing={1} flexWrap="wrap">
           <Button
             variant="outlined"
-            color="error"
+            color="secondary"
             onClick={api.targetMax.resetToCurrent}
-            disabled={api.targetMax.resetToCurrentDisabled}
           >
             Current
           </Button>
@@ -126,7 +125,6 @@ const ProgramsAddClient: React.FC<ProgramsAddClientProps> = (props) => {
             variant="outlined"
             color="success"
             onClick={api.targetMax.setStandardBump}
-            disabled={api.targetMax.standardBumpDisabled}
           >
             Standard
           </Button>
@@ -256,24 +254,6 @@ const useProgramsAddClientAPI = (props: ProgramsAddClientProps) => {
     deadlift_target_max,
   ]);
 
-  const standardBumpDisabled = useMemo(() => {
-    return !(
-      squatTargetMax !== squat_target_max + 10 ||
-      benchTargetMax !== bench_press_target_max + 5 ||
-      deadliftTargetMax !== deadlift_target_max + 10 ||
-      overheadPressTargetMax !== overhead_press_target_max + 5
-    );
-  }, [
-    squatTargetMax,
-    squat_target_max,
-    benchTargetMax,
-    bench_press_target_max,
-    deadliftTargetMax,
-    deadlift_target_max,
-    overheadPressTargetMax,
-    overhead_press_target_max,
-  ]);
-
   const resetToCurrent = React.useCallback(() => {
     setOverheadPressTargetMax(overhead_press_target_max);
     setSquatTargetMax(squat_target_max);
@@ -284,24 +264,6 @@ const useProgramsAddClientAPI = (props: ProgramsAddClientProps) => {
     squat_target_max,
     bench_press_target_max,
     deadlift_target_max,
-  ]);
-
-  const resetToCurrentDisabled = useMemo(() => {
-    return (
-      squatTargetMax === squat_target_max &&
-      benchTargetMax === bench_press_target_max &&
-      deadliftTargetMax === deadlift_target_max &&
-      overheadPressTargetMax === overhead_press_target_max
-    );
-  }, [
-    squatTargetMax,
-    squat_target_max,
-    benchTargetMax,
-    bench_press_target_max,
-    deadliftTargetMax,
-    deadlift_target_max,
-    overheadPressTargetMax,
-    overhead_press_target_max,
   ]);
 
   const boundAddProgramAction = useMemo(() => {
@@ -409,9 +371,7 @@ const useProgramsAddClientAPI = (props: ProgramsAddClientProps) => {
     setProgramName,
     targetMax: {
       resetToCurrent,
-      resetToCurrentDisabled,
       setStandardBump,
-      standardBumpDisabled,
       squatTargetMax,
       setSquatTargetMax,
       benchTargetMax,

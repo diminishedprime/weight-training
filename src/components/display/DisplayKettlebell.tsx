@@ -107,7 +107,7 @@ const DisplayKettlebell: React.FC<DisplayKettlebellProps> = (props) => {
             fontWeight: "bold",
           }}
         >
-          <DisplayWeight {...props} />
+          <DisplayWeight {...props} sx={{ justifyContent: "center" }} />
         </div>
       )}
     </div>
