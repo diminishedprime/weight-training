@@ -15,6 +15,7 @@ interface DisplayWeightProps {
   valueColor?: TypographyProps["color"];
   startAdornment?: React.ReactNode | string;
   endAdornment?: React.ReactNode | string;
+  column?: boolean;
 }
 const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
   const { weightValue } = props;
@@ -34,7 +35,7 @@ const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
       sx={{
         display: "flex",
         alignItems: "center",
-        flexDirection: "row",
+        flexDirection: props.column ? "column" : "row",
         flexWrap: "wrap",
         ...props.sx,
       }}

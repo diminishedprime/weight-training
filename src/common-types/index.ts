@@ -107,3 +107,4 @@ export type * from "@/common-types/get-add-program-info";
 export type * from "@/common-types/get-perform-superblock";
 export type * from "@/common-types/get-wendler-program";
 export type * from "@/common-types/get-wendler-program-overviews";
+export type * from "@/common-types/recent-set-overviews";

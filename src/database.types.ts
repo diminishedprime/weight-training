@@ -503,27 +503,27 @@ export type Database = {
     Functions: {
       add_block_to_superblock: {
         Args: {
+          p_name: string;
+          p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          p_reps: number;
           p_weight_value: number;
+          p_equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
           p_user_id: string;
           p_superblock_id: string;
           p_sets: number;
-          p_reps: number;
-          p_equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
-          p_name: string;
-          p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
         };
         Returns: undefined;
       };
       add_wendler_program: {
         Args: {
-          p_squat_increase: number;
+          p_deadlift_increase: number;
           p_user_id: string;
           p_squat_target_max: number;
           p_deadlift_target_max: number;
           p_overhead_press_target_max: number;
           p_bench_press_target_max: number;
-          p_deadlift_increase: number;
+          p_squat_increase: number;
           p_overhead_press_increase: number;
           p_bench_press_increase: number;
           p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
@@ -540,48 +540,48 @@ export type Database = {
       create_exercise: {
         Args: {
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
-          p_user_id: string;
           p_equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
           p_target_weight_value: number;
-          p_notes?: string;
-          p_performed_at?: string;
-          p_is_amrap?: boolean;
-          p_is_warmup?: boolean;
-          p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
-          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
           p_reps: number;
           p_actual_weight_value?: number;
           p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
+          p_performed_at?: string;
+          p_is_warmup?: boolean;
+          p_is_amrap?: boolean;
+          p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
+          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
+          p_notes?: string;
+          p_user_id: string;
         };
         Returns: string;
       };
       fail_exercise: {
         Args: {
-          p_block_id: string;
-          p_notes?: string;
-          p_exercise_id: string;
-          p_actual_weight_value: number;
           p_reps: number;
-          p_is_warmup: boolean;
-          p_is_amrap: boolean;
-          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
           p_user_id: string;
           p_superblock_id: string;
+          p_block_id: string;
+          p_exercise_id: string;
+          p_actual_weight_value: number;
+          p_is_warmup: boolean;
+          p_is_amrap: boolean;
+          p_notes?: string;
+          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
         };
         Returns: Database["public"]["CompositeTypes"]["get_perform_superblock_result"];
       };
       finish_exercise: {
         Args: {
+          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
+          p_actual_weight_value: number;
+          p_reps: number;
+          p_is_warmup: boolean;
+          p_is_amrap: boolean;
+          p_notes?: string;
+          p_user_id: string;
           p_superblock_id: string;
           p_block_id: string;
           p_exercise_id: string;
-          p_reps: number;
-          p_actual_weight_value: number;
-          p_is_warmup: boolean;
-          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
-          p_notes?: string;
-          p_is_amrap: boolean;
-          p_user_id: string;
         };
         Returns: Database["public"]["CompositeTypes"]["get_perform_superblock_result"];
       };
@@ -590,18 +590,18 @@ export type Database = {
         Returns: Database["public"]["CompositeTypes"]["get_add_program_info_result"];
       };
       get_exercise: {
-        Args: { p_exercise_id: string; p_user_id: string };
+        Args: { p_user_id: string; p_exercise_id: string };
         Returns: Database["public"]["CompositeTypes"]["exercise_row_type"];
       };
       get_exercise_blocks: {
-        Args: { p_page?: number; p_user_id: string };
+        Args: { p_user_id: string; p_page?: number };
         Returns: Database["public"]["CompositeTypes"]["get_exercise_blocks_result"];
       };
       get_exercises_by_type: {
         Args: {
           p_user_id: string;
-          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           p_page_num: number;
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
         };
         Returns: Database["public"]["CompositeTypes"]["get_exercises_by_type_result"];
       };
@@ -610,7 +610,7 @@ export type Database = {
         Returns: Json;
       };
       get_perform_superblock: {
-        Args: { p_user_id: string; p_superblock_id: string };
+        Args: { p_superblock_id: string; p_user_id: string };
         Returns: Database["public"]["CompositeTypes"]["get_perform_superblock_result"];
       };
       get_personal_record_exercise_types: {
@@ -621,8 +621,8 @@ export type Database = {
         Args: {
           p_end_time?: string;
           p_user_id: string;
-          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           p_reps?: number;
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
         };
         Returns: Database["public"]["CompositeTypes"]["personal_record_history_row"][];
       };
@@ -646,10 +646,17 @@ export type Database = {
         Args: { p_page_num: number; p_user_id: string };
         Returns: Database["public"]["CompositeTypes"]["get_wendler_program_overviews_result"];
       };
-      save_form_draft: {
+      recent_set_overviews: {
         Args: {
           p_user_id: string;
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+        };
+        Returns: Database["public"]["CompositeTypes"]["recent_set_overview_result"];
+      };
+      save_form_draft: {
+        Args: {
           p_ttl_days?: number;
+          p_user_id: string;
           p_page_path: string;
           p_form_data: Json;
         };
@@ -657,50 +664,50 @@ export type Database = {
       };
       set_target_max: {
         Args: {
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          p_user_id: string;
           p_source?: Database["public"]["Enums"]["update_source_enum"];
           p_recorded_at?: string;
           p_unit: Database["public"]["Enums"]["weight_unit_enum"];
           p_value: number;
-          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
-          p_user_id: string;
         };
         Returns: undefined;
       };
       set_user_preferences: {
         Args: {
-          p_default_rest_time: number;
           p_preferred_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
-          p_user_id: string;
+          p_default_rest_time: number;
           p_available_plates_lbs: number[];
-          p_available_kettlebells_lbs: number[];
           p_available_dumbbells_lbs: number[];
+          p_available_kettlebells_lbs: number[];
+          p_user_id: string;
         };
         Returns: undefined;
       };
       skip_exercise: {
         Args: {
-          p_superblock_id: string;
-          p_user_id: string;
           p_notes?: string;
           p_exercise_id: string;
+          p_user_id: string;
+          p_superblock_id: string;
           p_block_id: string;
         };
         Returns: Database["public"]["CompositeTypes"]["get_perform_superblock_result"];
       };
       update_exercise_for_user: {
         Args: {
-          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
           p_exercise_id: string;
+          p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
+          p_is_amrap?: boolean;
+          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
           p_user_id: string;
-          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
-          p_target_weight_value: number;
-          p_reps: number;
-          p_actual_weight_value?: number;
-          p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
           p_performed_at?: string;
           p_is_warmup?: boolean;
-          p_is_amrap?: boolean;
-          p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
+          p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
+          p_actual_weight_value?: number;
+          p_reps: number;
+          p_target_weight_value: number;
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
           p_notes?: string;
         };
         Returns: undefined;
@@ -1025,6 +1032,16 @@ export type Database = {
         exercise_id: string | null;
         previous_recorded_at: string | null;
         increase_weight_value: number | null;
+      };
+      recent_set_overview: {
+        average_reps: number | null;
+        average_weight: number | null;
+        started_at: string | null;
+      };
+      recent_set_overview_result: {
+        overviews:
+          | Database["public"]["CompositeTypes"]["recent_set_overview"][]
+          | null;
       };
       s_block_row: {
         id: string | null;

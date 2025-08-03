@@ -1,6 +1,14 @@
 "use client";
-import { addBlock as addBlockServer } from "@/app/superblocks/[superblock_id]/edit/_components/actions";
-import { ExerciseType, WeightUnit } from "@/common-types";
+import {
+  addBlock as addBlockServer,
+  recentSetOverviews as recentSetOverviewsServer,
+} from "@/app/superblocks/[superblock_id]/edit/_components/actions";
+import {
+  ExerciseType,
+  RecentSetOverviewsResult,
+  WeightUnit,
+} from "@/common-types";
+import DisplayDate from "@/components/display/DisplayDate";
 import EditWeight from "@/components/edit/EditWeight";
 import LabeledValue from "@/components/LabeledValue";
 import SelectExercise from "@/components/select/SelectExercise";
@@ -11,7 +19,8 @@ import { exerciseTypeUIStringLong } from "@/uiStrings";
 import { EQUIPMENT_FOR_EXERCISE } from "@/util";
 import MultiplyIcon from "@mui/icons-material/Close";
 import { Divider, Fab, Paper, Stack, Typography } from "@mui/material";
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useDebouncedCallback } from "use-debounce";
 
 interface AddBlockProps {
   userId: string;
@@ -65,8 +74,42 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
               setActualWeight={api.setActualWeight}
             />
             <TODO>
-              Show the user recent reps & weights for the selected exercise.
+              This works okay, but it's not obvious you can click these. I need
+              to think through how to handle this, A button would work, but I
+              think there's too much data here, I want it to be super compact
+              like it is now, though.
             </TODO>
+            <Stack
+              sx={{ my: 1 }}
+              direction="row"
+              spacing={0.5}
+              justifyContent="space-between"
+              flexWrap="wrap"
+            >
+              {api.recentSetOverviews?.overviews?.length === 0 && (
+                <Typography variant="caption" color="text.secondary">
+                  No recent sets for exercise.
+                </Typography>
+              )}
+              {api.recentSetOverviews?.overviews?.map((overview, idx) => (
+                <LabeledValue
+                  key={idx}
+                  alignItems={"center"}
+                  onClick={() => api.setFromOverview(overview)}
+                  label={
+                    <DisplayDate
+                      variant="caption"
+                      timestamp={overview.started_at}
+                      twoDigitYear
+                      noTime
+                    />
+                  }
+                >
+                  {overview.average_weight.toFixed(0)}x
+                  {overview.average_reps.toFixed(0)}
+                </LabeledValue>
+              ))}
+            </Stack>
             <TODO>
               It would be nice to allow more customized blocks, i.e. including
               amrap, warmup, different reps per set, etc.
@@ -162,12 +205,13 @@ export default AddBlock;
 
 const useAddBlockAPI = (props: AddBlockProps) => {
   const { userId, superblockId } = props;
-  const [exercise, setExercise] = useState<ExerciseType | null>(
-    "machine_abdominal",
-  );
+  const [exercise, setExercise] = useState<ExerciseType | null>(null);
   const [reps, setReps] = useState(10);
   const [sets, setSets] = useState(5);
   const [actualWeight, setActualWeight] = useState<number>();
+  const [recentSetOverviews, setRecentSetOverviews] = useState<
+    RecentSetOverviewsResult | undefined
+  >(undefined);
 
   const exerciseLabel = useRequiredLabel("Exercise", exercise === null);
 
@@ -182,7 +226,9 @@ const useAddBlockAPI = (props: AddBlockProps) => {
   }, [exercise, actualWeight, reps, sets]);
 
   const name = useMemo(() => {
-    if (exercise === null) return "";
+    if (exercise === null) {
+      return "";
+    }
     return `${exerciseTypeUIStringLong(exercise)} - ${sets}x${reps}`;
   }, [exercise, sets, reps]);
 
@@ -193,6 +239,32 @@ const useAddBlockAPI = (props: AddBlockProps) => {
   const weightUnit: WeightUnit = useMemo(() => {
     return "pounds";
   }, []);
+
+  const setFromOverview = useCallback(
+    (overview: RecentSetOverviewsResult["overviews"][number]) => {
+      setActualWeight(Math.floor(overview.average_weight));
+      setReps(Math.floor(overview.average_reps));
+    },
+    [setActualWeight, setReps],
+  );
+
+  // TODO: I'm not sure if I really need to debounce this or not.
+  const debouncedSetOverviews = useDebouncedCallback(
+    async (userId: string, exercise: ExerciseType) => {
+      const overviews = await recentSetOverviewsServer(userId, exercise);
+      setRecentSetOverviews(overviews);
+    },
+    1000,
+    { leading: true },
+  );
+
+  useEffect(() => {
+    if (!exercise) {
+      setRecentSetOverviews(undefined);
+      return;
+    }
+    debouncedSetOverviews(userId, exercise);
+  }, [userId, exercise, debouncedSetOverviews]);
 
   const boundAddBlockAction = useMemo(() => {
     if (!exercise || !equipmentType || actualWeight === undefined) {
@@ -223,6 +295,7 @@ const useAddBlockAPI = (props: AddBlockProps) => {
   ]);
 
   return {
+    setFromOverview,
     exerciseLabel,
     addDisabled,
     boundAddBlockAction,
@@ -234,5 +307,6 @@ const useAddBlockAPI = (props: AddBlockProps) => {
     setSets,
     actualWeight,
     setActualWeight,
+    recentSetOverviews,
   };
 };

@@ -1,5 +1,9 @@
 "use server";
-import { EquipmentType, ExerciseType } from "@/common-types";
+import {
+  EquipmentType,
+  ExerciseType,
+  RecentSetOverviewsResult,
+} from "@/common-types";
 import { PATHS } from "@/constants";
 import { supabaseRPC } from "@/serverUtil";
 import { revalidatePath } from "next/cache";
@@ -30,4 +34,15 @@ export const addBlock = async (
   revalidatePath(PATHS.Superblocks);
   revalidatePath(PATHS.Superblocks_Id_Perform(superblockId));
   revalidatePath(PATHS.SuperblocksById(superblockId));
+};
+
+export const recentSetOverviews = async (
+  userId: string,
+  exerciseType: ExerciseType,
+) => {
+  const result = await supabaseRPC("recent_set_overviews", {
+    p_user_id: userId,
+    p_exercise_type: exerciseType,
+  });
+  return result as RecentSetOverviewsResult;
 };

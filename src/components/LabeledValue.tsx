@@ -22,6 +22,7 @@ interface LabeledValueProps {
   flex?: StackProps["flex"];
   help?: JSX.Element | string;
   width?: StackProps["width"];
+  onClick?: () => void;
 }
 
 const LabeledValue: React.FC<LabeledValueProps> = (props) => {
@@ -33,11 +34,13 @@ const LabeledValue: React.FC<LabeledValueProps> = (props) => {
       alignItems={props.alignItems || undefined}
       flex={props.flex || undefined}
       width={props.width || undefined}
+      onClick={props.onClick}
     >
       <Typography
         variant={props.labelVariant || "body2"}
         color={props.labelColor || "text.primary"}
         gutterBottom={props.gutterBottom}
+        component="span"
       >
         {props.label}
         {props.help && (
