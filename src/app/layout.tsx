@@ -1,6 +1,7 @@
 import Banner from "@/components/banner";
 import { CssBaseline, Divider, Stack, Typography } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default async function RootLayout({
               }}
             >
               {children}
+              <Analytics />
             </Stack>
             <Stack
               component="footer"

@@ -40,7 +40,7 @@ BEGIN
   DELETE FROM public.exercise_block
   WHERE user_id = p_user_id AND notes = p_block_note;
 
-  CREATE TEMP TABLE tmp_open_blocks (
+  CREATE TEMP TABLE IF NOT EXISTS tmp_open_blocks (
     exercise_type exercise_type_enum,
     block_id uuid,
     last_performed_at timestamptz,
