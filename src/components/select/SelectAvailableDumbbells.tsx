@@ -116,7 +116,6 @@ const SelectAvailableDumbbells: React.FC<SelectAvailableDumbbellsProps> = (
             variant="outlined"
             onClick={api.selectAll}
             data-testid="select-all-dumbbells"
-            disabled={api.allSelected}
           />
           <Chip
             label="None"
@@ -125,7 +124,6 @@ const SelectAvailableDumbbells: React.FC<SelectAvailableDumbbellsProps> = (
             variant="outlined"
             onClick={api.selectNone}
             data-testid="select-none-dumbbells"
-            disabled={api.noneSelected}
           />
         </Stack>
       </FormLabel>

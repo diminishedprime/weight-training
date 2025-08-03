@@ -6,23 +6,27 @@ import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayNotes from "@/components/display/DisplayNotes";
 import DisplayPerceivedEffort from "@/components/display/DisplayPerceivedEffort";
 import DisplayWeight from "@/components/display/DisplayWeight";
-import { Paper, Stack } from "@mui/material";
+import { Paper, Stack, Typography } from "@mui/material";
 
 interface ExerciseRowProps {
   exercise: GetPerformSuperblockExercise;
   preferences: UserPreferences;
+  setName: string;
 }
 
 const ExerciseRow: React.FC<ExerciseRowProps> = (props) => {
   const { exercise, preferences } = props;
   return (
     <Stack component={Paper} sx={{ m: 0.5, p: 0.5 }}>
+      <Stack direction="row" sx={{ mb: 1 }} alignItems="space-between">
+        <DisplayCompletionStatus
+          completionStatus={exercise.completion_status}
+        />
+        <Typography variant="body2" sx={{ ml: "auto" }}>
+          {props.setName}
+        </Typography>
+      </Stack>
       <Stack direction="row" flexWrap="wrap" spacing={1}>
-        <LabeledValue label="Status" alignItems="center">
-          <DisplayCompletionStatus
-            completionStatus={exercise.completion_status}
-          />
-        </LabeledValue>
         {exercise.perceived_effort && (
           <LabeledValue label="Effort">
             <DisplayPerceivedEffort
@@ -43,7 +47,7 @@ const ExerciseRow: React.FC<ExerciseRowProps> = (props) => {
           />
         </LabeledValue>
         {exercise.last_performed_at && exercise.performed_at && (
-          <LabeledValue label="Time Between">
+          <LabeledValue label="Rest Time">
             <DisplayDuration
               from={new Date(exercise.last_performed_at)}
               to={new Date(exercise.performed_at)}

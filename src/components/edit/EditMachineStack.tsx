@@ -17,9 +17,8 @@ const EditMachineStack: React.FC<EditMachineStackProps> = (props) => {
   return (
     <Stack spacing={1} alignItems="center">
       <TODO>
-        See if I can get like a "lens" to only show like 5 or 6 plates at a
-        time. Maybe even look into doing some fancy animation if you pick
-        another value.
+        Figure out a clean way to animate this when you pick a heaver/lighter
+        value.
       </TODO>
       <DisplayWeight
         variant="h6"
@@ -27,25 +26,12 @@ const EditMachineStack: React.FC<EditMachineStackProps> = (props) => {
         weightUnit={props.weightUnit}
         weightValue={props.actualWeightValue ?? props.targetWeightValue}
       />
-      <Stack alignItems="center">
-        <StackPlate
-          checked={api.isBumpActive}
-          sx={{ width: "9ch" }}
-          onChange={api.onBumpChange}
-        >
-          {api.bump}
-        </StackPlate>
-        {api.stack.map((plateValue, idx) => (
-          <StackPlate
-            key={`${idx}`}
-            checked={api.selectedPlate === plateValue}
-            onChange={(checked) => api.onStackPlateChange(plateValue, checked)}
-          >
-            {plateValue}
-          </StackPlate>
-        ))}
-      </Stack>
-      <Stack direction="row" spacing={1}>
+      <Stack
+        direction="row"
+        spacing={1}
+        alignItems="flex-end"
+        justifyContent="flex-end"
+      >
         <Button
           variant="outlined"
           color="secondary"
@@ -54,6 +40,28 @@ const EditMachineStack: React.FC<EditMachineStackProps> = (props) => {
         >
           -
         </Button>
+        <Stack alignItems="center">
+          <StackPlate
+            checked={api.isBumpActive}
+            sx={{ width: "9ch" }}
+            onChange={api.onBumpChange}
+          >
+            {api.bump}
+          </StackPlate>
+          <Stack sx={{ width: "12ch" }}>
+            {api.visiblePlates.map((plateValue) => (
+              <StackPlate
+                key={plateValue}
+                checked={api.selectedPlate === plateValue}
+                onChange={(checked) =>
+                  api.onStackPlateChange(plateValue, checked)
+                }
+              >
+                {plateValue}
+              </StackPlate>
+            ))}
+          </Stack>
+        </Stack>
         <Button
           variant="outlined"
           color="primary"
@@ -85,9 +93,8 @@ const StackPlate: React.FC<StackPlateProps> = (props) => {
         justifyContent: "center",
         alignItems: "center",
         border: "1px solid black",
-        borderBottom: "none",
+        my: "0.75px",
         width: "12ch",
-        "&:last-child": { borderBottom: "1px solid black" },
         ...props.sx,
       }}
     >
@@ -216,6 +223,30 @@ const useEditMachineStackAPI = (props: EditMachineStackProps) => {
     });
   }, [bump, setResolvedWeight]);
 
+  const visiblePlates = useMemo(() => {
+    const lensSize = 5;
+    const selectedIdx = stack.findIndex((v) => v === selectedPlate);
+    if (selectedIdx <= 2) {
+      return stack.slice(0, lensSize);
+    }
+    if (selectedIdx >= stack.length - 3) {
+      return stack.slice(-lensSize);
+    }
+    return stack.slice(selectedIdx - 2, selectedIdx + 3);
+  }, [stack, selectedPlate]);
+
+  // Show tear lines if not rendering first/last plate
+  const showTearTop = useMemo(
+    () => visiblePlates.length > 0 && visiblePlates[0] !== stack[0],
+    [visiblePlates, stack],
+  );
+  const showTearBottom = useMemo(
+    () =>
+      visiblePlates.length > 0 &&
+      visiblePlates[visiblePlates.length - 1] !== stack[stack.length - 1],
+    [visiblePlates, stack],
+  );
+
   return {
     stack,
     bump,
@@ -225,5 +256,8 @@ const useEditMachineStackAPI = (props: EditMachineStackProps) => {
     onStackPlateChange,
     onIncrement,
     onDecrement,
+    visiblePlates,
+    showTearTop,
+    showTearBottom,
   };
 };

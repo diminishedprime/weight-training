@@ -179,6 +179,10 @@ export default function Home() {
             i.e. Diverging Lat Pulldown is also sometimes just called Lat
             Pulldown.
           </TODO>
+          <TODO>
+            Add in a the current version of the app to the footer or something,
+            so it's easy to see which thing is deployed.
+          </TODO>
         </TODO>
       </Stack>
     </>

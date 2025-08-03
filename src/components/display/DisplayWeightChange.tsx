@@ -30,7 +30,7 @@ const DisplayWeightChange: React.FC<DisplayIncreaseProps> = (props) => {
     }
   } else if (changeValue < 0) {
     icon = <DownArrowIcon />;
-    color = "error";
+    color = "warning";
   } else {
     icon = <SquiggleLineIcon />;
     color = undefined;
