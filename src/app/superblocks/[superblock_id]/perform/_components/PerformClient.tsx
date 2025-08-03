@@ -87,6 +87,7 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
       <TODO>
         See if I can make the screen "scrollTo" when the active block changes.
       </TODO>
+      <TODO>Add in ability to skip entire blocks within a superblock.</TODO>
       <Stepper
         orientation="vertical"
         nonLinear
