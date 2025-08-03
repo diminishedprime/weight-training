@@ -1,4 +1,3 @@
-import TODO from "@/components/TODO";
 import { TestIds } from "@/test-ids";
 import {
   Stack,
@@ -13,9 +12,10 @@ import React, { useMemo } from "react";
 export interface SelectRepsProps {
   reps: number;
   setReps: React.Dispatch<React.SetStateAction<number>>;
-  // TODO: this doesn't seem to work.
   repChoices?: number[];
-  wendlerReps?: boolean;
+  wendler5s?: boolean;
+  wendler3s?: boolean;
+  wendler1s?: boolean;
   isAMRAP?: boolean;
   setIsAMRAP?: React.Dispatch<React.SetStateAction<boolean>>;
   hideAMRAP?: boolean;
@@ -29,17 +29,23 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
 
   return (
     <FormControl>
-      <TODO easy>the (AMRAP) text isn't centered.</TODO>
-      <FormLabel sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-        Reps: {props.reps}
+      <FormLabel
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: 1,
+          justifyContent: "center",
+        }}
+      >
+        <Typography variant="inherit">Reps: {props.reps}</Typography>
         {props.isAMRAP && (
-          <Typography variant="body2" color="secondary">
+          <Typography variant="inherit" color="secondary" component="span">
             (AMRAP)
           </Typography>
         )}
       </FormLabel>
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-        {!props.hideAMRAP && (
+        {!props.hideAMRAP && props.setIsAMRAP && (
           <ToggleButtonGroup
             color="secondary"
             value={props.isAMRAP}
@@ -104,11 +110,18 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
 export default SelectReps;
 
 const useSelectRepsAPI = (props: SelectRepsProps) => {
-  const { reps, setReps, repChoices, wendlerReps } = props;
+  const { reps, setReps, repChoices, wendler5s, wendler3s, wendler1s } = props;
 
   const MIN_REPS = 1;
   const [localRepChoices, setLocalRepChoices] = React.useState<number[]>(
-    wendlerReps ? [1, 3, 5, 8] : repChoices || DEFAULT_REP_CHOICES,
+    repChoices ||
+      (wendler5s
+        ? [4, 5, 6, 7, 8]
+        : wendler3s
+          ? [2, 3, 4, 5, 6]
+          : wendler1s
+            ? [1, 2, 3, 4, 5]
+            : DEFAULT_REP_CHOICES),
   );
 
   const isDecrementDisabled = useMemo(() => reps <= MIN_REPS, [reps]);

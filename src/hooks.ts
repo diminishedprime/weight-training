@@ -1,4 +1,5 @@
-import React from "react";
+import { RDispatch } from "@/common-types";
+import React, { useCallback, useEffect, useState } from "react";
 
 export const useRequiredLabel = (labelText: string, isRequired: boolean) => {
   return React.useMemo(() => {
@@ -21,4 +22,36 @@ export const useRequiredModifiableLabel = (
     useRequiredLabel(labelText, isRequired),
     isModified,
   );
+};
+
+export const useResolvableWeight = (
+  actual: number | undefined,
+  setActual: RDispatch<number | undefined>,
+  target: number,
+  targetToActual: (target: number) => number,
+) => {
+  const [resolved, setResolved] = useState(actual ?? targetToActual(target));
+
+  useEffect(() => {
+    if (actual === undefined) {
+      setActual((_) => resolved);
+    }
+  }, [resolved, actual, setActual]);
+
+  const setWeight: RDispatch<number> = useCallback(
+    (f) => {
+      if (typeof f === "function") {
+        const nu = f(resolved);
+        setResolved((_) => nu);
+        // This feels like a hack, but it seems to be necessary.
+        setActual((old) => (old ? f(old) : nu));
+      } else {
+        setResolved(f);
+        setActual(f);
+      }
+    },
+    [resolved, setActual],
+  );
+
+  return [resolved, setWeight] as const;
 };

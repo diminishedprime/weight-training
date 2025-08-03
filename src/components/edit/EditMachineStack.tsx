@@ -1,12 +1,13 @@
-import { WeightUnit } from "@/common-types";
+import { RDispatch, WeightUnit } from "@/common-types";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import TODO from "@/components/TODO";
+import { useResolvableWeight } from "@/hooks";
 import { Button, Radio, Stack, SxProps, Typography } from "@mui/material";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 interface EditMachineStackProps {
   actualWeightValue: number | undefined;
-  setActualWeightValue: React.Dispatch<React.SetStateAction<number>>;
+  setActualWeightValue: RDispatch<number | undefined>;
   targetWeightValue: number;
   weightUnit: WeightUnit;
 }
@@ -154,41 +155,23 @@ const useEditMachineStackAPI = (props: EditMachineStackProps) => {
     [maxWeightValue, stackPlateWeightValue],
   );
 
-  // This was a pretty good way to handle this, I should do this for the other ones.
-  const [resolvedWeight, setResolvedWeight] = useState(
-    actualWeightValue ?? nearestWeight(stack, bump, targetWeightValue),
+  const targetToActual = useCallback(
+    (target: number) => nearestWeight(stack, bump, target),
+    [stack, bump],
+  );
+
+  const [resolvedWeight, setResolvedWeight] = useResolvableWeight(
+    actualWeightValue,
+    parentSetActualWeightValue,
+    targetWeightValue,
+    targetToActual,
   );
 
   useEffect(() => {
-    if (actualWeightValue === undefined) {
-      parentSetActualWeightValue(resolvedWeight);
-    }
-  }, [resolvedWeight, actualWeightValue, parentSetActualWeightValue]);
-
-  const setActualWeightValue: React.Dispatch<React.SetStateAction<number>> =
-    useCallback(
-      (f) => {
-        if (typeof f === "function") {
-          setResolvedWeight((prev) => {
-            const newValue = f(prev);
-            parentSetActualWeightValue(newValue);
-            return newValue;
-          });
-        } else {
-          setResolvedWeight(f);
-          parentSetActualWeightValue(f);
-        }
-      },
-      [parentSetActualWeightValue],
-    );
-
-  useEffect(() => {
     if (actualWeightValue === null && targetWeightValue != null) {
-      setActualWeightValue((_) =>
-        nearestWeight(stack, bump, targetWeightValue),
-      );
+      setResolvedWeight((_) => nearestWeight(stack, bump, targetWeightValue));
     }
-  }, [actualWeightValue, targetWeightValue, setActualWeightValue, stack, bump]);
+  }, [actualWeightValue, targetWeightValue, setResolvedWeight, stack, bump]);
 
   const selectedPlate = useMemo(
     () =>
@@ -205,33 +188,33 @@ const useEditMachineStackAPI = (props: EditMachineStackProps) => {
 
   const onBumpChange = useCallback(
     (checked: boolean) => {
-      setActualWeightValue((prev) => (checked ? prev + bump : prev - bump));
+      setResolvedWeight((prev) => (checked ? prev + bump : prev - bump));
     },
-    [bump, setActualWeightValue],
+    [bump, setResolvedWeight],
   );
 
   const onStackPlateChange = useCallback(
     (plateValue: number, checked: boolean) => {
       if (checked) {
-        setActualWeightValue(isBumpActive ? plateValue + bump : plateValue);
+        setResolvedWeight(isBumpActive ? plateValue + bump : plateValue);
       }
     },
-    [setActualWeightValue, isBumpActive, bump],
+    [setResolvedWeight, isBumpActive, bump],
   );
 
   const onIncrement = useCallback(() => {
-    setActualWeightValue((prev) => {
+    setResolvedWeight((prev) => {
       const next = prev + bump;
       return next > maxWeightValue ? maxWeightValue : next;
     });
-  }, [bump, setActualWeightValue, maxWeightValue]);
+  }, [bump, setResolvedWeight, maxWeightValue]);
 
   const onDecrement = useCallback(() => {
-    setActualWeightValue((prev) => {
+    setResolvedWeight((prev) => {
       const next = prev - bump;
       return next < 0 ? 0 : next;
     });
-  }, [bump, setActualWeightValue]);
+  }, [bump, setResolvedWeight]);
 
   return {
     stack,

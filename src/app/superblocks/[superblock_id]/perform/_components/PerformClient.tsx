@@ -105,12 +105,17 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
               </Stack>
             </StepButton>
             <StepContent>
-              <Stack spacing={1}>
+              <Stack spacing={1} sx={{ ml: -1, mr: -1 }}>
+                <TODO>
+                  There should be a way to add additional exercises to an
+                  on-going block. For example, adding extra warmups or
+                  cooldowns.
+                </TODO>
                 <TODO>Include the wendler detail data right around here.</TODO>
                 <TODO>Include the start-time here once it's set</TODO>
                 <TODO>Include the end-time here once it's set</TODO>
                 <TODO>Include the duration here once both are set.</TODO>
-                <Stack spacing={1}>
+                <Stack useFlexGap>
                   {block.exercises.map((exercise) =>
                     api.activeExercise?.id === exercise.id ? (
                       <ActiveExerciseRow

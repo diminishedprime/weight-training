@@ -48,13 +48,13 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
     >
       <EquipmentWeightEditor
         equipmentType={props.equipmentType}
-        targetWeightValue={api.actualWeight}
+        actualWeightValue={api.actualWeight}
+        targetWeightValue={api.actualWeight || 0}
         weightUnit={api.weightUnit}
         setActualWeightValue={api.setActualWeight}
         roundingMode={api.roundingMode}
         barWeightValue={api.barWeightValue}
         preferences={props.preferences}
-        actualWeightValue={api.actualWeight}
         editing={true}
       />
       <Stack spacing={1} alignItems="space-between">
@@ -82,7 +82,7 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
               // TODO: I should probably clean this up so it's just using
               // undefined everywhere.
               perceivedEffort={api.perceivedEffort ?? null}
-              onPerceivedEffortChange={api.setPerceivedEffort}
+              setPerceivedEffortChange={api.setPerceivedEffort}
             />
             <SelectWarmup
               isWarmup={api.isWarmup}

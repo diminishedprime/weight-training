@@ -211,7 +211,10 @@ export function actualWeightForTarget(
   return { actualWeight, rounded: platesForOneSide.rounded };
 }
 
-export const EXERCISES_BY_EQUIPMENT = EXERCISE_TYPES.reduce(
+export const EXERCISES_BY_EQUIPMENT: ImmutableMap<
+  EquipmentType,
+  ImmutableSet<ExerciseType>
+> = EXERCISE_TYPES.reduce(
   (acc, exerciseType) => {
     const equipmentType = EQUIPMENT_FOR_EXERCISE.get(exerciseType);
     if (equipmentType) {
