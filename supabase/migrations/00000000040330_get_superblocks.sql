@@ -3,7 +3,8 @@ BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'superblock_row') THEN
     CREATE TYPE public.block_detail_row AS (
       id uuid,
-      exercise_type exercise_type_enum
+      exercise_type exercise_type_enum,
+      completion_status completion_status_enum
     );
     CREATE TYPE public.superblock_row AS (
       id uuid,
@@ -12,6 +13,7 @@ BEGIN
       notes text,
       started_at timestamptz,
       completed_at timestamptz,
+      completion_status completion_status_enum,
       block_details public.block_detail_row[],
       training_volume numeric
     );
@@ -55,11 +57,13 @@ BEGIN
       superblock.notes,
       superblock.started_at,
       superblock.completed_at,
+      superblock.completion_status,
       (
         SELECT ARRAY(
           SELECT ROW(
             superblock_junction.block_id,
-            block.exercise_type
+            block.exercise_type,
+            block.completion_status
           )::public.block_detail_row
           FROM public.exercise_superblock_blocks superblock_junction
           JOIN public.exercise_block block ON block.id = superblock_junction.block_id

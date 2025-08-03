@@ -1,8 +1,9 @@
 "use client";
 
 import {
+  failExercise as serverFailExercise,
   finishExercise as serverFinishExercise,
-  setActiveBlock as serverSetActiveBlock,
+  skipExercise as serverSkipExercise,
 } from "@/app/superblocks/[superblock_id]/perform/_components/actions";
 import ActiveExerciseRow from "@/app/superblocks/[superblock_id]/perform/_components/ActiveExerciseRow";
 import ExerciseRow from "@/app/superblocks/[superblock_id]/perform/_components/ExerciseRow";
@@ -11,12 +12,15 @@ import {
   PerceivedEffort,
   UserPreferences,
 } from "@/common-types";
+import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
+import DisplayDuration from "@/components/display/DisplayDuration";
+import DisplayStopwatch from "@/components/display/DisplayStopwatch";
+import LabeledValue from "@/components/LabeledValue";
 import Link from "@/components/Link";
 import TODO from "@/components/TODO";
 import { PATHS } from "@/constants";
 import EditIcon from "@mui/icons-material/Edit";
 import {
-  Button,
   IconButton,
   Stack,
   Step,
@@ -25,7 +29,7 @@ import {
   Stepper,
   Typography,
 } from "@mui/material";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 interface PerformClientProps {
   userId: string;
@@ -33,13 +37,29 @@ interface PerformClientProps {
   preferences: UserPreferences;
 }
 
+export type PerformFinishExercise = ReturnType<
+  typeof usePerformClientAPI
+>["finishExercise"];
+export type PerformFailExercise = ReturnType<
+  typeof usePerformClientAPI
+>["failExercise"];
+export type PerformSkipExercise = ReturnType<
+  typeof usePerformClientAPI
+>["skipExercise"];
+
 const PerformClient: React.FC<PerformClientProps> = (props) => {
   const api = usePerformClientAPI(props);
   return (
     <Stack spacing={1}>
-      <Typography variant="h5">
+      <Typography
+        variant="h5"
+        sx={{ display: "flex", alignItems: "center" }}
+        gap={1}
+      >
+        <DisplayCompletionStatus
+          completionStatus={api.superblock.completion_status}
+        />
         {api.superblock.name}
-
         <IconButton
           component={Link}
           href={PATHS.Superblocks_Id_Edit(props.initialSuperblock.id)}
@@ -47,13 +67,37 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
           <EditIcon />
         </IconButton>
       </Typography>
-      <Stepper orientation="vertical" nonLinear activeStep={api.activeBlockIdx}>
+      {api.superblock.completion_status === "in_progress" &&
+        api.superblock.started_at && (
+          <LabeledValue label="Since start">
+            <DisplayStopwatch start={new Date(api.superblock.started_at)} />
+          </LabeledValue>
+        )}
+      {api.superblock.completion_status === "completed" &&
+        api.superblock.started_at &&
+        api.superblock.completed_at && (
+          <LabeledValue label="Duration">
+            <DisplayDuration
+              from={new Date(api.superblock.started_at)}
+              to={new Date(api.superblock.completed_at)}
+              highResolution
+            />
+          </LabeledValue>
+        )}
+      <TODO>
+        See if I can make the screen "scrollTo" when the active block changes.
+      </TODO>
+      <Stepper
+        orientation="vertical"
+        nonLinear
+        activeStep={api.selectedBlockIdx}
+      >
         {api.superblock.blocks.map((block, idx) => (
           <Step key={block.id} completed={block.completed_at !== null}>
-            <StepButton onClick={() => api.setActiveBlockIdx(idx)}>
+            <StepButton onClick={() => api.setSelectedBlockIdx(idx)}>
               <Stack spacing={1} direction="row" alignItems="center">
                 <Typography
-                  fontWeight={api.activeBlockIdx === idx ? "bold" : "inherit"}
+                  fontWeight={api.selectedBlockIdx === idx ? "bold" : "inherit"}
                   fontSize="inherit"
                 >
                   {block.name}
@@ -62,38 +106,28 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
             </StepButton>
             <StepContent>
               <Stack spacing={1}>
-                <TODO>
-                  Set the active block to the first uncompleted block after a
-                  block is completed.
-                </TODO>
                 <TODO>Include the wendler detail data right around here.</TODO>
                 <TODO>Include the start-time here once it's set</TODO>
                 <TODO>Include the end-time here once it's set</TODO>
                 <TODO>Include the duration here once both are set.</TODO>
-                {api.superblock.active_block_id !== block.id && (
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    sx={{ alignSelf: "start" }}
-                    onClick={() =>
-                      api.setActiveBlock(api.superblock.id, block.id)
-                    }
-                  >
-                    Start Block
-                  </Button>
-                )}
                 <Stack spacing={1}>
                   {block.exercises.map((exercise) =>
-                    exercise.id === api.activeExerciseId ? (
+                    api.activeExercise?.id === exercise.id ? (
                       <ActiveExerciseRow
                         key={exercise.id}
                         exercise={exercise}
                         preferences={props.preferences}
-                        finishExercise={api.finishExercise}
                         blockId={block.id}
+                        finishExercise={api.finishExercise}
+                        failExercise={api.failExercise}
+                        skipExercise={api.skipExercise}
                       />
                     ) : (
-                      <ExerciseRow key={exercise.id} exercise={exercise} />
+                      <ExerciseRow
+                        key={exercise.id}
+                        exercise={exercise}
+                        preferences={props.preferences}
+                      />
                     ),
                   )}
                 </Stack>
@@ -112,34 +146,33 @@ export default PerformClient;
 const usePerformClientAPI = (props: PerformClientProps) => {
   const { userId, initialSuperblock } = props;
   const [superblock, setSuperblock] = useState(initialSuperblock);
+  const { id: superblockId } = superblock;
 
-  const blocks = useMemo(() => superblock.blocks, [superblock.blocks]);
+  const [selectedBlockIdx, setSelectedBlockIdx] = useState(() => {
+    const activeBlockId = initialSuperblock.active_block_id;
+    return initialSuperblock.blocks.findIndex((b) => b.id === activeBlockId);
+  });
 
-  // TODO - handle active by use-Memo-ing the current block and exercise.
-  const [activeBlockIdx, setActiveBlockIdx] = useState(
-    initialSuperblock.active_block_id
-      ? initialSuperblock.blocks.findIndex(
-          (b) => b.id === initialSuperblock.active_block_id,
-        )
-      : 0,
-  );
-  const [activeExerciseId, setActiveExerciseId] = useState(
-    initialSuperblock.blocks?.[activeBlockIdx].active_exercise_id,
+  useEffect(() => {
+    const activeBlockId = superblock.active_block_id;
+    const activeBlockIdx = superblock.blocks.findIndex(
+      (b) => b.id === activeBlockId,
+    );
+    setSelectedBlockIdx(activeBlockIdx);
+  }, [superblock]);
+
+  const activeBlock = useMemo(
+    () => superblock.blocks.find((b) => b.id === superblock.active_block_id),
+    [superblock],
   );
 
-  const setActiveBlock = useCallback(
-    async (superblockId: string, blockId: string) => {
-      const { active_block_id, active_exercise_id, superblock } =
-        await serverSetActiveBlock(userId, superblockId, blockId);
-      const idx = blocks.findIndex((b) => b.id === active_block_id);
-      setActiveBlockIdx(idx === -1 ? 0 : idx);
-      if (active_exercise_id) {
-        setActiveExerciseId(active_exercise_id);
-      }
-      setSuperblock(superblock);
-    },
-    [userId, blocks],
-  );
+  const activeExercise = useMemo(() => {
+    if (!activeBlock) {
+      return null;
+    }
+    const activeExerciseId = activeBlock.active_exercise_id;
+    return activeBlock.exercises.find((e) => e.id === activeExerciseId);
+  }, [activeBlock]);
 
   const finishExercise = useCallback(
     async (
@@ -154,7 +187,7 @@ const usePerformClientAPI = (props: PerformClientProps) => {
     ) => {
       const result = await serverFinishExercise(
         userId,
-        superblock.id,
+        superblockId,
         blockId,
         activeExerciseId,
         actualWeightValue,
@@ -165,50 +198,59 @@ const usePerformClientAPI = (props: PerformClientProps) => {
         perceivedEffort,
       );
       setSuperblock(result);
-      const { active_block_id } = result;
-      const activeIdx = result.blocks.findIndex(
-        (b) => b.id === active_block_id,
-      );
-      setActiveBlockIdx(activeIdx === -1 ? 0 : activeIdx);
-      const activeBlock = result.blocks[activeIdx];
-      setActiveExerciseId(activeBlock.active_exercise_id);
     },
-    [superblock.id, userId],
+    [superblockId, userId],
   );
 
-  const [hasSquat, hasDeadlift, hasBenchPress, hasOverheadPress] = useMemo(
-    () =>
-      [
-        superblock.blocks.some(
-          (block) => block.exercise_type === "barbell_back_squat",
-        ),
-        superblock.blocks.some(
-          (block) => block.exercise_type === "barbell_deadlift",
-        ),
-        superblock.blocks.some(
-          (block) => block.exercise_type === "barbell_bench_press",
-        ),
-        superblock.blocks.some(
-          (block) => block.exercise_type === "barbell_overhead_press",
-        ),
-      ] as const,
-    [superblock.blocks],
+  const failExercise = useCallback(
+    async (
+      blockId: string,
+      activeExerciseId: string,
+      actualWeightValue: number,
+      reps: number,
+      isWarmup: boolean,
+      isAmrap: boolean,
+      notes: string,
+      perceivedEffort: PerceivedEffort | null,
+    ) => {
+      const result = await serverFailExercise(
+        userId,
+        superblockId,
+        blockId,
+        activeExerciseId,
+        actualWeightValue,
+        reps,
+        isWarmup,
+        isAmrap,
+        notes,
+        perceivedEffort,
+      );
+      setSuperblock(result);
+    },
+    [superblockId, userId],
+  );
+  const skipExercise = useCallback(
+    async (blockId: string, activeExerciseId: string, notes: string) => {
+      const result = await serverSkipExercise(
+        userId,
+        superblockId,
+        blockId,
+        activeExerciseId,
+        notes,
+      );
+      setSuperblock(result);
+    },
+    [superblockId, userId],
   );
 
   return {
-    dayDetails: {
-      hasSquat,
-      hasDeadlift,
-      hasBenchPress,
-      hasOverheadPress,
-      bothPresses: hasBenchPress && hasOverheadPress,
-    },
-    superblock,
+    failExercise,
+    skipExercise,
     finishExercise,
-    activeBlockIdx,
-    setActiveBlockIdx,
-    activeExerciseId,
-    setActiveExerciseId: setActiveExerciseId,
-    setActiveBlock,
+    superblock,
+    selectedBlockIdx,
+    setSelectedBlockIdx,
+    activeBlock,
+    activeExercise,
   };
 };

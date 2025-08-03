@@ -20,6 +20,12 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Check for changes after formatting
+if ! git diff --exit-code; then
+    echo "db:reset made changes. Please commit formatted code."
+    exit 1
+fi
+
 # Run UI Tests
 pnpm run test
 if [ $? -ne 0 ]; then

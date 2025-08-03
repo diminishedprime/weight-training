@@ -97,7 +97,7 @@ export type NarrowedSuperblock = RequiredNonNullable<
       "id" | "exercises" | "exercise_type" | "equipment_type"
     >[];
   },
-  "id" | "name"
+  "id" | "name" | "completion_status"
 >;
 
 export type * from "@/common-types/enums";
@@ -105,4 +105,3 @@ export type * from "@/common-types/get-add-program-info";
 export type * from "@/common-types/get-perform-superblock";
 export type * from "@/common-types/get-wendler-program";
 export type * from "@/common-types/get-wendler-program-overviews";
-export type * from "@/common-types/manage-active-superblock";

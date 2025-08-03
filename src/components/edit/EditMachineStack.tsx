@@ -1,5 +1,6 @@
 import { WeightUnit } from "@/common-types";
 import DisplayWeight from "@/components/display/DisplayWeight";
+import TODO from "@/components/TODO";
 import { Button, Radio, Stack, SxProps, Typography } from "@mui/material";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 
@@ -14,6 +15,11 @@ const EditMachineStack: React.FC<EditMachineStackProps> = (props) => {
   const api = useEditMachineStackAPI(props);
   return (
     <Stack spacing={1} alignItems="center">
+      <TODO>
+        See if I can get like a "lens" to only show like 5 or 6 plates at a
+        time. Maybe even look into doing some fancy animation if you pick
+        another value.
+      </TODO>
       <DisplayWeight
         variant="h6"
         sx={{ mb: 0 }}
@@ -160,18 +166,21 @@ const useEditMachineStackAPI = (props: EditMachineStackProps) => {
   }, [resolvedWeight, actualWeightValue, parentSetActualWeightValue]);
 
   const setActualWeightValue: React.Dispatch<React.SetStateAction<number>> =
-    useCallback((f) => {
-      if (typeof f === "function") {
-        setResolvedWeight((prev) => {
-          const newValue = f(prev);
-          parentSetActualWeightValue(newValue);
-          return newValue;
-        });
-      } else {
-        setResolvedWeight(f);
-        parentSetActualWeightValue(f);
-      }
-    }, []);
+    useCallback(
+      (f) => {
+        if (typeof f === "function") {
+          setResolvedWeight((prev) => {
+            const newValue = f(prev);
+            parentSetActualWeightValue(newValue);
+            return newValue;
+          });
+        } else {
+          setResolvedWeight(f);
+          parentSetActualWeightValue(f);
+        }
+      },
+      [parentSetActualWeightValue],
+    );
 
   useEffect(() => {
     if (actualWeightValue === null && targetWeightValue != null) {

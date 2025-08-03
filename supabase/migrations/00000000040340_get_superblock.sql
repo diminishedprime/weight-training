@@ -40,6 +40,7 @@ BEGIN
       completed_at timestamptz,
       exercise_type exercise_type_enum,
       equipment_type equipment_type_enum,
+      completion_status completion_status_enum,
       exercises public.s_exercise_row[],
       wendler_details public.s_wendler_details
     );
@@ -51,6 +52,7 @@ BEGIN
       notes text,
       started_at timestamptz,
       completed_at timestamptz,
+      completion_status completion_status_enum,
       blocks public.s_block_row[]
     );
   END IF;
@@ -69,6 +71,7 @@ BEGIN
     esb.notes,
     esb.started_at,
     esb.completed_at,
+    esb.completion_status,
     ARRAY(
       SELECT ROW(
         eb.id,
@@ -78,6 +81,7 @@ BEGIN
         eb.completed_at,
         eb.exercise_type,
         eb.equipment_type,
+        eb.completion_status,
         ARRAY(
           SELECT ROW(
             ex.id,

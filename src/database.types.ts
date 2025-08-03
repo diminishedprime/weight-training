@@ -555,6 +555,21 @@ export type Database = {
         };
         Returns: string;
       };
+      fail_exercise: {
+        Args: {
+          p_user_id: string;
+          p_superblock_id: string;
+          p_block_id: string;
+          p_exercise_id: string;
+          p_actual_weight_value: number;
+          p_reps: number;
+          p_is_warmup: boolean;
+          p_is_amrap: boolean;
+          p_notes?: string;
+          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
+        };
+        Returns: Database["public"]["CompositeTypes"]["get_perform_superblock_result"];
+      };
       finish_exercise: {
         Args: {
           p_user_id: string;
@@ -640,14 +655,6 @@ export type Database = {
         };
         Returns: undefined;
       };
-      set_active_block: {
-        Args: {
-          p_user_id: string;
-          p_superblock_id: string;
-          p_block_id: string;
-        };
-        Returns: Database["public"]["CompositeTypes"]["set_active_block_result"];
-      };
       set_target_max: {
         Args: {
           p_user_id: string;
@@ -669,6 +676,16 @@ export type Database = {
           p_available_kettlebells_lbs: number[];
         };
         Returns: undefined;
+      };
+      skip_exercise: {
+        Args: {
+          p_user_id: string;
+          p_superblock_id: string;
+          p_block_id: string;
+          p_exercise_id: string;
+          p_notes?: string;
+        };
+        Returns: Database["public"]["CompositeTypes"]["get_perform_superblock_result"];
       };
       update_exercise_for_user: {
         Args: {
@@ -770,6 +787,9 @@ export type Database = {
       block_detail_row: {
         id: string | null;
         exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null;
+        completion_status:
+          | Database["public"]["Enums"]["completion_status_enum"]
+          | null;
       };
       exercise_block_with_wendler_row: {
         id: string | null;
@@ -871,6 +891,9 @@ export type Database = {
         started_at: string | null;
         completed_at: string | null;
         active_block_id: string | null;
+        completion_status:
+          | Database["public"]["Enums"]["completion_status_enum"]
+          | null;
         blocks: Database["public"]["CompositeTypes"]["p_block_row"][] | null;
       };
       get_superblock_result: {
@@ -879,6 +902,9 @@ export type Database = {
         notes: string | null;
         started_at: string | null;
         completed_at: string | null;
+        completion_status:
+          | Database["public"]["Enums"]["completion_status_enum"]
+          | null;
         blocks: Database["public"]["CompositeTypes"]["s_block_row"][] | null;
       };
       get_superblocks_result: {
@@ -915,6 +941,9 @@ export type Database = {
           | Database["public"]["Enums"]["equipment_type_enum"]
           | null;
         active_exercise_id: string | null;
+        completion_status:
+          | Database["public"]["Enums"]["completion_status_enum"]
+          | null;
         exercises:
           | Database["public"]["CompositeTypes"]["p_exercise_row"][]
           | null;
@@ -942,7 +971,7 @@ export type Database = {
           | Database["public"]["Enums"]["perceived_effort_enum"]
           | null;
         performed_at: string | null;
-        next_performed_at: string | null;
+        last_performed_at: string | null;
       };
       p_wendler_cycle_row: {
         id: string | null;
@@ -1007,6 +1036,9 @@ export type Database = {
         equipment_type:
           | Database["public"]["Enums"]["equipment_type_enum"]
           | null;
+        completion_status:
+          | Database["public"]["Enums"]["completion_status_enum"]
+          | null;
         exercises:
           | Database["public"]["CompositeTypes"]["s_exercise_row"][]
           | null;
@@ -1049,13 +1081,6 @@ export type Database = {
           | Database["public"]["Enums"]["wendler_cycle_type_enum"]
           | null;
       };
-      set_active_block_result: {
-        active_block_id: string | null;
-        active_exercise_id: string | null;
-        superblock:
-          | Database["public"]["CompositeTypes"]["get_perform_superblock_result"]
-          | null;
-      };
       superblock_row: {
         id: string | null;
         user_id: string | null;
@@ -1063,6 +1088,9 @@ export type Database = {
         notes: string | null;
         started_at: string | null;
         completed_at: string | null;
+        completion_status:
+          | Database["public"]["Enums"]["completion_status_enum"]
+          | null;
         block_details:
           | Database["public"]["CompositeTypes"]["block_detail_row"][]
           | null;

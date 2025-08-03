@@ -13,6 +13,7 @@ CREATE OR REPLACE FUNCTION public.add_block_to_superblock (
 DECLARE
     v_block_id uuid := uuid_generate_v4();
     v_exercise_id uuid;
+    v_first_exercise_id uuid := NULL;
     v_order integer := 1;
 BEGIN
     -- Insert the exercise_block
@@ -53,6 +54,9 @@ BEGIN
     -- Create exercises for each set
     FOR v_order IN 1..p_sets LOOP
         v_exercise_id := uuid_generate_v4();
+        IF v_order = 1 THEN
+            v_first_exercise_id := v_exercise_id;
+        END IF;
         INSERT INTO public.exercises (
             id,
             user_id,
@@ -90,5 +94,10 @@ BEGIN
             v_order
         );
     END LOOP;
+
+    -- Set the first exercise as the active one for the block
+    UPDATE public.exercise_block
+    SET active_exercise_id = v_first_exercise_id
+    WHERE id = v_block_id;
 END;
 $$;

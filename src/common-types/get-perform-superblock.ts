@@ -50,7 +50,7 @@ type RNNGetPerformSuperblock = RequiredNonNullable<
   Omit<LGetPerformSuperblock, "blocks"> & {
     blocks: RNNSuperblockBlock[];
   },
-  "id" | "name"
+  "id" | "name" | "completion_status"
 >;
 
 export type GetPerformSuperblockResult = RNNGetPerformSuperblock;
