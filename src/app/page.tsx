@@ -147,6 +147,38 @@ export default function Home() {
             See about getting the skeleton.js thing set up instead of using
             Suspense Wrappers all over.
           </TODO>
+          <TODO>
+            I'd like to have different color themes for local, integration, and
+            production to make it easier to differentiate between all of them.
+            <br />
+            <br />
+            We can also add in some text based on the environment to for the
+            local ones. That's more of an absence thing, but I think it'll help
+            a bit as well.
+          </TODO>
+          <TODO>
+            I want to get the preview sub-domain thing working, but I think I
+            need to get the preview supabase instance working, first. I think I
+            just called it weight-training-integration.
+          </TODO>
+          <TODO>
+            Add dead hangs to the body weight exercises. Use the stopwatch
+            thingy with them and also figure out a way to track the duration via
+            join table or something.
+          </TODO>
+          <TODO>
+            See if I can add more flexible search into the exercise autocomplete
+            thingy. In particular, it'd be nice to be able to type "abs" for
+            abdomianal machine.
+          </TODO>
+          <TODO>
+            Add a details view for the exercise selector that has a description
+            of what the exercise is along with common aliases.
+            <br />
+            <br />
+            i.e. Diverging Lat Pulldown is also sometimes just called Lat
+            Pulldown.
+          </TODO>
         </TODO>
       </Stack>
     </>

@@ -36,7 +36,7 @@ const EditBarbell: React.FC<EditBarbellProps> = (props) => {
         availablePlates={props.availablePlates}
         roundingMode={props.roundingMode}
       />
-      {props.editing && (
+      {
         <Stack
           display="flex"
           direction="row"
@@ -46,6 +46,7 @@ const EditBarbell: React.FC<EditBarbellProps> = (props) => {
           alignItems="flex-end"
         >
           <SelectActivePlates
+            display={!props.editing}
             availablePlates={props.availablePlates}
             activePlates={api.plateCounts}
             onAddPlate={api.handleAdd}
@@ -55,7 +56,7 @@ const EditBarbell: React.FC<EditBarbellProps> = (props) => {
             undoDisabled={api.undoDisabled}
           />
         </Stack>
-      )}
+      }
     </Stack>
   );
 };

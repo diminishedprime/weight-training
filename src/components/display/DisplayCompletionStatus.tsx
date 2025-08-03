@@ -3,6 +3,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
+import SyncIcon from "@mui/icons-material/Sync";
 
 interface DisplayCompletionStatusProps {
   completionStatus: CompletionStatus;
@@ -20,8 +21,11 @@ const DisplayCompletionStatus: React.FC<DisplayCompletionStatusProps> = (
       return <SkipNextIcon color="secondary" />;
     case "not_started":
       return <RadioButtonUncheckedIcon color="warning" />;
+    case "in_progress":
+      return <SyncIcon color="primary" />;
     default:
-      return <span>Unknown Status</span>;
+      const exhaustiveCheck: never = props.completionStatus;
+      return exhaustiveCheck;
   }
 };
 
