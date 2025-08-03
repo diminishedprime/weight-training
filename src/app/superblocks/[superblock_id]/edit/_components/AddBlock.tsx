@@ -264,7 +264,7 @@ const useAddBlockAPI = (props: AddBlockProps) => {
       return;
     }
     debouncedSetOverviews(userId, exercise);
-  }, [userId, exercise]);
+  }, [userId, exercise, debouncedSetOverviews]);
 
   const boundAddBlockAction = useMemo(() => {
     if (!exercise || !equipmentType || actualWeight === undefined) {
