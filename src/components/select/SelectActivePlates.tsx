@@ -26,6 +26,9 @@ export interface SelectActivePlatesProps {
   clearDisabled: boolean;
   onUndo: () => void;
   undoDisabled: boolean;
+  // TODO: Hacky workaround to make this be easily configurable to just use for
+  // display, but this should instead be a new component that is just about the display.
+  display?: boolean;
 }
 
 const useSelectActivePlatesAPI = (props: SelectActivePlatesProps) => {
@@ -92,17 +95,19 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
 
   return (
     <FormControl>
-      <FormLabel>{api.label}</FormLabel>
+      {!props.display && <FormLabel>{api.label}</FormLabel>}
       <Stack direction="row" flexWrap="wrap" useFlexGap spacing={0.5}>
-        <IconButton
-          color="primary"
-          size="small"
-          onClick={props.onUndo}
-          aria-label="Undo weight change"
-          disabled={props.undoDisabled}
-        >
-          <UndoIcon />
-        </IconButton>
+        {!props.display && (
+          <IconButton
+            color="primary"
+            size="small"
+            onClick={props.onUndo}
+            aria-label="Undo weight change"
+            disabled={props.undoDisabled}
+          >
+            <UndoIcon />
+          </IconButton>
+        )}
         <ButtonGroup>
           {props.availablePlates.map((plate) => {
             const count = api.activePlates[plate] || 0;
@@ -112,11 +117,12 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
                 key={plate}
                 sx={metadata?.sx}
                 badgeContent={count > 0 ? count : undefined}
-                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                anchorOrigin={{ vertical: "top", horizontal: "right" }}
               >
                 <Button
                   data-testid={metadata?.testid}
                   size="small"
+                  disabled={props.display}
                   onClick={() => api.onAddPlate(plate)}
                 >
                   {fractionWeightFormat(plate)}
@@ -125,16 +131,18 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
             );
           })}
         </ButtonGroup>
-        <IconButton
-          data-testid={TestIds.ClearActivePlatesButton}
-          color="error"
-          size="small"
-          onClick={api.onClear}
-          aria-label="Clear plates"
-          disabled={props.clearDisabled}
-        >
-          <DeleteOutlineIcon />
-        </IconButton>
+        {!props.display && (
+          <IconButton
+            data-testid={TestIds.ClearActivePlatesButton}
+            color="error"
+            size="small"
+            onClick={api.onClear}
+            aria-label="Clear plates"
+            disabled={props.clearDisabled}
+          >
+            <DeleteOutlineIcon />
+          </IconButton>
+        )}
       </Stack>
     </FormControl>
   );
