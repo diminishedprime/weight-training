@@ -70,6 +70,7 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
         spacing={2}
         flexWrap="wrap"
         justifyContent="center"
+        alignItems={"end"}
       >
         {(props.exercise.is_amrap || api.modifying) && (
           <SelectReps
@@ -80,6 +81,11 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
             wendler3s={props.exercise.reps === 3}
             wendler5s={props.exercise.reps === 5}
           />
+        )}
+        {!api.modifying && !props.exercise.is_amrap && (
+          <LabeledValue label="Reps" alignItems="center">
+            {props.exercise.reps}
+          </LabeledValue>
         )}
         <SelectPerceivedEffort
           perceivedEffort={api.perceivedEffort}
