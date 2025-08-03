@@ -1,7 +1,14 @@
-import { PerceivedEffort, RoundingMode, UserPreferences } from "@/common-types";
+import {
+  PerformFailExercise,
+  PerformFinishExercise,
+  PerformSkipExercise,
+} from "@/app/superblocks/[superblock_id]/perform/_components/PerformClient";
+import { RoundingMode, UserPreferences } from "@/common-types";
 import { GetPerformSuperblockExercise } from "@/common-types/get-perform-superblock";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
+import DisplayStopwatch from "@/components/display/DisplayStopwatch";
 import EquipmentWeightEditor from "@/components/edit/EquipmentWeightEditor";
+import LabeledValue from "@/components/LabeledValue";
 import EditIcon from "@mui/icons-material/Edit";
 import { Button, IconButton, Paper, Stack } from "@mui/material";
 import { useCallback, useState } from "react";
@@ -9,30 +16,41 @@ import { useCallback, useState } from "react";
 interface ActiveExerciseRowProps {
   exercise: GetPerformSuperblockExercise;
   blockId: string;
-  finishExercise: (
-    blockId: string,
-    activeExerciseId: string,
-    actualWeightValue: number,
-    reps: number,
-    isWarmup: boolean,
-    isAmrap: boolean,
-    notes: string,
-    perceivedEffort: PerceivedEffort | null,
-  ) => Promise<void>;
+  finishExercise: PerformFinishExercise;
+  failExercise: PerformFailExercise;
+  skipExercise: PerformSkipExercise;
   preferences: UserPreferences;
 }
 
 const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
   const api = useActiveExerciseRowAPI(props);
-  console.log(api);
   return (
     <Stack spacing={1} component={Paper} sx={{ m: 0.5, p: 0.5 }}>
-      <IconButton
-        sx={{ justifySelf: "flex-start", alignSelf: "flex-start" }}
-        onClick={() => api.setModifying(!api.modifying)}
+      <Stack
+        sx={{ position: "relative" }}
+        alignItems="center"
+        justifyContent="center"
+        direction="row"
+        spacing={1}
       >
-        <EditIcon />
-      </IconButton>
+        <IconButton
+          sx={{ position: "absolute", left: 0 }}
+          onClick={() => api.setModifying(!api.modifying)}
+        >
+          <EditIcon />
+        </IconButton>
+        {props.exercise.last_performed_at && (
+          <LabeledValue label="Rest" alignItems="center">
+            <DisplayStopwatch
+              start={new Date(props.exercise.last_performed_at)}
+              successThresholdSeconds={
+                props.preferences.default_rest_time ?? undefined
+              }
+              millisecondsUntilThreshold
+            />
+          </LabeledValue>
+        )}
+      </Stack>
       <EquipmentWeightEditor
         editing={api.modifying}
         equipmentType={props.exercise.equipment_type}
@@ -44,10 +62,11 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
         barWeightValue={45}
         actualWeightValue={api.actualWeightValue}
       />
-      <Stack direction="row" justifyContent="space-between">
+      <Stack direction="row" justifyContent="space-between" sx={{ pt: 1 }}>
         <Button
           variant="outlined"
           size="small"
+          onClick={api.failExercise}
           startIcon={<DisplayCompletionStatus completionStatus="failed" />}
         >
           Failed
@@ -55,6 +74,7 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
         <Button
           variant="outlined"
           size="small"
+          onClick={api.skipExercise}
           startIcon={<DisplayCompletionStatus completionStatus="skipped" />}
         >
           Skip
@@ -77,6 +97,8 @@ export default ActiveExerciseRow;
 const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
   const {
     finishExercise: finishExerciseProps,
+    failExercise: failExerciseProps,
+    skipExercise: skipExerciseProps,
     exercise: {
       id: exerciseId,
       actual_weight_value,
@@ -148,6 +170,39 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
     reps,
   ]);
 
+  const failExercise = useCallback(async () => {
+    if (actualWeightValue === undefined) {
+      console.error(
+        "Invalid invariant: actualWeightValue must not be undefined.",
+      );
+      return;
+    }
+    await failExerciseProps(
+      blockId,
+      exerciseId,
+      actualWeightValue,
+      reps,
+      isWarmup,
+      isAmrap,
+      notes,
+      perceivedEffort,
+    );
+  }, [
+    actualWeightValue,
+    blockId,
+    exerciseId,
+    isAmrap,
+    isWarmup,
+    notes,
+    perceivedEffort,
+    reps,
+    failExerciseProps,
+  ]);
+
+  const skipExercise = useCallback(async () => {
+    await skipExerciseProps(blockId, exerciseId, notes);
+  }, [blockId, exerciseId, notes, skipExerciseProps]);
+
   return {
     setActualWeightValue,
     actualWeightValue,
@@ -166,5 +221,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
     completionStatus,
     setCompletionStatus,
     finishExercise,
+    skipExercise,
+    failExercise,
   };
 };

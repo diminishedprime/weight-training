@@ -61,6 +61,7 @@ CREATE OR REPLACE FUNCTION _impl.add_block (
 DECLARE
   v_block_id uuid;
   v_exercise_id uuid;
+  v_first_exercise_id uuid := NULL;
   v_block_order integer := 1;
   v_i integer;
   v_warmup_multiplicands numeric[];
@@ -128,6 +129,9 @@ BEGIN
       p_is_warmup => TRUE,
       p_is_amrap => FALSE
     );
+    IF v_block_order = 1 THEN
+      v_first_exercise_id := v_exercise_id;
+    END IF;
     v_block_order := v_block_order + 1;
   END LOOP;
 
@@ -147,6 +151,11 @@ BEGIN
     );
     v_block_order := v_block_order + 1;
   END LOOP;
+
+  -- Set the first exercise as the active one for the block
+  UPDATE public.exercise_block
+  SET active_exercise_id = v_first_exercise_id
+  WHERE id = v_block_id;
 
   -- Insert into wendler_program_cycle_movement (remove non-existent columns)
   INSERT INTO public.wendler_program_cycle_movement (
@@ -222,6 +231,11 @@ BEGIN
     v_block_id,
     1
   );
+
+  -- Set the block as the active block for the superblock
+  UPDATE public.exercise_superblock
+  SET active_block_id = v_block_id
+  WHERE id = v_superblock_id;
 END $$ LANGUAGE plpgsql VOLATILE;
 
 CREATE OR REPLACE FUNCTION _impl.create_movement_max (

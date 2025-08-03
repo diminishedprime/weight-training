@@ -3,6 +3,7 @@ import { GetPerformSuperblockResult } from "@/common-types";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { PATHS } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
+import { notFound } from "next/navigation";
 import React, { Suspense } from "react";
 
 interface SuperblocksByIdSuspenseWrapperProps {
@@ -18,6 +19,9 @@ export default async function SuperblocksByIdSuspenseWrapper(
     PATHS.Superblocks_Id_Perform(superblockId),
   );
   const superblock = await getPerformSuperblock(userId, superblockId);
+  if (superblock.id === null) {
+    notFound();
+  }
 
   return (
     <React.Fragment>

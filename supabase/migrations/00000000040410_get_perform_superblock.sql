@@ -15,7 +15,7 @@ BEGIN
       notes text,
       perceived_effort perceived_effort_enum,
       performed_at timestamptz,
-      next_performed_at timestamptz
+      last_performed_at timestamptz
     );
   END IF;
   IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'p_wendler_details') THEN
@@ -41,6 +41,7 @@ BEGIN
       exercise_type exercise_type_enum,
       equipment_type equipment_type_enum,
       active_exercise_id uuid,
+      completion_status completion_status_enum,
       exercises public.p_exercise_row[],
       wendler_details public.p_wendler_details
     );
@@ -53,6 +54,7 @@ BEGIN
       started_at timestamptz,
       completed_at timestamptz,
       active_block_id uuid,
+      completion_status completion_status_enum,
       blocks public.p_block_row[]
     );
   END IF;
@@ -70,6 +72,7 @@ BEGIN
     esb.started_at,
     esb.completed_at,
     esb.active_block_id,
+    esb.completion_status,
     ARRAY(
       SELECT ROW(
         eb.id,
@@ -80,6 +83,7 @@ BEGIN
         eb.exercise_type,
         eb.equipment_type,
         eb.active_exercise_id,
+        eb.completion_status,
         ARRAY(
           SELECT ROW(
             ex.id,
@@ -95,7 +99,7 @@ BEGIN
             ex.notes,
             ex.perceived_effort,
             ex.performed_at,
-            LEAD(ex.performed_at) OVER (PARTITION BY ebe.block_id ORDER BY ebe.exercise_order)
+            LAG(ex.performed_at) OVER (PARTITION BY ebe.block_id ORDER BY ebe.exercise_order)
           )::public.p_exercise_row
           FROM public.exercise_block_exercises ebe
           JOIN public.exercises ex ON ex.id = ebe.exercise_id

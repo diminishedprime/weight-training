@@ -9,9 +9,11 @@ though if you have a good reason to do so, you can ignore this report changing.
 
 ## Used
 
+- add_block_to_superblock
 - add_wendler_program
 - clear_form_draft
 - create_exercise
+- fail_exercise
 - finish_exercise
 - get_add_program_info
 - get_exercise
@@ -27,11 +29,11 @@ though if you have a good reason to do so, you can ignore this report changing.
 - get_wendler_program
 - get_wendler_program_overviews
 - save_form_draft
-- set_active_block
 - set_target_max
 - set_user_preferences
+- skip_exercise
 - update_exercise_for_user
 
 ## Not Used
 
-- [ ] add_block_to_superblock
+_All public RPCs are used in code._

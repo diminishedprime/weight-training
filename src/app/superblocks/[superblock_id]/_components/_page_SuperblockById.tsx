@@ -3,6 +3,7 @@ import {
   RequiredNonNullable,
   SuperblocksRow,
 } from "@/common-types";
+import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import DisplayDate from "@/components/display/DisplayDate";
 import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
@@ -29,6 +30,9 @@ export default async function PageSuperblocksById(
     <Stack spacing={1}>
       <Stack direction="row" spacing={1} justifyContent="space-between">
         <Typography variant="h5" display="flex" alignItems={"center"} gap={1}>
+          <DisplayCompletionStatus
+            completionStatus={superblock.completion_status}
+          />
           {superblock.name}
           {superblock.started_at && (
             <DisplayDate timestamp={superblock.started_at} noTime />

@@ -10,7 +10,7 @@ interface TODOProps {
 }
 
 // Change this to true if the TODOs are getting in your way.
-const GLOBAL_HIDE_TODOS = false;
+const GLOBAL_HIDE_TODOS = true;
 
 const TODO: React.FC<TODOProps> = (props) => {
   const theme = useTheme();
