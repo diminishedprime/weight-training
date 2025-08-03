@@ -22,6 +22,10 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
   const api = useAddBlockAPI(props);
   return (
     <Stack spacing={1} component={Paper} sx={{ m: 1, p: 1 }}>
+      <TODO>
+        Adding a block to an existing block doesn't mark it as incomplete and
+        set the completed at back to null.
+      </TODO>
       <LabeledValue
         label="Add Block"
         labelVariant="h6"
@@ -55,8 +59,10 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
               sub10
               add5
               add10
-              weightValue={api.actualWeight}
-              setWeightValue={api.setActualWeight}
+              targetWeight={50}
+              clearValue={50}
+              actualWeight={api.actualWeight}
+              setActualWeight={api.setActualWeight}
             />
             <TODO>
               Show the user recent reps & weights for the selected exercise.
@@ -116,11 +122,12 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
         direction="row"
       >
         <Stack spacing={1} flex={1}>
-          {api.actualWeight <= 0 && (
-            <Typography variant="body2" color="error">
-              Weight must be greater than 0.
-            </Typography>
-          )}
+          {api.actualWeight === undefined ||
+            (api.actualWeight <= 0 && (
+              <Typography variant="body2" color="error">
+                Weight must be greater than 0.
+              </Typography>
+            ))}
           {api.reps <= 0 && (
             <Typography variant="body2" color="error">
               Reps must be greater than 0.
@@ -160,12 +167,18 @@ const useAddBlockAPI = (props: AddBlockProps) => {
   );
   const [reps, setReps] = useState(10);
   const [sets, setSets] = useState(5);
-  const [actualWeight, setActualWeight] = useState(50);
+  const [actualWeight, setActualWeight] = useState<number>();
 
   const exerciseLabel = useRequiredLabel("Exercise", exercise === null);
 
   const addDisabled = useMemo(() => {
-    return !exercise || actualWeight <= 0 || reps <= 0 || sets <= 0;
+    return (
+      !exercise ||
+      actualWeight === undefined ||
+      actualWeight <= 0 ||
+      reps <= 0 ||
+      sets <= 0
+    );
   }, [exercise, actualWeight, reps, sets]);
 
   const name = useMemo(() => {
@@ -182,7 +195,7 @@ const useAddBlockAPI = (props: AddBlockProps) => {
   }, []);
 
   const boundAddBlockAction = useMemo(() => {
-    if (!exercise || !equipmentType) {
+    if (!exercise || !equipmentType || actualWeight === undefined) {
       return;
     }
     return addBlockServer.bind(

@@ -4,6 +4,7 @@ import {
   EquipmentType,
   ExerciseType,
   GetExerciseResult,
+  RDispatch,
   UserPreferences,
 } from "@/common-types";
 import EditNotes from "@/components/edit/EditNotes";
@@ -38,7 +39,10 @@ const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
         equipmentType={props.equipmentType}
         targetWeightValue={api.targetWeightValue}
         weightUnit={api.weightUnit}
-        setActualWeightValue={api.setActualWeightValue}
+        // TODO: This is a crazy hack, but I'm in a hurry.
+        setActualWeightValue={
+          api.setActualWeightValue as never as RDispatch<number | undefined>
+        }
         roundingMode={api.roundingMode}
         preferences={props.preferences}
         barWeightValue={api.barWeightValue}
@@ -66,7 +70,7 @@ const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
             />
             <SelectPerceivedEffort
               perceivedEffort={api.perceivedEffort}
-              onPerceivedEffortChange={api.setPerceivedEffort}
+              setPerceivedEffortChange={api.setPerceivedEffort}
             />
             <SelectWarmup
               isWarmup={api.isWarmup}

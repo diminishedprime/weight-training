@@ -15,17 +15,6 @@ export const addBlock = async (
   weightValue: number,
   weightUnit: "pounds" | "kilograms",
 ) => {
-  console.log("Adding block:", {
-    userId,
-    superblockId,
-    name,
-    equipmentType,
-    exerciseType,
-    sets,
-    reps,
-    weightValue,
-    weightUnit,
-  });
   await supabaseRPC("add_block_to_superblock", {
     p_user_id: userId,
     p_superblock_id: superblockId,
@@ -37,7 +26,6 @@ export const addBlock = async (
     p_weight_value: weightValue,
     p_weight_unit: weightUnit,
   });
-  console.log("Block added successfully");
   revalidatePath(PATHS.Superblocks_Id_Edit(superblockId));
   revalidatePath(PATHS.Superblocks);
   revalidatePath(PATHS.Superblocks_Id_Perform(superblockId));

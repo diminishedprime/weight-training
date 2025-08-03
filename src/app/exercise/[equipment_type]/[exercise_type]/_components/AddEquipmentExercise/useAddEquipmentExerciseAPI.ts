@@ -184,7 +184,7 @@ export const useAddEquipmentExerciseAPI = (
     [equipmentType, exerciseType, preferences],
   );
 
-  const [actualWeightValue, setActualWeight] = useState<number>(
+  const [actualWeightValue, setActualWeight] = useState<number | undefined>(
     initialDraft?.actualWeightValue ?? defaults.actualWeightValue,
   );
   const [roundingMode] = useState<RoundingMode>(

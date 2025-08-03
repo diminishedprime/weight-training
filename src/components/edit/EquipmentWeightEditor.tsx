@@ -1,5 +1,6 @@
 import {
   EquipmentType,
+  RDispatch,
   RoundingMode,
   UserPreferences,
   WeightUnit,
@@ -18,7 +19,7 @@ interface EquipmentWeightEditorProps {
   targetWeightValue: number;
   actualWeightValue: number | undefined;
   weightUnit: WeightUnit;
-  setActualWeightValue: React.Dispatch<React.SetStateAction<number>>;
+  setActualWeightValue: RDispatch<number | undefined>;
   roundingMode: RoundingMode;
   preferences: UserPreferences;
   barWeightValue: number | undefined;
@@ -87,8 +88,9 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       );
       return (
         <EditKettlebell
-          weightValue={props.targetWeightValue}
-          setWeightValue={props.setActualWeightValue}
+          actualWeight={props.actualWeightValue}
+          setActualWeight={props.setActualWeightValue}
+          targetWeight={props.targetWeightValue}
           weightUnit={props.weightUnit}
           roundingMode={props.roundingMode}
           availableKettlebells={props.preferences.available_kettlebells_lbs}
@@ -105,10 +107,12 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       );
       return (
         <EditPlateStack
-          weightValue={props.targetWeightValue}
-          setWeightValue={props.setActualWeightValue}
-          weightUnit={props.weightUnit}
+          actualWeightValue={props.actualWeightValue}
+          setActualWeightValue={props.setActualWeightValue}
+          targetWeightValue={props.targetWeightValue}
           availablePlates={props.preferences.available_plates_lbs}
+          weightUnit={props.weightUnit}
+          roundingMode={props.roundingMode}
         />
       );
     case "bodyweight":
@@ -122,8 +126,9 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
             add25
             sub5
             sub25
-            weightValue={props.targetWeightValue}
-            setWeightValue={props.setActualWeightValue}
+            actualWeight={props.actualWeightValue}
+            setActualWeight={props.setActualWeightValue}
+            targetWeight={props.targetWeightValue}
           />
         </Stack>
       );

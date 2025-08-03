@@ -59,13 +59,13 @@ export default function Home() {
           <TODO done>
             ability to complete exercises in an exercise block from a view
           </TODO>
-          <TODO>
+          <TODO done>
             Have the add program form also set the active exercise ids for each
             block and superblock, then remove the un-needed initialization logic
             via the "start block" button.
           </TODO>
-          <TODO>ability to add new blocks to an existing superblock</TODO>
-          <TODO>Support skip on the perform page</TODO>
+          <TODO done>ability to add new blocks to an existing superblock</TODO>
+          <TODO done>Support skip on the perform page</TODO>
           <TODO>
             On perform, if the rep is AMRAP, show the editor for reps regardless
             of edit status.

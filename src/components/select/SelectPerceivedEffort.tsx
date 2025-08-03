@@ -14,43 +14,20 @@ import React from "react";
 
 interface SelectPerceivedEffortProps {
   perceivedEffort: PerceivedEffort | null;
-  onPerceivedEffortChange: (effort: PerceivedEffort | null) => void;
+  setPerceivedEffortChange: React.Dispatch<
+    React.SetStateAction<PerceivedEffort | null>
+  >;
 }
 
-const useSelectPerceivedEffortAPI = (props: SelectPerceivedEffortProps) => {
-  const { perceivedEffort, onPerceivedEffortChange } = props;
-
-  const [localPerceivedEffort, setLocalPerceivedEffort] =
-    React.useState<PerceivedEffort | null>(perceivedEffort ?? null);
-
-  const localOnPerceivedEffortChange = React.useCallback(
-    (newValue: PerceivedEffort | null) => {
-      setLocalPerceivedEffort(newValue);
-    },
-    [],
-  );
-
-  React.useEffect(() => {
-    onPerceivedEffortChange(localPerceivedEffort);
-  }, [localPerceivedEffort, onPerceivedEffortChange]);
-
-  return {
-    perceivedEffort: localPerceivedEffort,
-    onPerceivedEffortChange: localOnPerceivedEffortChange,
-  };
-};
-
-// TODO: this should let you unselect an effort if you want.
 const SelectPerceivedEffort = (props: SelectPerceivedEffortProps) => {
-  const api = useSelectPerceivedEffortAPI(props);
   return (
     <FormControl>
       <FormLabel>Percieved Effort</FormLabel>
       <ToggleButtonGroup
         color="primary"
-        value={api.perceivedEffort}
+        value={props.perceivedEffort}
         exclusive
-        onChange={(_e, val) => val && api.onPerceivedEffortChange(val)}
+        onChange={(_e, val) => props.setPerceivedEffortChange(val)}
         size="small"
         aria-label="Effort"
       >

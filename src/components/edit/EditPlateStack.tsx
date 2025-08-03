@@ -1,17 +1,20 @@
-import { RoundingMode, WeightUnit } from "@/common-types";
+import { RDispatch, RoundingMode, WeightUnit } from "@/common-types";
 import DisplayPlateStack from "@/components/display/DisplayPlateStack";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import SelectActivePlates from "@/components/select/SelectActivePlates";
+import { useResolvableWeight } from "@/hooks";
 import { minimalPlates } from "@/util";
 import { Stack } from "@mui/material";
 import { Stack as ImmutableStack } from "immutable";
 import { useCallback, useMemo, useState } from "react";
 
 interface EditPlateStackProps {
-  weightValue: number;
-  setWeightValue: React.Dispatch<React.SetStateAction<number>>;
+  actualWeightValue: number | undefined;
+  setActualWeightValue: RDispatch<number | undefined>;
+  targetWeightValue: number;
   availablePlates: number[];
   weightUnit: WeightUnit;
+  roundingMode: RoundingMode;
 }
 
 // TODO: This should probably be configurable for whether or not it always
@@ -29,7 +32,7 @@ const EditPlateStack: React.FC<EditPlateStackProps> = (props) => {
       justifyContent="space-between"
     >
       <DisplayWeight
-        weightValue={props.weightValue}
+        weightValue={api.resolvedWeight}
         weightUnit={props.weightUnit}
       />
       <Stack alignItems="center" spacing={1}>
@@ -55,30 +58,49 @@ const EditPlateStack: React.FC<EditPlateStackProps> = (props) => {
 export default EditPlateStack;
 
 const useEditPlateStackAPI = (props: EditPlateStackProps) => {
-  const { setWeightValue } = props;
-
+  const {
+    setActualWeightValue,
+    actualWeightValue,
+    targetWeightValue,
+    availablePlates,
+    roundingMode,
+  } = props;
   const [history, setHistory] = useState(ImmutableStack<number>());
 
-  const selectedPlates = useMemo(() => {
-    const { plates } = minimalPlates(
-      props.weightValue,
-      props.availablePlates,
-      RoundingMode.NEAREST,
-    );
-    return plates;
-  }, [props.weightValue, props.availablePlates]);
+  const targetToActual = useCallback(
+    (target: number) =>
+      minimalPlates(target, availablePlates, roundingMode).plates.reduce(
+        (a, b) => a + b,
+        0,
+      ),
+    [availablePlates, roundingMode],
+  );
+
+  const [resolvedWeight, setResolvedWeight] = useResolvableWeight(
+    actualWeightValue,
+    setActualWeightValue,
+    targetWeightValue,
+    targetToActual,
+  );
+
+  const selectedPlates = useMemo(
+    () =>
+      minimalPlates(resolvedWeight, availablePlates, RoundingMode.NEAREST)
+        .plates,
+    [resolvedWeight, availablePlates],
+  );
 
   const addPlate = useCallback(
     (plate: number) => {
       setHistory((prev) => prev.push(plate));
-      setWeightValue((prev) => prev + plate);
+      setResolvedWeight((prev) => prev + plate);
     },
-    [setWeightValue],
+    [setResolvedWeight],
   );
 
   const clearPlates = useCallback(() => {
-    setWeightValue(0);
-  }, [setWeightValue]);
+    setResolvedWeight(0);
+  }, [setResolvedWeight]);
 
   const clearDisabled = useMemo(
     () => selectedPlates.length === 0,
@@ -91,12 +113,13 @@ const useEditPlateStackAPI = (props: EditPlateStackProps) => {
       return;
     }
     setHistory((prev) => prev.pop());
-    setWeightValue((prev) => prev - previousPlate);
-  }, [history, setHistory, setWeightValue]);
+    setResolvedWeight((prev) => prev - previousPlate);
+  }, [history, setHistory, setResolvedWeight]);
 
   const undoDisabled = useMemo(() => history.isEmpty(), [history]);
 
   return {
+    resolvedWeight,
     selectedPlates,
     addPlate,
     clearPlates,

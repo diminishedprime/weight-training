@@ -1,3 +1,5 @@
+import { RDispatch } from "@/common-types";
+import { useResolvableWeight } from "@/hooks";
 import { TestIds } from "@/test-ids";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import UndoIcon from "@mui/icons-material/Undo";
@@ -6,8 +8,9 @@ import { Stack as ImmutableStack } from "immutable";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 interface EditWeightProps {
-  weightValue: number;
-  setWeightValue: React.Dispatch<React.SetStateAction<number>>;
+  actualWeight: number | undefined;
+  setActualWeight: RDispatch<number | undefined>;
+  targetWeight: number;
   add1?: boolean;
   sub1?: boolean;
   add5?: boolean;
@@ -160,54 +163,76 @@ const EditWeight: React.FC<EditWeightProps> = (props) => {
 export default EditWeight;
 
 const useEditWeightAPI = (props: EditWeightProps) => {
-  const { weightValue, setWeightValue, clearValue } = props;
-  const [inputValue, setInputValue] = useState(props.weightValue.toString());
+  const { actualWeight, setActualWeight, targetWeight, clearValue } = props;
+
+  const targetToActual = useCallback((a: number) => a, []);
+
+  const [resolvedWeight, setResolvedWeight] = useResolvableWeight(
+    actualWeight,
+    setActualWeight,
+    targetWeight,
+    targetToActual,
+  );
+
+  const [inputValue, setInputValue] = useState(resolvedWeight.toString());
+
+  // TODO: This feels like a huge hack, but not sure how else to handle it for
+  // now, I think, ultimately, I need to be handling the target/actual divide
+  // differently depending on the equipment type.
+  useEffect(() => {
+    // If the actual weight changes, we need to update the resolved weight
+    // and the input value.
+    if (actualWeight !== undefined && actualWeight !== resolvedWeight) {
+      setResolvedWeight(actualWeight);
+      setInputValue(actualWeight.toString());
+    }
+  }, [actualWeight, resolvedWeight, setResolvedWeight]);
 
   useEffect(() => {
-    setInputValue(weightValue.toString());
-  }, [weightValue]);
+    setInputValue(resolvedWeight.toString());
+  }, [resolvedWeight]);
 
   // Internal stack for undo history
   const [weightValueHistory, setWeightValueHistory] = useState(() =>
-    ImmutableStack<number>([weightValue]),
+    ImmutableStack<number>([resolvedWeight]),
   );
 
   const onInputBlur = useCallback(() => {
     const parsedValue = parseFloat(inputValue);
     if (!isNaN(parsedValue)) {
-      setWeightValue(parsedValue);
+      setResolvedWeight(parsedValue);
       setWeightValueHistory((old) => old.push(parsedValue));
     }
-  }, [inputValue, setWeightValue]);
+  }, [inputValue, setResolvedWeight]);
 
   const onAddWeight = useCallback(
     (toAdd: number) => {
-      const nuValue = weightValue + toAdd;
-      setWeightValue((prev) => prev + toAdd);
+      const nuValue = resolvedWeight + toAdd;
+      setResolvedWeight((prev) => prev + toAdd);
       setWeightValueHistory((old) => old.push(nuValue));
     },
-    [setWeightValue, weightValue],
+    [setResolvedWeight, resolvedWeight],
   );
 
   const onSubtractWeight = useCallback(
     (toSubtract: number) => {
-      const nuValue = Math.max(weightValue - toSubtract, 0);
-      setWeightValue((prev) => Math.max(prev - toSubtract, 0));
+      const nuValue = Math.max(resolvedWeight - toSubtract, 0);
+      setResolvedWeight((prev) => Math.max(prev - toSubtract, 0));
       setWeightValueHistory((old) => old.push(nuValue));
     },
-    [setWeightValue, weightValue],
+    [setResolvedWeight, resolvedWeight],
   );
 
   const onSubtractDisabled = useMemo(() => {
-    return weightValue <= 0;
-  }, [weightValue]);
+    return resolvedWeight <= 0;
+  }, [resolvedWeight]);
 
   const handleUndo = useCallback(() => {
     const noCurrentWeight = weightValueHistory.pop();
     const previousWeight = noCurrentWeight.peek();
-    setWeightValue((_) => previousWeight!);
+    setResolvedWeight((_) => previousWeight!);
     setWeightValueHistory((old) => old.pop());
-  }, [weightValueHistory, setWeightValue, setWeightValueHistory]);
+  }, [weightValueHistory, setResolvedWeight, setWeightValueHistory]);
 
   const undoDisabled = useMemo(
     () => weightValueHistory.size === 1,
@@ -215,15 +240,15 @@ const useEditWeightAPI = (props: EditWeightProps) => {
   );
 
   const clear = useCallback(() => {
-    setWeightValue(clearValue || 0);
-  }, [setWeightValue, clearValue]);
+    setResolvedWeight(clearValue || 0);
+  }, [setResolvedWeight, clearValue]);
 
   const clearDisabled = useMemo(() => {
     if (clearValue !== undefined) {
-      return weightValue === clearValue;
+      return resolvedWeight === clearValue;
     }
-    return weightValue <= 0;
-  }, [weightValue, clearValue]);
+    return resolvedWeight <= 0;
+  }, [resolvedWeight, clearValue]);
 
   return {
     onAddWeight,

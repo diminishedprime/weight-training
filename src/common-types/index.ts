@@ -100,6 +100,8 @@ export type NarrowedSuperblock = RequiredNonNullable<
   "id" | "name" | "completion_status"
 >;
 
+export type RDispatch<T> = React.Dispatch<React.SetStateAction<T>>;
+
 export type * from "@/common-types/enums";
 export type * from "@/common-types/get-add-program-info";
 export type * from "@/common-types/get-perform-superblock";

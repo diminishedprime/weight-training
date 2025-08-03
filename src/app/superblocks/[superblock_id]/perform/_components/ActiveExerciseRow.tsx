@@ -7,8 +7,11 @@ import { RoundingMode, UserPreferences } from "@/common-types";
 import { GetPerformSuperblockExercise } from "@/common-types/get-perform-superblock";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import DisplayStopwatch from "@/components/display/DisplayStopwatch";
+import EditNotes from "@/components/edit/EditNotes";
 import EquipmentWeightEditor from "@/components/edit/EquipmentWeightEditor";
 import LabeledValue from "@/components/LabeledValue";
+import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
+import SelectReps from "@/components/select/SelectReps";
 import EditIcon from "@mui/icons-material/Edit";
 import { Button, IconButton, Paper, Stack } from "@mui/material";
 import { useCallback, useState } from "react";
@@ -25,7 +28,7 @@ interface ActiveExerciseRowProps {
 const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
   const api = useActiveExerciseRowAPI(props);
   return (
-    <Stack spacing={1} component={Paper} sx={{ m: 0.5, p: 0.5 }}>
+    <Stack component={Paper} sx={{ my: 1, p: 0.5 }} spacing={1}>
       <Stack
         sx={{ position: "relative" }}
         alignItems="center"
@@ -34,7 +37,7 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
         spacing={1}
       >
         <IconButton
-          sx={{ position: "absolute", left: 0 }}
+          sx={{ position: "absolute", left: 0, top: 0 }}
           onClick={() => api.setModifying(!api.modifying)}
         >
           <EditIcon />
@@ -62,6 +65,30 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
         barWeightValue={45}
         actualWeightValue={api.actualWeightValue}
       />
+      <Stack
+        direction="row"
+        spacing={2}
+        flexWrap="wrap"
+        justifyContent="center"
+      >
+        {(props.exercise.is_amrap || api.modifying) && (
+          <SelectReps
+            reps={api.reps}
+            isAMRAP={api.isAMRAP}
+            setReps={api.setReps}
+            wendler1s={props.exercise.reps === 1}
+            wendler3s={props.exercise.reps === 3}
+            wendler5s={props.exercise.reps === 5}
+          />
+        )}
+        <SelectPerceivedEffort
+          perceivedEffort={api.perceivedEffort}
+          setPerceivedEffortChange={api.setPerceivedEffort}
+        />
+      </Stack>
+      {api.modifying && (
+        <EditNotes notes={api.notes} onNotesChange={api.setNotes} />
+      )}
       <Stack direction="row" justifyContent="space-between" sx={{ pt: 1 }}>
         <Button
           variant="outlined"
@@ -113,30 +140,12 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
   } = props;
   const [modifying, setModifying] = useState(false);
 
-  const [actualWeightValue, localSetActualWeightValue] = useState(
+  const [actualWeightValue, setActualWeightValue] = useState(
     actual_weight_value ?? undefined,
   );
-  const setActualWeightValue: React.Dispatch<React.SetStateAction<number>> =
-    useCallback(
-      (value) => {
-        if (typeof value === "function") {
-          localSetActualWeightValue((prev) => {
-            if (prev === undefined) {
-              throw new Error(
-                "Invalid invariant: prev must not be undefined when using function to set actualWeightValue.",
-              );
-            }
-            return value(prev!);
-          });
-        } else {
-          localSetActualWeightValue(value);
-        }
-      },
-      [localSetActualWeightValue],
-    );
   const [reps, setReps] = useState(exercise_reps);
   const [isWarmup, setIsWarmup] = useState(is_warmup);
-  const [isAmrap, setIsAmrap] = useState(is_amrap);
+  const [isAMRAP, setIsAMRAP] = useState(is_amrap);
   const [notes, setNotes] = useState(exercise_notes || "");
   const [completionStatus, setCompletionStatus] = useState(completion_status);
   const [perceivedEffort, setPerceivedEffort] = useState(perceived_effort);
@@ -154,7 +163,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
       actualWeightValue,
       reps,
       isWarmup,
-      isAmrap,
+      isAMRAP,
       notes,
       perceivedEffort,
     );
@@ -163,7 +172,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
     blockId,
     exerciseId,
     finishExerciseProps,
-    isAmrap,
+    isAMRAP,
     isWarmup,
     notes,
     perceivedEffort,
@@ -183,7 +192,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
       actualWeightValue,
       reps,
       isWarmup,
-      isAmrap,
+      isAMRAP,
       notes,
       perceivedEffort,
     );
@@ -191,7 +200,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
     actualWeightValue,
     blockId,
     exerciseId,
-    isAmrap,
+    isAMRAP,
     isWarmup,
     notes,
     perceivedEffort,
@@ -210,8 +219,8 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
     setReps,
     isWarmup,
     setIsWarmup,
-    isAmrap,
-    setIsAmrap,
+    isAMRAP,
+    setIsAMRAP,
     notes,
     setNotes,
     perceivedEffort,

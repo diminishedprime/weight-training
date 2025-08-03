@@ -139,7 +139,7 @@ export const metalGradient =
 
 const DisplayBarbell: React.FC<DisplayBarbellProps> = (props) => {
   const { plates } = minimalPlatesForTargetWeight(
-    props.targetWeightValue,
+    props.actualWeightValue ?? props.targetWeightValue,
     props.barWeightValue,
     props.availablePlates,
     props.roundingMode,
