@@ -133,7 +133,7 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
                   <TODO>Include the duration here once both are set.</TODO>
                   <Stack useFlexGap>
                     {block.exercises.map((exercise, idx) => {
-                      return api.activeExercise?.id === exercise.id ? (
+                      return block.active_exercise_id === exercise.id ? (
                         <ActiveExerciseRow
                           key={exercise.id}
                           exercise={exercise}
