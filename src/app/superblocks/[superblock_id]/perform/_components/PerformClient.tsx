@@ -6,6 +6,7 @@ import {
   skipExercise as serverSkipExercise,
 } from "@/app/superblocks/[superblock_id]/perform/_components/actions";
 import ActiveExerciseRow from "@/app/superblocks/[superblock_id]/perform/_components/ActiveExerciseRow";
+import CompletedExerciseRow from "@/app/superblocks/[superblock_id]/perform/_components/CompletedExerciseRow";
 import ExerciseRow from "@/app/superblocks/[superblock_id]/perform/_components/ExerciseRow";
 import {
   GetPerformSuperblockResult,
@@ -151,6 +152,15 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
                               ? "Ultima series optima"
                               : setName[exercise.id] || ""
                           }
+                        />
+                      ) : exercise.completion_status === "completed" ||
+                        exercise.completion_status === "failed" ? (
+                        <CompletedExerciseRow
+                          key={exercise.id}
+                          exercise={exercise}
+                          preferences={props.preferences}
+                          setName={setName[exercise.id] || ""}
+                          userId={props.userId}
                         />
                       ) : (
                         <ExerciseRow

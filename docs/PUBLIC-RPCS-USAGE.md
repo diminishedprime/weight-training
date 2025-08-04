@@ -34,6 +34,7 @@ though if you have a good reason to do so, you can ignore this report changing.
 - set_user_preferences
 - skip_exercise
 - update_exercise_for_user
+- update_perceived_effort
 
 ## Not Used
 
