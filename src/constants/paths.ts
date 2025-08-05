@@ -49,6 +49,9 @@ const Superblocks_SuperblockId_Edit = (superblockId: string) =>
 const Superblocks_SuperblockId_Perform = (superblockId: string) =>
   `${Superblocks_SuperblockId(superblockId)}/perform`;
 
+// TODO: Add in a export const PathLabel which is directly used by breadcrumbs
+// so we don't have to have the using component figure out the labeling.
+// TODO: rename this const to Path instead of Paths.
 export const Paths = {
   // Base path
   Home,
