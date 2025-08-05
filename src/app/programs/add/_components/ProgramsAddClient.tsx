@@ -16,7 +16,7 @@ import DisplayWeightChange from "@/components/display/DisplayWeightChange";
 import EditWeight from "@/components/edit/EditWeight";
 import LabeledValue from "@/components/LabeledValue";
 import TODO from "@/components/TODO";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { TestIds } from "@/test-ids";
 import { exerciseTypeUIStringBrief, weightUnitUIString } from "@/uiStrings";
 import IconPlus from "@mui/icons-material/Add";
@@ -346,7 +346,7 @@ const useProgramsAddClientAPI = (props: ProgramsAddClientProps) => {
 
   const debouncedSaveFormDraft = useDebouncedCallback(
     async (userId: string, formDraft: ProgramsAddFormDraft) => {
-      await saveFormDraft(userId, PATHS.Programs_Add, formDraft);
+      await saveFormDraft(userId, Paths.Programs_Add, formDraft);
       const updatedFormDraft = await getProgramsAddFormDraft(userId);
       setServerFormDraft(updatedFormDraft);
     },

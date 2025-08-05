@@ -3,8 +3,9 @@ import Programs from "@/app/programs/_components/Programs";
 import { WendlerProgramOverviews } from "@/common-types";
 import Link from "@/components/Link";
 import Pagination from "@/components/Pagination";
-import { PATHS } from "@/constants";
+import { Paths, SearchParam, WithSearchParams } from "@/constants";
 import { Button, Stack } from "@mui/material";
+import { useCallback } from "react";
 
 interface ProgramsClientProps {
   currentPageNum: number;
@@ -13,12 +14,19 @@ interface ProgramsClientProps {
 }
 
 const ProgramsClient: React.FC<ProgramsClientProps> = (props) => {
+  const hrefFor = useCallback((pageNum: number) => {
+    return WithSearchParams(Paths.Programs, [
+      SearchParam.PageNum,
+      pageNum.toString(),
+    ]);
+  }, []);
+
   return (
     <Stack spacing={1} flex={1} justifyContent="space-between">
       <Stack spacing={1}>
         <Button
           component={Link}
-          href={PATHS.Programs_Add}
+          href={Paths.Programs_Add}
           sx={{ alignSelf: "center" }}
           variant="contained"
         >
@@ -28,7 +36,7 @@ const ProgramsClient: React.FC<ProgramsClientProps> = (props) => {
           <Pagination
             page={props.currentPageNum}
             count={props.pageCount}
-            hrefFor={(pageNum) => PATHS.PaginatedPrograms(pageNum)}
+            hrefFor={hrefFor}
           />
         )}
         <Programs programOverviews={props.programOverviews} />
@@ -37,7 +45,7 @@ const ProgramsClient: React.FC<ProgramsClientProps> = (props) => {
         <Pagination
           page={props.currentPageNum}
           count={props.pageCount}
-          hrefFor={(pageNum) => PATHS.PaginatedPrograms(pageNum)}
+          hrefFor={hrefFor}
         />
       )}
     </Stack>

@@ -18,10 +18,7 @@ import EditEquipmentExercisePage, {
   EditEquipmentExercisePageProps,
 } from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_components/EditEquipmentExercisePage";
 import { EquipmentType, ExerciseType } from "@/common-types";
-import {
-  pathForEquipmentExerciseEdit,
-  pathForEquipmentExercisePage,
-} from "@/constants";
+import { Paths } from "@/constants";
 import * as serverUtil from "@/serverUtil";
 import { TestIds } from "@/test-ids";
 import { USER_ID } from "@/test/constants";
@@ -82,12 +79,15 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
       exerciseType: exerciseType,
       userId: USER_ID["edit-dumbbell-exercise.integration.test.tsx"],
       exerciseId: exerciseId,
-      currentPath: pathForEquipmentExerciseEdit(
+      currentPath: Paths.Exercise_EquipmentType_ExerciseType_Edit_ExerciseId(
         equipmentType,
         exerciseType,
         exerciseId,
       ),
-      backTo: pathForEquipmentExercisePage(equipmentType, exerciseType),
+      backTo: Paths.Exercise_EquipmentType_ExerciseType(
+        equipmentType,
+        exerciseType,
+      ),
     };
 
     // Initial render of the page.
@@ -100,7 +100,7 @@ describe("User Journey: Edit Dumbbell Exercises", () => {
       );
       const link = new URL((cancel as HTMLAnchorElement).href);
       expect(link.pathname).toBe(
-        pathForEquipmentExercisePage(equipmentType, exerciseType),
+        Paths.Exercise_EquipmentType_ExerciseType(equipmentType, exerciseType),
       );
 
       const reset = await waitFor(() =>

@@ -1,6 +1,6 @@
 import EditEquipmentExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_components/EditEquipmentExercisePage";
-import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs";
-import { PARAMS, pathForEquipmentExerciseEdit } from "@/constants";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { Paths, SearchParam } from "@/constants";
 import { requireLoggedInUser } from "@/serverUtil";
 import { equipmentTypeUIString, exerciseTypeUIStringBrief } from "@/uiStrings";
 import {
@@ -30,26 +30,24 @@ export default async function EquipmentExerciseEditPageSuspenseWrapper(
   const { equipmentType, exerciseType, exercise_id } = params;
   const { backTo } = searchParams;
 
-  const currentPath = pathForEquipmentExerciseEdit(
+  const currentPath = Paths.Exercise_EquipmentType_ExerciseType_Edit_ExerciseId(
     equipmentType,
     exerciseType,
     exercise_id,
   );
   const { userId } = await requireLoggedInUser(currentPath);
 
-  const breadcrumbsProps: BreadcrumbsProps = {
-    pathname: currentPath,
-    labels: {
-      [equipmentType]: equipmentTypeUIString(equipmentType),
-      [exerciseType]: exerciseTypeUIStringBrief(exerciseType),
-      [exercise_id]: `(${exercise_id.slice(0, 8)})`,
-    },
-    nonLinkable: ["edit", exercise_id],
-  };
-
   return (
     <React.Fragment>
-      <Breadcrumbs {...breadcrumbsProps} />
+      <Breadcrumbs
+        pathname={currentPath}
+        labels={{
+          [equipmentType]: equipmentTypeUIString(equipmentType),
+          [exerciseType]: exerciseTypeUIStringBrief(exerciseType),
+          [exercise_id]: `(${exercise_id.slice(0, 8)})`,
+        }}
+        nonLinkable={["edit", exercise_id]}
+      />
       <Suspense fallback={<div>Loading...</div>}>
         <EditEquipmentExercisePage
           equipmentType={equipmentType}
@@ -75,5 +73,5 @@ const narrowParams = ({
 });
 
 const parseSearchParams = (searchParams: Awaited<Props["searchParams"]>) => ({
-  backTo: searchParams[PARAMS.BackTo]?.toString(),
+  backTo: searchParams[SearchParam.BackTo]?.toString(),
 });

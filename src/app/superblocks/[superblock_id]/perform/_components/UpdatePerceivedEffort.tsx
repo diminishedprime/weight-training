@@ -70,7 +70,7 @@ const useUpdatePerceivedEffortAPI = (props: UpdatePerceivedEffortProps) => {
         setPerceivedEffort(oldEffort);
       }
     },
-    [userId, exerciseId],
+    [userId, exerciseId, setPerceivedEffort],
   );
   return { updatePerceivedEffort };
 };

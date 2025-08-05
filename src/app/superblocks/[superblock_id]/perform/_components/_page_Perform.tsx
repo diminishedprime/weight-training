@@ -1,6 +1,6 @@
 import PerformClient from "@/app/superblocks/[superblock_id]/perform/_components/PerformClient";
 import { GetPerformSuperblockResult } from "@/common-types";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants/paths";
 import { requirePreferences, type UserPreferencesKeys } from "@/serverUtil";
 import React from "react";
 
@@ -35,7 +35,7 @@ export default async function PagePerform(props: PagePerformProps) {
   const preferences = await requirePreferences(
     props.userId,
     requiredPreferencesKeys,
-    PATHS.Superblocks_Id_Perform(superblock.id),
+    Paths.Superblocks_SuperblockId_Perform(superblock.id),
   );
 
   return (

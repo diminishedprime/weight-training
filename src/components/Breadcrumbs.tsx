@@ -1,6 +1,7 @@
 "use client";
 import { EquipmentType } from "@/common-types";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
+import { Paths } from "@/constants";
 import { Constants } from "@/database.types";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import {
@@ -52,7 +53,7 @@ export default function Breadcrumbs({
   if (pathParts.length <= 4) {
     return (
       <MUIBreadcrumbs aria-label="breadcrumb" sx={{ my: 1, ml: 1 }}>
-        <MUILink component={Link} href="/">
+        <MUILink component={Link} href={Paths.Home}>
           Home
         </MUILink>
         {pathParts.map((part, idx) => {
@@ -163,7 +164,7 @@ export default function Breadcrumbs({
         })}
       </Menu>
       <MUIBreadcrumbs aria-label="breadcrumb" sx={{ my: 1, ml: 1 }}>
-        <Link href="/">Home</Link>
+        <Link href={Paths.Home}>Home</Link>
         <Link href={firstHref}>{firstLabel}</Link>
         <IconButton
           color="primary"

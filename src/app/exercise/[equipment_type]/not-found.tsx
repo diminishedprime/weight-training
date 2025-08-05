@@ -1,5 +1,5 @@
 import Link from "@/components/Link";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { Typography } from "@mui/material";
 import React from "react";
 
@@ -13,7 +13,7 @@ export default function NotFound() {
         The equipment type you are looking for does not exist or has been
         deleted.
       </Typography>
-      <Link href={PATHS.Exercise}>Go to Exercises</Link>
+      <Link href={Paths.Exercise}>Go to Exercises</Link>
     </React.Fragment>
   );
 }

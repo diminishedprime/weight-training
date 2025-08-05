@@ -4,7 +4,7 @@ import {
   ExerciseType,
   RecentSetOverviewsResult,
 } from "@/common-types";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { supabaseRPC } from "@/serverUtil";
 import { revalidatePath } from "next/cache";
 
@@ -30,10 +30,10 @@ export const addBlock = async (
     p_weight_value: weightValue,
     p_weight_unit: weightUnit,
   });
-  revalidatePath(PATHS.Superblocks_Id_Edit(superblockId));
-  revalidatePath(PATHS.Superblocks);
-  revalidatePath(PATHS.Superblocks_Id_Perform(superblockId));
-  revalidatePath(PATHS.SuperblocksById(superblockId));
+  revalidatePath(Paths.Superblocks);
+  revalidatePath(Paths.Superblocks_SuperblockId(superblockId));
+  revalidatePath(Paths.Superblocks_SuperblockId_Edit(superblockId));
+  revalidatePath(Paths.Superblocks_SuperblockId_Perform(superblockId));
 };
 
 export const recentSetOverviews = async (

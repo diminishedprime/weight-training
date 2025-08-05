@@ -1,5 +1,6 @@
 "use client";
 
+import { Paths } from "@/constants";
 import HomeIcon from "@mui/icons-material/Home";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
@@ -52,7 +53,7 @@ const NavDrawer: React.FC<NavDrawerProps> = (props) => {
           <ListItem disablePadding>
             <ListItemButton
               component={Link}
-              href="/"
+              href={Paths.Home}
               sx={{
                 display: "flex",
                 alignItems: "center",

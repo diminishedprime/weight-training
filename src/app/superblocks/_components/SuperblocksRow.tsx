@@ -5,7 +5,7 @@ import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayTimeSince from "@/components/display/DisplayTimeSince";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import Link from "@/components/Link";
-import { pathForBlock, PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { exerciseTypeUIStringBrief } from "@/uiStrings";
 import { Paper, Stack, Typography } from "@mui/material";
 import { useFormatter } from "next-intl";
@@ -22,7 +22,7 @@ const SuperblocksRow: React.FC<SuperblocksRowProps> = (props) => {
         <Typography
           variant="h6"
           component={Link}
-          href={PATHS.SuperblocksById(props.superblock.id)}
+          href={Paths.Superblocks_SuperblockId(props.superblock.id)}
           underline="hover"
         >
           {props.superblock.name || "No name"}
@@ -56,15 +56,9 @@ const SuperblocksRow: React.FC<SuperblocksRowProps> = (props) => {
       <Typography>
         <span>Blocks: </span>
         {format.list(
-          props.superblock.block_details.map((block) => (
-            <Link
-              key={block.id}
-              href={pathForBlock(block.id)}
-              underline="hover"
-            >
-              {exerciseTypeUIStringBrief(block.exercise_type)}
-            </Link>
-          )),
+          props.superblock.block_details.map((block) =>
+            exerciseTypeUIStringBrief(block.exercise_type),
+          ),
         )}
       </Typography>
       <Stack spacing={1} direction="row" flexWrap="wrap" alignItems="baseline">

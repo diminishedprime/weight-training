@@ -1,13 +1,13 @@
 import ProgramsClient from "@/app/programs/_components/ProgramsClient";
 import { GetWendlerProgramsResult } from "@/common-types";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 
 interface PageProgramsProps {
   currentPageNum: number;
 }
 export default async function PagePrograms(props: PageProgramsProps) {
-  const { userId } = await requireLoggedInUser(PATHS.Programs);
+  const { userId } = await requireLoggedInUser(Paths.Programs);
 
   const { page_count, program_overviews } = await getWendlerPrograms(
     userId,

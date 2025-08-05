@@ -1,7 +1,7 @@
 import EquipmentExercisePage, {
   EquipmentExercisePageProps,
 } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page";
-import { FIRST_PAGE_NUM, pathForBarbellExercisePage } from "@/constants";
+import { FIRST_PAGE_NUM, Paths } from "@/constants";
 import * as serverUtil from "@/serverUtil";
 import { TestIds } from "@/test-ids";
 import { USER_ID } from "@/test/constants";
@@ -217,6 +217,9 @@ const pageProps: EquipmentExercisePageProps = {
   userId: USER_ID["add-custom-barbell-exercise.integration.test.tsx"],
   equipmentType: "barbell",
   exerciseType: "barbell_deadlift",
-  path: pathForBarbellExercisePage("barbell_deadlift"),
+  path: Paths.Exercise_EquipmentType_ExerciseType(
+    "barbell",
+    "barbell_deadlift",
+  ),
   pageNumber: FIRST_PAGE_NUM,
 };

@@ -1,6 +1,6 @@
 import Breadcrumbs from "@/components/Breadcrumbs";
 import TODO from "@/components/TODO";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { Button, Stack } from "@mui/material";
 import Link from "next/link";
 
@@ -12,7 +12,7 @@ export default function Home() {
         <Stack spacing={1} direction="row" flexWrap="wrap" useFlexGap>
           <Button
             component={Link}
-            href={PATHS.Programs}
+            href={Paths.Programs}
             variant="contained"
             color="primary"
           >
@@ -20,7 +20,8 @@ export default function Home() {
           </Button>
           <Button
             component={Link}
-            href="/exercise"
+            // TODO: easy, rename exercise path to be exercises
+            href={Paths.Exercise}
             variant="contained"
             color="primary"
           >
@@ -28,7 +29,7 @@ export default function Home() {
           </Button>
           <Button
             component={Link}
-            href={PATHS.Superblocks}
+            href={Paths.Superblocks}
             variant="contained"
             color="primary"
           >
@@ -36,7 +37,7 @@ export default function Home() {
           </Button>
           <Button
             component={Link}
-            href="/preferences"
+            href={Paths.Preferences}
             variant="contained"
             color="primary"
           >
@@ -44,7 +45,7 @@ export default function Home() {
           </Button>
           <Button
             component={Link}
-            href="/personal-records"
+            href={Paths.PersonalRecords}
             variant="contained"
             color="primary"
           >

@@ -1,5 +1,6 @@
 import PageExerciseSuperblock from "@/app/superblocks/_components/_page_Superblocks";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { Paths } from "@/constants";
 import { parseSearchParams, SEARCH_PARSERS } from "@/serverUtil";
 import React, { Suspense } from "react";
 
@@ -16,7 +17,7 @@ export default async function ExerciseBlockSuspenseWrapper(
   );
   return (
     <React.Fragment>
-      <Breadcrumbs pathname="/superblocks" />
+      <Breadcrumbs pathname={Paths.Superblocks} />
       <Suspense fallback={<div>Loading...</div>}>
         <PageExerciseSuperblock pageNum={pageNum} />
       </Suspense>

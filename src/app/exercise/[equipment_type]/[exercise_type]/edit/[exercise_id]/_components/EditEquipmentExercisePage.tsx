@@ -1,6 +1,6 @@
 import EditEquipmentExercise from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_components/EditEquipmentExercise";
 import { EquipmentType, ExerciseType, GetExerciseResult } from "@/common-types";
-import { pathForEquipmentExerciseEdit } from "@/constants";
+import { Paths } from "@/constants";
 import { requirePreferences, supabaseRPC } from "@/serverUtil";
 import { notFoundIfNull } from "@/util";
 import { Typography } from "@mui/material";
@@ -28,7 +28,7 @@ const EditEquipmentExercisePage: React.FC<
   // values, check for that here.
   notFoundIfNull(exercise.exercise_id);
 
-  const path = pathForEquipmentExerciseEdit(
+  const path = Paths.Exercise_EquipmentType_ExerciseType_Edit_ExerciseId(
     equipmentType,
     exerciseType,
     exerciseId,

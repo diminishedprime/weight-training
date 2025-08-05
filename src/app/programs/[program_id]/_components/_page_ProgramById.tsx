@@ -1,6 +1,6 @@
 import ProgramClient from "@/app/programs/[program_id]/_components/ProgramClient";
 import { GetWendlerProgramResult } from "@/common-types";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { notFound } from "next/navigation";
 
@@ -10,7 +10,7 @@ interface PageProgramByIdProps {
 }
 export default async function PageProgramById(props: PageProgramByIdProps) {
   const { userId } = await requireLoggedInUser(
-    PATHS.ProgramById(props.programId),
+    Paths.Programs_ProgramId(props.programId),
   );
 
   const program = await getWendlerProgram(userId, props.programId);

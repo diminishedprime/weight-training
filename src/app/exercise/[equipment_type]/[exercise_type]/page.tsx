@@ -1,7 +1,11 @@
 import EquipmentExercisePage from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { FIRST_PAGE_NUM, pathForEquipmentExercisePage } from "@/constants";
-import { requireLoggedInUser } from "@/serverUtil";
+import { Paths } from "@/constants";
+import {
+  parseSearchParams,
+  requireLoggedInUser,
+  SEARCH_PARSERS,
+} from "@/serverUtil";
 import { equipmentTypeUIString, exerciseTypeUIStringBrief } from "@/uiStrings";
 import {
   narrowEquipmentType,
@@ -20,14 +24,16 @@ export default async function EquipmentExercisePageSuspenseWrapper(
 ) {
   const [params, searchParams] = await Promise.all([
     props.params.then(narrowParams),
-    props.searchParams.then(parseSearchParams),
+    parseSearchParams(props.searchParams, SEARCH_PARSERS.PAGE_NUM),
   ]);
 
   const { equipmentType, exerciseType } = params;
   const { pageNum } = searchParams;
 
-  const path = pathForEquipmentExercisePage(equipmentType, exerciseType);
-
+  const path = Paths.Exercise_EquipmentType_ExerciseType(
+    equipmentType,
+    exerciseType,
+  );
   const { userId } = await requireLoggedInUser(path);
 
   return (
@@ -66,13 +72,4 @@ const narrowParams = ({
 }) => ({
   equipmentType: narrowOrNotFound(equipment_type, narrowEquipmentType),
   exerciseType: narrowOrNotFound(exercise_type, narrowExerciseType),
-});
-
-const parseSearchParams = (
-  searchParams: Awaited<
-    EquipmentExercisePageSuspenseWrapperProps["searchParams"]
-  >,
-) => ({
-  pageNum: Number(searchParams.page_num) || FIRST_PAGE_NUM,
-  startExerciseId: searchParams.start_exercise_id?.toString(),
 });

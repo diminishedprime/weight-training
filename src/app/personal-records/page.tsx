@@ -4,6 +4,7 @@ import { EquipmentType } from "@/common-types";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
 import TODO from "@/components/TODO";
+import { Paths } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { equipmentTypeUIString, exerciseTypeUIStringBrief } from "@/uiStrings";
 import { EXERCISES_BY_EQUIPMENT } from "@/util";
@@ -58,7 +59,7 @@ const PersonalRecordsPage = async () => {
             {exercises.map((exerciseType) => (
               <li key={exerciseType} style={{ marginBottom: "8px" }}>
                 <Link
-                  href={`/personal-records/${exerciseType}`}
+                  href={Paths.PersonalRecords_ExerciseType(exerciseType)}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <Typography
@@ -81,7 +82,7 @@ const PersonalRecordsPage = async () => {
 export default async function SuspenseWrapper() {
   return (
     <React.Fragment>
-      <Breadcrumbs pathname="/personal-records" />
+      <Breadcrumbs pathname={Paths.PersonalRecords} />
       <Suspense fallback={<div>Loading personal records...</div>}>
         <PersonalRecordsPage />
       </Suspense>

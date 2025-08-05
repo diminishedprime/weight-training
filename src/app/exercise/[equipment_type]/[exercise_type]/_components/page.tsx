@@ -9,7 +9,7 @@ import {
   RoundingMode,
   WeightUnit,
 } from "@/common-types";
-import { pathForEquipmentExercisePage } from "@/constants";
+import { Paths } from "@/constants";
 import { Json } from "@/database.types";
 import { requirePreferences, supabaseRPC } from "@/serverUtil";
 import { Stack } from "@mui/material";
@@ -89,7 +89,7 @@ const EquipmentExercisePage: React.FC<EquipmentExercisePageProps> = async (
   ]);
   const { rows, pageCount } = exercisesResult;
 
-  const path = pathForEquipmentExercisePage(
+  const path = Paths.Exercise_EquipmentType_ExerciseType(
     props.equipmentType,
     props.exerciseType,
   );

@@ -12,14 +12,11 @@ import DisplayWeight from "@/components/display/DisplayWeight";
 import LabeledValue from "@/components/LabeledValue";
 import Link from "@/components/Link";
 import Pagination from "@/components/Pagination";
-import {
-  pathForEquipmentExerciseEdit,
-  pathForPaginatedEquipmentExercisePage,
-} from "@/constants";
+import { Paths, SearchParam, WithSearchParams } from "@/constants";
 import { Button, Chip, Paper, Stack, Typography } from "@mui/material";
 import { format } from "date-fns";
 import { useSearchParams } from "next/navigation";
-import React from "react";
+import React, { useCallback } from "react";
 
 export interface EquipmentExercisesTableProps {
   exercises: NonNullable<ExercisesByTypeResultRows>;
@@ -75,19 +72,23 @@ const EquipmentExercisesTable: React.FC<EquipmentExercisesTableProps> = (
   props,
 ) => {
   const api = useExercisesTableAPI(props);
+  // TODO: easy, this should be part of the api.
+  const { equipmentType, exerciseType } = props;
+  const hrefFor = useCallback(
+    (pageNum: number) =>
+      WithSearchParams(
+        Paths.Exercise_EquipmentType_ExerciseType(equipmentType, exerciseType),
+        [SearchParam.PageNum, pageNum.toString()],
+      ),
+    [equipmentType, exerciseType],
+  );
 
   return (
     <Stack spacing={1}>
       <Pagination
         page={props.pageNum}
         count={props.pageCount}
-        hrefFor={(pageNum) =>
-          pathForPaginatedEquipmentExercisePage(
-            props.equipmentType,
-            props.exerciseType,
-            pageNum,
-          )
-        }
+        hrefFor={hrefFor}
       />
       {api.groupedByDay.map((group, idx) => {
         const date = getDateString(group[0]!.performed_at!);
@@ -95,11 +96,13 @@ const EquipmentExercisesTable: React.FC<EquipmentExercisesTableProps> = (
           <Stack key={`${group[0]?.exercise_id}-${idx}`}>
             <Typography variant="h5">{date}</Typography>
             {group.map((exercise) => {
-              const editPath = pathForEquipmentExerciseEdit(
-                exercise.equipment_type!,
-                exercise.exercise_type!,
-                exercise.exercise_id!,
-                props.currentPath,
+              const editPath = WithSearchParams(
+                Paths.Exercise_EquipmentType_ExerciseType_Edit_ExerciseId(
+                  props.equipmentType,
+                  props.exerciseType,
+                  exercise.exercise_id!,
+                ),
+                [SearchParam.BackTo, props.currentPath],
               );
               return (
                 <React.Fragment key={exercise.exercise_id}>
@@ -173,13 +176,7 @@ const EquipmentExercisesTable: React.FC<EquipmentExercisesTableProps> = (
       <Pagination
         page={props.pageNum}
         count={props.pageCount}
-        hrefFor={(pageNum) =>
-          pathForPaginatedEquipmentExercisePage(
-            props.equipmentType,
-            props.exerciseType,
-            pageNum,
-          )
-        }
+        hrefFor={hrefFor}
       />
     </Stack>
   );
