@@ -7,7 +7,7 @@ import DisplayWeight from "@/components/display/DisplayWeight";
 import DisplayWeightChange from "@/components/display/DisplayWeightChange";
 import LabeledValue from "@/components/LabeledValue";
 import TODO from "@/components/TODO";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { exerciseTypeUIStringBrief, wendlerCycleUIString } from "@/uiStrings";
 import {
   Button,
@@ -142,7 +142,9 @@ const ProgramClient: React.FC<ProgramClientProps> = (props) => {
                   <Button
                     variant="outlined"
                     size="small"
-                    href={PATHS.SuperblocksById(movement.superblock_id)}
+                    href={Paths.Superblocks_SuperblockId(
+                      movement.superblock_id,
+                    )}
                     sx={{
                       justifySelf: "flex-end",
                       alignSelf: "flex-end",

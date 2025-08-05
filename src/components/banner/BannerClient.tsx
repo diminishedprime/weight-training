@@ -2,6 +2,7 @@
 
 import AuthenticatedUserView from "@/components/banner/AuthenticatedUserView";
 import NavDrawer from "@/components/banner/NavDrawer";
+import { Paths } from "@/constants";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -47,7 +48,7 @@ export default function BannerClient(props: Props) {
           <Typography
             variant="h6"
             component={Link}
-            href="/"
+            href={Paths.Home}
             sx={{ textDecoration: "none", color: "inherit" }}
           >
             Weight Training

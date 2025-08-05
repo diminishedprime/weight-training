@@ -2,7 +2,7 @@
 
 import { type ProgramsAddFormDraft } from "@/app/programs/add/_components/_page_ProgramsAdd";
 import { WeightUnit } from "@/common-types";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { supabaseRPC } from "@/serverUtil";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -37,10 +37,10 @@ export const addProgram = async (
   });
   supabaseRPC("clear_form_draft", {
     p_user_id: userId,
-    p_page_path: PATHS.Programs_Add,
+    p_page_path: Paths.Programs_Add,
   });
-  revalidatePath(PATHS.Programs);
-  redirect(PATHS.ProgramById(programId));
+  revalidatePath(Paths.Programs);
+  redirect(Paths.Programs_ProgramId(programId));
 };
 
 export const saveFormDraft = async (

@@ -1,6 +1,6 @@
 "use client";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants/paths";
 import { usePathname } from "next/navigation";
 import React from "react";
 
@@ -13,7 +13,7 @@ export default function Loading() {
   return (
     <React.Fragment>
       <Breadcrumbs
-        pathname={PATHS.Superblocks_Id_Edit(superblockId)}
+        pathname={Paths.Superblocks_SuperblockId_Edit(superblockId)}
         truncate={[superblockId]}
       />
       Loading superblock...

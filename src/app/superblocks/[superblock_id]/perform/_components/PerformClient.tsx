@@ -19,7 +19,7 @@ import DisplayStopwatch from "@/components/display/DisplayStopwatch";
 import LabeledValue from "@/components/LabeledValue";
 import Link from "@/components/Link";
 import TODO from "@/components/TODO";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import EditIcon from "@mui/icons-material/Edit";
 import {
   IconButton,
@@ -63,7 +63,7 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
         {api.superblock.name}
         <IconButton
           component={Link}
-          href={PATHS.Superblocks_Id_Edit(props.initialSuperblock.id)}
+          href={Paths.Superblocks_SuperblockId_Edit(props.initialSuperblock.id)}
         >
           <EditIcon />
         </IconButton>

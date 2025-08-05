@@ -1,7 +1,7 @@
 import PagePerform from "@/app/superblocks/[superblock_id]/perform/_components/_page_Perform";
 import { GetPerformSuperblockResult } from "@/common-types";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { notFound } from "next/navigation";
 import React, { Suspense } from "react";
@@ -16,7 +16,7 @@ export default async function SuperblocksByIdSuspenseWrapper(
 ) {
   const { superblock_id: superblockId } = await props.params;
   const { userId } = await requireLoggedInUser(
-    PATHS.Superblocks_Id_Perform(superblockId),
+    Paths.Superblocks_SuperblockId_Perform(superblockId),
   );
   const superblock = await getPerformSuperblock(userId, superblockId);
   if (superblock.id === null) {
@@ -26,7 +26,7 @@ export default async function SuperblocksByIdSuspenseWrapper(
   return (
     <React.Fragment>
       <Breadcrumbs
-        pathname={PATHS.Superblocks_Id_Perform(superblockId)}
+        pathname={Paths.Superblocks_SuperblockId_Perform(superblockId)}
         labels={{
           [superblockId]: superblock.name,
         }}

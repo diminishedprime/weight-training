@@ -4,7 +4,7 @@ import DisplayWeight from "@/components/display/DisplayWeight";
 import DisplayWeightChange from "@/components/display/DisplayWeightChange";
 import LabeledValue from "@/components/LabeledValue";
 import Link from "@/components/Link";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { exerciseTypeUIStringBrief } from "@/uiStrings";
 import { Paper, Stack, Typography } from "@mui/material";
 import React from "react";
@@ -20,7 +20,7 @@ const ProgramOverviewType: React.FC<ProgramOverviewProps> = (props) => {
         <Typography
           variant="h6"
           component={Link}
-          href={PATHS.ProgramById(props.program.id)}
+          href={Paths.Programs_ProgramId(props.program.id)}
           underline="hover"
         >
           {props.program.name}

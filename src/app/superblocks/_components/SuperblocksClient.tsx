@@ -2,8 +2,9 @@
 import SuperblocksTable from "@/app/superblocks/_components/SuperblocksTable";
 import { type NarrowedSuperblocksRow } from "@/app/superblocks/_components/_page_Superblocks";
 import Pagination from "@/components/Pagination";
-import { PATHS } from "@/constants";
+import { Paths, SearchParam, WithSearchParams } from "@/constants";
 import { Stack } from "@mui/material";
+import { useCallback } from "react";
 
 interface SuperblocksClientProps {
   currentPageNum: number;
@@ -18,18 +19,27 @@ interface SuperblocksClientProps {
 // there's a way to make hrefFor work as a server component if handled
 // correctly.
 const SuperblocksClient: React.FC<SuperblocksClientProps> = (props) => {
+  const hrefFor = useCallback(
+    (pageNum: number) =>
+      WithSearchParams(Paths.Superblocks, [
+        SearchParam.PageNum,
+        pageNum.toString(),
+      ]),
+    [],
+  );
+
   return (
     <Stack spacing={1}>
       <Pagination
         page={props.currentPageNum}
         count={props.pageCount}
-        hrefFor={(pageNum) => PATHS.PaginatedSuperblocks(pageNum)}
+        hrefFor={hrefFor}
       />
       <SuperblocksTable superblocks={props.superblocks} />
       <Pagination
         page={props.currentPageNum}
         count={props.pageCount}
-        hrefFor={(pageNum) => PATHS.PaginatedSuperblocks(pageNum)}
+        hrefFor={hrefFor}
       />
     </Stack>
   );

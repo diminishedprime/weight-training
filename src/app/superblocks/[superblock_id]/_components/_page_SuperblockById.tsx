@@ -11,7 +11,7 @@ import DisplayWeight from "@/components/display/DisplayWeight";
 import LabeledValue from "@/components/LabeledValue";
 import Link from "@/components/Link";
 import TODO from "@/components/TODO";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { exerciseTypeUIStringBrief } from "@/uiStrings";
 import EditIcon from "@mui/icons-material/Edit";
 import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
@@ -39,7 +39,7 @@ export default async function PageSuperblocksById(
           )}
           <IconButton
             component={Link}
-            href={PATHS.Superblocks_Id_Edit(superblock.id)}
+            href={Paths.Superblocks_SuperblockId_Edit(superblock.id)}
           >
             <EditIcon />
           </IconButton>
@@ -48,7 +48,7 @@ export default async function PageSuperblocksById(
           component={Link}
           variant="contained"
           color="primary"
-          href={PATHS.Superblocks_Id_Perform(superblock.id)}
+          href={Paths.Superblocks_SuperblockId_Perform(superblock.id)}
           sx={{ justifySelf: "flex-end" }}
         >
           Let's a go

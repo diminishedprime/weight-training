@@ -1,5 +1,6 @@
 "use client";
 
+import { Paths } from "@/constants";
 import { Paper, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 
@@ -21,7 +22,7 @@ const Error: React.FC<ErrorProps> = ({ error }) => {
         </Typography>
       </Paper>
       <Typography>
-        <Link href="/">Go Home</Link>
+        <Link href={Paths.Home}>Go Home</Link>
       </Typography>
     </Stack>
   );

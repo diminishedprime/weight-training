@@ -1,37 +1,28 @@
 import Breadcrumbs from "@/components/Breadcrumbs";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
 import TODO from "@/components/TODO";
-import { pathForEquipmentPage } from "@/constants";
-import { Constants } from "@/database.types";
+import { EQUIPMENT_TYPES, Paths } from "@/constants";
 import { requireLoggedInUser } from "@/serverUtil";
 import { equipmentTypeUIString } from "@/uiStrings";
 import { Stack, Typography } from "@mui/material";
 import Link from "next/link";
-
-const EQUIPMENT_DATA = Constants.public.Enums.equipment_type_enum.map(
-  (equipmentType) => ({
-    key: equipmentType,
-    href: pathForEquipmentPage(equipmentType),
-    linkText: equipmentTypeUIString(equipmentType),
-  }),
-);
 
 export default async function ExercisePage() {
   await requireLoggedInUser("/exercise");
 
   return (
     <>
-      <Breadcrumbs pathname="/exercise" />
+      <Breadcrumbs pathname={Paths.Exercise} />
       <Stack spacing={1} direction="column">
-        {EQUIPMENT_DATA.map(({ key, href, linkText }) => (
+        {EQUIPMENT_TYPES.map((equipmentType) => (
           <Typography
-            key={key}
+            key={equipmentType}
             component={Link}
-            href={href}
+            href={Paths.Exercise_EquipmentType(equipmentType)}
             sx={{ display: "flex", alignItems: "center", gap: 1 }}
           >
-            <DisplayEquipmentThumbnail equipmentType={key} />
-            {linkText}
+            <DisplayEquipmentThumbnail equipmentType={equipmentType} />
+            {equipmentTypeUIString(equipmentType)}
           </Typography>
         ))}
         <TODO>

@@ -126,6 +126,7 @@ const useSetTargetMaxAPI = (props: SetTargetMaxProps) => {
  * Form for setting the target max for main lifts.
  * Uses server action as the form action, following Next.js/MUI standards.
  */
+// TODO: delete this later.
 const SetTargetMax: React.FC<SetTargetMaxProps> = (props) => {
   const api = useSetTargetMaxAPI(props);
   return (

@@ -1,11 +1,8 @@
 import { EquipmentType } from "@/common-types";
-import Breadcrumbs, { BreadcrumbsProps } from "@/components/Breadcrumbs";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
 import TODO from "@/components/TODO";
-import {
-  pathForEquipmentExercisePage,
-  pathForEquipmentPage,
-} from "@/constants";
+import { Paths } from "@/constants";
 import { exerciseTypeUIStringBrief } from "@/uiStrings";
 import {
   EXERCISES_BY_EQUIPMENT,
@@ -30,13 +27,9 @@ export default async function EquipmentTypeExercisesPage(
     narrowEquipmentType,
   );
 
-  const breadcrumbsProps: BreadcrumbsProps = {
-    pathname: pathForEquipmentPage(equipmentType),
-  };
-
   return (
     <React.Fragment>
-      <Breadcrumbs {...breadcrumbsProps} />
+      <Breadcrumbs pathname={Paths.Exercise_EquipmentType(equipmentType)} />
       <Stack spacing={1}>
         {Array.from(
           EXERCISES_BY_EQUIPMENT.get(equipmentType)?.toOrderedSet() ?? [],
@@ -44,7 +37,10 @@ export default async function EquipmentTypeExercisesPage(
           <Typography
             key={exerciseType}
             component={Link}
-            href={pathForEquipmentExercisePage(equipmentType, exerciseType)}
+            href={Paths.Exercise_EquipmentType_ExerciseType(
+              equipmentType,
+              exerciseType,
+            )}
             sx={{ display: "flex", alignItems: "center", gap: 1 }}
           >
             <DisplayEquipmentThumbnail

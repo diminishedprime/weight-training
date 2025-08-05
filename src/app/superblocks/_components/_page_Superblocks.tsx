@@ -1,7 +1,7 @@
 import SuperblocksClient from "@/app/superblocks/_components/SuperblocksClient";
 import { RequiredNonNullable, SuperblocksRow } from "@/common-types";
 import TODO from "@/components/TODO";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { notFoundIfNull } from "@/util";
 import React from "react";
@@ -14,7 +14,7 @@ interface PageSuperblocksProps {
 //
 // _components/_page_ComponentName.tsx
 export default async function PageSuperblocks(props: PageSuperblocksProps) {
-  const { userId } = await requireLoggedInUser(PATHS.Superblocks);
+  const { userId } = await requireLoggedInUser(Paths.Superblocks);
   const { superblocks, pageCount } = await getSuperblocks(
     userId,
     props.pageNum,

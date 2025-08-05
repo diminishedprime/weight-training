@@ -1,6 +1,6 @@
 import PagePrograms from "@/app/programs/_components/_page_Programs";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { parseSearchParams, SEARCH_PARSERS } from "@/serverUtil";
 import { Suspense } from "react";
 
@@ -17,7 +17,7 @@ export default async function ProgramsSuspenseWrapper(
   );
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Breadcrumbs pathname={PATHS.Programs} />
+      <Breadcrumbs pathname={Paths.Programs} />
       <PagePrograms currentPageNum={pageNum} />
     </Suspense>
   );

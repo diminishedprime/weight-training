@@ -1,5 +1,5 @@
 import Link from "@/components/Link";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { Typography } from "@mui/material";
 import React from "react";
 
@@ -12,7 +12,7 @@ export default function NotFound() {
       <Typography>
         The superblock you are looking for does not exist or has been deleted.
       </Typography>
-      <Link href={PATHS.Superblocks}>Go to superblocks</Link>
+      <Link href={Paths.Superblocks}>Go to superblocks</Link>
     </React.Fragment>
   );
 }

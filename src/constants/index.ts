@@ -1,20 +1,10 @@
-import {
-  EquipmentType,
-  ExerciseType,
-  ProgramDayType,
-  WeightUnit,
-} from "@/common-types";
+import { ExerciseType, ProgramDayType, WeightUnit } from "@/common-types";
 import { Constants } from "@/database.types";
 import { Map as ImmutableMap, Set as ImmutableSet } from "immutable";
 
 export const DEFAULT_BAR_WEIGHT = 45; // lbs
 export const ALL_PLATES = [55, 45, 35, 25, 10, 5, 2.5];
 export const DEFAULT_PLATE_SIZES = [45, 25, 10, 5, 2.5];
-
-export const PARAMS = {
-  BackTo: "back_to",
-  PageNum: "page_num",
-};
 
 export const PLATE_COLORS: Record<number, { bg: string; fg: string }> = {
   45: { bg: "red", fg: "white" },
@@ -54,114 +44,6 @@ export const DEFAULT_VALUES = {
   AVAILABLE_KETTLEBELLS_LBS: AVAILABLE_KETTLEBELLS_LBS,
   SELECTED_PLATES: COMMON_AVAILABLE_PLATES,
 };
-
-// Page paths
-export const pathForBarbellPage = `/exercise/barbell`;
-
-export const pathForEquipmentPage = (equipmentType: EquipmentType) =>
-  `/exercise/${equipmentType}`;
-
-export const pathForEquipmentExercisePage = (
-  equipmentType: EquipmentType,
-  exerciseType: ExerciseType,
-) => `${pathForEquipmentPage(equipmentType)}/${exerciseType}`;
-
-export const pathForPaginatedEquipmentExercisePage = (
-  equipmentType: EquipmentType,
-  exerciseType: ExerciseType,
-  pageNum: number,
-) => {
-  const searchParams = new URLSearchParams();
-  searchParams.set(PARAMS.PageNum, pageNum.toString());
-  const search = `?${searchParams.toString()}`;
-  return `${pathForEquipmentExercisePage(equipmentType, exerciseType)}${search}`;
-};
-const pathForExerciseBlocksPage = `/exercise-block`;
-
-export const pathForPaginatedExerciseBlocksPage = (pageNum: number) => {
-  const searchParams = new URLSearchParams();
-  searchParams.set(PARAMS.PageNum, pageNum.toString());
-  const search = `?${searchParams.toString()}`;
-  return `${pathForExerciseBlocksPage}${search}`;
-};
-
-export const pathForBlock = (blockId: string) =>
-  `${pathForExerciseBlocksPage}/${blockId}`;
-
-const pathForSuperblocksPage = `/superblocks`;
-
-const pathForPaginatedSuperblocksPage = (pageNum: number) => {
-  const searchParams = new URLSearchParams();
-  searchParams.set(PARAMS.PageNum, pageNum.toString());
-  const search = `?${searchParams.toString()}`;
-  return `${pathForSuperblocksPage}${search}`;
-};
-
-const pathForProgramsPage = "/programs";
-
-const pathForPaginatedProgramsPage = (pageNum: number) => {
-  const searchParams = new URLSearchParams();
-  searchParams.set(PARAMS.PageNum, pageNum.toString());
-  const search = `?${searchParams.toString()}`;
-  return `${pathForProgramsPage}${search}`;
-};
-
-const pathForProgramById = (programId: string) =>
-  `${pathForProgramsPage}/${programId}`;
-
-const pathForProgramsAddPage = `${pathForProgramsPage}/add`;
-const superblocks_id_perform_path = (superblockId: string) =>
-  `${pathForSuperblocksPage}/${superblockId}/perform`;
-
-const superblocks_id_edit_path = (superblockId: string) =>
-  `${pathForSuperblocksPage}/${superblockId}/edit`;
-
-// TODO: refactor everything to use the PATHS object and also turn constants.ts
-// into /constants/index.ts and have a separate paths.ts file that does this
-// stuff. As a part of that, also remove the export const for the paths/paths
-// helper functions.
-// TODO: also consider if there's a way to reduce bundle size  by exporting
-// these values more directly instead of the whole object? Likely not
-// worth-while but idk.
-export const PATHS = {
-  Home: "/",
-  Exercise: "/exercise",
-  Superblocks: pathForSuperblocksPage,
-  PaginatedSuperblocks: pathForPaginatedSuperblocksPage,
-  // TODO: easy rename this path.
-  SuperblocksById: (superblockId: string) =>
-    `${pathForSuperblocksPage}/${superblockId}`,
-  Superblocks_Id_Perform: superblocks_id_perform_path,
-  Superblocks_Id_Edit: superblocks_id_edit_path,
-  Programs: pathForProgramsPage,
-  PaginatedPrograms: pathForPaginatedProgramsPage,
-  ProgramById: pathForProgramById,
-  Programs_Add: pathForProgramsAddPage,
-} as const;
-
-export const pathForEquipmentExerciseEdit = (
-  equipmentType: EquipmentType,
-  exerciseType: ExerciseType,
-  exerciseId: string,
-  backTo?: string,
-) => {
-  const searchParams = new URLSearchParams();
-  if (backTo) {
-    searchParams.set(PARAMS.BackTo, backTo);
-  }
-  const searchParamsString = searchParams.toString();
-  const search = searchParamsString ? `?${searchParamsString}` : "";
-  return `${pathForEquipmentExercisePage(equipmentType, exerciseType)}/edit/${exerciseId}${search}`;
-};
-
-export const pathForBarbellExercisePage = (barbell_exercise_type: string) =>
-  `/exercise/barbell/${barbell_exercise_type}`;
-
-export const pathForBarbellExerciseEdit = (
-  barbell_exercise_type: string,
-  exerciseId: string,
-) => `/exercise/barbell/${barbell_exercise_type}/edit/${exerciseId}`;
-export const FIRST_PAGE_NUM = 1;
 
 const dayTypesForExercise = (
   exercise: ExerciseType,
@@ -273,6 +155,8 @@ export const DAY_TYPES_FOR_EXERCISE: ImmutableMap<
 export const EXERCISE_TYPES = ImmutableSet(
   Constants.public.Enums.exercise_type_enum,
 );
-export const EQUIPMENT_TYPES = Constants.public.Enums.equipment_type_enum;
-export const PROGRAM_DAY_TYPES = Constants.public.Enums.program_day_types_enum;
-export const PERCEIVED_EFFORTS = Constants.public.Enums.perceived_effort_enum;
+
+export const FIRST_PAGE_NUM = 1;
+
+export * from "@/constants/db";
+export * from "@/constants/paths";

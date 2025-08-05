@@ -3,7 +3,7 @@ import { GetPerformSuperblockResult } from "@/common-types";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Link from "@/components/Link";
 import TODO from "@/components/TODO";
-import { PATHS } from "@/constants";
+import { Paths } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { Button, Paper, Stack, Typography } from "@mui/material";
 import React from "react";
@@ -14,8 +14,8 @@ interface EditProps {
 
 export default async function Edit(props: EditProps) {
   const { superblock_id: superblockId } = await props.params;
-  const path = PATHS.Superblocks_Id_Edit(superblockId);
-  const { userId } = await requireLoggedInUser(PATHS.Superblocks_Id_Edit(path));
+  const path = Paths.Superblocks_SuperblockId_Edit(superblockId);
+  const { userId } = await requireLoggedInUser(path);
   // TODO: I think this RPC may just be sufficient, but I may want to create a
   // separate one eventually anyway so we don't get constrained.
   const superblock = await getPerformSuperblock(userId, superblockId);
@@ -33,7 +33,7 @@ export default async function Edit(props: EditProps) {
             component={Link}
             variant="contained"
             color="primary"
-            href={PATHS.Superblocks_Id_Perform(superblock.id)}
+            href={Paths.Superblocks_SuperblockId_Perform(superblock.id)}
             sx={{ justifySelf: "flex-end" }}
           >
             Let's a go
