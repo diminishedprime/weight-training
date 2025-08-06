@@ -1,25 +1,61 @@
 # Deployment Guide
 
-## Vercel
+Before promoting to production, you should do the following:
 
-To deploy the UI, first create a merge request flow and merge into the main branch.
+1. Deploy the changes into the nextjs-main branch
+2. Apply Database migrations (`./scripts/push-supabase-preview`)
+3. Check out the new features are working: [weight-training-preview.vercel.app]
 
-Assuming your changes didn't break anything, you can then promote the preview
-deployment that was generated from the merge-request flow via [weight-training
-deployments]
+After testing it's working locally, to promote to production:
 
-## Supabase
+1. In vercel, find the deployment that went into the nextjs-main branch
+2. Click the ... and then click "promote to production". This will start a
+   build, once finished, you will want to run database migrations.
+3. `./scripts/push-supabase-production`
 
-If you made any supabase changes, you'll also need to deploy those. To do so:
+Note: You can do steps 2 and 3 out of order depending on the database
+migrations, you need to use your brain to determine what to do there.
+
+## Making & Viewing Changes
+
+Changes should be done via the normal GitHub merge request flow. After merging
+changes into the main branch (`nextjs-main` at the time of writing), vercel will
+automatically deploy to the "preview" environment:
+
+[weight-training-preview.vercel.app]
+
+## Database Changes
+
+I'd like to eventually automate this more, but currently, the way to push new
+database migrations is the:
 
 ```sh
-pnpx supabase db push
+./scripts/push-supabase-preview
 ```
 
-This assumes that you have linked the project correctly. It will also require
-the database password which is saved in 1Password.
+This script requires `.env.preview` to be populated (though technically just the
+`$SUPABASE_PASSWORD` env var). If you have access to the vercel project you can
+do this with the following command:
+
+```sh
+pnpx vercel env pull --environment preview .env.preview
+```
+
+This will create a .env.preview file populated with the values from the current
+preview environment. You can take a look at the tables and visually check them
+here:
+
+[supabase weight-training-preview]
+
+## Production Resources
+
+- [weight-training.vercel.app]
+- [supabase weight-training-prod]
 
 You can also go directly to the supabase page for production: [supabase weight-training prod]
 
 [weight-training deployments]: https://vercel.com/matt-hamricks-projects/weight-training/deployments
+[supabase weight-training-preview]: https://supabase.com/dashboard/project/leskawvztqgednedbbme
 [supabase weight-training prod]: https://supabase.com/dashboard/project/odjssskczrcunccrwxeh
+[weight-training-preview.vercel.app]: https://weight-training-preview.vercel.app
+[weight-training.vercel.app]: https://weight-training.vercel.app
