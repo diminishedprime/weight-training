@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Random stuff I also did to get auth working.
+#
+# After running this script, I went to:
+#
+#   https://supabase.com/dashboard/project/leskawvztqgednedbbme/settings/api
+#
+# and added next_auth to the exposed schemas Under the Data API.
+#
+# I also don't know if matters but I set some redirect uris in the supabase auth
+# settings, too.
+
+set -eu
+
+if [ ! -f .env.production ]; then
+    echo ".env.production not found, you must create it and set the required environment variables."
+    exit 1
+fi
+
+source .env.production
+
+if [ -z "${POSTGRES_PASSWORD:-}" ]; then
+    echo "POSTGRES_PASSWORD must be set in .env.production"
+    exit 1
+fi
+
+# Link to the Preview supabase project.
+pnpx supabase link --project-ref odjssskczrcunccrwxeh --password $POSTGRES_PASSWORD
+
+pnpx supabase db push --linked --password $POSTGRES_PASSWORD
