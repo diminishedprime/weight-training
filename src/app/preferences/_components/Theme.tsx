@@ -41,6 +41,8 @@ const Theme: React.FC<ThemeProps> = (props) => {
                   value={api.primary}
                   onChange={api.setPrimary}
                   isAlphaHidden={true}
+                  format="hex"
+                  fallbackValue={"#1976d2"}
                 />
               </LabeledValue>
               <LabeledValue label={api.secondaryLabel}>
@@ -49,6 +51,8 @@ const Theme: React.FC<ThemeProps> = (props) => {
                   value={api.secondary}
                   onChange={api.setSecondary}
                   isAlphaHidden={true}
+                  format="hex"
+                  fallbackValue={"#9c27b0"}
                 />
               </LabeledValue>
             </Stack>
@@ -109,20 +113,23 @@ const useThemeAPI = (props: ThemeProps) => {
     setMode("light");
   }, []);
 
-  const constructedTheme: MyThemeOptions = useMemo(
-    () => ({
+  const constructedTheme: MyThemeOptions = useMemo(() => {
+    const isValidColor = (color: string) => /^#[0-9A-F]{6}$/i.test(color);
+    const primaryColor = isValidColor(primary) ? primary : "#1976d2";
+    const secondaryColor = isValidColor(secondary) ? secondary : "#9c27b0";
+
+    return {
       palette: {
         primary: {
-          main: primary,
+          main: primaryColor,
         },
         secondary: {
-          main: secondary,
+          main: secondaryColor,
         },
         mode,
       },
-    }),
-    [primary, secondary, mode],
-  );
+    };
+  }, [primary, secondary, mode]);
 
   // Debounce theme update to avoid expensive re-renders
   const debouncedSetTheme = useDebouncedCallback(
