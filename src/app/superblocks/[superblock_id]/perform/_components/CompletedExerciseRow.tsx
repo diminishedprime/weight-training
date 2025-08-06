@@ -9,7 +9,7 @@ import DisplayNotes from "@/components/display/DisplayNotes";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import { Paths, SearchParam, WithSearchParams } from "@/constants";
 import { Button, Paper, Stack, Typography } from "@mui/material";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 interface CompletedExerciseRowProps {
   userId: string;
@@ -45,14 +45,7 @@ const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
           size="small"
           sx={{ alignSelf: "flex-end" }}
           component={Link}
-          href={WithSearchParams(
-            Paths.Exercise_EquipmentType_ExerciseType_Edit_ExerciseId(
-              exercise.equipment_type,
-              exercise.exercise_type,
-              exercise.id,
-            ),
-            [SearchParam.BackTo, props.currentPath],
-          )}
+          href={api.editLink}
         >
           Edit
         </Button>
@@ -93,8 +86,27 @@ const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
 export default CompletedExerciseRow;
 
 const useCompletedExerciseRowAPI = (props: CompletedExerciseRowProps) => {
+  const {
+    exercise: { equipment_type, exercise_type, id },
+    currentPath,
+  } = props;
+
   const [perceivedEffort, setPerceivedEffort] = useState(
     props.exercise.perceived_effort ?? null,
   );
-  return { perceivedEffort, setPerceivedEffort };
+
+  const editLink = useMemo(
+    () =>
+      WithSearchParams(
+        Paths.Exercise_EquipmentType_ExerciseType_Edit_ExerciseId(
+          equipment_type,
+          exercise_type,
+          id,
+        ),
+        [SearchParam.BackTo, props.currentPath],
+      ),
+    [equipment_type, exercise_type, id, currentPath],
+  );
+
+  return { perceivedEffort, setPerceivedEffort, editLink };
 };
