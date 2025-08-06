@@ -281,6 +281,8 @@ export const userPreferenceUIString = (
       return `Available Dumbbells (${weightUnitUIString("pounds")})`;
     case "available_kettlebells_lbs":
       return `Available Kettlebells (${weightUnitUIString("pounds")})`;
+    case "theme_options":
+      return "Theme Options";
     // These probably shouldn't be mapped to, but that's okay.
     case "user_id":
       return "User ID";

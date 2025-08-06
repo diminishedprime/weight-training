@@ -1,7 +1,8 @@
 "use client";
 
+import Theme from "@/app/preferences/_components/Theme";
 import { updateUserPreferences } from "@/app/preferences/_components/UpdateUserPreferences/actions";
-import { UserPreferences, WeightUnit } from "@/common-types";
+import { MyThemeOptions, UserPreferences, WeightUnit } from "@/common-types";
 import SelectAvailableDumbbells from "@/components/select/SelectAvailableDumbbells";
 import SelectAvailableKettlebells from "@/components/select/SelectAvailableKettlebells";
 import SelectPlates from "@/components/select/SelectPlates";
@@ -24,6 +25,9 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useCallback, useMemo, useState } from "react";
 
+// TODO: this code is kinda hell to maintain, it really should be completely
+// refactored to have more sensible logic now that I know what I'm doing.
+
 type UpdateUserPreferencesProps = {
   userId: string;
   preferences: UserPreferences;
@@ -42,6 +46,7 @@ const useUserPreferencesModified = (
   // values vs this local vs non local divide.
   preferences: UserPreferences,
   selectedKettlebells: number[],
+  themeModified: boolean,
 ) => {
   const { available_kettlebells_lbs } = preferences;
   const unitModified = React.useMemo(() => {
@@ -84,7 +89,8 @@ const useUserPreferencesModified = (
       restTimeModified ||
       platesLBSModified ||
       dumbbellsLBSModified ||
-      kettlebellsLBSModified
+      kettlebellsLBSModified ||
+      themeModified
     );
   }, [
     unitModified,
@@ -92,6 +98,7 @@ const useUserPreferencesModified = (
     platesLBSModified,
     dumbbellsLBSModified,
     kettlebellsLBSModified,
+    themeModified,
   ]);
 
   return {
@@ -184,6 +191,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
       available_plates_lbs,
       available_dumbbells_lbs,
       available_kettlebells_lbs,
+      theme_options,
     },
     preferences,
   } = props;
@@ -211,6 +219,11 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     DEFAULT_VALUES.AVAILABLE_KETTLEBELLS_LBS,
   );
 
+  const [themeModified, setThemeModified] = useState(false);
+  const [themeOptions, setThemeOptions] = useState(
+    (theme_options as MyThemeOptions) ?? {},
+  );
+
   // Use the new modification-tracking hook
   const modifications = useUserPreferencesModified(
     preferred_weight_unit ?? "pounds",
@@ -223,6 +236,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     localAvailableDumbbellsLbs,
     preferences,
     selectedKettlebells,
+    themeModified,
   );
 
   const {
@@ -298,6 +312,9 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
   }, [setShowAvailableDumbbellsHelp]);
 
   return {
+    themeOptions,
+    setThemeOptions,
+    setThemeModified,
     showAvailableDumbbellsHelp,
     toggleAvailableDumbbellsHelp,
     showAvailablePlatesHelp,
@@ -345,7 +362,12 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
           {api.requiredPreferencesMessage}
         </Typography>
       )}
-      <Stack spacing={1} flexGrow={1}>
+      <Stack spacing={1} flexGrow={1} useFlexGap>
+        <Theme
+          serverThemeOptions={props.preferences.theme_options as MyThemeOptions}
+          setThemeOptions={api.setThemeOptions}
+          setModified={api.setThemeModified}
+        />
         <Stack spacing={1} sx={{ pb: 1.5 }}>
           <SelectWeightUnit
             modified={api.unitModified}
@@ -533,6 +555,7 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             api.availableDumbbellsLbs,
             api.selectedKettlebells,
             api.backTo,
+            api.themeOptions,
           )}
           data-testid="update-user-preferences-form"
         >

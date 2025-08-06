@@ -82,7 +82,7 @@ const SelectPlates: React.FC<SelectPlatesProps> = (props) => {
         </Stack>
       </FormLabel>
       <ToggleButtonGroup
-        color="primary"
+        color="secondary"
         value={api.selectedPlates}
         onChange={(_e, val) => api.onSelectedPlatesChange(val)}
         size="small"
