@@ -1,9 +1,8 @@
 "use server";
 
-import type { WeightUnit } from "@/common-types";
+import type { MyThemeOptions, WeightUnit } from "@/common-types";
 import { Json } from "@/database.types";
 import { supabaseRPC } from "@/serverUtil";
-import { ThemeOptions } from "@mui/material";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -15,7 +14,7 @@ export async function updateUserPreferences(
   availableDumbbells: number[],
   availableKettlebells: number[],
   backTo: string | null,
-  themeOptions: ThemeOptions,
+  themeOptions: MyThemeOptions,
 ) {
   const defaultRestTimeNum = Number(defaultRestTime);
   if (isNaN(defaultRestTimeNum) || defaultRestTimeNum <= 0) {
