@@ -2,11 +2,13 @@ import UpdatePerceivedEffort from "@/app/superblocks/[superblock_id]/perform/_co
 import { UserPreferences } from "@/common-types";
 import { GetPerformSuperblockExercise } from "@/common-types/get-perform-superblock";
 import LabeledValue from "@/components/LabeledValue";
+import Link from "@/components/Link";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayNotes from "@/components/display/DisplayNotes";
 import DisplayWeight from "@/components/display/DisplayWeight";
-import { Paper, Stack, Typography } from "@mui/material";
+import { Paths, SearchParam, WithSearchParams } from "@/constants";
+import { Button, Paper, Stack, Typography } from "@mui/material";
 import { useState } from "react";
 
 interface CompletedExerciseRowProps {
@@ -14,6 +16,7 @@ interface CompletedExerciseRowProps {
   exercise: GetPerformSuperblockExercise;
   preferences: UserPreferences;
   setName: string;
+  currentPath: string;
 }
 
 const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
@@ -36,6 +39,23 @@ const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
         spacing={1}
         justifyContent="space-between"
       >
+        <Button
+          variant="outlined"
+          color="secondary"
+          size="small"
+          sx={{ alignSelf: "flex-end" }}
+          component={Link}
+          href={WithSearchParams(
+            Paths.Exercise_EquipmentType_ExerciseType_Edit_ExerciseId(
+              exercise.equipment_type,
+              exercise.exercise_type,
+              exercise.id,
+            ),
+            [SearchParam.BackTo, props.currentPath],
+          )}
+        >
+          Edit
+        </Button>
         <LabeledValue
           label={exercise.actual_weight_value ? "Actual Work " : "Target Work"}
         >

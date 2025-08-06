@@ -7,6 +7,7 @@ import React from "react";
 interface PagePerformProps {
   userId: string;
   superblock: GetPerformSuperblockResult;
+  currentPath: string;
 }
 export default async function PagePerform(props: PagePerformProps) {
   // TODO: (easy) this should be cleaned up, or at least moved to a
@@ -44,6 +45,7 @@ export default async function PagePerform(props: PagePerformProps) {
         userId={props.userId}
         initialSuperblock={superblock}
         preferences={preferences}
+        currentPath={props.currentPath}
       />
     </React.Fragment>
   );

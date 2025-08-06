@@ -36,6 +36,7 @@ const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
       direction={props.equipmentType === "machine" ? "row" : "column"}
     >
       <EquipmentWeightEditor
+        editing
         equipmentType={props.equipmentType}
         targetWeightValue={api.targetWeightValue}
         weightUnit={api.weightUnit}

@@ -506,85 +506,85 @@ export type Database = {
     Functions: {
       add_block_to_superblock: {
         Args: {
-          p_superblock_id: string;
-          p_name: string;
-          p_user_id: string;
           p_equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
-          p_sets: number;
+          p_name: string;
           p_reps: number;
-          p_weight_value: number;
+          p_sets: number;
+          p_superblock_id: string;
+          p_user_id: string;
           p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          p_weight_value: number;
         };
         Returns: undefined;
       };
       add_wendler_program: {
         Args: {
           p_bench_press_increase: number;
-          p_notes?: string;
-          p_program_name: string;
-          p_include_deload: boolean;
-          p_user_id: string;
-          p_squat_target_max: number;
-          p_deadlift_target_max: number;
-          p_overhead_press_target_max: number;
           p_bench_press_target_max: number;
-          p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
-          p_squat_increase: number;
           p_deadlift_increase: number;
+          p_deadlift_target_max: number;
+          p_include_deload: boolean;
+          p_notes?: string;
           p_overhead_press_increase: number;
+          p_overhead_press_target_max: number;
+          p_program_name: string;
+          p_squat_increase: number;
+          p_squat_target_max: number;
+          p_user_id: string;
+          p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
         };
         Returns: string;
       };
       clear_form_draft: {
-        Args: { p_user_id: string; p_page_path: string };
+        Args: { p_page_path: string; p_user_id: string };
         Returns: undefined;
       };
       create_exercise: {
         Args: {
-          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
-          p_user_id: string;
-          p_equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
-          p_target_weight_value: number;
-          p_reps: number;
           p_actual_weight_value?: number;
-          p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
-          p_performed_at?: string;
-          p_is_warmup?: boolean;
-          p_is_amrap?: boolean;
           p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
-          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
+          p_equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          p_is_amrap?: boolean;
+          p_is_warmup?: boolean;
           p_notes?: string;
+          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
+          p_performed_at?: string;
+          p_reps: number;
+          p_target_weight_value: number;
+          p_user_id: string;
+          p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
         };
         Returns: string;
       };
       fail_exercise: {
         Args: {
-          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
-          p_user_id: string;
-          p_superblock_id: string;
+          p_actual_weight_value: number;
           p_block_id: string;
           p_exercise_id: string;
-          p_actual_weight_value: number;
-          p_reps: number;
-          p_is_warmup: boolean;
           p_is_amrap: boolean;
+          p_is_warmup: boolean;
           p_notes?: string;
+          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
+          p_reps: number;
+          p_superblock_id: string;
+          p_user_id: string;
         };
         Returns: Database["public"]["CompositeTypes"]["get_perform_superblock_result"];
       };
       finish_exercise: {
         Args: {
-          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
           p_actual_weight_value: number;
-          p_reps: number;
-          p_is_warmup: boolean;
-          p_is_amrap: boolean;
-          p_notes?: string;
-          p_user_id: string;
-          p_superblock_id: string;
           p_block_id: string;
           p_exercise_id: string;
+          p_is_amrap: boolean;
+          p_is_warmup: boolean;
+          p_notes?: string;
+          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
+          p_reps: number;
+          p_superblock_id: string;
+          p_user_id: string;
         };
         Returns: Database["public"]["CompositeTypes"]["get_perform_superblock_result"];
       };
@@ -597,7 +597,7 @@ export type Database = {
         Returns: Database["public"]["CompositeTypes"]["exercise_row_type"];
       };
       get_exercise_blocks: {
-        Args: { p_user_id: string; p_page?: number };
+        Args: { p_page?: number; p_user_id: string };
         Returns: Database["public"]["CompositeTypes"]["get_exercise_blocks_result"];
       };
       get_exercises_by_type: {
@@ -609,7 +609,7 @@ export type Database = {
         Returns: Database["public"]["CompositeTypes"]["get_exercises_by_type_result"];
       };
       get_form_draft: {
-        Args: { p_user_id: string; p_page_path: string };
+        Args: { p_page_path: string; p_user_id: string };
         Returns: Json;
       };
       get_perform_superblock: {
@@ -622,10 +622,10 @@ export type Database = {
       };
       get_personal_records_for_exercise_type: {
         Args: {
-          p_user_id: string;
           p_end_time?: string;
-          p_reps?: number;
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          p_reps?: number;
+          p_user_id: string;
         };
         Returns: Database["public"]["CompositeTypes"]["personal_record_history_row"][];
       };
@@ -655,38 +655,38 @@ export type Database = {
       };
       recent_set_overviews: {
         Args: {
-          p_user_id: string;
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          p_user_id: string;
         };
         Returns: Database["public"]["CompositeTypes"]["recent_set_overview_result"];
       };
       save_form_draft: {
         Args: {
           p_form_data: Json;
-          p_user_id: string;
           p_page_path: string;
           p_ttl_days?: number;
+          p_user_id: string;
         };
         Returns: undefined;
       };
       set_target_max: {
         Args: {
-          p_source?: Database["public"]["Enums"]["update_source_enum"];
-          p_value: number;
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
-          p_user_id: string;
           p_recorded_at?: string;
+          p_source?: Database["public"]["Enums"]["update_source_enum"];
           p_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          p_user_id: string;
+          p_value: number;
         };
         Returns: undefined;
       };
       set_user_preferences: {
         Args: {
-          p_available_plates_lbs: number[];
-          p_preferred_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
-          p_default_rest_time: number;
-          p_available_kettlebells_lbs: number[];
           p_available_dumbbells_lbs: number[];
+          p_available_kettlebells_lbs: number[];
+          p_available_plates_lbs: number[];
+          p_default_rest_time: number;
+          p_preferred_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
           p_theme_options: Json;
           p_user_id: string;
         };
@@ -694,37 +694,37 @@ export type Database = {
       };
       skip_exercise: {
         Args: {
+          p_block_id: string;
+          p_exercise_id: string;
+          p_notes?: string;
           p_superblock_id: string;
           p_user_id: string;
-          p_notes?: string;
-          p_exercise_id: string;
-          p_block_id: string;
         };
         Returns: Database["public"]["CompositeTypes"]["get_perform_superblock_result"];
       };
       update_exercise_for_user: {
         Args: {
-          p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
-          p_is_warmup?: boolean;
-          p_is_amrap?: boolean;
-          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
-          p_notes?: string;
-          p_exercise_id: string;
-          p_user_id: string;
-          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
-          p_target_weight_value: number;
-          p_reps: number;
           p_actual_weight_value?: number;
-          p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
+          p_completion_status?: Database["public"]["Enums"]["completion_status_enum"];
+          p_exercise_id: string;
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          p_is_amrap?: boolean;
+          p_is_warmup?: boolean;
+          p_notes?: string;
+          p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
           p_performed_at?: string;
+          p_reps: number;
+          p_target_weight_value: number;
+          p_user_id: string;
+          p_weight_unit?: Database["public"]["Enums"]["weight_unit_enum"];
         };
         Returns: undefined;
       };
       update_perceived_effort: {
         Args: {
+          p_exercise_id: string;
           p_perceived_effort?: Database["public"]["Enums"]["perceived_effort_enum"];
           p_user_id: string;
-          p_exercise_id: string;
         };
         Returns: undefined;
       };
@@ -1162,21 +1162,28 @@ export type Database = {
   };
 };
 
-type DefaultSchema = Database[Extract<keyof Database, "public">];
+type DatabaseWithoutInternals = Omit<Database, "__InternalSupabase">;
+
+type DefaultSchema = DatabaseWithoutInternals[Extract<
+  keyof Database,
+  "public"
+>];
 
 export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof Database;
+    schema: keyof DatabaseWithoutInternals;
   }
-    ? keyof (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-        Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
+    ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+        DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
-  ? (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
-      Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals;
+}
+  ? (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+      DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
       Row: infer R;
     }
     ? R
@@ -1194,14 +1201,16 @@ export type Tables<
 export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof Database;
+    schema: keyof DatabaseWithoutInternals;
   }
-    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
-  ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals;
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
       Insert: infer I;
     }
     ? I
@@ -1217,14 +1226,16 @@ export type TablesInsert<
 export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   TableName extends DefaultSchemaTableNameOrOptions extends {
-    schema: keyof Database;
+    schema: keyof DatabaseWithoutInternals;
   }
-    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
     : never = never,
-> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
-  ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals;
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
       Update: infer U;
     }
     ? U
@@ -1240,14 +1251,16 @@ export type TablesUpdate<
 export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   EnumName extends DefaultSchemaEnumNameOrOptions extends {
-    schema: keyof Database;
+    schema: keyof DatabaseWithoutInternals;
   }
-    ? keyof Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
+    ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
     : never = never,
-> = DefaultSchemaEnumNameOrOptions extends { schema: keyof Database }
-  ? Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
+> = DefaultSchemaEnumNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals;
+}
+  ? DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
   : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
     ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
     : never;
@@ -1255,14 +1268,16 @@ export type Enums<
 export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
-    | { schema: keyof Database },
+    | { schema: keyof DatabaseWithoutInternals },
   CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
-    schema: keyof Database;
+    schema: keyof DatabaseWithoutInternals;
   }
-    ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
     : never = never,
-> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
-  ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+> = PublicCompositeTypeNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals;
+}
+  ? DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
   : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
     ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
     : never;

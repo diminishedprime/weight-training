@@ -29,3 +29,5 @@ fi
 pnpx supabase link --project-ref odjssskczrcunccrwxeh --password $POSTGRES_PASSWORD
 
 pnpx supabase db push --linked --password $POSTGRES_PASSWORD
+
+pnpx supabase unlink

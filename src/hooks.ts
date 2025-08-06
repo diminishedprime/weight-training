@@ -55,3 +55,23 @@ export const useResolvableWeight = (
 
   return [resolved, setWeight] as const;
 };
+
+// This uses sessionStorage because we _don't_ want this data to persist
+// indefinitely. If you want data to persist indefinitely, use the database, ya
+// goof.
+export const usePersistentNumber = (
+  initialValue: number,
+  path: string,
+  key: string,
+) => {
+  const [value, setValue] = useState<number>(() => {
+    const storedValue = sessionStorage.getItem(`${path}-${key}`);
+    return storedValue ? parseFloat(storedValue) : initialValue;
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem(`${path}-${key}`, value.toString());
+  }, [value, path, key]);
+
+  return [value, setValue] as const;
+};

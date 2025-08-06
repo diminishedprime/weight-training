@@ -20,6 +20,7 @@ import LabeledValue from "@/components/LabeledValue";
 import Link from "@/components/Link";
 import TODO from "@/components/TODO";
 import { Paths } from "@/constants";
+import { usePersistentNumber } from "@/hooks";
 import EditIcon from "@mui/icons-material/Edit";
 import {
   IconButton,
@@ -36,6 +37,7 @@ interface PerformClientProps {
   userId: string;
   initialSuperblock: GetPerformSuperblockResult;
   preferences: UserPreferences;
+  currentPath: string;
 }
 
 export type PerformFinishExercise = ReturnType<
@@ -161,6 +163,7 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
                           preferences={props.preferences}
                           setName={setName[exercise.id] || ""}
                           userId={props.userId}
+                          currentPath={props.currentPath}
                         />
                       ) : (
                         <ExerciseRow
@@ -190,7 +193,11 @@ const usePerformClientAPI = (props: PerformClientProps) => {
   const [superblock, setSuperblock] = useState(initialSuperblock);
   const { id: superblockId } = superblock;
 
-  const [selectedBlockIdx, setSelectedBlockIdx] = useState(-1);
+  const [selectedBlockIdx, setSelectedBlockIdx] = usePersistentNumber(
+    -1,
+    props.currentPath,
+    "selectedBlockIdx",
+  );
 
   const finishExercise = useCallback(
     async (

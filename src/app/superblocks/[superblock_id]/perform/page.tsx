@@ -23,16 +23,22 @@ export default async function SuperblocksByIdSuspenseWrapper(
     notFound();
   }
 
+  const path = Paths.Superblocks_SuperblockId_Perform(superblockId);
+
   return (
     <React.Fragment>
       <Breadcrumbs
-        pathname={Paths.Superblocks_SuperblockId_Perform(superblockId)}
+        pathname={path}
         labels={{
           [superblockId]: superblock.name,
         }}
       />
       <Suspense fallback={<div>Loading...</div>}>
-        <PagePerform userId={userId} superblock={superblock} />
+        <PagePerform
+          userId={userId}
+          superblock={superblock}
+          currentPath={path}
+        />
       </Suspense>
     </React.Fragment>
   );
