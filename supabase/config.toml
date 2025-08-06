@@ -55,7 +55,14 @@ schema_paths = []
 enabled = true
 # Specifies an ordered list of seed files to load during db reset.
 # Supports glob patterns relative to supabase directory: "./seeds/*.sql"
-sql_paths = ["./seed.sql"]
+# If you need to debug something that's only going wrong in production:
+#
+#   source .env.production && pnpx supabase db dump --data-only -f supabase/seeds/prod-dump.sql --password=$POSTGRES_PASSWORD
+#
+# or in preview
+#
+#   source .env.preview && pnpx supabase db dump --data-only -f supabase/seeds/preview-dump.sql --password=$POSTGRES_PASSWORD
+sql_paths = ["./seeds/*.sql"]
 
 [realtime]
 enabled = true
