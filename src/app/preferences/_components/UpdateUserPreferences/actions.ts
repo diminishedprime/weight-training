@@ -1,6 +1,7 @@
 "use server";
 
-import type { WeightUnit } from "@/common-types";
+import type { MyThemeOptions, WeightUnit } from "@/common-types";
+import { Json } from "@/database.types";
 import { supabaseRPC } from "@/serverUtil";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -13,7 +14,7 @@ export async function updateUserPreferences(
   availableDumbbells: number[],
   availableKettlebells: number[],
   backTo: string | null,
-  _: FormData,
+  themeOptions: MyThemeOptions,
 ) {
   const defaultRestTimeNum = Number(defaultRestTime);
   if (isNaN(defaultRestTimeNum) || defaultRestTimeNum <= 0) {
@@ -26,6 +27,7 @@ export async function updateUserPreferences(
     p_available_plates_lbs: availablePlates,
     p_available_dumbbells_lbs: availableDumbbells,
     p_available_kettlebells_lbs: availableKettlebells,
+    p_theme_options: themeOptions as Json,
   });
   revalidatePath("/preferences");
   if (backTo) {

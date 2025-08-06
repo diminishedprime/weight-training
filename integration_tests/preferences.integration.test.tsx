@@ -1,4 +1,5 @@
 import PreferencesPage from "@/app/preferences/_page";
+import ThemeProvider from "@/components/ThemeProvider";
 import { DEFAULT_VALUES } from "@/constants";
 import * as serverUtil from "@/serverUtil";
 import { supabaseRPC } from "@/serverUtil";
@@ -30,11 +31,15 @@ afterEach(async () => {
   await deleteRelevantRowsForUser(USER_ID["preferences.integration.test.tsx"]);
 });
 
+// TODO: we should have a test that the user can actually like modify their
+// preferences.
 describe("User Journey: Update Preferences", () => {
   it("should allow a logged in user to update and persist their preferences", async () => {
     // Initial render of the page.
     let page = await PreferencesPage();
-    await act(async () => render(page));
+    await act(async () =>
+      render(<ThemeProvider themeOptions={{}}>{page}</ThemeProvider>),
+    );
 
     // Assert that there are no preferences for this user.
     const { data: initialPrefs } = await supabase
@@ -92,7 +97,9 @@ describe("User Journey: Can Navigate back if backTo is set", () => {
 
   it("should show a Cancel button that navigates to the backTo location if present", async () => {
     let page = await PreferencesPage();
-    await act(async () => render(page));
+    await act(async () =>
+      render(<ThemeProvider themeOptions={{}}>{page}</ThemeProvider>),
+    );
 
     await act(async () => {
       // There should be a Cancel button

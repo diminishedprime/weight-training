@@ -7,7 +7,7 @@ export const useRequiredLabel = (labelText: string, isRequired: boolean) => {
   }, [labelText, isRequired]);
 };
 
-const useModifiableLabel = (labelText: string, isModified: boolean) => {
+export const useModifiableLabel = (labelText: string, isModified: boolean) => {
   return React.useMemo(() => {
     return `${labelText}${isModified ? " *" : ""}`;
   }, [labelText, isModified]);

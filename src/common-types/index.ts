@@ -1,4 +1,9 @@
 import { Database } from "@/database.types";
+import {
+  PaletteOptions,
+  SimplePaletteColorOptions,
+  ThemeOptions,
+} from "@mui/material";
 
 export type ExerciseType = Database["public"]["Enums"]["exercise_type_enum"];
 
@@ -101,6 +106,13 @@ export type NarrowedSuperblock = RequiredNonNullable<
 >;
 
 export type RDispatch<T> = React.Dispatch<React.SetStateAction<T>>;
+
+export type MyThemeOptions = Omit<ThemeOptions, "palette"> & {
+  palette?: Omit<PaletteOptions, "primary" | "secondary"> & {
+    primary?: SimplePaletteColorOptions;
+    secondary?: SimplePaletteColorOptions;
+  };
+};
 
 export type * from "@/common-types/enums";
 export type * from "@/common-types/get-add-program-info";

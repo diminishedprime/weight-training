@@ -1,7 +1,6 @@
 "use client";
 
 import { Paper, Typography, useTheme } from "@mui/material";
-import { green, purple } from "@mui/material/colors";
 
 interface TODOProps {
   children: React.ReactNode;
@@ -19,22 +18,36 @@ const TODO: React.FC<TODOProps> = (props) => {
   }
   const isEasy = !!props.easy;
   const isDone = !!props.done;
+
+  let backgroundColor: string;
+  if (isDone) {
+    backgroundColor =
+      theme.palette.mode === "dark"
+        ? theme.palette.success.dark
+        : theme.palette.success.light;
+  } else if (isEasy) {
+    backgroundColor =
+      theme.palette.mode === "dark"
+        ? theme.palette.secondary.dark
+        : theme.palette.secondary.light;
+  } else {
+    backgroundColor = theme.palette.background.paper;
+  }
+
   return (
     <Paper
       sx={{
         p: 1,
         m: 1,
-        backgroundColor: isDone
-          ? green[50]
-          : isEasy
-            ? purple[50]
-            : theme.palette.grey[100],
+        backgroundColor,
       }}
     >
       <Typography fontFamily="monospace" variant="subtitle2">
         <Typography
           component="span"
-          color={isDone ? "success.main" : isEasy ? "secondary.main" : "error"}
+          color={
+            isDone ? "success.main" : isEasy ? "secondary.main" : "error.main"
+          }
           sx={{ mr: 1 }}
         >
           {isDone ? "Done!" : "TODO"}

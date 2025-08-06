@@ -25,6 +25,7 @@ though if you have a good reason to do so, you can ignore this report changing.
 - get_personal_records_for_exercise_type
 - get_superblock
 - get_superblocks
+- get_theme_options
 - get_user_preferences
 - get_wendler_program
 - get_wendler_program_overviews
