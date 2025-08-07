@@ -1,5 +1,5 @@
 import { RDispatch } from "@/common-types";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 export const useRequiredLabel = (labelText: string, isRequired: boolean) => {
   return React.useMemo(() => {
@@ -64,14 +64,16 @@ export const usePersistentNumber = (
   path: string,
   key: string,
 ) => {
+  const storageKey = useMemo(() => `${path}///${key}`, [path, key]);
+
   const [value, setValue] = useState<number>(() => {
-    const storedValue = sessionStorage.getItem(`${path}-${key}`);
+    const storedValue = sessionStorage.getItem(storageKey);
     return storedValue ? parseFloat(storedValue) : initialValue;
   });
 
   useEffect(() => {
-    sessionStorage.setItem(`${path}///${key}`, value.toString());
-  }, [value, path, key]);
+    sessionStorage.setItem(storageKey, value.toString());
+  }, [value, storageKey]);
 
   return [value, setValue] as const;
 };
@@ -81,13 +83,15 @@ export const usePersistentBoolean = (
   path: string,
   key: string,
 ) => {
+  const storageKey = useMemo(() => `${path}///${key}`, [path, key]);
+
   const [value, setValue] = useState<boolean>(() => {
-    const storedValue = sessionStorage.getItem(`${path}-${key}`);
+    const storedValue = sessionStorage.getItem(storageKey);
     return storedValue ? storedValue === "true" : initialValue;
   });
 
   useEffect(() => {
-    sessionStorage.setItem(`${path}///${key}`, value.toString());
+    sessionStorage.setItem(storageKey, value.toString());
   }, [value, path, key]);
 
   return [value, setValue] as const;
