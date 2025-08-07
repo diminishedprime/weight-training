@@ -46,3 +46,17 @@ export const recentSetOverviews = async (
   });
   return result as RecentSetOverviewsResult;
 };
+
+export const deleteBlock = async (
+  userId: string,
+  blockId: string,
+  superblockId: string,
+) => {
+  await supabaseRPC("delete_block", {
+    p_block_id: blockId,
+    p_user_id: userId,
+  });
+  revalidatePath(Paths.Superblocks_SuperblockId(superblockId));
+  revalidatePath(Paths.Superblocks_SuperblockId_Edit(superblockId));
+  revalidatePath(Paths.Superblocks_SuperblockId_Perform(superblockId));
+};

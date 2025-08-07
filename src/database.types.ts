@@ -558,6 +558,10 @@ export type Database = {
         };
         Returns: string;
       };
+      delete_block: {
+        Args: { p_block_id: string; p_user_id: string };
+        Returns: undefined;
+      };
       fail_exercise: {
         Args: {
           p_actual_weight_value: number;

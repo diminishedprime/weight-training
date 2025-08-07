@@ -53,45 +53,10 @@ export default function Home() {
           </Button>
         </Stack>
         <TODO>
-          Minimum requirements for Launch
-          <TODO done>
-            ability to create a new wendler program based off the old one
-          </TODO>
-          <TODO done>
-            ability to complete exercises in an exercise block from a view
-          </TODO>
-          <TODO done>
-            Have the add program form also set the active exercise ids for each
-            block and superblock, then remove the un-needed initialization logic
-            via the "start block" button.
-          </TODO>
-          <TODO done>ability to add new blocks to an existing superblock</TODO>
-          <TODO done>Support skip on the perform page</TODO>
-          <TODO>
-            On perform, if the rep is AMRAP, show the editor for reps regardless
-            of edit status.
-          </TODO>
-          <TODO>
-            On perform, show the perceived effort editor regardless of edit
-            status.
-          </TODO>
-          <TODO>Support fail on the perform page</TODO>
-          <TODO>
-            Set up google oauth for production environment. Hopefully we can
-            just use some automatic domain name things from Vercel until we're
-            properly moved over from the old app.
-          </TODO>
+          Misc Todos
           <TODO>
             Practice a database back up and restore when there's only seed data
             so the stakes are lower.
-          </TODO>
-          <TODO>
-            For the active exercise in the block, make it clear how much rest
-            time you've had since the most recent exercise (unless it was more
-            than like 20 minutes ago)
-          </TODO>
-          <TODO easy>
-            Have steph check that their data seems right enough after publish
           </TODO>
           <TODO easy>
             Set a favicon, maybe just use the svg I made for the barbell?
@@ -100,26 +65,18 @@ export default function Home() {
             Set a website title, etc. I'm pretty sure there's a simple way to do
             that with next, just gotta figure it out.
           </TODO>
-        </TODO>
-        <TODO>
-          Post Launch
           <TODO>
             Make it a bit more obvious that a block & superblock is "done"
           </TODO>
-          <TODO>Clean up the app drawer on the left.</TODO>
+          <TODO easy>Clean up the app drawer on the left.</TODO>
           <TODO>
             Add a lil icon (maybe one of my svgs?) to the main mobile link
             thing.
           </TODO>
           <TODO>Get fancier SVGs made for the equipments, etc.</TODO>
-          <TODO>
+          <TODO easy>
             We probably don't want to show "home" by itself in the
             breadcrumbs...
-          </TODO>
-          <TODO>Set up auth for an integration environment</TODO>
-          <TODO>
-            Add some proper theme support. This should be possible without
-            flickering and stuff via mui, but IDK on the specifics.
           </TODO>
           <TODO>Switch over domain from old app to new one</TODO>
           <TODO>
@@ -143,6 +100,10 @@ export default function Home() {
             <br />
             With this, I'll need to think through what it means for the existing
             ones that point to the old one.
+            <br />
+            <br />
+            This is particularly relevant after I failed my first squat 5s this
+            last week. Should probably figure this out before 3s.
           </TODO>
           <TODO>
             See about getting the skeleton.js thing set up instead of using
@@ -156,21 +117,14 @@ export default function Home() {
             We can also add in some text based on the environment to for the
             local ones. That's more of an absence thing, but I think it'll help
             a bit as well.
-          </TODO>
-          <TODO>
-            I want to get the preview sub-domain thing working, but I think I
-            need to get the preview supabase instance working, first. I think I
-            just called it weight-training-integration.
+            <br />
+            <br />I just realized I can just do this by changing my preferences
+            in the other environments to account for this.
           </TODO>
           <TODO>
             Add dead hangs to the body weight exercises. Use the stopwatch
             thingy with them and also figure out a way to track the duration via
             join table or something.
-          </TODO>
-          <TODO>
-            See if I can add more flexible search into the exercise autocomplete
-            thingy. In particular, it'd be nice to be able to type "abs" for
-            abdomianal machine.
           </TODO>
           <TODO>
             Add a details view for the exercise selector that has a description
@@ -183,6 +137,19 @@ export default function Home() {
           <TODO>
             Add in a the current version of the app to the footer or something,
             so it's easy to see which thing is deployed.
+            <TODO>
+              Add in a changelog to the footer on the version as a link after
+            </TODO>
+          </TODO>
+          <TODO>
+            Add in some triggers for superblocks & blocks to update themselves
+            for things like started at, and status automatically. Right now you
+            have to really carefully update everything manually, but it'd be
+            nice for that logic to just be handled by a trigger.
+          </TODO>
+          <TODO>
+            Update the add block functionality to use median instead of average
+            since that's probably what people usually want.
           </TODO>
         </TODO>
       </Stack>
