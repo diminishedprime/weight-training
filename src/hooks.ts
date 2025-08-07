@@ -92,7 +92,7 @@ export const usePersistentBoolean = (
 
   useEffect(() => {
     sessionStorage.setItem(storageKey, value.toString());
-  }, [value, path, key]);
+  }, [value, storageKey]);
 
   return [value, setValue] as const;
 };
