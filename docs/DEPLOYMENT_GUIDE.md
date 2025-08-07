@@ -3,15 +3,25 @@
 Before promoting to production, you should do the following:
 
 1. Deploy the changes into the nextjs-main branch
-2. Apply Database migrations (`./scripts/push-supabase-preview`)
-3. Check out the new features are working: [weight-training-preview.vercel.app]
+2. Switch and pull:
+   ```sh
+   git switch nextjs-main; git pull
+   ```
+3. Apply Database migrations:
+   ```sh
+   ./scripts/push-supabase-preview
+   ```
+4. Check out the new features are working: [weight-training-preview.vercel.app]
 
 After testing it's working locally, to promote to production:
 
 1. In vercel, find the deployment that went into the nextjs-main branch
 2. Click the ... and then click "promote to production". This will start a
    build, once finished, you will want to run database migrations.
-3. `./scripts/push-supabase-production`
+3. Apply Database migrations in prod:
+   ```sh
+   ./scripts/push-supabase-production
+   ```
 
 Note: You can do steps 2 and 3 out of order depending on the database
 migrations, you need to use your brain to determine what to do there.

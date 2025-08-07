@@ -283,6 +283,10 @@ export const userPreferenceUIString = (
       return `Available Kettlebells (${weightUnitUIString("pounds")})`;
     case "theme_options":
       return "Theme Options";
+    case "pushover_api_token":
+      return "Pushover API Token";
+    case "pushover_user_key":
+      return "Pushover User Key";
     // These probably shouldn't be mapped to, but that's okay.
     case "user_id":
       return "User ID";

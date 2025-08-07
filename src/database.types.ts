@@ -326,6 +326,8 @@ export type Database = {
           preferred_weight_unit:
             | Database["public"]["Enums"]["weight_unit_enum"]
             | null;
+          pushover_api_token: string | null;
+          pushover_user_key: string | null;
           theme_options: Json | null;
           user_id: string;
         };
@@ -338,6 +340,8 @@ export type Database = {
           preferred_weight_unit?:
             | Database["public"]["Enums"]["weight_unit_enum"]
             | null;
+          pushover_api_token?: string | null;
+          pushover_user_key?: string | null;
           theme_options?: Json | null;
           user_id: string;
         };
@@ -350,6 +354,8 @@ export type Database = {
           preferred_weight_unit?:
             | Database["public"]["Enums"]["weight_unit_enum"]
             | null;
+          pushover_api_token?: string | null;
+          pushover_user_key?: string | null;
           theme_options?: Json | null;
           user_id?: string;
         };
@@ -691,6 +697,8 @@ export type Database = {
           p_available_plates_lbs: number[];
           p_default_rest_time: number;
           p_preferred_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+          p_pushover_api_token?: string;
+          p_pushover_user_key?: string;
           p_theme_options: Json;
           p_user_id: string;
         };
@@ -1143,6 +1151,8 @@ export type Database = {
         available_kettlebells_lbs: number[] | null;
         user_id: string | null;
         theme_options: Json | null;
+        pushover_api_token: string | null;
+        pushover_user_key: string | null;
       };
       wendler_movement_overview: {
         id: string | null;
