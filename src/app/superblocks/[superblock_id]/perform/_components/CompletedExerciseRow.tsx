@@ -103,7 +103,7 @@ const useCompletedExerciseRowAPI = (props: CompletedExerciseRowProps) => {
           exercise_type,
           id,
         ),
-        [SearchParam.BackTo, props.currentPath],
+        [SearchParam.BackTo, currentPath],
       ),
     [equipment_type, exercise_type, id, currentPath],
   );

@@ -233,7 +233,7 @@ const usePerformClientAPI = (props: PerformClientProps) => {
         return old;
       });
     },
-    [superblockId, userId],
+    [superblockId, userId, setSelectedBlockIdx],
   );
 
   const failExercise = useCallback(
