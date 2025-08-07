@@ -68,7 +68,6 @@ export default async function Edit(props: EditProps) {
                   )}
                   weightUnit={block.exercises[0]?.weight_unit ?? undefined}
                 />
-                {}
               </LabeledValue>
               <LabeledValue label="Total Volume" alignItems={"center"}>
                 <DisplayWeight

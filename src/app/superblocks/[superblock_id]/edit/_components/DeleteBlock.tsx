@@ -12,7 +12,6 @@ import {
   DialogTitle,
   IconButton,
   Typography,
-  useTheme,
 } from "@mui/material";
 import React, { useCallback, useState } from "react";
 
@@ -24,7 +23,6 @@ interface DeleteBlockProps {
 
 const DeleteBlock: React.FC<DeleteBlockProps> = (props) => {
   const api = useDeleteBlockAPI(props);
-  const theme = useTheme();
   return (
     <React.Fragment>
       <Button
@@ -52,9 +50,9 @@ const DeleteBlock: React.FC<DeleteBlockProps> = (props) => {
         <DialogContent>
           <Typography>
             Are you sure you want to delete{" "}
-            <span style={{ color: theme.palette.secondary.main }}>
+            <Typography component="span" color="secondary">
               {props.block.name}
-            </span>
+            </Typography>
             ?
           </Typography>
         </DialogContent>
@@ -93,20 +91,15 @@ const useDeleteBlockAPI = (props: DeleteBlockProps) => {
     setOpen(false);
   }, []);
 
-  const deleteBlock = useCallback(async () => {
-    serverDeleteBlock(userId, id, superblockId);
-  }, [userId, id, superblockId]);
-
   const handleConfirmDelete = useCallback(async () => {
-    await deleteBlock();
+    await serverDeleteBlock(userId, id, superblockId);
     setOpen(false);
-  }, [deleteBlock]);
+  }, [userId, id, superblockId]);
 
   return {
     open,
     handleOpen,
     handleClose,
     handleConfirmDelete,
-    deleteBlock,
   };
 };
