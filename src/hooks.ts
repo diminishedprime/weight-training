@@ -70,7 +70,24 @@ export const usePersistentNumber = (
   });
 
   useEffect(() => {
-    sessionStorage.setItem(`${path}-${key}`, value.toString());
+    sessionStorage.setItem(`${path}///${key}`, value.toString());
+  }, [value, path, key]);
+
+  return [value, setValue] as const;
+};
+
+export const usePersistentBoolean = (
+  initialValue: boolean,
+  path: string,
+  key: string,
+) => {
+  const [value, setValue] = useState<boolean>(() => {
+    const storedValue = sessionStorage.getItem(`${path}-${key}`);
+    return storedValue ? storedValue === "true" : initialValue;
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem(`${path}///${key}`, value.toString());
   }, [value, path, key]);
 
   return [value, setValue] as const;

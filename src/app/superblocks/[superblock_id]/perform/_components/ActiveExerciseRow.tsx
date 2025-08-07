@@ -1,9 +1,10 @@
+"use client";
 import {
   PerformFailExercise,
   PerformFinishExercise,
   PerformSkipExercise,
 } from "@/app/superblocks/[superblock_id]/perform/_components/PerformClient";
-import { RoundingMode, UserPreferences } from "@/common-types";
+import { RDispatch, RoundingMode, UserPreferences } from "@/common-types";
 import { GetPerformSuperblockExercise } from "@/common-types/get-perform-superblock";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import DisplayStopwatch from "@/components/display/DisplayStopwatch";
@@ -12,24 +13,35 @@ import EquipmentWeightEditor from "@/components/edit/EquipmentWeightEditor";
 import LabeledValue from "@/components/LabeledValue";
 import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
+import TODO from "@/components/TODO";
+import { Paths } from "@/constants";
+import { usePersistentBoolean } from "@/hooks";
 import EditIcon from "@mui/icons-material/Edit";
 import { Button, Paper, Stack, Typography } from "@mui/material";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useDebouncedCallback } from "use-debounce";
 
 interface ActiveExerciseRowProps {
   exercise: GetPerformSuperblockExercise;
   blockId: string;
+  superblockId: string;
   finishExercise: PerformFinishExercise;
   failExercise: PerformFailExercise;
   skipExercise: PerformSkipExercise;
   preferences: UserPreferences;
   setName: string;
+  notify: boolean;
 }
 
 const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
   const api = useActiveExerciseRowAPI(props);
   return (
     <Stack component={Paper} sx={{ my: 1, p: 0.5 }} spacing={1}>
+      <TODO>
+        We could also support local notifications through the device assuming
+        the screen is staying on. Could potentially even do sound, too. It
+        wouldn't be as obvious as a buzz on the watch, but still may be useful.
+      </TODO>
       <Stack
         direction="row"
         flex={1}
@@ -46,6 +58,9 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
         >
           Edit
         </Button>
+        {props.notify && (
+          <Typography color="secondary">Notifications On!</Typography>
+        )}
         <Typography variant="body1">{props.setName}</Typography>
       </Stack>
       <Stack
@@ -67,6 +82,7 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
                 props.preferences.default_rest_time ?? undefined
               }
               millisecondsUntilThreshold
+              onThresholdReached={api.safelyNotifyRestTimeUp}
             />
           </LabeledValue>
         )}
@@ -154,7 +170,9 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
       notes: exercise_notes,
       perceived_effort,
     },
+    preferences: { pushover_api_token, pushover_user_key },
     blockId,
+    notify,
   } = props;
   const [modifying, setModifying] = useState(false);
 
@@ -230,7 +248,71 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
     await skipExerciseProps(blockId, exerciseId, notes);
   }, [blockId, exerciseId, notes, skipExerciseProps]);
 
+  const [hasNotified, setHasNotified] = usePersistentBoolean(
+    false,
+    Paths.Superblocks_SuperblockId_Perform(props.superblockId),
+    exerciseId,
+  );
+  const debouncedNotify = useDebouncedCallback(
+    async (
+      notify: boolean,
+      hasNotified: boolean,
+      setHasNotified: RDispatch<boolean>,
+      pushoverAPIToken: string | null,
+      pushoverUserKey: string | null,
+    ) => {
+      // Don't notify if we have, or we don't want to.
+      if (!notify || hasNotified || !pushoverAPIToken || !pushoverUserKey) {
+        return;
+      }
+      setHasNotified((_) => true);
+
+      const formData = new FormData();
+      formData.append("token", pushoverAPIToken);
+      formData.append("user", pushoverUserKey);
+      formData.append("message", "Rest time is over!");
+
+      await fetch("https://api.pushover.net/1/messages.json", {
+        method: "POST",
+        body: formData,
+      });
+    },
+    100,
+  );
+
+  const safelyNotifyRestTimeUp = useCallback(
+    (secondsSince: number) => {
+      // If it's been more than a minute, and we haven't already notified, we
+      // won't bother notifying.
+      if (secondsSince > 60) {
+        return;
+      }
+      debouncedNotify(
+        notify,
+        hasNotified,
+        setHasNotified,
+        pushover_api_token,
+        pushover_user_key,
+      );
+    },
+    [
+      notify,
+      debouncedNotify,
+      hasNotified,
+      setHasNotified,
+      pushover_api_token,
+      pushover_user_key,
+    ],
+  );
+
+  useEffect(() => {
+    return () => {
+      debouncedNotify.cancel();
+    };
+  }, [debouncedNotify]);
+
   return {
+    safelyNotifyRestTimeUp,
     setActualWeightValue,
     actualWeightValue,
     reps,

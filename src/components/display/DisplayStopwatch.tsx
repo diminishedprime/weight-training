@@ -7,6 +7,9 @@ interface DisplayCountUpProps {
   milliseconds?: boolean;
   successThresholdSeconds?: number;
   millisecondsUntilThreshold?: boolean;
+  // This method is should be safe to be called multiple times. The caller must
+  // take care of making sure this is safe.
+  onThresholdReached?: (secondsSince: number) => void;
 }
 
 const DisplayStopwatch: React.FC<DisplayCountUpProps> = (props) => {
@@ -29,6 +32,7 @@ const useDisplayStopwatchAPI = (props: DisplayCountUpProps) => {
     milliseconds: useMilliseconds,
     successThresholdSeconds,
     millisecondsUntilThreshold,
+    onThresholdReached,
   } = props;
   const [elapsed, setElapsed] = useState(0);
 
@@ -42,6 +46,15 @@ const useDisplayStopwatchAPI = (props: DisplayCountUpProps) => {
     }
     return false;
   }, [successThresholdSeconds, seconds]);
+
+  useEffect(() => {
+    if (successThresholdSeconds === undefined) {
+      return;
+    }
+    if (!underThreshold) {
+      onThresholdReached?.(seconds - successThresholdSeconds);
+    }
+  }, [underThreshold, onThresholdReached, seconds, successThresholdSeconds]);
 
   useEffect(() => {
     if (useMilliseconds || (millisecondsUntilThreshold && underThreshold)) {

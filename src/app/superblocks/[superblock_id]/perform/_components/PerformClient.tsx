@@ -23,15 +23,17 @@ import { Paths } from "@/constants";
 import { usePersistentNumber } from "@/hooks";
 import EditIcon from "@mui/icons-material/Edit";
 import {
-  IconButton,
+  Box,
+  Button,
   Stack,
   Step,
   StepButton,
   StepContent,
   Stepper,
+  Switch,
   Typography,
 } from "@mui/material";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 interface PerformClientProps {
   userId: string;
@@ -54,22 +56,32 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
   const api = usePerformClientAPI(props);
   return (
     <Stack spacing={1}>
-      <Typography
-        variant="h5"
-        sx={{ display: "flex", alignItems: "center" }}
-        gap={1}
-      >
-        <DisplayCompletionStatus
-          completionStatus={api.superblock.completion_status}
-        />
-        {api.superblock.name}
-        <IconButton
+      <Stack direction="row" spacing={1} alignItems="center" useFlexGap>
+        <Typography variant="h5" sx={{ display: "flex", alignItems: "center" }}>
+          <DisplayCompletionStatus
+            completionStatus={api.superblock.completion_status}
+          />
+          {api.superblock.name}
+        </Typography>
+        <Box flex={1} />
+        <Button
+          variant="outlined"
+          color="warning"
           component={Link}
           href={Paths.Superblocks_SuperblockId_Edit(props.initialSuperblock.id)}
+          startIcon={<EditIcon />}
         >
-          <EditIcon />
-        </IconButton>
-      </Typography>
+          Edit
+        </Button>
+        {api.canNotify && (
+          <LabeledValue label="Notify" alignItems={"center"}>
+            <Switch
+              checked={api.notify}
+              onChange={(_) => api.setNotify((o) => !o)}
+            />
+          </LabeledValue>
+        )}
+      </Stack>
       {api.superblock.completion_status === "in_progress" &&
         api.superblock.started_at && (
           <LabeledValue label="Since start">
@@ -143,6 +155,7 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
                       return block.active_exercise_id === exercise.id ? (
                         <ActiveExerciseRow
                           key={exercise.id}
+                          superblockId={props.initialSuperblock.id}
                           exercise={exercise}
                           preferences={props.preferences}
                           blockId={block.id}
@@ -154,6 +167,7 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
                               ? "Ultima series optima"
                               : setName[exercise.id] || ""
                           }
+                          notify={api.notify}
                         />
                       ) : exercise.completion_status === "completed" ||
                         exercise.completion_status === "failed" ? (
@@ -277,7 +291,19 @@ const usePerformClientAPI = (props: PerformClientProps) => {
     [superblockId, userId],
   );
 
+  const {
+    preferences: { pushover_api_token, pushover_user_key },
+  } = props;
+
+  const [notify, setNotify] = useState(false);
+  const canNotify = useMemo(() => {
+    return !!(pushover_api_token && pushover_user_key);
+  }, [pushover_api_token, pushover_user_key]);
+
   return {
+    canNotify,
+    notify,
+    setNotify,
     failExercise,
     skipExercise,
     finishExercise,

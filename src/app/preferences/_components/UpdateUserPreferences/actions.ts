@@ -15,6 +15,8 @@ export async function updateUserPreferences(
   availableKettlebells: number[],
   backTo: string | null,
   themeOptions: MyThemeOptions,
+  pushoverAPIToken: string | null,
+  pushoverUserKey: string | null,
 ) {
   const defaultRestTimeNum = Number(defaultRestTime);
   if (isNaN(defaultRestTimeNum) || defaultRestTimeNum <= 0) {
@@ -28,6 +30,8 @@ export async function updateUserPreferences(
     p_available_dumbbells_lbs: availableDumbbells,
     p_available_kettlebells_lbs: availableKettlebells,
     p_theme_options: themeOptions as Json,
+    p_pushover_api_token: pushoverAPIToken?.trim() || undefined,
+    p_pushover_user_key: pushoverUserKey?.trim() || undefined,
   });
   revalidatePath("/preferences");
   if (backTo) {

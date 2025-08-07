@@ -1,5 +1,6 @@
 "use client";
 
+import Notifications from "@/app/preferences/_components/Notifications";
 import Theme from "@/app/preferences/_components/Theme";
 import { updateUserPreferences } from "@/app/preferences/_components/UpdateUserPreferences/actions";
 import { MyThemeOptions, UserPreferences, WeightUnit } from "@/common-types";
@@ -47,6 +48,7 @@ const useUserPreferencesModified = (
   preferences: UserPreferences,
   selectedKettlebells: number[],
   themeModified: boolean,
+  pushoverAPIKeyModified: boolean,
 ) => {
   const { available_kettlebells_lbs } = preferences;
   const unitModified = React.useMemo(() => {
@@ -90,7 +92,8 @@ const useUserPreferencesModified = (
       platesLBSModified ||
       dumbbellsLBSModified ||
       kettlebellsLBSModified ||
-      themeModified
+      themeModified ||
+      pushoverAPIKeyModified
     );
   }, [
     unitModified,
@@ -99,6 +102,7 @@ const useUserPreferencesModified = (
     dumbbellsLBSModified,
     kettlebellsLBSModified,
     themeModified,
+    pushoverAPIKeyModified,
   ]);
 
   return {
@@ -224,6 +228,14 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     (theme_options as MyThemeOptions) ?? {},
   );
 
+  const [pushoverAPIKeyModified, setNotificationsModified] = useState(false);
+  const [pushoverAPIToken, setPushoverAPIToken] = useState<string | null>(
+    preferences.pushover_api_token ?? null,
+  );
+  const [pushoverUserKey, setPushoverUserKey] = useState<string | null>(
+    preferences.pushover_user_key ?? null,
+  );
+
   // Use the new modification-tracking hook
   const modifications = useUserPreferencesModified(
     preferred_weight_unit ?? "pounds",
@@ -237,6 +249,7 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
     preferences,
     selectedKettlebells,
     themeModified,
+    pushoverAPIKeyModified,
   );
 
   const {
@@ -312,6 +325,11 @@ const useUpdateUserPreferencesAPI = (props: UpdateUserPreferencesProps) => {
   }, [setShowAvailableDumbbellsHelp]);
 
   return {
+    setPushoverUserKey,
+    pushoverUserKey,
+    setNotificationsModified,
+    setPushoverAPIToken,
+    pushoverAPIToken,
     themeOptions,
     setThemeOptions,
     setThemeModified,
@@ -510,6 +528,13 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
           />
           <TODO>This isn't spaced right for some reason.</TODO>
         </Stack>
+        <Notifications
+          setModified={api.setNotificationsModified}
+          serverPushoverAPIToken={props.preferences.pushover_api_token}
+          setPushoverAPIToken={api.setPushoverAPIToken}
+          serverPushoverUserKey={props.preferences.pushover_user_key}
+          setPushoverUserKey={api.setPushoverUserKey}
+        />
         <Stack
           direction="row"
           justifyContent="space-between"
@@ -556,6 +581,8 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             api.selectedKettlebells,
             api.backTo,
             api.themeOptions,
+            api.pushoverAPIToken,
+            api.pushoverUserKey,
           )}
           data-testid="update-user-preferences-form"
         >
