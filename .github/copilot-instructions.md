@@ -51,6 +51,8 @@ This is a Next.js app using TypeScript and Material UI (MUI)
 
 ## Database
 
+- Always add `psql -P pager=off` to db commands. The pager makes it where you
+  cannot see the output.
 - Always check `supabase/migrations/00000000030010_application-enums.sql` and
   `supabase/migrations/00000000030020_application-tables.sql` instead of guessing
   the schema
