@@ -1,14 +1,20 @@
 -- Generated SQL to fix deleted wendler data
-INSERT INTO
-  wendler_program (id, user_id, name, program_order, started_at)
-VALUES
-  (
-    '2a289dad-61d2-4f5c-8c68-a93603c836fb',
-    '97097295-6eb1-4824-8bfa-8984cf9bea6b',
-    'Wendler Program 1',
-    1,
-    '2025-05-09 23:46:59.395+00'::timestamptz
-  );
+-- Only run this migration if the target user exists in the database
+DO $$
+BEGIN
+  -- Check if the user exists before proceeding
+  IF EXISTS (SELECT 1 FROM next_auth.users WHERE id = '97097295-6eb1-4824-8bfa-8984cf9bea6b') THEN
+    -- User exists, proceed with the migration
+    INSERT INTO
+      wendler_program (id, user_id, name, program_order, started_at)
+    VALUES
+      (
+        '2a289dad-61d2-4f5c-8c68-a93603c836fb',
+        '97097295-6eb1-4824-8bfa-8984cf9bea6b',
+        'Wendler Program 1',
+        1,
+        '2025-05-09 23:46:59.395+00'::timestamptz
+      );
 
 INSERT INTO
   wendler_movement_max (
@@ -4175,3 +4181,9 @@ FROM
 WHERE
   esb.superblock_id = '114319f1-8729-4c8e-bf9c-d6b2fa7e4681'
   AND eb.exercise_type = 'barbell_overhead_press'::exercise_type_enum;
+
+  ELSE
+    -- User does not exist, skip migration
+    RAISE NOTICE 'User 97097295-6eb1-4824-8bfa-8984cf9bea6b does not exist in the database. Skipping wendler data regeneration.';
+  END IF;
+END $$;

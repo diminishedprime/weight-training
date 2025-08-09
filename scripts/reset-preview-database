@@ -1,0 +1,81 @@
+#!/bin/bash
+
+# Script to reset the preview database. This is useful if you want to copy prod
+# into preview to fix an issue.
+
+#################################################################################
+# !!! THIS IS A DESTRUCTIVE OPERATION THAT WILL COMPLETELY WIPE THE PREVIEW !!! #
+# !!! ENVIRONMENT                                                           !!! #
+#################################################################################
+
+set -eu
+
+readonly PREVIEW_PROJECT_REF="leskawvztqgednedbbme"
+
+echo "Preview Database Reset Script"
+echo "WARNING: This will COMPLETELY DESTROY all data in the PREVIEW environment!"
+echo "Preview project: ${PREVIEW_PROJECT_REF}"
+echo ""
+echo "About to open Supabase dashboard for verification..."
+echo "Please verify in your browser that this is the PREVIEW project (not production!)"
+echo ""
+read -p "Press Enter to open the dashboard for verification..."
+open "https://supabase.com/dashboard/project/${PREVIEW_PROJECT_REF}"
+echo ""
+read -p "Press Enter after you've verified this is the correct preview project..."
+echo ""
+echo "This script will:"
+echo "  - Link to the preview database"
+echo "  - Reset all data and schema to clean state"
+echo "  - Unlink when complete"
+echo "  - Leave database ready for schema/data import"
+echo ""
+read -p "Are you absolutely sure you want to RESET PREVIEW? (type 'YES' to proceed): " confirm
+
+if [ "$confirm" != "YES" ]; then
+    exit 1
+fi
+
+if [ ! -f .env.preview ]; then
+    echo ".env.preview not found, you must create it and set the required environment variables."
+    exit 1
+fi
+
+source .env.preview
+PREVIEW_PASSWORD=$POSTGRES_PASSWORD
+
+if [ -z "${PREVIEW_PASSWORD:-}" ]; then
+    echo "POSTGRES_PASSWORD must be set in .env.preview"
+    exit 1
+fi
+
+echo "Wiping preview database completely..."
+# Drop only application schemas, preserve Supabase system schemas
+PGPASSWORD=$PREVIEW_PASSWORD psql -P pager=off \
+    -h aws-0-us-west-1.pooler.supabase.com \
+    -p 5432 \
+    -U postgres.${PREVIEW_PROJECT_REF} \
+    -d postgres \
+    -c "
+    DO \$\$ 
+    DECLARE 
+        rec RECORD;
+    BEGIN
+        -- Drop only application schemas, preserve Supabase system schemas
+        FOR rec IN 
+            SELECT schema_name 
+            FROM information_schema.schemata 
+            WHERE schema_name IN ('_impl', '_system', '_trigger', 'next_auth', 'public', 'supabase_migrations')
+        LOOP
+            EXECUTE 'DROP SCHEMA IF EXISTS ' || quote_ident(rec.schema_name) || ' CASCADE';
+        END LOOP;
+        
+        -- Recreate the public schema
+        CREATE SCHEMA IF NOT EXISTS public;
+        GRANT ALL ON SCHEMA public TO postgres;
+        GRANT ALL ON SCHEMA public TO public;
+    END
+    \$\$;
+    "
+
+echo "Preview database reset complete!"

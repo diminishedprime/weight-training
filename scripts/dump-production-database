@@ -1,0 +1,71 @@
+#!/bin/bash
+
+set -eu
+
+readonly PROD_PROJECT_REF="odjssskczrcunccrwxeh"
+
+echo "Production Database Dump Script"
+echo "This will download schema and data from production"
+echo "Production project: ${PROD_PROJECT_REF}"
+echo ""
+
+# Check for required environment file
+if [ ! -f .env.production ]; then
+    echo ".env.production not found, you must create it and set the required environment variables."
+    exit 1
+fi
+
+source .env.production
+PROD_PASSWORD=$POSTGRES_PASSWORD
+
+if [ -z "${PROD_PASSWORD:-}" ]; then
+    echo "POSTGRES_PASSWORD must be set in .env.production"
+    exit 1
+fi
+
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+DUMP_DIR="database_dumps/${TIMESTAMP}"
+mkdir -p "$DUMP_DIR"
+
+echo "Creating dump in: $DUMP_DIR"
+echo ""
+
+echo "Linking to production database..."
+pnpx supabase link --project-ref $PROD_PROJECT_REF --password $PROD_PASSWORD
+
+echo "Dumping production database schema (including migration schema)..."
+pnpx supabase db dump -s public,_impl,_system,_trigger,next_auth,supabase_migrations -f "$DUMP_DIR/schema.sql" --password=$PROD_PASSWORD
+
+echo "Dumping production database data (including migration tracking)..."
+pnpx supabase db dump --data-only -s public,_impl,_system,_trigger,next_auth,supabase_migrations -f "$DUMP_DIR/data.sql" --password=$PROD_PASSWORD
+
+echo "Unlinking from production database..."
+pnpx supabase unlink
+
+# Create a metadata file
+cat >"$DUMP_DIR/metadata.txt" <<EOF
+Production Database Dump
+========================
+Timestamp: $TIMESTAMP
+Production Project: $PROD_PROJECT_REF
+Complete File: complete.sql
+Created: $(date)
+
+Files:
+- complete.sql: Complete database dump (schema + data)
+- metadata.txt: This information file
+
+Usage:
+To restore to preview:
+1. Reset target database (use reset-preview-database script)
+2. Apply complete.sql to restore everything
+EOF
+
+echo ""
+echo "Production database dump complete!"
+echo "Summary:"
+echo " - Schema dumped to: $DUMP_DIR/schema.sql"
+echo " - Data dumped to: $DUMP_DIR/data.sql"
+echo " - Metadata saved to: $DUMP_DIR/metadata.txt"
+echo ""
+echo "Ready to import into preview or other environments!"
