@@ -66,6 +66,6 @@ You can also go directly to the supabase page for production: [supabase weight-t
 
 [weight-training deployments]: https://vercel.com/matt-hamricks-projects/weight-training/deployments
 [supabase weight-training-preview]: https://supabase.com/dashboard/project/leskawvztqgednedbbme
-[supabase weight-training prod]: https://supabase.com/dashboard/project/odjssskczrcunccrwxeh
+[supabase weight-training-prod]: https://supabase.com/dashboard/project/odjssskczrcunccrwxeh
 [weight-training-preview.vercel.app]: https://weight-training-preview.vercel.app
 [weight-training.vercel.app]: https://weight-training.vercel.app
