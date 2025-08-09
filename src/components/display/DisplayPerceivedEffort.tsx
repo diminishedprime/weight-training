@@ -1,10 +1,11 @@
 import { type PerceivedEffort } from "@/common-types";
+import SentimentNeutralIcon from "@mui/icons-material/CircleOutlined";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
 
 interface DisplayPerceivedEffortProps {
-  perceivedEffort: PerceivedEffort;
+  perceivedEffort: PerceivedEffort | null;
 }
 
 export const DisplayPerceivedEffort: React.FC<DisplayPerceivedEffortProps> = (
@@ -17,6 +18,8 @@ export const DisplayPerceivedEffort: React.FC<DisplayPerceivedEffortProps> = (
       return <SentimentSatisfiedAltIcon titleAccess="Okay" color="primary" />;
     case "hard":
       return <SentimentVeryDissatisfiedIcon titleAccess="Hard" color="error" />;
+    case null:
+      return <SentimentNeutralIcon titleAccess="No Effort" color="action" />;
   }
 };
 

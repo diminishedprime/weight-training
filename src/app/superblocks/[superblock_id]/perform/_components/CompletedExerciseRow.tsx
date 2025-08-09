@@ -1,4 +1,3 @@
-import UpdatePerceivedEffort from "@/app/superblocks/[superblock_id]/perform/_components/UpdatePerceivedEffort";
 import { UserPreferences } from "@/common-types";
 import { GetPerformSuperblockExercise } from "@/common-types/get-perform-superblock";
 import LabeledValue from "@/components/LabeledValue";
@@ -7,8 +6,10 @@ import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatu
 import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayNotes from "@/components/display/DisplayNotes";
 import DisplayWeight from "@/components/display/DisplayWeight";
+import SelectPerceivedEffort from "@/components/mutate/select/SelectPerceivedEffort";
 import { Paths, SearchParam, WithSearchParams } from "@/constants";
-import { Button, Paper, Stack, Typography } from "@mui/material";
+import PencilIcon from "@mui/icons-material/Edit";
+import { IconButton, Paper, Stack, Typography } from "@mui/material";
 import { useMemo, useState } from "react";
 
 interface CompletedExerciseRowProps {
@@ -24,59 +25,69 @@ const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
   const api = useCompletedExerciseRowAPI(props);
 
   return (
-    <Stack component={Paper} sx={{ m: 0.5, p: 0.5 }}>
-      <Stack direction="row" sx={{ mb: 1 }} alignItems="space-between">
+    <Stack component={Paper} sx={{ m: 0.5, p: 1 }}>
+      <Stack direction="row" alignItems="center" spacing={1}>
         <DisplayCompletionStatus
           completionStatus={exercise.completion_status}
         />
+        <Stack flex={1} />
         <Typography variant="body2" sx={{ ml: "auto" }}>
           {props.setName}
         </Typography>
+        <IconButton
+          size="small"
+          component={Link}
+          href={api.editLink}
+          sx={{ ml: 1 }}
+        >
+          <PencilIcon />
+        </IconButton>
       </Stack>
+      <SelectPerceivedEffort
+        userId={props.userId}
+        exerciseId={exercise.id}
+        perceivedEffort={api.perceivedEffort}
+        setPerceivedEffort={api.setPerceivedEffort}
+        initialEditingState={api.perceivedEffort === null}
+      />
       <Stack
         direction="row"
         flexWrap="wrap"
         spacing={1}
+        useFlexGap
         justifyContent="space-between"
+        alignItems="flex-end"
       >
-        <Button
-          variant="outlined"
-          color="secondary"
-          size="small"
-          sx={{ alignSelf: "flex-end" }}
-          component={Link}
-          href={api.editLink}
-        >
-          Edit
-        </Button>
         <LabeledValue
-          label={exercise.actual_weight_value ? "Actual Work " : "Target Work"}
+          label={exercise.actual_weight_value ? "Actual" : "Target"}
+          alignItems="center"
         >
           <DisplayWeight
+            column
             weightUnit={exercise.weight_unit}
             weightValue={
               exercise.actual_weight_value ?? exercise.target_weight_value
             }
-            reps={exercise.reps}
-            repsAMRAP={exercise.is_amrap}
           />
         </LabeledValue>
-        {exercise.last_performed_at && exercise.performed_at && (
-          <LabeledValue label="Rest Time">
+        <LabeledValue label="Reps" alignItems="center">
+          <Typography component="span" color="secondary">
+            {exercise.reps}
+            {exercise.is_amrap ? " (AMRAP)" : ""}
+          </Typography>
+        </LabeledValue>
+        <LabeledValue label="Rest" alignItems="center">
+          {exercise.last_performed_at && exercise.performed_at ? (
             <DisplayDuration
               from={new Date(exercise.last_performed_at)}
               to={new Date(exercise.performed_at)}
               restTimeSeconds={preferences.default_rest_time ?? undefined}
               highResolution
             />
-          </LabeledValue>
-        )}
-        <UpdatePerceivedEffort
-          perceivedEffort={api.perceivedEffort}
-          setPerceivedEffort={api.setPerceivedEffort}
-          userId={props.userId}
-          exerciseId={exercise.id}
-        />
+          ) : (
+            "N/A"
+          )}
+        </LabeledValue>
       </Stack>
       <DisplayNotes notes={exercise.notes} />
     </Stack>

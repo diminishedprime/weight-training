@@ -138,7 +138,7 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
                 </Stack>
               </StepButton>
               <StepContent>
-                <Stack spacing={1} sx={{ ml: -1, mr: -1 }}>
+                <Stack spacing={1} sx={{ mr: -1.5 }}>
                   <TODO>
                     There should be a way to add additional exercises to an
                     on-going block. For example, adding extra warmups or
