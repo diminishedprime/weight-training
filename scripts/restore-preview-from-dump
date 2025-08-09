@@ -1,0 +1,119 @@
+#!/bin/bash
+
+# Script to restore preview database from a timestamped production dump
+# This applies both schema and data from a dump directory
+
+set -eu
+
+# Safety constants
+readonly PREVIEW_PROJECT_REF="leskawvztqgednedbbme"
+
+echo "Restore Preview from Dump Script"
+echo "This will restore preview database from a production dump"
+echo "Preview project: ${PREVIEW_PROJECT_REF}"
+echo ""
+
+# Check if dump directory was provided
+if [ $# -eq 0 ]; then
+    echo "No dump directory specified, looking for most recent dump..."
+
+    # Find the most recent dump directory
+    MOST_RECENT=$(ls -1t database_dumps/ 2>/dev/null | head -1)
+
+    if [ -z "$MOST_RECENT" ]; then
+        echo "Error: No dumps found in database_dumps/"
+        echo "Run ./scripts/dump-production-database first to create a dump"
+        exit 1
+    fi
+
+    DUMP_DIR="database_dumps/$MOST_RECENT"
+    echo "Using most recent dump: $DUMP_DIR"
+else
+    DUMP_DIR="$1"
+    echo "Using specified dump: $DUMP_DIR"
+fi
+
+# Validate dump directory exists
+if [ ! -d "$DUMP_DIR" ]; then
+    echo "Error: Dump directory '$DUMP_DIR' does not exist"
+    echo ""
+    echo "Available dumps:"
+    ls -1t database_dumps/ 2>/dev/null | head -10 || echo "No dumps found in database_dumps/"
+    echo ""
+    echo "Usage: $0 [dump-directory]"
+    echo "  If no directory specified, uses most recent dump"
+    exit 1
+fi
+
+# Check for required files
+SCHEMA_FILE="$DUMP_DIR/schema.sql"
+DATA_FILE="$DUMP_DIR/data.sql"
+
+if [ ! -f "$SCHEMA_FILE" ]; then
+    echo "Error: Schema file not found: $SCHEMA_FILE"
+    exit 1
+fi
+
+if [ ! -f "$DATA_FILE" ]; then
+    echo "Error: Data file not found: $DATA_FILE"
+    exit 1
+fi
+
+echo "Using dump: $DUMP_DIR"
+echo "Schema file: $SCHEMA_FILE"
+echo "Data file: $DATA_FILE"
+echo ""
+
+# Check for required environment file
+if [ ! -f .env.preview ]; then
+    echo ".env.preview not found, you must create it and set the required environment variables."
+    exit 1
+fi
+
+# Source preview environment
+source .env.preview
+PREVIEW_PASSWORD=$POSTGRES_PASSWORD
+
+if [ -z "${PREVIEW_PASSWORD:-}" ]; then
+    echo "POSTGRES_PASSWORD must be set in .env.preview"
+    exit 1
+fi
+
+echo "About to restore preview database from production dump"
+echo "WARNING: This will COMPLETELY REPLACE all data in preview!"
+echo ""
+read -p "Are you sure you want to continue? (type 'YES' to proceed): " confirm
+
+if [ "$confirm" != "YES" ]; then
+    echo "Operation cancelled by user"
+    exit 1
+fi
+
+echo "Step 1: Resetting preview database..."
+./scripts/reset-preview-database
+
+echo "Step 2: Applying production schema..."
+PGPASSWORD=$PREVIEW_PASSWORD psql -P pager=off \
+    -h aws-0-us-west-1.pooler.supabase.com \
+    -p 5432 \
+    -U postgres.${PREVIEW_PROJECT_REF} \
+    -d postgres \
+    -f "$SCHEMA_FILE"
+
+echo "Step 3: Applying production data..."
+PGPASSWORD=$PREVIEW_PASSWORD psql -P pager=off \
+    -h aws-0-us-west-1.pooler.supabase.com \
+    -p 5432 \
+    -U postgres.${PREVIEW_PROJECT_REF} \
+    -d postgres \
+    -f "$DATA_FILE"
+
+echo ""
+echo "Preview database restore complete!"
+echo "Summary:"
+echo "   • Preview database reset and cleaned"
+echo "   • Production schema applied from: $SCHEMA_FILE"
+echo "   • Production data applied from: $DATA_FILE"
+echo "   • Preview now contains production data"
+echo ""
+echo "Preview database is ready for testing!"
