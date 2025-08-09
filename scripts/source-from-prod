@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -eu
+
+if [ ! -f .env.production ]; then
+    echo ".env.production not found, you must create it and set the required environment variables."
+    exit 1
+fi
+
+source .env.production
+
+if [ -z "${POSTGRES_PASSWORD:-}" ]; then
+    echo "POSTGRES_PASSWORD must be set in .env.production"
+    exit 1
+fi
+
+pnpx supabase link --project-ref odjssskczrcunccrwxeh --password $POSTGRES_PASSWORD
+pnpx supabase db dump --data-only -f supabase/seeds/prod-dump.sql --password=$POSTGRES_PASSWORD
