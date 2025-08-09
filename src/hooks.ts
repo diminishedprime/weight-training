@@ -1,5 +1,8 @@
+"use client";
+
 import { RDispatch } from "@/common-types";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useSessionStorage } from "usehooks-ts";
 
 export const useRequiredLabel = (labelText: string, isRequired: boolean) => {
   return React.useMemo(() => {
@@ -65,17 +68,9 @@ export const usePersistentNumber = (
   key: string,
 ) => {
   const storageKey = useMemo(() => `${path}///${key}`, [path, key]);
-
-  const [value, setValue] = useState<number>(() => {
-    const storedValue = sessionStorage.getItem(storageKey);
-    return storedValue ? parseFloat(storedValue) : initialValue;
+  return useSessionStorage(storageKey, initialValue, {
+    initializeWithValue: false, // Set to false for SSR compatibility
   });
-
-  useEffect(() => {
-    sessionStorage.setItem(storageKey, value.toString());
-  }, [value, storageKey]);
-
-  return [value, setValue] as const;
 };
 
 export const usePersistentBoolean = (
@@ -84,15 +79,7 @@ export const usePersistentBoolean = (
   key: string,
 ) => {
   const storageKey = useMemo(() => `${path}///${key}`, [path, key]);
-
-  const [value, setValue] = useState<boolean>(() => {
-    const storedValue = sessionStorage.getItem(storageKey);
-    return storedValue ? storedValue === "true" : initialValue;
+  return useSessionStorage(storageKey, initialValue, {
+    initializeWithValue: false, // Set to false for SSR compatibility
   });
-
-  useEffect(() => {
-    sessionStorage.setItem(storageKey, value.toString());
-  }, [value, storageKey]);
-
-  return [value, setValue] as const;
 };

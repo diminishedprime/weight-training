@@ -1,5 +1,6 @@
-import { WeightUnit } from "@/common-types";
+import { RDispatch, WeightUnit } from "@/common-types";
 import DisplayDumbbell from "@/components/display/DisplayDumbbell";
+import { useResolvableWeight } from "@/hooks";
 import { TestIds } from "@/test-ids";
 import { Button } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
@@ -8,38 +9,62 @@ import TextField from "@mui/material/TextField";
 import React from "react";
 
 export interface EditDumbbellProps {
-  weightValue: number;
-  onChange: (newWeight: number) => void;
+  targetWeightValue: number;
+  actualWeightValue: number | undefined;
+  setActualWeightValue: RDispatch<number | undefined>;
   weightUnit: WeightUnit;
   availableDumbbells: number[];
 }
 
 const useEditDumbellAPI = (props: EditDumbbellProps) => {
-  const { weightValue: weight, onChange } = props;
+  const {
+    availableDumbbells,
+    targetWeightValue,
+    actualWeightValue,
+    setActualWeightValue,
+  } = props;
 
   const [availableWeights, setAvailableWeights] = React.useState(() => {
-    const copy = [...props.availableDumbbells];
+    const copy = [...availableDumbbells];
     copy.sort((a, b) => a - b);
     return copy;
   });
 
+  const targetToActual = React.useCallback(
+    (target: number) => {
+      // Find the closest available dumbbell weight
+      const closest = availableWeights.reduce((prev, curr) =>
+        Math.abs(curr - target) < Math.abs(prev - target) ? curr : prev,
+      );
+      return closest;
+    },
+    [availableWeights],
+  );
+
+  const [resolvedWeight, setResolvedWeight] = useResolvableWeight(
+    actualWeightValue,
+    setActualWeightValue,
+    targetWeightValue,
+    targetToActual,
+  );
+
   const currentIdx = React.useMemo(() => {
-    return availableWeights.findIndex((w) => w === weight);
-  }, [availableWeights, weight]);
+    return availableWeights.findIndex((w) => w === resolvedWeight);
+  }, [availableWeights, resolvedWeight]);
 
   const handleBumpDown = React.useCallback(() => {
     if (currentIdx === -1) return;
     const firstIdx = 0;
     const prevIdx = Math.max(currentIdx - 1, firstIdx);
-    onChange(availableWeights[prevIdx]);
-  }, [onChange, currentIdx, availableWeights]);
+    setResolvedWeight(availableWeights[prevIdx]);
+  }, [setResolvedWeight, currentIdx, availableWeights]);
 
   const handleBumpUp = React.useCallback(() => {
     if (currentIdx === -1) return;
     const lastIdx = availableWeights.length - 1;
     const nextIdx = Math.min(currentIdx + 1, lastIdx);
-    onChange(availableWeights[nextIdx]);
-  }, [onChange, currentIdx, availableWeights]);
+    setResolvedWeight(availableWeights[nextIdx]);
+  }, [setResolvedWeight, currentIdx, availableWeights]);
 
   const handleWeightChange = React.useCallback(
     (newValue: unknown) => {
@@ -49,10 +74,10 @@ const useEditDumbellAPI = (props: EditDumbbellProps) => {
         if (!availableWeights.includes(val)) {
           setAvailableWeights((prev) => [...prev, val].sort((a, b) => a - b));
         }
-        onChange(val);
+        setResolvedWeight(val);
       }
     },
-    [onChange, availableWeights],
+    [setResolvedWeight, availableWeights],
   );
 
   const handleInputChange = React.useCallback(
@@ -63,13 +88,14 @@ const useEditDumbellAPI = (props: EditDumbbellProps) => {
         if (!availableWeights.includes(val)) {
           setAvailableWeights((prev) => [...prev, val].sort((a, b) => a - b));
         }
-        onChange(val);
+        setResolvedWeight(val);
       }
     },
-    [onChange, availableWeights],
+    [setResolvedWeight, availableWeights],
   );
 
   return {
+    resolvedWeight,
     availableWeights,
     currentIdx,
     handleBumpDown,
@@ -92,7 +118,7 @@ const EditDumbbell: React.FC<EditDumbbellProps> = (props) => {
       }}
     >
       <DisplayDumbbell
-        weight={props.weightValue}
+        weight={api.resolvedWeight}
         weightUnit={props.weightUnit}
       />
       <Box sx={{ display: "flex", alignItems: "center", gap: 1, mt: 2 }}>
@@ -108,10 +134,10 @@ const EditDumbbell: React.FC<EditDumbbellProps> = (props) => {
         <Autocomplete
           freeSolo
           options={api.availableWeights}
-          value={props.weightValue}
+          value={api.resolvedWeight}
           getOptionLabel={(option) => option.toString()}
           onChange={(_, newValue) => api.handleWeightChange(newValue)}
-          inputValue={String(props.weightValue)}
+          inputValue={String(api.resolvedWeight)}
           onInputChange={(_, newInputValue) =>
             api.handleInputChange(newInputValue)
           }

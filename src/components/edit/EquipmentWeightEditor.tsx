@@ -63,8 +63,9 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       );
       return (
         <EditDumbbell
-          weightValue={props.targetWeightValue}
-          onChange={props.setActualWeightValue}
+          targetWeightValue={props.targetWeightValue}
+          actualWeightValue={props.actualWeightValue}
+          setActualWeightValue={props.setActualWeightValue}
           weightUnit={props.weightUnit}
           availableDumbbells={props.preferences.available_dumbbells_lbs}
         />
