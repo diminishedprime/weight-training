@@ -418,6 +418,7 @@ export type Database = {
       wendler_program_cycle: {
         Row: {
           completed_at: string | null;
+          cycle_order: number;
           cycle_type: Database["public"]["Enums"]["wendler_cycle_type_enum"];
           id: string;
           started_at: string | null;
@@ -426,6 +427,7 @@ export type Database = {
         };
         Insert: {
           completed_at?: string | null;
+          cycle_order: number;
           cycle_type: Database["public"]["Enums"]["wendler_cycle_type_enum"];
           id?: string;
           started_at?: string | null;
@@ -434,6 +436,7 @@ export type Database = {
         };
         Update: {
           completed_at?: string | null;
+          cycle_order?: number;
           cycle_type?: Database["public"]["Enums"]["wendler_cycle_type_enum"];
           id?: string;
           started_at?: string | null;

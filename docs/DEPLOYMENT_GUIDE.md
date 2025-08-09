@@ -1,5 +1,24 @@
 # Deployment Guide
 
+## Quick Start - Use the Interactive Script
+
+**TL;DR: Just run this command and follow the prompts:**
+
+```sh
+./scripts/help-me-deploy
+```
+
+This interactive script will guide you through the entire deployment process
+step by step, automatically handling git operations and database migrations
+while asking for confirmation on manual steps like testing and Vercel promotion.
+
+---
+
+## Manual Process (for reference)
+
+If you prefer to do the deployment manually or need to understand the individual
+steps, here's the detailed process:
+
 Before promoting to production, you should do the following:
 
 1. Deploy the changes into the nextjs-main branch
@@ -15,7 +34,7 @@ Before promoting to production, you should do the following:
 
 After testing it's working locally, to promote to production:
 
-1. In vercel, find the deployment that went into the nextjs-main branch
+1. In vercel, find the deployment that went into the nextjs-main branch in [deployments]
 2. Click the ... and then click "promote to production". This will start a
    build, once finished, you will want to run database migrations.
 3. Apply Database migrations in prod:
@@ -69,3 +88,4 @@ You can also go directly to the supabase page for production: [supabase weight-t
 [supabase weight-training-prod]: https://supabase.com/dashboard/project/odjssskczrcunccrwxeh
 [weight-training-preview.vercel.app]: https://weight-training-preview.vercel.app
 [weight-training.vercel.app]: https://weight-training.vercel.app
+[deployments]: https://vercel.com/matt-hamricks-projects/weight-training/deployments
