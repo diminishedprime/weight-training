@@ -106,11 +106,9 @@ const useSelectPerceivedEffortAPI = (props: SelectPerceivedEffortProps) => {
         } catch {
           startTransition(() => {
             setError("Failed to update perceived effort. Please try again.");
+            setPerceivedEffort(perceivedEffort);
           });
         }
-        startTransition(() => {
-          setPerceivedEffort(perceivedEffort);
-        });
       });
     },
     [userId, exerciseId, perceivedEffort, startTransition, setPerceivedEffort],
