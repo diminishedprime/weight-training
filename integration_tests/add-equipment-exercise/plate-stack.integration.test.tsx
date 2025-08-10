@@ -85,9 +85,11 @@ describe("User Journey: Add Plate Stack Exercise", () => {
     });
 
     await act(async () => {
-      await waitFor(() =>
-        screen.getByTestId(TestIds.AddEquipmentExerciseButton),
-      ).then((a) => a.click());
+      await waitFor(() => {
+        const btn = screen.getByTestId(TestIds.AddEquipmentExerciseButton);
+        expect(btn).not.toBeDisabled();
+        return btn;
+      }).then((a) => a.click());
 
       await waitFor(async () => {
         const { data: actualExercises } = await supabase
@@ -109,8 +111,8 @@ describe("User Journey: Add Plate Stack Exercise", () => {
   });
 });
 
-describe("User Journey: Can use components to edit from the default values", () => {
-  it("should allow a logged in user to modify every field in the UI", async () => {
+describe("User Journey: Edit Plate Stack Exercise", () => {
+  it("should allow a logged in user to modify every field in the plate stack UI", async () => {
     let page = await EquipmentExercisePage(pageProps);
     await act(async () => render(page));
 
@@ -149,10 +151,11 @@ describe("User Journey: Can use components to edit from the default values", () 
     });
 
     await act(async () => {
-      const addExerciseButton = await waitFor(() =>
-        screen.getByTestId(TestIds.AddEquipmentExerciseButton),
-      );
-      addExerciseButton.click();
+      await waitFor(() => {
+        const btn = screen.getByTestId(TestIds.AddEquipmentExerciseButton);
+        expect(btn).not.toBeDisabled();
+        return btn;
+      }).then((a) => a.click());
 
       // Wait for the new lift to exist in the DB before re-rendering.
       await waitFor(async () => {

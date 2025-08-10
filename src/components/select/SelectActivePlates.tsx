@@ -79,7 +79,11 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
             </Badge>
             {props.editing && (
               <ButtonGroup orientation="vertical" size="small">
-                <Button size="small" onClick={() => props.onAddPlate(plate)}>
+                <Button
+                  size="small"
+                  onClick={() => props.onAddPlate(plate)}
+                  data-testid={TestIds.ActivePlate(plate)}
+                >
                   <AddIcon fontSize="small" />
                 </Button>
                 <Button

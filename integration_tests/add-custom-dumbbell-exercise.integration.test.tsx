@@ -94,9 +94,11 @@ describe("User Journey: Add Custom Dumbbell Exercises", () => {
     });
 
     await act(async () => {
-      const addDumbbellLiftButton = await waitFor(() =>
-        screen.getByTestId(TestIds.AddEquipmentExerciseButton),
-      );
+      const addDumbbellLiftButton = await waitFor(() => {
+        const btn = screen.getByTestId(TestIds.AddEquipmentExerciseButton);
+        expect(btn).not.toBeDisabled();
+        return btn;
+      });
       addDumbbellLiftButton.click();
 
       // Wait for the new lift to exist in the DB before re-rendering. This is

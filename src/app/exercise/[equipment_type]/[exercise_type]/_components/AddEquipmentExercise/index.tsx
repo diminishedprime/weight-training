@@ -124,6 +124,7 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
                 color="primary"
                 variant="contained"
                 type="submit"
+                disabled={api.submitDisabled}
                 data-testid={api.addExerciseTestId}
               >
                 Add

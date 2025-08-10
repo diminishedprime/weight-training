@@ -10,7 +10,7 @@ import useEditableWeight from "./useEditableWeight";
 interface EditWeightProps
   extends Omit<
     EquipmentWeightEditorProps,
-    "preferences" | "barWeight" | "roundingMode"
+    "preferences" | "barWeight" | "roundingMode" | "equipmentType"
   > {
   add1?: boolean;
   sub1?: boolean;

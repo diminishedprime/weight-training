@@ -185,17 +185,11 @@ export const useAddEquipmentExerciseAPI = (
   );
 
   const [actual, setActual] = useState<number | null>(
-    initialDraft?.actualWeightValue,
+    initialDraft?.actualWeightValue ?? null,
   );
   const [target, setTarget] = useState<number>(
     initialDraft?.targetWeightValue ?? actual ?? 0,
   );
-  useEffect(() => {
-    console.log({ actual });
-    if (actual !== null) {
-      setTarget(actual);
-    }
-  }, [actual]);
   const [roundingMode] = useState<RoundingMode>(
     initialDraft?.roundingMode ?? defaults.roundingMode,
   );
@@ -243,7 +237,6 @@ export const useAddEquipmentExerciseAPI = (
   // update when the initialDraft changes on the server.
   useEffect(() => {
     if (initialDraft) {
-      setActual(initialDraft.actualWeightValue);
       setReps(initialDraft.reps);
       setCompletionStatus(initialDraft.completionStatus);
       setNotes(initialDraft.notes);
@@ -379,6 +372,8 @@ export const useAddEquipmentExerciseAPI = (
     );
   }, [userId, path, withAdditionalFields, withAdditionalDefaults]);
 
+  const submitDisabled = useMemo(() => actual === null, [actual]);
+
   return {
     actual,
     setActual,
@@ -410,5 +405,6 @@ export const useAddEquipmentExerciseAPI = (
     barWeight: equipmentSpecificAPI.barWeight,
     repChoices,
     resetDisabled,
+    submitDisabled,
   };
 };

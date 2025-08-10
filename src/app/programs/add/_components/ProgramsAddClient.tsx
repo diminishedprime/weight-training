@@ -7,11 +7,7 @@ import {
   addProgram,
   saveFormDraft,
 } from "@/app/programs/add/_components/actions";
-import {
-  ExerciseType,
-  GetAddProgramInfoResult,
-  RDispatch,
-} from "@/common-types";
+import { ExerciseType, GetAddProgramInfoResult } from "@/common-types";
 import DisplayWeightChange from "@/components/display/DisplayWeightChange";
 import EditWeight from "@/components/edit/weight/EditWeight";
 import LabeledValue from "@/components/LabeledValue";
@@ -405,16 +401,16 @@ const TargetMax: React.FC<TargetMaxProps> = (props) => {
     >
       <Stack direction="row" alignItems="center">
         <EditWeight
+          editing
+          weightUnit="pounds"
           clearValue={props.currentTargetMax}
           sub1
           add1
           add5={props.five}
           add10={props.ten}
-          actualWeight={props.newTargetMax}
-          targetWeight={props.newTargetMax}
-          setActualWeight={
-            props.setNewTargetMax as never as RDispatch<number | undefined>
-          }
+          serverActual={props.newTargetMax}
+          serverTarget={props.newTargetMax}
+          onActualChange={(e) => e !== null && props.setNewTargetMax(e)}
         />
         <Stack flex={1} direction="row" justifyContent="center">
           <DisplayWeightChange

@@ -69,7 +69,6 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
               clearValue={50}
               serverActual={api.actualWeight}
               onActualChange={api.setActualWeight}
-              equipmentType={"barbell"}
               weightUnit={"pounds"}
               sub5
               sub10
