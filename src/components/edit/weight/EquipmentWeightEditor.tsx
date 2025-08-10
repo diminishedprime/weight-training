@@ -11,7 +11,7 @@ import EditMachineStack from "@/components/edit/weight/EditMachineStack";
 import EditPlateStack from "@/components/edit/weight/EditPlateStack";
 import { throwIfNull } from "@/util";
 import { Stack, Typography } from "@mui/material";
-import EditWeight from "../EditWeight";
+import EditWeight from "./EditWeight";
 
 export interface EquipmentWeightEditorProps {
   editing: boolean;
@@ -101,15 +101,7 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       return (
         <Stack spacing={1} alignItems="center">
           <Typography>Added Weight</Typography>
-          <EditWeight
-            add5
-            add25
-            sub5
-            sub25
-            actualWeight={props.actualWeightValue}
-            setActualWeight={props.setActualWeightValue}
-            targetWeight={props.targetWeightValue}
-          />
+          <EditWeight {...props} add5 add25 sub5 sub25 />
         </Stack>
       );
     default: {

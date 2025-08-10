@@ -9,7 +9,7 @@ import {
   WeightUnit,
 } from "@/common-types";
 import DisplayDate from "@/components/display/DisplayDate";
-import EditWeight from "@/components/edit/EditWeight";
+import EditWeight from "@/components/edit/weight/EditWeight";
 import LabeledValue from "@/components/LabeledValue";
 import SelectExercise from "@/components/select/SelectExercise";
 import SelectNumber from "@/components/select/SelectNumber";
@@ -64,14 +64,17 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
         >
           <LabeledValue label="Weight">
             <EditWeight
+              editing={true}
+              serverTarget={50}
+              clearValue={50}
+              serverActual={api.actualWeight}
+              onActualChange={api.setActualWeight}
+              equipmentType={"barbell"}
+              weightUnit={"pounds"}
               sub5
               sub10
               add5
               add10
-              targetWeight={50}
-              clearValue={50}
-              actualWeight={api.actualWeight}
-              setActualWeight={api.setActualWeight}
             />
             <TODO>
               This works okay, but it's not obvious you can click these. I need
@@ -165,10 +168,10 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
         direction="row"
       >
         <Stack spacing={1} flex={1}>
-          {api.actualWeight === undefined ||
-            (api.actualWeight <= 0 && (
+          {api.actualWeight === null ||
+            (api.actualWeight < 0 && (
               <Typography variant="body2" color="error">
-                Weight must be greater than 0.
+                Weight must be positive.
               </Typography>
             ))}
           {api.reps <= 0 && (
@@ -208,7 +211,7 @@ const useAddBlockAPI = (props: AddBlockProps) => {
   const [exercise, setExercise] = useState<ExerciseType | null>(null);
   const [reps, setReps] = useState(10);
   const [sets, setSets] = useState(5);
-  const [actualWeight, setActualWeight] = useState<number>();
+  const [actualWeight, setActualWeight] = useState<number | null>(null);
   const [recentSetOverviews, setRecentSetOverviews] = useState<
     RecentSetOverviewsResult | undefined
   >(undefined);
@@ -218,8 +221,8 @@ const useAddBlockAPI = (props: AddBlockProps) => {
   const addDisabled = useMemo(() => {
     return (
       !exercise ||
-      actualWeight === undefined ||
-      actualWeight <= 0 ||
+      actualWeight === null ||
+      actualWeight < 0 ||
       reps <= 0 ||
       sets <= 0
     );
@@ -267,7 +270,7 @@ const useAddBlockAPI = (props: AddBlockProps) => {
   }, [userId, exercise, debouncedSetOverviews]);
 
   const boundAddBlockAction = useMemo(() => {
-    if (!exercise || !equipmentType || actualWeight === undefined) {
+    if (!exercise || !equipmentType || actualWeight === null) {
       return;
     }
     return addBlockServer.bind(

@@ -13,7 +13,7 @@ import {
   RDispatch,
 } from "@/common-types";
 import DisplayWeightChange from "@/components/display/DisplayWeightChange";
-import EditWeight from "@/components/edit/EditWeight";
+import EditWeight from "@/components/edit/weight/EditWeight";
 import LabeledValue from "@/components/LabeledValue";
 import TODO from "@/components/TODO";
 import { Paths } from "@/constants";
