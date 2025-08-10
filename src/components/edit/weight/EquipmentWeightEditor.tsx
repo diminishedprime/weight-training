@@ -7,11 +7,11 @@ import {
 import EditBarbell from "@/components/edit/weight/EditBarbell";
 import { throwIfNull } from "@/util";
 import { Stack, Typography } from "@mui/material";
-import EditDumbbell from "../EditDumbbell";
 import EditKettlebell from "../EditKettlebell";
 import EditMachineStack from "../EditMachineStack";
 import EditPlateStack from "../EditPlateStack";
 import EditWeight from "../EditWeight";
+import EditDumbbell from "./EditDumbbell";
 
 export interface EquipmentWeightEditorProps {
   editing: boolean;
@@ -61,10 +61,7 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       );
       return (
         <EditDumbbell
-          targetWeightValue={props.serverTarget}
-          actualWeightValue={props.serverActual}
-          setActualWeightValue={props.setActualWeightValue}
-          weightUnit={props.weightUnit}
+          {...props}
           availableDumbbells={props.preferences.available_dumbbells_lbs}
         />
       );
