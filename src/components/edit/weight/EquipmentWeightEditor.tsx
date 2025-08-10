@@ -5,13 +5,13 @@ import {
   WeightUnit,
 } from "@/common-types";
 import EditBarbell from "@/components/edit/weight/EditBarbell";
+import EditDumbbell from "@/components/edit/weight/EditDumbbell";
+import EditMachineStack from "@/components/edit/weight/EditMachineStack";
 import { throwIfNull } from "@/util";
 import { Stack, Typography } from "@mui/material";
 import EditKettlebell from "../EditKettlebell";
-import EditMachineStack from "../EditMachineStack";
 import EditPlateStack from "../EditPlateStack";
 import EditWeight from "../EditWeight";
-import EditDumbbell from "./EditDumbbell";
 
 export interface EquipmentWeightEditorProps {
   editing: boolean;
@@ -66,14 +66,7 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
         />
       );
     case "machine":
-      return (
-        <EditMachineStack
-          targetWeightValue={props.targetWeightValue}
-          actualWeightValue={props.actualWeightValue}
-          setActualWeightValue={props.setActualWeightValue}
-          weightUnit={props.weightUnit}
-        />
-      );
+      return <EditMachineStack {...props} />;
     case "kettlebell":
       throwIfNull(
         props.preferences.available_kettlebells_lbs,
