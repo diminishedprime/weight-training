@@ -23,15 +23,15 @@ print_step() {
 }
 
 print_info() {
-    echo -e "${YELLOW}ℹ️  $1${NC}"
+    echo -e "${YELLOW}$1${NC}"
 }
 
 print_success() {
-    echo -e "${GREEN}✅ $1${NC}"
+    echo -e "${GREEN}$1${NC}"
 }
 
 print_warning() {
-    echo -e "${RED}⚠️  $1${NC}"
+    echo -e "${RED}$1${NC}"
 }
 
 confirm() {
@@ -50,12 +50,12 @@ wait_for_enter() {
 }
 
 echo -e "${BLUE}"
-echo "╔════════════════════════════════════════════════════════════════╗"
-echo "║                    DEPLOYMENT GUIDE SCRIPT                    ║"
-echo "║                                                                ║"
-echo "║  This script will guide you through the deployment process    ║"
-echo "║  for the weight-training app to preview and production.       ║"
-echo "╚════════════════════════════════════════════════════════════════╝"
+echo "==================================================================="
+echo "                  DEPLOYMENT GUIDE SCRIPT                          "
+echo "                                                                   "
+echo "  This script will guide you through the deployment process        "
+echo "  for the weight-training app to preview and production.           "
+echo "==================================================================="
 echo -e "${NC}"
 
 # Find the git repository root and change to it
@@ -146,8 +146,7 @@ print_success "Deployment promoted to production!"
 
 # Step 5: Apply database migrations to production
 print_step "5" "Apply database migrations to production"
-print_warning "IMPORTANT: Consider the order of steps 4 and 5 based on your database migrations."
-print_warning "Use your judgment to determine if migrations should be applied before or after promotion."
+print_warning "Use your judgment to determine if migrations should be applied."
 echo ""
 print_info "Copying production migration command to clipboard..."
 echo "./scripts/push-supabase-production" | pbcopy
@@ -179,17 +178,17 @@ fi
 
 # Success!
 echo -e "\n${GREEN}"
-echo "╔════════════════════════════════════════════════════════════════╗"
-echo "║                    🎉 DEPLOYMENT COMPLETE! 🎉                 ║"
-echo "║                                                                ║"
-echo "║  Your changes have been successfully deployed to production!   ║"
-echo "║                                                                ║"
-echo "║  Production URL: https://weight-training.vercel.app            ║"
-echo "║  Preview URL:    https://weight-training-preview.vercel.app    ║"
-echo "╚════════════════════════════════════════════════════════════════╝"
+echo "==================================================================="
+echo "                  DEPLOYMENT COMPLETE!                             "
+echo "                                                                   "
+echo "  Your changes have been successfully deployed to production!      "
+echo "                                                                   "
+echo "  Production URL: https://weight-training.vercel.app               "
+echo "  Preview URL:    https://weight-training-preview.vercel.app       "
+echo "==================================================================="
 echo -e "${NC}"
 
 print_info "Useful links for monitoring:"
-echo "  • Vercel Deployments: https://vercel.com/matt-hamricks-projects/weight-training/deployments"
-echo "  • Supabase Preview: https://supabase.com/dashboard/project/leskawvztqgednedbbme"
-echo "  • Supabase Production: https://supabase.com/dashboard/project/odjssskczrcunccrwxeh"
+echo " - Vercel Deployments:  https://vercel.com/matt-hamricks-projects/weight-training/deployments"
+echo " - Supabase Preview:    https://supabase.com/dashboard/project/leskawvztqgednedbbme"
+echo " - Supabase Production: https://supabase.com/dashboard/project/odjssskczrcunccrwxeh"
