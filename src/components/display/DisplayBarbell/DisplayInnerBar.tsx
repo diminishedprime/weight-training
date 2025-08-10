@@ -1,6 +1,5 @@
-import { RoundingMode, WeightUnit } from "@/common-types";
+import { WeightUnit } from "@/common-types";
 import DisplayWeight from "@/components/display/DisplayWeight";
-import { actualWeightForTarget } from "@/util";
 import { Box, Stack, Typography } from "@mui/material";
 import {
   BAR_WIDTH_MM,
@@ -10,37 +9,23 @@ import {
 } from ".";
 
 interface DisplayInnerBarProps {
-  showWeight?: boolean;
+  targetWeight: number;
+  actualWeight: number;
   weightUnit: WeightUnit;
+  showWeight?: boolean;
   showDifference?: boolean;
-  actualWeightValue: number | undefined;
-  targetWeightValue: number;
-  availablePlates: number[];
-  roundingMode: RoundingMode;
 }
 
 const DisplayInnerBar: React.FC<DisplayInnerBarProps> = (props) => {
-  const {
-    showWeight,
-    weightUnit,
-    showDifference,
-    targetWeightValue,
-    availablePlates,
-    roundingMode,
-    actualWeightValue = actualWeightForTarget(
-      targetWeightValue,
-      45,
-      availablePlates,
-      roundingMode,
-    ).actualWeight,
-  } = props;
+  const { showWeight, weightUnit, showDifference, targetWeight, actualWeight } =
+    props;
   // We're okay calling weight that's less than 0.1 different than the target as
   // "the same" even though technically it's different.
   const round1 = (n: number) => Math.round(n * 10) / 10;
-  const diff = actualWeightValue - targetWeightValue;
+  const diff = actualWeight - targetWeight;
   const underOver = diff > 0 ? "over" : "under";
   const differenceColor = diff > 0 ? "error" : "warning";
-  const valuesMatch = round1(actualWeightValue) === round1(targetWeightValue);
+  const valuesMatch = round1(actualWeight) === round1(targetWeight);
 
   return (
     <Box
@@ -59,14 +44,10 @@ const DisplayInnerBar: React.FC<DisplayInnerBarProps> = (props) => {
             top: 0,
             left: "50%",
             transform: "translate(-50%, -100%)",
-            background: "rgba(255,255,255,0.7)",
           }}
           data-testid="inner-bar-weight"
         >
-          <DisplayWeight
-            weightValue={actualWeightValue}
-            weightUnit={weightUnit}
-          />
+          <DisplayWeight weightValue={actualWeight} weightUnit={weightUnit} />
         </Typography>
       )}
       <Box
@@ -103,7 +84,7 @@ const DisplayInnerBar: React.FC<DisplayInnerBarProps> = (props) => {
           <DisplayWeight
             variant="caption"
             valueColor={differenceColor}
-            weightValue={targetWeightValue}
+            weightValue={targetWeight}
             weightUnit={weightUnit}
             hideUnit
           />

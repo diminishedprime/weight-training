@@ -2,7 +2,7 @@
 import { useAddEquipmentExerciseAPI } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/AddEquipmentExercise/useAddEquipmentExerciseAPI";
 import { EquipmentType, ExerciseType, UserPreferences } from "@/common-types";
 import EditNotes from "@/components/edit/EditNotes";
-import EquipmentWeightEditor from "@/components/edit/EquipmentWeightEditor";
+import EquipmentWeightEditor from "@/components/edit/weight/EquipmentWeightEditor";
 import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
 import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
@@ -47,15 +47,17 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
       spacing={1}
     >
       <EquipmentWeightEditor
+        editing
+        ignoreTarget
         equipmentType={props.equipmentType}
-        actualWeightValue={api.actualWeight}
-        targetWeightValue={api.actualWeight || 0}
+        serverActual={api.actual}
+        serverTarget={api.target}
+        onActualChange={api.setActual}
+        onTargetChange={api.setTarget}
         weightUnit={api.weightUnit}
-        setActualWeightValue={api.setActualWeight}
         roundingMode={api.roundingMode}
-        barWeightValue={api.barWeightValue}
+        barWeight={api.barWeight}
         preferences={props.preferences}
-        editing={true}
       />
       <Stack spacing={1} alignItems="space-between">
         <Stack spacing={1} alignItems="center">

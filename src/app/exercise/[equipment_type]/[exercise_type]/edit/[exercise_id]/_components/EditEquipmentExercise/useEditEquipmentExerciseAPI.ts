@@ -1,6 +1,6 @@
 import { EditEquipmentExerciseProps } from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_components/EditEquipmentExercise";
 import { saveExerciseEdits } from "@/app/exercise/[equipment_type]/[exercise_type]/edit/[exercise_id]/_components/EditEquipmentExercise/actions";
-import { GetExerciseResult, RoundingMode } from "@/common-types";
+import { GetExerciseResult } from "@/common-types";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 export const useEditEquipmentExerciseAPI = (
@@ -9,32 +9,8 @@ export const useEditEquipmentExerciseAPI = (
   const { userId, currentPath, equipmentType, exerciseType, exercise, backTo } =
     props;
 
-  const [actualWeightValue, localSetActualWeightValue] = useState(
-    exercise.actual_weight_value ?? undefined,
-  );
-  const setActualWeightValue: React.Dispatch<React.SetStateAction<number>> =
-    useCallback(
-      (value) => {
-        if (typeof value === "function") {
-          localSetActualWeightValue((prev) => {
-            if (prev === undefined) {
-              throw new Error(
-                "Invalid invariant: prev must not be undefined when using function to set actualWeightValue.",
-              );
-            }
-            return value(prev!);
-          });
-        } else {
-          localSetActualWeightValue(value);
-        }
-      },
-      [localSetActualWeightValue],
-    );
-  //   // TODO: eventually roundingMode should be on the db, but it isn't, yet.
-  //   const [roundingMode] = useState<RoundingMode>(
-  //     exercise.roundingMode
-  //   );
-  const [roundingMode] = useState(RoundingMode.NEAREST);
+  const [actual, setActual] = useState(exercise.actual_weight_value);
+  const [target, setTarget] = useState(exercise.target_weight_value);
   const [weightUnit, setWeightUnit] = useState(exercise.weight_unit);
   const [reps, setReps] = useState(exercise.reps);
   const [completionStatus, setCompletionStatus] = useState(
@@ -53,11 +29,11 @@ export const useEditEquipmentExerciseAPI = (
   // Sync the current state when the initial values change, this is needed
   // because we use revalidatePath and otherwise the state values would never
   // update when the initialDraft changes on the server.
+  // TODO: check if this is actually true?
   useEffect(() => {
     if (exercise) {
-      setActualWeightValue(
-        exercise.actual_weight_value ?? exercise.target_weight_value,
-      );
+      setActual(exercise.actual_weight_value);
+      setTarget(exercise.target_weight_value);
       setReps(exercise.reps);
       setCompletionStatus(exercise.completion_status);
       setNotes(exercise.notes ?? "");
@@ -67,10 +43,11 @@ export const useEditEquipmentExerciseAPI = (
       setPerformedAt(exercise.performed_at);
       setWeightUnit(exercise.weight_unit);
     }
-  }, [exercise, setActualWeightValue]);
+  }, [exercise]);
 
   const resetFields = useCallback(() => {
-    localSetActualWeightValue(exercise.actual_weight_value ?? undefined);
+    setActual(exercise.actual_weight_value);
+    setTarget(exercise.target_weight_value);
     setReps(exercise.reps);
     setCompletionStatus(exercise.completion_status);
     setNotes(exercise.notes ?? "");
@@ -85,8 +62,8 @@ export const useEditEquipmentExerciseAPI = (
     () => ({
       user_id: userId,
       exercise_id: exercise.exercise_id,
-      target_weight_value: exercise.target_weight_value,
-      actual_weight_value: actualWeightValue ?? null,
+      target_weight_value: target,
+      actual_weight_value: actual,
       weight_unit: weightUnit,
       reps,
       completion_status: completionStatus,
@@ -101,7 +78,8 @@ export const useEditEquipmentExerciseAPI = (
     [
       userId,
       exercise,
-      actualWeightValue,
+      actual,
+      target,
       weightUnit,
       reps,
       completionStatus,
@@ -143,9 +121,6 @@ export const useEditEquipmentExerciseAPI = (
   return {
     resetCommonFields: resetFields,
     targetWeightValue: exercise.target_weight_value,
-    actualWeightValue,
-    setActualWeightValue,
-    roundingMode,
     weightUnit,
     reps,
     setReps,
@@ -163,5 +138,7 @@ export const useEditEquipmentExerciseAPI = (
     saveDisabled,
     resetDisabled,
     barWeightValue,
+    setActual,
+    setTarget,
   };
 };

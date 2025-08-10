@@ -67,7 +67,7 @@ export const addEquipmentExercise = async <
     // TODO: Intentionally using the actualWeight value for the target, but we
     // want to handle this better probably.
     p_target_weight_value: equipmentFormDraft.actualWeightValue!,
-    p_actual_weight_value: equipmentFormDraft.actualWeightValue,
+    p_actual_weight_value: equipmentFormDraft.actualWeightValue ?? undefined,
     p_reps: equipmentFormDraft.reps,
     p_completion_status: equipmentFormDraft.completionStatus,
     p_is_amrap: equipmentFormDraft.isAMRAP,

@@ -1,36 +1,39 @@
 import {
   EquipmentType,
-  RDispatch,
   RoundingMode,
   UserPreferences,
   WeightUnit,
 } from "@/common-types";
-import EditBarbell from "@/components/edit/EditBarbell";
-import EditDumbbell from "@/components/edit/EditDumbbell";
-import EditKettlebell from "@/components/edit/EditKettlebell";
-import EditMachineStack from "@/components/edit/EditMachineStack";
-import EditPlateStack from "@/components/edit/EditPlateStack";
-import EditWeight from "@/components/edit/EditWeight";
+import EditBarbell from "@/components/edit/weight/EditBarbell";
 import { throwIfNull } from "@/util";
 import { Stack, Typography } from "@mui/material";
+import EditDumbbell from "../EditDumbbell";
+import EditKettlebell from "../EditKettlebell";
+import EditMachineStack from "../EditMachineStack";
+import EditPlateStack from "../EditPlateStack";
+import EditWeight from "../EditWeight";
 
-interface EquipmentWeightEditorProps {
+export interface EquipmentWeightEditorProps {
+  editing: boolean;
   equipmentType: EquipmentType;
-  targetWeightValue: number;
-  actualWeightValue: number | undefined;
+  serverTarget: number;
+  serverActual: number | null;
   weightUnit: WeightUnit;
-  setActualWeightValue: RDispatch<number | undefined>;
-  roundingMode: RoundingMode;
   preferences: UserPreferences;
-  barWeightValue: number | undefined;
-  editing?: boolean;
+  // TODO: this value should come from preferences and be removed as a prop.
+  barWeight: number | null;
+  // TODO: this value should come from preferences and be removed as a prop.
+  roundingMode: RoundingMode;
+  onActualChange?: (value: number | null) => void;
+  onTargetChange?: (value: number) => void;
+  ignoreTarget?: boolean;
 }
 
 const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
   switch (props.equipmentType) {
     case "barbell":
       throwIfNull(
-        props.barWeightValue,
+        props.barWeight,
         () =>
           new Error("barWeightValue is required for barbell equipment type"),
       );
@@ -43,14 +46,9 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       );
       return (
         <EditBarbell
-          editing={props.editing}
-          targetWeightValue={props.targetWeightValue}
-          actualWeightValue={props.actualWeightValue}
-          setActualWeightValue={props.setActualWeightValue}
-          roundingMode={props.roundingMode}
-          weightUnit={props.weightUnit}
+          {...props}
+          barWeight={props.barWeight}
           availablePlates={props.preferences.available_plates_lbs}
-          barWeightValue={props.barWeightValue}
         />
       );
     case "dumbbell":
@@ -63,8 +61,8 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       );
       return (
         <EditDumbbell
-          targetWeightValue={props.targetWeightValue}
-          actualWeightValue={props.actualWeightValue}
+          targetWeightValue={props.serverTarget}
+          actualWeightValue={props.serverActual}
           setActualWeightValue={props.setActualWeightValue}
           weightUnit={props.weightUnit}
           availableDumbbells={props.preferences.available_dumbbells_lbs}
