@@ -814,7 +814,7 @@ export type Database = {
         | "kettlebell_front_squat"
         | "kettlebell_row"
         | "plate_stack_calf_raise";
-      perceived_effort_enum: "easy" | "okay" | "hard";
+      perceived_effort_enum: "easy" | "okay" | "meh" | "hard" | "very_hard";
       program_day_types_enum: "push" | "pull" | "legs" | "shoulders";
       update_source_enum: "manual" | "system";
       weight_unit_enum: "pounds" | "kilograms";
@@ -1374,7 +1374,7 @@ export const Constants = {
         "kettlebell_row",
         "plate_stack_calf_raise",
       ],
-      perceived_effort_enum: ["easy", "okay", "hard"],
+      perceived_effort_enum: ["easy", "okay", "meh", "hard", "very_hard"],
       program_day_types_enum: ["push", "pull", "legs", "shoulders"],
       update_source_enum: ["manual", "system"],
       weight_unit_enum: ["pounds", "kilograms"],

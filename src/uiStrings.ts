@@ -253,8 +253,12 @@ export const perceivedEffortUIString = (
       return "Easy";
     case "okay":
       return "Okay";
+    case "meh":
+      return "Meh";
     case "hard":
       return "Hard";
+    case "very_hard":
+      return "Very Hard";
 
     // Stryker disable all
     /* v8 ignore next 5 */
