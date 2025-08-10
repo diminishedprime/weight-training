@@ -8,9 +8,9 @@ import EditBarbell from "@/components/edit/weight/EditBarbell";
 import EditDumbbell from "@/components/edit/weight/EditDumbbell";
 import EditKettlebell from "@/components/edit/weight/EditKettlebell";
 import EditMachineStack from "@/components/edit/weight/EditMachineStack";
+import EditPlateStack from "@/components/edit/weight/EditPlateStack";
 import { throwIfNull } from "@/util";
 import { Stack, Typography } from "@mui/material";
-import EditPlateStack from "../EditPlateStack";
 import EditWeight from "../EditWeight";
 
 export interface EquipmentWeightEditorProps {
@@ -91,12 +91,8 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       );
       return (
         <EditPlateStack
-          actualWeightValue={props.actualWeightValue}
-          setActualWeightValue={props.setActualWeightValue}
-          targetWeightValue={props.targetWeightValue}
+          {...props}
           availablePlates={props.preferences.available_plates_lbs}
-          weightUnit={props.weightUnit}
-          roundingMode={props.roundingMode}
         />
       );
     case "bodyweight":

@@ -38,7 +38,7 @@ export const PLATE_METADATA: Record<
       backgroundColor: "red",
       color: "white",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid red",
     },
   },
   45: {
@@ -48,7 +48,7 @@ export const PLATE_METADATA: Record<
       backgroundColor: "red",
       color: "white",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid red",
     },
   },
   35: {
@@ -58,7 +58,7 @@ export const PLATE_METADATA: Record<
       backgroundColor: "blue",
       color: "black",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid blue",
     },
   },
   25: {
@@ -68,7 +68,7 @@ export const PLATE_METADATA: Record<
       backgroundColor: "yellow",
       color: "black",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid yellow",
     },
   },
   10: {
@@ -78,7 +78,7 @@ export const PLATE_METADATA: Record<
       backgroundColor: "green",
       color: "white",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid green",
     },
   },
   5: {
@@ -98,7 +98,7 @@ export const PLATE_METADATA: Record<
       backgroundColor: "green",
       color: "white",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid green",
     },
   },
   // Guess
@@ -107,9 +107,9 @@ export const PLATE_METADATA: Record<
     diameterMM: 6.55 * 25.4,
     sx: {
       backgroundColor: "white",
-      color: "white",
+      color: "black",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid white",
     },
   },
 };
