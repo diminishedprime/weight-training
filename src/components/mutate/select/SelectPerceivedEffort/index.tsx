@@ -84,7 +84,7 @@ const SelectPerceivedEffort: React.FC<SelectPerceivedEffortProps> = (props) => {
 export default SelectPerceivedEffort;
 
 const useSelectPerceivedEffortAPI = (props: SelectPerceivedEffortProps) => {
-  const { userId, exerciseId, setPerceivedEffort } = props;
+  const { userId, exerciseId, setPerceivedEffort, perceivedEffort } = props;
   const [isEditing, setIsEditing] = useState(props.initialEditingState);
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
@@ -104,12 +104,14 @@ const useSelectPerceivedEffortAPI = (props: SelectPerceivedEffortProps) => {
         try {
           await serverUpdatePerceivedEffort(userId, exerciseId, newValue);
         } catch {
-          setPerceivedEffort(props.perceivedEffort);
-          setError("Failed to update perceived effort. Please try again.");
+          startTransition(() => {
+            setError("Failed to update perceived effort. Please try again.");
+            setPerceivedEffort(perceivedEffort);
+          });
         }
       });
     },
-    [userId, exerciseId, props, startTransition, setPerceivedEffort],
+    [userId, exerciseId, perceivedEffort, startTransition, setPerceivedEffort],
   );
 
   const handlePerceivedEffortChange = useCallback(
