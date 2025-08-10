@@ -1,9 +1,9 @@
 import DisplayWeight from "@/components/display/DisplayWeight";
+import { EquipmentWeightEditorProps } from "@/components/edit/weight/EquipmentWeightEditor";
+import useEditableWeight from "@/components/edit/weight/useEditableWeight";
 import TODO from "@/components/TODO";
 import { Button, Radio, Stack, SxProps, Typography } from "@mui/material";
 import React, { useCallback, useMemo, useState } from "react";
-import { EquipmentWeightEditorProps } from "./EquipmentWeightEditor";
-import useEditableWeight from "./useEditableWeight";
 
 const EditMachineStack: React.FC<EquipmentWeightEditorProps> = (props) => {
   const api = useEditMachineStackAPI(props);
@@ -164,15 +164,7 @@ const useEditMachineStackAPI = (props: EquipmentWeightEditorProps) => {
     [stack, bump],
   );
 
-  const {
-    actual,
-    setActual,
-    target,
-    undo,
-    undoDisabled,
-    resetToResolvedTarget,
-    resetDisabled,
-  } = useEditableWeight(
+  const { actual, setActual, target } = useEditableWeight(
     serverTarget,
     serverActual,
     targetToActual,

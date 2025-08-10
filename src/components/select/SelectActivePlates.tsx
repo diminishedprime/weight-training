@@ -116,7 +116,7 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
 
 export default SelectActivePlates;
 
-const useSelectActivePlatesAPI = (props: SelectActivePlatesProps) => {
+const useSelectActivePlatesAPI = (_props: SelectActivePlatesProps) => {
   const badgeMetadata = React.useMemo(() => {
     const metadata: Record<
       number,

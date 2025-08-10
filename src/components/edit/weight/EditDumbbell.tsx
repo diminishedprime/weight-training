@@ -1,12 +1,12 @@
 import DisplayDumbbell from "@/components/display/DisplayDumbbell";
+import { EquipmentWeightEditorProps } from "@/components/edit/weight/EquipmentWeightEditor";
+import useEditableWeight from "@/components/edit/weight/useEditableWeight";
 import { TestIds } from "@/test-ids";
 import { Button } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import React from "react";
-import { EquipmentWeightEditorProps } from "./EquipmentWeightEditor";
-import useEditableWeight from "./useEditableWeight";
 
 export interface EditDumbbellProps extends EquipmentWeightEditorProps {
   availableDumbbells: number[];
@@ -85,15 +85,7 @@ const useEditDumbellAPI = (props: EditDumbbellProps) => {
     [availableWeights],
   );
 
-  const {
-    actual,
-    setActual,
-    target,
-    undo,
-    undoDisabled,
-    resetToResolvedTarget,
-    resetDisabled,
-  } = useEditableWeight(
+  const { actual, setActual } = useEditableWeight(
     serverTarget,
     serverActual,
     targetToActual,

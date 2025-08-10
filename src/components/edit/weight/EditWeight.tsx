@@ -1,11 +1,11 @@
 import DisplayWeight from "@/components/display/DisplayWeight";
+import { EquipmentWeightEditorProps } from "@/components/edit/weight/EquipmentWeightEditor";
+import useEditableWeight from "@/components/edit/weight/useEditableWeight";
 import { TestIds } from "@/test-ids";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import UndoIcon from "@mui/icons-material/Undo";
 import { Button, IconButton, Stack, TextField } from "@mui/material";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { EquipmentWeightEditorProps } from "./EquipmentWeightEditor";
-import useEditableWeight from "./useEditableWeight";
 
 interface EditWeightProps
   extends Omit<
@@ -182,7 +182,6 @@ const useEditWeightAPI = (props: EditWeightProps) => {
   const {
     actual,
     setActual,
-    target,
     undo,
     undoDisabled,
     resetToResolvedTarget,
@@ -212,14 +211,14 @@ const useEditWeightAPI = (props: EditWeightProps) => {
     (toAdd: number) => {
       setActual((prev) => prev + toAdd);
     },
-    [setActual, actual],
+    [setActual],
   );
 
   const onSubtractWeight = useCallback(
     (toSubtract: number) => {
       setActual((prev) => Math.max(prev - toSubtract, 0));
     },
-    [setActual, actual],
+    [setActual],
   );
 
   const onSubtractDisabled = useMemo(() => {

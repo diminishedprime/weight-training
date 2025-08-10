@@ -9,9 +9,9 @@ import EditDumbbell from "@/components/edit/weight/EditDumbbell";
 import EditKettlebell from "@/components/edit/weight/EditKettlebell";
 import EditMachineStack from "@/components/edit/weight/EditMachineStack";
 import EditPlateStack from "@/components/edit/weight/EditPlateStack";
+import EditWeight from "@/components/edit/weight/EditWeight";
 import { throwIfNull } from "@/util";
 import { Stack, Typography } from "@mui/material";
-import EditWeight from "./EditWeight";
 
 export interface EquipmentWeightEditorProps {
   editing: boolean;

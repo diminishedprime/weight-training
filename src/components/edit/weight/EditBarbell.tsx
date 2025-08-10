@@ -1,11 +1,11 @@
 "use client";
 import DisplayBarbell from "@/components/display/DisplayBarbell";
 import { EquipmentWeightEditorProps } from "@/components/edit/weight/EquipmentWeightEditor";
+import useEditableWeight from "@/components/edit/weight/useEditableWeight";
 import SelectActivePlates from "@/components/select/SelectActivePlates";
 import { actualWeightForTarget, minimalPlatesForTargetWeight } from "@/util";
 import { Stack } from "@mui/material";
 import React, { useCallback, useMemo } from "react";
-import useEditableWeight from "./useEditableWeight";
 
 export interface EditBarbellProps extends EquipmentWeightEditorProps {
   availablePlates: number[];

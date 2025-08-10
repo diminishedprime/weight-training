@@ -2,12 +2,11 @@ import { RoundingMode } from "@/common-types";
 import DisplayPlateStack from "@/components/display/DisplayPlateStack";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import { EquipmentWeightEditorProps } from "@/components/edit/weight/EquipmentWeightEditor";
+import useEditableWeight from "@/components/edit/weight/useEditableWeight";
 import SelectActivePlates from "@/components/select/SelectActivePlates";
 import { minimalPlates } from "@/util";
 import { Stack } from "@mui/material";
-import { Stack as ImmutableStack } from "immutable";
-import { useCallback, useMemo, useState } from "react";
-import useEditableWeight from "./useEditableWeight";
+import { useCallback, useMemo } from "react";
 
 interface EditPlateStackProps extends EquipmentWeightEditorProps {
   availablePlates: number[];
@@ -57,7 +56,6 @@ const useEditPlateStackAPI = (props: EditPlateStackProps) => {
     onActualChange,
     onTargetChange,
   } = props;
-  const [history, setHistory] = useState(ImmutableStack<number>());
 
   const targetToActual = useCallback(
     (target: number) =>
@@ -71,7 +69,6 @@ const useEditPlateStackAPI = (props: EditPlateStackProps) => {
   const {
     actual,
     setActual,
-    target,
     undo,
     undoDisabled,
     resetToResolvedTarget,
