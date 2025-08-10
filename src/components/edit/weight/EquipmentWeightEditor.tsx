@@ -6,10 +6,10 @@ import {
 } from "@/common-types";
 import EditBarbell from "@/components/edit/weight/EditBarbell";
 import EditDumbbell from "@/components/edit/weight/EditDumbbell";
+import EditKettlebell from "@/components/edit/weight/EditKettlebell";
 import EditMachineStack from "@/components/edit/weight/EditMachineStack";
 import { throwIfNull } from "@/util";
 import { Stack, Typography } from "@mui/material";
-import EditKettlebell from "../EditKettlebell";
 import EditPlateStack from "../EditPlateStack";
 import EditWeight from "../EditWeight";
 
@@ -77,13 +77,8 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       );
       return (
         <EditKettlebell
-          actualWeight={props.actualWeightValue}
-          setActualWeight={props.setActualWeightValue}
-          targetWeight={props.targetWeightValue}
-          weightUnit={props.weightUnit}
-          roundingMode={props.roundingMode}
+          {...props}
           availableKettlebells={props.preferences.available_kettlebells_lbs}
-          size={undefined}
         />
       );
     case "plate_stack":
