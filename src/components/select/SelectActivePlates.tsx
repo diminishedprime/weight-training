@@ -36,79 +36,88 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
   const api = useSelectActivePlatesAPI(props);
 
   return (
-    <Stack
-      direction="row"
-      flexWrap="wrap"
-      useFlexGap
-      spacing={0.5}
-      alignItems="flex-end"
-      sx={{ mt: 1 }}
-    >
+    <Stack spacing={1} useFlexGap>
+      <Stack
+        direction="row"
+        flexWrap="wrap"
+        useFlexGap
+        spacing={0.5}
+        alignItems="flex-end"
+        sx={{ mt: 1 }}
+      >
+        {props.availablePlates.map((plate) => {
+          const count = props.activePlates[plate] || 0;
+          const metadata = api.badgeMetadata[plate];
+          return (
+            <Stack
+              key={plate}
+              alignItems="center"
+              sx={(theme) => ({
+                visibility:
+                  !props.editing && count === 0 ? "hidden" : "visible",
+                minWidth: theme.spacing(4),
+              })}
+            >
+              <Badge badgeContent={count} sx={{ ...metadata.sx }}>
+                <Typography
+                  sx={{
+                    p: 0.5,
+                    pb: 0,
+                  }}
+                >
+                  {fractionWeightFormat(plate)}
+                </Typography>
+              </Badge>
+              {props.editing && (
+                <ButtonGroup orientation="vertical" size="small">
+                  <Button
+                    size="small"
+                    onClick={() => props.onAddPlate(plate)}
+                    data-testid={TestIds.ActivePlate(plate)}
+                  >
+                    <AddIcon fontSize="small" />
+                  </Button>
+                  <Button
+                    size="small"
+                    disabled={props.removePlateDisabled(plate)}
+                    onClick={() => props.onRemovePlate(plate)}
+                  >
+                    <RemoveIcon fontSize="small" />
+                  </Button>
+                </ButtonGroup>
+              )}
+            </Stack>
+          );
+        })}
+      </Stack>
       {props.editing && (
-        <IconButton
-          color="primary"
-          size="small"
-          onClick={props.onUndo}
-          aria-label="Undo weight change"
-          disabled={props.undoDisabled}
+        <Stack
+          direction="row"
+          spacing={1}
+          useFlexGap
+          flexWrap="wrap"
+          justifyContent="space-between"
         >
-          <UndoIcon />
-        </IconButton>
-      )}
-      {props.availablePlates.map((plate) => {
-        const count = props.activePlates[plate] || 0;
-        const metadata = api.badgeMetadata[plate];
-        return (
-          <Stack
-            key={plate}
-            alignItems="center"
-            sx={(theme) => ({
-              visibility: !props.editing && count === 0 ? "hidden" : "visible",
-              minWidth: theme.spacing(4),
-            })}
+          <IconButton
+            color="primary"
+            size="small"
+            onClick={props.onUndo}
+            aria-label="Undo weight change"
+            disabled={props.undoDisabled}
           >
-            <Badge badgeContent={count} sx={{ ...metadata.sx }}>
-              <Typography
-                sx={{
-                  p: 0.5,
-                  pb: 0,
-                }}
-              >
-                {fractionWeightFormat(plate)}
-              </Typography>
-            </Badge>
-            {props.editing && (
-              <ButtonGroup orientation="vertical" size="small">
-                <Button
-                  size="small"
-                  onClick={() => props.onAddPlate(plate)}
-                  data-testid={TestIds.ActivePlate(plate)}
-                >
-                  <AddIcon fontSize="small" />
-                </Button>
-                <Button
-                  size="small"
-                  disabled={props.removePlateDisabled(plate)}
-                  onClick={() => props.onRemovePlate(plate)}
-                >
-                  <RemoveIcon fontSize="small" />
-                </Button>
-              </ButtonGroup>
-            )}
-          </Stack>
-        );
-      })}
-      {props.editing && (
-        <IconButton
-          data-testid={TestIds.ClearActivePlatesButton}
-          color="error"
-          size="small"
-          onClick={props.onClear}
-          aria-label="Clear plates"
-          disabled={props.clearDisabled}
-        >
-          <DeleteOutlineIcon />
-        </IconButton>
+            <UndoIcon />
+          </IconButton>
+          <IconButton
+            data-testid={TestIds.ClearActivePlatesButton}
+            color="error"
+            size="small"
+            onClick={props.onClear}
+            aria-label="Clear plates"
+            disabled={props.clearDisabled}
+          >
+            <DeleteOutlineIcon />
+          </IconButton>
+        </Stack>
       )}
     </Stack>
   );
