@@ -22,6 +22,7 @@ interface LabeledValueProps {
   flex?: StackProps["flex"];
   help?: JSX.Element | string;
   width?: StackProps["width"];
+  sx?: StackProps["sx"];
   onClick?: () => void;
 }
 
@@ -35,6 +36,7 @@ const LabeledValue: React.FC<LabeledValueProps> = (props) => {
       flex={props.flex || undefined}
       width={props.width || undefined}
       onClick={props.onClick}
+      sx={props.sx || undefined}
     >
       <Typography
         variant={props.labelVariant || "body2"}

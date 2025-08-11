@@ -101,10 +101,11 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
       />
       <Stack
         direction="row"
-        spacing={2}
+        spacing={1}
         flexWrap="wrap"
         justifyContent="center"
         alignItems={"end"}
+        rowGap={1}
       >
         {(props.exercise.is_amrap || api.modifying) && (
           <SelectReps
@@ -116,10 +117,12 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
             wendler5s={props.exercise.reps === 5}
           />
         )}
-        <SelectPerceivedEffort
-          perceivedEffort={api.perceivedEffort}
-          setPerceivedEffortChange={api.setPerceivedEffort}
-        />
+        {api.modifying && (
+          <SelectPerceivedEffort
+            perceivedEffort={api.perceivedEffort}
+            setPerceivedEffortChange={api.setPerceivedEffort}
+          />
+        )}
       </Stack>
       {api.modifying && (
         <EditNotes notes={api.notes} onNotesChange={api.setNotes} />

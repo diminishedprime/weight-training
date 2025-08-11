@@ -51,16 +51,16 @@ const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
         initialEditingState={api.perceivedEffort === null}
       />
       <Stack
-        direction="row"
-        flexWrap="wrap"
-        spacing={1}
-        useFlexGap
-        justifyContent="space-between"
-        alignItems="flex-end"
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+        }}
+        data-testid="completed-exercise-row-grid"
       >
         <LabeledValue
           label={exercise.actual_weight_value ? "Actual" : "Target"}
           alignItems="center"
+          sx={{ justifySelf: "start" }}
         >
           <DisplayWeight
             column
@@ -70,13 +70,21 @@ const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
             }
           />
         </LabeledValue>
-        <LabeledValue label="Reps" alignItems="center">
+        <LabeledValue
+          label="Reps"
+          alignItems="center"
+          sx={{ justifySelf: "center" }}
+        >
           <Typography component="span" color="secondary">
             {exercise.reps}
             {exercise.is_amrap ? " (AMRAP)" : ""}
           </Typography>
         </LabeledValue>
-        <LabeledValue label="Rest" alignItems="center">
+        <LabeledValue
+          label="Rest"
+          alignItems="center"
+          sx={{ justifySelf: "end" }}
+        >
           {exercise.last_performed_at && exercise.performed_at ? (
             <DisplayDuration
               from={new Date(exercise.last_performed_at)}
