@@ -5,7 +5,19 @@ import { TestIds } from "@/test-ids";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import UndoIcon from "@mui/icons-material/Undo";
 import { Button, IconButton, Stack, TextField } from "@mui/material";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useState,
+} from "react";
+
+export interface EditWeightHandle {
+  setActual: (value: number) => void;
+  actual: number;
+}
 
 interface EditWeightProps
   extends Omit<
@@ -24,153 +36,166 @@ interface EditWeightProps
   clearValue?: number;
 }
 
-const EditWeight: React.FC<EditWeightProps> = (props) => {
-  const api = useEditWeightAPI(props);
-  return (
-    <Stack spacing={1} alignItems="center">
-      <Stack
-        spacing={0.5}
-        direction="row"
-        alignItems="center"
-        justifyContent={"center"}
-        flexWrap="wrap"
-        useFlexGap
-      >
-        {props.undo && props.editing && (
-          <IconButton
-            color="primary"
-            size="small"
-            onClick={api.undo}
-            aria-label="Undo weight change"
-            disabled={api.undoDisabled}
-          >
-            <UndoIcon />
-          </IconButton>
-        )}
-        {props.sub25 && props.editing && (
-          <Button
-            data-testid={TestIds.EditWeightSubtract(25)}
-            variant="outlined"
-            color="secondary"
-            onClick={() => api.onSubtractWeight(25)}
-          >
-            -25
-          </Button>
-        )}
-        {props.sub10 && props.editing && (
-          <Button
-            data-testid={TestIds.EditWeightSubtract(10)}
-            variant="outlined"
-            color="secondary"
-            onClick={() => api.onSubtractWeight(10)}
-          >
-            -10
-          </Button>
-        )}
-        {props.sub5 && props.editing && (
-          <Button
-            data-testid={TestIds.EditWeightSubtract(5)}
-            variant="outlined"
-            color="secondary"
-            onClick={() => api.onSubtractWeight(5)}
-          >
-            -5
-          </Button>
-        )}
-        {props.sub1 && props.editing && (
-          <Button
-            data-testid={TestIds.EditWeightSubtract(1)}
-            variant="outlined"
-            color="secondary"
-            onClick={() => api.onSubtractWeight(1)}
-          >
-            -1
-          </Button>
-        )}
-        {props.editing ? (
-          <TextField
-            size="small"
-            value={api.inputValue}
-            sx={{
-              width: "11ch",
-              "& .MuiInputBase-input": {
-                textAlign: "center",
-              },
-            }}
-            disabled={!props.editing}
-            variant="outlined"
-            onBlur={api.onInputBlur}
-            onChange={(e) => api.setInputValue(e.target.value)}
-            slotProps={{
-              htmlInput: {
-                "data-testid": TestIds.EditWeightInput,
-              },
-              input: {
-                endAdornment: (
-                  <IconButton
-                    data-testid={TestIds.EditWeightClearButton}
-                    color="error"
-                    sx={{ p: 0, m: 0 }}
-                    onClick={api.resetToResolvedTarget}
-                    disabled={api.resetDisabled}
-                  >
-                    <DeleteIcon />
-                  </IconButton>
-                ),
-              },
-            }}
-          />
-        ) : (
-          <DisplayWeight
-            weightValue={api.actual}
-            weightUnit={props.weightUnit}
-            variant="h4"
-          />
-        )}
-        {props.add1 && props.editing && (
-          <Button
-            data-testid={TestIds.EditWeightAdd(1)}
-            variant="outlined"
-            color="primary"
-            onClick={() => api.onAddWeight(1)}
-          >
-            +1
-          </Button>
-        )}
-        {props.add5 && props.editing && (
-          <Button
-            data-testid={TestIds.EditWeightAdd(5)}
-            variant="outlined"
-            color="primary"
-            onClick={() => api.onAddWeight(5)}
-          >
-            +5
-          </Button>
-        )}
-        {props.add10 && props.editing && (
-          <Button
-            data-testid={TestIds.EditWeightAdd(10)}
-            variant="outlined"
-            color="primary"
-            onClick={() => api.onAddWeight(10)}
-          >
-            +10
-          </Button>
-        )}
-        {props.add25 && props.editing && (
-          <Button
-            data-testid={TestIds.EditWeightAdd(25)}
-            variant="outlined"
-            color="primary"
-            onClick={() => api.onAddWeight(25)}
-          >
-            +25
-          </Button>
-        )}
+const EditWeight = forwardRef<EditWeightHandle, EditWeightProps>(
+  (props, ref) => {
+    const api = useEditWeightAPI(props);
+
+    useImperativeHandle(
+      ref,
+      () => ({
+        setActual: (value: number) => api.setActual(value),
+        actual: api.actual,
+      }),
+      [api],
+    );
+
+    return (
+      <Stack spacing={1} alignItems="center">
+        <Stack
+          spacing={0.5}
+          direction="row"
+          alignItems="center"
+          justifyContent={"center"}
+          flexWrap="wrap"
+          useFlexGap
+        >
+          {props.undo && props.editing && (
+            <IconButton
+              color="primary"
+              size="small"
+              onClick={api.undo}
+              aria-label="Undo weight change"
+              disabled={api.undoDisabled}
+            >
+              <UndoIcon />
+            </IconButton>
+          )}
+          {props.sub25 && props.editing && (
+            <Button
+              data-testid={TestIds.EditWeightSubtract(25)}
+              variant="outlined"
+              color="secondary"
+              onClick={() => api.onSubtractWeight(25)}
+            >
+              -25
+            </Button>
+          )}
+          {props.sub10 && props.editing && (
+            <Button
+              data-testid={TestIds.EditWeightSubtract(10)}
+              variant="outlined"
+              color="secondary"
+              onClick={() => api.onSubtractWeight(10)}
+            >
+              -10
+            </Button>
+          )}
+          {props.sub5 && props.editing && (
+            <Button
+              data-testid={TestIds.EditWeightSubtract(5)}
+              variant="outlined"
+              color="secondary"
+              onClick={() => api.onSubtractWeight(5)}
+            >
+              -5
+            </Button>
+          )}
+          {props.sub1 && props.editing && (
+            <Button
+              data-testid={TestIds.EditWeightSubtract(1)}
+              variant="outlined"
+              color="secondary"
+              onClick={() => api.onSubtractWeight(1)}
+            >
+              -1
+            </Button>
+          )}
+          {props.editing ? (
+            <TextField
+              size="small"
+              value={api.inputValue}
+              sx={{
+                width: "11ch",
+                "& .MuiInputBase-input": {
+                  textAlign: "center",
+                },
+              }}
+              disabled={!props.editing}
+              variant="outlined"
+              onBlur={api.onInputBlur}
+              onChange={(e) => api.setInputValue(e.target.value)}
+              slotProps={{
+                htmlInput: {
+                  "data-testid": TestIds.EditWeightInput,
+                },
+                input: {
+                  endAdornment: (
+                    <IconButton
+                      data-testid={TestIds.EditWeightClearButton}
+                      color="error"
+                      sx={{ p: 0, m: 0 }}
+                      onClick={api.resetToResolvedTarget}
+                      disabled={api.resetDisabled}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  ),
+                },
+              }}
+            />
+          ) : (
+            <DisplayWeight
+              weightValue={api.actual}
+              weightUnit={props.weightUnit}
+              variant="h4"
+            />
+          )}
+          {props.add1 && props.editing && (
+            <Button
+              data-testid={TestIds.EditWeightAdd(1)}
+              variant="outlined"
+              color="primary"
+              onClick={() => api.onAddWeight(1)}
+            >
+              +1
+            </Button>
+          )}
+          {props.add5 && props.editing && (
+            <Button
+              data-testid={TestIds.EditWeightAdd(5)}
+              variant="outlined"
+              color="primary"
+              onClick={() => api.onAddWeight(5)}
+            >
+              +5
+            </Button>
+          )}
+          {props.add10 && props.editing && (
+            <Button
+              data-testid={TestIds.EditWeightAdd(10)}
+              variant="outlined"
+              color="primary"
+              onClick={() => api.onAddWeight(10)}
+            >
+              +10
+            </Button>
+          )}
+          {props.add25 && props.editing && (
+            <Button
+              data-testid={TestIds.EditWeightAdd(25)}
+              variant="outlined"
+              color="primary"
+              onClick={() => api.onAddWeight(25)}
+            >
+              +25
+            </Button>
+          )}
+        </Stack>
       </Stack>
-    </Stack>
-  );
-};
+    );
+  },
+);
+EditWeight.displayName = "EditWeight";
 
 export default EditWeight;
 
@@ -227,6 +252,7 @@ const useEditWeightAPI = (props: EditWeightProps) => {
 
   return {
     actual,
+    setActual, // Expose setActual for imperative handle
     onAddWeight,
     onSubtractWeight,
     onSubtractDisabled,
