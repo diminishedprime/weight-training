@@ -1,18 +1,11 @@
-import { RDispatch, WeightUnit } from "@/common-types";
 import DisplayWeight from "@/components/display/DisplayWeight";
+import { EquipmentWeightEditorProps } from "@/components/edit/weight/EquipmentWeightEditor";
+import useEditableWeight from "@/components/edit/weight/useEditableWeight";
 import TODO from "@/components/TODO";
-import { useResolvableWeight } from "@/hooks";
 import { Button, Radio, Stack, SxProps, Typography } from "@mui/material";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
-interface EditMachineStackProps {
-  actualWeightValue: number | undefined;
-  setActualWeightValue: RDispatch<number | undefined>;
-  targetWeightValue: number;
-  weightUnit: WeightUnit;
-}
-
-const EditMachineStack: React.FC<EditMachineStackProps> = (props) => {
+const EditMachineStack: React.FC<EquipmentWeightEditorProps> = (props) => {
   const api = useEditMachineStackAPI(props);
   return (
     <Stack spacing={1} alignItems="center">
@@ -23,8 +16,8 @@ const EditMachineStack: React.FC<EditMachineStackProps> = (props) => {
       <DisplayWeight
         variant="h6"
         sx={{ mb: 0 }}
+        weightValue={api.actual}
         weightUnit={props.weightUnit}
-        weightValue={props.actualWeightValue ?? props.targetWeightValue}
       />
       <Stack
         direction="row"
@@ -32,16 +25,19 @@ const EditMachineStack: React.FC<EditMachineStackProps> = (props) => {
         alignItems="flex-end"
         justifyContent="flex-end"
       >
-        <Button
-          variant="outlined"
-          color="secondary"
-          size="small"
-          onClick={api.onDecrement}
-        >
-          -
-        </Button>
+        {props.editing && (
+          <Button
+            variant="outlined"
+            color="secondary"
+            size="small"
+            onClick={api.onDecrement}
+          >
+            -
+          </Button>
+        )}
         <Stack alignItems="center">
           <StackPlate
+            editing={props.editing}
             checked={api.isBumpActive}
             sx={{ width: "9ch" }}
             onChange={api.onBumpChange}
@@ -51,6 +47,7 @@ const EditMachineStack: React.FC<EditMachineStackProps> = (props) => {
           <Stack sx={{ width: "12ch" }}>
             {api.visiblePlates.map((plateValue) => (
               <StackPlate
+                editing={props.editing}
                 key={plateValue}
                 checked={api.selectedPlate === plateValue}
                 onChange={(checked) =>
@@ -62,14 +59,16 @@ const EditMachineStack: React.FC<EditMachineStackProps> = (props) => {
             ))}
           </Stack>
         </Stack>
-        <Button
-          variant="outlined"
-          color="primary"
-          size="small"
-          onClick={api.onIncrement}
-        >
-          +
-        </Button>
+        {props.editing && (
+          <Button
+            variant="outlined"
+            color="primary"
+            size="small"
+            onClick={api.onIncrement}
+          >
+            +
+          </Button>
+        )}
       </Stack>
     </Stack>
   );
@@ -78,6 +77,7 @@ const EditMachineStack: React.FC<EditMachineStackProps> = (props) => {
 export default EditMachineStack;
 
 interface StackPlateProps {
+  editing: boolean;
   checked: boolean;
   onChange: (checked: boolean) => void;
   children: React.ReactNode;
@@ -112,6 +112,7 @@ const StackPlate: React.FC<StackPlateProps> = (props) => {
         size="small"
         onClick={() => props.onChange(!props.checked)}
         sx={{ p: 0 }}
+        disabled={!props.editing}
       />
       <Stack />
     </Stack>
@@ -147,15 +148,11 @@ const nearestWeight = (stack: number[], bump: number, target: number) => {
 // TODO: figure out a way to have the machine stack defaults come from user
 // preferences, they probably should be done per exerciseType and there should
 // probably be a default for each one based on real-world gyms.
-const useEditMachineStackAPI = (props: EditMachineStackProps) => {
-  const {
-    actualWeightValue,
-    setActualWeightValue: parentSetActualWeightValue,
-    targetWeightValue,
-  } = props;
+const useEditMachineStackAPI = (props: EquipmentWeightEditorProps) => {
+  const { serverActual, serverTarget, onActualChange, onTargetChange } = props;
   const [bump] = useState(5);
   const [stackPlateWeightValue] = useState(10);
-  const [maxWeightValue] = useState(200);
+  const [maxWeightValue] = useState(500);
 
   const stack = useMemo(
     () => stacksForWeight(maxWeightValue, stackPlateWeightValue),
@@ -167,61 +164,53 @@ const useEditMachineStackAPI = (props: EditMachineStackProps) => {
     [stack, bump],
   );
 
-  const [resolvedWeight, setResolvedWeight] = useResolvableWeight(
-    actualWeightValue,
-    parentSetActualWeightValue,
-    targetWeightValue,
+  const { actual, setActual, target } = useEditableWeight(
+    serverTarget,
+    serverActual,
     targetToActual,
+    onActualChange,
+    onTargetChange,
   );
 
-  useEffect(() => {
-    if (actualWeightValue === null && targetWeightValue != null) {
-      setResolvedWeight((_) => nearestWeight(stack, bump, targetWeightValue));
-    }
-  }, [actualWeightValue, targetWeightValue, setResolvedWeight, stack, bump]);
-
   const selectedPlate = useMemo(
-    () =>
-      resolvedWeight % stackPlateWeightValue === 0
-        ? resolvedWeight
-        : resolvedWeight - bump,
-    [resolvedWeight, stackPlateWeightValue, bump],
+    () => (actual % stackPlateWeightValue === 0 ? actual : actual - bump),
+    [actual, stackPlateWeightValue, bump],
   );
 
   const isBumpActive = useMemo(
-    () => resolvedWeight - selectedPlate === bump,
-    [resolvedWeight, selectedPlate, bump],
+    () => actual - selectedPlate === bump,
+    [actual, selectedPlate, bump],
   );
 
   const onBumpChange = useCallback(
     (checked: boolean) => {
-      setResolvedWeight((prev) => (checked ? prev + bump : prev - bump));
+      setActual((prev) => (checked ? prev + bump : prev - bump));
     },
-    [bump, setResolvedWeight],
+    [bump, setActual],
   );
 
   const onStackPlateChange = useCallback(
     (plateValue: number, checked: boolean) => {
       if (checked) {
-        setResolvedWeight(isBumpActive ? plateValue + bump : plateValue);
+        setActual(isBumpActive ? plateValue + bump : plateValue);
       }
     },
-    [setResolvedWeight, isBumpActive, bump],
+    [setActual, isBumpActive, bump],
   );
 
   const onIncrement = useCallback(() => {
-    setResolvedWeight((prev) => {
+    setActual((prev) => {
       const next = prev + bump;
       return next > maxWeightValue ? maxWeightValue : next;
     });
-  }, [bump, setResolvedWeight, maxWeightValue]);
+  }, [bump, setActual, maxWeightValue]);
 
   const onDecrement = useCallback(() => {
-    setResolvedWeight((prev) => {
+    setActual((prev) => {
       const next = prev - bump;
       return next < 0 ? 0 : next;
     });
-  }, [bump, setResolvedWeight]);
+  }, [bump, setActual]);
 
   const visiblePlates = useMemo(() => {
     const lensSize = 5;
@@ -248,6 +237,8 @@ const useEditMachineStackAPI = (props: EditMachineStackProps) => {
   );
 
   return {
+    actual,
+    target,
     stack,
     bump,
     isBumpActive,

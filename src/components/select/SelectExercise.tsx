@@ -64,20 +64,25 @@ const SelectExercise: React.FC<SelectExerciseProps> = (props) => {
           options={api.availableExercises.toArray()}
           value={props.exercise}
           onChange={(_, newValue) => props.setExercise((_) => newValue)}
+          getOptionKey={(option) => option}
           getOptionLabel={(option) => exerciseTypeUIStringBrief(option)}
-          renderOption={(props, option) => (
-            <Box
-              component="li"
-              {...props}
-              sx={{ display: "flex", alignItems: "center", gap: 1 }}
-            >
-              <DisplayEquipmentThumbnail
-                size={20}
-                equipmentType={equipmentForExercise(option)}
-              />
-              <Typography>{exerciseTypeUIStringBrief(option)}</Typography>
-            </Box>
-          )}
+          renderOption={(props, option) => {
+            const { key, ...rest } = props;
+            return (
+              <Box
+                key={key}
+                {...rest}
+                component="li"
+                sx={{ display: "flex", alignItems: "center", gap: 1 }}
+              >
+                <DisplayEquipmentThumbnail
+                  size={20}
+                  equipmentType={equipmentForExercise(option)}
+                />
+                <Typography>{exerciseTypeUIStringBrief(option)}</Typography>
+              </Box>
+            );
+          }}
           blurOnSelect={true}
           renderInput={(params) => (
             <TextField {...params} label="Exercise" variant="outlined" />

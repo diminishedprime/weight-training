@@ -9,7 +9,7 @@ import { GetPerformSuperblockExercise } from "@/common-types/get-perform-superbl
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import DisplayStopwatch from "@/components/display/DisplayStopwatch";
 import EditNotes from "@/components/edit/EditNotes";
-import EquipmentWeightEditor from "@/components/edit/EquipmentWeightEditor";
+import EquipmentWeightEditor from "@/components/edit/weight/EquipmentWeightEditor";
 import LabeledValue from "@/components/LabeledValue";
 import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
@@ -90,13 +90,14 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
       <EquipmentWeightEditor
         editing={api.modifying}
         equipmentType={props.exercise.equipment_type}
-        targetWeightValue={props.exercise.target_weight_value}
+        serverTarget={props.exercise.target_weight_value}
+        serverActual={props.exercise.actual_weight_value}
         weightUnit={props.exercise.weight_unit}
-        setActualWeightValue={api.setActualWeightValue}
+        onActualChange={api.setActual}
+        onTargetChange={api.setTarget}
         roundingMode={RoundingMode.NEAREST}
         preferences={props.preferences}
-        barWeightValue={45}
-        actualWeightValue={api.actualWeightValue}
+        barWeight={45}
       />
       <Stack
         direction="row"
@@ -176,9 +177,8 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
   } = props;
   const [modifying, setModifying] = useState(false);
 
-  const [actualWeightValue, setActualWeightValue] = useState(
-    actual_weight_value ?? undefined,
-  );
+  const [actual, setActual] = useState(actual_weight_value);
+  const [target, setTarget] = useState(actual_weight_value);
   const [reps, setReps] = useState(exercise_reps);
   const [isWarmup, setIsWarmup] = useState(is_warmup);
   const [isAMRAP, setIsAMRAP] = useState(is_amrap);
@@ -187,7 +187,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
   const [perceivedEffort, setPerceivedEffort] = useState(perceived_effort);
 
   const finishExercise = useCallback(async () => {
-    if (actualWeightValue === undefined) {
+    if (actual === null) {
       console.error(
         "Invalid invariant: actualWeightValue must not be undefined.",
       );
@@ -196,7 +196,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
     await finishExerciseProps(
       blockId,
       exerciseId,
-      actualWeightValue,
+      actual,
       reps,
       isWarmup,
       isAMRAP,
@@ -204,7 +204,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
       perceivedEffort,
     );
   }, [
-    actualWeightValue,
+    actual,
     blockId,
     exerciseId,
     finishExerciseProps,
@@ -216,7 +216,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
   ]);
 
   const failExercise = useCallback(async () => {
-    if (actualWeightValue === undefined) {
+    if (actual === null) {
       console.error(
         "Invalid invariant: actualWeightValue must not be undefined.",
       );
@@ -225,7 +225,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
     await failExerciseProps(
       blockId,
       exerciseId,
-      actualWeightValue,
+      actual,
       reps,
       isWarmup,
       isAMRAP,
@@ -233,7 +233,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
       perceivedEffort,
     );
   }, [
-    actualWeightValue,
+    actual,
     blockId,
     exerciseId,
     isAMRAP,
@@ -312,9 +312,12 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
   }, [debouncedNotify]);
 
   return {
+    actual,
+    setActual,
+    target,
+    setTarget,
     safelyNotifyRestTimeUp,
-    setActualWeightValue,
-    actualWeightValue,
+    setActualWeightValue: setActual,
     reps,
     setReps,
     isWarmup,

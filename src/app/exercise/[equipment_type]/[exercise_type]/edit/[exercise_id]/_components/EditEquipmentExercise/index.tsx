@@ -4,11 +4,11 @@ import {
   EquipmentType,
   ExerciseType,
   GetExerciseResult,
-  RDispatch,
+  RoundingMode,
   UserPreferences,
 } from "@/common-types";
 import EditNotes from "@/components/edit/EditNotes";
-import EquipmentWeightEditor from "@/components/edit/EquipmentWeightEditor";
+import EquipmentWeightEditor from "@/components/edit/weight/EquipmentWeightEditor";
 import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
 import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
@@ -38,16 +38,16 @@ const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
       <EquipmentWeightEditor
         editing
         equipmentType={props.equipmentType}
-        targetWeightValue={api.targetWeightValue}
-        weightUnit={api.weightUnit}
-        // TODO: This is a crazy hack, but I'm in a hurry.
-        setActualWeightValue={
-          api.setActualWeightValue as never as RDispatch<number | undefined>
-        }
-        roundingMode={api.roundingMode}
+        serverTarget={props.exercise.target_weight_value}
+        serverActual={props.exercise.actual_weight_value}
+        weightUnit={props.exercise.weight_unit}
         preferences={props.preferences}
-        barWeightValue={api.barWeightValue}
-        actualWeightValue={api.actualWeightValue}
+        // TODO: update this once it can come from preferences.
+        barWeight={45}
+        // TODO: update this once it can come from preferences
+        roundingMode={RoundingMode.NEAREST}
+        onActualChange={api.setActual}
+        onTargetChange={api.setTarget}
       />
       <Stack spacing={1}>
         <Stack spacing={1} alignItems="center">

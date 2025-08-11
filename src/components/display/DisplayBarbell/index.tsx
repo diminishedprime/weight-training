@@ -2,7 +2,6 @@ import { RoundingMode, WeightUnit } from "@/common-types";
 import DisplayCollar from "@/components/display/DisplayBarbell/DisplayCollar";
 import DisplayInnerBar from "@/components/display/DisplayBarbell/DisplayInnerBar";
 import DisplaySleeve from "@/components/display/DisplayBarbell/DisplaySleeve";
-import { minimalPlatesForTargetWeight } from "@/util";
 import { Box } from "@mui/material";
 
 // Overall width of the barbell.
@@ -39,7 +38,7 @@ export const PLATE_METADATA: Record<
       backgroundColor: "red",
       color: "white",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid red",
     },
   },
   45: {
@@ -49,7 +48,7 @@ export const PLATE_METADATA: Record<
       backgroundColor: "red",
       color: "white",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid red",
     },
   },
   35: {
@@ -59,7 +58,7 @@ export const PLATE_METADATA: Record<
       backgroundColor: "blue",
       color: "black",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid blue",
     },
   },
   25: {
@@ -69,7 +68,7 @@ export const PLATE_METADATA: Record<
       backgroundColor: "yellow",
       color: "black",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid yellow",
     },
   },
   10: {
@@ -79,7 +78,7 @@ export const PLATE_METADATA: Record<
       backgroundColor: "green",
       color: "white",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid green",
     },
   },
   5: {
@@ -99,7 +98,7 @@ export const PLATE_METADATA: Record<
       backgroundColor: "green",
       color: "white",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid green",
     },
   },
   // Guess
@@ -108,9 +107,9 @@ export const PLATE_METADATA: Record<
     diameterMM: 6.55 * 25.4,
     sx: {
       backgroundColor: "white",
-      color: "white",
+      color: "black",
       borderRadius: "1px",
-      border: ".3px solid black",
+      border: ".3px solid white",
     },
   },
 };
@@ -123,27 +122,22 @@ export const MAX_DIAMETER_MM = Math.max(
 );
 
 export interface DisplayBarbellProps {
-  weightUnit: WeightUnit;
-  targetWeightValue: number;
-  actualWeightValue: number | undefined;
+  targetWeight: number;
+  actualWeight: number;
   barWeightValue: number;
+  weightUnit: WeightUnit;
   roundingMode: RoundingMode;
   availablePlates: number[];
   showPlateNumbers?: boolean;
   showWeight?: boolean;
   showDifference?: boolean;
+  platesForSide: number[];
 }
 
 export const metalGradient =
   "linear-gradient(180deg, hsl(0,0%,78%) 0%, hsl(0,0%,90%) 47%, hsl(0,0%,78%) 53%, hsl(0,0%,70%) 100%)";
 
 const DisplayBarbell: React.FC<DisplayBarbellProps> = (props) => {
-  const { plates } = minimalPlatesForTargetWeight(
-    props.actualWeightValue ?? props.targetWeightValue,
-    props.barWeightValue,
-    props.availablePlates,
-    props.roundingMode,
-  );
   return (
     <Box
       sx={{
@@ -155,23 +149,15 @@ const DisplayBarbell: React.FC<DisplayBarbellProps> = (props) => {
     >
       <DisplaySleeve
         side="left"
-        plates={plates}
+        plates={props.platesForSide}
         showPlateNumbers={props.showPlateNumbers}
       />
       <DisplayCollar side="left" />
-      <DisplayInnerBar
-        weightUnit={props.weightUnit}
-        showWeight={props.showWeight}
-        actualWeightValue={props.actualWeightValue}
-        targetWeightValue={props.targetWeightValue}
-        showDifference={props.showDifference}
-        availablePlates={props.availablePlates}
-        roundingMode={props.roundingMode}
-      />
+      <DisplayInnerBar {...props} />
       <DisplayCollar side="right" />
       <DisplaySleeve
         side="right"
-        plates={plates}
+        plates={props.platesForSide}
         showPlateNumbers={props.showPlateNumbers}
       />
     </Box>

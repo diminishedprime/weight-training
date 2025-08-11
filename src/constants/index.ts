@@ -12,8 +12,8 @@ export const PLATE_COLORS: Record<number, { bg: string; fg: string }> = {
   25: { bg: "yellow", fg: "black" },
   10: { bg: "green", fg: "white" },
   5: { bg: "black", fg: "white" },
-  2.5: { bg: "pink", fg: "black" },
-  1.25: { bg: "orange", fg: "black" },
+  2.5: { bg: "green", fg: "white" },
+  1.25: { bg: "white", fg: "black" },
 };
 
 export const AVAILABLE_PLATES: number[] = [

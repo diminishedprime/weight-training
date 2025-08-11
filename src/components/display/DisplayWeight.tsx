@@ -41,14 +41,18 @@ const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
       }}
     >
       {props.startAdornment}
-      <Typography component="span" color={props.valueColor || "primary"}>
+      <Typography
+        component="span"
+        color={props.valueColor || "primary"}
+        variant="inherit"
+      >
         {formattedWeight}{" "}
         {!props.hideUnit && weightUnitUIString(props.weightUnit)}
       </Typography>
       {props.reps && (
         <>
           <span>&nbsp;x&nbsp;</span>
-          <Typography component="span" color="secondary">
+          <Typography component="span" color="secondary" variant="inherit">
             {props.reps}
             {props.repsAMRAP ? " (AMRAP)" : ""}
           </Typography>

@@ -112,7 +112,7 @@ const useAddBarbellExerciseAPI = (props: AddEquipmentExerciseProps) => {
   return {
     additionalFields,
     defaults,
-    barWeightValue,
+    barWeight: barWeightValue,
     setBarWeight: setBarWeightValue,
     addExerciseTestId,
   };
@@ -184,8 +184,11 @@ export const useAddEquipmentExerciseAPI = (
     [equipmentType, exerciseType, preferences],
   );
 
-  const [actualWeightValue, setActualWeight] = useState<number | undefined>(
-    initialDraft?.actualWeightValue ?? defaults.actualWeightValue,
+  const [actual, setActual] = useState<number | null>(
+    initialDraft?.actualWeightValue ?? null,
+  );
+  const [target, setTarget] = useState<number>(
+    initialDraft?.targetWeightValue ?? actual ?? 0,
   );
   const [roundingMode] = useState<RoundingMode>(
     initialDraft?.roundingMode ?? defaults.roundingMode,
@@ -234,7 +237,6 @@ export const useAddEquipmentExerciseAPI = (
   // update when the initialDraft changes on the server.
   useEffect(() => {
     if (initialDraft) {
-      setActualWeight(initialDraft.actualWeightValue);
       setReps(initialDraft.reps);
       setCompletionStatus(initialDraft.completionStatus);
       setNotes(initialDraft.notes);
@@ -248,7 +250,7 @@ export const useAddEquipmentExerciseAPI = (
     () => ({
       equipmentType,
       exerciseType,
-      actualWeightValue,
+      actualWeightValue: actual,
       weightUnit,
       roundingMode,
       reps,
@@ -261,7 +263,7 @@ export const useAddEquipmentExerciseAPI = (
     [
       equipmentType,
       exerciseType,
-      actualWeightValue,
+      actual,
       weightUnit,
       roundingMode,
       reps,
@@ -309,7 +311,7 @@ export const useAddEquipmentExerciseAPI = (
   }, [userId, path, withAdditionalFields, debouncedSave]);
 
   const resetCommonFields = useCallback(() => {
-    setActualWeight(defaults.actualWeightValue);
+    setActual(defaults.actualWeightValue);
     setReps(defaults.reps);
     setCompletionStatus(defaults.completionStatus);
     setNotes(defaults.notes);
@@ -324,7 +326,7 @@ export const useAddEquipmentExerciseAPI = (
 
   const resetDisabled = useMemo(() => {
     return (
-      actualWeightValue === defaults.actualWeightValue &&
+      actual === defaults.actualWeightValue &&
       reps === defaults.reps &&
       completionStatus === defaults.completionStatus &&
       notes === (defaults.notes ?? "") &&
@@ -333,7 +335,7 @@ export const useAddEquipmentExerciseAPI = (
       isAMRAP === defaults.isAMRAP
     );
   }, [
-    actualWeightValue,
+    actual,
     reps,
     completionStatus,
     notes,
@@ -370,13 +372,17 @@ export const useAddEquipmentExerciseAPI = (
     );
   }, [userId, path, withAdditionalFields, withAdditionalDefaults]);
 
+  const submitDisabled = useMemo(() => actual === null, [actual]);
+
   return {
+    actual,
+    setActual,
+    target,
+    setTarget,
     handleAddEquipmentExerciseClick,
     showAddEquipmentExerciseButton,
     commonFormDraft,
     resetCommonFields,
-    actualWeight: actualWeightValue,
-    setActualWeight,
     roundingMode,
     weightUnit,
     reps,
@@ -396,8 +402,9 @@ export const useAddEquipmentExerciseAPI = (
     boundAddEquipmentExerciseAction,
     boundClearEquipmentFormDraft,
     addExerciseTestId: equipmentSpecificAPI.addExerciseTestId,
-    barWeightValue: equipmentSpecificAPI.barWeightValue,
+    barWeight: equipmentSpecificAPI.barWeight,
     repChoices,
     resetDisabled,
+    submitDisabled,
   };
 };

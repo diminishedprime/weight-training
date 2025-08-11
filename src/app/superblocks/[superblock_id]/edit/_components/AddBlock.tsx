@@ -9,7 +9,9 @@ import {
   WeightUnit,
 } from "@/common-types";
 import DisplayDate from "@/components/display/DisplayDate";
-import EditWeight from "@/components/edit/EditWeight";
+import EditWeight, {
+  EditWeightHandle,
+} from "@/components/edit/weight/EditWeight";
 import LabeledValue from "@/components/LabeledValue";
 import SelectExercise from "@/components/select/SelectExercise";
 import SelectNumber from "@/components/select/SelectNumber";
@@ -19,7 +21,13 @@ import { exerciseTypeUIStringLong } from "@/uiStrings";
 import { EQUIPMENT_FOR_EXERCISE } from "@/util";
 import MultiplyIcon from "@mui/icons-material/Close";
 import { Divider, Fab, Paper, Stack, Typography } from "@mui/material";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useDebouncedCallback } from "use-debounce";
 
 interface AddBlockProps {
@@ -28,7 +36,8 @@ interface AddBlockProps {
 }
 
 const AddBlock: React.FC<AddBlockProps> = (props) => {
-  const api = useAddBlockAPI(props);
+  const editWeightRef = useRef<EditWeightHandle>(null!);
+  const api = useAddBlockAPI(props, editWeightRef);
   return (
     <Stack spacing={1} component={Paper} sx={{ m: 1, p: 1 }}>
       <TODO>
@@ -64,14 +73,17 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
         >
           <LabeledValue label="Weight">
             <EditWeight
+              ref={editWeightRef}
+              editing={true}
+              serverTarget={50}
+              clearValue={50}
+              serverActual={api.actualWeight}
+              onActualChange={api.setActualWeight}
+              weightUnit={"pounds"}
               sub5
               sub10
               add5
               add10
-              targetWeight={50}
-              clearValue={50}
-              actualWeight={api.actualWeight}
-              setActualWeight={api.setActualWeight}
             />
             <TODO>
               This works okay, but it's not obvious you can click these. I need
@@ -165,10 +177,10 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
         direction="row"
       >
         <Stack spacing={1} flex={1}>
-          {api.actualWeight === undefined ||
-            (api.actualWeight <= 0 && (
+          {api.actualWeight === null ||
+            (api.actualWeight < 0 && (
               <Typography variant="body2" color="error">
-                Weight must be greater than 0.
+                Weight must be positive.
               </Typography>
             ))}
           {api.reps <= 0 && (
@@ -203,12 +215,15 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
 
 export default AddBlock;
 
-const useAddBlockAPI = (props: AddBlockProps) => {
+const useAddBlockAPI = (
+  props: AddBlockProps,
+  editWeightRef?: React.RefObject<EditWeightHandle>,
+) => {
   const { userId, superblockId } = props;
   const [exercise, setExercise] = useState<ExerciseType | null>(null);
   const [reps, setReps] = useState(10);
   const [sets, setSets] = useState(5);
-  const [actualWeight, setActualWeight] = useState<number>();
+  const [actualWeight, setActualWeight] = useState<number | null>(null);
   const [recentSetOverviews, setRecentSetOverviews] = useState<
     RecentSetOverviewsResult | undefined
   >(undefined);
@@ -218,8 +233,8 @@ const useAddBlockAPI = (props: AddBlockProps) => {
   const addDisabled = useMemo(() => {
     return (
       !exercise ||
-      actualWeight === undefined ||
-      actualWeight <= 0 ||
+      actualWeight === null ||
+      actualWeight < 0 ||
       reps <= 0 ||
       sets <= 0
     );
@@ -242,10 +257,14 @@ const useAddBlockAPI = (props: AddBlockProps) => {
 
   const setFromOverview = useCallback(
     (overview: RecentSetOverviewsResult["overviews"][number]) => {
-      setActualWeight(Math.floor(overview.average_weight));
+      if (editWeightRef?.current) {
+        editWeightRef.current.setActual(Math.floor(overview.average_weight));
+      } else {
+        setActualWeight(Math.floor(overview.average_weight));
+      }
       setReps(Math.floor(overview.average_reps));
     },
-    [setActualWeight, setReps],
+    [editWeightRef, setActualWeight, setReps],
   );
 
   // TODO: I'm not sure if I really need to debounce this or not.
@@ -267,7 +286,7 @@ const useAddBlockAPI = (props: AddBlockProps) => {
   }, [userId, exercise, debouncedSetOverviews]);
 
   const boundAddBlockAction = useMemo(() => {
-    if (!exercise || !equipmentType || actualWeight === undefined) {
+    if (!exercise || !equipmentType || actualWeight === null) {
       return;
     }
     return addBlockServer.bind(

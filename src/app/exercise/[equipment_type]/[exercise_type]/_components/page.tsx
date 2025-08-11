@@ -163,7 +163,7 @@ async function getFormDraft<NarrowedDraftType>(
 export interface CommonFormDraft {
   equipmentType: EquipmentType;
   exerciseType: ExerciseType;
-  actualWeightValue: number | undefined;
+  actualWeightValue: number | null;
   weightUnit: WeightUnit;
   roundingMode: RoundingMode;
   reps: number;
