@@ -92,20 +92,21 @@ const useSelectPerceivedEffortAPI = (props: SelectPerceivedEffortProps) => {
     setIsEditing(true);
   }, []);
 
-  const updatePerceivedEffortAsync = async (
-    newValue: PerceivedEffort | null,
-  ) => {
-    setPerceivedEffort(newValue);
-    try {
-      await api.trigger({
-        p_user_id: userId,
-        p_exercise_id: exerciseId,
-        p_perceived_effort: newValue ?? undefined,
-      });
-    } catch {
-      setPerceivedEffort(perceivedEffort);
-    }
-  };
+  const updatePerceivedEffortAsync = useCallback(
+    async (newValue: PerceivedEffort | null) => {
+      setPerceivedEffort(newValue);
+      try {
+        await api.trigger({
+          p_user_id: userId,
+          p_exercise_id: exerciseId,
+          p_perceived_effort: newValue ?? undefined,
+        });
+      } catch {
+        setPerceivedEffort(perceivedEffort);
+      }
+    },
+    [api, userId, exerciseId, setPerceivedEffort, perceivedEffort],
+  );
 
   const handlePerceivedEffortChange = useCallback(
     (_e: React.MouseEvent<HTMLElement>, value: string | null) => {
