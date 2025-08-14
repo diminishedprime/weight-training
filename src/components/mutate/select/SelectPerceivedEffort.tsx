@@ -69,7 +69,7 @@ const SelectPerceivedEffort: React.FC<SelectPerceivedEffortProps> = (props) => {
       <Snackbar
         open={!!api.error}
         autoHideDuration={2000}
-        message={api.error || undefined}
+        message={api.error}
       />
     </Stack>
   );
