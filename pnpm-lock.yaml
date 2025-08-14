@@ -44,9 +44,6 @@ importers:
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
-      eslint-config-next:
-        specifier: ^15.4.6
-        version: 15.4.6(eslint@9.26.0(jiti@2.4.2))(typescript@5.8.3)
       fuse.js:
         specifier: ^7.1.0
         version: 7.1.0
@@ -77,9 +74,6 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
-      supabase:
-        specifier: ^2.34.3
-        version: 2.34.3
       swr:
         specifier: ^2.3.6
         version: 2.3.6(react@19.1.0)
@@ -147,6 +141,9 @@ importers:
       eslint:
         specifier: ^9
         version: 9.26.0(jiti@2.4.2)
+      eslint-config-next:
+        specifier: ^15.4.6
+        version: 15.4.6(eslint@9.26.0(jiti@2.4.2))(typescript@5.8.3)
       eslint-plugin-react-hooks:
         specifier: ^5.2.0
         version: 5.2.0(eslint@9.26.0(jiti@2.4.2))
@@ -168,6 +165,9 @@ importers:
       stryker-cli:
         specifier: ^1.0.2
         version: 1.0.2
+      supabase:
+        specifier: ^2.34.3
+        version: 2.34.3
       typescript:
         specifier: ^5
         version: 5.8.3
