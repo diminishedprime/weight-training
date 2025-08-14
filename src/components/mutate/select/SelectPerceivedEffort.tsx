@@ -1,8 +1,7 @@
 import { PerceivedEffort, RDispatch } from "@/common-types";
 import DisplayPerceivedEffort from "@/components/display/DisplayPerceivedEffort";
-import { updatePerceivedEffort as serverUpdatePerceivedEffort } from "@/components/mutate/select/SelectPerceivedEffort/actions";
-import TODO from "@/components/TODO";
 import { Constants } from "@/database.types";
+import { useRPCMutation } from "@/hooks";
 import ClearIcon from "@mui/icons-material/Clear";
 import {
   IconButton,
@@ -11,7 +10,7 @@ import {
   ToggleButton,
   ToggleButtonGroup,
 } from "@mui/material";
-import { useCallback, useState, useTransition } from "react";
+import { useCallback, useState } from "react";
 
 interface SelectPerceivedEffortProps {
   userId: string;
@@ -33,10 +32,6 @@ const SelectPerceivedEffort: React.FC<SelectPerceivedEffortProps> = (props) => {
         position: "relative",
       }}
     >
-      <TODO>
-        Support an additional sentiment in general, we want one that's more
-        neutral and maybe like a gray color.
-      </TODO>
       <ToggleButtonGroup
         value={props.perceivedEffort}
         exclusive
@@ -74,7 +69,6 @@ const SelectPerceivedEffort: React.FC<SelectPerceivedEffortProps> = (props) => {
       <Snackbar
         open={!!api.error}
         autoHideDuration={2000}
-        onClose={api.handleCloseError}
         message={api.error}
       />
     </Stack>
@@ -86,53 +80,57 @@ export default SelectPerceivedEffort;
 const useSelectPerceivedEffortAPI = (props: SelectPerceivedEffortProps) => {
   const { userId, exerciseId, setPerceivedEffort, perceivedEffort } = props;
   const [isEditing, setIsEditing] = useState(props.initialEditingState);
-  const [isPending, startTransition] = useTransition();
-  const [error, setError] = useState<string | null>(null);
+  const api = useRPCMutation(
+    "update_perceived_effort",
+    useCallback(
+      (error: Error) => `Failed to update perceived effort: ${error.message}`,
+      [],
+    ),
+  );
 
   const handleStartEditing = useCallback(() => {
     setIsEditing(true);
   }, []);
 
-  const handleCloseError = useCallback(() => {
-    setError(null);
-  }, []);
-
-  const updatePerceivedEffort = useCallback(
+  const updatePerceivedEffortAsync = useCallback(
     async (newValue: PerceivedEffort | null) => {
       setPerceivedEffort(newValue);
-      startTransition(async () => {
-        try {
-          await serverUpdatePerceivedEffort(userId, exerciseId, newValue);
-        } catch {
-          startTransition(() => {
-            setError("Failed to update perceived effort. Please try again.");
-            setPerceivedEffort(perceivedEffort);
-          });
-        }
-      });
+      try {
+        await api.trigger({
+          p_user_id: userId,
+          p_exercise_id: exerciseId,
+          p_perceived_effort: newValue ?? undefined,
+        });
+      } catch {
+        setPerceivedEffort(perceivedEffort);
+      }
     },
-    [userId, exerciseId, perceivedEffort, startTransition, setPerceivedEffort],
+    [api, userId, exerciseId, setPerceivedEffort, perceivedEffort],
   );
 
   const handlePerceivedEffortChange = useCallback(
     (_e: React.MouseEvent<HTMLElement>, value: string | null) => {
       setIsEditing(false);
-      if (value === "clear") {
-        updatePerceivedEffort(null);
-      } else if (value !== null) {
-        updatePerceivedEffort(value as PerceivedEffort);
+      switch (value) {
+        case null:
+          return;
+        case "clear":
+          updatePerceivedEffortAsync(null);
+          return;
+        default:
+          updatePerceivedEffortAsync(value as PerceivedEffort);
+          return;
       }
     },
-    [updatePerceivedEffort],
+    [updatePerceivedEffortAsync],
   );
 
   return {
     isEditing,
-    isPending,
-    error,
+    isPending: api.isMutating,
+    error: api.errorMessage,
     setIsEditing,
     handleStartEditing,
     handlePerceivedEffortChange,
-    handleCloseError,
   };
 };

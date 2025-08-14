@@ -1,7 +1,10 @@
 "use client";
 
+import { rpcMutationAction } from "@/actions";
 import { RDispatch } from "@/common-types";
+import { Database } from "@/database.types";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+import useSWRMutation from "swr/mutation";
 import { useSessionStorage } from "usehooks-ts";
 
 export const useRequiredLabel = (labelText: string, isRequired: boolean) => {
@@ -83,3 +86,25 @@ export const usePersistentBoolean = (
     initializeWithValue: false, // Set to false for SSR compatibility
   });
 };
+
+export function useRPCMutation<
+  T extends keyof Database["public"]["Functions"],
+  Args extends Database["public"]["Functions"][T]["Args"],
+  Return = Database["public"]["Functions"][T]["Returns"],
+>(fnName: T, getErrorMessage: (error: Error) => string) {
+  const mutationFetcher = async (_: string, { arg }: { arg: Args }) => {
+    await new Promise((resolve) => setTimeout(resolve, 100)); // Ensure this runs in the next tick
+    return await rpcMutationAction<T, Args, Return>(fnName, arg);
+  };
+  const { trigger, data, error, isMutating } = useSWRMutation<
+    Return,
+    Error,
+    string,
+    Args
+  >(String(fnName), mutationFetcher);
+  const errorMessage = React.useMemo(
+    () => (error ? getErrorMessage(error) : undefined),
+    [error, getErrorMessage],
+  );
+  return { trigger, data, errorMessage, isMutating };
+}
