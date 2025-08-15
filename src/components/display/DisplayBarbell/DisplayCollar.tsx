@@ -1,10 +1,10 @@
-import { Box } from "@mui/material";
 import {
   BAR_WIDTH_MM,
   COLLAR_DIAMETER_MM,
   COLLAR_WIDTH_MM,
   metalGradient,
-} from ".";
+} from "@/components/display/DisplayBarbell";
+import { Box } from "@mui/material";
 
 interface DisplayCollarProps {
   side: "left" | "right";

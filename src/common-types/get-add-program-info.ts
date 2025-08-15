@@ -1,5 +1,5 @@
+import { RequiredNonNullable } from "@/common-types";
 import { Database } from "@/database.types";
-import { RequiredNonNullable } from ".";
 
 // Friendly type names.
 type LGetAddProgramInfo =

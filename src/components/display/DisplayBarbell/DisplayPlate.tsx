@@ -1,5 +1,9 @@
+import {
+  MAX_DIAMETER_MM,
+  PLATE_METADATA,
+  SLEEVE_DIAMETER_MM,
+} from "@/components/display/DisplayBarbell";
 import { Box } from "@mui/material";
-import { MAX_DIAMETER_MM, PLATE_METADATA, SLEEVE_DIAMETER_MM } from ".";
 
 interface PlateProps {
   weightValue: number;

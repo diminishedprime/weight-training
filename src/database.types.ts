@@ -1064,10 +1064,27 @@ export type Database = {
         previous_recorded_at: string | null;
         increase_weight_value: number | null;
       };
+      recent_set_exercise: {
+        id: string | null;
+        reps: number | null;
+        weight: number | null;
+        perceived_effort:
+          | Database["public"]["Enums"]["perceived_effort_enum"]
+          | null;
+        completion_status:
+          | Database["public"]["Enums"]["completion_status_enum"]
+          | null;
+      };
       recent_set_overview: {
-        average_reps: number | null;
-        average_weight: number | null;
+        block_id: string | null;
+        exercises:
+          | Database["public"]["CompositeTypes"]["recent_set_exercise"][]
+          | null;
         started_at: string | null;
+        median_weight: number | null;
+        median_reps: number | null;
+        highest_weight: number | null;
+        highest_reps: number | null;
       };
       recent_set_overview_result: {
         overviews:

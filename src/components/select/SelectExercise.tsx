@@ -3,6 +3,7 @@ import { ExerciseType, ProgramDayType } from "@/common-types";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
 import { EXERCISE_TYPES, EXERCISES_FOR_DAY_TYPE } from "@/constants";
 import { Constants } from "@/database.types";
+import { TestIds } from "@/test-ids";
 import { exerciseTypeUIStringBrief, programDayTypeUIString } from "@/uiStrings";
 import { equipmentForExercise } from "@/util";
 import ResetIcon from "@mui/icons-material/RestartAlt";
@@ -66,7 +67,8 @@ const SelectExercise: React.FC<SelectExerciseProps> = (props) => {
           onChange={(_, newValue) => props.setExercise((_) => newValue)}
           getOptionKey={(option) => option}
           getOptionLabel={(option) => exerciseTypeUIStringBrief(option)}
-          renderOption={(props, option) => {
+          disablePortal={true}
+          renderOption={(props, option, { index }) => {
             const { key, ...rest } = props;
             return (
               <Box
@@ -74,6 +76,7 @@ const SelectExercise: React.FC<SelectExerciseProps> = (props) => {
                 {...rest}
                 component="li"
                 sx={{ display: "flex", alignItems: "center", gap: 1 }}
+                data-testid={TestIds.SelectExercise_Option(index)}
               >
                 <DisplayEquipmentThumbnail
                   size={20}
@@ -85,7 +88,12 @@ const SelectExercise: React.FC<SelectExerciseProps> = (props) => {
           }}
           blurOnSelect={true}
           renderInput={(params) => (
-            <TextField {...params} label="Exercise" variant="outlined" />
+            <TextField
+              {...params}
+              label="Exercise"
+              variant="outlined"
+              data-testid={TestIds.SelectExercise_Autocomplete}
+            />
           )}
         />
         <IconButton onClick={() => props.setExercise(null)}>

@@ -1,3 +1,4 @@
+export type Nullable<T> = T | null | undefined;
 import { Database } from "@/database.types";
 import {
   PaletteOptions,

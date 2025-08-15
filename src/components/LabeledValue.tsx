@@ -53,7 +53,7 @@ const LabeledValue: React.FC<LabeledValueProps> = (props) => {
       </Typography>
       {props.children}
       {props.help && api.showHelp && (
-        <Stack>
+        <Stack mt={1}>
           <Typography variant="caption" color="text.secondary" sx={{ flex: 1 }}>
             {props.help}
           </Typography>

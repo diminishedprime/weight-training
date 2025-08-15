@@ -1,12 +1,12 @@
 import { WeightUnit } from "@/common-types";
-import DisplayWeight from "@/components/display/DisplayWeight";
-import { Box, Stack, Typography } from "@mui/material";
 import {
   BAR_WIDTH_MM,
   INNER_BAR_DIAMETER_MM,
   INNER_BAR_WIDTH_MM,
   metalGradient,
-} from ".";
+} from "@/components/display/DisplayBarbell";
+import DisplayWeight from "@/components/display/DisplayWeight";
+import { Box, Stack, Typography } from "@mui/material";
 
 interface DisplayInnerBarProps {
   targetWeight: number;
