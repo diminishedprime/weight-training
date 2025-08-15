@@ -1,5 +1,3 @@
-"use client";
-
 import { CompletionStatus, PerceivedEffort } from "@/common-types";
 
 /**
@@ -39,4 +37,12 @@ export const TestIds = {
   EditWeightClearButton: "edit-weight-clear-button",
   Programs_Add_ProgramNameInput: "programs-add-program-name-input",
   Programs_Add_AddProgram: "programs-add-add-program",
+  // TODO: these should match the naming in paths, where I actually thought
+  // about instead of just kinda going with whatever.
+  SelectExercise_Autocomplete: "select-exercise-autocomplete",
+  SelectExercise_Option: (index: number) => `select-exercise-option-${index}`,
+  Superblocks_SuperblockId_Edit_AddBlock:
+    "superblocks-superblock-id-edit-add-block",
+  Superblocks_SuperblockId_Edit_Block: (index: number) =>
+    `superblocks-superblock-id-edit-block-${index}`,
 } as const;

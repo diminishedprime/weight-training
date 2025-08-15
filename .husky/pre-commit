@@ -5,6 +5,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Format code
+pnpm run format:fix-imports
 pnpm run format
 
 # Check for changes after formatting

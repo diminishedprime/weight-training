@@ -93,7 +93,6 @@ export function useRPCMutation<
   Return = Database["public"]["Functions"][T]["Returns"],
 >(fnName: T, getErrorMessage: (error: Error) => string) {
   const mutationFetcher = async (_: string, { arg }: { arg: Args }) => {
-    await new Promise((resolve) => setTimeout(resolve, 100)); // Ensure this runs in the next tick
     return await rpcMutationAction<T, Args, Return>(fnName, arg);
   };
   const { trigger, data, error, isMutating } = useSWRMutation<

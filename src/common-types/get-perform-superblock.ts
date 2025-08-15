@@ -1,5 +1,5 @@
+import { RequiredNonNullable } from "@/common-types";
 import { Database } from "@/database.types";
-import { RequiredNonNullable } from ".";
 
 type LGetPerformSuperblock =
   Database["public"]["Functions"]["get_perform_superblock"]["Returns"];

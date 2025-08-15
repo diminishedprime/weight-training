@@ -8,6 +8,7 @@ import Link from "@/components/Link";
 import TODO from "@/components/TODO";
 import { Paths } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
+import { TestIds } from "@/test-ids";
 import { Box, Button, Paper, Stack, Typography } from "@mui/material";
 import React from "react";
 
@@ -42,8 +43,14 @@ export default async function Edit(props: EditProps) {
             Let's a go
           </Button>
         </Stack>
-        {superblock.blocks.map((block) => (
-          <Stack key={block.id} spacing={1} component={Paper} sx={{ p: 1 }}>
+        {superblock.blocks.map((block, idx) => (
+          <Stack
+            key={block.id}
+            spacing={1}
+            component={Paper}
+            sx={{ p: 1 }}
+            data-testid={TestIds.Superblocks_SuperblockId_Edit_Block(idx)}
+          >
             <Typography variant="h6">{block.name}</Typography>
             <Stack
               direction="row"

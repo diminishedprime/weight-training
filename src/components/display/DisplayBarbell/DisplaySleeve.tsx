@@ -1,11 +1,11 @@
-import DisplayPlate from "@/components/display/DisplayBarbell/DisplayPlate";
-import { Box } from "@mui/material";
 import {
   BAR_WIDTH_MM,
   metalGradient,
   SLEEVE_DIAMETER_MM,
   SLEEVE_WIDTH_MM,
-} from ".";
+} from "@/components/display/DisplayBarbell";
+import DisplayPlate from "@/components/display/DisplayBarbell/DisplayPlate";
+import { Box } from "@mui/material";
 
 interface DisplaySleeveProps {
   side: "left" | "right";

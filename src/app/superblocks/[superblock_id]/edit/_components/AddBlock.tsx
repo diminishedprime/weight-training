@@ -1,14 +1,11 @@
 "use client";
-import {
-  addBlock as addBlockServer,
-  recentSetOverviews as recentSetOverviewsServer,
-} from "@/app/superblocks/[superblock_id]/edit/_components/actions";
+import { addBlock as addBlockServer } from "@/app/superblocks/[superblock_id]/edit/_components/actions";
+import Overviews from "@/app/superblocks/[superblock_id]/edit/_components/Overviews";
 import {
   ExerciseType,
   RecentSetOverviewsResult,
   WeightUnit,
 } from "@/common-types";
-import DisplayDate from "@/components/display/DisplayDate";
 import EditWeight, {
   EditWeightHandle,
 } from "@/components/edit/weight/EditWeight";
@@ -16,7 +13,8 @@ import LabeledValue from "@/components/LabeledValue";
 import SelectExercise from "@/components/select/SelectExercise";
 import SelectNumber from "@/components/select/SelectNumber";
 import TODO from "@/components/TODO";
-import { useRequiredLabel } from "@/hooks";
+import { useRPCMutation } from "@/hooks";
+import { TestIds } from "@/test-ids";
 import { exerciseTypeUIStringLong } from "@/uiStrings";
 import { EQUIPMENT_FOR_EXERCISE } from "@/util";
 import MultiplyIcon from "@mui/icons-material/Close";
@@ -28,7 +26,6 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { useDebouncedCallback } from "use-debounce";
 
 interface AddBlockProps {
   userId: string;
@@ -49,101 +46,68 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
         labelVariant="h6"
         labelColor="text.primary"
       >
-        <LabeledValue
-          label={api.exerciseLabel}
-          labelVariant="body2"
-          labelColor="text.primary"
-          help={
-            <React.Fragment>
-              Select the exercise type you'd like to use for your block. Blocks
-              can only have one exercise type.
-            </React.Fragment>
-          }
-        >
+        <Stack spacing={1} mt={1}>
           <SelectExercise
             exercise={api.exercise}
             setExercise={api.setExercise}
           />
-        </LabeledValue>
-        <Stack
-          direction="row"
-          spacing={1}
-          flexWrap="wrap"
-          justifyContent="space-around"
-        >
-          <LabeledValue label="Weight">
-            <EditWeight
-              ref={editWeightRef}
-              editing={true}
-              serverTarget={50}
-              clearValue={50}
-              serverActual={api.actualWeight}
-              onActualChange={api.setActualWeight}
-              weightUnit={"pounds"}
-              sub5
-              sub10
-              add5
-              add10
-            />
-            <TODO>
-              This works okay, but it's not obvious you can click these. I need
-              to think through how to handle this, A button would work, but I
-              think there's too much data here, I want it to be super compact
-              like it is now, though.
-            </TODO>
-            <Stack
-              sx={{ my: 1 }}
-              direction="row"
-              spacing={0.5}
-              justifyContent="space-between"
-              flexWrap="wrap"
-            >
-              {api.recentSetOverviews?.overviews?.length === 0 && (
-                <Typography variant="caption" color="text.secondary">
-                  No recent sets for exercise.
-                </Typography>
-              )}
-              {api.recentSetOverviews?.overviews?.map((overview, idx) => (
-                <LabeledValue
-                  key={idx}
-                  alignItems={"center"}
-                  onClick={() => api.setFromOverview(overview)}
-                  label={
-                    <DisplayDate
-                      variant="caption"
-                      timestamp={overview.started_at}
-                      twoDigitYear
-                      noTime
-                    />
-                  }
-                >
-                  {overview.average_weight.toFixed(0)}x
-                  {overview.average_reps.toFixed(0)}
-                </LabeledValue>
-              ))}
-            </Stack>
+          <Overviews
+            overviews={api.recentSetOverviews?.overviews}
+            exercise={api.exercise}
+            api={api.recentSetOverviewsAPI}
+            setReps={api.setReps}
+            setWeight={api.setActualWeight}
+            setSets={api.setSets}
+          />
+          <Stack
+            direction="row"
+            spacing={1}
+            flexWrap="wrap"
+            justifyContent="space-around"
+            width="100%"
+          >
             <TODO>
               It would be nice to allow more customized blocks, i.e. including
               amrap, warmup, different reps per set, etc.
             </TODO>
-          </LabeledValue>
-          <LabeledValue label="Sets" alignItems="center">
-            <SelectNumber
-              selectedNumber={api.sets}
-              setSelectedNumber={api.setSets}
-              choices={[3, 4, 5]}
-            />
-          </LabeledValue>
-          <LabeledValue label="Reps" alignItems="center">
-            <SelectNumber
-              selectedNumber={api.reps}
-              setSelectedNumber={api.setReps}
-              choices={[5, 8, 10, 12, 15]}
-            />
-          </LabeledValue>
+            <LabeledValue label="Weight" alignItems="center">
+              <EditWeight
+                ref={editWeightRef}
+                editing={true}
+                serverTarget={50}
+                clearValue={50}
+                serverActual={api.actualWeight}
+                onActualChange={api.setActualWeight}
+                weightUnit={"pounds"}
+                sub5
+                sub10
+                add5
+                add10
+              />
+            </LabeledValue>
+            <LabeledValue label="Sets" alignItems="center">
+              <SelectNumber
+                selectedNumber={api.sets}
+                setSelectedNumber={api.setSets}
+                choices={[3, 4, 5]}
+              />
+            </LabeledValue>
+            <LabeledValue label="Reps" alignItems="center">
+              <SelectNumber
+                selectedNumber={api.reps}
+                setSelectedNumber={api.setReps}
+                choices={[5, 8, 10, 12, 15]}
+              />
+            </LabeledValue>
+          </Stack>
         </Stack>
       </LabeledValue>
       <Divider />
+      <TODO>
+        It'd be cool to have a "bump up" and "bump down" by the volume which
+        finds the nearest above and nearest below volumes by changing the weight
+        +-5 and reps +-3 and the sets +-2.
+      </TODO>
       <Stack alignItems="center" sx={{ p: 1, m: 1 }}>
         <Typography variant="h6">
           {api.exercise && exerciseTypeUIStringLong(api.exercise)}
@@ -165,6 +129,16 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
           <MultiplyIcon />
           <LabeledValue label="Weight" alignItems="center">
             {api.actualWeight}
+          </LabeledValue>
+          <Typography
+            component="span"
+            variant="inherit"
+            sx={(theme) => ({ fontSize: theme.typography.h5.fontSize })}
+          >
+            =
+          </Typography>
+          <LabeledValue label="Volume" alignItems="center">
+            {api.sets * api.reps * (api.actualWeight ?? 0)}
           </LabeledValue>
         </Stack>
       </Stack>
@@ -205,6 +179,7 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
           sx={{ justifySelf: "flex-end" }}
           type="submit"
           disabled={api.addDisabled}
+          data-testid={TestIds.Superblocks_SuperblockId_Edit_AddBlock}
         >
           Add Block
         </Fab>
@@ -215,6 +190,21 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
 
 export default AddBlock;
 
+// This makes me deeply unhappy, but typescript doesn't let you export a type
+// from within a function and I can't seem to get the generic type working since
+// it's infered from the actual argument.
+const _helper = () =>
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useRPCMutation(
+    "recent_set_overviews",
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useCallback(
+      (e: Error) => `Error fetching recent set overviews: ${e.message}`,
+      [],
+    ),
+  );
+export type RecentSetOverviewsAPI = ReturnType<typeof _helper>;
+
 const useAddBlockAPI = (
   props: AddBlockProps,
   editWeightRef?: React.RefObject<EditWeightHandle>,
@@ -223,12 +213,10 @@ const useAddBlockAPI = (
   const [exercise, setExercise] = useState<ExerciseType | null>(null);
   const [reps, setReps] = useState(10);
   const [sets, setSets] = useState(5);
-  const [actualWeight, setActualWeight] = useState<number | null>(null);
+  const [actualWeight, setActualWeight] = useState<number | null>(50);
   const [recentSetOverviews, setRecentSetOverviews] = useState<
     RecentSetOverviewsResult | undefined
   >(undefined);
-
-  const exerciseLabel = useRequiredLabel("Exercise", exercise === null);
 
   const addDisabled = useMemo(() => {
     return (
@@ -255,35 +243,38 @@ const useAddBlockAPI = (
     return "pounds";
   }, []);
 
-  const setFromOverview = useCallback(
-    (overview: RecentSetOverviewsResult["overviews"][number]) => {
-      if (editWeightRef?.current) {
-        editWeightRef.current.setActual(Math.floor(overview.average_weight));
-      } else {
-        setActualWeight(Math.floor(overview.average_weight));
-      }
-      setReps(Math.floor(overview.average_reps));
-    },
-    [editWeightRef, setActualWeight, setReps],
+  const recentSetOverviewsAPI = useRPCMutation(
+    "recent_set_overviews",
+    useCallback(
+      (e: Error) => `Error fetching recent set overviews: ${e.message}`,
+      [],
+    ),
   );
 
-  // TODO: I'm not sure if I really need to debounce this or not.
-  const debouncedSetOverviews = useDebouncedCallback(
-    async (userId: string, exercise: ExerciseType) => {
-      const overviews = await recentSetOverviewsServer(userId, exercise);
-      setRecentSetOverviews(overviews);
-    },
-    1000,
-    { leading: true },
-  );
+  const { trigger } = recentSetOverviewsAPI;
 
   useEffect(() => {
-    if (!exercise) {
-      setRecentSetOverviews(undefined);
+    if (exercise !== null) {
+      (async () => {
+        const overviews = await trigger({
+          p_user_id: userId,
+          p_exercise_type: exercise,
+        });
+        setRecentSetOverviews(overviews as RecentSetOverviewsResult);
+      })();
       return;
     }
-    debouncedSetOverviews(userId, exercise);
-  }, [userId, exercise, debouncedSetOverviews]);
+    setRecentSetOverviews(undefined);
+    setReps(10);
+    setSets(5);
+    setActualWeight(50);
+  }, [exercise, userId, trigger]);
+
+  useEffect(() => {
+    if (actualWeight !== null) {
+      editWeightRef?.current?.setActual(actualWeight);
+    }
+  }, [actualWeight, editWeightRef]);
 
   const boundAddBlockAction = useMemo(() => {
     if (!exercise || !equipmentType || actualWeight === null) {
@@ -314,8 +305,7 @@ const useAddBlockAPI = (
   ]);
 
   return {
-    setFromOverview,
-    exerciseLabel,
+    recentSetOverviewsAPI,
     addDisabled,
     boundAddBlockAction,
     exercise,
