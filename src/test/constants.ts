@@ -30,6 +30,8 @@ export const USER_ID = {
   "add-program.integration.test.tsx": "00000000-0000-0000-0001-000000000008",
   "add-block-to-superblock.integration.test.tsx":
     "00000000-0000-0000-0001-000000000009",
+  "perform-entire-superblock.integration.test.tsx":
+    "00000000-0000-0000-0001-000000000010",
 };
 
 const SET_OF_IDS = new Set(Object.values(USER_ID));

@@ -26,16 +26,11 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
   return (
     <Stack spacing={1}>
       <Stack direction="row" spacing={1} alignItems="center" useFlexGap>
-        <Stack direction="row" spacing={1} alignItems="center" useFlexGap>
+        <Typography variant="h5" display="flex" alignItems="center" gap={1}>
           <DisplayCompletionStatus
             completionStatus={api.superblock.completion_status}
           />
-          <Typography
-            variant="h5"
-            sx={{ display: "flex", alignItems: "center" }}
-          >
-            {api.superblock.name}
-          </Typography>
+          {api.superblock.name}
           <IconButton
             color="warning"
             component={Link}
@@ -45,7 +40,7 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
           >
             <EditIcon />
           </IconButton>
-        </Stack>
+        </Typography>
         <Stack flex={1} />
         {api.canNotify && (
           <LabeledValue label="Notify" alignItems={"center"}>

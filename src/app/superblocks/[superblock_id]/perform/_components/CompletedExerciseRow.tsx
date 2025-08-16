@@ -9,6 +9,7 @@ import DisplayNotes from "@/components/display/DisplayNotes";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import SelectPerceivedEffort from "@/components/mutate/select/SelectPerceivedEffort";
 import { Paths, SearchParam, WithSearchParams } from "@/constants";
+import { TestIds } from "@/test-ids";
 import PencilIcon from "@mui/icons-material/Edit";
 import { IconButton, Stack, Typography } from "@mui/material";
 import { useCallback, useMemo, useState } from "react";
@@ -20,6 +21,7 @@ interface CompletedExerciseRowProps {
   preferences: UserPreferences;
   setName: string;
   currentPath: string;
+  idx: number;
 }
 
 const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
@@ -27,7 +29,13 @@ const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
   const api = useCompletedExerciseRowAPI(props);
 
   return (
-    <Stack sx={{ my: 1 }} spacing={1}>
+    <Stack
+      sx={{ my: 1 }}
+      spacing={1}
+      data-testid={TestIds.Superblocks_SuperblockId_Perform__CompletedExerciseRow(
+        props.idx,
+      )}
+    >
       <Stack
         alignItems="center"
         sx={{

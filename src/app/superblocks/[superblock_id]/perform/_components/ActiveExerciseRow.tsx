@@ -15,9 +15,10 @@ import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
 import { Paths } from "@/constants";
 import { usePersistentBoolean } from "@/hooks";
+import { TestIds } from "@/test-ids";
 import EditIcon from "@mui/icons-material/Edit";
 import { Button, IconButton, Stack, Typography } from "@mui/material";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 
 interface ActiveExerciseRowProps {
@@ -35,7 +36,11 @@ interface ActiveExerciseRowProps {
 const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
   const api = useActiveExerciseRowAPI(props);
   return (
-    <Stack sx={{ my: 1 }} spacing={1}>
+    <Stack
+      sx={{ my: 1 }}
+      spacing={1}
+      data-testid={TestIds.Superblocks_SuperblockId_Perform__ActiveExerciseRow}
+    >
       <Stack
         direction="row"
         flex={1}
@@ -140,24 +145,30 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
         <Button
           variant="outlined"
           size="small"
+          disabled={api.completeDisabled}
           onClick={api.failExercise}
           startIcon={<DisplayCompletionStatus completionStatus="failed" />}
+          data-testid={TestIds.Superblocks_SuperblockId_Perform__FailExercise}
         >
           Failed
         </Button>
         <Button
           variant="outlined"
           size="small"
+          disabled={api.completeDisabled}
           onClick={api.skipExercise}
           startIcon={<DisplayCompletionStatus completionStatus="skipped" />}
+          data-testid={TestIds.Superblocks_SuperblockId_Perform__SkipExercise}
         >
           Skip
         </Button>
         <Button
           variant="outlined"
           size="small"
+          disabled={api.completeDisabled}
           onClick={api.finishExercise}
           startIcon={<DisplayCompletionStatus completionStatus="completed" />}
+          data-testid={TestIds.Superblocks_SuperblockId_Perform__FinishExercise}
         >
           Finished
         </Button>
@@ -323,7 +334,10 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
     };
   }, [debouncedNotify]);
 
+  const completeDisabled = useMemo(() => actual === null, [actual]);
+
   return {
+    completeDisabled,
     actual,
     setActual,
     target,

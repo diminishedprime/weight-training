@@ -15,6 +15,7 @@ import {
 } from "@/common-types";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import TODO from "@/components/TODO";
+import { TestIds } from "@/test-ids";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Accordion,
@@ -47,13 +48,18 @@ const Block: React.FC<Props> = (props) => {
   return (
     <Accordion disableGutters expanded={props.open} onChange={props.setOpen}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 1 }}>
-        <Stack spacing={1} direction="row" alignItems="center">
+        <Typography display="flex" alignItems={"center"} gap={1} variant="h6">
           <DisplayCompletionStatus completionStatus={block.completion_status} />
-          <Typography>{block.name}</Typography>
-        </Stack>
+          {block.name}
+        </Typography>
       </AccordionSummary>
       <AccordionDetails sx={{ p: 1 }}>
-        <Stack spacing={1}>
+        <Stack
+          spacing={1}
+          data-testid={TestIds.Superblocks_SuperblockId_Perform__Block(
+            block.name,
+          )}
+        >
           <TODO>
             There should be a way to add additional exercises to an on-going
             block. For example, adding extra warmups or cooldowns.
@@ -92,12 +98,14 @@ const Block: React.FC<Props> = (props) => {
                       preferences={props.preferences}
                       setName={api.setNames.get(exercise.id, "")}
                       currentPath={props.path}
+                      idx={idx}
                     />
                   ) : (
                     <ExerciseRow
                       exercise={exercise}
                       preferences={props.preferences}
                       setName={api.setNames.get(exercise.id, "")}
+                      idx={idx}
                     />
                   )}
                 </React.Fragment>

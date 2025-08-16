@@ -106,3 +106,10 @@ SELECT
     p_id => '00000000-0000-0000-0001-000000000009'::uuid,
     p_create_preferences => true
   );
+
+SELECT
+  _system.create_test_user (
+    p_email => 'perform-entire-superblock.integration.test.tsx',
+    p_id => '00000000-0000-0000-0001-000000000010'::uuid,
+    p_create_preferences => true
+  );
