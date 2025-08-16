@@ -11,7 +11,7 @@ type LWendlerMovement = LWendlerMovements[number];
 
 // Narrowing down. RNN = Required Non-Nullable
 
-type LRNNWendlerMovement = RequiredNonNullable<
+export type ProgramMovement = RequiredNonNullable<
   LWendlerMovement,
   | "id"
   | "exercise_type"
@@ -24,18 +24,20 @@ type LRNNWendlerMovement = RequiredNonNullable<
   | "heaviest_weight_value"
 >;
 
-type LRNNWendlerCycle = RequiredNonNullable<
+export type ProgramCycle = RequiredNonNullable<
   Omit<LWendlerCycle, "movements"> & {
-    movements: LRNNWendlerMovement[];
+    movements: ProgramMovement[];
   },
   "id" | "cycle_type"
 >;
 
-type LRNNProgram = RequiredNonNullable<
+export type ProgramCycles = ProgramCycle[];
+
+export type Program = RequiredNonNullable<
   Omit<LWendlerProgram, "cycles"> & {
-    cycles: LRNNWendlerCycle[];
+    cycles: ProgramCycles;
   },
   "id" | "name" | "user_id"
 >;
 
-export type GetWendlerProgramResult = LRNNProgram;
+export type GetWendlerProgramResult = Program;

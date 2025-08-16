@@ -66,7 +66,7 @@ export const useResolvableWeight = (
 // indefinitely. If you want data to persist indefinitely, use the database, ya
 // goof.
 export const usePersistentNumber = (
-  initialValue: number,
+  initialValue: number | (() => number),
   path: string,
   key: string,
 ) => {
