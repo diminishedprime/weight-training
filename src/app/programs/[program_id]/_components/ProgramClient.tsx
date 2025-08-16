@@ -1,25 +1,16 @@
 "use client";
 
-import { GetWendlerProgramResult } from "@/common-types";
+import CycleStepper from "@/app/programs/[program_id]/_components/CycleStepper";
+import Movement from "@/app/programs/[program_id]/_components/Movement";
+import Progress from "@/app/programs/[program_id]/_components/Progress";
+import { GetWendlerProgramResult, ProgramCycles } from "@/common-types";
 import DisplayDate from "@/components/display/DisplayDate";
 import DisplayDuration from "@/components/display/DisplayDuration";
-import DisplayWeight from "@/components/display/DisplayWeight";
-import DisplayWeightChange from "@/components/display/DisplayWeightChange";
-import LabeledValue from "@/components/LabeledValue";
 import TODO from "@/components/TODO";
 import { Paths } from "@/constants";
-import { exerciseTypeUIStringBrief, wendlerCycleUIString } from "@/uiStrings";
-import {
-  Button,
-  LinearProgress,
-  Stack,
-  Step,
-  StepButton,
-  StepContent,
-  Stepper,
-  Typography,
-} from "@mui/material";
-import React, { useCallback, useMemo } from "react";
+import { usePersistentNumber } from "@/hooks";
+import { Stack, Typography } from "@mui/material";
+import React, { useMemo } from "react";
 
 interface ProgramClientProps {
   program: GetWendlerProgramResult;
@@ -52,113 +43,20 @@ const ProgramClient: React.FC<ProgramClientProps> = (props) => {
           )}
         </Stack>
       </Typography>
-      <Stack spacing={1}>
-        <LinearProgress variant="determinate" value={api.progress} />
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          sx={{ justifySelf: "end" }}
-        >
-          {api.total}/{api.possible} complete
-        </Typography>
-      </Stack>
+      <Progress cycles={program.cycles} />
       {program.notes && (
         <Typography variant="body2" color="textSecondary">
           {program.notes}
         </Typography>
       )}
-      <Stepper
-        sx={{
-          "& .MuiStep-root:first-of-type": { paddingLeft: 0 },
-          "& .MuiStep-root:last-of-type": { paddingRight: 0 },
-        }}
-        nonLinear
-        activeStep={api.activeCycleIdx}
-      >
-        {program.cycles.map((cycle, idx) => (
-          <Step key={cycle.id} completed={cycle.completed_at !== null}>
-            <StepButton
-              color="inherit"
-              onClick={() => api.onActiveCycleChange((_) => idx)}
-            >
-              <Typography
-                fontWeight={api.activeCycleIdx === idx ? "bold" : "inherit"}
-                fontSize="inherit"
-              >
-                {wendlerCycleUIString(cycle.cycle_type)}
-              </Typography>
-            </StepButton>
-          </Step>
-        ))}
-      </Stepper>
-      <Stepper
-        orientation="vertical"
-        nonLinear
-        activeStep={api.activeMovementIdx}
-      >
-        {api.cycle.movements.map((movement, idx) => (
-          <Step key={movement.id} completed={movement.completed_at !== null}>
-            <StepButton onClick={() => api.setActiveMovementIdx(idx)}>
-              <Stack spacing={1} direction="row" alignItems="center">
-                <Typography
-                  fontWeight={
-                    api.activeMovementIdx === idx ? "bold" : "inherit"
-                  }
-                  fontSize="inherit"
-                >
-                  {exerciseTypeUIStringBrief(movement.exercise_type)}
-                </Typography>
-                {movement.started_at && (
-                  <DisplayDate timestamp={movement.started_at} noTime />
-                )}
-              </Stack>
-            </StepButton>
-            <StepContent>
-              <Stack
-                direction="row"
-                spacing={1}
-                justifyContent={"space-between"}
-              >
-                <Stack direction="row" spacing={1}>
-                  <LabeledValue label="Heaviest Weight" alignItems={"center"}>
-                    <DisplayWeight
-                      weightValue={movement.heaviest_weight_value}
-                      weightUnit={movement.weight_unit}
-                    />
-                  </LabeledValue>
-                  <LabeledValue label="Training Max" alignItems={"center"}>
-                    <DisplayWeight
-                      weightValue={movement.training_max_value}
-                      weightUnit={movement.weight_unit}
-                    />
-                  </LabeledValue>
-                  <LabeledValue label="Change" alignItems={"center"}>
-                    <DisplayWeightChange
-                      changeValue={movement.increase_amount_value}
-                    />
-                  </LabeledValue>
-                </Stack>
-                {movement.superblock_id && (
-                  <Button
-                    variant="outlined"
-                    size="small"
-                    href={Paths.Superblocks_SuperblockId(
-                      movement.superblock_id,
-                    )}
-                    sx={{
-                      justifySelf: "flex-end",
-                      alignSelf: "flex-end",
-                    }}
-                  >
-                    Superblock
-                  </Button>
-                )}
-              </Stack>
-              <TODO>Add in a preview of the block.</TODO>
-            </StepContent>
-          </Step>
-        ))}
-      </Stepper>
+      <CycleStepper
+        program={program}
+        activeCycleIdx={api.activeCycleIdx}
+        setActiveCycleIdx={api.setActiveCycleIdx}
+      />
+      {api.activeCycle.movements.map((movement) => (
+        <Movement key={movement.id} movement={movement} />
+      ))}
       <TODO>Add user preferences for order of movements in wendler</TODO>
     </Stack>
   );
@@ -166,58 +64,26 @@ const ProgramClient: React.FC<ProgramClientProps> = (props) => {
 
 export default ProgramClient;
 
+const firstUncompletedCycleIdx = (cycles: ProgramCycles) => () => {
+  const idx = cycles.findIndex(
+    (cycle) => !cycle.movements.every((m) => m.completed_at !== null),
+  );
+  return idx === -1 ? 0 : idx;
+};
+
 const useProgramClient = (props: ProgramClientProps) => {
   const {
-    program: { cycles },
+    program: { cycles, id: programId },
   } = props;
-  const [activeCycleIdx, setActiveCycleIdx] = React.useState<number>(() => {
-    const idx = cycles.findLastIndex((cycle) => cycle.started_at !== null);
-    return idx === -1 ? 0 : idx;
-  });
-  const cycle = useMemo(() => cycles[activeCycleIdx], [cycles, activeCycleIdx]);
-
-  const [activeMovementIdx, setActiveMovementIdx] = React.useState<number>(
-    () => {
-      const idx = cycle.movements.findIndex((m) => m.started_at === null);
-      return idx === -1 ? 0 : idx;
-    },
+  const [activeCycleIdx, setActiveCycleIdx] = usePersistentNumber(
+    firstUncompletedCycleIdx(cycles),
+    Paths.Programs_ProgramId(programId),
+    "active_cycle_idx",
+  );
+  const activeCycle = useMemo(
+    () => cycles[activeCycleIdx],
+    [cycles, activeCycleIdx],
   );
 
-  const onActiveCycleChange = useCallback((fn: (old: number) => number) => {
-    setActiveCycleIdx(fn);
-  }, []);
-
-  const movement = useMemo(
-    () => cycle.movements[activeMovementIdx],
-    [cycle, activeMovementIdx],
-  );
-
-  const { progress, total, possible } = useMemo(() => {
-    let total = 0;
-    let possible = 0;
-    cycles.forEach((cycle) => {
-      cycle.movements.forEach((movement) => {
-        possible += 1;
-        if (movement.started_at !== null) {
-          total += 0.5;
-          if (movement.completed_at !== null) {
-            total += 0.5;
-          }
-        }
-      });
-    });
-    return { progress: (total / possible) * 100, total, possible };
-  }, [cycles]);
-
-  return {
-    activeCycleIdx,
-    onActiveCycleChange,
-    cycle,
-    movement,
-    activeMovementIdx,
-    setActiveMovementIdx,
-    progress,
-    total,
-    possible,
-  };
+  return { activeCycle, activeCycleIdx, setActiveCycleIdx };
 };

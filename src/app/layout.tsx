@@ -38,7 +38,7 @@ export default async function RootLayout({
               <Banner />
               <Stack
                 spacing={1}
-                flexGrow={1}
+                flex={1}
                 sx={{
                   px: 2,
                   mb: 2,
