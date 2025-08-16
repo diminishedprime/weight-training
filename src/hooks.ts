@@ -77,7 +77,18 @@ export const usePersistentNumber = (
 };
 
 export const usePersistentBoolean = (
-  initialValue: boolean,
+  initialValue: boolean | (() => boolean),
+  path: string,
+  key: string,
+) => {
+  const storageKey = useMemo(() => `${path}///${key}`, [path, key]);
+  return useSessionStorage(storageKey, initialValue, {
+    initializeWithValue: false, // Set to false for SSR compatibility
+  });
+};
+
+export const usePersistentString = (
+  initialValue: string | (() => string),
   path: string,
   key: string,
 ) => {
@@ -91,19 +102,30 @@ export function useRPCMutation<
   T extends keyof Database["public"]["Functions"],
   Args extends Database["public"]["Functions"][T]["Args"],
   Return = Database["public"]["Functions"][T]["Returns"],
->(fnName: T, getErrorMessage: (error: Error) => string) {
-  const mutationFetcher = async (_: string, { arg }: { arg: Args }) => {
-    return await rpcMutationAction<T, Args, Return>(fnName, arg);
-  };
+>(
+  fnName: T,
+  getErrorMessage: (error: Error) => string,
+  afterServerAction?: () => Promise<void>,
+) {
+  const mutationFetcher = useCallback(
+    async (_: string, { arg }: { arg: Args }) => {
+      const results = await rpcMutationAction<T, Args, Return>(fnName, arg);
+      afterServerAction?.();
+      return results;
+    },
+    [afterServerAction, fnName],
+  );
   const { trigger, data, error, isMutating } = useSWRMutation<
     Return,
     Error,
     string,
     Args
   >(String(fnName), mutationFetcher);
+
   const errorMessage = React.useMemo(
     () => (error ? getErrorMessage(error) : undefined),
     [error, getErrorMessage],
   );
+
   return { trigger, data, errorMessage, isMutating };
 }

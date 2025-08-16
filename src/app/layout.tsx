@@ -40,7 +40,7 @@ export default async function RootLayout({
                 spacing={1}
                 flex={1}
                 sx={{
-                  px: 2,
+                  px: 1,
                   mb: 2,
                 }}
               >

@@ -3,7 +3,7 @@ import {
   PerformFailExercise,
   PerformFinishExercise,
   PerformSkipExercise,
-} from "@/app/superblocks/[superblock_id]/perform/_components/PerformClient";
+} from "@/app/superblocks/[superblock_id]/perform/_components/Block";
 import { RDispatch, RoundingMode, UserPreferences } from "@/common-types";
 import { GetPerformSuperblockExercise } from "@/common-types/get-perform-superblock";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
@@ -13,11 +13,10 @@ import EquipmentWeightEditor from "@/components/edit/weight/EquipmentWeightEdito
 import LabeledValue from "@/components/LabeledValue";
 import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
-import TODO from "@/components/TODO";
 import { Paths } from "@/constants";
 import { usePersistentBoolean } from "@/hooks";
 import EditIcon from "@mui/icons-material/Edit";
-import { Button, Paper, Stack, Typography } from "@mui/material";
+import { Button, IconButton, Stack, Typography } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 
@@ -36,32 +35,34 @@ interface ActiveExerciseRowProps {
 const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
   const api = useActiveExerciseRowAPI(props);
   return (
-    <Stack component={Paper} sx={{ my: 1, p: 0.5 }} spacing={1}>
-      <TODO>
-        We could also support local notifications through the device assuming
-        the screen is staying on. Could potentially even do sound, too. It
-        wouldn't be as obvious as a buzz on the watch, but still may be useful.
-      </TODO>
+    <Stack sx={{ my: 1 }} spacing={1}>
       <Stack
         direction="row"
         flex={1}
         spacing={1}
         alignItems="space-between"
         justifyContent={"space-between"}
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+        }}
       >
-        <Button
-          variant="outlined"
+        <IconButton
+          sx={{ justifySelf: "start" }}
           size="small"
           color="warning"
           onClick={() => api.setModifying((o) => !o)}
-          startIcon={<EditIcon />}
         >
-          Edit
-        </Button>
-        {props.notify && (
+          <EditIcon />
+        </IconButton>
+        {props.notify ? (
           <Typography color="secondary">Notifications On!</Typography>
+        ) : (
+          <Stack />
         )}
-        <Typography variant="body1">{props.setName}</Typography>
+        <Typography variant="body1" justifySelf={"end"}>
+          {props.setName}
+        </Typography>
       </Stack>
       <Stack
         direction="row"
@@ -69,14 +70,21 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
         justifyContent="center"
         spacing={1}
       >
-        {!api.modifying && !props.exercise.is_amrap && (
-          <LabeledValue label="Reps" alignItems="center">
-            {props.exercise.reps}
-          </LabeledValue>
-        )}
+        <LabeledValue label="Reps" alignItems="center">
+          <Typography variant="h4">
+            {api.reps}
+            {api.isAMRAP && (
+              <Typography color="secondary" component="span">
+                {" "}
+                (AMRAP)
+              </Typography>
+            )}
+          </Typography>
+        </LabeledValue>
         {props.exercise.last_performed_at && (
           <LabeledValue label="Rest" alignItems="center">
             <DisplayStopwatch
+              variant="h4"
               start={new Date(props.exercise.last_performed_at)}
               successThresholdSeconds={
                 props.preferences.default_rest_time ?? undefined
@@ -111,6 +119,7 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
           <SelectReps
             reps={api.reps}
             isAMRAP={api.isAMRAP}
+            setIsAMRAP={api.setIsAMRAP}
             setReps={api.setReps}
             wendler1s={props.exercise.reps === 1}
             wendler3s={props.exercise.reps === 3}
