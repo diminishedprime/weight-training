@@ -5,7 +5,6 @@ import { getSession, supabaseRPC } from "@/serverUtil";
 import { CssBaseline, Divider, Stack, Typography } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { Analytics } from "@vercel/analytics/next";
-import merge from "lodash/merge";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -62,29 +61,17 @@ export default async function RootLayout({
   );
 }
 
-const baseThemeOptions = {
-  components: {
-    MuiStack: {
-      defaultProps: {
-        useFlexGap: true,
-        spacing: 1,
-      },
-    },
-  },
-} as MyThemeOptions;
-
 const getThemeOptions = async (): Promise<MyThemeOptions> => {
   const session = await getSession();
   if (!session?.user?.id) {
-    return { ...baseThemeOptions };
+    return {};
   }
   const userId = session.user.id;
   const theme_options = await supabaseRPC("get_theme_options", {
     p_user_id: userId,
   });
   if (theme_options === null) {
-    return { ...baseThemeOptions };
+    return {};
   }
-  // Use lodash merge for deep merging theme options
-  return merge({}, baseThemeOptions, theme_options) as MyThemeOptions;
+  return theme_options as MyThemeOptions;
 };

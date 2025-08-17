@@ -5,7 +5,8 @@ import {
   ThemeProvider as MUIThemeProvider,
   Theme,
 } from "@mui/material";
-import { createContext, useState } from "react";
+import merge from "lodash/merge";
+import { createContext, useCallback, useState } from "react";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -32,8 +33,26 @@ const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
 
 export default ThemeProvider;
 
+const baseThemeOptions = {
+  components: {
+    MuiStack: {
+      defaultProps: {
+        useFlexGap: true,
+        spacing: 1,
+      },
+    },
+  },
+} as MyThemeOptions;
+
 const useThemeProviderAPI = (props: ThemeProviderProps) => {
   const [theme, setTheme] = useState<Theme>(createTheme(props.themeOptions));
+  const setThemeWithDefaults: RDispatch<Theme> = useCallback((o) => {
+    if (typeof o === "function") {
+      setTheme((prev) => merge(baseThemeOptions, o(prev)));
+    } else {
+      setTheme((_) => merge(baseThemeOptions, o));
+    }
+  }, []);
 
-  return { theme, setTheme };
+  return { theme, setTheme: setThemeWithDefaults };
 };
