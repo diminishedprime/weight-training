@@ -1,7 +1,7 @@
 "use client";
 
-import { NarrowedSuperblocksRow } from "@/app/superblocks/_components/_page_Superblocks";
 import SuperblocksRow from "@/app/superblocks/_components/SuperblocksRow";
+import { NarrowedSuperblocksRow } from "@/app/superblocks/page";
 import { Stack } from "@mui/material";
 import { NextIntlClientProvider } from "next-intl";
 

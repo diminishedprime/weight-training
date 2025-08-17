@@ -1,4 +1,4 @@
-import Page_Programs_Add from "@/app/programs/add/_components/_page_ProgramsAdd";
+import Page_Programs_Add from "@/app/programs/add/page";
 import * as serverUtil from "@/serverUtil";
 import { USER_ID } from "@/test/constants";
 import { getSession, requireLoggedInUser } from "@/test/serverUtil";

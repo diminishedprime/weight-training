@@ -12,15 +12,15 @@ import {
   narrowExerciseType,
   narrowOrNotFound,
 } from "@/util";
-import React, { Suspense } from "react";
+import React from "react";
 
-interface EquipmentExercisePageSuspenseWrapperProps {
+interface Props {
   params: Promise<{ equipment_type: string; exercise_type: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default async function EquipmentExercisePageSuspenseWrapper(
-  props: EquipmentExercisePageSuspenseWrapperProps,
+export default async function Exercise_EquipmentType_ExerciseType(
+  props: Props,
 ) {
   const [params, searchParams] = await Promise.all([
     props.params.then(narrowParams),
@@ -45,16 +45,13 @@ export default async function EquipmentExercisePageSuspenseWrapper(
           [exerciseType]: exerciseTypeUIStringBrief(exerciseType),
         }}
       />
-      <Suspense fallback={<div>Loading...</div>}>
-        {/* {EquipmentExercisePage} */}
-        <EquipmentExercisePage
-          userId={userId}
-          equipmentType={equipmentType}
-          exerciseType={exerciseType}
-          path={path}
-          pageNumber={pageNum}
-        />
-      </Suspense>
+      <EquipmentExercisePage
+        userId={userId}
+        equipmentType={equipmentType}
+        exerciseType={exerciseType}
+        path={path}
+        pageNumber={pageNum}
+      />
     </React.Fragment>
   );
 }

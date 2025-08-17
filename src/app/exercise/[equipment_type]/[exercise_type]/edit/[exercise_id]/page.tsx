@@ -8,7 +8,7 @@ import {
   narrowExerciseType,
   narrowOrNotFound,
 } from "@/util";
-import React, { Suspense } from "react";
+import React from "react";
 
 interface Props {
   params: Promise<{
@@ -19,7 +19,7 @@ interface Props {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default async function EquipmentExerciseEditPageSuspenseWrapper(
+export default async function Exercise_EquipmentType_ExerciseType_Edit_ExerciseId(
   props: Props,
 ) {
   const [params, searchParams] = await Promise.all([
@@ -48,16 +48,14 @@ export default async function EquipmentExerciseEditPageSuspenseWrapper(
         }}
         nonLinkable={["edit", exercise_id]}
       />
-      <Suspense fallback={<div>Loading...</div>}>
-        <EditEquipmentExercisePage
-          equipmentType={equipmentType}
-          exerciseType={exerciseType}
-          userId={userId}
-          exerciseId={exercise_id}
-          currentPath={currentPath}
-          backTo={backTo}
-        />
-      </Suspense>
+      <EditEquipmentExercisePage
+        equipmentType={equipmentType}
+        exerciseType={exerciseType}
+        userId={userId}
+        exerciseId={exercise_id}
+        currentPath={currentPath}
+        backTo={backTo}
+      />
     </React.Fragment>
   );
 }

@@ -21,7 +21,6 @@ though if you have a good reason to do so, you can ignore this report changing.
 - get_exercises_by_type
 - get_form_draft
 - get_perform_superblock
-- get_personal_record_exercise_types
 - get_personal_records_for_exercise_type
 - get_superblock
 - get_superblocks
@@ -39,4 +38,4 @@ though if you have a good reason to do so, you can ignore this report changing.
 
 ## Not Used
 
-_All public RPCs are used in code._
+- [ ] get_personal_record_exercise_types

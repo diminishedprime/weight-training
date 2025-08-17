@@ -1,12 +1,10 @@
 "use client";
 import {
-  getProgramsAddFormDraft,
-  ProgramsAddFormDraft,
-} from "@/app/programs/add/_components/_page_ProgramsAdd";
-import {
   addProgram,
+  getProgramsAddFormDraft,
   saveFormDraft,
 } from "@/app/programs/add/_components/actions";
+import { ProgramsAddFormDraft } from "@/app/programs/add/_components/common";
 import { ExerciseType, GetAddProgramInfoResult } from "@/common-types";
 import DisplayWeightChange from "@/components/display/DisplayWeightChange";
 import EditWeight from "@/components/edit/weight/EditWeight";

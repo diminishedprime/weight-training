@@ -1,6 +1,8 @@
 "use client";
 import { loginAction } from "@/app/login/actions";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TODO from "@/components/TODO";
+import { Paths } from "@/constants";
 import { Stack, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useSearchParams } from "next/navigation";
@@ -14,6 +16,7 @@ export default function LoginPage() {
   return (
     <React.Fragment>
       <TODO>Support other login-providers.</TODO>
+      <Breadcrumbs pathname={Paths.Login} />
       <Stack display="flex" alignItems="center">
         <Typography variant="body1">
           You must be logged in order to view this page.

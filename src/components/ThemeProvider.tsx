@@ -45,7 +45,9 @@ const baseThemeOptions = {
 } as MyThemeOptions;
 
 const useThemeProviderAPI = (props: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<Theme>(createTheme(props.themeOptions));
+  const [theme, setTheme] = useState<Theme>(
+    createTheme(merge(baseThemeOptions, props.themeOptions)),
+  );
   const setThemeWithDefaults: RDispatch<Theme> = useCallback((o) => {
     if (typeof o === "function") {
       setTheme((prev) => merge(baseThemeOptions, o(prev)));

@@ -106,10 +106,6 @@ export default function Home() {
             last week. Should probably figure this out before 3s.
           </TODO>
           <TODO>
-            See about getting the skeleton.js thing set up instead of using
-            Suspense Wrappers all over.
-          </TODO>
-          <TODO>
             I'd like to have different color themes for local, integration, and
             production to make it easier to differentiate between all of them.
             <br />

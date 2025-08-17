@@ -1,4 +1,4 @@
-import PreferencesPage from "@/app/preferences/_page";
+import PreferencesPage from "@/app/preferences/page";
 import ThemeProvider from "@/components/ThemeProvider";
 import { DEFAULT_VALUES } from "@/constants";
 import * as serverUtil from "@/serverUtil";

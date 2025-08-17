@@ -1,5 +1,5 @@
 "use client";
-import { type NarrowedSuperblocksRow } from "@/app/superblocks/_components/_page_Superblocks";
+import { NarrowedSuperblocksRow } from "@/app/superblocks/page";
 import DisplayDate from "@/components/display/DisplayDate";
 import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayTimeSince from "@/components/display/DisplayTimeSince";
