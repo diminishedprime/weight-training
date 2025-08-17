@@ -1,7 +1,7 @@
 import { PerceivedEffort } from "@/common-types";
 import DisplayPerceivedEffort from "@/components/display/DisplayPerceivedEffort";
 import { Constants } from "@/database.types";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { perceivedEffortUIString } from "@/uiStrings";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import React from "react";

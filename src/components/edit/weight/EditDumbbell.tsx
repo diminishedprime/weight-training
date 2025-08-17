@@ -1,7 +1,7 @@
 import DisplayDumbbell from "@/components/display/DisplayDumbbell";
 import { EquipmentWeightEditorProps } from "@/components/edit/weight/EquipmentWeightEditor";
 import useEditableWeight from "@/components/edit/weight/useEditableWeight";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { Button } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import Stack from "@mui/material/Stack";

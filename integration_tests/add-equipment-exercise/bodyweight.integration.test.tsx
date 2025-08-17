@@ -4,9 +4,9 @@ import EquipmentExercisePage, {
 import { EquipmentType, ExerciseType } from "@/common-types";
 import { FIRST_PAGE_NUM, Paths } from "@/constants";
 import * as serverUtil from "@/serverUtil";
-import { TestIds } from "@/test-ids";
 import { USER_ID } from "@/test/constants";
 import { getSession, requireLoggedInUser } from "@/test/serverUtil";
+import { TestIds } from "@/test/test-ids";
 import {
   act,
   fireEvent,

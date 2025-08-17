@@ -9,7 +9,7 @@ import DisplayNotes from "@/components/display/DisplayNotes";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import SelectPerceivedEffort from "@/components/mutate/select/SelectPerceivedEffort";
 import { Paths, SearchParam, WithSearchParams } from "@/constants";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import PencilIcon from "@mui/icons-material/Edit";
 import { IconButton, Stack, Typography } from "@mui/material";
 import { useCallback, useMemo, useState } from "react";

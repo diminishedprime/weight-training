@@ -15,7 +15,7 @@ import {
   UserPreferences,
   WeightUnit,
 } from "@/common-types";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { throwIfNull } from "@/util";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";

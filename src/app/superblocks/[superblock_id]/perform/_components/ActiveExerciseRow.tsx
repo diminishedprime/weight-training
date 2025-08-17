@@ -14,7 +14,7 @@ import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
 import { Paths } from "@/constants";
 import { usePersistentBoolean, useRPCMutation } from "@/hooks";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import EditIcon from "@mui/icons-material/Edit";
 import { Button, IconButton, Stack, Typography } from "@mui/material";
 import confetti from "canvas-confetti";

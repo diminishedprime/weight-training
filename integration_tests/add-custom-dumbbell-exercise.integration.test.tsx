@@ -3,9 +3,9 @@ import EquipmentExercisePage, {
 } from "@/app/exercise/[equipment_type]/[exercise_type]/_components/page";
 import { FIRST_PAGE_NUM, Paths } from "@/constants";
 import * as serverUtil from "@/serverUtil";
-import { TestIds } from "@/test-ids";
 import { USER_ID } from "@/test/constants";
 import { getSession, requireLoggedInUser } from "@/test/serverUtil";
+import { TestIds } from "@/test/test-ids";
 import { act, render, screen, waitFor } from "@testing-library/react";
 import { afterEach } from "node:test";
 import { beforeEach, describe, expect, it, vi } from "vitest";

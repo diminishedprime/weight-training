@@ -11,7 +11,7 @@ import SelectWeightUnit from "@/components/select/SelectWeightUnit";
 import TODO from "@/components/TODO";
 import { DEFAULT_VALUES } from "@/constants";
 import { useRequiredModifiableLabel } from "@/hooks";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { userPreferenceUIString } from "@/uiStrings";
 import { nullableArrayEquals } from "@/util";
 import InfoIconOutlined from "@mui/icons-material/InfoOutlined";

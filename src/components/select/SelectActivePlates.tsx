@@ -1,7 +1,7 @@
 "use client";
 
 import { PLATE_COLORS } from "@/constants";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { fractionWeightFormat } from "@/util";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";

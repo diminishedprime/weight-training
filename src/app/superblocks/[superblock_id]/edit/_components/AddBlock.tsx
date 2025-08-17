@@ -14,7 +14,7 @@ import SelectExercise from "@/components/select/SelectExercise";
 import SelectNumber from "@/components/select/SelectNumber";
 import TODO from "@/components/TODO";
 import { useRPCMutation } from "@/hooks";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { exerciseTypeUIStringLong } from "@/uiStrings";
 import { EQUIPMENT_FOR_EXERCISE } from "@/util";
 import MultiplyIcon from "@mui/icons-material/Close";

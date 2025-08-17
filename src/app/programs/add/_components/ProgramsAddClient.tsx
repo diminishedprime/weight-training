@@ -13,7 +13,7 @@ import EditWeight from "@/components/edit/weight/EditWeight";
 import LabeledValue from "@/components/LabeledValue";
 import TODO from "@/components/TODO";
 import { Paths } from "@/constants";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { exerciseTypeUIStringBrief, weightUnitUIString } from "@/uiStrings";
 import IconPlus from "@mui/icons-material/Add";
 import {

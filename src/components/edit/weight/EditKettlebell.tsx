@@ -2,7 +2,7 @@
 import DisplayKettlebell from "@/components/display/DisplayKettlebell";
 import { EquipmentWeightEditorProps } from "@/components/edit/weight/EquipmentWeightEditor";
 import useEditableWeight from "@/components/edit/weight/useEditableWeight";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { Button, Stack } from "@mui/material";
 import { scaleLinear } from "d3-scale";
 import { useCallback, useMemo } from "react";

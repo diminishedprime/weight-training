@@ -6,7 +6,7 @@ import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayNotes from "@/components/display/DisplayNotes";
 import DisplayPerceivedEffort from "@/components/display/DisplayPerceivedEffort";
 import DisplayWeight from "@/components/display/DisplayWeight";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { Stack, Typography } from "@mui/material";
 
 interface ExerciseRowProps {

@@ -1,5 +1,5 @@
 import { useRequiredModifiableLabel } from "@/hooks";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import ClearIcon from "@mui/icons-material/Clear";
 import { IconButton, TextField } from "@mui/material";
 import React from "react";

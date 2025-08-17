@@ -8,7 +8,7 @@ import Link from "@/components/Link";
 import TODO from "@/components/TODO";
 import { Paths } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { Box, Button, Paper, Stack, Typography } from "@mui/material";
 import React from "react";
 

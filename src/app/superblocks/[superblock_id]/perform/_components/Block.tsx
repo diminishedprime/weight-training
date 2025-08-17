@@ -9,7 +9,7 @@ import {
 } from "@/common-types";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import TODO from "@/components/TODO";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Accordion,

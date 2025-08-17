@@ -1,8 +1,8 @@
 import Superblocks_SuperblockId_Perform from "@/app/superblocks/[superblock_id]/perform/page";
 import { GetPerformSuperblockResult } from "@/common-types";
 import * as serverUtil from "@/serverUtil";
-import { TestIds } from "@/test-ids";
 import { USER_ID } from "@/test/constants";
+import { TestIds } from "@/test/test-ids";
 import { act, render, screen, waitFor, within } from "@testing-library/react";
 import { fail } from "assert";
 import { randomUUID } from "crypto";

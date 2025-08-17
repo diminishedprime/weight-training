@@ -1,6 +1,6 @@
 import { CompletionStatus } from "@/common-types";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import {
   FormControl,
   FormLabel,

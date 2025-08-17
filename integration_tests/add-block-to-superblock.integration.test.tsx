@@ -1,7 +1,7 @@
 import Superblock_Id_Edit from "@/app/superblocks/[superblock_id]/edit/page";
 import * as serverUtil from "@/serverUtil";
-import { TestIds } from "@/test-ids";
 import { USER_ID } from "@/test/constants";
+import { TestIds } from "@/test/test-ids";
 import { act, render, screen, waitFor } from "@testing-library/react";
 import { randomUUID } from "crypto";
 import { afterEach, beforeEach, expect, it } from "vitest";

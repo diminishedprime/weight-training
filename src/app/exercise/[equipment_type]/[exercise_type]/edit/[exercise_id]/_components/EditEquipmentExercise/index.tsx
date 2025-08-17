@@ -13,7 +13,7 @@ import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
 import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
 import SelectWarmup from "@/components/select/SelectWarmup";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { Button, Stack } from "@mui/material";
 import Link from "next/link";
 import React from "react";
