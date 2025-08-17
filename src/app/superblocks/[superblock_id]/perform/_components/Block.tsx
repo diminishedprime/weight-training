@@ -1,14 +1,8 @@
-import {
-  failExercise as serverFailExercise,
-  finishExercise as serverFinishExercise,
-  skipExercise as serverSkipExercise,
-} from "@/app/superblocks/[superblock_id]/perform/_components/actions";
 import ActiveExerciseRow from "@/app/superblocks/[superblock_id]/perform/_components/ActiveExerciseRow";
 import CompletedExerciseRow from "@/app/superblocks/[superblock_id]/perform/_components/CompletedExerciseRow";
 import ExerciseRow from "@/app/superblocks/[superblock_id]/perform/_components/ExerciseRow";
 import {
   GetPerformSuperblockResult,
-  PerceivedEffort,
   RDispatch,
   SuperblockBlock,
   UserPreferences,
@@ -25,9 +19,8 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import confetti from "canvas-confetti";
 import { Map as ImmutableMap } from "immutable";
-import React, { useCallback, useMemo } from "react";
+import React, { useMemo } from "react";
 
 interface Props {
   userId: string;
@@ -75,18 +68,13 @@ const Block: React.FC<Props> = (props) => {
                   <Divider />
                   {block.active_exercise_id === exercise.id ? (
                     <ActiveExerciseRow
+                      userId={props.userId}
+                      blockId={block.id}
                       superblockId={props.initialSuperblock.id}
                       exercise={exercise}
                       preferences={props.preferences}
-                      blockId={block.id}
-                      finishExercise={api.finishExercise}
-                      failExercise={api.failExercise}
-                      skipExercise={api.skipExercise}
-                      setName={
-                        idx === block.exercises.length - 1
-                          ? "Ultima series optima"
-                          : api.setNames.get(exercise.id, "")
-                      }
+                      setSuperblock={props.setSuperblock}
+                      setName={api.setNames.get(exercise.id, "")}
                       notify={props.notify}
                     />
                   ) : exercise.completion_status === "completed" ||
@@ -119,98 +107,8 @@ const Block: React.FC<Props> = (props) => {
 };
 export default Block;
 
-export type PerformFinishExercise = ReturnType<
-  typeof useBlockAPI
->["finishExercise"];
-export type PerformFailExercise = ReturnType<
-  typeof useBlockAPI
->["failExercise"];
-export type PerformSkipExercise = ReturnType<
-  typeof useBlockAPI
->["skipExercise"];
-
 const useBlockAPI = (props: Props) => {
-  const {
-    userId,
-    block,
-    superblock: { id: superblockId, completion_status },
-    setSuperblock,
-  } = props;
-
-  const finishExercise = useCallback(
-    async (
-      blockId: string,
-      activeExerciseId: string,
-      actualWeightValue: number,
-      reps: number,
-      isWarmup: boolean,
-      isAmrap: boolean,
-      notes: string,
-      perceivedEffort: PerceivedEffort | null,
-    ) => {
-      const result = await serverFinishExercise(
-        userId,
-        superblockId,
-        blockId,
-        activeExerciseId,
-        actualWeightValue,
-        reps,
-        isWarmup,
-        isAmrap,
-        notes,
-        perceivedEffort,
-      );
-      if (
-        result.completion_status === "completed" &&
-        completion_status !== "completed"
-      ) {
-        confetti();
-      }
-      setSuperblock(result);
-    },
-    [superblockId, userId, completion_status, setSuperblock],
-  );
-
-  const failExercise = useCallback(
-    async (
-      blockId: string,
-      activeExerciseId: string,
-      actualWeightValue: number,
-      reps: number,
-      isWarmup: boolean,
-      isAmrap: boolean,
-      notes: string,
-      perceivedEffort: PerceivedEffort | null,
-    ) => {
-      const result = await serverFailExercise(
-        userId,
-        superblockId,
-        blockId,
-        activeExerciseId,
-        actualWeightValue,
-        reps,
-        isWarmup,
-        isAmrap,
-        notes,
-        perceivedEffort,
-      );
-      setSuperblock(result);
-    },
-    [superblockId, userId, setSuperblock],
-  );
-  const skipExercise = useCallback(
-    async (blockId: string, activeExerciseId: string, notes: string) => {
-      const result = await serverSkipExercise(
-        userId,
-        superblockId,
-        blockId,
-        activeExerciseId,
-        notes,
-      );
-      setSuperblock(result);
-    },
-    [superblockId, userId, setSuperblock],
-  );
+  const { block } = props;
 
   const setNames = useMemo(() => {
     return [
@@ -220,16 +118,18 @@ const useBlockAPI = (props: Props) => {
       ...block.exercises
         .filter((e) => !e.is_warmup)
         .map((e, idx) => [e.id, `Working Set ${idx + 1}`]),
-    ].reduce(
-      (acc, [id, name]) => acc.set(id, name),
-      ImmutableMap<string, string>(),
-    );
+    ]
+      .reduce(
+        (acc, [id, name]) => acc.set(id, name),
+        ImmutableMap<string, string>(),
+      )
+      .set(
+        block.exercises[block.exercises.length - 1].id,
+        "Ultima series optima",
+      );
   }, [block]);
 
   return {
-    failExercise,
-    skipExercise,
-    finishExercise,
     setNames,
   };
 };

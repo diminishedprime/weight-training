@@ -1,11 +1,10 @@
 "use client";
-import {
-  PerformFailExercise,
-  PerformFinishExercise,
-  PerformSkipExercise,
-} from "@/app/superblocks/[superblock_id]/perform/_components/Block";
+import { bustCache } from "@/app/superblocks/[superblock_id]/perform/_components/actions";
 import { RDispatch, RoundingMode, UserPreferences } from "@/common-types";
-import { GetPerformSuperblockExercise } from "@/common-types/get-perform-superblock";
+import {
+  GetPerformSuperblockExercise,
+  GetPerformSuperblockResult,
+} from "@/common-types/get-perform-superblock";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import DisplayStopwatch from "@/components/display/DisplayStopwatch";
 import EditNotes from "@/components/edit/EditNotes";
@@ -14,7 +13,7 @@ import LabeledValue from "@/components/LabeledValue";
 import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
 import { Paths } from "@/constants";
-import { usePersistentBoolean } from "@/hooks";
+import { usePersistentBoolean, useRPCMutation } from "@/hooks";
 import { TestIds } from "@/test-ids";
 import EditIcon from "@mui/icons-material/Edit";
 import { Button, IconButton, Stack, Typography } from "@mui/material";
@@ -22,12 +21,11 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 
 interface ActiveExerciseRowProps {
-  exercise: GetPerformSuperblockExercise;
+  userId: string;
   blockId: string;
   superblockId: string;
-  finishExercise: PerformFinishExercise;
-  failExercise: PerformFailExercise;
-  skipExercise: PerformSkipExercise;
+  exercise: GetPerformSuperblockExercise;
+  setSuperblock: RDispatch<GetPerformSuperblockResult>;
   preferences: UserPreferences;
   setName: string;
   notify: boolean;
@@ -37,20 +35,19 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
   const api = useActiveExerciseRowAPI(props);
   return (
     <Stack
-      sx={{ my: 1 }}
+      sx={{
+        my: 1,
+        opacity: api.isPending ? 0.5 : 1,
+        transition: "opacity 0.4s ease",
+      }}
       spacing={1}
       data-testid={TestIds.Superblocks_SuperblockId_Perform__ActiveExerciseRow}
     >
       <Stack
         direction="row"
-        flex={1}
         spacing={1}
-        alignItems="space-between"
-        justifyContent={"space-between"}
-        sx={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-        }}
+        display="grid"
+        gridTemplateColumns="1fr 1fr 1fr"
       >
         <IconButton
           sx={{ justifySelf: "start" }}
@@ -141,7 +138,7 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
       {api.modifying && (
         <EditNotes notes={api.notes} onNotesChange={api.setNotes} />
       )}
-      <Stack direction="row" justifyContent="space-between" sx={{ pt: 1 }}>
+      <Stack direction="row" justifyContent="space-between">
         <Button
           variant="outlined"
           size="small"
@@ -181,9 +178,8 @@ export default ActiveExerciseRow;
 
 const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
   const {
-    finishExercise: finishExerciseProps,
-    failExercise: failExerciseProps,
-    skipExercise: skipExerciseProps,
+    userId,
+    superblockId,
     exercise: {
       id: exerciseId,
       actual_weight_value,
@@ -197,6 +193,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
     preferences: { pushover_api_token, pushover_user_key },
     blockId,
     notify,
+    setSuperblock,
   } = props;
   const [modifying, setModifying] = useState(false);
 
@@ -209,6 +206,18 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
   const [completionStatus, setCompletionStatus] = useState(completion_status);
   const [perceivedEffort, setPerceivedEffort] = useState(perceived_effort);
 
+  const afterServerAction = useCallback(async () => {
+    bustCache(superblockId);
+  }, [superblockId]);
+
+  const { trigger: finishExerciseTrigger, isMutating: finishExerciseMutating } =
+    useRPCMutation(
+      "finish_exercise",
+      useCallback((e) => `Error calling finish exercise: ${e}`, []),
+      afterServerAction,
+      setSuperblock,
+    );
+
   const finishExercise = useCallback(async () => {
     if (actual === null) {
       console.error(
@@ -216,27 +225,39 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
       );
       return;
     }
-    await finishExerciseProps(
-      blockId,
-      exerciseId,
-      actual,
-      reps,
-      isWarmup,
-      isAMRAP,
-      notes,
-      perceivedEffort,
-    );
+    await finishExerciseTrigger({
+      p_block_id: blockId,
+      p_exercise_id: exerciseId,
+      p_actual_weight_value: actual,
+      p_reps: reps,
+      p_is_warmup: isWarmup,
+      p_is_amrap: isAMRAP,
+      p_notes: notes,
+      p_perceived_effort: perceivedEffort ?? undefined,
+      p_superblock_id: superblockId,
+      p_user_id: userId,
+    });
   }, [
     actual,
     blockId,
     exerciseId,
-    finishExerciseProps,
     isAMRAP,
     isWarmup,
     notes,
     perceivedEffort,
     reps,
+    finishExerciseTrigger,
+    superblockId,
+    userId,
   ]);
+
+  const { trigger: failExerciseTrigger, isMutating: failExerciseMutating } =
+    useRPCMutation(
+      "fail_exercise",
+      useCallback((e) => `Error calling fail exercise: ${e}`, []),
+      afterServerAction,
+      setSuperblock,
+    );
 
   const failExercise = useCallback(async () => {
     if (actual === null) {
@@ -245,16 +266,18 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
       );
       return;
     }
-    await failExerciseProps(
-      blockId,
-      exerciseId,
-      actual,
-      reps,
-      isWarmup,
-      isAMRAP,
-      notes,
-      perceivedEffort,
-    );
+    await failExerciseTrigger({
+      p_block_id: blockId,
+      p_exercise_id: exerciseId,
+      p_actual_weight_value: actual,
+      p_reps: reps,
+      p_is_warmup: isWarmup,
+      p_is_amrap: isAMRAP,
+      p_notes: notes,
+      p_perceived_effort: perceivedEffort ?? undefined,
+      p_superblock_id: superblockId,
+      p_user_id: userId,
+    });
   }, [
     actual,
     blockId,
@@ -264,12 +287,33 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
     notes,
     perceivedEffort,
     reps,
-    failExerciseProps,
+    superblockId,
+    userId,
   ]);
 
+  const { trigger: skipExerciseTrigger, isMutating: skipExerciseMutating } =
+    useRPCMutation(
+      "skip_exercise",
+      useCallback((e) => `Error calling skip exercise: ${e}`, []),
+      afterServerAction,
+      setSuperblock,
+    );
+
   const skipExercise = useCallback(async () => {
-    await skipExerciseProps(blockId, exerciseId, notes);
-  }, [blockId, exerciseId, notes, skipExerciseProps]);
+    await skipExerciseTrigger({
+      p_block_id: blockId,
+      p_exercise_id: exerciseId,
+      p_notes: notes,
+      p_superblock_id: superblockId,
+      p_user_id: userId,
+    });
+  }, [blockId, exerciseId, notes, superblockId, userId]);
+
+  const isPending = useMemo(
+    () =>
+      finishExerciseMutating || failExerciseMutating || skipExerciseMutating,
+    [finishExerciseMutating, failExerciseMutating, skipExerciseMutating],
+  );
 
   const [hasNotified, setHasNotified] = usePersistentBoolean(
     false,
@@ -337,6 +381,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
   const completeDisabled = useMemo(() => actual === null, [actual]);
 
   return {
+    isPending,
     completeDisabled,
     actual,
     setActual,

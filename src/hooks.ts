@@ -106,11 +106,13 @@ export function useRPCMutation<
   fnName: T,
   getErrorMessage: (error: Error) => string,
   afterServerAction?: () => Promise<void>,
+  withResults?: (results: Return) => void,
 ) {
   const mutationFetcher = useCallback(
     async (_: string, { arg }: { arg: Args }) => {
       const results = await rpcMutationAction<T, Args, Return>(fnName, arg);
-      afterServerAction?.();
+      await afterServerAction?.();
+      withResults?.(results);
       return results;
     },
     [afterServerAction, fnName],
