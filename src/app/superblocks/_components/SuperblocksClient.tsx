@@ -29,7 +29,7 @@ const SuperblocksClient: React.FC<SuperblocksClientProps> = (props) => {
   );
 
   return (
-    <Stack spacing={1}>
+    <Stack>
       <Pagination
         page={props.currentPageNum}
         count={props.pageCount}

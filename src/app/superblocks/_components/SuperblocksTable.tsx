@@ -13,7 +13,7 @@ const SuperblockTable: React.FC<SuperblockTableProps> = (props) => {
   // TODO: I don't know if I can safely put this client provider at the root
   // level of this app or not.
   return (
-    <Stack spacing={1}>
+    <Stack>
       <NextIntlClientProvider locale={navigator.language}>
         {props.superblocks.map((superblock) => (
           <SuperblocksRow key={superblock.id} superblock={superblock} />

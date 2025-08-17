@@ -13,7 +13,7 @@ export default async function ExercisePage() {
   return (
     <>
       <Breadcrumbs pathname={Paths.Exercise} />
-      <Stack spacing={1} direction="column">
+      <Stack>
         {EQUIPMENT_TYPES.map((equipmentType) => (
           <Typography
             key={equipmentType}

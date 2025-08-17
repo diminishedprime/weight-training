@@ -16,10 +16,10 @@ const EditDumbbell: React.FC<EditDumbbellProps> = (props) => {
   const api = useEditDumbellAPI(props);
 
   return (
-    <Stack spacing={1} useFlexGap alignItems="center">
+    <Stack alignItems="center">
       <DisplayDumbbell weight={api.actual} weightUnit={props.weightUnit} />
       {props.editing && (
-        <Stack spacing={1} direction="row" alignItems="center" sx={{ mt: 1 }}>
+        <Stack direction="row" alignItems="center" sx={{ mt: 1 }}>
           <Button
             data-testid={TestIds.EditDumbbellBumpDownButton}
             variant="outlined"

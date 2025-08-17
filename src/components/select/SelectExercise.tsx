@@ -29,7 +29,7 @@ const SelectExercise: React.FC<SelectExerciseProps> = (props) => {
 
   return (
     <Stack spacing={1.5}>
-      <Stack direction="row" spacing={1} flexWrap="wrap">
+      <Stack direction="row" flexWrap="wrap">
         {Constants.public.Enums.program_day_types_enum.map((dayType) => (
           <Chip
             key={dayType}
@@ -58,7 +58,7 @@ const SelectExercise: React.FC<SelectExerciseProps> = (props) => {
           onClick={api.selectNoneProgramDayTypes}
         />
       </Stack>
-      <Stack spacing={1} direction="row" useFlexGap>
+      <Stack direction="row">
         <Autocomplete
           fullWidth
           size="small"

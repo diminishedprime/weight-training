@@ -8,7 +8,7 @@ import React, { useCallback, useMemo, useState } from "react";
 const EditMachineStack: React.FC<EquipmentWeightEditorProps> = (props) => {
   const api = useEditMachineStackAPI(props);
   return (
-    <Stack spacing={1} alignItems="center">
+    <Stack alignItems="center">
       <TODO>
         Figure out a clean way to animate this when you pick a heaver/lighter
         value.
@@ -19,12 +19,7 @@ const EditMachineStack: React.FC<EquipmentWeightEditorProps> = (props) => {
         weightValue={api.actual}
         weightUnit={props.weightUnit}
       />
-      <Stack
-        direction="row"
-        spacing={1}
-        alignItems="flex-end"
-        justifyContent="flex-end"
-      >
+      <Stack direction="row" alignItems="flex-end" justifyContent="flex-end">
         {props.editing && (
           <Button
             variant="outlined"

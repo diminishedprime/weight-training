@@ -27,13 +27,7 @@ const SelectAvailableKettlebells: React.FC<SelectAvailableKettlebellsProps> = (
   return (
     <FormControl>
       <FormLabel>{api.label}</FormLabel>
-      <Stack
-        direction="row"
-        spacing={1}
-        flexWrap="wrap"
-        useFlexGap
-        alignItems="flex-end"
-      >
+      <Stack direction="row" flexWrap="wrap" alignItems="flex-end">
         {props.availableKettlebells.map((kettlebell) => (
           <DisplayKettlebell
             onClick={() => api.onClick(kettlebell)}

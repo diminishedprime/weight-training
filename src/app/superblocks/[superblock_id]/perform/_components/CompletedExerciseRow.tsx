@@ -31,7 +31,6 @@ const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
   return (
     <Stack
       sx={{ my: 1 }}
-      spacing={1}
       data-testid={TestIds.Superblocks_SuperblockId_Perform__CompletedExerciseRow(
         props.idx,
       )}

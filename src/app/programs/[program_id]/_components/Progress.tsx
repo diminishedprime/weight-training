@@ -9,7 +9,7 @@ interface Props {
 const Progress: React.FC<Props> = (props) => {
   const api = useProgressAPI(props);
   return (
-    <Stack spacing={1}>
+    <Stack>
       <LinearProgress variant="determinate" value={api.progress} />
       <Typography
         variant="body2"

@@ -55,7 +55,7 @@ const PersonalRecordsPage = async () => {
         there's consistent progression, even though the PRs are less frequent.
       </TODO>
       {exercisesByEquipment.map(([equipment, exercises]) => (
-        <Stack key={equipment} spacing={1}>
+        <Stack key={equipment}>
           <Typography variant="h6" display="flex" alignItems="center" gap={1}>
             <DisplayEquipmentThumbnail
               equipmentType={equipment as EquipmentType}

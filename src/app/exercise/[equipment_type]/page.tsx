@@ -30,7 +30,7 @@ export default async function EquipmentTypeExercisesPage(
   return (
     <React.Fragment>
       <Breadcrumbs pathname={Paths.Exercise_EquipmentType(equipmentType)} />
-      <Stack spacing={1}>
+      <Stack>
         {Array.from(
           EXERCISES_BY_EQUIPMENT.get(equipmentType)?.toOrderedSet() ?? [],
         ).map((exerciseType) => (

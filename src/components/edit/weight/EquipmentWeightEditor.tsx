@@ -99,7 +99,7 @@ const EquipmentWeightEditor: React.FC<EquipmentWeightEditorProps> = (props) => {
       // TODO: consider making EditWeight support proper labels instead of doing
       // it custom, here.
       return (
-        <Stack spacing={1} alignItems="center">
+        <Stack alignItems="center">
           <Typography>Added Weight</Typography>
           <EditWeight {...props} add5 add25 sub5 sub25 />
         </Stack>

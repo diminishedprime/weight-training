@@ -22,8 +22,8 @@ const ProgramsClient: React.FC<ProgramsClientProps> = (props) => {
   }, []);
 
   return (
-    <Stack spacing={1} flex={1} justifyContent="space-between">
-      <Stack spacing={1}>
+    <Stack flex={1} justifyContent="space-between">
+      <Stack>
         <Button
           component={Link}
           href={Paths.Programs_Add}

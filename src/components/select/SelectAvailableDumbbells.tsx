@@ -106,7 +106,7 @@ const SelectAvailableDumbbells: React.FC<SelectAvailableDumbbellsProps> = (
   return (
     <FormControl>
       <FormLabel>
-        <Stack spacing={1} direction="row" alignItems="center">
+        <Stack direction="row" alignItems="center">
           <span>{api.label}</span>
           {props.labelAdornment}
           <Chip

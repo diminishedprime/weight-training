@@ -41,15 +41,9 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
         opacity: api.isPending ? 0.5 : 1,
         transition: "opacity 0.4s ease",
       }}
-      spacing={1}
       data-testid={TestIds.Superblocks_SuperblockId_Perform__ActiveExerciseRow}
     >
-      <Stack
-        direction="row"
-        spacing={1}
-        display="grid"
-        gridTemplateColumns="1fr 1fr 1fr"
-      >
+      <Stack direction="row" display="grid" gridTemplateColumns="1fr 1fr 1fr">
         <IconButton
           sx={{ justifySelf: "start" }}
           size="small"
@@ -67,12 +61,7 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
           {props.setName}
         </Typography>
       </Stack>
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent="center"
-        spacing={1}
-      >
+      <Stack direction="row" alignItems="center" justifyContent="center">
         <LabeledValue label="Reps" alignItems="center">
           <Typography variant="h4">
             {api.reps}
@@ -112,7 +101,6 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
       />
       <Stack
         direction="row"
-        spacing={1}
         flexWrap="wrap"
         justifyContent="center"
         alignItems={"end"}

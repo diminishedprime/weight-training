@@ -140,8 +140,8 @@ const SetTargetMax: React.FC<SetTargetMaxProps> = (props) => {
         props.pathToRevalidate,
       )}
     >
-      <Stack spacing={1}>
-        <Stack direction="row" spacing={1} useFlexGap alignItems="flex-start">
+      <Stack>
+        <Stack direction="row" alignItems="flex-start">
           <TextField
             name="targetMax"
             size="small"

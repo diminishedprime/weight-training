@@ -5,6 +5,7 @@ import { getSession, supabaseRPC } from "@/serverUtil";
 import { CssBaseline, Divider, Stack, Typography } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { Analytics } from "@vercel/analytics/next";
+import merge from "lodash/merge";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -18,7 +19,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const themeOptions = await getThemeOptions();
-
   return (
     <html lang="en">
       <body>
@@ -26,7 +26,6 @@ export default async function RootLayout({
           <ThemeProvider themeOptions={themeOptions}>
             <CssBaseline enableColorScheme />
             <Stack
-              spacing={1}
               sx={{
                 maxWidth: "800px",
                 mx: "auto",
@@ -37,7 +36,6 @@ export default async function RootLayout({
             >
               <Banner />
               <Stack
-                spacing={1}
                 flex={1}
                 sx={{
                   px: 1,
@@ -47,12 +45,7 @@ export default async function RootLayout({
                 {children}
                 <Analytics />
               </Stack>
-              <Stack
-                component="footer"
-                spacing={1}
-                alignItems="center"
-                sx={{ p: 1 }}
-              >
+              <Stack component="footer" alignItems="center" sx={{ p: 1 }}>
                 <Divider flexItem variant="inset" />
                 <Typography>
                   <Typography component="span" color="primary">
@@ -69,17 +62,29 @@ export default async function RootLayout({
   );
 }
 
+const baseThemeOptions = {
+  components: {
+    MuiStack: {
+      defaultProps: {
+        useFlexGap: true,
+        spacing: 1,
+      },
+    },
+  },
+} as MyThemeOptions;
+
 const getThemeOptions = async (): Promise<MyThemeOptions> => {
   const session = await getSession();
   if (!session?.user?.id) {
-    return {};
+    return { ...baseThemeOptions };
   }
   const userId = session.user.id;
   const theme_options = await supabaseRPC("get_theme_options", {
     p_user_id: userId,
   });
   if (theme_options === null) {
-    return {};
+    return { ...baseThemeOptions };
   }
-  return theme_options as MyThemeOptions;
+  // Use lodash merge for deep merging theme options
+  return merge({}, baseThemeOptions, theme_options) as MyThemeOptions;
 };

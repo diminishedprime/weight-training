@@ -50,14 +50,13 @@ const EditWeight = forwardRef<EditWeightHandle, EditWeightProps>(
     );
 
     return (
-      <Stack spacing={1} alignItems="center">
+      <Stack alignItems="center">
         <Stack
           spacing={0.5}
           direction="row"
           alignItems="center"
-          justifyContent={"center"}
+          justifyContent="center"
           flexWrap="wrap"
-          useFlexGap
         >
           {props.undo && props.editing && (
             <IconButton

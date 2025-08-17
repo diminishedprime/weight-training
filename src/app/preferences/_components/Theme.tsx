@@ -20,8 +20,8 @@ const Theme: React.FC<ThemeProps> = (props) => {
   const api = useThemeAPI(props);
   return (
     <LabeledValue label="Theme" labelVariant="h6">
-      <Stack spacing={1}>
-        <Stack direction="row" spacing={1} useFlexGap>
+      <Stack>
+        <Stack direction="row">
           <LabeledValue label={api.darkModeLabel}>
             <Switch
               checked={api.mode === "dark"}
@@ -32,9 +32,9 @@ const Theme: React.FC<ThemeProps> = (props) => {
           </LabeledValue>
           <TODO>Add in a drop-down here with some pre-made themes.</TODO>
         </Stack>
-        <Stack spacing={1}>
+        <Stack>
           <LabeledValue label="Colors" labelVariant="body1">
-            <Stack direction="row" spacing={1} alignItems="center">
+            <Stack direction="row" alignItems="center">
               <LabeledValue label={api.primaryLabel}>
                 <MuiColorInput
                   size="small"

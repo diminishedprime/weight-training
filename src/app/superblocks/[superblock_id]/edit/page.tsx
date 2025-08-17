@@ -30,8 +30,8 @@ export default async function Edit(props: EditProps) {
         pathname={path}
         labels={{ [superblockId]: superblock.name }}
       />
-      <Stack spacing={1}>
-        <Stack direction="row" spacing={1} justifyContent="space-between">
+      <Stack>
+        <Stack direction="row" justifyContent="space-between">
           <Typography variant="h5">{superblock.name} - Edit</Typography>
           <Button
             component={Link}
@@ -46,7 +46,6 @@ export default async function Edit(props: EditProps) {
         {superblock.blocks.map((block, idx) => (
           <Stack
             key={block.id}
-            spacing={1}
             component={Paper}
             sx={{ p: 1 }}
             data-testid={TestIds.Superblocks_SuperblockId_Edit_Block(idx)}
@@ -54,7 +53,6 @@ export default async function Edit(props: EditProps) {
             <Typography variant="h6">{block.name}</Typography>
             <Stack
               direction="row"
-              spacing={1}
               justifyContent="space-between"
               alignItems={"flex-end"}
             >

@@ -16,7 +16,7 @@ const EditBarbell: React.FC<EditBarbellProps> = (props) => {
   const api = useEditBarbellAPI(props);
 
   return (
-    <Stack alignItems="center" spacing={1} useFlexGap>
+    <Stack alignItems="center">
       <DisplayBarbell
         showWeight
         showDifference

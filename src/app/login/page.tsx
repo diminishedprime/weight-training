@@ -1,44 +1,34 @@
 "use client";
 import { loginAction } from "@/app/login/actions";
 import TODO from "@/components/TODO";
-import { Typography } from "@mui/material";
-import Box from "@mui/material/Box";
+import { Stack, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import React from "react";
 
-const LoginContent = () => {
+export default function LoginPage() {
   const searchParams = useSearchParams();
   const redirectUri = decodeURIComponent(
     searchParams.get("redirect-uri") || encodeURIComponent("/"),
   );
-
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      minHeight="60vh"
-      gap={3}
-    >
-      <Typography variant="body1">
-        You must be logged in order to view this page.
-      </Typography>
-      <form action={loginAction.bind(null, redirectUri)}>
-        <Button type="submit" variant="contained" color="primary" size="large">
-          Sign in with Google
-        </Button>
-      </form>
-    </Box>
-  );
-};
-
-export default function LoginPage() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <LoginContent />
+    <React.Fragment>
       <TODO>Support other login-providers.</TODO>
-    </Suspense>
+      <Stack display="flex" alignItems="center">
+        <Typography variant="body1">
+          You must be logged in order to view this page.
+        </Typography>
+        <form action={loginAction.bind(null, redirectUri)}>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            size="large"
+          >
+            Sign in with Google
+          </Button>
+        </form>
+      </Stack>
+    </React.Fragment>
   );
 }

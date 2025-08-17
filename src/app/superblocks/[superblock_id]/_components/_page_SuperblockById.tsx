@@ -27,8 +27,8 @@ export default async function PageSuperblocksById(
 ) {
   const { superblock } = props;
   return (
-    <Stack spacing={1}>
-      <Stack direction="row" spacing={1} justifyContent="space-between">
+    <Stack>
+      <Stack direction="row" justifyContent="space-between">
         <Typography variant="h5" display="flex" alignItems={"center"} gap={1}>
           <DisplayCompletionStatus
             completionStatus={superblock.completion_status}
@@ -54,7 +54,7 @@ export default async function PageSuperblocksById(
           Let's a go
         </Button>
       </Stack>
-      <Stack direction="row" spacing={1} justifyContent="space-between">
+      <Stack direction="row" justifyContent="space-between">
         {superblock.started_at && superblock.completed_at && (
           <DisplayDuration
             from={new Date(superblock.started_at)}
@@ -65,12 +65,12 @@ export default async function PageSuperblocksById(
       </Stack>
       <Stack spacing={3}>
         {superblock.blocks.map((block) => (
-          <Stack key={block.id} spacing={1}>
+          <Stack key={block.id}>
             <Typography variant="h6" display="flex" alignItems="center" gap={1}>
               <DisplayEquipmentThumbnail equipmentType={block.equipment_type} />
               {block.name}
             </Typography>
-            <Stack direction="row" spacing={1}>
+            <Stack direction="row">
               <LabeledValue label="Exercise">
                 {exerciseTypeUIStringBrief(block.exercise_type)}
               </LabeledValue>
@@ -91,7 +91,7 @@ export default async function PageSuperblocksById(
                 </React.Fragment>
               )}
             </Stack>
-            <Stack direction="row" spacing={1} justifyContent="space-between">
+            <Stack direction="row" justifyContent="space-between">
               {block.started_at && block.completed_at && (
                 <DisplayDuration
                   squiggle
@@ -101,7 +101,7 @@ export default async function PageSuperblocksById(
               )}
               <Typography variant="caption">{block.notes}</Typography>
             </Stack>
-            <Stack spacing={1}>
+            <Stack>
               <Box
                 sx={{
                   display: "grid",

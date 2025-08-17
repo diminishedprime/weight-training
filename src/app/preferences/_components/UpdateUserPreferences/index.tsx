@@ -371,7 +371,7 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
   const api = useUpdateUserPreferencesAPI(props);
 
   return (
-    <Stack spacing={1} flexGrow={1}>
+    <Stack flexGrow={1}>
       <Typography variant="h6" sx={{ mb: 2 }}>
         Update Preferences
       </Typography>
@@ -380,13 +380,13 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
           {api.requiredPreferencesMessage}
         </Typography>
       )}
-      <Stack spacing={1} flexGrow={1} useFlexGap>
+      <Stack flexGrow={1}>
         <Theme
           serverThemeOptions={props.preferences.theme_options as MyThemeOptions}
           setThemeOptions={api.setThemeOptions}
           setModified={api.setThemeModified}
         />
-        <Stack spacing={1} sx={{ pb: 1.5 }}>
+        <Stack sx={{ pb: 1.5 }}>
           <SelectWeightUnit
             modified={api.unitModified}
             weightUnit={api.preferredWeightUnit}
@@ -409,12 +409,12 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
           )}
           <TODO>Currently this isn't remotely supported</TODO>
         </Stack>
-        <Stack spacing={1}>
+        <Stack>
           <TODO>
             Switch everything over that has help to use the new LabeledValue
             thing.
           </TODO>
-          <Stack spacing={1} direction="row" alignItems="center">
+          <Stack direction="row" alignItems="center">
             <TextField
               label={api.restTimeLabel}
               name="default_rest_time"
@@ -444,7 +444,7 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             also per exercise type (most specific wins)
           </TODO>
         </Stack>
-        <Stack spacing={1}>
+        <Stack>
           <SelectPlates
             modified={api.platesLBSModified}
             // Intentionally hard-coded. When we want to support kg, we'll add
@@ -482,7 +482,7 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
           )}
           <TODO>I'd like to support adding custom plate sizes here.</TODO>
         </Stack>
-        <Stack spacing={1}>
+        <Stack>
           <SelectAvailableDumbbells
             modified={api.dumbbellsLBSModified}
             initiallyAvailableDumbbells={DEFAULT_VALUES.AVAILABLE_DUMBBELLS_LBS}
@@ -517,7 +517,7 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
             the kettlebells would be nice.
           </TODO>
         </Stack>
-        <Stack spacing={1}>
+        <Stack>
           <SelectAvailableKettlebells
             availableKettlebells={api.availableKettlebellsLbs}
             selectedKettlebells={api.selectedKettlebells}
@@ -556,7 +556,6 @@ export const UpdateUserPreferences: React.FC<UpdateUserPreferencesProps> = (
       </Stack>
       <Stack
         direction="row"
-        spacing={1}
         justifyContent={api.backTo ? "space-between" : "flex-end"}
       >
         {api.backTo && (

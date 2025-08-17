@@ -37,7 +37,7 @@ const Movement: React.FC<Props> = (props) => {
       disableGutters
     >
       <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 1 }}>
-        <Stack spacing={1} direction="row" alignItems="center" width="100%">
+        <Stack direction="row" alignItems="center" width="100%">
           <DisplayCompletionStatus completionStatus={completionStatus} />
           <Typography>
             {exerciseTypeUIStringBrief(movement.exercise_type)}
@@ -49,8 +49,8 @@ const Movement: React.FC<Props> = (props) => {
         </Stack>
       </AccordionSummary>
       <AccordionDetails sx={{ p: 1 }}>
-        <Stack spacing={1}>
-          <Stack direction="row" spacing={1} justifyContent={"space-between"}>
+        <Stack>
+          <Stack direction="row" justifyContent={"space-between"}>
             <LabeledValue label="Training Max" alignItems={"center"}>
               <DisplayWeight
                 weightValue={movement.training_max_value}

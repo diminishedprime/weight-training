@@ -37,7 +37,7 @@ interface ProgramsAddClientProps {
 const ProgramsAddClient: React.FC<ProgramsAddClientProps> = (props) => {
   const api = useProgramsAddClientAPI(props);
   return (
-    <Stack spacing={1} flex={1}>
+    <Stack flex={1}>
       <Typography variant="h5" component="h1">
         Add Program
       </Typography>
@@ -109,7 +109,7 @@ const ProgramsAddClient: React.FC<ProgramsAddClientProps> = (props) => {
           </React.Fragment>
         }
       >
-        <Stack direction="row" spacing={1} flexWrap="wrap">
+        <Stack direction="row" flexWrap="wrap">
           <Button
             variant="outlined"
             color="secondary"

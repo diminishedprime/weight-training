@@ -18,7 +18,6 @@ const DisplayPlateStack: React.FC<DisplayPlateStackProps> = (props) => {
       style={{ width: "18ch" }}
       flexDirection="column-reverse"
       spacing={0.25}
-      useFlexGap
     >
       {props.plates.map((plateValue, idx) => {
         const metadata = PLATE_METADATA[plateValue];

@@ -51,7 +51,7 @@ const PersonalRecordsExerciseType = async (
 
   if (personalRecords === null || personalRecords.length === 0) {
     return (
-      <Stack spacing={1}>
+      <Stack>
         <Typography>
           You don&apos;t have any{" "}
           {exerciseTypeUIStringLong(props.exercise_type)} personal records yet.
@@ -89,13 +89,8 @@ const PersonalRecordsExerciseType = async (
       </Typography>
 
       {repGroups.map(({ reps, records }) => (
-        <Stack key={reps} spacing={1}>
-          <Stack
-            direction="row"
-            spacing={1}
-            display="flex"
-            alignItems="baseline"
-          >
+        <Stack key={reps}>
+          <Stack direction="row" display="flex" alignItems="baseline">
             <Typography variant="h6" color="primary">
               {reps} Rep{reps === 1 ? "" : "s"}
             </Typography>
@@ -200,7 +195,7 @@ export default async function SuspenseWrapper(props: SuspenseWrapperProps) {
         pathname={`/personal-records/${exerciseType}`}
         labels={{
           [exerciseType]: (
-            <Stack direction="row" alignItems="center" spacing={1}>
+            <Stack direction="row" alignItems="center">
               <DisplayEquipmentThumbnail
                 equipmentType={equipmentForExercise(exerciseType)}
               />

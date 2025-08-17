@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <>
       <Breadcrumbs pathname="/" />
-      <Stack spacing={1}>
-        <Stack spacing={1} direction="row" flexWrap="wrap" useFlexGap>
+      <Stack>
+        <Stack direction="row" flexWrap="wrap">
           <Button
             component={Link}
             href={Paths.Programs}
