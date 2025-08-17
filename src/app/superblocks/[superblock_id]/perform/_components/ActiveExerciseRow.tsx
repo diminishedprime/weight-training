@@ -17,6 +17,7 @@ import { usePersistentBoolean, useRPCMutation } from "@/hooks";
 import { TestIds } from "@/test-ids";
 import EditIcon from "@mui/icons-material/Edit";
 import { Button, IconButton, Stack, Typography } from "@mui/material";
+import confetti from "canvas-confetti";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 
@@ -210,12 +211,27 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
     bustCache(superblockId);
   }, [superblockId]);
 
+  const updateSuperblock = useCallback(
+    (nu: GetPerformSuperblockResult) => {
+      setSuperblock((old) => {
+        if (
+          old.completion_status !== "completed" &&
+          nu.completion_status === "completed"
+        ) {
+          confetti();
+        }
+        return nu;
+      });
+    },
+    [setSuperblock],
+  );
+
   const { trigger: finishExerciseTrigger, isMutating: finishExerciseMutating } =
     useRPCMutation(
       "finish_exercise",
       useCallback((e) => `Error calling finish exercise: ${e}`, []),
       afterServerAction,
-      setSuperblock,
+      updateSuperblock,
     );
 
   const finishExercise = useCallback(async () => {
