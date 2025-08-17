@@ -8,7 +8,7 @@ interface ProgramsProps {
 
 const Programs: React.FC<ProgramsProps> = (props) => {
   return (
-    <Stack spacing={1}>
+    <Stack>
       {props.programOverviews.map((program) => (
         <ProgramOverview key={program.id} program={program} />
       ))}

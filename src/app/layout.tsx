@@ -18,7 +18,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const themeOptions = await getThemeOptions();
-
   return (
     <html lang="en">
       <body>
@@ -26,7 +25,6 @@ export default async function RootLayout({
           <ThemeProvider themeOptions={themeOptions}>
             <CssBaseline enableColorScheme />
             <Stack
-              spacing={1}
               sx={{
                 maxWidth: "800px",
                 mx: "auto",
@@ -37,7 +35,6 @@ export default async function RootLayout({
             >
               <Banner />
               <Stack
-                spacing={1}
                 flex={1}
                 sx={{
                   px: 1,
@@ -47,12 +44,7 @@ export default async function RootLayout({
                 {children}
                 <Analytics />
               </Stack>
-              <Stack
-                component="footer"
-                spacing={1}
-                alignItems="center"
-                sx={{ p: 1 }}
-              >
+              <Stack component="footer" alignItems="center" sx={{ p: 1 }}>
                 <Divider flexItem variant="inset" />
                 <Typography>
                   <Typography component="span" color="primary">

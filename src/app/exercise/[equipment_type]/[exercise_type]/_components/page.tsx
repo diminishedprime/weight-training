@@ -96,7 +96,7 @@ const EquipmentExercisePage: React.FC<EquipmentExercisePageProps> = async (
 
   return (
     <React.Fragment>
-      <Stack spacing={1}>
+      <Stack>
         <AddEquipmentExercise
           exerciseType={props.exerciseType}
           path={props.path}

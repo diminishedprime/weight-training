@@ -1,6 +1,9 @@
 "use server";
 
-import { type ProgramsAddFormDraft } from "@/app/programs/add/_components/_page_ProgramsAdd";
+import {
+  FormDraftSchema,
+  ProgramsAddFormDraft,
+} from "@/app/programs/add/_components/common";
 import { WeightUnit } from "@/common-types";
 import { Paths } from "@/constants";
 import { supabaseRPC } from "@/serverUtil";
@@ -53,4 +56,15 @@ export const saveFormDraft = async (
     p_page_path: pagePath,
     p_form_data: formData,
   });
+};
+
+export const getProgramsAddFormDraft = async (
+  userId: string,
+): Promise<ProgramsAddFormDraft> => {
+  const formDraftRaw = await supabaseRPC("get_form_draft", {
+    p_user_id: userId,
+    p_page_path: Paths.Programs_Add,
+  });
+  const parsed = FormDraftSchema.safeParse(formDraftRaw);
+  return parsed.success ? parsed.data : null;
 };

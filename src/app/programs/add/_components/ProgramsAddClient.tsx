@@ -1,19 +1,17 @@
 "use client";
 import {
-  getProgramsAddFormDraft,
-  ProgramsAddFormDraft,
-} from "@/app/programs/add/_components/_page_ProgramsAdd";
-import {
   addProgram,
+  getProgramsAddFormDraft,
   saveFormDraft,
 } from "@/app/programs/add/_components/actions";
+import { ProgramsAddFormDraft } from "@/app/programs/add/_components/common";
 import { ExerciseType, GetAddProgramInfoResult } from "@/common-types";
 import DisplayWeightChange from "@/components/display/DisplayWeightChange";
 import EditWeight from "@/components/edit/weight/EditWeight";
 import LabeledValue from "@/components/LabeledValue";
 import TODO from "@/components/TODO";
 import { Paths } from "@/constants";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { exerciseTypeUIStringBrief, weightUnitUIString } from "@/uiStrings";
 import IconPlus from "@mui/icons-material/Add";
 import {
@@ -37,7 +35,7 @@ interface ProgramsAddClientProps {
 const ProgramsAddClient: React.FC<ProgramsAddClientProps> = (props) => {
   const api = useProgramsAddClientAPI(props);
   return (
-    <Stack spacing={1} flex={1}>
+    <Stack flex={1}>
       <Typography variant="h5" component="h1">
         Add Program
       </Typography>
@@ -109,7 +107,7 @@ const ProgramsAddClient: React.FC<ProgramsAddClientProps> = (props) => {
           </React.Fragment>
         }
       >
-        <Stack direction="row" spacing={1} flexWrap="wrap">
+        <Stack direction="row" flexWrap="wrap">
           <Button
             variant="outlined"
             color="secondary"

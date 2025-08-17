@@ -26,18 +26,13 @@ const Overview: React.FC<OverviewProps> = (props) => {
         />
       }
     >
-      <Stack
-        spacing={1}
-        useFlexGap
-        height="100%"
-        justifyContent="space-between"
-      >
-        <Stack spacing={1}>
+      <Stack height="100%" justifyContent="space-between">
+        <Stack>
           {props.overview.exercises.map((exercise) => (
             <Exercise key={exercise.id} exercise={exercise} />
           ))}
         </Stack>
-        <Stack spacing={1}>
+        <Stack>
           <LabeledValue label="Volume" alignItems="center">
             {api.totalVolume}
           </LabeledValue>

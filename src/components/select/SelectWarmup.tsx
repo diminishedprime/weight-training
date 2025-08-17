@@ -1,4 +1,4 @@
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { Checkbox, FormControlLabel } from "@mui/material";
 import React from "react";
 

@@ -10,7 +10,7 @@ const DisplayNotes: React.FC<DisplayNotesProps> = (props) => {
   }
   const lines = props.notes.split("\n");
   return (
-    <Stack spacing={1}>
+    <Stack>
       {lines.map((line, idx) => (
         <Typography key={idx} variant="caption" color="text.secondary">
           {line}

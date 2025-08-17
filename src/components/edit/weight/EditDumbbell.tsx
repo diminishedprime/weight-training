@@ -1,7 +1,7 @@
 import DisplayDumbbell from "@/components/display/DisplayDumbbell";
 import { EquipmentWeightEditorProps } from "@/components/edit/weight/EquipmentWeightEditor";
 import useEditableWeight from "@/components/edit/weight/useEditableWeight";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { Button } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import Stack from "@mui/material/Stack";
@@ -16,10 +16,10 @@ const EditDumbbell: React.FC<EditDumbbellProps> = (props) => {
   const api = useEditDumbellAPI(props);
 
   return (
-    <Stack spacing={1} useFlexGap alignItems="center">
+    <Stack alignItems="center">
       <DisplayDumbbell weight={api.actual} weightUnit={props.weightUnit} />
       {props.editing && (
-        <Stack spacing={1} direction="row" alignItems="center" sx={{ mt: 1 }}>
+        <Stack direction="row" alignItems="center" sx={{ mt: 1 }}>
           <Button
             data-testid={TestIds.EditDumbbellBumpDownButton}
             variant="outlined"

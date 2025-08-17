@@ -1,5 +1,5 @@
 import { CompletionStatus } from "@/common-types";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import CancelIcon from "@mui/icons-material/Cancel";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";

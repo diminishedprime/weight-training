@@ -10,7 +10,7 @@ interface ErrorProps {
 
 const Error: React.FC<ErrorProps> = ({ error }) => {
   return (
-    <Stack direction="column" spacing={1}>
+    <Stack>
       <Typography variant="h5">Something went wrong!</Typography>
       <Typography variant="body1" color="text.secondary">
         We encountered an error.

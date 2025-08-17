@@ -7,7 +7,7 @@ import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
 import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
 import SelectWarmup from "@/components/select/SelectWarmup";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { Button, Stack } from "@mui/material";
 import React from "react";
 
@@ -42,10 +42,7 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
   // TODO: I still need to figure out how to space the machine stack better. I
   // think to the left is good, but the right controls are just weird.
   return (
-    <Stack
-      direction={props.equipmentType === "machine" ? "row" : "column"}
-      spacing={1}
-    >
+    <Stack direction={props.equipmentType === "machine" ? "row" : "column"}>
       <EquipmentWeightEditor
         editing
         ignoreTarget
@@ -59,8 +56,8 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
         barWeight={api.barWeight}
         preferences={props.preferences}
       />
-      <Stack spacing={1} alignItems="space-between">
-        <Stack spacing={1} alignItems="center">
+      <Stack alignItems="space-between">
+        <Stack alignItems="center">
           <SelectReps
             repChoices={api.repChoices}
             reps={api.reps}
@@ -70,11 +67,9 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
           />
           <Stack
             direction="row"
-            spacing={1}
             flexWrap="wrap"
             justifyContent="space-between"
             alignItems="flex-end"
-            useFlexGap
           >
             <SelectCompletionStatus
               completionStatus={api.completionStatus}
@@ -93,14 +88,8 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
           </Stack>
           <EditNotes notes={api.notes} onNotesChange={api.setNotes} />
         </Stack>
-        <Stack
-          spacing={1}
-          direction="row"
-          flexWrap="wrap"
-          useFlexGap
-          justifyContent="space-between"
-        >
-          <Stack direction="row" spacing={1}>
+        <Stack direction="row" flexWrap="wrap" justifyContent="space-between">
+          <Stack direction="row">
             <form action={api.boundClearEquipmentFormDraft}>
               <Button variant="outlined" color="error" type="submit">
                 Cancel
@@ -115,7 +104,7 @@ const AddEquipmentExercise: React.FC<AddEquipmentExerciseProps> = (props) => {
               Reset
             </Button>
           </Stack>
-          <Stack direction="row" spacing={1}>
+          <Stack direction="row">
             <form
               action={api.boundAddEquipmentExerciseAction}
               onSubmit={api.handleAddEquipmentExerciseClick}

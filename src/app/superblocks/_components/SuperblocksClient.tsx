@@ -1,6 +1,6 @@
 "use client";
 import SuperblocksTable from "@/app/superblocks/_components/SuperblocksTable";
-import { type NarrowedSuperblocksRow } from "@/app/superblocks/_components/_page_Superblocks";
+import { NarrowedSuperblocksRow } from "@/app/superblocks/page";
 import Pagination from "@/components/Pagination";
 import { Paths, SearchParam, WithSearchParams } from "@/constants";
 import { Stack } from "@mui/material";
@@ -29,7 +29,7 @@ const SuperblocksClient: React.FC<SuperblocksClientProps> = (props) => {
   );
 
   return (
-    <Stack spacing={1}>
+    <Stack>
       <Pagination
         page={props.currentPageNum}
         count={props.pageCount}

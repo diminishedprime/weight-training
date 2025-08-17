@@ -71,15 +71,9 @@ const Pagination: React.FC<PaginationWithHrefProps> = ({
       justifyContent="space-between"
       width="100%"
     >
-      <Stack direction="row" spacing={1}>
-        {leftItems.map(renderItem)}
-      </Stack>
-      <Stack direction="row" spacing={1}>
-        {middleItems.map(renderItem)}
-      </Stack>
-      <Stack direction="row" spacing={1}>
-        {rightItems.map(renderItem)}
-      </Stack>
+      <Stack direction="row">{leftItems.map(renderItem)}</Stack>
+      <Stack direction="row">{middleItems.map(renderItem)}</Stack>
+      <Stack direction="row">{rightItems.map(renderItem)}</Stack>
     </Stack>
   );
 };

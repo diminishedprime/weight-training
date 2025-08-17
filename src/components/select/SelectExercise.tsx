@@ -3,7 +3,7 @@ import { ExerciseType, ProgramDayType } from "@/common-types";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
 import { EXERCISE_TYPES, EXERCISES_FOR_DAY_TYPE } from "@/constants";
 import { Constants } from "@/database.types";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { exerciseTypeUIStringBrief, programDayTypeUIString } from "@/uiStrings";
 import { equipmentForExercise } from "@/util";
 import ResetIcon from "@mui/icons-material/RestartAlt";
@@ -29,7 +29,7 @@ const SelectExercise: React.FC<SelectExerciseProps> = (props) => {
 
   return (
     <Stack spacing={1.5}>
-      <Stack direction="row" spacing={1} flexWrap="wrap">
+      <Stack direction="row" flexWrap="wrap">
         {Constants.public.Enums.program_day_types_enum.map((dayType) => (
           <Chip
             key={dayType}
@@ -58,7 +58,7 @@ const SelectExercise: React.FC<SelectExerciseProps> = (props) => {
           onClick={api.selectNoneProgramDayTypes}
         />
       </Stack>
-      <Stack spacing={1} direction="row" useFlexGap>
+      <Stack direction="row">
         <Autocomplete
           fullWidth
           size="small"

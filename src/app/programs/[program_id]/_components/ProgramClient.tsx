@@ -20,10 +20,10 @@ const ProgramClient: React.FC<ProgramClientProps> = (props) => {
   const { program } = props;
   const api = useProgramClient(props);
   return (
-    <Stack spacing={1}>
+    <Stack>
       <Typography variant="h5">
         {program.name}
-        <Stack direction="row" spacing={1} alignItems={"center"}>
+        <Stack direction="row" alignItems={"center"}>
           {program.started_at && (
             <DisplayDate timestamp={program.started_at} noTime />
           )}

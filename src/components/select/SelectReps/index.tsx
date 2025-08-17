@@ -1,4 +1,4 @@
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import {
   Stack,
   ToggleButton,
@@ -44,7 +44,7 @@ const SelectReps: React.FC<SelectRepsProps> = (props) => {
           </Typography>
         )}
       </FormLabel>
-      <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+      <Stack direction="row" flexWrap="wrap">
         {!props.hideAMRAP && props.setIsAMRAP && (
           <ToggleButtonGroup
             color="secondary"

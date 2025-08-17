@@ -9,7 +9,7 @@ import {
 } from "@/common-types";
 import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import TODO from "@/components/TODO";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Accordion,
@@ -48,7 +48,6 @@ const Block: React.FC<Props> = (props) => {
       </AccordionSummary>
       <AccordionDetails sx={{ p: 1 }}>
         <Stack
-          spacing={1}
           data-testid={TestIds.Superblocks_SuperblockId_Perform__Block(
             block.name,
           )}
@@ -61,7 +60,7 @@ const Block: React.FC<Props> = (props) => {
           <TODO>Include the start-time here once it's set</TODO>
           <TODO>Include the end-time here once it's set</TODO>
           <TODO>Include the duration here once both are set.</TODO>
-          <Stack useFlexGap>
+          <Stack>
             {block.exercises.map((exercise, idx) => {
               return (
                 <React.Fragment key={exercise.id}>

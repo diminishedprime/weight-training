@@ -76,7 +76,7 @@ const SelectPlates: React.FC<SelectPlatesProps> = (props) => {
   return (
     <FormControl>
       <FormLabel>
-        <Stack spacing={1} direction="row" alignItems={"center"}>
+        <Stack direction="row" alignItems={"center"}>
           {api.label}
           {props.labelAdornment}
         </Stack>

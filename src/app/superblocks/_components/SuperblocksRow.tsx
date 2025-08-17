@@ -1,5 +1,5 @@
 "use client";
-import { type NarrowedSuperblocksRow } from "@/app/superblocks/_components/_page_Superblocks";
+import { NarrowedSuperblocksRow } from "@/app/superblocks/page";
 import DisplayDate from "@/components/display/DisplayDate";
 import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayTimeSince from "@/components/display/DisplayTimeSince";
@@ -17,7 +17,7 @@ interface SuperblocksRowProps {
 const SuperblocksRow: React.FC<SuperblocksRowProps> = (props) => {
   const format = useFormatter();
   return (
-    <Stack spacing={1} component={Paper} sx={{ m: 0, p: 1 }}>
+    <Stack component={Paper} sx={{ m: 0, p: 1 }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Typography
           variant="h6"
@@ -33,7 +33,7 @@ const SuperblocksRow: React.FC<SuperblocksRowProps> = (props) => {
           weightUnit={"pounds"}
         />
       </Stack>
-      <Stack spacing={1} direction="row" flexWrap="wrap">
+      <Stack direction="row" flexWrap="wrap">
         <DisplayDate timestamp={props.superblock.started_at} row />
         <span>~</span>
         <DisplayDate timestamp={props.superblock.completed_at} row noDate />
@@ -61,7 +61,7 @@ const SuperblocksRow: React.FC<SuperblocksRowProps> = (props) => {
           ),
         )}
       </Typography>
-      <Stack spacing={1} direction="row" flexWrap="wrap" alignItems="baseline">
+      <Stack direction="row" flexWrap="wrap" alignItems="baseline">
         <Typography variant="caption" flexGrow={1}>
           {props.superblock.notes}
         </Typography>

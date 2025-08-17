@@ -24,8 +24,8 @@ interface PerformClientProps {
 const PerformClient: React.FC<PerformClientProps> = (props) => {
   const api = usePerformClientAPI(props);
   return (
-    <Stack spacing={1}>
-      <Stack direction="row" spacing={1} alignItems="center" useFlexGap>
+    <Stack>
+      <Stack direction="row" alignItems="center">
         <Typography variant="h5" display="flex" alignItems="center" gap={1}>
           <DisplayCompletionStatus
             completionStatus={api.superblock.completion_status}

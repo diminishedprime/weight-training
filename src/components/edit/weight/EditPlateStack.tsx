@@ -20,9 +20,9 @@ interface EditPlateStackProps extends EquipmentWeightEditorProps {
 const EditPlateStack: React.FC<EditPlateStackProps> = (props) => {
   const api = useEditPlateStackAPI(props);
   return (
-    <Stack spacing={1} alignItems="center" justifyContent="space-between">
+    <Stack alignItems="center" justifyContent="space-between">
       <DisplayWeight weightValue={api.actual} weightUnit={props.weightUnit} />
-      <Stack alignItems="center" spacing={1}>
+      <Stack alignItems="center">
         <DisplayPlateStack
           plates={api.selectedPlates}
           weightUnit={"pounds"}

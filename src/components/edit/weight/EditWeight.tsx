@@ -1,7 +1,7 @@
 import DisplayWeight from "@/components/display/DisplayWeight";
 import { EquipmentWeightEditorProps } from "@/components/edit/weight/EquipmentWeightEditor";
 import useEditableWeight from "@/components/edit/weight/useEditableWeight";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import UndoIcon from "@mui/icons-material/Undo";
 import { Button, IconButton, Stack, TextField } from "@mui/material";
@@ -50,14 +50,13 @@ const EditWeight = forwardRef<EditWeightHandle, EditWeightProps>(
     );
 
     return (
-      <Stack spacing={1} alignItems="center">
+      <Stack alignItems="center">
         <Stack
           spacing={0.5}
           direction="row"
           alignItems="center"
-          justifyContent={"center"}
+          justifyContent="center"
           flexWrap="wrap"
-          useFlexGap
         >
           {props.undo && props.editing && (
             <IconButton

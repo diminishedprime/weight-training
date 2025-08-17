@@ -14,7 +14,7 @@ import SelectExercise from "@/components/select/SelectExercise";
 import SelectNumber from "@/components/select/SelectNumber";
 import TODO from "@/components/TODO";
 import { useRPCMutation } from "@/hooks";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { exerciseTypeUIStringLong } from "@/uiStrings";
 import { EQUIPMENT_FOR_EXERCISE } from "@/util";
 import MultiplyIcon from "@mui/icons-material/Close";
@@ -36,7 +36,7 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
   const editWeightRef = useRef<EditWeightHandle>(null!);
   const api = useAddBlockAPI(props, editWeightRef);
   return (
-    <Stack spacing={1} component={Paper} sx={{ m: 1, p: 1 }}>
+    <Stack component={Paper} sx={{ m: 1, p: 1 }}>
       <TODO>
         Adding a block to an existing block doesn't mark it as incomplete and
         set the completed at back to null.
@@ -46,7 +46,7 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
         labelVariant="h6"
         labelColor="text.primary"
       >
-        <Stack spacing={1} mt={1}>
+        <Stack mt={1}>
           <SelectExercise
             exercise={api.exercise}
             setExercise={api.setExercise}
@@ -61,7 +61,6 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
           />
           <Stack
             direction="row"
-            spacing={1}
             flexWrap="wrap"
             justifyContent="space-around"
             width="100%"
@@ -114,7 +113,6 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
         </Typography>
         <Stack
           direction="row"
-          spacing={1}
           flexWrap="wrap"
           justifyContent="center"
           alignItems="center"
@@ -150,7 +148,7 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
         alignItems="flex-start"
         direction="row"
       >
-        <Stack spacing={1} flex={1}>
+        <Stack flex={1}>
           {api.actualWeight === null ||
             (api.actualWeight < 0 && (
               <Typography variant="body2" color="error">

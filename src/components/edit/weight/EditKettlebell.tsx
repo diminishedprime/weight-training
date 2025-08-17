@@ -2,7 +2,7 @@
 import DisplayKettlebell from "@/components/display/DisplayKettlebell";
 import { EquipmentWeightEditorProps } from "@/components/edit/weight/EquipmentWeightEditor";
 import useEditableWeight from "@/components/edit/weight/useEditableWeight";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { Button, Stack } from "@mui/material";
 import { scaleLinear } from "d3-scale";
 import { useCallback, useMemo } from "react";
@@ -14,7 +14,7 @@ interface EditKettlebellProps extends EquipmentWeightEditorProps {
 const EditKettlebell: React.FC<EditKettlebellProps> = (props) => {
   const api = useEditKettlebellAPI(props);
   return (
-    <Stack spacing={1} alignItems="center">
+    <Stack alignItems="center">
       <Stack
         justifyContent="flex-end"
         sx={(theme) => ({ height: theme.spacing(api.maxSize) })}
@@ -26,7 +26,7 @@ const EditKettlebell: React.FC<EditKettlebellProps> = (props) => {
         />
       </Stack>
       {props.editing && (
-        <Stack spacing={1} direction="row" alignItems="center">
+        <Stack direction="row" alignItems="center">
           <Button
             color="secondary"
             variant="outlined"

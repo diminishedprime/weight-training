@@ -1,7 +1,7 @@
 "use client";
 
 import { PLATE_COLORS } from "@/constants";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { fractionWeightFormat } from "@/util";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
@@ -36,11 +36,10 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
   const api = useSelectActivePlatesAPI(props);
 
   return (
-    <Stack spacing={1} useFlexGap>
+    <Stack>
       <Stack
         direction="row"
         flexWrap="wrap"
-        useFlexGap
         spacing={0.5}
         alignItems="flex-end"
         sx={{ mt: 1 }}
@@ -96,13 +95,7 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
         })}
       </Stack>
       {props.editing && (
-        <Stack
-          direction="row"
-          spacing={1}
-          useFlexGap
-          flexWrap="wrap"
-          justifyContent="space-between"
-        >
+        <Stack direction="row" flexWrap="wrap" justifyContent="space-between">
           <IconButton
             color="primary"
             size="small"

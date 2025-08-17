@@ -6,7 +6,7 @@ import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayNotes from "@/components/display/DisplayNotes";
 import DisplayPerceivedEffort from "@/components/display/DisplayPerceivedEffort";
 import DisplayWeight from "@/components/display/DisplayWeight";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { Stack, Typography } from "@mui/material";
 
 interface ExerciseRowProps {
@@ -21,7 +21,6 @@ const ExerciseRow: React.FC<ExerciseRowProps> = (props) => {
   return (
     <Stack
       sx={{ my: 1 }}
-      spacing={1}
       data-testid={TestIds.Superblocks_SuperblockId_Perform__NotStartedExerciseRow(
         props.idx,
       )}
@@ -41,7 +40,7 @@ const ExerciseRow: React.FC<ExerciseRowProps> = (props) => {
         </Typography>
         <Stack />
       </Stack>
-      <Stack direction="row" flexWrap="wrap" spacing={1}>
+      <Stack direction="row" flexWrap="wrap">
         {exercise.perceived_effort && (
           <LabeledValue label="Effort">
             <DisplayPerceivedEffort

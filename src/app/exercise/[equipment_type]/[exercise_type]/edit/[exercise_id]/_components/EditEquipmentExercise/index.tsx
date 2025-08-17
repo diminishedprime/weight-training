@@ -13,7 +13,7 @@ import SelectCompletionStatus from "@/components/select/SelectCompletionStatus";
 import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
 import SelectWarmup from "@/components/select/SelectWarmup";
-import { TestIds } from "@/test-ids";
+import { TestIds } from "@/test/test-ids";
 import { Button, Stack } from "@mui/material";
 import Link from "next/link";
 import React from "react";
@@ -31,10 +31,7 @@ export interface EditEquipmentExerciseProps {
 const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
   const api = useEditEquipmentExerciseAPI(props);
   return (
-    <Stack
-      spacing={1}
-      direction={props.equipmentType === "machine" ? "row" : "column"}
-    >
+    <Stack direction={props.equipmentType === "machine" ? "row" : "column"}>
       <EquipmentWeightEditor
         editing
         equipmentType={props.equipmentType}
@@ -49,8 +46,8 @@ const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
         onActualChange={api.setActual}
         onTargetChange={api.setTarget}
       />
-      <Stack spacing={1}>
-        <Stack spacing={1} alignItems="center">
+      <Stack>
+        <Stack alignItems="center">
           <SelectReps
             reps={api.reps}
             setReps={api.setReps}
@@ -59,11 +56,9 @@ const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
           />
           <Stack
             direction="row"
-            spacing={1}
             flexWrap="wrap"
             justifyContent="space-between"
             alignItems="flex-end"
-            useFlexGap
           >
             <SelectCompletionStatus
               completionStatus={api.completionStatus}
@@ -80,14 +75,8 @@ const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
           </Stack>
           <EditNotes notes={api.notes} onNotesChange={api.setNotes} />
         </Stack>
-        <Stack
-          spacing={1}
-          direction="row"
-          flexWrap="wrap"
-          useFlexGap
-          justifyContent="space-between"
-        >
-          <Stack direction="row" spacing={1}>
+        <Stack direction="row" flexWrap="wrap" justifyContent="space-between">
+          <Stack direction="row">
             {props.backTo && (
               <Button
                 data-testid={TestIds.EditEquipmentCancelButton}
@@ -109,7 +98,7 @@ const EditEquipmentExercise: React.FC<EditEquipmentExerciseProps> = (props) => {
               Reset
             </Button>
           </Stack>
-          <Stack direction="row" spacing={1}>
+          <Stack direction="row">
             <form action={api.boundSaveExerciseAction}>
               <Button
                 data-testid={TestIds.EditEquipmentSaveButton}

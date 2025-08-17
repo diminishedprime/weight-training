@@ -13,13 +13,11 @@ import { Stack, Typography } from "@mui/material";
 import Link from "next/link";
 import React from "react";
 
-interface EquipmentTypeExercisesProps {
+interface Props {
   params: Promise<{ equipment_type: string }>;
 }
 
-export default async function EquipmentTypeExercisesPage(
-  props: EquipmentTypeExercisesProps,
-) {
+export default async function Exercise_EquipmentType(props: Props) {
   const { equipment_type: unnarrowedEquipmentType } = await props.params;
 
   const equipmentType = narrowOrNotFound(
@@ -30,7 +28,7 @@ export default async function EquipmentTypeExercisesPage(
   return (
     <React.Fragment>
       <Breadcrumbs pathname={Paths.Exercise_EquipmentType(equipmentType)} />
-      <Stack spacing={1}>
+      <Stack>
         {Array.from(
           EXERCISES_BY_EQUIPMENT.get(equipmentType)?.toOrderedSet() ?? [],
         ).map((exerciseType) => (

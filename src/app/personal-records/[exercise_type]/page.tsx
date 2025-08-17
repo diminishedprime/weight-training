@@ -24,17 +24,29 @@ import {
 import { format, formatDistance, formatDistanceToNow } from "date-fns";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import React, { Suspense } from "react";
+import React from "react";
 
-type PersonalRecordsExerciseTypeProps = {
-  exercise_type: ExerciseType;
+type Props = {
+  params: Promise<{ exercise_type: string }>;
 };
 
-const PersonalRecordsExerciseType = async (
-  props: PersonalRecordsExerciseTypeProps,
-) => {
+export default async function PersonalRecords_ExerciseType(props: Props) {
+  const { exercise_type: unnarrowedExerciseType } = await props.params;
+
+  // Ensure the exercise type is valid.
+  if (
+    Constants.public.Enums.exercise_type_enum.find(
+      (a) => a === unnarrowedExerciseType,
+    ) === undefined
+  ) {
+    return notFound();
+  }
+
+  // Safe to narrow the type here since we checked above.
+  const exerciseType = unnarrowedExerciseType as ExerciseType;
+
   const { userId } = await requireLoggedInUser(
-    `/personal-records/${props.exercise_type}`,
+    `/personal-records/${exerciseType}`,
   );
 
   // TODO additional filtering based on querying for the record history. If a user
@@ -45,19 +57,19 @@ const PersonalRecordsExerciseType = async (
     "get_personal_records_for_exercise_type",
     {
       p_user_id: userId,
-      p_exercise_type: props.exercise_type,
+      p_exercise_type: exerciseType,
     },
   );
 
   if (personalRecords === null || personalRecords.length === 0) {
     return (
-      <Stack spacing={1}>
+      <Stack>
         <Typography>
-          You don&apos;t have any{" "}
-          {exerciseTypeUIStringLong(props.exercise_type)} personal records yet.
-          If you&apos;d like to record some of these exercises, go to{" "}
-          <Link href={`/exercise/${props.exercise_type}`}>
-            {exerciseTypeUIStringLong(props.exercise_type)}
+          You don&apos;t have any {exerciseTypeUIStringLong(exerciseType)}{" "}
+          personal records yet. If you&apos;d like to record some of these
+          exercises, go to{" "}
+          <Link href={`/exercise/${exerciseType}`}>
+            {exerciseTypeUIStringLong(exerciseType)}
           </Link>
           .
         </Typography>
@@ -83,124 +95,12 @@ const PersonalRecordsExerciseType = async (
   );
 
   return (
-    <Stack spacing={2} data-testid="personal-records-exercise-type">
-      <Typography variant="h4">
-        {exerciseTypeUIStringBrief(props.exercise_type)} Personal Records
-      </Typography>
-
-      {repGroups.map(({ reps, records }) => (
-        <Stack key={reps} spacing={1}>
-          <Stack
-            direction="row"
-            spacing={1}
-            display="flex"
-            alignItems="baseline"
-          >
-            <Typography variant="h6" color="primary">
-              {reps} Rep{reps === 1 ? "" : "s"}
-            </Typography>
-
-            <Typography>
-              <Typography component="span">
-                Last record (
-                <DisplayWeight
-                  weightValue={records[0].weight_value!}
-                  weightUnit={records[0].weight_unit!}
-                  reps={records[0].reps!}
-                />
-                )
-              </Typography>
-              <Typography component="span">
-                {" "}
-                {formatDistanceToNow(new Date(records[0].recorded_at!), {
-                  addSuffix: true,
-                })}
-              </Typography>
-
-              <TODO>
-                The formatting is all broken, probably just use a LabeledValue
-                here.
-              </TODO>
-            </Typography>
-          </Stack>
-          <TableContainer component={Paper}>
-            <Table size="small">
-              <TableHead>
-                <TableRow>
-                  <TableCell>Date</TableCell>
-                  <TableCell align="right">Weight</TableCell>
-                  <TableCell align="center">Increase</TableCell>
-                  <TableCell align="center">Time Since Last</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {records.map((record) => (
-                  <TableRow key={record.id}>
-                    <TableCell>
-                      {record.recorded_at
-                        ? format(new Date(record.recorded_at), "MMM d, yyyy")
-                        : "—"}
-                    </TableCell>
-                    <TableCell>
-                      <DisplayWeight
-                        weightValue={record.weight_value!}
-                        weightUnit={record.weight_unit!}
-                      />
-                    </TableCell>
-                    <TableCell align="center">
-                      {record.increase_weight_value != null ? (
-                        <DisplayWeight
-                          weightValue={record.increase_weight_value}
-                          weightUnit={record.weight_unit!}
-                        />
-                      ) : (
-                        "—"
-                      )}
-                    </TableCell>
-                    <TableCell align="center">
-                      {record.previous_recorded_at &&
-                        formatDistance(
-                          record.previous_recorded_at,
-                          record.recorded_at!,
-                        )}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Stack>
-      ))}
-    </Stack>
-  );
-};
-
-type SuspenseWrapperProps = {
-  params: Promise<{ exercise_type: string }>;
-};
-
-export default async function SuspenseWrapper(props: SuspenseWrapperProps) {
-  const { exercise_type: unnarrowedExerciseType } = await props.params;
-
-  // Ensure the exercise type is valid.
-  if (
-    Constants.public.Enums.exercise_type_enum.find(
-      (a) => a === unnarrowedExerciseType,
-    ) === undefined
-  ) {
-    return notFound();
-  }
-
-  // Safe to narrow the type here since we checked above.
-  const exerciseType = unnarrowedExerciseType as ExerciseType;
-
-  return (
     <React.Fragment>
       <Breadcrumbs
         pathname={`/personal-records/${exerciseType}`}
         labels={{
           [exerciseType]: (
-            <Stack direction="row" alignItems="center" spacing={1}>
+            <Stack direction="row" alignItems="center">
               <DisplayEquipmentThumbnail
                 equipmentType={equipmentForExercise(exerciseType)}
               />
@@ -209,9 +109,90 @@ export default async function SuspenseWrapper(props: SuspenseWrapperProps) {
           ),
         }}
       />
-      <Suspense fallback={<div>Loading personal records...</div>}>
-        <PersonalRecordsExerciseType exercise_type={exerciseType} />
-      </Suspense>
+      <Stack spacing={2} data-testid="personal-records-exercise-type">
+        <Typography variant="h4">
+          {exerciseTypeUIStringBrief(exerciseType)} Personal Records
+        </Typography>
+
+        {repGroups.map(({ reps, records }) => (
+          <Stack key={reps}>
+            <Stack direction="row" display="flex" alignItems="baseline">
+              <Typography variant="h6" color="primary">
+                {reps} Rep{reps === 1 ? "" : "s"}
+              </Typography>
+
+              <Typography>
+                <Typography component="span">
+                  Last record (
+                  <DisplayWeight
+                    weightValue={records[0].weight_value!}
+                    weightUnit={records[0].weight_unit!}
+                    reps={records[0].reps!}
+                  />
+                  )
+                </Typography>
+                <Typography component="span">
+                  {" "}
+                  {formatDistanceToNow(new Date(records[0].recorded_at!), {
+                    addSuffix: true,
+                  })}
+                </Typography>
+
+                <TODO>
+                  The formatting is all broken, probably just use a LabeledValue
+                  here.
+                </TODO>
+              </Typography>
+            </Stack>
+            <TableContainer component={Paper}>
+              <Table size="small">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Date</TableCell>
+                    <TableCell align="right">Weight</TableCell>
+                    <TableCell align="center">Increase</TableCell>
+                    <TableCell align="center">Time Since Last</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {records.map((record) => (
+                    <TableRow key={record.id}>
+                      <TableCell>
+                        {record.recorded_at
+                          ? format(new Date(record.recorded_at), "MMM d, yyyy")
+                          : "—"}
+                      </TableCell>
+                      <TableCell>
+                        <DisplayWeight
+                          weightValue={record.weight_value!}
+                          weightUnit={record.weight_unit!}
+                        />
+                      </TableCell>
+                      <TableCell align="center">
+                        {record.increase_weight_value != null ? (
+                          <DisplayWeight
+                            weightValue={record.increase_weight_value}
+                            weightUnit={record.weight_unit!}
+                          />
+                        ) : (
+                          "—"
+                        )}
+                      </TableCell>
+                      <TableCell align="center">
+                        {record.previous_recorded_at &&
+                          formatDistance(
+                            record.previous_recorded_at,
+                            record.recorded_at!,
+                          )}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Stack>
+        ))}
+      </Stack>
     </React.Fragment>
   );
 }

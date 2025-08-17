@@ -15,7 +15,7 @@ interface ProgramOverviewProps {
 
 const ProgramOverviewType: React.FC<ProgramOverviewProps> = (props) => {
   return (
-    <Stack spacing={1} component={Paper} sx={{ m: 1, p: 1 }}>
+    <Stack component={Paper} sx={{ m: 1, p: 1 }}>
       <Stack>
         <Typography
           variant="h6"
@@ -25,7 +25,7 @@ const ProgramOverviewType: React.FC<ProgramOverviewProps> = (props) => {
         >
           {props.program.name}
         </Typography>
-        <Stack direction="row" spacing={1} alignItems={"center"}>
+        <Stack direction="row" alignItems={"center"}>
           {props.program.started_at && (
             <DisplayDate timestamp={props.program.started_at} noTime />
           )}

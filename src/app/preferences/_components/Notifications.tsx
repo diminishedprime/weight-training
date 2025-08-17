@@ -19,7 +19,7 @@ const Notifications: React.FC<NotificationsProps> = (props) => {
       label="Notifications"
       labelVariant="h6"
       help={
-        <Stack spacing={1}>
+        <Stack>
           <Typography variant="body2">
             Okay, so the notifications system is extremely basic and requires
             quite a bit of manual (one-time) setup.
@@ -60,8 +60,8 @@ const Notifications: React.FC<NotificationsProps> = (props) => {
         </Stack>
       }
     >
-      <Stack spacing={1} sx={{ mt: 1 }}>
-        <Stack spacing={1} useFlexGap flexWrap="wrap">
+      <Stack sx={{ mt: 1 }}>
+        <Stack flexWrap="wrap">
           <TextField
             size="small"
             label="Application API Token"

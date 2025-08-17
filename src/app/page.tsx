@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <>
       <Breadcrumbs pathname="/" />
-      <Stack spacing={1}>
-        <Stack spacing={1} direction="row" flexWrap="wrap" useFlexGap>
+      <Stack>
+        <Stack direction="row" flexWrap="wrap">
           <Button
             component={Link}
             href={Paths.Programs}
@@ -104,10 +104,6 @@ export default function Home() {
             <br />
             This is particularly relevant after I failed my first squat 5s this
             last week. Should probably figure this out before 3s.
-          </TODO>
-          <TODO>
-            See about getting the skeleton.js thing set up instead of using
-            Suspense Wrappers all over.
           </TODO>
           <TODO>
             I'd like to have different color themes for local, integration, and

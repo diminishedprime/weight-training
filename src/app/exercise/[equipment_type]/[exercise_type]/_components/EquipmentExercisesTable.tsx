@@ -84,7 +84,7 @@ const EquipmentExercisesTable: React.FC<EquipmentExercisesTableProps> = (
   );
 
   return (
-    <Stack spacing={1}>
+    <Stack>
       <Pagination
         page={props.pageNum}
         count={props.pageCount}
