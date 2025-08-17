@@ -115,7 +115,7 @@ export function useRPCMutation<
       withResults?.(results);
       return results;
     },
-    [afterServerAction, fnName],
+    [afterServerAction, fnName, withResults],
   );
   const { trigger, data, error, isMutating } = useSWRMutation<
     Return,

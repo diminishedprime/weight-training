@@ -289,6 +289,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
     reps,
     superblockId,
     userId,
+    failExerciseTrigger,
   ]);
 
   const { trigger: skipExerciseTrigger, isMutating: skipExerciseMutating } =
@@ -307,7 +308,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
       p_superblock_id: superblockId,
       p_user_id: userId,
     });
-  }, [blockId, exerciseId, notes, superblockId, userId]);
+  }, [blockId, exerciseId, notes, superblockId, userId, skipExerciseTrigger]);
 
   const isPending = useMemo(
     () =>
