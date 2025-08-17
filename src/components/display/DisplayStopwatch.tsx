@@ -10,12 +10,13 @@ interface DisplayCountUpProps {
   // This method is should be safe to be called multiple times. The caller must
   // take care of making sure this is safe.
   onThresholdReached?: (secondsSince: number) => void;
+  variant?: TypographyProps["variant"];
 }
 
 const DisplayStopwatch: React.FC<DisplayCountUpProps> = (props) => {
   const api = useDisplayStopwatchAPI(props);
   return (
-    <Typography component="span" color={api.color}>
+    <Typography component="span" color={api.color} variant={props.variant}>
       {(api.minutes % 60).toFixed(0).padStart(2, "0")}:
       {(api.seconds % 60).toFixed(0).padStart(2, "0")}
       {api.showMilliseconds &&

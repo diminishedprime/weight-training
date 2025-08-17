@@ -45,4 +45,24 @@ export const TestIds = {
     "superblocks-superblock-id-edit-add-block",
   Superblocks_SuperblockId_Edit_Block: (index: number) =>
     `superblocks-superblock-id-edit-block-${index}`,
+  // superblocks/[superblock_id]/perform
+  Superblocks_SuperblockId_Perform__FinishExercise:
+    "superblocks-superblock-id-perform-finish-exercise",
+  Superblocks_SuperblockId_Perform__FailExercise:
+    "superblocks-superblock-id-perform-fail-exercise",
+  Superblocks_SuperblockId_Perform__SkipExercise:
+    "superblocks-superblock-id-perform-skip-exercise",
+  Superblocks_SuperblockId_Perform__ActiveExerciseRow: `superblocks-superblock-id-perform-active-exercise-row`,
+  Superblocks_SuperblockId_Perform__CompletedExerciseRow: (idx: number) =>
+    `superblocks-superblock-id-perform-completed-exercise-row-${idx}`,
+  Superblocks_SuperblockId_Perform__NotStartedExerciseRow: (idx: number) =>
+    `superblocks-superblock-id-perform-not-started-exercise-row-${idx}`,
+  Superblocks_SuperblockId_Perform__Block: (name: string) =>
+    `superblocks-superblock-id-perform-block-${name}`,
+  // Misc components
+  CompletionStatusCompleted: "completion-status-success",
+  CompletionStatusFailed: "completion-status-error",
+  CompletionStatusSkipped: "completion-status-skipped",
+  CompletionStatusNotStarted: "completion-status-not-started",
+  CompletionStatusInProgress: "completion-status-in-progress",
 } as const;

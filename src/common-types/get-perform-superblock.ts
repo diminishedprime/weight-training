@@ -38,17 +38,17 @@ type RNNSuperblockBlockWendlerDetails = RequiredNonNullable<
   | "wendler_program_cycle_id"
 >;
 
-type RNNSuperblockBlock = RequiredNonNullable<
+export type SuperblockBlock = RequiredNonNullable<
   Omit<LSuperblockBlock, "exercises" | "wendler_details"> & {
     exercises: RNNSuperblockBlockExercise[];
     wendler_details: RNNSuperblockBlockWendlerDetails | null;
   },
-  "id" | "name" | "exercise_type" | "equipment_type"
+  "id" | "name" | "exercise_type" | "equipment_type" | "completion_status"
 >;
 
 type RNNGetPerformSuperblock = RequiredNonNullable<
   Omit<LGetPerformSuperblock, "blocks"> & {
-    blocks: RNNSuperblockBlock[];
+    blocks: SuperblockBlock[];
   },
   "id" | "name" | "completion_status"
 >;

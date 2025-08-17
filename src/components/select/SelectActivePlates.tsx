@@ -68,24 +68,29 @@ const SelectActivePlates: React.FC<SelectActivePlatesProps> = (props) => {
                   {fractionWeightFormat(plate)}
                 </Typography>
               </Badge>
-              {props.editing && (
-                <ButtonGroup orientation="vertical" size="small">
-                  <Button
-                    size="small"
-                    onClick={() => props.onAddPlate(plate)}
-                    data-testid={TestIds.ActivePlate(plate)}
-                  >
-                    <AddIcon fontSize="small" />
-                  </Button>
-                  <Button
-                    size="small"
-                    disabled={props.removePlateDisabled(plate)}
-                    onClick={() => props.onRemovePlate(plate)}
-                  >
-                    <RemoveIcon fontSize="small" />
-                  </Button>
-                </ButtonGroup>
-              )}
+              <ButtonGroup
+                orientation="vertical"
+                size="small"
+                sx={{
+                  visibility: props.editing ? "visible" : "hidden",
+                  height: props.editing ? undefined : "0px",
+                }}
+              >
+                <Button
+                  size="small"
+                  onClick={() => props.onAddPlate(plate)}
+                  data-testid={TestIds.ActivePlate(plate)}
+                >
+                  <AddIcon fontSize="small" />
+                </Button>
+                <Button
+                  size="small"
+                  disabled={props.removePlateDisabled(plate)}
+                  onClick={() => props.onRemovePlate(plate)}
+                >
+                  <RemoveIcon fontSize="small" />
+                </Button>
+              </ButtonGroup>
             </Stack>
           );
         })}

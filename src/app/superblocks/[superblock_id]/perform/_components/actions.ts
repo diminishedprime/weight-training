@@ -1,7 +1,9 @@
 "use server";
 
 import { GetPerformSuperblockResult, PerceivedEffort } from "@/common-types";
+import { Paths } from "@/constants";
 import { supabaseRPC } from "@/serverUtil";
+import { revalidatePath } from "next/cache";
 
 export const finishExercise = async (
   userId: string,
@@ -27,6 +29,7 @@ export const finishExercise = async (
     p_notes: notes || undefined,
     p_perceived_effort: perceivedEffort ?? undefined,
   });
+  revalidatePath(Paths.Superblocks_SuperblockId_Perform(superblockId));
   return updatedSuperblock as GetPerformSuperblockResult;
 };
 
@@ -54,6 +57,8 @@ export const failExercise = async (
     p_notes: notes || undefined,
     p_perceived_effort: perceivedEffort ?? undefined,
   });
+
+  revalidatePath(Paths.Superblocks_SuperblockId_Perform(superblockId));
   return updatedSuperblock as GetPerformSuperblockResult;
 };
 
@@ -71,17 +76,11 @@ export const skipExercise = async (
     p_exercise_id: exerciseId,
     p_notes: notes || undefined,
   });
+
+  revalidatePath(Paths.Superblocks_SuperblockId_Perform(superblockId));
   return updatedSuperblock as GetPerformSuperblockResult;
 };
 
-export const updatePerceivedEffort = async (
-  userId: string,
-  exerciseId: string,
-  perceivedEffort: PerceivedEffort | null,
-) => {
-  await supabaseRPC("update_perceived_effort", {
-    p_user_id: userId,
-    p_exercise_id: exerciseId,
-    p_perceived_effort: perceivedEffort ?? undefined,
-  });
+export const bustCache = async (superblockId: string) => {
+  revalidatePath(Paths.Superblocks_SuperblockId_Perform(superblockId));
 };

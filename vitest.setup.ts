@@ -9,6 +9,7 @@ const originalWarn = console.warn;
 
 // Use setup hooks compatible with Vitest global setup files
 // (https://vitest.dev/guide/setup.html#global-setup)
+
 console.warn = (msg, ...args) => {
   if (
     typeof msg === "string" &&
@@ -17,6 +18,28 @@ console.warn = (msg, ...args) => {
     return;
   }
   originalWarn(msg, ...args);
+};
+
+const originalLog = console.log;
+
+console.log = (msg, ...args) => {
+  if (msg.includes("Open this URL in your browser")) {
+    // Simple regex to match testing-playground.com links
+    // Example: https://testing-playground.com/#markup=...
+    const testingPlaygroundLinkRegex =
+      /https:\/\/testing-playground\.com\/\#markup=[^\s]+/;
+    const match = msg.match(testingPlaygroundLinkRegex);
+    const playgroundUrl = match ? match[0] : null;
+    if (playgroundUrl) {
+      // Open the playground URL using the system 'open' command (macOS)
+      try {
+        require("child_process").exec(`open '${playgroundUrl}'`);
+      } catch (err) {
+        // Do nothing
+      }
+    }
+  }
+  originalLog(msg, ...args);
 };
 
 // Patch console.error to suppress the same act warning if it appears as an error

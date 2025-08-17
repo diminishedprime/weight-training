@@ -1,3 +1,4 @@
+import { bustCache } from "@/app/superblocks/[superblock_id]/perform/_components/actions";
 import { UserPreferences } from "@/common-types";
 import { GetPerformSuperblockExercise } from "@/common-types/get-perform-superblock";
 import LabeledValue from "@/components/LabeledValue";
@@ -8,16 +9,19 @@ import DisplayNotes from "@/components/display/DisplayNotes";
 import DisplayWeight from "@/components/display/DisplayWeight";
 import SelectPerceivedEffort from "@/components/mutate/select/SelectPerceivedEffort";
 import { Paths, SearchParam, WithSearchParams } from "@/constants";
+import { TestIds } from "@/test-ids";
 import PencilIcon from "@mui/icons-material/Edit";
-import { IconButton, Paper, Stack, Typography } from "@mui/material";
-import { useMemo, useState } from "react";
+import { IconButton, Stack, Typography } from "@mui/material";
+import { useCallback, useMemo, useState } from "react";
 
 interface CompletedExerciseRowProps {
   userId: string;
+  superblockId: string;
   exercise: GetPerformSuperblockExercise;
   preferences: UserPreferences;
   setName: string;
   currentPath: string;
+  idx: number;
 }
 
 const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
@@ -25,20 +29,31 @@ const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
   const api = useCompletedExerciseRowAPI(props);
 
   return (
-    <Stack component={Paper} sx={{ m: 0.5, p: 1 }}>
-      <Stack direction="row" alignItems="center" spacing={1}>
+    <Stack
+      sx={{ my: 1 }}
+      spacing={1}
+      data-testid={TestIds.Superblocks_SuperblockId_Perform__CompletedExerciseRow(
+        props.idx,
+      )}
+    >
+      <Stack
+        alignItems="center"
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+        }}
+      >
         <DisplayCompletionStatus
           completionStatus={exercise.completion_status}
         />
-        <Stack flex={1} />
-        <Typography variant="body2" sx={{ ml: "auto" }}>
+        <Typography variant="body2" sx={{ justifySelf: "center" }}>
           {props.setName}
         </Typography>
         <IconButton
           size="small"
           component={Link}
           href={api.editLink}
-          sx={{ ml: 1 }}
+          sx={{ justifySelf: "end" }}
         >
           <PencilIcon />
         </IconButton>
@@ -49,6 +64,7 @@ const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
         perceivedEffort={api.perceivedEffort}
         setPerceivedEffort={api.setPerceivedEffort}
         initialEditingState={api.perceivedEffort === null}
+        afterServerAction={api.afterServerAction}
       />
       <Stack
         sx={{
@@ -107,12 +123,17 @@ export default CompletedExerciseRow;
 const useCompletedExerciseRowAPI = (props: CompletedExerciseRowProps) => {
   const {
     exercise: { equipment_type, exercise_type, id },
+    superblockId,
     currentPath,
   } = props;
 
   const [perceivedEffort, setPerceivedEffort] = useState(
     props.exercise.perceived_effort ?? null,
   );
+
+  const afterServerAction = useCallback(async () => {
+    await bustCache(superblockId);
+  }, [superblockId]);
 
   const editLink = useMemo(
     () =>
@@ -127,5 +148,5 @@ const useCompletedExerciseRowAPI = (props: CompletedExerciseRowProps) => {
     [equipment_type, exercise_type, id, currentPath],
   );
 
-  return { perceivedEffort, setPerceivedEffort, editLink };
+  return { perceivedEffort, setPerceivedEffort, editLink, afterServerAction };
 };

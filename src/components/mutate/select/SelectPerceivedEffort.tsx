@@ -18,6 +18,7 @@ interface SelectPerceivedEffortProps {
   perceivedEffort: PerceivedEffort | null;
   setPerceivedEffort: RDispatch<PerceivedEffort | null>;
   initialEditingState: boolean;
+  afterServerAction?: () => Promise<void>;
 }
 
 const SelectPerceivedEffort: React.FC<SelectPerceivedEffortProps> = (props) => {
@@ -78,7 +79,13 @@ const SelectPerceivedEffort: React.FC<SelectPerceivedEffortProps> = (props) => {
 export default SelectPerceivedEffort;
 
 const useSelectPerceivedEffortAPI = (props: SelectPerceivedEffortProps) => {
-  const { userId, exerciseId, setPerceivedEffort, perceivedEffort } = props;
+  const {
+    userId,
+    exerciseId,
+    setPerceivedEffort,
+    perceivedEffort,
+    afterServerAction,
+  } = props;
   const [isEditing, setIsEditing] = useState(props.initialEditingState);
   const api = useRPCMutation(
     "update_perceived_effort",
@@ -86,6 +93,7 @@ const useSelectPerceivedEffortAPI = (props: SelectPerceivedEffortProps) => {
       (error: Error) => `Failed to update perceived effort: ${error.message}`,
       [],
     ),
+    afterServerAction,
   );
 
   const handleStartEditing = useCallback(() => {

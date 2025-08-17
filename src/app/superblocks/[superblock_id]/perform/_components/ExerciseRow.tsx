@@ -6,25 +6,40 @@ import DisplayDuration from "@/components/display/DisplayDuration";
 import DisplayNotes from "@/components/display/DisplayNotes";
 import DisplayPerceivedEffort from "@/components/display/DisplayPerceivedEffort";
 import DisplayWeight from "@/components/display/DisplayWeight";
-import { Paper, Stack, Typography } from "@mui/material";
+import { TestIds } from "@/test-ids";
+import { Stack, Typography } from "@mui/material";
 
 interface ExerciseRowProps {
   exercise: GetPerformSuperblockExercise;
   preferences: UserPreferences;
   setName: string;
+  idx: number;
 }
 
 const ExerciseRow: React.FC<ExerciseRowProps> = (props) => {
   const { exercise, preferences } = props;
   return (
-    <Stack component={Paper} sx={{ m: 0.5, p: 0.5 }}>
-      <Stack direction="row" sx={{ mb: 1 }} alignItems="space-between">
+    <Stack
+      sx={{ my: 1 }}
+      spacing={1}
+      data-testid={TestIds.Superblocks_SuperblockId_Perform__NotStartedExerciseRow(
+        props.idx,
+      )}
+    >
+      <Stack
+        alignItems="center"
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+        }}
+      >
         <DisplayCompletionStatus
           completionStatus={exercise.completion_status}
         />
-        <Typography variant="body2" sx={{ ml: "auto" }}>
+        <Typography variant="body2" sx={{ justifySelf: "center" }}>
           {props.setName}
         </Typography>
+        <Stack />
       </Stack>
       <Stack direction="row" flexWrap="wrap" spacing={1}>
         {exercise.perceived_effort && (

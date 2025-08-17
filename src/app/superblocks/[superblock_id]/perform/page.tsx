@@ -1,19 +1,21 @@
-import PagePerform from "@/app/superblocks/[superblock_id]/perform/_components/_page_Perform";
+import PerformClient from "@/app/superblocks/[superblock_id]/perform/_components/PerformClient";
 import { GetPerformSuperblockResult } from "@/common-types";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Paths } from "@/constants";
-import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
+import {
+  requireLoggedInUser,
+  requirePreferences,
+  supabaseRPC,
+  UserPreferencesKeys,
+} from "@/serverUtil";
 import { notFound } from "next/navigation";
-import React, { Suspense } from "react";
+import React from "react";
 
-interface SuperblocksByIdSuspenseWrapperProps {
+interface Props {
   params: Promise<{ superblock_id: string }>;
 }
 
-// TODO: easy this is named wrong lol.
-export default async function SuperblocksByIdSuspenseWrapper(
-  props: SuperblocksByIdSuspenseWrapperProps,
-) {
+export default async function Superblocks_SuperblockId_Perform(props: Props) {
   const { superblock_id: superblockId } = await props.params;
   const { userId } = await requireLoggedInUser(
     Paths.Superblocks_SuperblockId_Perform(superblockId),
@@ -25,6 +27,32 @@ export default async function SuperblocksByIdSuspenseWrapper(
 
   const path = Paths.Superblocks_SuperblockId_Perform(superblockId);
 
+  const requiredPreferencesKeys = superblock.blocks
+    .map((block) => {
+      if (block.exercises.length === 0) {
+        return [] as UserPreferencesKeys[];
+      }
+      const firstExercise = block.exercises[0];
+      switch (firstExercise.equipment_type) {
+        case "barbell":
+          return ["available_plates_lbs"] as UserPreferencesKeys[];
+        case "dumbbell":
+          return ["available_dumbbells_lbs"] as UserPreferencesKeys[];
+        case "kettlebell":
+          return ["available_kettlebells_lbs"] as UserPreferencesKeys[];
+        default:
+          return [] as UserPreferencesKeys[];
+      }
+    })
+    // Feels like a hack but this works.
+    .flat();
+
+  const preferences = await requirePreferences(
+    userId,
+    requiredPreferencesKeys,
+    Paths.Superblocks_SuperblockId_Perform(superblock.id),
+  );
+
   return (
     <React.Fragment>
       <Breadcrumbs
@@ -33,13 +61,12 @@ export default async function SuperblocksByIdSuspenseWrapper(
           [superblockId]: superblock.name,
         }}
       />
-      <Suspense fallback={<div>Loading...</div>}>
-        <PagePerform
-          userId={userId}
-          superblock={superblock}
-          currentPath={path}
-        />
-      </Suspense>
+      <PerformClient
+        userId={userId}
+        initialSuperblock={superblock}
+        preferences={preferences}
+        path={path}
+      />
     </React.Fragment>
   );
 }
