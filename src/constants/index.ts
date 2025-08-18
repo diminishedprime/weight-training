@@ -152,11 +152,16 @@ export const DAY_TYPES_FOR_EXERCISE: ImmutableMap<
   ImmutableMap<ExerciseType, ImmutableSet<ProgramDayType>>(),
 );
 
-export const EXERCISE_TYPES = ImmutableSet(
+export const EXERCISE_TYPES_SET = ImmutableSet(
   Constants.public.Enums.exercise_type_enum,
 );
 
 export const FIRST_PAGE_NUM = 1;
+
+export const LOADING_SX = (isPending: boolean) => ({
+  opacity: isPending ? 0.5 : 1,
+  transition: "opacity 0.4s ease",
+});
 
 export * from "@/constants/db";
 export * from "@/constants/paths";

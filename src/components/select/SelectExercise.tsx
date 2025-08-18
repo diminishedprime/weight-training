@@ -1,7 +1,7 @@
 "use client";
 import { ExerciseType, ProgramDayType } from "@/common-types";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
-import { EXERCISE_TYPES, EXERCISES_FOR_DAY_TYPE } from "@/constants";
+import { EXERCISE_TYPES_SET, EXERCISES_FOR_DAY_TYPE } from "@/constants";
 import { Constants } from "@/database.types";
 import { TestIds } from "@/test/test-ids";
 import { exerciseTypeUIStringBrief, programDayTypeUIString } from "@/uiStrings";
@@ -112,7 +112,7 @@ const useSelectExerciseAPI = (_props: SelectExerciseProps) => {
 
   const exercisesForSelectedDayTypes = useMemo(() => {
     if (selectedProgramDayTypes.isEmpty()) {
-      return EXERCISE_TYPES;
+      return EXERCISE_TYPES_SET;
     }
     return selectedProgramDayTypes.reduce(
       (acc, dayType) =>
@@ -122,7 +122,7 @@ const useSelectExerciseAPI = (_props: SelectExerciseProps) => {
   }, [selectedProgramDayTypes]);
 
   const availableExercises: ImmutableSet<ExerciseType> = useMemo(() => {
-    return EXERCISE_TYPES.intersect(exercisesForSelectedDayTypes);
+    return EXERCISE_TYPES_SET.intersect(exercisesForSelectedDayTypes);
   }, [exercisesForSelectedDayTypes]);
 
   const onChipClick = useCallback((dayType: ProgramDayType) => {

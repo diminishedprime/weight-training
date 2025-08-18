@@ -32,6 +32,8 @@ const PersonalRecords_ExerciseType = (exerciseType: ExerciseType) =>
 // Preferences
 const Preferences = `/preferences`;
 
+const Preferences_RestTimes = `${Preferences}/rest-times`;
+
 // Programs
 const Programs = `/programs`;
 const Programs_Add = `${Programs}/add`;
@@ -67,6 +69,7 @@ export const Paths = {
   PersonalRecords_ExerciseType,
   // Preferences
   Preferences,
+  Preferences_RestTimes,
   // Programs
   Programs,
   Programs_Add,

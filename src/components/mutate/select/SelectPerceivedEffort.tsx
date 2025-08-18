@@ -1,5 +1,6 @@
 import { PerceivedEffort, RDispatch } from "@/common-types";
 import DisplayPerceivedEffort from "@/components/display/DisplayPerceivedEffort";
+import { LOADING_SX } from "@/constants";
 import { Constants } from "@/database.types";
 import { useRPCMutation } from "@/hooks";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -42,8 +43,7 @@ const SelectPerceivedEffort: React.FC<SelectPerceivedEffortProps> = (props) => {
           // We render this as hidden because we want to maintain the space so
           // it looks better when the toggle buttons "pop in"
           visibility: api.isEditing ? "visible" : "hidden",
-          opacity: api.isPending ? 0.5 : 1,
-          transition: "opacity 0.4s ease",
+          ...LOADING_SX(api.isPending),
         }}
       >
         <ToggleButton size="small" value="clear">

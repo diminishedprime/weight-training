@@ -9,6 +9,38 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      equipment_rest_time: {
+        Row: {
+          equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
+          id: string;
+          rest_time: number;
+          user_id: string;
+          user_preferences_id: string;
+        };
+        Insert: {
+          equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
+          id?: string;
+          rest_time: number;
+          user_id: string;
+          user_preferences_id: string;
+        };
+        Update: {
+          equipment_type?: Database["public"]["Enums"]["equipment_type_enum"];
+          id?: string;
+          rest_time?: number;
+          user_id?: string;
+          user_preferences_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "equipment_rest_time_user_preferences_id_fkey";
+            columns: ["user_preferences_id"];
+            isOneToOne: false;
+            referencedRelation: "user_preferences";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       exercise_block: {
         Row: {
           active_exercise_id: string | null;
@@ -85,6 +117,38 @@ export type Database = {
             columns: ["exercise_id"];
             isOneToOne: false;
             referencedRelation: "exercises";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      exercise_rest_time: {
+        Row: {
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          id: string;
+          rest_time: number;
+          user_id: string;
+          user_preferences_id: string;
+        };
+        Insert: {
+          exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          id?: string;
+          rest_time: number;
+          user_id: string;
+          user_preferences_id: string;
+        };
+        Update: {
+          exercise_type?: Database["public"]["Enums"]["exercise_type_enum"];
+          id?: string;
+          rest_time?: number;
+          user_id?: string;
+          user_preferences_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "exercise_rest_time_user_preferences_id_fkey";
+            columns: ["user_preferences_id"];
+            isOneToOne: false;
+            referencedRelation: "user_preferences";
             referencedColumns: ["id"];
           },
         ];
@@ -666,6 +730,10 @@ export type Database = {
         Args: { p_page_num: number; p_user_id: string };
         Returns: Database["public"]["CompositeTypes"]["get_wendler_program_overviews_result"];
       };
+      hydrate_rest_times: {
+        Args: { p_user_id: string };
+        Returns: Database["public"]["CompositeTypes"]["hydrate_rest_times_result"];
+      };
       recent_set_overviews: {
         Args: {
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
@@ -681,6 +749,14 @@ export type Database = {
           p_user_id: string;
         };
         Returns: undefined;
+      };
+      set_rest_times: {
+        Args: {
+          p_equipment_rests: Database["public"]["CompositeTypes"]["p_equipment_rest_time"][];
+          p_exercise_rests: Database["public"]["CompositeTypes"]["p_exercise_rest_time"][];
+          p_user_id: string;
+        };
+        Returns: Database["public"]["CompositeTypes"]["hydrate_rest_times_result"];
       };
       set_target_max: {
         Args: {
@@ -981,6 +1057,16 @@ export type Database = {
           | Database["public"]["CompositeTypes"]["p_wendler_cycle_row"][]
           | null;
       };
+      hydrate_rest_times_result: {
+        user_id: string | null;
+        user_preferences_id: string | null;
+        equipment_rest_times:
+          | Database["public"]["CompositeTypes"]["p_equipment_rest_time"][]
+          | null;
+        exercise_rest_times:
+          | Database["public"]["CompositeTypes"]["p_exercise_rest_time"][]
+          | null;
+      };
       p_block_row: {
         id: string | null;
         name: string | null;
@@ -1001,6 +1087,16 @@ export type Database = {
         wendler_details:
           | Database["public"]["CompositeTypes"]["p_wendler_details"]
           | null;
+      };
+      p_equipment_rest_time: {
+        equipment_type:
+          | Database["public"]["Enums"]["equipment_type_enum"]
+          | null;
+        rest_time: number | null;
+      };
+      p_exercise_rest_time: {
+        exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null;
+        rest_time: number | null;
       };
       p_exercise_row: {
         id: string | null;
@@ -1186,6 +1282,12 @@ export type Database = {
         theme_options: Json | null;
         pushover_api_token: string | null;
         pushover_user_key: string | null;
+        equipment_rest_times:
+          | Database["public"]["CompositeTypes"]["p_equipment_rest_time"][]
+          | null;
+        exercise_rest_times:
+          | Database["public"]["CompositeTypes"]["p_exercise_rest_time"][]
+          | null;
       };
       wendler_movement_overview: {
         id: string | null;

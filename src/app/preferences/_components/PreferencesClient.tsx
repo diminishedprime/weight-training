@@ -11,7 +11,7 @@ import Theme from "@/app/preferences/_components/Theme";
 import { afterUpdateAction } from "@/app/preferences/_components/actions";
 import usePreferenceValue from "@/app/preferences/_components/usePreferenceValue";
 import { MyThemeOptions, UserPreferences } from "@/common-types";
-import { DEFAULT_VALUES } from "@/constants";
+import { DEFAULT_VALUES, LOADING_SX } from "@/constants";
 import { Json } from "@/database.types";
 import { useRPCMutation } from "@/hooks";
 import { TestIds } from "@/test/test-ids";
@@ -44,8 +44,7 @@ export const PreferencesClient: React.FC<Props> = (props) => {
       <Stack
         flexGrow={1}
         sx={{
-          opacity: api.pending ? 0.5 : 1,
-          transition: "opacity 0.4s ease",
+          ...LOADING_SX(api.pending),
         }}
       >
         <Theme api={api.themeOptionsApi} />
@@ -130,9 +129,8 @@ const useUpdateUserPreferencesAPI = (props: Props) => {
 
   const defaultRestTimeApi = usePreferenceValue(
     "Default Rest Time",
-    preferences?.default_rest_time?.toString() ??
-      DEFAULT_VALUES.REST_TIME_SECONDS.toString(),
-    preferences?.default_rest_time?.toString() ?? "",
+    preferences?.default_rest_time ?? DEFAULT_VALUES.REST_TIME_SECONDS,
+    preferences?.default_rest_time,
     false,
   );
 
