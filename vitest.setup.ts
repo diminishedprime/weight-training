@@ -23,7 +23,10 @@ console.warn = (msg, ...args) => {
 const originalLog = console.log;
 
 console.log = (msg, ...args) => {
-  if (msg.includes("Open this URL in your browser")) {
+  if (
+    typeof msg === "string" &&
+    msg.includes("Open this URL in your browser")
+  ) {
     // Simple regex to match testing-playground.com links
     // Example: https://testing-playground.com/#markup=...
     const testingPlaygroundLinkRegex =

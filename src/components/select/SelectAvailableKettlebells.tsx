@@ -1,45 +1,33 @@
-import { WeightUnit } from "@/common-types";
+import { RDispatch, WeightUnit } from "@/common-types";
 import DisplayKettlebell from "@/components/display/DisplayKettlebell";
-import { useRequiredModifiableLabel } from "@/hooks";
-import { FormControl, FormLabel, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import { scaleLinear } from "d3-scale";
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 
 interface SelectAvailableKettlebellsProps {
   availableKettlebells: number[];
-  selectedKettlebells: number[];
-  setSelectedKettlebells: React.Dispatch<React.SetStateAction<number[]>>;
+  selectedKettlebells: number[] | null;
+  setSelectedKettlebells: RDispatch<number[] | null>;
   weightUnit: WeightUnit;
-  required?: boolean;
-  modified?: boolean;
 }
 
 const SelectAvailableKettlebells: React.FC<SelectAvailableKettlebellsProps> = (
   props,
 ) => {
   const api = useSelectAvailableKettlebellsAPI(props);
-  const sizeScale = scaleLinear()
-    .domain([
-      Math.min(...props.availableKettlebells),
-      Math.max(...props.availableKettlebells),
-    ])
-    .range([9, 12]);
   return (
-    <FormControl>
-      <FormLabel>{api.label}</FormLabel>
-      <Stack direction="row" flexWrap="wrap" alignItems="flex-end">
-        {props.availableKettlebells.map((kettlebell) => (
-          <DisplayKettlebell
-            onClick={() => api.onClick(kettlebell)}
-            selected={api.isSelected(kettlebell)}
-            key={kettlebell}
-            weightValue={kettlebell}
-            weightUnit={props.weightUnit}
-            size={sizeScale(kettlebell)}
-          />
-        ))}
-      </Stack>
-    </FormControl>
+    <Stack direction="row" flexWrap="wrap" alignItems="flex-end">
+      {props.availableKettlebells.map((kettlebell) => (
+        <DisplayKettlebell
+          onClick={() => api.onClick(kettlebell)}
+          selected={api.isSelected(kettlebell)}
+          key={kettlebell}
+          weightValue={kettlebell}
+          weightUnit={props.weightUnit}
+          size={api.sizeScale(kettlebell)}
+        />
+      ))}
+    </Stack>
   );
 };
 
@@ -48,20 +36,21 @@ export default SelectAvailableKettlebells;
 const useSelectAvailableKettlebellsAPI = (
   props: SelectAvailableKettlebellsProps,
 ) => {
-  const { selectedKettlebells, setSelectedKettlebells, required, modified } =
+  const { selectedKettlebells, setSelectedKettlebells, availableKettlebells } =
     props;
 
   const isSelected = useCallback(
-    (kettlebell: number) => selectedKettlebells.includes(kettlebell),
+    (kettlebell: number) => (selectedKettlebells || []).includes(kettlebell),
     [selectedKettlebells],
   );
 
   const onClick = useCallback(
     (kettlebell: number) => {
-      setSelectedKettlebells((prev) => {
-        const nu = prev.includes(kettlebell)
-          ? prev.filter((k) => k !== kettlebell)
-          : [...prev, kettlebell];
+      setSelectedKettlebells((o) => {
+        const current = o || [];
+        const nu = current.includes(kettlebell)
+          ? current.filter((k) => k !== kettlebell)
+          : [...current, kettlebell];
         nu.sort((a, b) => a - b);
         return nu;
       });
@@ -69,12 +58,16 @@ const useSelectAvailableKettlebellsAPI = (
     [setSelectedKettlebells],
   );
 
-  // Label logic (can be customized or made a prop)
-
-  const label = useRequiredModifiableLabel(
-    "Available Kettlebells",
-    !!required,
-    !!modified,
+  const sizeScale = useMemo(
+    () =>
+      scaleLinear()
+        .domain([
+          Math.min(...availableKettlebells),
+          Math.max(...availableKettlebells),
+        ])
+        .range([9, 12]),
+    [availableKettlebells],
   );
-  return { isSelected, onClick, label };
+
+  return { isSelected, onClick, sizeScale };
 };

@@ -1,19 +1,17 @@
-import { MyThemeOptions, RDispatch } from "@/common-types";
+import { PreferenceValueAPI } from "@/app/preferences/_components/usePreferenceValue";
+import { MyThemeOptions } from "@/common-types";
 import LabeledValue from "@/components/LabeledValue";
 import { ThemeContext } from "@/components/ThemeProvider";
 import TODO from "@/components/TODO";
 import { useModifiableLabel } from "@/hooks";
 import RestoreIcon from "@mui/icons-material/Restore";
 import { Box, Button, createTheme, Stack, Switch } from "@mui/material";
-import isEqual from "lodash/isEqual";
 import { MuiColorInput } from "mui-color-input";
 import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 
 interface ThemeProps {
-  serverThemeOptions: MyThemeOptions;
-  setThemeOptions: RDispatch<MyThemeOptions>;
-  setModified: RDispatch<boolean>;
+  api: PreferenceValueAPI<MyThemeOptions>;
 }
 
 const Theme: React.FC<ThemeProps> = (props) => {
@@ -78,11 +76,13 @@ const Theme: React.FC<ThemeProps> = (props) => {
 export default Theme;
 
 const useThemeAPI = (props: ThemeProps) => {
-  const { serverThemeOptions, setModified, setThemeOptions } = props;
+  const {
+    api: { serverValue: serverThemeOptions, setValue: setThemeOptions },
+  } = props;
 
   // This is a bit hacky, but I do know for sure that the ThemeContext isn't
   // _actually_ ever null, just an issue with react and context.
-  const { setTheme } = useContext(ThemeContext)!;
+  const themeContext = useContext(ThemeContext);
 
   const [primary, setPrimary] = useState(
     serverThemeOptions?.palette?.primary?.main || "#1976d2",
@@ -134,7 +134,7 @@ const useThemeAPI = (props: ThemeProps) => {
   // Debounce theme update to avoid expensive re-renders
   const debouncedSetTheme = useDebouncedCallback(
     (constructedTheme: MyThemeOptions) => {
-      setTheme((_) => createTheme(constructedTheme));
+      themeContext?.setTheme((_) => createTheme(constructedTheme));
       setThemeOptions((_) => constructedTheme);
     },
     50,
@@ -144,10 +144,6 @@ const useThemeAPI = (props: ThemeProps) => {
   useEffect(() => {
     debouncedSetTheme(constructedTheme);
   }, [constructedTheme, debouncedSetTheme]);
-
-  useEffect(() => {
-    setModified((_) => !isEqual(constructedTheme, serverThemeOptions));
-  }, [constructedTheme, serverThemeOptions, setModified]);
 
   return {
     mode,

@@ -1,15 +1,12 @@
-import { RDispatch } from "@/common-types";
+import { PreferenceValueAPI } from "@/app/preferences/_components/usePreferenceValue";
 import LabeledValue from "@/components/LabeledValue";
 import TODO from "@/components/TODO";
 import { Button, Stack, TextField, Typography } from "@mui/material";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useMemo } from "react";
 
 interface NotificationsProps {
-  serverPushoverAPIToken: string | null;
-  setPushoverAPIToken: RDispatch<string | null>;
-  serverPushoverUserKey: string | null;
-  setPushoverUserKey: RDispatch<string | null>;
-  setModified: RDispatch<boolean>;
+  tokenApi: PreferenceValueAPI<string | null>;
+  userKeyApi: PreferenceValueAPI<string | null>;
 }
 
 const Notifications: React.FC<NotificationsProps> = (props) => {
@@ -64,7 +61,7 @@ const Notifications: React.FC<NotificationsProps> = (props) => {
         <Stack flexWrap="wrap">
           <TextField
             size="small"
-            label="Application API Token"
+            label={props.tokenApi.label}
             variant="outlined"
             value={api.pushoverAPIKey}
             onChange={(e) => api.setPushoverAPIKey(e.target.value)}
@@ -72,7 +69,7 @@ const Notifications: React.FC<NotificationsProps> = (props) => {
           />
           <TextField
             size="small"
-            label="User Key"
+            label={props.userKeyApi.label}
             variant="outlined"
             value={api.userKey}
             onChange={(e) => api.setUserKey(e.target.value)}
@@ -104,18 +101,9 @@ export default Notifications;
 
 const useNotificationsAPI = (props: NotificationsProps) => {
   const {
-    serverPushoverAPIToken: serverPushoverAPIKey,
-    serverPushoverUserKey: serverUserKey,
-    setModified,
-    setPushoverAPIToken: parentSetKey,
-    setPushoverUserKey: parentSetUserKey,
+    tokenApi: { value: pushoverAPIKey, setValue: setPushoverAPIKey },
+    userKeyApi: { value: userKey, setValue: setUserKey },
   } = props;
-
-  const [pushoverAPIKey, setPushoverAPIKey] = useState(
-    props.serverPushoverAPIToken ?? "",
-  );
-
-  const [userKey, setUserKey] = useState(props.serverPushoverUserKey ?? "");
 
   const sendTestNotification = useCallback(async () => {
     if (!pushoverAPIKey || !userKey) return;
@@ -138,20 +126,6 @@ const useNotificationsAPI = (props: NotificationsProps) => {
     () => !pushoverAPIKey || !userKey,
     [pushoverAPIKey, userKey],
   );
-
-  const modified = useMemo(
-    () => serverPushoverAPIKey !== pushoverAPIKey || serverUserKey !== userKey,
-    [serverPushoverAPIKey, serverUserKey, pushoverAPIKey, userKey],
-  );
-
-  useEffect(() => {
-    setModified((_) => modified);
-  }, [modified, setModified]);
-
-  useEffect(() => {
-    parentSetKey((_) => pushoverAPIKey);
-    parentSetUserKey((_) => userKey);
-  }, [pushoverAPIKey, parentSetKey, userKey, parentSetUserKey]);
 
   return {
     pushoverAPIKey,

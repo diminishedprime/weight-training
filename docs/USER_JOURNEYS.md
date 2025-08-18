@@ -71,17 +71,17 @@
 - [ ] Users can use a special form of making the closest weight where they
       provide exactly what plates they have available (along with a color
       picker) and that is used for determining how to "make change"
-- [ ] For existing exercises, there's a database RPC that can run in seed.sql
+- [x] For existing exercises, there's a database RPC that can run in seed.sql
       that will try its best to "wendlize" lifts that map to what a wendler
       exercise looks like.
 - [x] Create a \_system database function that does its best to try and "block"
       exercises together based on some sort of threshold from the seeded data.
-- [ ] Create a \_system database function that does its best to try and
+- [x] Create a \_system database function that does its best to try and
       "superblock" blocks together based on some sort of threshold from the seeded
       data.
 - [x] Get icons or gifs or images or something for all the equipment.
 - [ ] Get icons or gifs or images or something for all the exercises.
-- [ ] Support custom dark & light mode themes for the app.
+- [x] Support custom dark & light mode themes for the app.
 - [ ] there is a customed home page for the user that shows recent lifts or
       superblocks or maybe PRs so they can easily see their progress. Maybe also
       have in some huerstic based buttons that show up based on what they've
