@@ -4,7 +4,7 @@ import {
   RequiredNonNullable,
   RoundingMode,
 } from "@/common-types";
-import { EXERCISE_TYPES } from "@/constants";
+import { EXERCISE_TYPES_SET } from "@/constants";
 import { Constants } from "@/database.types";
 import { Map as ImmutableMap, Set as ImmutableSet } from "immutable";
 import { notFound } from "next/navigation";
@@ -214,7 +214,7 @@ export function actualWeightForTarget(
 export const EXERCISES_BY_EQUIPMENT: ImmutableMap<
   EquipmentType,
   ImmutableSet<ExerciseType>
-> = EXERCISE_TYPES.reduce(
+> = EXERCISE_TYPES_SET.reduce(
   (acc, exerciseType) => {
     const equipmentType = EQUIPMENT_FOR_EXERCISE.get(exerciseType);
     if (equipmentType) {

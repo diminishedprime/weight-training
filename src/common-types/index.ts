@@ -38,9 +38,6 @@ export type GetExerciseResult = RequiredNonNullable<
   | "is_amrap"
 >;
 
-export type UserPreferences =
-  Database["public"]["Functions"]["get_user_preferences"]["Returns"];
-
 export type ExerciseBlocks =
   Database["public"]["Functions"]["get_exercise_blocks"]["Returns"]["blocks"];
 
@@ -118,6 +115,8 @@ export type MyThemeOptions = Omit<ThemeOptions, "palette"> & {
 export type * from "@/common-types/enums";
 export type * from "@/common-types/get-add-program-info";
 export type * from "@/common-types/get-perform-superblock";
+export type * from "@/common-types/get-user-preferences";
 export type * from "@/common-types/get-wendler-program";
 export type * from "@/common-types/get-wendler-program-overviews";
+export type * from "@/common-types/hydrate-equipment-rest-times";
 export type * from "@/common-types/recent-set-overviews";

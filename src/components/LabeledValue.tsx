@@ -45,11 +45,18 @@ const LabeledValue: React.FC<LabeledValueProps> = (props) => {
         component="span"
       >
         {props.label}
-        {props.help && (
-          <IconButton onClick={api.toggleHelp} color="primary">
-            <InfoIcon />
-          </IconButton>
-        )}
+
+        <IconButton
+          size="small"
+          onClick={api.toggleHelp}
+          color="primary"
+          sx={{
+            visibility: props.help ? "visible" : "hidden",
+            width: props.help ? undefined : "0px",
+          }}
+        >
+          <InfoIcon />
+        </IconButton>
       </Typography>
       {props.children}
       {props.help && api.showHelp && (

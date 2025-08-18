@@ -10,13 +10,14 @@ import DisplayStopwatch from "@/components/display/DisplayStopwatch";
 import EditNotes from "@/components/edit/EditNotes";
 import EquipmentWeightEditor from "@/components/edit/weight/EquipmentWeightEditor";
 import LabeledValue from "@/components/LabeledValue";
+import Link from "@/components/Link";
 import SelectPerceivedEffort from "@/components/select/SelectPerceivedEffort";
 import SelectReps from "@/components/select/SelectReps";
-import { Paths } from "@/constants";
+import { LOADING_SX, Paths, SearchParam, WithSearchParams } from "@/constants";
 import { usePersistentBoolean, useRPCMutation } from "@/hooks";
 import { TestIds } from "@/test/test-ids";
 import EditIcon from "@mui/icons-material/Edit";
-import { Button, IconButton, Stack, Typography } from "@mui/material";
+import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
 import confetti from "canvas-confetti";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
@@ -38,8 +39,7 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
     <Stack
       sx={{
         my: 1,
-        opacity: api.isPending ? 0.5 : 1,
-        transition: "opacity 0.4s ease",
+        ...LOADING_SX(api.isPending),
       }}
       data-testid={TestIds.Superblocks_SuperblockId_Perform__ActiveExerciseRow}
     >
@@ -61,30 +61,66 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
           {props.setName}
         </Typography>
       </Stack>
-      <Stack direction="row" alignItems="center" justifyContent="center">
-        <LabeledValue label="Reps" alignItems="center">
-          <Typography variant="h4">
-            {api.reps}
-            {api.isAMRAP && (
-              <Typography color="secondary" component="span">
-                {" "}
-                (AMRAP)
-              </Typography>
-            )}
-          </Typography>
-        </LabeledValue>
-        {props.exercise.last_performed_at && (
-          <LabeledValue label="Rest" alignItems="center">
-            <DisplayStopwatch
-              variant="h4"
-              start={new Date(props.exercise.last_performed_at)}
-              successThresholdSeconds={
-                props.preferences.default_rest_time ?? undefined
-              }
-              millisecondsUntilThreshold
-              onThresholdReached={api.safelyNotifyRestTimeUp}
-            />
+      <Stack
+        display="grid"
+        gridTemplateColumns={
+          props.exercise.last_performed_at === null ? "1fr" : "1fr 1fr"
+        }
+        alignItems="start"
+      >
+        <Box>
+          <LabeledValue label="Reps" alignItems="center">
+            <Typography variant="h4">
+              {api.reps}
+              {api.isAMRAP && (
+                <Typography color="secondary" component="span">
+                  {" "}
+                  (AMRAP)
+                </Typography>
+              )}
+            </Typography>
           </LabeledValue>
+        </Box>
+        {props.exercise.last_performed_at && (
+          <Box>
+            <LabeledValue
+              label="Rest"
+              alignItems="center"
+              help={
+                <Typography variant="caption">
+                  Update{" "}
+                  <Link
+                    href={WithSearchParams(Paths.Preferences_RestTimes, [
+                      SearchParam.BackTo,
+                      Paths.Superblocks_SuperblockId_Perform(
+                        props.superblockId,
+                      ),
+                    ])}
+                  >
+                    Rest Times
+                  </Link>{" "}
+                  to change how long before this turns green.
+                </Typography>
+              }
+            >
+              <DisplayStopwatch
+                variant="h4"
+                start={new Date(props.exercise.last_performed_at)}
+                successThresholdSeconds={
+                  props.preferences.exercise_rest_times?.find(
+                    (a) => a.exercise_type === props.exercise.exercise_type,
+                  )?.rest_time ??
+                  props.preferences.equipment_rest_times?.find(
+                    (a) => a.equipment_type === props.exercise.equipment_type,
+                  )?.rest_time ??
+                  props.preferences.default_rest_time ??
+                  undefined
+                }
+                millisecondsUntilThreshold
+                onThresholdReached={api.safelyNotifyRestTimeUp}
+              />
+            </LabeledValue>
+          </Box>
         )}
       </Stack>
       <EquipmentWeightEditor
@@ -260,7 +296,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
       "fail_exercise",
       useCallback((e) => `Error calling fail exercise: ${e}`, []),
       afterServerAction,
-      setSuperblock,
+      updateSuperblock,
     );
 
   const failExercise = useCallback(async () => {
@@ -301,7 +337,7 @@ const useActiveExerciseRowAPI = (props: ActiveExerciseRowProps) => {
       "skip_exercise",
       useCallback((e) => `Error calling skip exercise: ${e}`, []),
       afterServerAction,
-      setSuperblock,
+      updateSuperblock,
     );
 
   const skipExercise = useCallback(async () => {

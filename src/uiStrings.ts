@@ -291,6 +291,10 @@ export const userPreferenceUIString = (
       return "Pushover API Token";
     case "pushover_user_key":
       return "Pushover User Key";
+    case "exercise_rest_times":
+      return "Exercise Rest Times";
+    case "equipment_rest_times":
+      return "Equipment Rest Times";
     // These probably shouldn't be mapped to, but that's okay.
     case "user_id":
       return "User ID";

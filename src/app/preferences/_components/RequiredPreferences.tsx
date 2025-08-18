@@ -7,7 +7,7 @@ import { useEffect, useMemo } from "react";
 interface Props {
   requiredPreferences: (keyof UserPreferences)[];
   preferredWeightUnitApi: PreferenceValueAPI<WeightUnit | null>;
-  defaultRestTimeApi: PreferenceValueAPI<string>;
+  defaultRestTimeApi: PreferenceValueAPI<number>;
   selectedDumbbellsApi: PreferenceValueAPI<number[]>;
   selectedKettlebellsApi: PreferenceValueAPI<number[]>;
   selectedPlatesApi: PreferenceValueAPI<number[]>;
