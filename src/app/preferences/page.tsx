@@ -1,6 +1,6 @@
 "use server";
 
-import UpdateUserPreferences from "@/app/preferences/_components/UpdateUserPreferences";
+import PreferencesClient from "@/app/preferences/_components/PreferencesClient";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Paths } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
@@ -14,7 +14,7 @@ export default async function Preferences() {
   return (
     <React.Fragment>
       <Breadcrumbs pathname={Paths.Preferences} />
-      <UpdateUserPreferences userId={userId} preferences={preferences} />
+      <PreferencesClient userId={userId} preferences={preferences} />
     </React.Fragment>
   );
 }

@@ -705,7 +705,20 @@ export type Database = {
           p_theme_options: Json;
           p_user_id: string;
         };
-        Returns: undefined;
+        Returns: {
+          available_dumbbells_lbs: number[] | null;
+          available_kettlebells_lbs: number[] | null;
+          available_plates_lbs: number[] | null;
+          default_rest_time: number | null;
+          id: string;
+          preferred_weight_unit:
+            | Database["public"]["Enums"]["weight_unit_enum"]
+            | null;
+          pushover_api_token: string | null;
+          pushover_user_key: string | null;
+          theme_options: Json | null;
+          user_id: string;
+        };
       };
       skip_exercise: {
         Args: {

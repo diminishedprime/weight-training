@@ -42,7 +42,8 @@ const SelectPerceivedEffort: React.FC<SelectPerceivedEffortProps> = (props) => {
           // We render this as hidden because we want to maintain the space so
           // it looks better when the toggle buttons "pop in"
           visibility: api.isEditing ? "visible" : "hidden",
-          opacity: api.isPending ? 0.6 : 1,
+          opacity: api.isPending ? 0.5 : 1,
+          transition: "opacity 0.4s ease",
         }}
       >
         <ToggleButton size="small" value="clear">

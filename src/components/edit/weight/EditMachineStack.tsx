@@ -30,7 +30,7 @@ const EditMachineStack: React.FC<EquipmentWeightEditorProps> = (props) => {
             -
           </Button>
         )}
-        <Stack alignItems="center">
+        <Stack alignItems="center" spacing={0}>
           <StackPlate
             editing={props.editing}
             checked={api.isBumpActive}
@@ -39,7 +39,7 @@ const EditMachineStack: React.FC<EquipmentWeightEditorProps> = (props) => {
           >
             {api.bump}
           </StackPlate>
-          <Stack sx={{ width: "12ch" }}>
+          <Stack sx={{ width: "12ch" }} spacing={0}>
             {api.visiblePlates.map((plateValue) => (
               <StackPlate
                 editing={props.editing}
