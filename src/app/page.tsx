@@ -1,10 +1,13 @@
 import Breadcrumbs from "@/components/Breadcrumbs";
+import QuickPushupButton from "@/components/mutate/QuickPushupButton";
 import TODO from "@/components/TODO";
 import { Paths } from "@/constants";
+import { requireLoggedInUser } from "@/serverUtil";
 import { Button, Stack } from "@mui/material";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+  const { userId } = await requireLoggedInUser(Paths.Home);
   return (
     <>
       <Breadcrumbs pathname="/" />
@@ -51,6 +54,7 @@ export default function Home() {
           >
             Personal Records
           </Button>
+          <QuickPushupButton userId={userId} />
         </Stack>
         <TODO>
           Misc Todos

@@ -734,6 +734,20 @@ export type Database = {
         Args: { p_user_id: string };
         Returns: Database["public"]["CompositeTypes"]["hydrate_rest_times_result"];
       };
+      quick_superblock: {
+        Args: {
+          p_block_name: string;
+          p_equipment_type: Database["public"]["Enums"]["equipment_type_enum"];
+          p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
+          p_reps: number;
+          p_sets: number;
+          p_superblock_name: string;
+          p_target_weight: number;
+          p_user_id: string;
+          p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
+        };
+        Returns: string;
+      };
       recent_set_overviews: {
         Args: {
           p_exercise_type: Database["public"]["Enums"]["exercise_type_enum"];
