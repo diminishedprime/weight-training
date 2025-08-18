@@ -17,7 +17,7 @@ import { LOADING_SX, Paths, SearchParam, WithSearchParams } from "@/constants";
 import { usePersistentBoolean, useRPCMutation } from "@/hooks";
 import { TestIds } from "@/test/test-ids";
 import EditIcon from "@mui/icons-material/Edit";
-import { Box, Button, IconButton, Stack, Typography } from "@mui/material";
+import { Button, IconButton, Stack, Typography } from "@mui/material";
 import confetti from "canvas-confetti";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
@@ -68,59 +68,53 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
         }
         alignItems="start"
       >
-        <Box>
-          <LabeledValue label="Reps" alignItems="center">
-            <Typography variant="h4">
-              {api.reps}
-              {api.isAMRAP && (
-                <Typography color="secondary" component="span">
-                  {" "}
-                  (AMRAP)
-                </Typography>
-              )}
-            </Typography>
-          </LabeledValue>
-        </Box>
+        <LabeledValue label="Reps" alignItems="center">
+          <Typography variant="h4">
+            {api.reps}
+            {api.isAMRAP && (
+              <Typography color="secondary" component="span">
+                {" "}
+                (AMRAP)
+              </Typography>
+            )}
+          </Typography>
+        </LabeledValue>
         {props.exercise.last_performed_at && (
-          <Box>
-            <LabeledValue
-              label="Rest"
-              alignItems="center"
-              help={
-                <Typography variant="caption">
-                  Update{" "}
-                  <Link
-                    href={WithSearchParams(Paths.Preferences_RestTimes, [
-                      SearchParam.BackTo,
-                      Paths.Superblocks_SuperblockId_Perform(
-                        props.superblockId,
-                      ),
-                    ])}
-                  >
-                    Rest Times
-                  </Link>{" "}
-                  to change how long before this turns green.
-                </Typography>
+          <LabeledValue
+            label="Rest"
+            alignItems="center"
+            help={
+              <Typography variant="caption">
+                Update{" "}
+                <Link
+                  href={WithSearchParams(Paths.Preferences_RestTimes, [
+                    SearchParam.BackTo,
+                    Paths.Superblocks_SuperblockId_Perform(props.superblockId),
+                  ])}
+                >
+                  Rest Times
+                </Link>{" "}
+                to change how long before this turns green.
+              </Typography>
+            }
+          >
+            <DisplayStopwatch
+              variant="h4"
+              start={new Date(props.exercise.last_performed_at)}
+              successThresholdSeconds={
+                props.preferences.exercise_rest_times?.find(
+                  (a) => a.exercise_type === props.exercise.exercise_type,
+                )?.rest_time ??
+                props.preferences.equipment_rest_times?.find(
+                  (a) => a.equipment_type === props.exercise.equipment_type,
+                )?.rest_time ??
+                props.preferences.default_rest_time ??
+                undefined
               }
-            >
-              <DisplayStopwatch
-                variant="h4"
-                start={new Date(props.exercise.last_performed_at)}
-                successThresholdSeconds={
-                  props.preferences.exercise_rest_times?.find(
-                    (a) => a.exercise_type === props.exercise.exercise_type,
-                  )?.rest_time ??
-                  props.preferences.equipment_rest_times?.find(
-                    (a) => a.equipment_type === props.exercise.equipment_type,
-                  )?.rest_time ??
-                  props.preferences.default_rest_time ??
-                  undefined
-                }
-                millisecondsUntilThreshold
-                onThresholdReached={api.safelyNotifyRestTimeUp}
-              />
-            </LabeledValue>
-          </Box>
+              millisecondsUntilThreshold
+              onThresholdReached={api.safelyNotifyRestTimeUp}
+            />
+          </LabeledValue>
         )}
       </Stack>
       <EquipmentWeightEditor
