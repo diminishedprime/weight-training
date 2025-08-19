@@ -1,13 +1,13 @@
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { useCallback, useMemo } from "react";
 
-interface SelectNumberProps {
+interface Props {
   selectedNumber: number;
   setSelectedNumber: React.Dispatch<React.SetStateAction<number>>;
   choices: number[];
 }
 
-const SelectNumber: React.FC<SelectNumberProps> = (props) => {
+const SelectNumber: React.FC<Props> = (props) => {
   const api = useSelectNumberAPI(props);
   return (
     <ToggleButtonGroup
@@ -45,7 +45,7 @@ const SelectNumber: React.FC<SelectNumberProps> = (props) => {
 
 export default SelectNumber;
 
-const useSelectNumberAPI = (props: SelectNumberProps) => {
+const useSelectNumberAPI = (props: Props) => {
   const { selectedNumber, setSelectedNumber } = props;
   const isDecrementDisabled = useMemo(() => {
     return selectedNumber < 2;

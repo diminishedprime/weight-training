@@ -4,8 +4,8 @@ import { WendlerProgramOverviews } from "@/common-types";
 import Link from "@/components/Link";
 import Pagination from "@/components/Pagination";
 import { Paths, SearchParam, WithSearchParams } from "@/constants";
-import { Button, Stack } from "@mui/material";
-import { useCallback } from "react";
+import { Button } from "@mui/material";
+import React, { useCallback } from "react";
 
 interface ProgramsClientProps {
   currentPageNum: number;
@@ -22,33 +22,27 @@ const ProgramsClient: React.FC<ProgramsClientProps> = (props) => {
   }, []);
 
   return (
-    <Stack flex={1} justifyContent="space-between">
-      <Stack>
-        <Button
-          component={Link}
-          href={Paths.Programs_Add}
-          sx={{ alignSelf: "center" }}
-          variant="contained"
-        >
-          New Program
-        </Button>
-        {props.pageCount > 1 && (
-          <Pagination
-            page={props.currentPageNum}
-            count={props.pageCount}
-            hrefFor={hrefFor}
-          />
-        )}
-        <Programs programOverviews={props.programOverviews} />
-      </Stack>
-      {props.pageCount > 1 && (
-        <Pagination
-          page={props.currentPageNum}
-          count={props.pageCount}
-          hrefFor={hrefFor}
-        />
-      )}
-    </Stack>
+    <React.Fragment>
+      <Button
+        component={Link}
+        href={Paths.Programs_Add}
+        sx={{ alignSelf: "center" }}
+        variant="contained"
+      >
+        New Program
+      </Button>
+      <Pagination
+        page={props.currentPageNum}
+        count={props.pageCount}
+        hrefFor={hrefFor}
+      />
+      <Programs programOverviews={props.programOverviews} />
+      <Pagination
+        page={props.currentPageNum}
+        count={props.pageCount}
+        hrefFor={hrefFor}
+      />
+    </React.Fragment>
   );
 };
 

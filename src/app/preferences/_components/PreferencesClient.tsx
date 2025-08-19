@@ -11,7 +11,7 @@ import Theme from "@/app/preferences/_components/Theme";
 import { afterUpdateAction } from "@/app/preferences/_components/actions";
 import usePreferenceValue from "@/app/preferences/_components/usePreferenceValue";
 import { MyThemeOptions, UserPreferences } from "@/common-types";
-import { DEFAULT_VALUES, LOADING_SX } from "@/constants";
+import { DEFAULT_VALUES } from "@/constants";
 import { Json } from "@/database.types";
 import { useRPCMutation } from "@/hooks";
 import { TestIds } from "@/test/test-ids";
@@ -29,10 +29,8 @@ export const PreferencesClient: React.FC<Props> = (props) => {
   const api = useUpdateUserPreferencesAPI(props);
 
   return (
-    <Stack flexGrow={1}>
-      <Typography variant="h6" sx={{ mb: 2 }}>
-        Update Preferences
-      </Typography>
+    <React.Fragment>
+      <Typography variant="h6">Update Preferences</Typography>
       <RequiredPreferences
         requiredPreferences={api.requiredPreferences}
         selectedPlatesApi={api.selectedPlatesApi}
@@ -41,40 +39,27 @@ export const PreferencesClient: React.FC<Props> = (props) => {
         selectedDumbbellsApi={api.selectedDumbbellsApi}
         selectedKettlebellsApi={api.selectedKettlebellsApi}
       />
-      <Stack
-        flexGrow={1}
-        sx={{
-          ...LOADING_SX(api.pending),
-        }}
-      >
-        <Theme api={api.themeOptionsApi} />
-        <SelectWeightUnit api={api.preferredWeightUnitApi} />
-        <RestTime api={api.defaultRestTimeApi} />
-        <SelectPlates api={api.selectedPlatesApi} />
-        <SelectDumbbells api={api.selectedDumbbellsApi} />
-        <SelectKettlebells api={api.selectedKettlebellsApi} />
-        <Notifications
-          tokenApi={api.pushoverTokenApi}
-          userKeyApi={api.pushoverUserKeyApi}
-        />
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <span>
-            {api.preferencesModified && (
-              <Typography variant="caption" color="text.secondary">
-                <strong>* indicates modified values</strong>
-              </Typography>
-            )}
-            {!api.missingRequiredPreference && api.requiredPreferences && (
-              <Typography variant="caption" color="error">
-                <strong>Required preferences must be set</strong>
-              </Typography>
-            )}
-          </span>
-        </Stack>
+      <Theme api={api.themeOptionsApi} />
+      <SelectWeightUnit api={api.preferredWeightUnitApi} />
+      <RestTime api={api.defaultRestTimeApi} />
+      <SelectPlates api={api.selectedPlatesApi} />
+      <SelectDumbbells api={api.selectedDumbbellsApi} />
+      <SelectKettlebells api={api.selectedKettlebellsApi} />
+      <Notifications
+        tokenApi={api.pushoverTokenApi}
+        userKeyApi={api.pushoverUserKeyApi}
+      />
+      <Stack direction="row" justifyContent="space-between" alignItems="center">
+        {api.preferencesModified && (
+          <Typography variant="caption" color="text.secondary">
+            <strong>* indicates modified values</strong>
+          </Typography>
+        )}
+        {!api.missingRequiredPreference && api.requiredPreferences && (
+          <Typography variant="caption" color="error">
+            <strong>Required preferences must be set</strong>
+          </Typography>
+        )}
       </Stack>
       <Stack
         direction="row"
@@ -102,7 +87,7 @@ export const PreferencesClient: React.FC<Props> = (props) => {
           Save
         </Button>
       </Stack>
-    </Stack>
+    </React.Fragment>
   );
 };
 

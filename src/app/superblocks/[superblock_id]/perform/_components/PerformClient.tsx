@@ -12,7 +12,7 @@ import { Paths } from "@/constants";
 import { usePersistentString } from "@/hooks";
 import EditIcon from "@mui/icons-material/Edit";
 import { IconButton, Stack, Switch, Typography } from "@mui/material";
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 
 interface PerformClientProps {
   userId: string;
@@ -24,26 +24,24 @@ interface PerformClientProps {
 const PerformClient: React.FC<PerformClientProps> = (props) => {
   const api = usePerformClientAPI(props);
   return (
-    <Stack>
+    <React.Fragment>
       <Stack direction="row" alignItems="center">
-        <Typography variant="h5" display="flex" alignItems="center" gap={1}>
+        <Typography variant="h5" display="flex" gap={1} alignItems="center">
           <DisplayCompletionStatus
             completionStatus={api.superblock.completion_status}
           />
           {api.superblock.name}
-          <IconButton
-            color="warning"
-            component={Link}
-            href={Paths.Superblocks_SuperblockId_Edit(
-              props.initialSuperblock.id,
-            )}
-          >
-            <EditIcon />
-          </IconButton>
         </Typography>
+        <IconButton
+          color="warning"
+          component={Link}
+          href={Paths.Superblocks_SuperblockId_Edit(props.initialSuperblock.id)}
+        >
+          <EditIcon />
+        </IconButton>
         <Stack flex={1} />
         {api.canNotify && (
-          <LabeledValue label="Notify" alignItems={"center"}>
+          <LabeledValue label="Notify" alignItems={"center"} spacing={-1}>
             <Switch
               checked={api.notify}
               onChange={(_) => api.setNotify((o) => !o)}
@@ -60,7 +58,7 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
       {api.superblock.completion_status === "completed" &&
         api.superblock.started_at &&
         api.superblock.completed_at && (
-          <LabeledValue label="Total Duration" alignItems="center">
+          <LabeledValue label="Total Duration" alignItems="center" spacing={0}>
             <DisplayDuration
               from={new Date(api.superblock.started_at)}
               to={new Date(api.superblock.completed_at)}
@@ -90,7 +88,7 @@ const PerformClient: React.FC<PerformClientProps> = (props) => {
         />
       ))}
       <TODO>Add in a "add block" form thingy here.</TODO>
-    </Stack>
+    </React.Fragment>
   );
 };
 
@@ -103,7 +101,7 @@ const usePerformClientAPI = (props: PerformClientProps) => {
 
   const [superblock, setSuperblock] = useState(props.initialSuperblock);
   const [selectedBlockId, setSelectedBlockId] = usePersistentString(
-    props.initialSuperblock.blocks[0]?.id ?? "",
+    "",
     props.path,
     "selectedBlockId",
   );

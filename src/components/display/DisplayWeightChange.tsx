@@ -4,12 +4,13 @@ import SquiggleLineIcon from "@mui/icons-material/Menu";
 import { Typography } from "@mui/material";
 import React from "react";
 
-interface DisplayIncreaseProps {
+export interface Props {
   changeValue: number;
   warningWeightThreshold?: number;
   errorWeightThreshold?: number;
 }
-const DisplayWeightChange: React.FC<DisplayIncreaseProps> = (props) => {
+
+const DisplayWeightChange: React.FC<Props> = (props) => {
   const { changeValue } = props;
   let icon;
   let color;

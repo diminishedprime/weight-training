@@ -20,29 +20,27 @@ const ProgramClient: React.FC<ProgramClientProps> = (props) => {
   const { program } = props;
   const api = useProgramClient(props);
   return (
-    <Stack>
-      <Typography variant="h5">
-        {program.name}
-        <Stack direction="row" alignItems={"center"}>
-          {program.started_at && (
-            <DisplayDate timestamp={program.started_at} noTime />
-          )}
-          <Typography>
-            {program.started_at && program.completed_at && " - "}
-          </Typography>
-          {program.completed_at && (
-            <DisplayDate timestamp={program.completed_at} noTime />
-          )}
-        </Stack>
-        <Stack>
-          {program.started_at && program.completed_at && (
-            <DisplayDuration
-              from={new Date(program.started_at)}
-              to={new Date(program.completed_at)}
-            />
-          )}
-        </Stack>
-      </Typography>
+    <React.Fragment>
+      <Typography variant="h5">{program.name}</Typography>
+      <Stack direction="row" alignItems={"center"}>
+        {program.started_at && (
+          <DisplayDate timestamp={program.started_at} noTime />
+        )}
+        <Typography>
+          {program.started_at && program.completed_at && " - "}
+        </Typography>
+        {program.completed_at && (
+          <DisplayDate timestamp={program.completed_at} noTime />
+        )}
+      </Stack>
+      <Stack>
+        {program.started_at && program.completed_at && (
+          <DisplayDuration
+            from={new Date(program.started_at)}
+            to={new Date(program.completed_at)}
+          />
+        )}
+      </Stack>
       <Progress cycles={program.cycles} />
       {program.notes && (
         <Typography variant="body2" color="textSecondary">
@@ -58,7 +56,7 @@ const ProgramClient: React.FC<ProgramClientProps> = (props) => {
         <Movement key={movement.id} movement={movement} />
       ))}
       <TODO>Add user preferences for order of movements in wendler</TODO>
-    </Stack>
+    </React.Fragment>
   );
 };
 

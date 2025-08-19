@@ -19,12 +19,12 @@ import {
 import { Set as ImmutableSet } from "immutable";
 import React, { useCallback, useMemo, useState } from "react";
 
-export interface SelectExerciseProps {
+export interface Props {
   exercise: ExerciseType | null;
   setExercise: React.Dispatch<React.SetStateAction<ExerciseType | null>>;
 }
 
-const SelectExercise: React.FC<SelectExerciseProps> = (props) => {
+const SelectExercise: React.FC<Props> = (props) => {
   const api = useSelectExerciseAPI(props);
 
   return (
@@ -106,7 +106,7 @@ const SelectExercise: React.FC<SelectExerciseProps> = (props) => {
 
 export default SelectExercise;
 
-const useSelectExerciseAPI = (_props: SelectExerciseProps) => {
+const useSelectExerciseAPI = (_props: Props) => {
   const [selectedProgramDayTypes, setSelectedProgramDayTypes] =
     useState<ImmutableSet<ProgramDayType>>(ImmutableSet());
 

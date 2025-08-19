@@ -4,7 +4,7 @@ import { weightUnitUIString } from "@/uiStrings";
 import { Typography, TypographyProps } from "@mui/material";
 import React from "react";
 
-interface DisplayWeightProps {
+export interface Props {
   weightValue: number;
   weightUnit: WeightUnit;
   reps?: number;
@@ -17,7 +17,7 @@ interface DisplayWeightProps {
   endAdornment?: React.ReactNode | string;
   column?: boolean;
 }
-const DisplayWeight: React.FC<DisplayWeightProps> = (props) => {
+const DisplayWeight: React.FC<Props> = (props) => {
   const { weightValue } = props;
 
   const oneDecimal = Math.floor(weightValue) === weightValue;

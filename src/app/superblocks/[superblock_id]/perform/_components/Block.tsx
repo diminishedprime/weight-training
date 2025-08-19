@@ -39,7 +39,12 @@ const Block: React.FC<Props> = (props) => {
   const { block } = props;
   const api = useBlockAPI(props);
   return (
-    <Accordion disableGutters expanded={props.open} onChange={props.setOpen}>
+    <Accordion
+      disableGutters
+      defaultExpanded={props.open}
+      expanded={props.open}
+      onChange={props.setOpen}
+    >
       <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 1 }}>
         <Typography display="flex" alignItems={"center"} gap={1} variant="h6">
           <DisplayCompletionStatus completionStatus={block.completion_status} />
