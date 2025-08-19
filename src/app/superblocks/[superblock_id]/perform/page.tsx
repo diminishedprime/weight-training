@@ -27,6 +27,7 @@ export default async function Superblocks_SuperblockId_Perform(props: Props) {
 
   const path = Paths.Superblocks_SuperblockId_Perform(superblockId);
 
+  // TODO: I can just have this be a part of the getPerformSuperblock data.
   const requiredPreferencesKeys = superblock.blocks
     .map((block) => {
       if (block.exercises.length === 0) {

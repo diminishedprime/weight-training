@@ -10,52 +10,52 @@ export default async function Home() {
   const { userId } = await requireLoggedInUser(Paths.Home);
   return (
     <>
-      <Breadcrumbs pathname="/" />
+      <Breadcrumbs pathname={Paths.Home} />
+      <Stack direction="row" flexWrap="wrap" alignItems="center">
+        <Button
+          component={Link}
+          href={Paths.Programs}
+          variant="contained"
+          color="primary"
+        >
+          Programs
+        </Button>
+        <Button
+          component={Link}
+          // TODO: easy, rename exercise path to be exercises
+          href={Paths.Exercise}
+          variant="contained"
+          color="primary"
+        >
+          Exercises
+        </Button>
+        <Button
+          component={Link}
+          href={Paths.Superblocks}
+          variant="contained"
+          color="primary"
+        >
+          Superblocks
+        </Button>
+        <Button
+          component={Link}
+          href={Paths.Preferences}
+          variant="contained"
+          color="primary"
+        >
+          Preferences
+        </Button>
+        <Button
+          component={Link}
+          href={Paths.PersonalRecords}
+          variant="contained"
+          color="primary"
+        >
+          Personal Records
+        </Button>
+        <QuickPushupButton userId={userId} />
+      </Stack>
       <Stack>
-        <Stack direction="row" flexWrap="wrap">
-          <Button
-            component={Link}
-            href={Paths.Programs}
-            variant="contained"
-            color="primary"
-          >
-            Programs
-          </Button>
-          <Button
-            component={Link}
-            // TODO: easy, rename exercise path to be exercises
-            href={Paths.Exercise}
-            variant="contained"
-            color="primary"
-          >
-            Exercises
-          </Button>
-          <Button
-            component={Link}
-            href={Paths.Superblocks}
-            variant="contained"
-            color="primary"
-          >
-            Superblocks
-          </Button>
-          <Button
-            component={Link}
-            href={Paths.Preferences}
-            variant="contained"
-            color="primary"
-          >
-            Preferences
-          </Button>
-          <Button
-            component={Link}
-            href={Paths.PersonalRecords}
-            variant="contained"
-            color="primary"
-          >
-            Personal Records
-          </Button>
-          <QuickPushupButton userId={userId} />
-        </Stack>
         <TODO>
           Misc Todos
           <TODO>

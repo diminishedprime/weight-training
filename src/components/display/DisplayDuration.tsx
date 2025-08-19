@@ -1,7 +1,7 @@
 import { Typography, TypographyProps } from "@mui/material";
 import { formatDistance } from "date-fns";
 
-interface DisplayDurationProps {
+export interface Props {
   from: Date;
   to: Date;
   color?: TypographyProps["color"];
@@ -11,7 +11,7 @@ interface DisplayDurationProps {
   squiggle?: boolean;
 }
 
-const DisplayDuration: React.FC<DisplayDurationProps> = (props) => {
+const DisplayDuration: React.FC<Props> = (props) => {
   const { highResolution, restTimeSeconds, squiggle } = props;
   let formattedString = "";
   let color = undefined;

@@ -1,7 +1,7 @@
 import { Stack, Typography, TypographyProps } from "@mui/material";
 import { format } from "date-fns";
 
-interface DisplayTimeProps {
+export interface Props {
   timestamp: string;
   row?: boolean;
   noDate?: boolean;
@@ -10,7 +10,7 @@ interface DisplayTimeProps {
   variant?: TypographyProps["variant"];
 }
 
-const DisplayTime: React.FC<DisplayTimeProps> = (props) => {
+const DisplayDate: React.FC<Props> = (props) => {
   const date = new Date(props.timestamp);
   const dateString = format(
     date,
@@ -46,4 +46,4 @@ const DisplayTime: React.FC<DisplayTimeProps> = (props) => {
   );
 };
 
-export default DisplayTime;
+export default DisplayDate;

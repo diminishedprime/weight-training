@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import React, { JSX, useCallback, useState } from "react";
 
-interface LabeledValueProps {
+export interface Props {
   label: React.ReactNode | string;
   labelVariant?: TypographyProps["variant"];
   labelColor?: TypographyProps["color"];
@@ -23,20 +23,22 @@ interface LabeledValueProps {
   help?: JSX.Element | string;
   width?: StackProps["width"];
   sx?: StackProps["sx"];
+  spacing?: StackProps["spacing"];
   onClick?: () => void;
 }
 
-const LabeledValue: React.FC<LabeledValueProps> = (props) => {
+const LabeledValue: React.FC<Props> = (props) => {
   // TODO:  I may want to make where the help shows configurable. Right now it's
   // always the bottom.
   const api = useLabeledValueAPI(props);
   return (
     <Stack
-      alignItems={props.alignItems || undefined}
-      flex={props.flex || undefined}
-      width={props.width || undefined}
+      alignItems={props.alignItems}
+      flex={props.flex}
+      width={props.width}
       onClick={props.onClick}
-      sx={props.sx || undefined}
+      sx={props.sx}
+      spacing={props.spacing || 0}
     >
       <Typography
         variant={props.labelVariant || "body2"}
@@ -79,7 +81,7 @@ const LabeledValue: React.FC<LabeledValueProps> = (props) => {
 
 export default LabeledValue;
 
-const useLabeledValueAPI = (_props: LabeledValueProps) => {
+const useLabeledValueAPI = (_props: Props) => {
   const [showHelp, setShowHelp] = useState(false);
   const toggleHelp = useCallback(() => {
     setShowHelp((prev) => !prev);

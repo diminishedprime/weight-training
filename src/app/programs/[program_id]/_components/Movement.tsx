@@ -75,13 +75,15 @@ const Movement: React.FC<Props> = (props) => {
               <Button
                 variant="outlined"
                 size="small"
-                href={Paths.Superblocks_SuperblockId(movement.superblock_id)}
+                href={Paths.Superblocks_SuperblockId_Perform(
+                  movement.superblock_id,
+                )}
                 sx={{
                   justifySelf: "flex-end",
                   alignSelf: "flex-end",
                 }}
               >
-                Superblock
+                Let's a go
               </Button>
             )}
           </Stack>

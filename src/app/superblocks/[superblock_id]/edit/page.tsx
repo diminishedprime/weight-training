@@ -30,73 +30,71 @@ export default async function Edit(props: EditProps) {
         pathname={path}
         labels={{ [superblockId]: superblock.name }}
       />
-      <Stack>
-        <Stack direction="row" justifyContent="space-between">
-          <Typography variant="h5">{superblock.name} - Edit</Typography>
-          <Button
-            component={Link}
-            variant="contained"
-            color="primary"
-            href={Paths.Superblocks_SuperblockId_Perform(superblock.id)}
-            sx={{ justifySelf: "flex-end" }}
-          >
-            Let's a go
-          </Button>
-        </Stack>
-        {superblock.blocks.map((block, idx) => (
-          <Stack
-            key={block.id}
-            component={Paper}
-            sx={{ p: 1 }}
-            data-testid={TestIds.Superblocks_SuperblockId_Edit_Block(idx)}
-          >
-            <Typography variant="h6">{block.name}</Typography>
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              alignItems={"flex-end"}
-            >
-              <LabeledValue label="Sets" alignItems={"center"}>
-                <Typography>{block.exercises.length}</Typography>
-              </LabeledValue>
-              <LabeledValue label="Heaviest Set" alignItems={"center"}>
-                <DisplayWeight
-                  // TODO: easy - we should just have this be a part of the query.
-                  weightValue={block.exercises.reduce(
-                    (max, exercise) =>
-                      Math.max(
-                        max,
-                        exercise.actual_weight_value ??
-                          exercise.target_weight_value,
-                      ),
-                    0,
-                  )}
-                  weightUnit={block.exercises[0]?.weight_unit ?? undefined}
-                />
-              </LabeledValue>
-              <LabeledValue label="Total Volume" alignItems={"center"}>
-                <DisplayWeight
-                  weightValue={block.exercises.reduce(
-                    (total, exercise) =>
-                      total +
-                      (exercise.actual_weight_value ??
-                        exercise.target_weight_value),
-                    0,
-                  )}
-                  weightUnit={block.exercises[0]?.weight_unit ?? undefined}
-                />
-              </LabeledValue>
-              <Box flex={1} />
-              <DeleteBlock
-                userId={userId}
-                block={block}
-                superblockId={superblockId}
-              />
-            </Stack>
-          </Stack>
-        ))}
-        <AddBlock userId={userId} superblockId={superblockId} />
+      <Stack direction="row" justifyContent="space-between">
+        <Typography variant="h5">{superblock.name} - Edit</Typography>
+        <Button
+          component={Link}
+          variant="contained"
+          color="primary"
+          href={Paths.Superblocks_SuperblockId_Perform(superblock.id)}
+          sx={{ justifySelf: "flex-end" }}
+        >
+          Let's a go
+        </Button>
       </Stack>
+      {superblock.blocks.map((block, idx) => (
+        <Stack
+          key={block.id}
+          component={Paper}
+          sx={{ p: 1 }}
+          data-testid={TestIds.Superblocks_SuperblockId_Edit_Block(idx)}
+        >
+          <Typography variant="h6">{block.name}</Typography>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems={"flex-end"}
+          >
+            <LabeledValue label="Sets" alignItems={"center"}>
+              <Typography>{block.exercises.length}</Typography>
+            </LabeledValue>
+            <LabeledValue label="Heaviest Set" alignItems={"center"}>
+              <DisplayWeight
+                // TODO: easy - we should just have this be a part of the query.
+                weightValue={block.exercises.reduce(
+                  (max, exercise) =>
+                    Math.max(
+                      max,
+                      exercise.actual_weight_value ??
+                        exercise.target_weight_value,
+                    ),
+                  0,
+                )}
+                weightUnit={block.exercises[0]?.weight_unit ?? undefined}
+              />
+            </LabeledValue>
+            <LabeledValue label="Total Volume" alignItems={"center"}>
+              <DisplayWeight
+                weightValue={block.exercises.reduce(
+                  (total, exercise) =>
+                    total +
+                    (exercise.actual_weight_value ??
+                      exercise.target_weight_value),
+                  0,
+                )}
+                weightUnit={block.exercises[0]?.weight_unit ?? undefined}
+              />
+            </LabeledValue>
+            <Box flex={1} />
+            <DeleteBlock
+              userId={userId}
+              block={block}
+              superblockId={superblockId}
+            />
+          </Stack>
+        </Stack>
+      ))}
+      <AddBlock userId={userId} superblockId={superblockId} />
       <TODO>
         Make blocks re-orderable, even though you can already do them in any
         order.

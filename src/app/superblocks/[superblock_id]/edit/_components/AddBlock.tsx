@@ -59,6 +59,21 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
             setWeight={api.setActualWeight}
             setSets={api.setSets}
           />
+          <LabeledValue label="Weight" alignItems="center">
+            <EditWeight
+              ref={editWeightRef}
+              editing={true}
+              serverTarget={50}
+              clearValue={50}
+              serverActual={api.actualWeight}
+              onActualChange={api.setActualWeight}
+              weightUnit={"pounds"}
+              sub5
+              sub10
+              add5
+              add10
+            />
+          </LabeledValue>
           <Stack
             direction="row"
             flexWrap="wrap"
@@ -69,21 +84,6 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
               It would be nice to allow more customized blocks, i.e. including
               amrap, warmup, different reps per set, etc.
             </TODO>
-            <LabeledValue label="Weight" alignItems="center">
-              <EditWeight
-                ref={editWeightRef}
-                editing={true}
-                serverTarget={50}
-                clearValue={50}
-                serverActual={api.actualWeight}
-                onActualChange={api.setActualWeight}
-                weightUnit={"pounds"}
-                sub5
-                sub10
-                add5
-                add10
-              />
-            </LabeledValue>
             <LabeledValue label="Sets" alignItems="center">
               <SelectNumber
                 selectedNumber={api.sets}
