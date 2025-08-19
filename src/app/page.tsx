@@ -62,21 +62,7 @@ export default async function Home() {
             Practice a database back up and restore when there's only seed data
             so the stakes are lower.
           </TODO>
-          <TODO easy>
-            Set a favicon, maybe just use the svg I made for the barbell?
-          </TODO>
-          <TODO easy>
-            Set a website title, etc. I'm pretty sure there's a simple way to do
-            that with next, just gotta figure it out.
-          </TODO>
-          <TODO>
-            Make it a bit more obvious that a block & superblock is "done"
-          </TODO>
           <TODO easy>Clean up the app drawer on the left.</TODO>
-          <TODO>
-            Add a lil icon (maybe one of my svgs?) to the main mobile link
-            thing.
-          </TODO>
           <TODO>Get fancier SVGs made for the equipments, etc.</TODO>
           <TODO easy>
             We probably don't want to show "home" by itself in the
