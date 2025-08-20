@@ -80,6 +80,7 @@ const Block: React.FC<Props> = (props) => {
                       setSuperblock={props.setSuperblock}
                       setName={api.setNames.get(exercise.id, "")}
                       notify={props.notify}
+                      restTime={api.restTime}
                     />
                   ) : exercise.completion_status === "completed" ||
                     exercise.completion_status === "failed" ? (
@@ -91,6 +92,7 @@ const Block: React.FC<Props> = (props) => {
                       setName={api.setNames.get(exercise.id, "")}
                       currentPath={props.path}
                       idx={idx}
+                      restTime={api.restTime}
                     />
                   ) : (
                     <ExerciseRow
@@ -112,7 +114,15 @@ const Block: React.FC<Props> = (props) => {
 export default Block;
 
 const useBlockAPI = (props: Props) => {
-  const { block } = props;
+  const {
+    preferences: {
+      default_rest_time,
+      equipment_rest_times,
+      exercise_rest_times,
+    },
+    block,
+    block: { exercises },
+  } = props;
 
   const setNames = useMemo(() => {
     return [
@@ -133,7 +143,22 @@ const useBlockAPI = (props: Props) => {
       );
   }, [block]);
 
+  const restTime = useMemo(() => {
+    const firstExercise = exercises[0];
+    return (
+      exercise_rest_times?.find(
+        (a) => a.exercise_type === firstExercise?.exercise_type,
+      )?.rest_time ??
+      equipment_rest_times?.find(
+        (a) => a.equipment_type === firstExercise?.equipment_type,
+      )?.rest_time ??
+      default_rest_time ??
+      120
+    );
+  }, [exercises, default_rest_time, equipment_rest_times, exercise_rest_times]);
+
   return {
     setNames,
+    restTime,
   };
 };

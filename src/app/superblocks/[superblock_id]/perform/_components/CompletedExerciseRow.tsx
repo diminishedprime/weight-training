@@ -22,10 +22,11 @@ interface CompletedExerciseRowProps {
   setName: string;
   currentPath: string;
   idx: number;
+  restTime: number;
 }
 
 const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
-  const { exercise, preferences } = props;
+  const { exercise } = props;
   const api = useCompletedExerciseRowAPI(props);
 
   return (
@@ -104,7 +105,7 @@ const CompletedExerciseRow: React.FC<CompletedExerciseRowProps> = (props) => {
             <DisplayDuration
               from={new Date(exercise.last_performed_at)}
               to={new Date(exercise.performed_at)}
-              restTimeSeconds={preferences.default_rest_time ?? undefined}
+              restTimeSeconds={props.restTime}
               highResolution
             />
           ) : (
