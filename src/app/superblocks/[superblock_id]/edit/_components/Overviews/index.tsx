@@ -1,22 +1,28 @@
-import { RecentSetOverviewsAPI } from "@/app/superblocks/[superblock_id]/edit/_components/AddBlock";
 import Overview from "@/app/superblocks/[superblock_id]/edit/_components/Overviews/Overview";
-import { ExerciseType, RDispatch, RecentSetOverviews } from "@/common-types";
+import {
+  ExerciseType,
+  RDispatch,
+  RecentSetOverviewsResult,
+} from "@/common-types";
 import LabeledValue from "@/components/LabeledValue";
 import TODO from "@/components/TODO";
+import { useRPCMutation } from "@/hooks";
 import { Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 interface OverviewsProps {
-  overviews: RecentSetOverviews | undefined;
-  exercise: ExerciseType | null;
-  api: RecentSetOverviewsAPI;
-  setReps: RDispatch<number>;
+  userId: string;
+  exerciseType: ExerciseType | null;
+  setReps: RDispatch<number | null>;
   setWeight: RDispatch<number | null>;
-  setSets: RDispatch<number>;
+  setSets: RDispatch<number | null>;
+  setOverviewsLoading: RDispatch<boolean>;
 }
 
 const Overviews: React.FC<OverviewsProps> = (props) => {
-  if (props.exercise === null) {
+  const api = useOverviewsAPI(props);
+
+  if (props.exerciseType === null) {
     return null;
   }
 
@@ -39,39 +45,84 @@ const Overviews: React.FC<OverviewsProps> = (props) => {
         think I may need something like deref in angular that allows for a
         minimum time.
       </TODO>
-      {props.api.isMutating ? (
-        <Typography variant="caption" color="text.secondary">
-          Loading...
-        </Typography>
-      ) : (
-        <Stack
-          spacing={0.5}
-          direction="row"
-          sx={{
-            width: "100%",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-          }}
-        >
-          {props.overviews !== undefined && props.overviews.length === 0 ? (
-            <Typography variant="caption" color="text.secondary">
-              No recent sets for exercise.
-            </Typography>
-          ) : (
-            props.overviews?.map((overview, idx) => (
-              <Overview
-                key={idx}
-                overview={overview}
-                setReps={props.setReps}
-                setWeight={props.setWeight}
-                setSets={props.setSets}
-              />
-            ))
-          )}
-        </Stack>
-      )}
+      <Stack
+        spacing={0.5}
+        direction="row"
+        sx={{
+          width: "100%",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}
+      >
+        {api.overviews?.overviews !== undefined &&
+        api.overviews?.overviews?.length === 0 ? (
+          <Typography variant="caption" color="text.secondary">
+            No recent sets for exercise.
+          </Typography>
+        ) : (
+          api.overviews?.overviews?.map((overview, idx) => (
+            <Overview
+              key={idx}
+              overview={overview}
+              setReps={props.setReps}
+              setWeight={props.setWeight}
+              setSets={props.setSets}
+            />
+          ))
+        )}
+      </Stack>
     </LabeledValue>
   );
 };
 
 export default Overviews;
+
+const useOverviewsAPI = (props: OverviewsProps) => {
+  const {
+    exerciseType,
+    userId,
+    setReps,
+    setSets,
+    setWeight,
+    setOverviewsLoading,
+  } = props;
+
+  const [overviews, setOverviews] = useState<RecentSetOverviewsResult>();
+
+  const { trigger: recentSetOverviews, isMutating } = useRPCMutation(
+    "recent_set_overviews",
+    useCallback(
+      (e: Error) => `Error fetching recent set overviews: ${e.message}`,
+      [],
+    ),
+    undefined,
+    setOverviews,
+  );
+
+  useEffect(() => {
+    setOverviewsLoading(isMutating);
+  }, [isMutating, setOverviewsLoading]);
+
+  const updateOverviews = useCallback(async () => {
+    if (exerciseType === null) {
+      return;
+    }
+    await recentSetOverviews({
+      p_exercise_type: exerciseType,
+      p_user_id: userId,
+    });
+  }, [exerciseType, recentSetOverviews, userId]);
+
+  useEffect(() => {
+    if (exerciseType === null) {
+      setOverviews(undefined);
+      setReps(null);
+      setSets(null);
+      setWeight(null);
+      return;
+    }
+    updateOverviews();
+  }, [exerciseType, updateOverviews, setReps, setSets, setWeight]);
+
+  return { isMutating, overviews };
+};

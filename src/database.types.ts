@@ -589,7 +589,7 @@ export type Database = {
           p_weight_unit: Database["public"]["Enums"]["weight_unit_enum"];
           p_weight_value: number;
         };
-        Returns: undefined;
+        Returns: Database["public"]["CompositeTypes"]["get_perform_superblock_result"];
       };
       add_wendler_program: {
         Args: {
@@ -633,7 +633,7 @@ export type Database = {
       };
       delete_block: {
         Args: { p_block_id: string; p_user_id: string };
-        Returns: undefined;
+        Returns: Database["public"]["CompositeTypes"]["get_perform_superblock_result"];
       };
       fail_exercise: {
         Args: {

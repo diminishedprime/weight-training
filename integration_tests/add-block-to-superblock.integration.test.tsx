@@ -2,7 +2,7 @@ import Superblock_Id_Edit from "@/app/superblocks/[superblock_id]/edit/page";
 import * as serverUtil from "@/serverUtil";
 import { USER_ID } from "@/test/constants";
 import { TestIds } from "@/test/test-ids";
-import { act, render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor, within } from "@testing-library/react";
 import { randomUUID } from "crypto";
 import { afterEach, beforeEach, expect, it } from "vitest";
 import { commonBeforeEach } from "./test-util";
@@ -49,6 +49,19 @@ it("should allow a logged in user to add a block to an existing super block with
       screen.getByTestId(TestIds.Superblocks_SuperblockId_Edit_AddBlock),
     );
     expect(fab).toBeDisabled();
+
+    await waitFor(() =>
+      within(
+        screen.getByTestId(TestIds.Superblocks_SuperblockId_Edit_AddBlock_Reps),
+      ).getByTestId(TestIds.SelectNumberChoice(5)),
+    ).then((a) => a.click());
+
+    await waitFor(() =>
+      within(
+        screen.getByTestId(TestIds.Superblocks_SuperblockId_Edit_AddBlock_Sets),
+      ).getByTestId(TestIds.SelectNumberChoice(5)),
+    ).then((a) => a.click());
+
     // Select the first exercise from the exercise selector.
     await waitFor(() =>
       screen.getByRole("button", {
@@ -58,6 +71,7 @@ it("should allow a logged in user to add a block to an existing super block with
     await waitFor(() =>
       screen.getByTestId(TestIds.SelectExercise_Option(0)),
     ).then((a) => a.click());
+
     // The FAB should not be disabled
     expect(fab).not.toBeDisabled();
     fab.click();
@@ -65,6 +79,8 @@ it("should allow a logged in user to add a block to an existing super block with
     // revalidate path, until this work is done, I have nothing else to check in
     // on. Switching over to a "initial-hydration" then mutation to re-render
     // approach will allow this to be cleaned up.
+    // TODO: I think I can now remove this by waiting for the opacity to not be
+    // slightly opaque.
     await waitFor(async () => {
       const { data } = await supabase
         .from("exercise_superblock")
@@ -72,16 +88,6 @@ it("should allow a logged in user to add a block to an existing super block with
         .eq("user_id", userId);
       expect(data?.length).toBeGreaterThan(0);
     });
-  });
-
-  await act(async () => {
-    page = await Superblock_Id_Edit({
-      params: Promise.resolve({ superblock_id: superblockId }),
-    });
-  });
-
-  await act(async () => {
-    render(page);
   });
 
   await waitFor(() => {

@@ -41,10 +41,15 @@ export const TestIds = {
   // about instead of just kinda going with whatever.
   SelectExercise_Autocomplete: "select-exercise-autocomplete",
   SelectExercise_Option: (index: number) => `select-exercise-option-${index}`,
+  /// superblocks/[superblock_id]/edit
   Superblocks_SuperblockId_Edit_AddBlock:
     "superblocks-superblock-id-edit-add-block",
   Superblocks_SuperblockId_Edit_Block: (index: number) =>
     `superblocks-superblock-id-edit-block-${index}`,
+  Superblocks_SuperblockId_Edit_AddBlock_Sets:
+    "superblocks-superblock-id-edit-add-block-sets",
+  Superblocks_SuperblockId_Edit_AddBlock_Reps:
+    "superblocks-superblock-id-edit-add-block-reps",
   // superblocks/[superblock_id]/perform
   Superblocks_SuperblockId_Perform__FinishExercise:
     "superblocks-superblock-id-perform-finish-exercise",
@@ -65,4 +70,5 @@ export const TestIds = {
   CompletionStatusSkipped: "completion-status-skipped",
   CompletionStatusNotStarted: "completion-status-not-started",
   CompletionStatusInProgress: "completion-status-in-progress",
+  SelectNumberChoice: (number: number) => `select-number-choice-${number}`,
 } as const;

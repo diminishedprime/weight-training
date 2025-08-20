@@ -1,18 +1,21 @@
 "use client";
-import { addBlock as addBlockServer } from "@/app/superblocks/[superblock_id]/edit/_components/actions";
+import { revalidatePaths } from "@/app/superblocks/[superblock_id]/edit/_components/actions";
 import Overviews from "@/app/superblocks/[superblock_id]/edit/_components/Overviews";
 import {
   ExerciseType,
-  RecentSetOverviewsResult,
+  GetPerformSuperblockResult,
+  RDispatch,
   WeightUnit,
 } from "@/common-types";
 import EditWeight, {
   EditWeightHandle,
 } from "@/components/edit/weight/EditWeight";
 import LabeledValue from "@/components/LabeledValue";
+import { Notification } from "@/components/Notify";
 import SelectExercise from "@/components/select/SelectExercise";
 import SelectNumber from "@/components/select/SelectNumber";
 import TODO from "@/components/TODO";
+import { LOADING_SX } from "@/constants";
 import { useRPCMutation } from "@/hooks";
 import { TestIds } from "@/test/test-ids";
 import { exerciseTypeUIStringLong } from "@/uiStrings";
@@ -30,13 +33,15 @@ import React, {
 interface AddBlockProps {
   userId: string;
   superblockId: string;
+  setSuperblock: RDispatch<GetPerformSuperblockResult>;
+  setNotifications: RDispatch<Notification[]>;
 }
 
 const AddBlock: React.FC<AddBlockProps> = (props) => {
   const editWeightRef = useRef<EditWeightHandle>(null!);
   const api = useAddBlockAPI(props, editWeightRef);
   return (
-    <Stack component={Paper} sx={{ m: 1, p: 1 }}>
+    <Stack component={Paper} sx={{ p: 1 }}>
       <TODO>
         Adding a block to an existing block doesn't mark it as incomplete and
         set the completed at back to null.
@@ -46,18 +51,18 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
         labelVariant="h6"
         labelColor="text.primary"
       >
-        <Stack mt={1}>
+        <Stack mt={1} sx={{ ...LOADING_SX(api.overviewsLoading) }}>
           <SelectExercise
             exercise={api.exercise}
             setExercise={api.setExercise}
           />
           <Overviews
-            overviews={api.recentSetOverviews?.overviews}
-            exercise={api.exercise}
-            api={api.recentSetOverviewsAPI}
+            exerciseType={api.exercise}
             setReps={api.setReps}
             setWeight={api.setActualWeight}
             setSets={api.setSets}
+            userId={props.userId}
+            setOverviewsLoading={api.setOverviewsLoading}
           />
           <LabeledValue label="Weight" alignItems="center">
             <EditWeight
@@ -86,6 +91,9 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
             </TODO>
             <LabeledValue label="Sets" alignItems="center">
               <SelectNumber
+                data-testid={
+                  TestIds.Superblocks_SuperblockId_Edit_AddBlock_Sets
+                }
                 selectedNumber={api.sets}
                 setSelectedNumber={api.setSets}
                 choices={[3, 4, 5]}
@@ -93,6 +101,9 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
             </LabeledValue>
             <LabeledValue label="Reps" alignItems="center">
               <SelectNumber
+                data-testid={
+                  TestIds.Superblocks_SuperblockId_Edit_AddBlock_Reps
+                }
                 selectedNumber={api.reps}
                 setSelectedNumber={api.setReps}
                 choices={[5, 8, 10, 12, 15]}
@@ -136,14 +147,12 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
             =
           </Typography>
           <LabeledValue label="Volume" alignItems="center">
-            {api.sets * api.reps * (api.actualWeight ?? 0)}
+            {api.volume}
           </LabeledValue>
         </Stack>
       </Stack>
       <Divider />
       <Stack
-        component="form"
-        action={api.boundAddBlockAction}
         justifyContent="flex-start"
         alignItems="flex-start"
         direction="row"
@@ -155,17 +164,19 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
                 Weight must be positive.
               </Typography>
             ))}
-          {api.reps <= 0 && (
-            <Typography variant="body2" color="error">
-              Reps must be greater than 0.
-            </Typography>
-          )}
-          {api.sets <= 0 && (
-            <Typography variant="body2" color="error">
-              Sets must be greater than 0.
-            </Typography>
-          )}
-          {!api.exercise && (
+          {api.reps === null ||
+            (api.reps <= 0 && (
+              <Typography variant="body2" color="error">
+                Reps must be greater than 0.
+              </Typography>
+            ))}
+          {api.sets === null ||
+            (api.sets <= 0 && (
+              <Typography variant="body2" color="error">
+                Sets must be greater than 0.
+              </Typography>
+            ))}
+          {api.exercise === null && (
             <Typography variant="body2" color="error">
               Exercise is required.
             </Typography>
@@ -175,8 +186,8 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
           variant="extended"
           color="primary"
           sx={{ justifySelf: "flex-end" }}
-          type="submit"
           disabled={api.addDisabled}
+          onClick={api.addBlock}
           data-testid={TestIds.Superblocks_SuperblockId_Edit_AddBlock}
         >
           Add Block
@@ -188,85 +199,112 @@ const AddBlock: React.FC<AddBlockProps> = (props) => {
 
 export default AddBlock;
 
-// This makes me deeply unhappy, but typescript doesn't let you export a type
-// from within a function and I can't seem to get the generic type working since
-// it's infered from the actual argument.
-const _helper = () =>
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  useRPCMutation(
-    "recent_set_overviews",
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useCallback(
-      (e: Error) => `Error fetching recent set overviews: ${e.message}`,
-      [],
-    ),
-  );
-export type RecentSetOverviewsAPI = ReturnType<typeof _helper>;
-
 const useAddBlockAPI = (
   props: AddBlockProps,
   editWeightRef?: React.RefObject<EditWeightHandle>,
 ) => {
-  const { userId, superblockId } = props;
-  const [exercise, setExercise] = useState<ExerciseType | null>(null);
-  const [reps, setReps] = useState(10);
-  const [sets, setSets] = useState(5);
-  const [actualWeight, setActualWeight] = useState<number | null>(50);
-  const [recentSetOverviews, setRecentSetOverviews] = useState<
-    RecentSetOverviewsResult | undefined
-  >(undefined);
+  const { userId, superblockId, setSuperblock, setNotifications } = props;
 
-  const addDisabled = useMemo(() => {
-    return (
-      !exercise ||
-      actualWeight === null ||
-      actualWeight < 0 ||
-      reps <= 0 ||
-      sets <= 0
-    );
-  }, [exercise, actualWeight, reps, sets]);
+  const [exerciseType, setExerciseType] = useState<ExerciseType | null>(null);
+  const [reps, setReps] = useState<number | null>(null);
+  const [sets, setSets] = useState<number | null>(null);
+  const [actualWeight, setActualWeight] = useState<number | null>(null);
+  const [overviewsLoading, setOverviewsLoading] = useState(false);
 
   const name = useMemo(() => {
-    if (exercise === null) {
-      return "";
+    if (exerciseType === null) {
+      return null;
     }
-    return `${exerciseTypeUIStringLong(exercise)} - ${sets}x${reps}`;
-  }, [exercise, sets, reps]);
+    return `${exerciseTypeUIStringLong(exerciseType)} - ${sets}x${reps}`;
+  }, [exerciseType, sets, reps]);
 
   const equipmentType = useMemo(() => {
-    return exercise ? (EQUIPMENT_FOR_EXERCISE.get(exercise) ?? null) : null;
-  }, [exercise]);
+    return exerciseType
+      ? (EQUIPMENT_FOR_EXERCISE.get(exerciseType) ?? null)
+      : null;
+  }, [exerciseType]);
 
   const weightUnit: WeightUnit = useMemo(() => {
     return "pounds";
   }, []);
 
-  const recentSetOverviewsAPI = useRPCMutation(
-    "recent_set_overviews",
+  const addDisabled = useMemo(() => {
+    return (
+      exerciseType === null ||
+      equipmentType === null ||
+      actualWeight === null ||
+      reps === null ||
+      sets === null ||
+      name === null ||
+      actualWeight < 0 ||
+      reps <= 0 ||
+      sets <= 0
+    );
+  }, [exerciseType, actualWeight, reps, sets, equipmentType, name]);
+
+  const { trigger: addBlockToSuperblockServer } = useRPCMutation(
+    "add_block_to_superblock",
+    useCallback((e) => `Error calling add_block_to_superblock: ${e}`, []),
+    useCallback(async () => {
+      await revalidatePaths(superblockId);
+    }, [superblockId]),
     useCallback(
-      (e: Error) => `Error fetching recent set overviews: ${e.message}`,
-      [],
+      (result: GetPerformSuperblockResult) => {
+        setSuperblock(result);
+        setNotifications((old) => [
+          ...old,
+          { message: `Added block: ${name}`, key: new Date() },
+        ]);
+        setExerciseType(null);
+      },
+      [setSuperblock, setNotifications, name],
     ),
   );
 
-  const { trigger } = recentSetOverviewsAPI;
-
-  useEffect(() => {
-    if (exercise !== null) {
-      (async () => {
-        const overviews = await trigger({
-          p_user_id: userId,
-          p_exercise_type: exercise,
-        });
-        setRecentSetOverviews(overviews as RecentSetOverviewsResult);
-      })();
+  const addBlock = useCallback(async () => {
+    if (
+      exerciseType === null ||
+      equipmentType === null ||
+      actualWeight === null ||
+      reps === null ||
+      sets === null ||
+      name === null ||
+      actualWeight < 0 ||
+      reps <= 0 ||
+      sets <= 0
+    ) {
       return;
     }
-    setRecentSetOverviews(undefined);
-    setReps(10);
-    setSets(5);
-    setActualWeight(50);
-  }, [exercise, userId, trigger]);
+    await addBlockToSuperblockServer({
+      p_equipment_type: equipmentType,
+      p_exercise_type: exerciseType,
+      p_name: name,
+      p_reps: reps,
+      p_sets: sets,
+      p_superblock_id: superblockId,
+      p_user_id: userId,
+      p_weight_unit: weightUnit,
+      p_weight_value: actualWeight,
+    });
+  }, [
+    addBlockToSuperblockServer,
+    equipmentType,
+    exerciseType,
+    name,
+    reps,
+    sets,
+    superblockId,
+    userId,
+    weightUnit,
+    actualWeight,
+  ]);
+
+  const volume = useMemo(() => {
+    if (sets === null || reps === null || actualWeight === null) {
+      return "";
+    }
+    return sets * reps * actualWeight;
+  }, [sets, reps, actualWeight]);
 
   useEffect(() => {
     if (actualWeight !== null) {
@@ -274,46 +312,19 @@ const useAddBlockAPI = (
     }
   }, [actualWeight, editWeightRef]);
 
-  const boundAddBlockAction = useMemo(() => {
-    if (!exercise || !equipmentType || actualWeight === null) {
-      return;
-    }
-    return addBlockServer.bind(
-      null,
-      userId,
-      superblockId,
-      name,
-      equipmentType,
-      exercise,
-      sets,
-      reps,
-      actualWeight,
-      weightUnit,
-    );
-  }, [
-    userId,
-    superblockId,
-    name,
-    equipmentType,
-    exercise,
-    sets,
-    reps,
-    actualWeight,
-    weightUnit,
-  ]);
-
   return {
-    recentSetOverviewsAPI,
     addDisabled,
-    boundAddBlockAction,
-    exercise,
-    setExercise,
+    exercise: exerciseType,
+    setExercise: setExerciseType,
     reps,
     setReps,
     sets,
     setSets,
     actualWeight,
     setActualWeight,
-    recentSetOverviews,
+    setOverviewsLoading,
+    overviewsLoading,
+    addBlock,
+    volume,
   };
 };
