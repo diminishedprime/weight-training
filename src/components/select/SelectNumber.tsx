@@ -1,16 +1,20 @@
+import { RDispatch } from "@/common-types";
+import { TestIds } from "@/test/test-ids";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { useCallback, useMemo } from "react";
 
 interface Props {
-  selectedNumber: number;
-  setSelectedNumber: React.Dispatch<React.SetStateAction<number>>;
+  selectedNumber: number | null;
+  setSelectedNumber: RDispatch<number | null>;
   choices: number[];
+  ["data-testid"]?: string;
 }
 
 const SelectNumber: React.FC<Props> = (props) => {
   const api = useSelectNumberAPI(props);
   return (
     <ToggleButtonGroup
+      data-testid={props["data-testid"]}
       color="primary"
       value={props.selectedNumber}
       exclusive
@@ -32,6 +36,7 @@ const SelectNumber: React.FC<Props> = (props) => {
           value={number}
           aria-label={`reps ${number}`}
           size="small"
+          data-testid={TestIds.SelectNumberChoice(number)}
         >
           {number}
         </ToggleButton>
@@ -48,7 +53,7 @@ export default SelectNumber;
 const useSelectNumberAPI = (props: Props) => {
   const { selectedNumber, setSelectedNumber } = props;
   const isDecrementDisabled = useMemo(() => {
-    return selectedNumber < 2;
+    return selectedNumber === null || selectedNumber < 2;
   }, [selectedNumber]);
 
   const onChange = useCallback(
@@ -56,9 +61,11 @@ const useSelectNumberAPI = (props: Props) => {
       if (number === null) return;
       if (typeof number === "string") {
         if (number === "-" && !isDecrementDisabled) {
-          setSelectedNumber((prev) => Math.max(prev - 1, 1));
+          setSelectedNumber((prev) =>
+            prev === null ? 1 : Math.max(prev - 1, 1),
+          );
         } else if (number === "+") {
-          setSelectedNumber((prev) => prev + 1);
+          setSelectedNumber((prev) => (prev === null ? 1 : prev + 1));
         }
       } else {
         setSelectedNumber((_) => number);

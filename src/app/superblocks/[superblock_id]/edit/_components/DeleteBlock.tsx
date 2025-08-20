@@ -1,7 +1,12 @@
 "use client";
 
-import { deleteBlock as serverDeleteBlock } from "@/app/superblocks/[superblock_id]/edit/_components/actions";
-import { GetPerformSuperblockBlock } from "@/common-types";
+import { revalidatePaths } from "@/app/superblocks/[superblock_id]/edit/_components/actions";
+import {
+  GetPerformSuperblockBlock,
+  GetPerformSuperblockResult,
+  RDispatch,
+} from "@/common-types";
+import { useRPCMutation } from "@/hooks";
 import CloseIcon from "@mui/icons-material/Close";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
@@ -13,12 +18,15 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import React, { useCallback, useState } from "react";
+import { Set as ImmutableSet } from "immutable";
+import React, { useCallback, useEffect, useState } from "react";
 
 interface DeleteBlockProps {
   userId: string;
   block: GetPerformSuperblockBlock;
   superblockId: string;
+  setSuperblock: RDispatch<GetPerformSuperblockResult>;
+  setDeleting: RDispatch<ImmutableSet<string>>;
 }
 
 const DeleteBlock: React.FC<DeleteBlockProps> = (props) => {
@@ -80,6 +88,8 @@ const useDeleteBlockAPI = (props: DeleteBlockProps) => {
     userId,
     block: { id },
     superblockId,
+    setSuperblock,
+    setDeleting,
   } = props;
   const [open, setOpen] = useState(false);
 
@@ -91,10 +101,35 @@ const useDeleteBlockAPI = (props: DeleteBlockProps) => {
     setOpen(false);
   }, []);
 
+  const { trigger: deleteBlockServer, isMutating } = useRPCMutation(
+    "delete_block",
+    useCallback((error) => `Error calling delete_block: ${error}`, []),
+    useCallback(async () => {
+      revalidatePaths(superblockId);
+    }, [superblockId]),
+    useCallback(
+      (result: GetPerformSuperblockResult) => {
+        setSuperblock(result);
+      },
+      [setSuperblock],
+    ),
+  );
+
   const handleConfirmDelete = useCallback(async () => {
-    await serverDeleteBlock(userId, id, superblockId);
     setOpen(false);
-  }, [userId, id, superblockId]);
+    await deleteBlockServer({
+      p_block_id: id,
+      p_user_id: userId,
+    });
+  }, [deleteBlockServer, id, userId]);
+
+  useEffect(() => {
+    if (isMutating) {
+      setDeleting((old) => old.add(id));
+    } else {
+      setDeleting((old) => old.remove(id));
+    }
+  }, [id, isMutating, setDeleting]);
 
   return {
     open,

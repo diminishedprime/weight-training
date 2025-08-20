@@ -7,9 +7,9 @@ import { useCallback, useMemo } from "react";
 
 interface OverviewProps {
   overview: RecentSetOverview;
-  setReps: RDispatch<number>;
+  setReps: RDispatch<number | null>;
   setWeight: RDispatch<number | null>;
-  setSets: RDispatch<number>;
+  setSets: RDispatch<number | null>;
 }
 
 const Overview: React.FC<OverviewProps> = (props) => {
