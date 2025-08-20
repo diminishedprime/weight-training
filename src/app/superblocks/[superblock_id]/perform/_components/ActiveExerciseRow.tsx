@@ -31,6 +31,7 @@ interface ActiveExerciseRowProps {
   preferences: UserPreferences;
   setName: string;
   notify: boolean;
+  restTime: number;
 }
 
 const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
@@ -101,16 +102,7 @@ const ActiveExerciseRow: React.FC<ActiveExerciseRowProps> = (props) => {
             <DisplayStopwatch
               variant="h4"
               start={new Date(props.exercise.last_performed_at)}
-              successThresholdSeconds={
-                props.preferences.exercise_rest_times?.find(
-                  (a) => a.exercise_type === props.exercise.exercise_type,
-                )?.rest_time ??
-                props.preferences.equipment_rest_times?.find(
-                  (a) => a.equipment_type === props.exercise.equipment_type,
-                )?.rest_time ??
-                props.preferences.default_rest_time ??
-                undefined
-              }
+              successThresholdSeconds={props.restTime}
               millisecondsUntilThreshold
               onThresholdReached={api.safelyNotifyRestTimeUp}
             />
