@@ -13,121 +13,21 @@ import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import { exerciseTypeUIStringBrief } from "@/uiStrings";
 import StarIcon from "@mui/icons-material/Star";
 import { Button, Divider, Paper, Stack, Typography } from "@mui/material";
-import React from "react";
 
+// TODO: before calling this done, I need to adjust the loading.tsx to account
+// for the new layout.
 export default async function Home() {
   const { userId } = await requireLoggedInUser(Paths.Home);
   const hydrateHome = await hydrateHomePage(userId);
   return (
     <>
       <Breadcrumbs pathname={Paths.Home} />
-      <React.Fragment>
-        <Typography variant="h6">For You</Typography>
-        <Typography variant="body1">Recent Personal Reconds</Typography>
-        <Stack
-          display="grid"
-          gridTemplateColumns="repeat(2, 1fr)"
-          gridTemplateRows="repeat(2, 1fr)"
-          gap={1}
-        >
-          {hydrateHome.recent_records.map((record) => (
-            <Stack key={record.id} component={Paper} p={1} flex={1}>
-              <Stack direction="row" justifyContent="space-between">
-                <StarIcon color={"warning"} fontSize="small" />
-                <Stack direction="row" spacing={0.5}>
-                  <Typography
-                    display="flex"
-                    gap={0.5}
-                    flexDirection="row"
-                    component={Link}
-                    underline="hover"
-                    href={Paths.PersonalRecords_ExerciseType(
-                      record.exercise_type,
-                    )}
-                  >
-                    {exerciseTypeUIStringBrief(record.exercise_type)}
-                  </Typography>
-                </Stack>
-                <StarIcon color={"warning"} fontSize="small" />
-              </Stack>
-              <Stack alignSelf="center">
-                <DisplayEquipmentThumbnail
-                  equipmentType={record.equipment_type}
-                />
-              </Stack>
-              <Stack direction="row" justifyContent="space-between" flex={1}>
-                <Stack direction="row" alignItems="center">
-                  <DisplayWeight
-                    weightValue={record.value}
-                    weightUnit="pounds"
-                    reps={record.reps}
-                  />
-                </Stack>
-                <DisplayTimeSince
-                  date={new Date(record.recorded_at)}
-                  addSuffix
-                />
-              </Stack>
-            </Stack>
-          ))}
-        </Stack>
-        <Typography variant="body1">Recent Superblocks</Typography>
-        <Stack display="grid" gridTemplateColumns="repeat(2, 1fr)" gap={1}>
-          {hydrateHome.recent_superblocks.map((superblock) => (
-            <Stack key={superblock.id} component={Paper} p={1} spacing={0}>
-              <Typography
-                component={Link}
-                underline="hover"
-                href={Paths.Superblocks_SuperblockId(superblock.id)}
-                display="flex"
-                gap={1}
-                alignItems="center"
-                variant="h6"
-              >
-                {superblock.name}
-                <DisplayDate
-                  dateColor="textPrimary"
-                  timestamp={superblock.started_at}
-                  twoDigitYear
-                  row
-                  noTime
-                  variant="body2"
-                />
-              </Typography>
-              <Stack
-                direction="row"
-                flexWrap="wrap"
-                justifyContent="space-around"
-              >
-                <LabeledValue label="Volume" alignItems="center">
-                  <DisplayWeight
-                    weightValue={superblock.total_volume}
-                    weightUnit="pounds"
-                  />
-                </LabeledValue>
-                <LabeledValue label="Sets" alignItems="center">
-                  <Typography>{superblock.total_sets}</Typography>
-                </LabeledValue>
-              </Stack>
-            </Stack>
-          ))}
-        </Stack>
-
-        {hydrateHome.active_program_id && (
-          <Stack direction="row">
-            <Button
-              component={Link}
-              variant="outlined"
-              color="secondary"
-              href={Paths.Programs_ProgramId(hydrateHome.active_program_id)}
-            >
-              Active Program
-            </Button>
-          </Stack>
-        )}
-        <Divider />
-      </React.Fragment>
-      <Stack direction="row" flexWrap="wrap" alignItems="center">
+      <Stack
+        direction="row"
+        flexWrap="wrap"
+        alignItems="center"
+        sx={{ "& > *": { flex: "1 0 auto" } }}
+      >
         <Button
           component={Link}
           href={Paths.Programs}
@@ -155,14 +55,6 @@ export default async function Home() {
         </Button>
         <Button
           component={Link}
-          href={Paths.Preferences}
-          variant="contained"
-          color="primary"
-        >
-          Preferences
-        </Button>
-        <Button
-          component={Link}
           href={Paths.PersonalRecords}
           variant="contained"
           color="primary"
@@ -171,6 +63,107 @@ export default async function Home() {
         </Button>
         <QuickPushupButton userId={userId} />
       </Stack>
+      <Typography variant="h6">For You</Typography>
+      {hydrateHome.active_program_id && (
+        <Stack direction="row">
+          <Button
+            component={Link}
+            variant="contained"
+            color="secondary"
+            href={Paths.Programs_ProgramId(hydrateHome.active_program_id)}
+          >
+            Current Program
+          </Button>
+        </Stack>
+      )}
+      <Typography variant="body1">Recent Personal Reconds</Typography>
+      <Stack
+        display="grid"
+        gridTemplateColumns="repeat(2, 1fr)"
+        gridTemplateRows="repeat(2, 1fr)"
+        gap={1}
+      >
+        {hydrateHome.recent_records.map((record) => (
+          <Stack key={record.id} component={Paper} p={1} flex={1}>
+            <Stack direction="row" justifyContent="space-between">
+              <StarIcon color={"warning"} fontSize="small" />
+              <Stack direction="row" spacing={0.5}>
+                <Typography
+                  display="flex"
+                  gap={0.5}
+                  flexDirection="row"
+                  component={Link}
+                  underline="hover"
+                  href={Paths.PersonalRecords_ExerciseType(
+                    record.exercise_type,
+                  )}
+                >
+                  {exerciseTypeUIStringBrief(record.exercise_type)}
+                </Typography>
+              </Stack>
+              <StarIcon color={"warning"} fontSize="small" />
+            </Stack>
+            <Stack alignSelf="center">
+              <DisplayEquipmentThumbnail
+                equipmentType={record.equipment_type}
+              />
+            </Stack>
+            <Stack direction="row" justifyContent="space-between" flex={1}>
+              <Stack direction="row" alignItems="center">
+                <DisplayWeight
+                  weightValue={record.value}
+                  weightUnit="pounds"
+                  reps={record.reps}
+                />
+              </Stack>
+              <DisplayTimeSince date={new Date(record.recorded_at)} addSuffix />
+            </Stack>
+          </Stack>
+        ))}
+      </Stack>
+      <Typography variant="body1">Recent Superblocks</Typography>
+      <Stack display="grid" gridTemplateColumns="repeat(2, 1fr)" gap={1}>
+        {hydrateHome.recent_superblocks.map((superblock) => (
+          <Stack key={superblock.id} component={Paper} p={1} spacing={0}>
+            <Typography
+              component={Link}
+              underline="hover"
+              href={Paths.Superblocks_SuperblockId(superblock.id)}
+              display="flex"
+              gap={1}
+              alignItems="center"
+              variant="h6"
+            >
+              {superblock.name}
+              <DisplayDate
+                dateColor="textPrimary"
+                timestamp={superblock.started_at}
+                twoDigitYear
+                row
+                noTime
+                variant="body2"
+              />
+            </Typography>
+            <Stack
+              direction="row"
+              flexWrap="wrap"
+              justifyContent="space-around"
+            >
+              <LabeledValue label="Volume" alignItems="center">
+                <DisplayWeight
+                  weightValue={superblock.total_volume}
+                  weightUnit="pounds"
+                />
+              </LabeledValue>
+              <LabeledValue label="Sets" alignItems="center">
+                <Typography>{superblock.total_sets}</Typography>
+              </LabeledValue>
+            </Stack>
+          </Stack>
+        ))}
+      </Stack>
+
+      <Divider />
       <Stack>
         <TODO>
           Misc Todos
