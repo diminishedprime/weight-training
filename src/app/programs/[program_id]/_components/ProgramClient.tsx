@@ -4,6 +4,7 @@ import CycleStepper from "@/app/programs/[program_id]/_components/CycleStepper";
 import Movement from "@/app/programs/[program_id]/_components/Movement";
 import Progress from "@/app/programs/[program_id]/_components/Progress";
 import { GetWendlerProgramResult, ProgramCycles } from "@/common-types";
+import DisplayCompletionStatus from "@/components/display/DisplayCompletionStatus";
 import DisplayDate from "@/components/display/DisplayDate";
 import DisplayDuration from "@/components/display/DisplayDuration";
 import TODO from "@/components/TODO";
@@ -18,10 +19,14 @@ interface ProgramClientProps {
 
 const ProgramClient: React.FC<ProgramClientProps> = (props) => {
   const { program } = props;
+  console.log({ program });
   const api = useProgramClient(props);
   return (
     <React.Fragment>
-      <Typography variant="h5">{program.name}</Typography>
+      <Typography variant="h5" display="flex" gap={1} alignItems="center">
+        <DisplayCompletionStatus completionStatus={program.completion_status} />
+        {program.name}
+      </Typography>
       <Stack direction="row" alignItems={"center"}>
         {program.started_at && (
           <DisplayDate timestamp={program.started_at} noTime />
@@ -64,7 +69,7 @@ export default ProgramClient;
 
 const firstUncompletedCycleIdx = (cycles: ProgramCycles) => () => {
   const idx = cycles.findIndex(
-    (cycle) => !cycle.movements.every((m) => m.completed_at !== null),
+    (cycle) => cycle.completion_status === "in_progress",
   );
   return idx === -1 ? 0 : idx;
 };

@@ -27,28 +27,14 @@ export default async function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider themeOptions={themeOptions}>
             <CssBaseline enableColorScheme />
-            <Stack
-              sx={{
-                maxWidth: "800px",
-                mx: "auto",
-                minHeight: "100vh",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
+            <Stack minHeight="100vh" maxWidth="800px" mx="auto">
               <Banner />
-              <Stack
-                flex={1}
-                sx={{
-                  px: 1,
-                  mb: 2,
-                }}
-              >
+              <Stack flex={1} px={1}>
                 {children}
                 <Analytics />
               </Stack>
-              <Stack component="footer" alignItems="center" sx={{ p: 1 }}>
-                <Divider flexItem variant="inset" />
+              <Stack component="footer" alignItems="center" p={1}>
+                <Divider flexItem />
                 <Typography>
                   <Typography component="span" color="primary">
                     weight-training.app

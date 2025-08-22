@@ -26,15 +26,7 @@ const CycleStepper: React.FC<Props> = (props) => {
             onClick={() => props.setActiveCycleIdx(idx)}
             icon={
               <DisplayCompletionStatus
-                // TODO: We want to just grab the completation_status off of the
-                // cycle, but it's not in the DB yet.
-                completionStatus={
-                  cycle.completed_at !== null
-                    ? "completed"
-                    : cycle.started_at !== null
-                      ? "in_progress"
-                      : "not_started"
-                }
+                completionStatus={cycle.completion_status}
               />
             }
           >

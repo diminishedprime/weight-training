@@ -22,13 +22,14 @@ export type ProgramMovement = RequiredNonNullable<
   | "block_id"
   | "exercise_type"
   | "heaviest_weight_value"
+  | "completion_status"
 >;
 
 export type ProgramCycle = RequiredNonNullable<
   Omit<LWendlerCycle, "movements"> & {
     movements: ProgramMovement[];
   },
-  "id" | "cycle_type"
+  "id" | "cycle_type" | "completion_status"
 >;
 
 export type ProgramCycles = ProgramCycle[];
@@ -37,7 +38,7 @@ export type Program = RequiredNonNullable<
   Omit<LWendlerProgram, "cycles"> & {
     cycles: ProgramCycles;
   },
-  "id" | "name" | "user_id"
+  "id" | "name" | "user_id" | "completion_status"
 >;
 
 export type GetWendlerProgramResult = Program;

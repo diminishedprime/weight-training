@@ -11,7 +11,7 @@ import Theme from "@/app/preferences/_components/Theme";
 import { afterUpdateAction } from "@/app/preferences/_components/actions";
 import usePreferenceValue from "@/app/preferences/_components/usePreferenceValue";
 import { MyThemeOptions, UserPreferences } from "@/common-types";
-import { DEFAULT_VALUES } from "@/constants";
+import { DEFAULT_VALUES, SearchParam } from "@/constants";
 import { Json } from "@/database.types";
 import { useRPCMutation } from "@/hooks";
 import { TestIds } from "@/test/test-ids";
@@ -33,21 +33,21 @@ export const PreferencesClient: React.FC<Props> = (props) => {
       <Typography variant="h6">Update Preferences</Typography>
       <RequiredPreferences
         requiredPreferences={api.requiredPreferences}
-        selectedPlatesApi={api.selectedPlatesApi}
-        preferredWeightUnitApi={api.preferredWeightUnitApi}
-        defaultRestTimeApi={api.defaultRestTimeApi}
-        selectedDumbbellsApi={api.selectedDumbbellsApi}
-        selectedKettlebellsApi={api.selectedKettlebellsApi}
+        selectedPlatesApi={api.selectedPlates}
+        preferredWeightUnitApi={api.weightUnit}
+        defaultRestTimeApi={api.defaultRest}
+        selectedDumbbellsApi={api.selectedDumbbells}
+        selectedKettlebellsApi={api.selectedKettlebells}
       />
-      <Theme api={api.themeOptionsApi} />
-      <SelectWeightUnit api={api.preferredWeightUnitApi} />
-      <RestTime api={api.defaultRestTimeApi} />
-      <SelectPlates api={api.selectedPlatesApi} />
-      <SelectDumbbells api={api.selectedDumbbellsApi} />
-      <SelectKettlebells api={api.selectedKettlebellsApi} />
+      <Theme api={api.themeOptions} />
+      <SelectWeightUnit api={api.weightUnit} />
+      <RestTime api={api.defaultRest} />
+      <SelectPlates api={api.selectedPlates} />
+      <SelectDumbbells api={api.selectedDumbbells} />
+      <SelectKettlebells api={api.selectedKettlebells} />
       <Notifications
-        tokenApi={api.pushoverTokenApi}
-        userKeyApi={api.pushoverUserKeyApi}
+        tokenApi={api.pushoverToken}
+        userKeyApi={api.pushoverUserKey}
       />
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         {api.preferencesModified && (
@@ -110,37 +110,37 @@ const useUpdateUserPreferencesAPI = (props: Props) => {
     return requiredPreferences === null;
   }, [requiredPreferences]);
 
-  const backTo = useMemo(() => params.get("backTo"), [params]);
+  const backTo = useMemo(() => params.get(SearchParam.BackTo), [params]);
 
-  const defaultRestTimeApi = usePreferenceValue(
+  const defaultRest = usePreferenceValue(
     "Default Rest Time",
     preferences?.default_rest_time ?? DEFAULT_VALUES.REST_TIME_SECONDS,
     preferences?.default_rest_time,
     false,
   );
 
-  const preferredWeightUnitApi = usePreferenceValue(
+  const weightUnit = usePreferenceValue(
     "Preferred Weight Unit",
     preferences?.preferred_weight_unit || DEFAULT_VALUES.PREFERRED_WEIGHT_UNIT,
     preferences?.preferred_weight_unit,
     false,
   );
 
-  const selectedPlatesApi = usePreferenceValue(
+  const selectedPlates = usePreferenceValue(
     "Available Plates (LBS)",
     preferences?.available_plates_lbs ?? DEFAULT_VALUES.SELECTED_PLATES,
     preferences?.available_plates_lbs,
     false,
   );
 
-  const selectedDumbbellsApi = usePreferenceValue(
+  const selectedDumbbells = usePreferenceValue(
     "Available Dumbbells (LBS)",
     preferences?.available_dumbbells_lbs ?? DEFAULT_VALUES.COMMON_DUMBBELLS_LBS,
     preferences?.available_dumbbells_lbs,
     false,
   );
 
-  const selectedKettlebellsApi = usePreferenceValue(
+  const selectedKettlebells = usePreferenceValue(
     "Available Kettlebells (LBS)",
     preferences?.available_kettlebells_lbs ??
       DEFAULT_VALUES.AVAILABLE_KETTLEBELLS_LBS,
@@ -148,120 +148,72 @@ const useUpdateUserPreferencesAPI = (props: Props) => {
     false,
   );
 
-  const themeOptionsApi = usePreferenceValue(
+  const themeOptions = usePreferenceValue(
     "Theme",
     (preferences?.theme_options ?? {}) as MyThemeOptions,
     preferences?.theme_options as MyThemeOptions,
     false,
   );
 
-  const pushoverTokenApi = usePreferenceValue(
+  const pushoverToken = usePreferenceValue(
     "Application API Token",
     preferences?.pushover_api_token ?? "",
     preferences?.pushover_api_token ?? "",
     false,
   );
 
-  const pushoverUserKeyApi = usePreferenceValue(
+  const pushoverUserKey = usePreferenceValue(
     "User Key",
     preferences?.pushover_user_key ?? "",
     preferences?.pushover_user_key ?? "",
     false,
   );
 
-  const [
-    {
-      modified: restTimeModified,
-      required: restTimeRequired,
-      value: restTimeValue,
-    },
-    {
-      modified: weightUnitModified,
-      required: weightUnitRequired,
-      value: weightUnitValue,
-    },
-    { modified: platesModified, required: platesRequired, value: platesValue },
-    {
-      modified: dumbbellsModified,
-      required: dumbbellsRequired,
-      value: dumbbellsValue,
-    },
-    {
-      modified: kettlebellsModified,
-      required: kettlebellsRequired,
-      value: kettlebellsValue,
-    },
-    {
-      modified: themeOptionsModified,
-      required: themeOptionsRequired,
-      value: themeOptionsValue,
-    },
-    {
-      modified: pushoverTokenModified,
-      required: pushoverTokenRequired,
-      value: pushoverTokenValue,
-    },
-    {
-      modified: pushoverUserKeyModified,
-      required: pushoverUserKeyRequired,
-      value: pushoverUserKeyValue,
-    },
-  ] = [
-    defaultRestTimeApi,
-    preferredWeightUnitApi,
-    selectedPlatesApi,
-    selectedDumbbellsApi,
-    selectedKettlebellsApi,
-    themeOptionsApi,
-    pushoverTokenApi,
-    pushoverUserKeyApi,
-  ];
-
   const preferencesModified = useMemo(
     () =>
       [
-        restTimeModified,
-        weightUnitModified,
-        platesModified,
-        dumbbellsModified,
-        kettlebellsModified,
-        themeOptionsModified,
-        pushoverTokenModified,
-        pushoverUserKeyModified,
+        defaultRest.modified,
+        weightUnit.modified,
+        selectedPlates.modified,
+        selectedDumbbells.modified,
+        selectedKettlebells.modified,
+        themeOptions.modified,
+        pushoverToken.modified,
+        pushoverUserKey.modified,
       ].some((a) => a),
     [
-      restTimeModified,
-      weightUnitModified,
-      platesModified,
-      dumbbellsModified,
-      kettlebellsModified,
-      themeOptionsModified,
-      pushoverTokenModified,
-      pushoverUserKeyModified,
+      defaultRest.modified,
+      weightUnit.modified,
+      selectedPlates.modified,
+      selectedDumbbells.modified,
+      selectedKettlebells.modified,
+      themeOptions.modified,
+      pushoverToken.modified,
+      pushoverUserKey.modified,
     ],
   );
 
   const missingRequiredPreference = useMemo(
     () =>
       [
-        restTimeRequired,
-        weightUnitRequired,
-        platesRequired,
-        dumbbellsRequired,
-        kettlebellsRequired,
-        themeOptionsRequired,
-        pushoverTokenRequired,
-        pushoverUserKeyRequired,
+        defaultRest.required,
+        weightUnit.required,
+        selectedPlates.required,
+        selectedDumbbells.required,
+        selectedKettlebells.required,
+        themeOptions.required,
+        pushoverToken.required,
+        pushoverUserKey.required,
       ].some((a) => a),
     [
-      restTimeRequired,
-      weightUnitRequired,
-      platesRequired,
-      dumbbellsRequired,
-      kettlebellsRequired,
-      themeOptionsRequired,
-      pushoverTokenRequired,
-      pushoverUserKeyRequired,
+      defaultRest.required,
+      weightUnit.required,
+      selectedPlates.required,
+      selectedDumbbells.required,
+      selectedKettlebells.required,
+      themeOptions.required,
+      pushoverToken.required,
+      pushoverUserKey.required,
     ],
   );
 
@@ -281,45 +233,45 @@ const useUpdateUserPreferencesAPI = (props: Props) => {
   );
 
   const savePreferences = useCallback(async () => {
-    const parsedRestTime = isNaN(Number(restTimeValue))
+    const parsedRestTime = isNaN(Number(defaultRest.value))
       ? DEFAULT_VALUES.REST_TIME_SECONDS
-      : Number(restTimeValue);
+      : Number(defaultRest.value);
     await setServerUserPreferences({
       p_user_id: userId,
-      p_available_dumbbells_lbs: dumbbellsValue || [],
-      p_available_kettlebells_lbs: kettlebellsValue || [],
-      p_available_plates_lbs: platesValue || [],
+      p_available_dumbbells_lbs: selectedDumbbells.value || [],
+      p_available_kettlebells_lbs: selectedKettlebells.value || [],
+      p_available_plates_lbs: selectedPlates.value || [],
       p_default_rest_time: parsedRestTime,
       p_preferred_weight_unit:
-        weightUnitValue || DEFAULT_VALUES.PREFERRED_WEIGHT_UNIT,
-      p_theme_options: (themeOptionsValue || {}) as Json,
-      p_pushover_api_token: pushoverTokenValue ?? undefined,
-      p_pushover_user_key: pushoverUserKeyValue ?? undefined,
+        weightUnit.value || DEFAULT_VALUES.PREFERRED_WEIGHT_UNIT,
+      p_theme_options: (themeOptions.value || {}) as Json,
+      p_pushover_api_token: pushoverToken.value ?? undefined,
+      p_pushover_user_key: pushoverUserKey.value ?? undefined,
     });
   }, [
-    restTimeValue,
     userId,
-    dumbbellsValue,
-    kettlebellsValue,
-    platesValue,
-    weightUnitValue,
-    themeOptionsValue,
-    pushoverTokenValue,
-    pushoverUserKeyValue,
     setServerUserPreferences,
+    defaultRest.value,
+    weightUnit.value,
+    selectedPlates.value,
+    selectedDumbbells.value,
+    selectedKettlebells.value,
+    themeOptions.value,
+    pushoverToken.value,
+    pushoverUserKey.value,
   ]);
 
   return {
     backTo,
     requiredPreferences,
-    selectedPlatesApi,
-    defaultRestTimeApi,
-    preferredWeightUnitApi,
-    selectedKettlebellsApi,
-    selectedDumbbellsApi,
-    themeOptionsApi,
-    pushoverTokenApi,
-    pushoverUserKeyApi,
+    selectedPlates,
+    defaultRest,
+    weightUnit,
+    selectedKettlebells,
+    selectedDumbbells,
+    themeOptions,
+    pushoverToken,
+    pushoverUserKey,
     preferencesModified,
     missingRequiredPreference,
     cancelDisabled,
