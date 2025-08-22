@@ -12,12 +12,12 @@ type RecentSuperblocksDatabase = NonNullable<
   HydrateHomeDatabase["recent_superblocks"]
 >[number];
 
-type HydrateHomeRecentRecord = RequiredNonNullable<
+export type HydrateHomeRecentRecord = RequiredNonNullable<
   RecentRecordDatabase,
   "exercise_type" | "recorded_at" | "value" | "id" | "equipment_type" | "reps"
 >;
 
-type HydrateHomeRecentSuperblock = RequiredNonNullable<
+export type HydrateHomeRecentSuperblock = RequiredNonNullable<
   RecentSuperblocksDatabase,
   | "id"
   | "name"
@@ -28,10 +28,37 @@ type HydrateHomeRecentSuperblock = RequiredNonNullable<
   | "completed_at"
 >;
 
+// hydrated_home_powerlifting_total
+
+type PowerliftingRecentDatabase = NonNullable<
+  HydrateHomePowerliftingDatabase["recent"]
+>;
+
+export type HydratedHomePowerliftingTotal = RequiredNonNullable<
+  PowerliftingRecentDatabase,
+  "id" | "total_weight"
+>;
+
+type HydrateHomePowerliftingDatabase = NonNullable<
+  HydrateHomeDatabase["powerlifting"]
+>;
+
+export type HydrateHomePowerlifting = RequiredNonNullable<
+  Omit<HydrateHomePowerliftingDatabase, "recent" | "record"> & {
+    recent: HydratedHomePowerliftingTotal;
+    record: HydratedHomePowerliftingTotal;
+  },
+  "id"
+>;
+
 export type HydrateHome = RequiredNonNullable<
-  Omit<HydrateHomeDatabase, "recent_records" | "recent_superblocks"> & {
+  Omit<
+    HydrateHomeDatabase,
+    "recent_records" | "recent_superblocks" | "powerlifting"
+  > & {
     recent_records: HydrateHomeRecentRecord[];
     recent_superblocks: HydrateHomeRecentSuperblock[];
+    powerlifting: HydrateHomePowerlifting;
   },
   "user_id"
 >;

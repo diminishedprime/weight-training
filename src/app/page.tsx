@@ -1,68 +1,22 @@
+import Links from "@/app/_components/Links";
+import PowerliftingStats from "@/app/_components/PowerliftingStats";
+import RecentRecords from "@/app/_components/RecentRecords";
+import RecentSuperblocks from "@/app/_components/RecentSuperblocks";
 import { HydrateHome } from "@/common-types/hydrate-home";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import DisplayDate from "@/components/display/DisplayDate";
-import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
-import DisplayTimeSince from "@/components/display/DisplayTimeSince";
-import DisplayWeight from "@/components/display/DisplayWeight";
-import LabeledValue from "@/components/LabeledValue";
 import Link from "@/components/Link";
-import QuickPushupButton from "@/components/mutate/QuickPushupButton";
 import TODO from "@/components/TODO";
 import { Paths } from "@/constants";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
-import { exerciseTypeUIStringBrief } from "@/uiStrings";
-import StarIcon from "@mui/icons-material/Star";
-import { Button, Divider, Paper, Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 
-// TODO: before calling this done, I need to adjust the loading.tsx to account
-// for the new layout.
 export default async function Home() {
   const { userId } = await requireLoggedInUser(Paths.Home);
   const hydrateHome = await hydrateHomePage(userId);
   return (
     <>
       <Breadcrumbs pathname={Paths.Home} />
-      <Stack
-        direction="row"
-        flexWrap="wrap"
-        alignItems="center"
-        sx={{ "& > *": { flex: "1 0 auto" } }}
-      >
-        <Button
-          component={Link}
-          href={Paths.Programs}
-          variant="contained"
-          color="primary"
-        >
-          Programs
-        </Button>
-        <Button
-          component={Link}
-          // TODO: easy, rename exercise path to be exercises
-          href={Paths.Exercise}
-          variant="contained"
-          color="primary"
-        >
-          Exercises
-        </Button>
-        <Button
-          component={Link}
-          href={Paths.Superblocks}
-          variant="contained"
-          color="primary"
-        >
-          Superblocks
-        </Button>
-        <Button
-          component={Link}
-          href={Paths.PersonalRecords}
-          variant="contained"
-          color="primary"
-        >
-          Personal Records
-        </Button>
-        <QuickPushupButton userId={userId} />
-      </Stack>
+      <Links userId={userId} />
       <Typography variant="h6">For You</Typography>
       {hydrateHome.active_program_id && (
         <Stack direction="row">
@@ -76,94 +30,9 @@ export default async function Home() {
           </Button>
         </Stack>
       )}
-      <Typography variant="body1">Recent Personal Reconds</Typography>
-      <Stack
-        display="grid"
-        gridTemplateColumns="repeat(2, 1fr)"
-        gridTemplateRows="repeat(2, 1fr)"
-        gap={1}
-      >
-        {hydrateHome.recent_records.map((record) => (
-          <Stack key={record.id} component={Paper} p={1} flex={1}>
-            <Stack direction="row" justifyContent="space-between">
-              <StarIcon color={"warning"} fontSize="small" />
-              <Stack direction="row" spacing={0.5}>
-                <Typography
-                  display="flex"
-                  gap={0.5}
-                  flexDirection="row"
-                  component={Link}
-                  underline="hover"
-                  href={Paths.PersonalRecords_ExerciseType(
-                    record.exercise_type,
-                  )}
-                >
-                  {exerciseTypeUIStringBrief(record.exercise_type)}
-                </Typography>
-              </Stack>
-              <StarIcon color={"warning"} fontSize="small" />
-            </Stack>
-            <Stack alignSelf="center">
-              <DisplayEquipmentThumbnail
-                equipmentType={record.equipment_type}
-              />
-            </Stack>
-            <Stack direction="row" justifyContent="space-between" flex={1}>
-              <Stack direction="row" alignItems="center">
-                <DisplayWeight
-                  weightValue={record.value}
-                  weightUnit="pounds"
-                  reps={record.reps}
-                />
-              </Stack>
-              <DisplayTimeSince date={new Date(record.recorded_at)} addSuffix />
-            </Stack>
-          </Stack>
-        ))}
-      </Stack>
-      <Typography variant="body1">Recent Superblocks</Typography>
-      <Stack display="grid" gridTemplateColumns="repeat(2, 1fr)" gap={1}>
-        {hydrateHome.recent_superblocks.map((superblock) => (
-          <Stack key={superblock.id} component={Paper} p={1} spacing={0}>
-            <Typography
-              component={Link}
-              underline="hover"
-              href={Paths.Superblocks_SuperblockId(superblock.id)}
-              display="flex"
-              gap={1}
-              alignItems="center"
-              variant="h6"
-            >
-              {superblock.name}
-              <DisplayDate
-                dateColor="textPrimary"
-                timestamp={superblock.started_at}
-                twoDigitYear
-                row
-                noTime
-                variant="body2"
-              />
-            </Typography>
-            <Stack
-              direction="row"
-              flexWrap="wrap"
-              justifyContent="space-around"
-            >
-              <LabeledValue label="Volume" alignItems="center">
-                <DisplayWeight
-                  weightValue={superblock.total_volume}
-                  weightUnit="pounds"
-                />
-              </LabeledValue>
-              <LabeledValue label="Sets" alignItems="center">
-                <Typography>{superblock.total_sets}</Typography>
-              </LabeledValue>
-            </Stack>
-          </Stack>
-        ))}
-      </Stack>
-
-      <Divider />
+      <PowerliftingStats powerlifting={hydrateHome.powerlifting} />
+      <RecentRecords records={hydrateHome.recent_records} />
+      <RecentSuperblocks superblocks={hydrateHome.recent_superblocks} />
       <Stack>
         <TODO>
           Misc Todos
@@ -173,10 +42,6 @@ export default async function Home() {
           </TODO>
           <TODO easy>Clean up the app drawer on the left.</TODO>
           <TODO>Get fancier SVGs made for the equipments, etc.</TODO>
-          <TODO easy>
-            We probably don't want to show "home" by itself in the
-            breadcrumbs...
-          </TODO>
           <TODO>Switch over domain from old app to new one</TODO>
           <TODO>
             Get some backups of the old firebase app and data, then delete them

@@ -1094,6 +1094,9 @@ export type Database = {
         recent_records:
           | Database["public"]["CompositeTypes"]["hydrated_home_personal_record"][]
           | null;
+        powerlifting:
+          | Database["public"]["CompositeTypes"]["hydrated_home_powerlifting"]
+          | null;
       };
       hydrated_home_personal_record: {
         id: string | null;
@@ -1104,6 +1107,25 @@ export type Database = {
         recorded_at: string | null;
         value: number | null;
         reps: number | null;
+      };
+      hydrated_home_powerlifting: {
+        id: string | null;
+        recent:
+          | Database["public"]["CompositeTypes"]["hydrated_home_powerlifting_total"]
+          | null;
+        record:
+          | Database["public"]["CompositeTypes"]["hydrated_home_powerlifting_total"]
+          | null;
+      };
+      hydrated_home_powerlifting_total: {
+        id: string | null;
+        squat_weight: number | null;
+        squat_time: string | null;
+        deadlift_weight: number | null;
+        deadlift_time: string | null;
+        bench_press_weight: number | null;
+        bench_press_time: string | null;
+        total_weight: number | null;
       };
       hydrated_home_superblock: {
         id: string | null;
