@@ -16,13 +16,20 @@ export interface Props {
   startAdornment?: React.ReactNode | string;
   endAdornment?: React.ReactNode | string;
   column?: boolean;
+  noDecimals?: boolean;
 }
 const DisplayWeight: React.FC<Props> = (props) => {
   const { weightValue } = props;
 
   const oneDecimal = Math.floor(weightValue) === weightValue;
   const twoDecimals = Math.floor(weightValue * 10) === weightValue * 10;
-  const fixedDecimals = oneDecimal ? 0 : twoDecimals ? 2 : 1;
+  const fixedDecimals = props.noDecimals
+    ? 0
+    : oneDecimal
+      ? 0
+      : twoDecimals
+        ? 2
+        : 1;
   const formattedWeight = props.weightValue.toLocaleString(undefined, {
     minimumFractionDigits: fixedDecimals,
     maximumFractionDigits: fixedDecimals,

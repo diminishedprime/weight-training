@@ -109,13 +109,13 @@ export const exerciseTypeUIStringBrief = (type: ExerciseType): string => {
 
     // --- machine ---
     case "machine_converging_chest_press":
-      return "Converging Chest Press";
+      return "Chest Press";
     case "machine_diverging_lat_pulldown":
-      return "Diverging Lat Pulldown";
+      return "Lat Pulldown";
     case "machine_diverging_low_row":
-      return "Diverging Low Row";
+      return "Low Row";
     case "machine_converging_shoulder_press":
-      return "Converging Shoulder Press";
+      return "Shoulder Press";
     case "machine_lateral_raise":
       return "Lateral Raise";
     case "machine_abdominal":

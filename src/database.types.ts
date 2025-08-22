@@ -730,6 +730,10 @@ export type Database = {
         Args: { p_page_num: number; p_user_id: string };
         Returns: Database["public"]["CompositeTypes"]["get_wendler_program_overviews_result"];
       };
+      hydrate_home: {
+        Args: { p_user_id: string };
+        Returns: Database["public"]["CompositeTypes"]["hydrated_home"];
+      };
       hydrate_rest_times: {
         Args: { p_user_id: string };
         Returns: Database["public"]["CompositeTypes"]["hydrate_rest_times_result"];
@@ -1080,6 +1084,57 @@ export type Database = {
         exercise_rest_times:
           | Database["public"]["CompositeTypes"]["p_exercise_rest_time"][]
           | null;
+      };
+      hydrated_home: {
+        user_id: string | null;
+        active_program_id: string | null;
+        recent_superblocks:
+          | Database["public"]["CompositeTypes"]["hydrated_home_superblock"][]
+          | null;
+        recent_records:
+          | Database["public"]["CompositeTypes"]["hydrated_home_personal_record"][]
+          | null;
+        powerlifting:
+          | Database["public"]["CompositeTypes"]["hydrated_home_powerlifting"]
+          | null;
+      };
+      hydrated_home_personal_record: {
+        id: string | null;
+        exercise_type: Database["public"]["Enums"]["exercise_type_enum"] | null;
+        equipment_type:
+          | Database["public"]["Enums"]["equipment_type_enum"]
+          | null;
+        recorded_at: string | null;
+        value: number | null;
+        reps: number | null;
+      };
+      hydrated_home_powerlifting: {
+        id: string | null;
+        recent:
+          | Database["public"]["CompositeTypes"]["hydrated_home_powerlifting_total"]
+          | null;
+        record:
+          | Database["public"]["CompositeTypes"]["hydrated_home_powerlifting_total"]
+          | null;
+      };
+      hydrated_home_powerlifting_total: {
+        id: string | null;
+        squat_weight: number | null;
+        squat_time: string | null;
+        deadlift_weight: number | null;
+        deadlift_time: string | null;
+        bench_press_weight: number | null;
+        bench_press_time: string | null;
+        total_weight: number | null;
+      };
+      hydrated_home_superblock: {
+        id: string | null;
+        name: string | null;
+        total_volume: number | null;
+        total_sets: number | null;
+        total_blocks: number | null;
+        started_at: string | null;
+        completed_at: string | null;
       };
       p_block_row: {
         id: string | null;

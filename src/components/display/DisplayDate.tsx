@@ -8,6 +8,7 @@ export interface Props {
   noTime?: boolean;
   twoDigitYear?: boolean;
   variant?: TypographyProps["variant"];
+  dateColor?: TypographyProps["color"];
 }
 
 const DisplayDate: React.FC<Props> = (props) => {
@@ -18,14 +19,11 @@ const DisplayDate: React.FC<Props> = (props) => {
   );
   const timeString = format(date, "h:mm a");
   return (
-    <Stack
-      direction={props.row ? "row" : undefined}
-      spacing={props.row ? 1 : undefined}
-    >
+    <Stack direction={props.row ? "row" : undefined} flexWrap="wrap">
       {!props.noDate && (
         <Typography
           component="span"
-          color="primary"
+          color={props.dateColor || "primary"}
           sx={{ p: 0, m: 0 }}
           variant={props.variant}
         >

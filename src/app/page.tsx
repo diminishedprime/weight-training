@@ -1,60 +1,38 @@
+import Links from "@/app/_components/Links";
+import PowerliftingStats from "@/app/_components/PowerliftingStats";
+import RecentRecords from "@/app/_components/RecentRecords";
+import RecentSuperblocks from "@/app/_components/RecentSuperblocks";
+import { HydrateHome } from "@/common-types/hydrate-home";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import QuickPushupButton from "@/components/mutate/QuickPushupButton";
+import Link from "@/components/Link";
 import TODO from "@/components/TODO";
 import { Paths } from "@/constants";
-import { requireLoggedInUser } from "@/serverUtil";
-import { Button, Stack } from "@mui/material";
-import Link from "next/link";
+import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
+import { Button, Stack, Typography } from "@mui/material";
 
 export default async function Home() {
   const { userId } = await requireLoggedInUser(Paths.Home);
+  const hydrateHome = await hydrateHomePage(userId);
   return (
     <>
       <Breadcrumbs pathname={Paths.Home} />
-      <Stack direction="row" flexWrap="wrap" alignItems="center">
-        <Button
-          component={Link}
-          href={Paths.Programs}
-          variant="contained"
-          color="primary"
-        >
-          Programs
-        </Button>
-        <Button
-          component={Link}
-          // TODO: easy, rename exercise path to be exercises
-          href={Paths.Exercise}
-          variant="contained"
-          color="primary"
-        >
-          Exercises
-        </Button>
-        <Button
-          component={Link}
-          href={Paths.Superblocks}
-          variant="contained"
-          color="primary"
-        >
-          Superblocks
-        </Button>
-        <Button
-          component={Link}
-          href={Paths.Preferences}
-          variant="contained"
-          color="primary"
-        >
-          Preferences
-        </Button>
-        <Button
-          component={Link}
-          href={Paths.PersonalRecords}
-          variant="contained"
-          color="primary"
-        >
-          Personal Records
-        </Button>
-        <QuickPushupButton userId={userId} />
-      </Stack>
+      <Links userId={userId} />
+      <Typography variant="h6">For You</Typography>
+      {hydrateHome.active_program_id && (
+        <Stack direction="row">
+          <Button
+            component={Link}
+            variant="contained"
+            color="secondary"
+            href={Paths.Programs_ProgramId(hydrateHome.active_program_id)}
+          >
+            Current Program
+          </Button>
+        </Stack>
+      )}
+      <PowerliftingStats powerlifting={hydrateHome.powerlifting} />
+      <RecentRecords records={hydrateHome.recent_records} />
+      <RecentSuperblocks superblocks={hydrateHome.recent_superblocks} />
       <Stack>
         <TODO>
           Misc Todos
@@ -64,10 +42,6 @@ export default async function Home() {
           </TODO>
           <TODO easy>Clean up the app drawer on the left.</TODO>
           <TODO>Get fancier SVGs made for the equipments, etc.</TODO>
-          <TODO easy>
-            We probably don't want to show "home" by itself in the
-            breadcrumbs...
-          </TODO>
           <TODO>Switch over domain from old app to new one</TODO>
           <TODO>
             Get some backups of the old firebase app and data, then delete them
@@ -142,3 +116,8 @@ export default async function Home() {
     </>
   );
 }
+
+const hydrateHomePage = async (userId: string) =>
+  (await supabaseRPC("hydrate_home", {
+    p_user_id: userId,
+  })) as HydrateHome;

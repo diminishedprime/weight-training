@@ -1,3 +1,4 @@
+// TODO: easy, rename this to types instead of common-types
 export type Nullable<T> = T | null | undefined;
 import { Database } from "@/database.types";
 import {
@@ -119,4 +120,5 @@ export type * from "@/common-types/get-user-preferences";
 export type * from "@/common-types/get-wendler-program";
 export type * from "@/common-types/get-wendler-program-overviews";
 export type * from "@/common-types/hydrate-equipment-rest-times";
+export type * from "@/common-types/hydrate-home";
 export type * from "@/common-types/recent-set-overviews";
