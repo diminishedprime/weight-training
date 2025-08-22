@@ -1070,6 +1070,9 @@ export type Database = {
         name: string | null;
         started_at: string | null;
         completed_at: string | null;
+        completion_status:
+          | Database["public"]["Enums"]["completion_status_enum"]
+          | null;
         notes: string | null;
         cycles:
           | Database["public"]["CompositeTypes"]["p_wendler_cycle_row"][]
@@ -1196,6 +1199,9 @@ export type Database = {
           | null;
         started_at: string | null;
         completed_at: string | null;
+        completion_status:
+          | Database["public"]["Enums"]["completion_status_enum"]
+          | null;
         movements:
           | Database["public"]["CompositeTypes"]["p_wendler_movement_row"][]
           | null;
@@ -1226,6 +1232,9 @@ export type Database = {
           | null;
         started_at: string | null;
         completed_at: string | null;
+        completion_status:
+          | Database["public"]["Enums"]["completion_status_enum"]
+          | null;
         notes: string | null;
         heaviest_weight_value: number | null;
         reps_of_last_set: number | null;

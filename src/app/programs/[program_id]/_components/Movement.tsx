@@ -24,21 +24,17 @@ interface Props {
 const Movement: React.FC<Props> = (props) => {
   // TODO: clean up the db to have a completion_status on the public.wendler_program_cycle
   const { movement } = props;
-  const completionStatus =
-    movement.completed_at !== null
-      ? "completed"
-      : movement.started_at !== null
-        ? "in_progress"
-        : "not_started";
   return (
     <Accordion
       key={movement.id}
-      defaultExpanded={completionStatus === "in_progress"}
+      defaultExpanded={movement.completion_status === "in_progress"}
       disableGutters
     >
       <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 1 }}>
         <Stack direction="row" alignItems="center" width="100%">
-          <DisplayCompletionStatus completionStatus={completionStatus} />
+          <DisplayCompletionStatus
+            completionStatus={movement.completion_status}
+          />
           <Typography>
             {exerciseTypeUIStringBrief(movement.exercise_type)}
           </Typography>

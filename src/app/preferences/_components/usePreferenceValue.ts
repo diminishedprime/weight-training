@@ -10,7 +10,7 @@ const usePreferenceValue = <T>(
   serverValue: T | null,
   initialRequired: boolean,
 ) => {
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = useState(serverValue || initialValue);
   const [required, setRequired] = useState(initialRequired);
 
   const modified = useMemo(

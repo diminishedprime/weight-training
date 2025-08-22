@@ -1,6 +1,7 @@
 "use client";
 
 import { signOut } from "@/components/banner/actions";
+import { Paths, SearchParam, WithSearchParams } from "@/constants";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -13,7 +14,7 @@ import { usePathname } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 
 interface AuthenticatedUserViewProps {
-  user: User;
+  user: User | undefined;
 }
 
 const useAuthenticatedUserViewAPI = (props: AuthenticatedUserViewProps) => {
@@ -40,12 +41,12 @@ const useAuthenticatedUserViewAPI = (props: AuthenticatedUserViewProps) => {
   // Backup initials for avatar if image is missing
   const imageBackup = useMemo(
     () =>
-      user.name
+      user?.name
         ?.split(" ")
         .map((a) => a[0])
         .join("")
         .toUpperCase() ?? "",
-    [user.name],
+    [user?.name],
   );
 
   const pathname = usePathname();
@@ -54,16 +55,13 @@ const useAuthenticatedUserViewAPI = (props: AuthenticatedUserViewProps) => {
     [pathname],
   );
 
-  const preferencesHref = useMemo(() => {
-    if (preferencesDisabled) {
-      return "/preferences";
-    }
-    const searchParams = new URLSearchParams();
-    searchParams.set("backTo", pathname);
-    // TODO: this type of pattern is relatively common, maybe this should also
-    // be supported directly in some of the path functions?
-    return `/preferences?${searchParams.toString()}`;
-  }, [preferencesDisabled, pathname]);
+  const preferencesHref = useMemo(
+    () =>
+      preferencesDisabled
+        ? Paths.Preferences
+        : WithSearchParams(Paths.Preferences, [SearchParam.BackTo, pathname]),
+    [preferencesDisabled, pathname],
+  );
 
   return {
     anchorEl,
@@ -80,8 +78,12 @@ const useAuthenticatedUserViewAPI = (props: AuthenticatedUserViewProps) => {
 const AuthenticatedUserView: React.FC<AuthenticatedUserViewProps> = (
   props: AuthenticatedUserViewProps,
 ) => {
-  const api = useAuthenticatedUserViewAPI(props);
   const { user } = props;
+  const api = useAuthenticatedUserViewAPI(props);
+
+  if (user === undefined) {
+    return null;
+  }
 
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>

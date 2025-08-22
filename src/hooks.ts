@@ -3,7 +3,13 @@
 import { rpcMutationAction } from "@/actions";
 import { RDispatch } from "@/common-types";
 import { Database } from "@/database.types";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import useSWRMutation from "swr/mutation";
 import { useSessionStorage } from "usehooks-ts";
 
@@ -131,3 +137,33 @@ export function useRPCMutation<
 
   return { trigger, data, errorMessage, isMutating };
 }
+
+export const useThrottledValue = <T>(value: T, ms: number) => {
+  const [throttledValue, setThrottledValue] = useState(value);
+  const lastUpdated = useRef(0);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const now = Date.now();
+    const timeSinceLastUpdate = now - lastUpdated.current;
+
+    if (timeSinceLastUpdate >= ms) {
+      // Leading edge: update immediately
+      setThrottledValue(value);
+      lastUpdated.current = now;
+    } else {
+      // Ignore further changes until timeout expires
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => {
+        setThrottledValue(value);
+        lastUpdated.current = Date.now();
+      }, ms - timeSinceLastUpdate);
+    }
+
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [value, ms]);
+
+  return throttledValue;
+};

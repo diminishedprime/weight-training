@@ -1,12 +1,13 @@
 "use client";
 import { MyThemeOptions, RDispatch } from "@/common-types";
+import { useThrottledValue } from "@/hooks";
 import {
   createTheme,
   ThemeProvider as MUIThemeProvider,
   Theme,
 } from "@mui/material";
 import merge from "lodash/merge";
-import { createContext, useCallback, useState } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -17,7 +18,7 @@ interface ThemeProviderProps {
 
 interface ThemeContextType {
   theme: Theme;
-  setTheme: RDispatch<Theme>;
+  setThemeOptions: RDispatch<MyThemeOptions>;
 }
 export const ThemeContext = createContext<ThemeContextType | null>(null);
 
@@ -45,16 +46,26 @@ const baseThemeOptions = {
 } as MyThemeOptions;
 
 const useThemeProviderAPI = (props: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<Theme>(
-    createTheme(merge(baseThemeOptions, props.themeOptions)),
+  const [themeOptions, setThemeOptions] = useState<MyThemeOptions>(
+    merge(baseThemeOptions, props.themeOptions),
   );
-  const setThemeWithDefaults: RDispatch<Theme> = useCallback((o) => {
-    if (typeof o === "function") {
-      setTheme((prev) => merge(baseThemeOptions, o(prev)));
-    } else {
-      setTheme((_) => merge(baseThemeOptions, o));
-    }
-  }, []);
 
-  return { theme, setTheme: setThemeWithDefaults };
+  const [theme, setTheme] = useState<Theme>(createTheme(themeOptions));
+
+  const setThemeOptionsWithDefaults: RDispatch<MyThemeOptions> = useCallback(
+    (o) =>
+      setThemeOptions((prev) => ({
+        ...baseThemeOptions,
+        ...(typeof o === "function" ? o(prev) : o),
+      })),
+    [],
+  );
+
+  const throttledOptions = useThrottledValue(themeOptions, 50);
+
+  useEffect(() => {
+    setTheme(createTheme(throttledOptions));
+  }, [throttledOptions]);
+
+  return { theme, setThemeOptions: setThemeOptionsWithDefaults };
 };

@@ -1,6 +1,6 @@
 import PreferencesPage from "@/app/preferences/page";
 import ThemeProvider from "@/components/ThemeProvider";
-import { DEFAULT_VALUES } from "@/constants";
+import { DEFAULT_VALUES, SearchParam } from "@/constants";
 import * as serverUtil from "@/serverUtil";
 import { supabaseRPC } from "@/serverUtil";
 import { USER_ID } from "@/test/constants";
@@ -86,8 +86,8 @@ describe("User Journey: Can Navigate back if backTo is set", () => {
     // This any annoys me, but otherise I have to mock the entire module.
     vi.mocked(useSearchParams as any).mockImplementation(() => ({
       get: (key: string) =>
-        key === "backTo" ? "/exercise/barbell_deadlift" : null,
-      toString: () => "backTo=/exercise/barbell_deadlift",
+        key === SearchParam.BackTo ? "/exercise/barbell_deadlift" : null,
+      toString: () => `${SearchParam.BackTo}=/exercise/barbell_deadlift`,
     }));
   });
 

@@ -1,14 +1,14 @@
-import { PreferenceValueAPI } from "@/app/preferences/_components/usePreferenceValue";
+import usePreferenceValue, {
+  PreferenceValueAPI,
+} from "@/app/preferences/_components/usePreferenceValue";
 import { MyThemeOptions } from "@/common-types";
 import LabeledValue from "@/components/LabeledValue";
 import { ThemeContext } from "@/components/ThemeProvider";
 import TODO from "@/components/TODO";
-import { useModifiableLabel } from "@/hooks";
 import RestoreIcon from "@mui/icons-material/Restore";
-import { Box, Button, createTheme, Stack, Switch } from "@mui/material";
+import { Box, Button, Stack, Switch } from "@mui/material";
 import { MuiColorInput } from "mui-color-input";
-import { useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { useDebouncedCallback } from "use-debounce";
+import { useCallback, useContext, useEffect, useMemo } from "react";
 
 interface ThemeProps {
   api: PreferenceValueAPI<MyThemeOptions>;
@@ -20,11 +20,11 @@ const Theme: React.FC<ThemeProps> = (props) => {
     <LabeledValue label="Theme" labelVariant="h6">
       <Stack>
         <Stack direction="row">
-          <LabeledValue label={api.darkModeLabel}>
+          <LabeledValue label={api.modeApi.label}>
             <Switch
-              checked={api.mode === "dark"}
+              checked={api.modeApi.value === "dark"}
               onChange={(_, checked) =>
-                api.setMode((_) => (checked ? "dark" : "light"))
+                api.modeApi.setValue((_) => (checked ? "dark" : "light"))
               }
             />
           </LabeledValue>
@@ -33,21 +33,21 @@ const Theme: React.FC<ThemeProps> = (props) => {
         <Stack>
           <LabeledValue label="Colors" labelVariant="body1">
             <Stack direction="row" alignItems="center">
-              <LabeledValue label={api.primaryLabel}>
+              <LabeledValue label={api.primaryApi.label}>
                 <MuiColorInput
                   size="small"
-                  value={api.primary}
-                  onChange={api.setPrimary}
+                  value={api.primaryApi.value || ""}
+                  onChange={api.primaryApi.setValue}
                   isAlphaHidden={true}
                   format="hex"
                   fallbackValue={"#1976d2"}
                 />
               </LabeledValue>
-              <LabeledValue label={api.secondaryLabel}>
+              <LabeledValue label={api.secondaryApi.label}>
                 <MuiColorInput
                   size="small"
-                  value={api.secondary}
-                  onChange={api.setSecondary}
+                  value={api.secondaryApi.value || ""}
+                  onChange={api.secondaryApi.setValue}
                   isAlphaHidden={true}
                   format="hex"
                   fallbackValue={"#9c27b0"}
@@ -80,43 +80,50 @@ const useThemeAPI = (props: ThemeProps) => {
     api: { serverValue: serverThemeOptions, setValue: setThemeOptions },
   } = props;
 
-  // This is a bit hacky, but I do know for sure that the ThemeContext isn't
-  // _actually_ ever null, just an issue with react and context.
   const themeContext = useContext(ThemeContext);
 
-  const [primary, setPrimary] = useState(
-    serverThemeOptions?.palette?.primary?.main || "#1976d2",
-  );
-  const [secondary, setSecondary] = useState(
-    serverThemeOptions?.palette?.secondary?.main || "#9c27b0",
-  );
-  const [mode, setMode] = useState(
-    serverThemeOptions?.palette?.mode || "light",
+  const primary = usePreferenceValue(
+    "Primary",
+    "#1976d2",
+    serverThemeOptions?.palette?.primary?.main || null,
+    false,
   );
 
-  const darkModeLabel = useModifiableLabel(
-    "Dark Mode",
-    serverThemeOptions?.palette?.mode !== mode,
-  );
-  const primaryLabel = useModifiableLabel(
-    "Primary",
-    serverThemeOptions?.palette?.primary?.main !== primary,
-  );
-  const secondaryLabel = useModifiableLabel(
+  const secondary = usePreferenceValue(
     "Secondary",
-    serverThemeOptions?.palette?.secondary?.main !== secondary,
+    "#9c27b0",
+    serverThemeOptions?.palette?.secondary?.main || null,
+    false,
   );
+
+  const mode = usePreferenceValue<"light" | "dark">(
+    "Mode",
+    "light",
+    serverThemeOptions?.palette?.mode || null,
+    false,
+  );
+
+  const [
+    { setValue: setPrimary },
+    { setValue: setSecondary },
+    { setValue: setMode },
+  ] = [primary, secondary, mode];
 
   const resetTheme = useCallback(() => {
     setPrimary("#1976d2");
     setSecondary("#9c27b0");
     setMode("light");
-  }, []);
+  }, [setPrimary, setSecondary, setMode]);
 
   const constructedTheme: MyThemeOptions = useMemo(() => {
-    const isValidColor = (color: string) => /^#[0-9A-F]{6}$/i.test(color);
-    const primaryColor = isValidColor(primary) ? primary : "#1976d2";
-    const secondaryColor = isValidColor(secondary) ? secondary : "#9c27b0";
+    const isValidColor = (color: string | null): color is string =>
+      color !== null && /^#[0-9A-F]{6}$/i.test(color);
+    const primaryColor = isValidColor(primary.value)
+      ? primary.value
+      : "#1976d2";
+    const secondaryColor = isValidColor(secondary.value)
+      ? secondary.value
+      : "#9c27b0";
 
     return {
       palette: {
@@ -126,35 +133,21 @@ const useThemeAPI = (props: ThemeProps) => {
         secondary: {
           main: secondaryColor,
         },
-        mode,
+        mode: mode.value || "light",
       },
     };
-  }, [primary, secondary, mode]);
+  }, [primary.value, secondary.value, mode.value]);
 
-  // Debounce theme update to avoid expensive re-renders
-  const debouncedSetTheme = useDebouncedCallback(
-    (constructedTheme: MyThemeOptions) => {
-      themeContext?.setTheme((_) => createTheme(constructedTheme));
-      setThemeOptions((_) => constructedTheme);
-    },
-    50,
-    { trailing: true },
-  );
-
+  const { setThemeOptions: themeContextSet } = themeContext || {};
   useEffect(() => {
-    debouncedSetTheme(constructedTheme);
-  }, [constructedTheme, debouncedSetTheme]);
+    themeContextSet?.((_) => constructedTheme);
+    setThemeOptions(constructedTheme);
+  }, [constructedTheme, themeContextSet, setThemeOptions]);
 
   return {
-    mode,
-    setMode,
-    darkModeLabel,
-    primary,
-    setPrimary,
-    primaryLabel,
-    secondary,
-    setSecondary,
-    secondaryLabel,
     resetTheme,
+    primaryApi: primary,
+    secondaryApi: secondary,
+    modeApi: mode,
   };
 };
