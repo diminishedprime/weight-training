@@ -451,30 +451,24 @@ export type Database = {
       };
       wendler_program: {
         Row: {
-          completed_at: string | null;
           id: string;
           name: string;
           notes: string | null;
           program_order: number;
-          started_at: string | null;
           user_id: string;
         };
         Insert: {
-          completed_at?: string | null;
           id?: string;
           name: string;
           notes?: string | null;
           program_order: number;
-          started_at?: string | null;
           user_id: string;
         };
         Update: {
-          completed_at?: string | null;
           id?: string;
           name?: string;
           notes?: string | null;
           program_order?: number;
-          started_at?: string | null;
           user_id?: string;
         };
         Relationships: [];

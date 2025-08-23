@@ -2,7 +2,6 @@ import { ExerciseType } from "@/common-types";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import DisplayEquipmentThumbnail from "@/components/display/DisplayEquipmentThumbnail";
 import DisplayWeight from "@/components/display/DisplayWeight";
-import TODO from "@/components/TODO";
 import { Constants } from "@/database.types";
 import { requireLoggedInUser, supabaseRPC } from "@/serverUtil";
 import {
@@ -102,6 +101,7 @@ export default async function PersonalRecords_ExerciseType(props: Props) {
           [exerciseType]: (
             <Stack direction="row" alignItems="center">
               <DisplayEquipmentThumbnail
+                size={16}
                 equipmentType={equipmentForExercise(exerciseType)}
               />
               {exerciseTypeUIStringBrief(exerciseType)}
@@ -116,32 +116,15 @@ export default async function PersonalRecords_ExerciseType(props: Props) {
 
         {repGroups.map(({ reps, records }) => (
           <Stack key={reps}>
-            <Stack direction="row" display="flex" alignItems="baseline">
+            <Stack spacing={0}>
               <Typography variant="h6" color="primary">
                 {reps} Rep{reps === 1 ? "" : "s"}
               </Typography>
-
-              <Typography>
-                <Typography component="span">
-                  Last record (
-                  <DisplayWeight
-                    weightValue={records[0].weight_value!}
-                    weightUnit={records[0].weight_unit!}
-                    reps={records[0].reps!}
-                  />
-                  )
-                </Typography>
-                <Typography component="span">
-                  {" "}
-                  {formatDistanceToNow(new Date(records[0].recorded_at!), {
-                    addSuffix: true,
-                  })}
-                </Typography>
-
-                <TODO>
-                  The formatting is all broken, probably just use a LabeledValue
-                  here.
-                </TODO>
+              <Typography component="span" display="flex">
+                Last record{" "}
+                {formatDistanceToNow(new Date(records[0].recorded_at!), {
+                  addSuffix: true,
+                })}
               </Typography>
             </Stack>
             <TableContainer component={Paper}>
@@ -151,7 +134,7 @@ export default async function PersonalRecords_ExerciseType(props: Props) {
                     <TableCell>Date</TableCell>
                     <TableCell align="right">Weight</TableCell>
                     <TableCell align="center">Increase</TableCell>
-                    <TableCell align="center">Time Since Last</TableCell>
+                    <TableCell align="center">Time Between</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
