@@ -377,6 +377,18 @@ it("Can perform an entire superblock based of a realistic program finishing ever
       name: /wendler back squat 5/i,
     }),
   ).getByTestId(TestIds.CompletionStatusCompleted);
+  // Abs
+  within(
+    screen.getByRole("button", {
+      name: absBlockName,
+    }),
+  ).getByTestId(TestIds.CompletionStatusNotStarted);
+  // Leg Curl
+  within(
+    screen.getByRole("button", {
+      name: legCurlBlockName,
+    }),
+  ).getByTestId(TestIds.CompletionStatusNotStarted);
 
   // Click on the abs exercises accordion.
   await act(async () => {
