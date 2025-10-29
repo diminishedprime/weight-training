@@ -44,7 +44,7 @@
     "lodash": "^4.17.21",
     "mui-color-input": "^7.0.0",
     "next": "^15.4.6",
-    "next-auth": "5.0.0-beta.27",
+    "next-auth": "5.0.0-beta.30",
     "next-intl": "^4.3.4",
     "nosleep.js": "^0.12.0",
     "react": "^19.0.0",
